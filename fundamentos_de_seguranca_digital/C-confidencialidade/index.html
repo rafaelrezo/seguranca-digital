@@ -1,0 +1,977 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Prof. Rafael Emerick">
+      
+      
+      
+        <link rel="prev" href="../B-ameacas_vulnerabilidades/">
+      
+      
+        <link rel="next" href="../D-integridade/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Confidencialidade - Segurança Digital</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#confidencialidade" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Segurança Digital" class="md-header__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Segurança Digital
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Confidencialidade
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Segurança Digital" class="md-nav__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Segurança Digital
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Segurança Digital
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de seguranca digital
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de seguranca digital
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A-conceitos-basicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conceitos Básicos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B-ameacas_vulnerabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças, Vulnerabilidades e Gestão de Riscos em Cibersegurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-confidencialidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que é Confidencialidade?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-por-que-a-confidencialidade-e-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Por que a Confidencialidade é Importante?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Por que a Confidencialidade é Importante?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-protecao-da-privacidade-pessoal" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Proteção da Privacidade Pessoal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-manutencao-de-vantagem-competitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Manutenção de Vantagem Competitiva
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-conformidade-regulamentar" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Conformidade Regulamentar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodos-para-garantir-a-confidencialidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Métodos para Garantir a Confidencialidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Métodos para Garantir a Confidencialidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Criptografia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-controles-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Controles de Acesso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mascaramento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Mascaramento de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-medidas-de-seguranca-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Medidas de Segurança Física
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-treinamento-e-conscientizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Treinamento e Conscientização
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ponto-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ponto-Chave
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../D-integridade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integridade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../E-disponibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disponibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../F-nao-repudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Não Repúdio (Non-Repudiation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../H-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../I-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting (Contabilização)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../J-Controles_seguranca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../K-zerotrust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zero Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L-analise-lacunas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de Gaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-confidencialidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que é Confidencialidade?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-por-que-a-confidencialidade-e-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Por que a Confidencialidade é Importante?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Por que a Confidencialidade é Importante?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-protecao-da-privacidade-pessoal" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Proteção da Privacidade Pessoal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-manutencao-de-vantagem-competitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Manutenção de Vantagem Competitiva
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-conformidade-regulamentar" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Conformidade Regulamentar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodos-para-garantir-a-confidencialidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Métodos para Garantir a Confidencialidade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Métodos para Garantir a Confidencialidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Criptografia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-controles-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Controles de Acesso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mascaramento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Mascaramento de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-medidas-de-seguranca-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Medidas de Segurança Física
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-treinamento-e-conscientizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Treinamento e Conscientização
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ponto-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ponto-Chave
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="confidencialidade">Confidencialidade</h1>
+<h2 id="1-o-que-e-confidencialidade">1. O que é Confidencialidade?</h2>
+<p>Confidencialidade é o princípio da <strong>proteção de informações contra acesso ou divulgação não autorizados</strong>.  </p>
+<p>Significa que <strong>dados sensíveis</strong> — como informações pessoais, financeiras ou estratégicas de uma empresa — só devem ser acessados por pessoas, entidades ou processos <strong>autorizados</strong>.</p>
+<p><strong>Exemplo prático:</strong>  </p>
+<p>Imagine entrar em um banco e encontrar formulários com dados de clientes deixados sobre uma mesa, à vista de todos. </p>
+<p>Isso quebra a confidencialidade, pois informações privadas foram expostas a pessoas que não deveriam ter acesso.</p>
+<h2 id="2-por-que-a-confidencialidade-e-importante">2. Por que a Confidencialidade é Importante?</h2>
+<h3 id="21-protecao-da-privacidade-pessoal">2.1 Proteção da Privacidade Pessoal</h3>
+<p>Assim como não queremos que cartas pessoais sejam lidas por estranhos, não queremos que nossos <strong>registros médicos</strong>, <strong>informações financeiras</strong> ou outros dados pessoais sejam divulgados sem consentimento.</p>
+<h3 id="22-manutencao-de-vantagem-competitiva">2.2 Manutenção de Vantagem Competitiva</h3>
+<p>Empresas dependem de dados estratégicos — como informações sobre produtos, clientes e planos de negócio.<br />
+Se essas informações caírem nas mãos da concorrência, a vantagem competitiva pode ser perdida.</p>
+<h3 id="23-conformidade-regulamentar">2.3 Conformidade Regulamentar</h3>
+<p>Muitos setores possuem leis e normas que exigem a proteção de dados, como:</p>
+<ul>
+<li><strong>PII</strong> (Personally Identifiable Information) — Informações Pessoalmente Identificáveis.</li>
+<li><strong>PHI</strong> (Protected Health Information) — Informações de Saúde Protegidas.</li>
+<li>Dados financeiros e outros dados sensíveis.</li>
+</ul>
+<p>O descumprimento dessas normas pode resultar em <strong>multas e penalidades severas</strong>.</p>
+<h2 id="3-metodos-para-garantir-a-confidencialidade">3. Métodos para Garantir a Confidencialidade</h2>
+<h3 id="31-criptografia">3.1 Criptografia</h3>
+<p>Processo que transforma dados legíveis (<strong>texto simples</strong>) em um formato ilegível (<strong>texto cifrado</strong>) usando algoritmos matemáticos. </p>
+<p>Mesmo que os dados sejam interceptados, só podem ser lidos com a <strong>chave de descriptografia</strong> correta.</p>
+<p><strong>Exemplo:</strong> </p>
+<p>Mensagens enviadas por aplicativos seguros, como WhatsApp, usam criptografia ponta a ponta para proteger seu conteúdo.</p>
+<h3 id="32-controles-de-acesso">3.2 Controles de Acesso</h3>
+<p>Definição de <strong>permissões</strong> para que somente pessoas autorizadas acessem certas informações.<br />
+Pode envolver senhas, autenticação multifator, ou restrições de acesso a arquivos e bancos de dados.</p>
+<p><strong>Exemplo:</strong> </p>
+<p>Arquivo de RH com dados salariais acessível apenas ao gerente do setor.</p>
+<h3 id="33-mascaramento-de-dados">3.3 Mascaramento de Dados</h3>
+<p>Oculta parte das informações para evitar a exposição completa, mantendo o dado útil para uso legítimo.</p>
+<p><strong>Exemplo:</strong></p>
+<p>Mostrar apenas os últimos 4 dígitos de um cartão de crédito (<strong><em>* </em></strong><em> </em>*** 1234) para identificação, mas sem expor todo o número.</p>
+<h3 id="34-medidas-de-seguranca-fisica">3.4 Medidas de Segurança Física</h3>
+<p>Proteção do ambiente e dos dispositivos que armazenam dados.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li>Armários trancados para guardar documentos.</li>
+<li>Travas biométricas na porta do servidor.</li>
+<li>Câmeras de segurança para monitorar acessos.</li>
+</ul>
+<h3 id="35-treinamento-e-conscientizacao">3.5 Treinamento e Conscientização</h3>
+<p>A maior parte das falhas de confidencialidade ocorre por <strong>erro humano</strong> ou negligência. </p>
+<p>Treinamentos regulares ajudam colaboradores a:</p>
+<ul>
+<li>Reconhecer ameaças.</li>
+<li>Proteger dados.</li>
+<li>Seguir as melhores práticas de segurança.</li>
+</ul>
+<h2 id="4-ponto-chave">4. Ponto-Chave</h2>
+<p>Confidencialidade significa <strong>proteger dados de olhares não autorizados</strong>.  </p>
+<p>A <strong>criptografia</strong> é uma das ferramentas mais importantes para garantir essa proteção.  </p>
+<p>No mundo digital, preservar a confidencialidade:</p>
+<ul>
+<li>Mantém a <strong>confiança</strong> de clientes.</li>
+<li>Garante <strong>conformidade legal</strong>.</li>
+<li>Assegura a <strong>continuidade dos negócios</strong>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
