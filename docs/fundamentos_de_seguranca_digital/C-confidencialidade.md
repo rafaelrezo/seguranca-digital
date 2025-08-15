@@ -17,22 +17,40 @@ Isso quebra a confidencialidade, pois informações privadas foram expostas a pe
 
 ### 2.1 Proteção da Privacidade Pessoal
 
-Assim como não queremos que cartas pessoais sejam lidas por estranhos, não queremos que nossos **registros médicos**, **informações financeiras** ou outros dados pessoais sejam divulgados sem consentimento.
+Assim como não queremos que cartas pessoais sejam lidas por estranhos, não queremos que nossos **registros médicos**, **informações financeiras** ou outros dados pessoais sejam divulgados sem consentimento.  
+Essas informações, quando expostas, podem ser usadas para **fraude, roubo de identidade ou chantagem**, causando danos irreparáveis à pessoa.
 
 ### 2.2 Manutenção de Vantagem Competitiva
 
 Empresas dependem de dados estratégicos — como informações sobre produtos, clientes e planos de negócio.  
-Se essas informações caírem nas mãos da concorrência, a vantagem competitiva pode ser perdida.
+Se essas informações caírem nas mãos da concorrência, a vantagem competitiva pode ser perdida.  
+Um projeto inovador, por exemplo, se for divulgado antes do lançamento, pode ser copiado ou explorado por terceiros.
 
 ### 2.3 Conformidade Regulamentar
 
 Muitos setores possuem leis e normas que exigem a proteção de dados, como:
 
-- **PII** (Personally Identifiable Information) — Informações Pessoalmente Identificáveis.
-- **PHI** (Protected Health Information) — Informações de Saúde Protegidas.
+- **PII** (Personally Identifiable Information) — Informações Pessoalmente Identificáveis.  
+- **PHI** (Protected Health Information) — Informações de Saúde Protegidas.  
 - Dados financeiros e outros dados sensíveis.
 
-O descumprimento dessas normas pode resultar em **multas e penalidades severas**.
+No **Brasil**, a **Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)** estabelece diretrizes para coleta, tratamento e armazenamento de dados pessoais.  
+Alguns pontos de atenção da LGPD diretamente relacionados à confidencialidade incluem:
+
+1. **Finalidade e Necessidade** – Os dados só podem ser coletados e utilizados para um objetivo legítimo, específico e informado ao titular.  
+   *Exemplo:* Um e-commerce deve coletar apenas as informações necessárias para processar uma compra, não dados extras sem justificativa.
+
+2. **Consentimento** – O titular dos dados deve consentir de forma clara com a coleta e uso de suas informações, salvo exceções previstas na lei.  
+   *Exemplo:* Um formulário online deve deixar explícito como os dados serão utilizados.
+
+3. **Segurança e Prevenção** – O controlador deve adotar medidas técnicas e administrativas para proteger os dados contra acessos não autorizados e incidentes de segurança.  
+   *Exemplo:* Implementar criptografia para armazenar senhas e dados sensíveis.
+
+4. **Responsabilização e Prestação de Contas** – Empresas devem comprovar que adotam práticas de proteção de dados e que cumprem os requisitos da LGPD.  
+   *Exemplo:* Manter registros de auditoria e políticas de segurança da informação atualizadas.
+
+O descumprimento dessas normas pode resultar em **multas de até 2% do faturamento anual da empresa no Brasil**, limitadas a R$ 50 milhões por infração, além de danos à reputação.
+
 
 ## 3. Métodos para Garantir a Confidencialidade
 
