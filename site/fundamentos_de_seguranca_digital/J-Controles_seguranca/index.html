@@ -1,0 +1,1042 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Prof. Rafael Emerick">
+      
+      
+      
+        <link rel="prev" href="../I-accounting/">
+      
+      
+        <link rel="next" href="../K-zerotrust/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Controles de Segurança - Segurança Digital</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#controles-de-seguranca" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Segurança Digital" class="md-header__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Segurança Digital
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Controles de Segurança
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Segurança Digital" class="md-nav__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Segurança Digital
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B-ameacas_vulnerabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças e Vulnerabilidades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C-confidencialidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../D-integridade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integridade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../E-disponibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disponibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../F-nao-repudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Não Repudio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../H-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../I-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-sao-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que são Controles de Segurança?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tipos de Controles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Tipos de Controles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-controles-tecnicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Controles Técnicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-controles-gerenciais-administrativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Controles Gerenciais (Administrativos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-controles-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Controles Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-controles-fisicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Controles Físicos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-importancia-da-combinacao-de-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Importância da Combinação de Controles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../K-zerotrust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zero Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L-analise-lacunas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de Gaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ameaças
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ameaças
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ameacas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ameacas/metodologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologias de análise de ameaças
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-sao-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que são Controles de Segurança?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tipos de Controles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Tipos de Controles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-controles-tecnicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Controles Técnicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-controles-gerenciais-administrativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Controles Gerenciais (Administrativos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-controles-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Controles Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-controles-fisicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Controles Físicos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-importancia-da-combinacao-de-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Importância da Combinação de Controles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="controles-de-seguranca">Controles de Segurança</h1>
+<h2 id="1-o-que-sao-controles-de-seguranca">1. O que são Controles de Segurança?</h2>
+<p>São medidas implementadas para proteger sistemas, dados e recursos contra ameaças, reduzir riscos e manter operações seguras.<br />
+Podem ser <strong>preventivos</strong> (evitam incidentes), <strong>detectivos</strong> (identificam eventos) ou <strong>corretivos</strong> (reagem e mitigam impactos).</p>
+<p>Pense em um shopping center:
+- <strong>Câmeras de segurança</strong> monitoram (controle técnico).
+- <strong>Políticas de acesso de lojistas</strong> (controle gerencial).
+- <strong>Rondas de seguranças em horários fixos</strong> (controle operacional).
+- <strong>Portas trancadas e alarmes físicos</strong> (controle físico).</p>
+<hr />
+<h2 id="2-tipos-de-controles">2. Tipos de Controles</h2>
+<h3 id="21-controles-tecnicos">2.1 Controles Técnicos</h3>
+<ul>
+<li><strong>Definição:</strong> Ferramentas e tecnologias (hardware/software) que protegem automaticamente sistemas e dados.</li>
+</ul>
+<p>Como um cofre digital que tranca arquivos e só abre com a chave correta.</p>
+<ul>
+<li>
+<p><strong>Exemplos:</strong></p>
+</li>
+<li>
+<p>Antivírus e anti-malware.</p>
+</li>
+<li>Firewalls e sistemas de detecção/prevenção de intrusão (IDS/IPS).</li>
+<li>Criptografia de dados em repouso e em trânsito.</li>
+<li>
+<p>Autenticação multifator (MFA).</p>
+</li>
+<li>
+<p><strong>Benefício:</strong> </p>
+</li>
+</ul>
+<p>Reduz a necessidade de intervenção manual e responde rapidamente a ameaças.</p>
+<h3 id="22-controles-gerenciais-administrativos">2.2 Controles Gerenciais (Administrativos)</h3>
+<ul>
+<li><strong>Definição:</strong> Estratégias, políticas e decisões de alto nível para alinhar segurança e objetivos do negócio.</li>
+</ul>
+<p>Como o “planejamento de voo” de um avião — define rotas, procedimentos e protocolos para que a viagem seja segura.</p>
+<ul>
+<li><strong>Exemplos:</strong></li>
+<li>Políticas de segurança da informação.</li>
+<li>Planos de resposta a incidentes.</li>
+<li>Avaliações de risco antes de novas implementações.</li>
+<li>
+<p>Programas de treinamento e conscientização.</p>
+</li>
+<li>
+<p><strong>Benefício:</strong></p>
+</li>
+</ul>
+<p>Garante que todas as ações de segurança estejam integradas à estratégia organizacional.</p>
+<h3 id="23-controles-operacionais">2.3 Controles Operacionais</h3>
+<ul>
+<li><strong>Definição:</strong> Procedimentos e práticas executadas no dia a dia por pessoas, seguindo processos internos.</li>
+</ul>
+<p>Como a checagem diária de um veículo antes de sair da garagem — garante que ele esteja em condições de uso seguro.</p>
+<ul>
+<li><strong>Exemplos:</strong></li>
+<li>Troca periódica de senhas.</li>
+<li>Revisão de contas e permissões de usuários.</li>
+<li>Execução regular de backups.</li>
+<li>
+<p>Testes de recuperação de desastres.</p>
+</li>
+<li>
+<p><strong>Benefício:</strong> </p>
+</li>
+</ul>
+<p>Mantém a segurança ativa e adaptada às operações contínuas.</p>
+<h3 id="24-controles-fisicos">2.4 Controles Físicos</h3>
+<ul>
+<li><strong>Definição:</strong> Medidas tangíveis para proteger ativos físicos e impedir acesso não autorizado.</li>
+</ul>
+<p>Como o muro e o portão de uma casa — limitam quem pode entrar e oferecem proteção adicional.</p>
+<ul>
+<li><strong>Exemplos:</strong></li>
+<li>Portas trancadas e controle de chaves.</li>
+<li>Crachás com acesso restrito.</li>
+<li>Cercas, portões e barreiras físicas.</li>
+<li>
+<p>Sistemas de alarme e câmeras de vigilância.</p>
+</li>
+<li>
+<p><strong>Benefício:</strong> Protege contra ameaças físicas e complementa a segurança digital.</p>
+</li>
+</ul>
+<h2 id="3-importancia-da-combinacao-de-controles">3. Importância da Combinação de Controles</h2>
+<p>Nenhuma categoria isolada é suficiente para proteger a organização.<br />
+Um bom programa de segurança combina:</p>
+<ul>
+<li><strong>Técnico:</strong> Bloqueia ameaças automaticamente.</li>
+<li><strong>Gerencial:</strong> Define a direção e prioridades.</li>
+<li><strong>Operacional:</strong> Garante a execução consistente das práticas.</li>
+<li><strong>Físico:</strong> Impede acessos indevidos no mundo real.</li>
+</ul>
+<p>Assim como um estádio de futebol precisa de grades, câmeras, seguranças e regras para manter a ordem, uma empresa precisa de todos esses tipos de controles para manter seus ativos e dados seguros.</p>
+<h1 id="tipos-de-controles-de-seguranca">Tipos de Controles de Segurança</h1>
+<h2 id="1-introducao">1. Introdução</h2>
+<p>Em segurança da informação, diferentes ameaças exigem diferentes respostas.<br />
+Assim como um médico escolhe o tratamento adequado para cada estágio de uma doença, o profissional de segurança seleciona controles específicos para cada cenário.</p>
+<p>Os principais tipos são:
+- <strong>Preventivos</strong>
+- <strong>Dissuassórios (Deterrentes)</strong>
+- <strong>Detetivos</strong>
+- <strong>Corretivos</strong>
+- <strong>Compensatórios</strong>
+- <strong>Diretivos</strong></p>
+<hr />
+<h2 id="2-preventivos">2. Preventivos</h2>
+<ul>
+<li><strong>Objetivo:</strong> Evitar que um incidente aconteça.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Firewalls filtrando tráfego.</li>
+<li>Antivírus bloqueando arquivos maliciosos antes da execução.</li>
+<li>Autenticação multifator (MFA).</li>
+<li><strong>Contexto prático:</strong> É como trancar as portas e fechar janelas antes de sair de casa para impedir que alguém entre.</li>
+<li><strong>Benefício:</strong> Reduz drasticamente a probabilidade de ataque bem-sucedido.</li>
+</ul>
+<hr />
+<h2 id="3-dissuassorios-deterrentes">3. Dissuassórios (Deterrentes)</h2>
+<ul>
+<li><strong>Objetivo:</strong> Desencorajar ataques, tornando-os menos atraentes ou mais arriscados.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Avisos de “Ambiente Monitorado”.</li>
+<li>Mensagens de login informando sobre registro de atividades.</li>
+<li>Presença visível de guardas ou câmeras.</li>
+<li><strong>Contexto prático:</strong> Colocar um adesivo no carro avisando que há rastreador GPS — mesmo que o ladrão nunca o veja, ele pensa duas vezes.</li>
+<li><strong>Benefício:</strong> Reduz a motivação de atacantes antes mesmo de tentarem agir.</li>
+</ul>
+<hr />
+<h2 id="4-detetivos">4. Detetivos</h2>
+<ul>
+<li><strong>Objetivo:</strong> Identificar e alertar sobre atividades suspeitas ou incidentes.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Sistemas de detecção de intrusão (IDS).</li>
+<li>Câmeras de vigilância.</li>
+<li>Logs e monitoramento em tempo real.</li>
+<li><strong>Contexto prático:</strong> É como um alarme residencial que não impede a invasão, mas avisa você e a polícia quando algo acontece.</li>
+<li><strong>Benefício:</strong> Permite reação rápida e investigação de eventos.</li>
+</ul>
+<hr />
+<h2 id="5-corretivos">5. Corretivos</h2>
+<ul>
+<li><strong>Objetivo:</strong> Conter e restaurar o ambiente após um incidente.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Ferramentas de remoção de malware.</li>
+<li>Restauração de backups.</li>
+<li>Reconfiguração de sistemas comprometidos.</li>
+<li><strong>Contexto prático:</strong> Chamar o encanador para consertar um cano estourado e limpar a água — resolve o problema e devolve a situação ao normal.</li>
+<li><strong>Benefício:</strong> Minimiza danos e acelera recuperação.</li>
+</ul>
+<hr />
+<h2 id="6-compensatorios">6. Compensatórios</h2>
+<ul>
+<li><strong>Objetivo:</strong> Oferecer proteção alternativa quando o controle ideal não é viável.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Uso de VPN para reforçar segurança em redes Wi-Fi antigas.</li>
+<li>Monitoramento extra quando não é possível implementar controle físico.</li>
+<li><strong>Contexto prático:</strong> Usar um cadeado reforçado porque a porta não suporta fechadura eletrônica — não é perfeito, mas compensa a limitação.</li>
+<li><strong>Benefício:</strong> Mantém nível de segurança aceitável em cenários restritivos.</li>
+</ul>
+<hr />
+<h2 id="7-diretivos">7. Diretivos</h2>
+<ul>
+<li><strong>Objetivo:</strong> Orientar e definir regras de uso e conduta.</li>
+<li><strong>Exemplos:</strong></li>
+<li>Políticas de uso aceitável (AUP).</li>
+<li>Procedimentos de resposta a incidentes.</li>
+<li>Normas de classificação de informações.</li>
+<li><strong>Contexto prático:</strong> Manual de conduta em uma empresa que define como agir em diferentes situações.</li>
+<li><strong>Benefício:</strong> Garante consistência e clareza no comportamento esperado.</li>
+</ul>
+<hr />
+<h2 id="8-conclusao">8. Conclusão</h2>
+<p>Cada tipo de controle tem um papel único:
+- <strong>Preventivo:</strong> impede.
+- <strong>Dissuassório:</strong> desmotiva.
+- <strong>Detetivo:</strong> identifica.
+- <strong>Corretivo:</strong> repara.
+- <strong>Compensatório:</strong> substitui.
+- <strong>Diretivo:</strong> orienta.</p>
+<p>Uma defesa eficaz combina todos eles, criando múltiplas camadas de segurança que se complementam para proteger a organização.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

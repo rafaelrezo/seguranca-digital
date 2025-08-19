@@ -1,3 +1,20 @@
 site_name: Segurança Digital 
 site_author: Prof. Rafael Emerick
 theme: material
+
+nav:
+  - Fundamentos de Segurança:
+      - Visão geral: fundamentos_de_seguranca_digital/index.md
+      - Ameaças e Vulnerabilidades: fundamentos_de_seguranca_digital/B-ameacas_vulnerabilidades.md
+      - Confidencialidade: fundamentos_de_seguranca_digital/C-confidencialidade.md
+      - Integridade: fundamentos_de_seguranca_digital/D-integridade.md
+      - Disponibilidade: fundamentos_de_seguranca_digital/E-disponibilidade.md
+      - Não Repudio: fundamentos_de_seguranca_digital/F-nao-repudio.md
+      - Autorização: fundamentos_de_seguranca_digital/H-autorizacao.md
+      - Accounting: fundamentos_de_seguranca_digital/I-accounting.md
+      - Controles de Segurança: fundamentos_de_seguranca_digital/J-Controles_seguranca.md
+      - Zero Trust: fundamentos_de_seguranca_digital/K-zerotrust.md
+      - Análise de Gaps: fundamentos_de_seguranca_digital/L-analise-lacunas.md
+  - Ameaças :
+      - Visão geral: ameacas/index.md
+      - Metodologias de análise de ameaças: ameacas/metodologias.md

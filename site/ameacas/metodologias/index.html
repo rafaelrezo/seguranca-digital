@@ -1,0 +1,1021 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Prof. Rafael Emerick">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Metodologias de análise de ameaças - Segurança Digital</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metodologias-de-analise-de-ameacas-em-ciberseguranca" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Segurança Digital" class="md-header__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Segurança Digital
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metodologias de análise de ameaças
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Segurança Digital" class="md-nav__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Segurança Digital
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/B-ameacas_vulnerabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças e Vulnerabilidades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/C-confidencialidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/D-integridade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integridade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/E-disponibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disponibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/F-nao-repudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Não Repudio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/I-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/J-Controles_seguranca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/K-zerotrust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zero Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/L-analise-lacunas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de Gaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ameaças
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ameaças
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Metodologias de análise de ameaças
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologias de análise de ameaças
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. STRIDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dread" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. DREAD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pasta-process-for-attack-simulation-and-threat-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PASTA (Process for Attack Simulation and Threat Analysis)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-octave-operationally-critical-threat-asset-and-vulnerability-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mitre-attck" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. MITRE ATT&amp;CK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cyber-kill-chain-lockheed-martin" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Cyber Kill Chain (Lockheed Martin)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. STRIDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dread" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. DREAD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pasta-process-for-attack-simulation-and-threat-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PASTA (Process for Attack Simulation and Threat Analysis)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-octave-operationally-critical-threat-asset-and-vulnerability-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mitre-attck" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. MITRE ATT&amp;CK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cyber-kill-chain-lockheed-martin" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Cyber Kill Chain (Lockheed Martin)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="metodologias-de-analise-de-ameacas-em-ciberseguranca">Metodologias de Análise de Ameaças em Cibersegurança</h1>
+<p>A <strong>análise de ameaças</strong> é um processo essencial para entender os riscos que podem comprometer a segurança de sistemas, dados e operações de uma organização. Existem diversas metodologias reconhecidas no mercado e na academia que ajudam profissionais a <strong>identificar, classificar, priorizar e responder</strong> a ameaças de maneira sistemática.</p>
+<p>A seguir, vamos explorar as principais metodologias, seus objetivos, aplicações práticas e exemplos.</p>
+<hr />
+<h2 id="1-stride">1. STRIDE</h2>
+<ul>
+<li><strong>Origem:</strong> Criada pela Microsoft.  </li>
+<li><strong>Objetivo:</strong> Identificar diferentes tipos de ameaças em sistemas e aplicações.  </li>
+<li><strong>Funcionamento:</strong> O nome STRIDE é um acrônimo que representa seis categorias de ameaças:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Letra</th>
+<th>Tipo de ameaça</th>
+<th>Explicação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S</strong></td>
+<td><strong>Spoofing</strong></td>
+<td>Quando alguém falsifica a identidade de outro usuário (ex.: login com credenciais roubadas).</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td><strong>Tampering</strong></td>
+<td>Alteração de dados sem autorização (ex.: modificar configurações de um sistema).</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td><strong>Repudiation</strong></td>
+<td>Quando o autor de uma ação nega tê-la realizado, e não há provas suficientes para contestar.</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td><strong>Information Disclosure</strong></td>
+<td>Vazamento de informações sensíveis (ex.: dados pessoais expostos em um site).</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><strong>Denial of Service</strong></td>
+<td>Ataques que impedem o acesso a sistemas (ex.: DDoS).</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td><strong>Elevation of Privilege</strong></td>
+<td>Quando um usuário comum consegue permissões de administrador.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo prático:</strong><br />
+Ao analisar um aplicativo bancário, a equipe de segurança pode aplicar STRIDE para verificar se o app está protegido contra falsificação de identidade (Spoofing) ou contra vazamento de dados sensíveis (Information Disclosure).</p>
+<hr />
+<h2 id="2-dread">2. DREAD</h2>
+<ul>
+<li><strong>Origem:</strong> Criada também pela Microsoft.  </li>
+<li><strong>Objetivo:</strong> Priorizar ameaças com base no risco.  </li>
+<li>
+<p><strong>Funcionamento:</strong> Cada ameaça é avaliada em <strong>cinco dimensões</strong>, geralmente em uma escala de 1 a 10:</p>
+</li>
+<li>
+<p><strong>Damage Potential (Potencial de dano):</strong> Quanto impacto a ameaça pode causar?  </p>
+</li>
+<li><strong>Reproducibility (Reprodutibilidade):</strong> O ataque pode ser facilmente repetido?  </li>
+<li><strong>Exploitability (Explorabilidade):</strong> É fácil ou difícil explorar essa falha?  </li>
+<li><strong>Affected Users (Usuários afetados):</strong> Quantos usuários seriam impactados?  </li>
+<li><strong>Discoverability (Descobribilidade):</strong> A falha pode ser facilmente descoberta por atacantes?  </li>
+</ul>
+<p>A soma ou média dessas notas ajuda a determinar quais ameaças são <strong>mais críticas</strong> e devem ser tratadas primeiro.</p>
+<p><strong>Exemplo prático:</strong><br />
+Uma falha de SQL Injection pode ter alto potencial de dano (roubo de banco de dados), ser fácil de explorar e afetar todos os usuários do sistema. Logo, teria prioridade máxima.</p>
+<hr />
+<h2 id="3-pasta-process-for-attack-simulation-and-threat-analysis">3. PASTA (Process for Attack Simulation and Threat Analysis)</h2>
+<ul>
+<li><strong>Origem:</strong> Metodologia moderna, muito usada em ambientes corporativos.  </li>
+<li><strong>Objetivo:</strong> Simular ataques reais para entender riscos técnicos e de negócio.  </li>
+<li><strong>Funcionamento:</strong> Segue <strong>7 etapas estruturadas</strong>, desde a definição de objetivos até a simulação de ataques e recomendações de mitigação.</li>
+</ul>
+<p>As 7 etapas são:
+1. Definir objetivos de negócio.<br />
+2. Identificar ativos críticos.<br />
+3. Modelar ameaças.<br />
+4. Analisar vulnerabilidades.<br />
+5. Simular ataques.<br />
+6. Avaliar impacto nos negócios.<br />
+7. Desenvolver contramedidas.  </p>
+<p><strong>Exemplo prático:</strong><br />
+Uma empresa que deseja migrar para a nuvem pode usar PASTA para simular ataques durante a migração, avaliando riscos como falhas de criptografia ou erros na configuração de permissões.</p>
+<hr />
+<h2 id="4-octave-operationally-critical-threat-asset-and-vulnerability-evaluation">4. OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)</h2>
+<ul>
+<li><strong>Origem:</strong> Desenvolvida pela Carnegie Mellon University.  </li>
+<li><strong>Objetivo:</strong> Avaliar riscos organizacionais de forma estratégica.  </li>
+<li>
+<p><strong>Funcionamento:</strong> OCTAVE é menos técnico e mais voltado à <strong>gestão</strong>, permitindo que a organização identifique:</p>
+</li>
+<li>
+<p><strong>Ativos críticos</strong> – O que precisa ser protegido.  </p>
+</li>
+<li><strong>Ameaças internas e externas</strong> – O que pode comprometer esses ativos.  </li>
+<li><strong>Vulnerabilidades</strong> – Quais fraquezas existem que podem ser exploradas.  </li>
+</ul>
+<p><strong>Exemplo prático:</strong><br />
+Uma universidade pode usar OCTAVE para identificar que seus sistemas de matrícula online são ativos críticos. A análise revela que falhas de backup e falta de treinamento de funcionários são vulnerabilidades que expõem o sistema a riscos.</p>
+<hr />
+<h2 id="5-mitre-attck">5. MITRE ATT&amp;CK</h2>
+<ul>
+<li><strong>Origem:</strong> Criado pelo MITRE, organização sem fins lucrativos ligada ao governo dos EUA.  </li>
+<li><strong>Objetivo:</strong> Mapear técnicas de ataque utilizadas por adversários no mundo real.  </li>
+<li><strong>Funcionamento:</strong> É uma <strong>base de conhecimento viva</strong>, que documenta <strong>táticas, técnicas e procedimentos (TTPs)</strong> usados em ataques cibernéticos.  </li>
+<li>Estrutura dividida em fases, como:</li>
+<li>Reconhecimento  </li>
+<li>Execução  </li>
+<li>Persistência  </li>
+<li>Escalada de privilégios  </li>
+<li>Exfiltração de dados  </li>
+</ul>
+<p><strong>Exemplo prático:</strong><br />
+Se uma empresa sofrer um ataque de ransomware, pode usar o MITRE ATT&amp;CK para identificar em qual fase do ataque está, e quais medidas de defesa são mais eficazes contra as técnicas usadas.</p>
+<hr />
+<h2 id="6-cyber-kill-chain-lockheed-martin">6. Cyber Kill Chain (Lockheed Martin)</h2>
+<ul>
+<li><strong>Origem:</strong> Desenvolvido pela Lockheed Martin.  </li>
+<li><strong>Objetivo:</strong> Descrever as <strong>fases de um ataque cibernético</strong> para identificar pontos de defesa.  </li>
+<li>
+<p><strong>Funcionamento:</strong> Divide um ataque em <strong>7 etapas</strong>:</p>
+</li>
+<li>
+<p>Reconhecimento (coleta de informações).  </p>
+</li>
+<li>Preparação (weaponization).  </li>
+<li>Entrega (delivery).  </li>
+<li>Exploração (exploit).  </li>
+<li>Instalação (malware/backdoor).  </li>
+<li>Comando e Controle (C2).  </li>
+<li>Ações finais (roubo, espionagem, destruição).  </li>
+</ul>
+<p><strong>Exemplo prático:</strong><br />
+Se um atacante envia um e-mail malicioso, o ataque percorre etapas como <strong>entrega</strong> (phishing), <strong>exploração</strong> (abrir anexo infectado) e <strong>instalação</strong> (malware). O objetivo da Kill Chain é interromper o ataque no meio do caminho, antes que chegue às ações finais.</p>
+<hr />
+<h1 id="comparacao-geral">Comparação Geral</h1>
+<table>
+<thead>
+<tr>
+<th>Metodologia</th>
+<th>Foco principal</th>
+<th>Nível de aplicação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>STRIDE</strong></td>
+<td>Identificar categorias de ameaças</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td><strong>DREAD</strong></td>
+<td>Priorizar ameaças</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td><strong>PASTA</strong></td>
+<td>Simulação de ataques reais</td>
+<td>Técnico + Negócio</td>
+</tr>
+<tr>
+<td><strong>OCTAVE</strong></td>
+<td>Risco organizacional e gestão</td>
+<td>Estratégico</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>Técnicas reais de adversários</td>
+<td>Técnico</td>
+</tr>
+<tr>
+<td><strong>Kill Chain</strong></td>
+<td>Etapas de um ataque cibernético</td>
+<td>Técnico/Operacional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="conclusao">Conclusão</h1>
+<p>Essas metodologias <strong>não competem entre si</strong>, mas se <strong>complementam</strong>.<br />
+- <strong>STRIDE</strong> ajuda a identificar ameaças,<br />
+- <strong>DREAD</strong> define a prioridade,<br />
+- <strong>PASTA</strong> mostra o impacto no negócio,<br />
+- <strong>OCTAVE</strong> olha de forma estratégica,<br />
+- <strong>MITRE ATT&amp;CK</strong> conecta a análise a técnicas reais,<br />
+- e a <strong>Kill Chain</strong> mostra como bloquear ataques em cada fase.  </p>
+<p>Um bom programa de segurança pode combinar várias dessas abordagens para criar uma <strong>defesa em camadas</strong>, robusta e alinhada tanto à tecnologia quanto ao negócio.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
