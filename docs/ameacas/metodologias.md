@@ -11,6 +11,7 @@ A seguir, vamos explorar as principais metodologias, seus objetivos, aplicaçõe
 - **Origem:** Criada pela Microsoft.  
 - **Objetivo:** Identificar diferentes tipos de ameaças em sistemas e aplicações.  
 - **Funcionamento:** O nome STRIDE é um acrônimo que representa seis categorias de ameaças:
+- **Mais informações**: [What is STRIDE threat model?](https://www.practical-devsecops.com/what-is-stride-threat-model/?srsltid=AfmBOoowqYbc8LJ8fqniz3US56mCB4vICAzu9AevK5w3xwANnkvXx-n0)
 
 | Letra | Tipo de ameaça | Explicação |
 |-------|----------------|------------|
@@ -29,8 +30,9 @@ Ao analisar um aplicativo bancário, a equipe de segurança pode aplicar STRIDE 
 ## 2. DREAD
 
 - **Origem:** Criada também pela Microsoft.  
-- **Objetivo:** Priorizar ameaças com base no risco.  
+- **Objetivo:** Priorizar ameaças com base no **risco**.  
 - **Funcionamento:** Cada ameaça é avaliada em **cinco dimensões**, geralmente em uma escala de 1 a 10:
+- **Mais informações:** [DREAD Threat Modeling Methology](https://www.practical-devsecops.com/dread-threat-modeling/?srsltid=AfmBOopsgihg1_oI_W1TOwjr4SJ2vv1OYkldTjD3PRxjCh7CJ_ZGezAZ)
 
 1. **Damage Potential (Potencial de dano):** Quanto impacto a ameaça pode causar?  
 2. **Reproducibility (Reprodutibilidade):** O ataque pode ser facilmente repetido?  
