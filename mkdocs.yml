@@ -19,3 +19,12 @@ nav:
       - Visão geral: ameacas/index.md
       - Metodologias de análise de ameaças: ameacas/metodologias.md
       - Compartivo de metodologias: ameacas/comparativo.md
+  - Segurança Física:
+      - Introdução: seguranca_fisica/introducao.md
+      - Controles de Segurança Física: seguranca_fisica/controles_fisicos.md
+      - Força Bruta: seguranca_fisica/forca_bruta.md
+      - Sistemas de Vigilância: seguranca_fisica/sistema_vigilancia.md
+      - Bypass da Vigilância: seguranca_fisica/bypass_vigilancia.md
+      - Câmaras de acesso controlado: seguranca_fisica/camaras_acesso.md
+      - Fechaduras e Trancas: seguranca_fisica/fechaduras_trancas.md
+      - Clonagem de acesso: segurança_fisica/clonagem_cracha.md
