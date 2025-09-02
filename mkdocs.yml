@@ -28,3 +28,15 @@ nav:
       - Câmaras de acesso controlado: seguranca_fisica/camaras_acesso.md
       - Fechaduras e Trancas: seguranca_fisica/fechaduras_trancas.md
       - Clonagem de acesso: segurança_fisica/clonagem_cracha.md
+  - Engenharia Social:
+      - Introdução: engenharia_social/introducao.md
+      - Gatilhos Motivacionais: engenharia_social/gatilhos.md
+      - Impersonificação: engenharia_social/impersonificacao.md
+      - Falsificação de pretextos: engenharia_social/pretexting.md
+      - Ataques de phishing: engenharia_social/pishing.md
+      - Prevenção de Phishing: engenharia_social/prevencao_phishing.md
+      - Campanha Simulação de Phishing: engenharia_social/campanhas_simulacao_pishing.md
+      - Fraudes e Golpes(Scams): engenharia_social/fraudes_golpes.md
+      - Campanhas de Influência e Desinformação: engenharia_social/desinformacao.md
+      - Outros Ataques: engenharia_social/outros_ataques.md
+
