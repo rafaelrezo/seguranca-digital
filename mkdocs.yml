@@ -39,4 +39,17 @@ nav:
       - Fraudes e Golpes(Scams): engenharia_social/fraudes_golpes.md
       - Campanhas de Influência e Desinformação: engenharia_social/desinformacao.md
       - Outros Ataques: engenharia_social/outros_ataques.md
+  - Malwares:
+      - Introdução: malwares/introducao.md
+      - Virus: malwares/virus.md
+      - Worms: malwares/worms.md
+      - Trojans: malwares/trojans.md
+      - Ransomware: malwares/ransomware.md
+      - Botnets: malwares/botnet.md
+      - Rootkits: malwares/rootkit.md
+      - Backdoors: malwares/backdoors.md
+      - Keylogger: malwares/keylogger.md
+      - Spywares: malwares/spyware.md
+      - Técnicas de Ataque: malwares/tecnica_ataque.md
+    
 
