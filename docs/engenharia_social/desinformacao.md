@@ -3,8 +3,8 @@
 ## 1. Introdução
 - **Campanhas de influência** = esforços coordenados para **moldar a opinião pública** ou o comportamento coletivo.  
 - Podem ser:  
-  - **Benignas**: ex. campanhas de saúde pública incentivando a vacinação.  
-  - **Maliciosas**: manipular eleições, enfraquecer instituições, obter ganhos financeiros.  
+    - **Benignas**: ex. campanhas de saúde pública incentivando a vacinação.  
+    - **Maliciosas**: manipular eleições, enfraquecer instituições, obter ganhos financeiros.  
 - Principais atores: **nações-estado, grupos hacktivistas e cibercriminosos**.  
 - Redes sociais amplificam o alcance → mensagens falsas se espalham rápido, sem verificação.  
 
@@ -12,7 +12,7 @@
 
 ## 2. Misinformation (Informação Errada sem Intenção Maliciosa)
 - **Definição**: informação falsa ou imprecisa, mas **compartilhada sem má-fé**.  
-- Origem: erros, mal-entendidos ou interpretações incorretas.  
+    - Origem: erros, mal-entendidos ou interpretações incorretas.  
 - **Exemplo real**: início da pandemia de COVID-19 → boatos de que gargarejo com água salgada ou ingestão de cloro preveniam o vírus.  
 - Perigo: mesmo sem intenção criminosa, pode causar **impacto social e de saúde**.  
 
@@ -21,17 +21,17 @@
 ## 3. Disinformation (Desinformação Deliberada)
 - **Definição**: criação e divulgação **intencional** de informações falsas para **enganar**.  
 - Usada para:  
-  - Manipular opinião pública.  
-  - Criar divisões sociais.  
-  - Minar confiança em instituições.  
+    - Manipular opinião pública.  
+    - Criar divisões sociais.  
+    - Minar confiança em instituições.  
 - **Exemplo político**:  
-  - Eleição presidencial dos EUA (2016).  
-  - Operadores ligados ao governo russo criaram contas falsas em redes sociais → espalharam conteúdo político divisivo e boatos para favorecer um candidato.  
+    - Eleição presidencial dos EUA (2016).  
+    - Operadores ligados ao governo russo criaram contas falsas em redes sociais → espalharam conteúdo político divisivo e boatos para favorecer um candidato.  
 - **Exemplo econômico**:  
   - **Golpe do Bitcoin no Twitter (2020)**.  
-  - Contas de figuras como Obama, Musk e Bill Gates foram invadidas.  
-  - Postagens prometiam “dobrar” bitcoins enviados para um endereço.  
-  - Resultado: milhares de pessoas enganadas e perdas financeiras.  
+    - Contas de figuras como Obama, Musk e Bill Gates foram invadidas.  
+    - Postagens prometiam “dobrar” bitcoins enviados para um endereço.  
+    - Resultado: milhares de pessoas enganadas e perdas financeiras.  
 
 ---
 
@@ -64,8 +64,8 @@
 - **Disinformation** = informação falsa criada intencionalmente para manipular.  
 - **Campanhas de influência maliciosas** podem ser políticas, sociais ou financeiras.  
 - **Defesa eficaz** depende da união de:  
-  - Educação + verificação de fatos.  
-  - Transparência + regulação.  
-  - Conscientização social.  
+    - Educação + verificação de fatos.  
+    - Transparência + regulação.  
+    - Conscientização social.  
 
 ---

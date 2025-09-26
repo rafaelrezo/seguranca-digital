@@ -4,8 +4,8 @@
 - O **phishing** é um dos ataques mais comuns e persuasivos usados por criminosos.  
 - Objetivo: enganar usuários para que revelem informações sensíveis (senhas, cartões, dados corporativos).  
 - Consequências:  
-  - **Perdas financeiras significativas**.  
-  - **Vazamentos de dados** e incidentes de segurança.  
+    - **Perdas financeiras significativas**.  
+    - **Vazamentos de dados** e incidentes de segurança.  
 - Defesa eficaz = **treinamento contínuo + simulações + resposta rápida a incidentes**.  
 
 ---
@@ -13,9 +13,9 @@
 ## 2. Campanhas Anti-Phishing
 - **Definição**: treinamentos práticos para ensinar usuários a identificar e-mails suspeitos.  
 - Estrutura:  
-  - **Treinamento teórico**: explicação de técnicas como phishing, spear phishing, whaling, BEC, vishing e smishing.  
-  - **Simulações**: envio de e-mails falsos (controlados) para avaliar a reação dos usuários.  
-  - **Correção**: treinamento extra para aqueles que caírem nas simulações.  
+    - **Treinamento teórico**: explicação de técnicas como phishing, spear phishing, whaling, BEC, vishing e smishing.  
+    - **Simulações**: envio de e-mails falsos (controlados) para avaliar a reação dos usuários.  
+    - **Correção**: treinamento extra para aqueles que caírem nas simulações.  
 - **Importante**: campanhas devem ser **contínuas**, pois os ataques evoluem constantemente.  
 
 ---
@@ -38,8 +38,8 @@
 - O nome exibido pode ser diferente do remetente real.  
 - Exemplo: “Suporte Amazon” <mr.weirdo578@yahoo.com>.  
 - **Sinais de alerta**:  
-  - Domínio estranho ou não oficial.  
-  - Endereço muito complexo ou aleatório.  
+    - Domínio estranho ou não oficial.  
+    - Endereço muito complexo ou aleatório.  
 
 ### 3.5 Erros de Gramática e Ortografia
 - Muitos ataques ainda usam **erros propositais** para filtrar vítimas mais ingênuas.  
@@ -60,11 +60,11 @@
 ## 5. Estratégias de Defesa
 - **Treinamento contínuo**: manter usuários atualizados sobre novas técnicas de phishing.  
 - **Tecnologia**:  
-  - SPF, DKIM e DMARC para autenticação de e-mails.  
-  - Filtros de spam e sistemas de detecção de intrusão.  
+    - SPF, DKIM e DMARC para autenticação de e-mails.  
+    - Filtros de spam e sistemas de detecção de intrusão.  
 - **Políticas organizacionais**:  
-  - Nunca compartilhar credenciais por e-mail/telefone.  
-  - Exigir múltiplos fatores de validação para transferências financeiras.  
+    - Nunca compartilhar credenciais por e-mail/telefone.  
+    - Exigir múltiplos fatores de validação para transferências financeiras.  
 - **Resposta rápida**: triagem e investigação imediata ao detectar e-mails suspeitos.  
 
 ---
@@ -73,9 +73,9 @@
 - **Phishing é persistente** porque explora a **falha humana**.  
 - **Principais sinais**: urgência, pedidos incomuns, links falsos, e-mails suspeitos e erros de escrita.  
 - **Defesa eficaz**:  
-  - Conscientização contínua.  
-  - Simulações e treinamentos.  
-  - Uso de tecnologia de proteção em camadas.  
-  - Políticas claras de resposta a incidentes.  
+    - Conscientização contínua.  
+    - Simulações e treinamentos.  
+    - Uso de tecnologia de proteção em camadas.  
+    - Políticas claras de resposta a incidentes.  
 
 ---

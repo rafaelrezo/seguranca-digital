@@ -35,9 +35,9 @@
 - Alvos: PINs em caixas eletrônicos, senhas em computadores públicos, formulários confidenciais.  
 - **Técnicas modernas**: uso de câmeras de alta resolução ou CFTV para observar à distância.  
 - **Prevenção**:  
-  - Conscientização sobre o ambiente ao redor.  
-  - Uso de filtros de privacidade em telas.  
-  - Proteção de teclados ao digitar senhas.  
+    - Conscientização sobre o ambiente ao redor.  
+    - Uso de filtros de privacidade em telas.  
+    - Proteção de teclados ao digitar senhas.  
 
 ---
 
@@ -46,9 +46,9 @@
 - **Exemplo físico**: documentos descartados em lixeiras ou caçambas.  
 - **Exemplo digital**: arquivos recuperados da lixeira do sistema ou de volumes não apagados corretamente.  
 - **Prevenção**:  
-  - Trituração de documentos em papel.  
-  - Políticas de “mesa limpa” (clean desk).  
-  - Apagamento seguro de arquivos (overwrite).  
+    - Trituração de documentos em papel.  
+    - Políticas de “mesa limpa” (clean desk).  
+    - Apagamento seguro de arquivos (overwrite).  
 
 ---
 
@@ -56,9 +56,9 @@
 - Escuta secreta de conversas privadas (analógicas ou digitais).  
 - **Exemplo digital**: interceptação de tráfego de rede (ataques Man-in-the-Middle).  
 - **Prevenção**:  
-  - Uso de canais criptografados (TLS, VPN).  
-  - Atualização e patch de sistemas.  
-  - Evitar conversas confidenciais em locais públicos ou não seguros.  
+    - Uso de canais criptografados (TLS, VPN).  
+    - Atualização e patch de sistemas.  
+    - Evitar conversas confidenciais em locais públicos ou não seguros.  
 
 ---
 
@@ -67,20 +67,20 @@
 - **Exemplo clássico**: pen drives infectados deixados em estacionamentos.  
 - Ao conectar o dispositivo → malware é instalado automaticamente.  
 - **Prevenção**:  
-  - Nunca conectar dispositivos desconhecidos.  
-  - Treinar usuários para reconhecer esse tipo de isca.  
+    - Nunca conectar dispositivos desconhecidos.  
+    - Treinar usuários para reconhecer esse tipo de isca.  
 
 ---
 
 ## 8. Piggybacking e Tailgating
 - **Tailgating**: invasor segue alguém autorizado sem ser percebido.  
-  - Ex.: entrar em prédio passando pela porta aberta por outro funcionário.  
+    - Ex.: entrar em prédio passando pela porta aberta por outro funcionário.  
 - **Piggybacking**: funcionário **deliberadamente** ajuda alguém (enganado por aparência ou pedido).  
-  - Ex.: falso entregador pede ajuda para entrar com pacotes → funcionário abre a porta.  
+    - Ex.: falso entregador pede ajuda para entrar com pacotes → funcionário abre a porta.  
 - **Prevenção**:  
-  - Políticas de acesso rígidas.  
-  - Conscientização para **não permitir entradas não autorizadas**.  
-  - Uso de catracas, portas com sensores e vigilância.  
+    - Políticas de acesso rígidas.  
+    - Conscientização para **não permitir entradas não autorizadas**.  
+    - Uso de catracas, portas com sensores e vigilância.  
 
 ---
 

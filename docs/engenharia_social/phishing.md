@@ -3,20 +3,20 @@
 ## 1. Introdução
 - **Phishing** = ataques de engenharia social que usam **mensagens falsas** para enganar usuários e obter informações sensíveis.  
 - Não é apenas um tipo de ataque, mas uma **categoria** que inclui:  
-  1. Phishing (e-mail)  
-  2. Spear Phishing (direcionado)  
-  3. Whaling (altos executivos)  
-  4. Business Email Compromise (BEC)  
-  5. Vishing (telefone)  
-  6. Smishing (SMS)  
+    1. Phishing (e-mail)  
+    2. Spear Phishing (direcionado)  
+    3. Whaling (altos executivos)  
+    4. Business Email Compromise (BEC)  
+    5. Vishing (telefone)  
+    6. Smishing (SMS)  
 
 ---
 
 ## 2. Phishing (E-mail Fraudulento)
 - **Definição**: envio massivo de e-mails falsos que parecem vir de fontes confiáveis.  
 - **Técnicas**:  
-  - Criar senso de urgência ou medo.  
-  - Inserir links falsos para páginas de login.  
+    - Criar senso de urgência ou medo.  
+    - Inserir links falsos para páginas de login.  
 - **Exemplo**: e-mail do “Google” pedindo para verificar sua identidade.  
 - **Analogia**: como um pescador lançando uma rede ampla no mar — não pega todos, mas sempre captura alguns peixes.  
 
@@ -25,8 +25,8 @@
 ## 3. Spear Phishing (Direcionado)
 - **Definição**: phishing mais **personalizado e específico**, usando informações sobre a vítima.  
 - **Exemplo**:  
-  - Atacante obtém lista de clientes de um banco real.  
-  - Envia e-mails direcionados apenas para esses clientes, pedindo redefinição de senha.  
+    - Atacante obtém lista de clientes de um banco real.  
+    - Envia e-mails direcionados apenas para esses clientes, pedindo redefinição de senha.  
 - **Diferença**: phishing comum = envio em massa; spear phishing = ataque **cirúrgico** e mais difícil de detectar.  
 - **Analogia**: o pescador estudando os hábitos de um peixe específico antes de lançar a isca.  
 
@@ -44,8 +44,8 @@
 - **Definição**: comprometimento ou falsificação de e-mails corporativos internos.  
 - **Técnica**: invasor toma controle de uma conta legítima e envia pedidos falsos.  
 - **Exemplos**:  
-  - Pedido de transferência bancária urgente.  
-  - Solicitação de dados de RH (folha de pagamento, dados pessoais).  
+    - Pedido de transferência bancária urgente.  
+    - Solicitação de dados de RH (folha de pagamento, dados pessoais).  
 - **Impacto real**: em 2022, o FBI reportou perdas de **2,7 bilhões de dólares** em empresas vítimas de BEC.  
 - **Analogia**: é como um golpista usando o telefone real de um gerente para enganar os funcionários.  
 
@@ -55,8 +55,8 @@
 - **Definição**: ataques por **telefone**.  
 - **Exemplo**: alguém liga fingindo ser do banco e pede que você “confirme” seus dados.  
 - **Por que funciona?**:  
-  - Pessoas tendem a ser mais amigáveis e cooperativas em ligações.  
-  - A voz humana transmite **autoridade e urgência**.  
+    - Pessoas tendem a ser mais amigáveis e cooperativas em ligações.  
+    - A voz humana transmite **autoridade e urgência**.  
 - **Analogia**: como um ator convincente que liga representando um papel, explorando a confiança da vítima.  
 
 ---
@@ -65,8 +65,8 @@
 - **Definição**: uso de **mensagens de texto (SMS)** fraudulentas.  
 - **Exemplo**: “Seu pacote está parado no correio, clique aqui para liberar.”  
 - **Técnicas**:  
-  - Inserir links maliciosos.  
-  - Criar senso de urgência.  
+    - Inserir links maliciosos.  
+    - Criar senso de urgência.  
 - **Analogia**: bilhete falso deixado em sua porta, pedindo que você ligue para um número ou acesse um link.  
 
 ---

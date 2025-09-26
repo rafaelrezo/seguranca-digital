@@ -18,7 +18,7 @@
 
 ## 3. Outros Cenários Comuns de Pretexting
 - **Golpe do “Suporte da Microsoft”**: ligação dizendo que o computador da vítima está infectado.  
-  - Pedem que a pessoa siga passos técnicos para instalar malware ou dar acesso remoto.  
+    - Pedem que a pessoa siga passos técnicos para instalar malware ou dar acesso remoto.  
 - **Chamadas falsas de bancos**: fingem confirmar dados de cartão “por segurança”.  
 - **Autoridades falsas**: impostores como policiais, fiscais ou auditores exigindo dados sigilosos.  
 - **Analogia**: é como se alguém desse uma pista incompleta (“seu carro é um Ford, certo?”) para que você corrija: “não, é um Chevrolet”, entregando sem perceber a informação real.  
@@ -27,9 +27,9 @@
 
 ## 4. Por que o Pretexting Funciona?
 - O atacante:
-  - Usa **informações plausíveis** (marcas populares, problemas comuns).  
-  - **Explora a cortesia natural** das pessoas em querer ajudar.  
-  - Cria uma narrativa convincente, onde a vítima sente que **completar os detalhes é inofensivo**.  
+    - Usa **informações plausíveis** (marcas populares, problemas comuns).  
+    - **Explora a cortesia natural** das pessoas em querer ajudar.  
+    - Cria uma narrativa convincente, onde a vítima sente que **completar os detalhes é inofensivo**.  
 
 ---
 
@@ -45,16 +45,16 @@
 - **Políticas de verificação**: confirmar a identidade de quem solicita dados (ex.: retorno de ligação para número oficial).  
 - **Não preencher lacunas**: se alguém fizer uma suposição, **não corrigi-la automaticamente** com informações reais.  
 - **Exemplo prático**:  
-  - Se alguém disser “vocês ainda usam impressoras HP, certo?”  
-  - A resposta deve ser: “Desculpe, não posso confirmar esse tipo de informação. Por favor, fale com nosso suporte interno.”  
+    - Se alguém disser “vocês ainda usam impressoras HP, certo?”  
+    - A resposta deve ser: “Desculpe, não posso confirmar esse tipo de informação. Por favor, fale com nosso suporte interno.”  
 
 ---
 
 ## 7. Resumo
 - **Pretexting** é uma técnica de engenharia social baseada em **criar histórias plausíveis** para extrair dados.  
 - Funciona porque a vítima:  
-  - Quer ser prestativa.  
-  - Supõe que parte da informação já é verdadeira.  
+    - Quer ser prestativa.  
+    - Supõe que parte da informação já é verdadeira.  
 - **Defesa principal**:  
   - **Educar funcionários** para questionar pedidos inusitados.  
   - **Nunca fornecer dados técnicos** (mesmo simples, como modelo de impressora ou IP) sem confirmação oficial.  

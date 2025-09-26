@@ -30,15 +30,15 @@
 ### 3.1 Golpe da Nota Fiscal (Invoice Scam)
 - Um dos golpes mais comuns contra empresas.  
 - Funcionamento:  
-  1. Atacante liga para a empresa fingindo confirmar um pedido.  
-  2. Usa um **pretexto** (ex.: tipo de impressora, modelo de toner).  
-  3. Colaborador, sem perceber, confirma dados e “autoriza” o envio.  
-  4. Empresa recebe produto (normalmente superfaturado) + **nota fiscal fraudulenta**.  
-  5. Atacante possui gravação do funcionário dizendo “sim” ou “ok”, usada como “prova” do pedido.  
+    1. Atacante liga para a empresa fingindo confirmar um pedido.  
+    2. Usa um **pretexto** (ex.: tipo de impressora, modelo de toner).  
+    3. Colaborador, sem perceber, confirma dados e “autoriza” o envio.  
+    4. Empresa recebe produto (normalmente superfaturado) + **nota fiscal fraudulenta**.  
+    5. Atacante possui gravação do funcionário dizendo “sim” ou “ok”, usada como “prova” do pedido.  
 
 - **Exemplo**:  
-  - Toner que custa R$ 500 no varejo → cobrado por R$ 4.750 em nota falsa.  
-  - Fatura indica “sem trocas ou reembolsos”.  
+    - Toner que custa R$ 500 no varejo → cobrado por R$ 4.750 em nota falsa.  
+   - Fatura indica “sem trocas ou reembolsos”.  
 
 ### 3.2 Versão Técnica do Invoice Scam
 - Atacante envia **PDF malicioso** como “nota fiscal” para o setor financeiro.  
@@ -57,17 +57,17 @@
 
 ## 5. Como se Proteger
 - **Educação e treinamento de funcionários**:  
-  - Ensinar a nunca confirmar pedidos por telefone sem validação.  
-  - Desconfiar de urgência ou pressão para tomar decisões rápidas.  
+    - Ensinar a nunca confirmar pedidos por telefone sem validação.  
+    - Desconfiar de urgência ou pressão para tomar decisões rápidas.  
 - **Validação de fornecedores**:  
-  - Conferir sempre os pedidos em sistemas oficiais da empresa.  
-  - Nunca confiar apenas em ligações ou e-mails recebidos.  
+    - Conferir sempre os pedidos em sistemas oficiais da empresa.  
+    - Nunca confiar apenas em ligações ou e-mails recebidos.  
 - **Segurança técnica**:  
-  - Analisar anexos (principalmente PDFs) antes de abrir.  
-  - Usar antivírus e soluções de detecção de ameaças.  
+    - Analisar anexos (principalmente PDFs) antes de abrir.  
+    - Usar antivírus e soluções de detecção de ameaças.  
 - **Políticas internas claras**:  
-  - Criar regras para compras, aprovações e pagamentos.  
-  - Verificação em **duas etapas** para autorizar transferências ou compras.  
+    - Criar regras para compras, aprovações e pagamentos.  
+    - Verificação em **duas etapas** para autorizar transferências ou compras.  
 
 ---
 
