@@ -51,5 +51,14 @@ nav:
       - Keylogger: malwares/keylogger.md
       - Spywares: malwares/spyware.md
       - Técnicas de Ataque: malwares/tecnica_ataque.md
-    
+  - Proteção de dados:
+      - Introdução: protecao_dados/introducao.md
+      - Classificação de dados: protecao_dados/classificacao_dados.md
+      - Propriedade de dados: protecao_dados/propriedade_dados.md
+      - Estado de dados: protecao_dados/estado_dados.md
+      - Tipos de dados: protecao_dados/tipos_dados.md
+      - Soberania de dados: protecao_dados/soberania_dados.md
+      - Métodos de proteção de dados: protecao_dados/metodos_protecao.md
+      - Prevenção de perda de dados: protecao_dados/prevencao_perda.md
+      - Configuração de DLP: protecao_dados/configuracao_dlp.md
 
