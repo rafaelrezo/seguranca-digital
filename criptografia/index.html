@@ -14,6 +14,8 @@
         <link rel="prev" href="../protecao_dados/configuracao_dlp/">
       
       
+        <link rel="next" href="principais_tipos/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introducao-a-criptografia" class="md-skip">
+        <a href="#criptografia-e-solucoes-criptograficas" class="md-skip">
           Skip to content
         </a>
       
@@ -1709,6 +1711,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1721,6 +1736,418 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conceito-de-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conceito de Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estados-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados dos Dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcionamento-da-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamento da Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importancia-da-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importância da Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-algoritmos-criptograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Algoritmos Criptográficos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infraestrutura-de-chaves-publicas-pki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infraestrutura de Chaves Públicas (PKI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-e-registros-imutaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain e Registros Imutáveis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas de Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnicas-de-ofuscacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Técnicas de Ofuscação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principais-ataques-criptograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais Ataques Criptográficos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-seguranca-criptografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas de Segurança Criptográfica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="principais_tipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tipos de Criptografia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="simetricos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Simétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assimetricos.md]" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Assimétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hashing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="seguranca_de_hashes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Segurança de Hashes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PKI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="certificados_digitais.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certificados Digitais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exemplo_certificado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exemplos de Certificado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="blockchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ferramentas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ofuscacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ofuscação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ameacas_criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças à Criptografia
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1753,6 +2180,131 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conceito-de-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conceito de Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estados-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados dos Dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcionamento-da-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamento da Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importancia-da-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importância da Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-algoritmos-criptograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Algoritmos Criptográficos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infraestrutura-de-chaves-publicas-pki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infraestrutura de Chaves Públicas (PKI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-e-registros-imutaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain e Registros Imutáveis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas de Criptografia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnicas-de-ofuscacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Técnicas de Ofuscação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principais-ataques-criptograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais Ataques Criptográficos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-seguranca-criptografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boas Práticas de Segurança Criptográfica
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1767,7 +2319,122 @@
 
 
 
-<h1 id="introducao-a-criptografia">Introdução à Criptografia</h1>
+<h1 id="criptografia-e-solucoes-criptograficas">Criptografia e Soluções Criptográficas</h1>
+<p>Este material apresenta uma organização dos principais tópicos abordados na aula de criptografia, trazendo exemplos aplicados de forma implícita ao contexto da engenharia de controle e automação industrial. O objetivo é fornecer uma base conceitual sólida para compreender como a criptografia é utilizada para garantir a segurança da informação em diferentes cenários, incluindo ambientes industriais.</p>
+<hr />
+<h2 id="conceito-de-criptografia">Conceito de Criptografia</h2>
+<ul>
+<li><strong>Definição</strong>: prática de escrever e resolver códigos para ocultar o verdadeiro significado da informação.</li>
+<li><strong>Uso mais comum</strong>: <strong>encriptação</strong>, que transforma dados em texto ilegível (cifra) a partir de um dado legível (texto plano).</li>
+<li><strong>Processo básico</strong>:</li>
+<li>Texto plano → Algoritmo + Chave → Texto cifrado  </li>
+<li>Texto cifrado + Chave → Algoritmo → Texto plano  </li>
+</ul>
+<blockquote>
+<p>Exemplo: em um sistema industrial, relatórios de produção podem ser armazenados cifrados para que apenas engenheiros autorizados consigam lê-los.</p>
+</blockquote>
+<hr />
+<h2 id="estados-dos-dados">Estados dos Dados</h2>
+<ul>
+<li><strong>Dados em repouso (at rest)</strong><br />
+  Informações arquivadas ou armazenadas (ex.: registros históricos em banco de dados de sensores industriais).</li>
+<li><strong>Dados em trânsito (in transit)</strong><br />
+  Informações que trafegam pela rede (ex.: sinais de telemetria enviados do chão de fábrica para um servidor de controle).</li>
+<li><strong>Dados em uso (in use)</strong><br />
+  Informações em processamento (ex.: cálculos em tempo real de parâmetros de um motor em um CLP).</li>
+</ul>
+<hr />
+<h2 id="funcionamento-da-criptografia">Funcionamento da Criptografia</h2>
+<ul>
+<li><strong>Cifra ROT13</strong>: exemplo simples de rotação de letras em 13 posições.  </li>
+<li>Mostra que a <strong>segurança vem da chave</strong> (13), não do algoritmo.</li>
+<li><strong>Princípio geral</strong>: os algoritmos modernos são públicos e auditados, mas a segurança depende da proteção da chave.</li>
+</ul>
+<hr />
+<h2 id="importancia-da-chave">Importância da Chave</h2>
+<ul>
+<li><strong>Chave</strong>: informação essencial que define o resultado do processo de criptografia.  </li>
+<li><strong>Boas práticas</strong>:</li>
+<li>Utilizar chaves longas (128 bits, 256 bits).</li>
+<li>Rotacionar periodicamente as chaves (ex.: a cada 90 dias).</li>
+<li>Armazenar em módulos seguros (HSM, TPM).</li>
+<li><strong>Força da criptografia</strong>: proporcional ao tamanho e à proteção da chave.</li>
+</ul>
+<blockquote>
+<p>Exemplo: em sistemas de automação distribuída, a troca de chaves TLS entre dispositivos evita que comandos de controle sejam interceptados e manipulados.</p>
+</blockquote>
+<hr />
+<h2 id="tipos-de-algoritmos-criptograficos">Tipos de Algoritmos Criptográficos</h2>
+<ul>
+<li><strong>Simétricos</strong> (mesma chave para cifrar e decifrar)<br />
+  Ex.: AES, DES, 3DES, Blowfish, Twofish.<br />
+  Usados em transmissão de dados em redes industriais privadas.</li>
+<li><strong>Assimétricos</strong> (par de chaves: pública e privada)<br />
+  Ex.: RSA, Diffie-Hellman, ECC.<br />
+  Usados em autenticação de dispositivos e assinaturas digitais.</li>
+</ul>
+<hr />
+<h2 id="hashing">Hashing</h2>
+<ul>
+<li><strong>Definição</strong>: transforma dados em uma cadeia fixa (digest).  </li>
+<li><strong>Exemplos de algoritmos</strong>: MD5, SHA (SHA-1, SHA-256, etc.), RIPEMD, HMAC.  </li>
+<li><strong>Aplicação</strong>: verificação de integridade de firmware de controladores industriais.</li>
+</ul>
+<hr />
+<h2 id="infraestrutura-de-chaves-publicas-pki">Infraestrutura de Chaves Públicas (PKI)</h2>
+<ul>
+<li><strong>PKI</strong>: estrutura que gerencia certificados digitais e chaves.  </li>
+<li><strong>Certificados digitais</strong>: validam a identidade de dispositivos ou usuários.  </li>
+<li><strong>Exemplo</strong>: validar se um software de supervisão conectado a sensores foi emitido por fornecedor confiável.</li>
+</ul>
+<hr />
+<h2 id="blockchain-e-registros-imutaveis">Blockchain e Registros Imutáveis</h2>
+<ul>
+<li><strong>Blockchain</strong>: livro-razão descentralizado e imutável.  </li>
+<li><strong>Aplicações</strong>:</li>
+<li>Rastreabilidade de peças e insumos na cadeia de suprimentos industrial.</li>
+<li>Registro confiável de eventos de manutenção.</li>
+</ul>
+<hr />
+<h2 id="ferramentas-de-criptografia">Ferramentas de Criptografia</h2>
+<ul>
+<li><strong>TPM (Trusted Platform Module)</strong></li>
+<li><strong>HSM (Hardware Security Module)</strong></li>
+<li><strong>Secure Enclaves</strong><br />
+  Garantem a proteção de chaves e operações críticas.</li>
+</ul>
+<hr />
+<h2 id="tecnicas-de-ofuscacao">Técnicas de Ofuscação</h2>
+<ul>
+<li><strong>Esteganografia</strong>: ocultar dados em arquivos comuns.  </li>
+<li><strong>Tokenização</strong>: substituir dados sensíveis por tokens.  </li>
+<li><strong>Mascaramento de dados</strong>: proteger dados reais em ambientes de teste.  </li>
+</ul>
+<blockquote>
+<p>Exemplo: ocultar dados de operadores em logs de sistemas de supervisão para preservar privacidade.</p>
+</blockquote>
+<hr />
+<h2 id="principais-ataques-criptograficos">Principais Ataques Criptográficos</h2>
+<ul>
+<li><strong>Downgrade Attack</strong>: forçar uso de algoritmo fraco.  </li>
+<li><strong>Collision Attack</strong>: encontrar duas entradas com mesmo hash.  </li>
+<li><strong>Birthday Attack</strong>: explorar probabilidade de colisões.  </li>
+<li><strong>Quantum-based Attacks</strong>: ameaças futuras com computadores quânticos.</li>
+</ul>
+<hr />
+<h2 id="boas-praticas-de-seguranca-criptografica">Boas Práticas de Segurança Criptográfica</h2>
+<ol>
+<li>Usar algoritmos consolidados e auditados.  </li>
+<li>Proteger e rotacionar chaves periodicamente.  </li>
+<li>Monitorar acessos e uso de chaves.  </li>
+<li>Integrar criptografia aos processos de controle e automação.  </li>
+</ol>
+<hr />
+<h2 id="conclusao">Conclusão</h2>
+<p>A criptografia é fundamental para proteger dados em diferentes estados (repouso, trânsito, uso).<br />
+Na engenharia de controle e automação, ela garante <strong>confiabilidade, integridade e autenticidade</strong> em comunicações entre dispositivos, sistemas supervisórios e infraestrutura crítica.<br />
+Ao longo do curso, aprofundaremos em <strong>algoritmos, ferramentas e ataques</strong>, consolidando o entendimento para aplicação prática em ambientes industriais.</p>
+<hr />
 
 
 
