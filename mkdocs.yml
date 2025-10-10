@@ -61,4 +61,17 @@ nav:
       - Métodos de proteção de dados: protecao_dados/metodos_protecao.md
       - Prevenção de perda de dados: protecao_dados/prevencao_perda.md
       - Configuração de DLP: protecao_dados/configuracao_dlp.md
-
+  - Criptografia:
+      - Introdução: criptografia/index.md
+      - Tipos de Criptografia: criptografia/principais_tipos.md
+      - Algorítmos Simétricos: criptografia/simetricos.md
+      - Algorítmos Assimétricos: criptografia/assimetricos.md]
+      - Hashing: criptografia/hash.md
+      - Segurança de Hashes: criptografia/seguranca_de_hashes.md
+      - PKI: criptografia/pki.md
+      - Certificados Digitais: criptografia/certificados_digitais.md
+      - Exemplos de Certificado: criptografia/exemplo_certificado.md
+      - Blockchain: criptografia/blockchain.md
+      - Ferramentas: criptografia/ferramentas.md
+      - Ofuscação: criptografia/ofuscacao.md
+      - Ameaças à Criptografia: criptografia/ameacas_criptografia.md
