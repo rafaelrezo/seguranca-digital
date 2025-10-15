@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../pki/">
+      
+      
+        <link rel="next" href="../exemplo_certificado/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Certificados Digitais (X.509) — Organização dos Principais Tópicos - Segurança Digital</title>
+        <title>Certificados Digitais - Segurança Digital</title>
       
     
     
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Certificados Digitais (X.509) — Organização dos Principais Tópicos
+              Certificados Digitais
             
           </span>
         </div>
@@ -1655,18 +1659,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1682,7 +1688,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Criptografia
@@ -1765,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assimetricos.md]" class="md-nav__link">
+      <a href="../assimetricos/" class="md-nav__link">
         
   
   
@@ -1854,10 +1860,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../certificados_digitais.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Certificados Digitais
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1868,6 +1896,257 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-conceito-e-finalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Conceito e Finalidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-estrutura-de-um-certificado-x509-visao-didatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Estrutura de um Certificado X.509 (visão didática)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tipos-e-cenarios-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Tipos e Cenários de Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Tipos e Cenários de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-wildcard-certificate-dominiocom" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Wildcard Certificate (*.dominio.com)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-certificado-com-san-subject-alternative-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Certificado com SAN (Subject Alternative Name)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-single-sided-autenticacao-de-uma-via" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Single-sided (autenticação de uma via)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dual-sided-mutual-tls-mtls-autenticacao-de-duas-vias" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Dual-sided / Mutual TLS (mTLS) (autenticação de duas vias)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-self-signed" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Self-signed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-third-party-emitidos-por-ca-confiavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Third-party (emitidos por CA confiável)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cadeia-de-confianca-root-of-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Cadeia de Confiança (Root of Trust)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-papeis-e-processos-na-emissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Papéis e Processos na Emissão
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) Papéis e Processos na Emissão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ca-certificate-authority" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 CA (Certificate Authority)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ra-registration-authority" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 RA (Registration Authority)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-csr-certificate-signing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 CSR (Certificate Signing Request)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-revogacao-e-status-de-certificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      6) Revogação e Status de Certificados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6) Revogação e Status de Certificados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-crl-certificate-revocation-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 CRL (Certificate Revocation List)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ocsp-online-certificate-status-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 OCSP (Online Certificate Status Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ocsp-stapling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 OCSP Stapling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-public-key-pinning-conceito" class="md-nav__link">
+    <span class="md-ellipsis">
+      7) Public Key Pinning (conceito)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-escrow-e-key-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      8) Key Escrow e Key Recovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8) Key Escrow e Key Recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-key-escrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Key Escrow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-key-recovery-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Key Recovery Agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-boas-praticas-operacionais-ambiente-industrial" class="md-nav__link">
+    <span class="md-ellipsis">
+      9) Boas Práticas Operacionais (ambiente industrial)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
