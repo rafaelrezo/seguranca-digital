@@ -1,0 +1,3251 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Prof. Rafael Emerick">
+      
+      
+      
+        <link rel="prev" href="../frequencia/">
+      
+      
+        <link rel="next" href="../registro_riscos/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Identificação e Análise de Impacto dos riscos nos Negócios - Segurança Digital</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identificacao-de-riscos-e-analise-de-impacto-nos-negocios-bia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Segurança Digital" class="md-header__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Segurança Digital
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Identificação e Análise de Impacto dos riscos nos Negócios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Segurança Digital" class="md-nav__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Segurança Digital
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/B-ameacas_vulnerabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças e Vulnerabilidades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/C-confidencialidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/D-integridade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integridade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/E-disponibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disponibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/F-nao-repudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Não Repudio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/I-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/J-Controles_seguranca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/K-zerotrust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zero Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/L-analise-lacunas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de Gaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ameaças
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ameaças
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ameacas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ameacas/metodologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologias de análise de ameaças
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ameacas/comparativo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compartivo de metodologias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Segurança Física
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Segurança Física
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/controles_fisicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança Física
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/forca_bruta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Força Bruta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/sistema_vigilancia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas de Vigilância
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/bypass_vigilancia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bypass da Vigilância
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/camaras_acesso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Câmaras de acesso controlado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/fechaduras_trancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fechaduras e Trancas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../segurança_fisica/clonagem_cracha.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clonagem de acesso
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Engenharia Social
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Engenharia Social
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/gatilhos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gatilhos Motivacionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/impersonificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impersonificação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/pretexting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falsificação de pretextos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/pishing.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ataques de phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/prevencao_phishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prevenção de Phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/campanhas_simulacao_pishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Campanha Simulação de Phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/fraudes_golpes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fraudes e Golpes(Scams)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/desinformacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Campanhas de Influência e Desinformação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/outros_ataques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outros Ataques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Malwares
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malwares
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/virus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/worms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Worms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/trojans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trojans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/ransomware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ransomware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/botnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Botnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/rootkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rootkits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/backdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backdoors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/keylogger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keylogger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/spyware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spywares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/tecnica_ataque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Técnicas de Ataque
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proteção de dados
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Proteção de dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/classificacao_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classificação de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/propriedade_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Propriedade de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/estado_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estado de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/tipos_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tipos de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/soberania_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Soberania de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/metodos_protecao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métodos de proteção de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/prevencao_perda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prevenção de perda de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/configuracao_dlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuração de DLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Criptografia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/principais_tipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tipos de Criptografia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/simetricos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Simétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/assimetricos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Assimétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hashing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/seguranca_de_hashes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Segurança de Hashes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PKI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/certificados_digitais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certificados Digitais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/exemplo_certificado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exemplos de Certificado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/blockchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ferramentas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ofuscacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ofuscação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ameacas_criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças à Criptografia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gestão de Riscos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão de Riscos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frequencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frequência das avaliações
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Identificação e Análise de Impacto dos riscos nos Negócios
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identificação e Análise de Impacto dos riscos nos Negócios
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-identificacao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O Que é Identificação de Riscos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. O Que é Identificação de Riscos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tecnicas-de-identificacao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Técnicas de Identificação de Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-classificacao-dos-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Classificação dos Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-da-identificacao-a-analise-de-impacto-bia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Da Identificação à Análise de Impacto (BIA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-principais-metricas-da-analise-de-impacto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Principais Métricas da Análise de Impacto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Principais Métricas da Análise de Impacto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-rto-recovery-time-objective-objetivo-de-tempo-de-recuperacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-rpo-recovery-point-objective-objetivo-de-ponto-de-recuperacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mttr-mean-time-to-repair-tempo-medio-de-reparo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-mtbf-mean-time-between-failures-tempo-medio-entre-falhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-relacao-entre-as-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Relação entre as Métricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integracao-com-o-processo-de-gestao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integração com o Processo de Gestão de Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-exemplo-integrado-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Exemplo Integrado: Caso Prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_riscos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Registro de Riscos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_qualitativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise Qualitativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_quantitativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise Quantitativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estrategias_gerenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estratégias de Gerenciamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoramento_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoramento e Relatório
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Riscos de Terceiros
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Riscos de Terceiros
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../riscos_terceiros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cadeia_suprimentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Riscos da Cadeia de Suprimentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ataques_cadeias_suprimentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ataques a Cadeias de Suprimentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avaliacao_fornecedores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avaliação de Fornecedores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selecao_fornecedores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seleção de Fornecedores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contratos e Acordos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-identificacao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O Que é Identificação de Riscos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. O Que é Identificação de Riscos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tecnicas-de-identificacao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Técnicas de Identificação de Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-classificacao-dos-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Classificação dos Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-da-identificacao-a-analise-de-impacto-bia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Da Identificação à Análise de Impacto (BIA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-principais-metricas-da-analise-de-impacto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Principais Métricas da Análise de Impacto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Principais Métricas da Análise de Impacto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-rto-recovery-time-objective-objetivo-de-tempo-de-recuperacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-rpo-recovery-point-objective-objetivo-de-ponto-de-recuperacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mttr-mean-time-to-repair-tempo-medio-de-reparo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-mtbf-mean-time-between-failures-tempo-medio-entre-falhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-ti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em TI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-em-automacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo em Automação:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-relacao-entre-as-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Relação entre as Métricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-integracao-com-o-processo-de-gestao-de-riscos" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Integração com o Processo de Gestão de Riscos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-exemplo-integrado-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Exemplo Integrado: Caso Prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="identificacao-de-riscos-e-analise-de-impacto-nos-negocios-bia">Identificação de Riscos e Análise de Impacto nos Negócios (BIA)</h1>
+<p>A <strong>identificação de riscos</strong> é o <strong>primeiro passo</strong> do processo de gestão de riscos.<br />
+Ela consiste em <strong>reconhecer ameaças e vulnerabilidades</strong> que possam comprometer os objetivos ou a operação de uma organização.</p>
+<p>Esse processo é <strong>proativo</strong> — busca antecipar o que pode dar errado antes que um evento de fato ocorra, permitindo à organização <strong>planejar ações preventivas e corretivas</strong>.</p>
+<hr />
+<h2 id="1-o-que-e-identificacao-de-riscos">1. O Que é Identificação de Riscos</h2>
+<p>Identificar riscos significa <strong>mapear potenciais eventos</strong> que possam causar <strong>impactos negativos</strong> nos objetivos estratégicos, operacionais, financeiros ou reputacionais de uma organização.</p>
+<p>Essa atividade não depende apenas da probabilidade do risco, mas também do <strong>potencial impacto</strong> que ele pode gerar, mesmo que seja improvável.</p>
+<h3 id="exemplos">Exemplos</h3>
+<ul>
+<li><strong>Em TI:</strong> falha de servidor, invasão cibernética, vazamento de dados, erro humano.  </li>
+<li><strong>Em Automação Industrial:</strong> falha em sensores críticos, perda de comunicação entre CLPs, interrupção de energia, sabotagem de rede OT.</li>
+</ul>
+<blockquote>
+<p>Assim como um engenheiro de automação inspeciona preventivamente cabos, fontes e aterramento para garantir a estabilidade do sistema, o profissional de segurança digital mapeia pontos vulneráveis em servidores, aplicações e redes.</p>
+</blockquote>
+<hr />
+<h2 id="2-tecnicas-de-identificacao-de-riscos">2. Técnicas de Identificação de Riscos</h2>
+<p>A identificação de riscos pode ser feita de diversas formas, combinando métodos quantitativos e qualitativos.<br />
+Os mais utilizados incluem:</p>
+<ul>
+<li><strong>Brainstorming:</strong> discussão colaborativa com especialistas e gestores.  </li>
+<li><strong>Checklists:</strong> uso de listas pré-definidas com categorias de risco.  </li>
+<li><strong>Entrevistas:</strong> coleta de percepções individuais sobre vulnerabilidades.  </li>
+<li><strong>Análise de Cenários:</strong> simulação de eventos para prever efeitos e reações.  </li>
+</ul>
+<p>O objetivo é gerar uma <strong>lista abrangente de riscos</strong> que sirva como base para as próximas etapas da gestão.</p>
+<blockquote>
+<p>Em uma indústria, isso pode incluir riscos físicos (falha de compressor, aquecimento excessivo) e digitais (ataques a sistemas SCADA ou PLCs).<br />
+Em TI, pode envolver desde falhas de autenticação até indisponibilidade de APIs críticas.</p>
+</blockquote>
+<hr />
+<h2 id="3-classificacao-dos-riscos">3. Classificação dos Riscos</h2>
+<p>Durante a identificação, os riscos podem ser agrupados em categorias, facilitando a priorização e o tratamento posterior.</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Operacional</strong></td>
+<td>Falhas em processos e sistemas internos</td>
+<td>Pane em servidor, erro de configuração</td>
+</tr>
+<tr>
+<td><strong>Financeiro</strong></td>
+<td>Perdas monetárias diretas ou indiretas</td>
+<td>Multas por não conformidade, fraudes</td>
+</tr>
+<tr>
+<td><strong>Estratégico</strong></td>
+<td>Decisões que afetam o posicionamento da organização</td>
+<td>Adoção de tecnologia não testada</td>
+</tr>
+<tr>
+<td><strong>Reputacional</strong></td>
+<td>Impacto na imagem e confiança pública</td>
+<td>Vazamento de dados de clientes</td>
+</tr>
+</tbody>
+</table>
+<p>Mesmo riscos considerados <strong>improváveis</strong> devem ser documentados, pois o impacto potencial pode ser significativo.</p>
+<hr />
+<h2 id="4-da-identificacao-a-analise-de-impacto-bia">4. Da Identificação à Análise de Impacto (BIA)</h2>
+<p>Após a identificação dos riscos, a próxima etapa é a <strong>Análise de Impacto nos Negócios</strong> (BIA – <em>Business Impact Analysis</em>).<br />
+Essa análise determina <strong>quais funções da organização são críticas</strong>, <strong>qual o impacto de uma interrupção</strong> e <strong>quanto tempo e dados podem ser perdidos</strong> sem causar danos irreversíveis.</p>
+<p>O BIA orienta as decisões sobre <strong>planos de continuidade de negócios (BCP)</strong> e <strong>planos de recuperação de desastres (DRP)</strong>.</p>
+<hr />
+<h2 id="5-principais-metricas-da-analise-de-impacto">5. Principais Métricas da Análise de Impacto</h2>
+<p>A análise de impacto se baseia em quatro métricas fundamentais: <strong>RTO</strong>, <strong>RPO</strong>, <strong>MTTR</strong> e <strong>MTBF</strong>.<br />
+Esses indicadores permitem quantificar a resiliência operacional.</p>
+<hr />
+<h3 id="51-rto-recovery-time-objective-objetivo-de-tempo-de-recuperacao">5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)</h3>
+<p>O <strong>RTO</strong> representa o <strong>tempo máximo aceitável</strong> de indisponibilidade de um serviço ou sistema antes que a operação seja severamente afetada.</p>
+<blockquote>
+<p>É o <strong>“limite de tolerância ao tempo de parada”</strong>.</p>
+</blockquote>
+<h4 id="exemplo-em-ti">Exemplo em TI:</h4>
+<p>Uma loja virtual determina que, se o site ficar fora do ar por mais de <strong>2 horas</strong>, perde vendas e credibilidade.<br />
+Logo, o <strong>RTO = 2 horas</strong>.</p>
+<h4 id="exemplo-em-automacao">Exemplo em Automação:</h4>
+<p>Uma linha de envase automatizada pode parar no máximo <strong>30 minutos</strong> antes que a produção sofra atrasos irreversíveis.<br />
+Logo, o <strong>RTO = 30 minutos</strong>.</p>
+<hr />
+<h3 id="52-rpo-recovery-point-objective-objetivo-de-ponto-de-recuperacao">5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)</h3>
+<p>O <strong>RPO</strong> mede a <strong>quantidade máxima de dados</strong> que pode ser perdida, expressa em <strong>tempo</strong>.</p>
+<blockquote>
+<p>É o <strong>“limite de tolerância à perda de dados”</strong>.</p>
+</blockquote>
+<h4 id="exemplo-em-ti_1">Exemplo em TI:</h4>
+<p>Um banco define que pode perder no máximo <strong>15 minutos de transações</strong>.<br />
+Isso significa que os backups precisam ocorrer <strong>a cada 15 minutos</strong>.<br />
+Logo, <strong>RPO = 15 minutos</strong>.</p>
+<h4 id="exemplo-em-automacao_1">Exemplo em Automação:</h4>
+<p>Um sistema SCADA coleta dados a cada segundo. Caso o histórico de dados seja perdido por mais de <strong>10 segundos</strong>, a rastreabilidade do processo é comprometida.<br />
+Logo, <strong>RPO = 10 segundos</strong>.</p>
+<hr />
+<h3 id="53-mttr-mean-time-to-repair-tempo-medio-de-reparo">5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)</h3>
+<p>O <strong>MTTR</strong> indica o <strong>tempo médio necessário para reparar</strong> um componente ou sistema após uma falha.</p>
+<blockquote>
+<p>Quanto menor o MTTR, mais eficiente é a equipe ou o processo de recuperação.</p>
+</blockquote>
+<h4 id="exemplo-em-ti_2">Exemplo em TI:</h4>
+<p>Um servidor apresentou falhas cinco vezes no ano, e cada reparo levou em média <strong>4 horas</strong>.<br />
+Logo, <strong>MTTR = 4 horas</strong>.</p>
+<h4 id="exemplo-em-automacao_2">Exemplo em Automação:</h4>
+<p>Um motor de esteira leva em média <strong>2 horas</strong> para ser substituído após uma pane mecânica.<br />
+Logo, <strong>MTTR = 2 horas</strong>.</p>
+<hr />
+<h3 id="54-mtbf-mean-time-between-failures-tempo-medio-entre-falhas">5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)</h3>
+<p>O <strong>MTBF</strong> mede a <strong>confiabilidade</strong> de um sistema.<br />
+É o <strong>tempo médio entre falhas sucessivas</strong> de um mesmo equipamento ou processo.</p>
+<blockquote>
+<p>Quanto maior o MTBF, mais confiável é o sistema.</p>
+</blockquote>
+<h4 id="exemplo-em-ti_3">Exemplo em TI:</h4>
+<p>Um roteador corporativo apresenta falhas a cada <strong>180 dias</strong>.<br />
+Logo, <strong>MTBF = 180 dias</strong>.</p>
+<h4 id="exemplo-em-automacao_3">Exemplo em Automação:</h4>
+<p>Um sensor de nível falha cinco vezes por ano, logo o tempo médio entre falhas é <strong>72 dias</strong>.<br />
+<strong>MTBF = 72 dias.</strong></p>
+<hr />
+<h2 id="6-relacao-entre-as-metricas">6. Relação entre as Métricas</h2>
+<p>Essas métricas estão interligadas e formam a base da estratégia de <strong>continuidade de negócios</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Objetivo</th>
+<th>Foco</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RTO</strong></td>
+<td>Tempo máximo para recuperar operação</td>
+<td>Tempo</td>
+</tr>
+<tr>
+<td><strong>RPO</strong></td>
+<td>Quantidade máxima de dados perdidos</td>
+<td>Dados</td>
+</tr>
+<tr>
+<td><strong>MTTR</strong></td>
+<td>Tempo médio de reparo</td>
+<td>Manutenibilidade</td>
+</tr>
+<tr>
+<td><strong>MTBF</strong></td>
+<td>Tempo médio entre falhas</td>
+<td>Confiabilidade</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Um bom plano de continuidade busca <strong>reduzir o RTO e o RPO</strong>, enquanto <strong>aumenta o MTBF</strong> e <strong>reduz o MTTR</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="7-integracao-com-o-processo-de-gestao-de-riscos">7. Integração com o Processo de Gestão de Riscos</h2>
+<p>Após identificar riscos e medir seus impactos, a organização deve:</p>
+<ol>
+<li><strong>Registrar todos os riscos</strong> identificados (mesmo os de baixa probabilidade);  </li>
+<li><strong>Avaliar impacto e probabilidade</strong> de cada risco;  </li>
+<li><strong>Priorizar</strong> aqueles que representam maior ameaça;  </li>
+<li><strong>Planejar ações preventivas e corretivas</strong>, definindo métricas e limites de tolerância (RTO/RPO/MTTR/MTBF);  </li>
+<li><strong>Monitorar continuamente</strong> o desempenho e revisar periodicamente as métricas.</li>
+</ol>
+<hr />
+<h2 id="8-exemplo-integrado-caso-pratico">8. Exemplo Integrado: Caso Prático</h2>
+<p>Uma indústria alimentícia utiliza um sistema SCADA para controle de temperatura e pressão.<br />
+Durante uma análise de risco, foram identificados os seguintes pontos:</p>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Impacto</th>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Falha de sensor de temperatura</td>
+<td>Parada de linha e perda de lote</td>
+<td>RTO</td>
+<td>1 hora</td>
+</tr>
+<tr>
+<td>Perda de dados de histórico</td>
+<td>Compromete rastreabilidade de produção</td>
+<td>RPO</td>
+<td>10 segundos</td>
+</tr>
+<tr>
+<td>Tempo médio de substituição de sensor</td>
+<td></td>
+<td>MTTR</td>
+<td>45 minutos</td>
+</tr>
+<tr>
+<td>Intervalo médio entre falhas de sensor</td>
+<td></td>
+<td>MTBF</td>
+<td>120 dias</td>
+</tr>
+</tbody>
+</table>
+<p>Esses valores guiaram a decisão de:
+- Implementar <strong>redundância de sensores</strong>;
+- Adotar <strong>backup automático a cada 5 segundos</strong>;
+- Manter peças sobressalentes no estoque local.</p>
+<hr />
+<h2 id="9-conclusao">9. Conclusão</h2>
+<p>A <strong>identificação de riscos</strong> é o alicerce de todo o processo de segurança e continuidade operacional.<br />
+Ela permite que organizações, sejam elas de TI ou de automação industrial, <strong>antecipem ameaças, planejem respostas e mantenham a resiliência</strong>.</p>
+<p>Ao integrar o BIA e as métricas (RTO, RPO, MTTR, MTBF), a organização transforma a teoria em prática — criando um ciclo de prevenção e resposta tão eficiente quanto um sistema de controle em malha fechada.</p>
+<blockquote>
+<p>Em resumo: identificar riscos é como mapear os sensores críticos de um sistema — só é possível reagir rapidamente quando você sabe <strong>onde e como o problema pode surgir</strong>.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
