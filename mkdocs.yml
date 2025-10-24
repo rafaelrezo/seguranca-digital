@@ -2,6 +2,19 @@ site_name: Segurança Digital
 site_author: Prof. Rafael Emerick
 theme: material
 
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.mark
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Fundamentos de Segurança:
       - Visão geral: fundamentos_de_seguranca_digital/index.md
@@ -65,7 +78,7 @@ nav:
       - Introdução: criptografia/index.md
       - Tipos de Criptografia: criptografia/principais_tipos.md
       - Algorítmos Simétricos: criptografia/simetricos.md
-      - Algorítmos Assimétricos: criptografia/assimetricos.md]
+      - Algorítmos Assimétricos: criptografia/assimetricos.md
       - Hashing: criptografia/hash.md
       - Segurança de Hashes: criptografia/seguranca_de_hashes.md
       - PKI: criptografia/pki.md
@@ -75,3 +88,19 @@ nav:
       - Ferramentas: criptografia/ferramentas.md
       - Ofuscação: criptografia/ofuscacao.md
       - Ameaças à Criptografia: criptografia/ameacas_criptografia.md
+  - Gestão de Riscos:
+      - Introdução: gestao_riscos/introducao.md
+      - Frequência das avaliações: gestao_riscos/frequencia.md
+      - Identificação e Análise de Impacto dos riscos nos Negócios: gestao_riscos/identificacao_analise.md
+      - Registro de Riscos: gestao_riscos/registro_riscos.md
+      - Análise Qualitativa: gestao_riscos/analise_qualitativa.md
+      - Análise Quantitativa: gestao_riscos/analise_quantitativa.md
+      - Estratégias de Gerenciamento: gestao_riscos/estrategias_gerenciamento.md
+      - Monitoramento e Relatório: gestao_riscos/monitoramento_report.md
+  - Riscos de Terceiros:
+      - Introdução: gestao_riscos/riscos_terceiros.md
+      - Riscos da Cadeia de Suprimentos: gestao_riscos/cadeia_suprimentos.md
+      - Ataques a Cadeias de Suprimentos: gestao_riscos/ataques_cadeias_suprimentos.md
+      - Avaliação de Fornecedores: gestao_riscos/avaliacao_fornecedores.md
+      - Seleção de Fornecedores: gestao_riscos/selecao_fornecedores.md
+      - Contratos e Acordos: gestao_riscos/contratos.md
