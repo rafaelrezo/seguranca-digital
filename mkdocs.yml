@@ -104,3 +104,11 @@ nav:
       - Avaliação de Fornecedores: gestao_riscos/avaliacao_fornecedores.md
       - Seleção de Fornecedores: gestao_riscos/selecao_fornecedores.md
       - Contratos e Acordos: gestao_riscos/contratos.md
+  - Governança de Segurança:
+      - Introdução: governanca/introducao.md
+      - Governança: governanca/governanca.md
+      - Estrutura da Governança: governanca/estrutura_governanca.md
+      - Políticas de Governança: governanca/politicas_governanca.md
+      - Padrões: governanca/padroes.md
+      - Procedimentos: governanca/procedimentos.md
+      - Compliance: governanca/compliance.md
