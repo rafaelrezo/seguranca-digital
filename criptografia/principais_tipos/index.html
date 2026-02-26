@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -2991,12 +3014,12 @@
 
 
 
-<h1 id="criptografia-simetrica-e-assimetrica">Criptografia Simétrica e Assimétrica</h1>
+<div><h1 id="criptografia-simetrica-e-assimetrica">Criptografia Simétrica e Assimétrica</h1>
 <p>Este conteúdo organiza os principais tópicos sobre criptografia simétrica e assimétrica, apresentando exemplos de aplicação implícitos ao contexto da engenharia de controle e automação. O objetivo é oferecer um material didático claro e aplicável para compreensão e uso em ambientes industriais.</p>
-<hr />
+<hr>
 <h2 id="conceito-geral">Conceito Geral</h2>
 <ul>
-<li><strong>Classificação dos algoritmos</strong>:<br />
+<li><strong>Classificação dos algoritmos</strong>:<br>
   Todo algoritmo de criptografia pode ser classificado em duas categorias principais:</li>
 <li><strong>Simétrica (chave única)</strong>  </li>
 <li><strong>Assimétrica (par de chaves)</strong></li>
@@ -3004,7 +3027,7 @@
 <blockquote>
 <p>Exemplo: no acesso a sistemas de supervisão industrial, pode-se utilizar criptografia simétrica para proteger a comunicação entre sensores e o servidor central, enquanto certificados digitais assimétricos garantem a autenticação do sistema.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="criptografia-simetrica">Criptografia Simétrica</h2>
 <ul>
 <li><strong>Definição</strong>: utiliza <strong>a mesma chave</strong> para criptografar e descriptografar os dados.  </li>
@@ -3020,7 +3043,7 @@
 <blockquote>
 <p>Exemplo industrial: em uma rede de controladores lógicos programáveis (CLPs), todos com a mesma senha de rede Wi-Fi, qualquer técnico que tenha a chave poderia acessar os dados, sem garantia de rastreabilidade.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="criptografia-assimetrica">Criptografia Assimétrica</h2>
 <ul>
 <li><strong>Definição</strong>: utiliza <strong>um par de chaves distintas</strong>:</li>
@@ -3037,7 +3060,7 @@
 <blockquote>
 <p>Exemplo industrial: certificados digitais utilizados para validar a identidade de um servidor SCADA que centraliza dados de sensores espalhados pela planta.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="abordagem-hibrida">Abordagem Híbrida</h2>
 <ul>
 <li>Combina as vantagens dos dois modelos:  </li>
@@ -3048,7 +3071,7 @@
 <blockquote>
 <p>Exemplo industrial: durante a comunicação segura entre uma estação de engenharia e um CLP remoto, utiliza-se criptografia assimétrica apenas na fase inicial (troca de chaves), passando depois para simétrica no tráfego contínuo de comandos e dados.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="tipos-de-cifras">Tipos de Cifras</h2>
 <h3 id="cifra-de-fluxo-stream-cipher">Cifra de Fluxo (Stream Cipher)</h3>
 <ul>
@@ -3069,7 +3092,7 @@
 <blockquote>
 <p>Exemplo industrial: logs de produção podem ser armazenados em blocos cifrados para garantir integridade e confidencialidade.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="comparacao-geral">Comparação Geral</h2>
 <table>
 <thead>
@@ -3102,7 +3125,7 @@
 </tr>
 </tbody>
 </table>
-<hr />
+<hr>
 <h2 id="conclusao">Conclusão</h2>
 <ul>
 <li><strong>Simétrica</strong>: rápida, eficiente, mas com problemas de distribuição de chaves.  </li>
@@ -3111,7 +3134,7 @@
 <li><strong>Stream vs Block Ciphers</strong>: escolha depende do contexto — comunicações em tempo real ou armazenamento seguro de grandes volumes de dados.  </li>
 </ul>
 <p>Na engenharia de controle e automação, compreender essas diferenças é essencial para projetar sistemas seguros que conciliem <strong>desempenho, confidencialidade e confiabilidade</strong> em ambientes críticos.</p>
-<hr />
+<hr></div>
 
 
 

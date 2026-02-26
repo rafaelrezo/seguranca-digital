@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3075,9 +3098,9 @@
 
 
 
-<h1 id="aumentando-a-seguranca-de-hashes">Aumentando a Segurança de Hashes</h1>
+<div><h1 id="aumentando-a-seguranca-de-hashes">Aumentando a Segurança de Hashes</h1>
 <p>Organização dos principais tópicos da aula sobre <strong>segurança de hashes</strong>: ataques mais comuns, por que acontecem e como <strong>endurecer</strong> (hardening) o armazenamento/uso de hashes. Os exemplos são discretamente alinhados a cenários industriais (CLPs, SCADA, gateways, telemetria, manutenção remota).</p>
-<hr />
+<hr>
 <h2 id="1-ataques-que-exploram-hashes">1) Ataques que exploram hashes</h2>
 <h3 id="11-pass-the-hash-pth">1.1 Pass-the-Hash (PtH)</h3>
 <ul>
@@ -3094,7 +3117,7 @@
 <li><strong>Por que funciona</strong>: hashes <strong>curtos</strong> (ex.: 128 bits em MD5) oferecem um espaço menor de saídas, aumentando chances de colisão.</li>
 <li><strong>Mitigação de alto nível</strong>: usar <strong>hashes mais longos/atuais</strong> (ex.: SHA-256/512, SHA-3).</li>
 </ul>
-<hr />
+<hr>
 <h2 id="2-estrategias-para-aumentar-a-seguranca">2) Estratégias para aumentar a segurança</h2>
 <h3 id="21-key-stretching">2.1 Key Stretching</h3>
 <ul>
@@ -3137,7 +3160,7 @@
 <li><strong>Serviço/API</strong>: <strong>rate limiting</strong> por IP/chave, CAPTCHA adaptativo onde couber.</li>
 <li><strong>Objetivo</strong>: desincentivar <strong>brute force</strong> e <strong>credential stuffing</strong>.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="3-endurecimento-complementar-reduz-risco-de-pth">3) Endurecimento complementar (reduz risco de PtH)</h2>
 <ul>
 <li><strong>Atualizações e correções</strong>: manter <strong>SO e aplicações</strong> sempre em dia.</li>
@@ -3151,7 +3174,7 @@
 <blockquote>
 <p>Exemplo implícito: acesso remoto de manutenção exige <strong>MFA</strong>, salto via <strong>bastião</strong> segmentado e contas <strong>just-in-time</strong> para tarefas elevadas.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="4-escolhas-praticas-resumo-rapido">4) Escolhas práticas (resumo rápido)</h2>
 <table>
 <thead>
@@ -3189,7 +3212,7 @@
 </tr>
 </tbody>
 </table>
-<hr />
+<hr>
 <h2 id="5-checklist-de-implementacao">5) Checklist de implementação</h2>
 <ul>
 <li>[ ] Senhas derivadas com <strong>Argon2id/bcrypt/scrypt (com salt único)</strong>  </li>
@@ -3202,7 +3225,7 @@
 <li>[ ] <strong>Segmentação</strong> entre estações de engenharia, SCADA e TI corporativo  </li>
 <li>[ ] Auditoria e <strong>alertas</strong> para padrões de logon anômalos</li>
 </ul>
-<hr />
+<hr>
 <h2 id="6-exercicios-de-fixacao-curtos">6) Exercícios de fixação (curtos)</h2>
 <ol>
 <li>Por que <strong>salting</strong> torna <strong>rainbow tables</strong> ineficazes?  </li>
@@ -3210,12 +3233,12 @@
 <li>Em um protocolo de telemetria, como <strong>nonce + HMAC</strong> mitigam <strong>replay</strong>?  </li>
 <li>Cite <strong>três</strong> medidas que reduzem o risco de <strong>Pass-the-Hash</strong> em estações de engenharia.</li>
 </ol>
-<p><strong>Gabarito resumido:</strong><br />
-1. O salt <strong>único</strong> por registro força uma tabela por salt, tornando inviável pré-computação generalista.<br />
-2. (a) Migrar para <strong>Argon2id/bcrypt</strong> com sal e custo adequado; (b) <strong>redefinir senhas</strong> e invalidar hashes antigos.<br />
-3. O nonce muda a entrada a cada mensagem; o HMAC garante integridade/autenticidade — mensagens repetidas <strong>não validam</strong>.<br />
+<p><strong>Gabarito resumido:</strong><br>
+1. O salt <strong>único</strong> por registro força uma tabela por salt, tornando inviável pré-computação generalista.<br>
+2. (a) Migrar para <strong>Argon2id/bcrypt</strong> com sal e custo adequado; (b) <strong>redefinir senhas</strong> e invalidar hashes antigos.<br>
+3. O nonce muda a entrada a cada mensagem; o HMAC garante integridade/autenticidade — mensagens repetidas <strong>não validam</strong>.<br>
 4. <strong>MFA</strong>, <strong>patching</strong> consistente, <strong>privilégio mínimo</strong>, <strong>segmentação de rede</strong>, reduzir <strong>cache</strong> de credenciais e monitorar logons.</p>
-<hr />
+<hr>
 <h2 id="7-conclusoes-chave">7) Conclusões chave</h2>
 <ul>
 <li><strong>PtH</strong> reutiliza hashes; mitigue com <strong>MFA</strong>, higiene de credenciais e arquitetura segmentada.  </li>
@@ -3223,7 +3246,7 @@
 <li><strong>Key stretching + salting + nonce + controle de tentativas</strong> elevam o custo do atacante e protegem fluxos e armazenamento.  </li>
 <li>Em ambientes industriais, aplicar essas medidas mantém <strong>confiabilidade operacional</strong> e <strong>segurança</strong> em links e ativos críticos.</li>
 </ul>
-<hr />
+<hr></div>
 
 
 

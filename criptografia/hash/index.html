@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3045,9 +3068,9 @@
 
 
 
-<h1 id="hashing-integridade-assinaturas-e-aplicacoes-em-controle-e-automacao">Hashing: Integridade, Assinaturas e Aplicações em Controle e Automação</h1>
+<div><h1 id="hashing-integridade-assinaturas-e-aplicacoes-em-controle-e-automacao">Hashing: Integridade, Assinaturas e Aplicações em Controle e Automação</h1>
 <p>Material didático de apoio sobre <strong>funções de hash</strong> e seu papel em <strong>integridade</strong>, <strong>autenticidade</strong> (via HMAC) e <strong>assinaturas digitais</strong>. Os exemplos são apresentados de forma discreta, com cenários comuns a redes industriais (SCADA, CLPs, sensores, gateways, historiadores).</p>
-<hr />
+<hr>
 <h2 id="1-conceito-e-propriedades-essenciais">1) Conceito e Propriedades Essenciais</h2>
 <ul>
 <li><strong>Hashing</strong> é uma função <strong>criptográfica unidirecional</strong> que transforma uma entrada de qualquer tamanho em um <strong>resumo (digest)</strong> de tamanho fixo.  </li>
@@ -3060,7 +3083,7 @@
 <blockquote>
 <p>Exemplo industrial: ao exportar um <strong>relatório de produção</strong> para a matriz, o sistema gera um <strong>hash do arquivo</strong>; na recepção, o hash é recalculado e comparado para garantir que <strong>nada foi alterado</strong> durante o transporte.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="2-algoritmos-de-hash-em-foco">2) Algoritmos de Hash em Foco</h2>
 <h3 id="21-md5">2.1 MD5</h3>
 <ul>
@@ -3091,7 +3114,7 @@
 <blockquote>
 <p>Exemplo industrial: um <strong>gateway de telemetria</strong> anexa <strong>HMAC-SHA256</strong> aos pacotes enviados ao servidor; o receptor valida o HMAC com a chave compartilhada e rejeita pacotes forjados.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="3-assinaturas-digitais-integracao-hash-chave-assimetrica">3) Assinaturas Digitais (Integração Hash + Chave Assimétrica)</h2>
 <ol>
 <li>O emissor calcula o <strong>hash</strong> (ex.: SHA-256) da mensagem/arquivo.  </li>
@@ -3103,7 +3126,7 @@
 <blockquote>
 <p>Exemplo industrial: <strong>code signing</strong> de firmware de CLPs. O fabricante assina o digest do binário; o CLP verifica a assinatura antes de instalar, mitigando <strong>malware</strong> e <strong>alterações indevidas</strong>.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="4-colisoes-e-efeito-avalanche">4) Colisões e Efeito Avalanche</h2>
 <ul>
 <li><strong>Colisão</strong>: duas entradas diferentes geram o <strong>mesmo</strong> digest.  </li>
@@ -3114,7 +3137,7 @@
 <blockquote>
 <p>Exemplo industrial: uma <strong>ordem de setpoint</strong> alterada por 1 unidade deve gerar um digest totalmente diferente, facilitando a auditoria de mensagens no enlace de controle.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="5-boas-praticas-no-chao-de-fabrica">5) Boas Práticas no Chão de Fábrica</h2>
 <ul>
 <li><strong>Evite</strong> MD5 e SHA-1 em novos projetos; padronize <strong>SHA-256</strong> ou <strong>SHA-3</strong>.  </li>
@@ -3125,7 +3148,7 @@
 <li>Proteja <strong>chaves privadas</strong> em <strong>HSM/TPM/KMS</strong>; faça <strong>rotação</strong> periódica e <strong>auditoria</strong> de uso.  </li>
 <li>Em redes industriais sem fio/IoT, combine <strong>TLS 1.3</strong> (para canal seguro) com <strong>HMAC</strong> em mensagens de aplicação quando aplicável.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="6-tabela-resumo">6) Tabela-Resumo</h2>
 <table>
 <thead>
@@ -3158,25 +3181,25 @@
 </tr>
 </tbody>
 </table>
-<hr />
+<hr>
 <h2 id="7-exercicios-de-fixacao-curtos">7) Exercícios de Fixação (curtos)</h2>
 <ol>
 <li>Por que <strong>HMAC-SHA256</strong> fornece <strong>integridade + autenticidade</strong>, enquanto SHA-256 puro fornece apenas integridade?  </li>
 <li>Em uma atualização de firmware de CLP, quais <strong>duas</strong> camadas de proteção você aplicaria além do transporte TLS?  </li>
 <li>Quando faz sentido <strong>ainda</strong> calcular MD5 em um fluxo industrial?</li>
 </ol>
-<p><strong>Gabarito resumido:</strong><br />
-1. Porque HMAC inclui um <strong>segredo compartilhado</strong>; sem o segredo, um atacante não consegue forjar o código de autenticação.<br />
-2. <strong>(a)</strong> Hash forte do binário (<strong>SHA-256/3</strong>); <strong>(b)</strong> <strong>assinatura digital</strong> do hash (RSA/ECDSA) verificada no dispositivo.<br />
+<p><strong>Gabarito resumido:</strong><br>
+1. Porque HMAC inclui um <strong>segredo compartilhado</strong>; sem o segredo, um atacante não consegue forjar o código de autenticação.<br>
+2. <strong>(a)</strong> Hash forte do binário (<strong>SHA-256/3</strong>); <strong>(b)</strong> <strong>assinatura digital</strong> do hash (RSA/ECDSA) verificada no dispositivo.<br>
 3. Verificação <strong>não-crítica/legada</strong> (ex.: conferência rápida de integridade onde não há adversário ativo), sempre acompanhado de uma alternativa segura para fins de segurança real.</p>
-<hr />
+<hr>
 <h2 id="8-conclusao">8) Conclusão</h2>
 <ul>
 <li><strong>Hashing</strong> é a base da <strong>integridade</strong>; com <strong>HMAC</strong>, agrega-se <strong>autenticidade</strong>; com <strong>assinatura digital</strong>, obtêm-se <strong>autenticidade + não repúdio</strong>.  </li>
 <li>Para controle e automação, padronize <strong>SHA-256/SHA-3</strong>, use <strong>HMAC</strong> em mensagens e <strong>assinaturas digitais</strong> em firmware/software.  </li>
 <li>A combinação correta desses mecanismos sustenta a <strong>confiabilidade operacional</strong> e a <strong>segurança</strong> em ambientes industriais críticos.</li>
 </ul>
-<hr />
+<hr></div>
 
 
 

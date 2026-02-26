@@ -1,0 +1,11 @@
+type,question,option_1,option_2,option_3,option_4,option_5,option_6,correct_answers,points,required
+multiple_choice,"A tríade CIA significa:","Controle, Inspeção e Auditoria","Confidencialidade, Integridade e Disponibilidade","Criptografia, Identidade e Autenticação","Confiabilidade, Integridade e Acesso",,,2,1,true
+multiple_choice,"Qual opção representa quebra de confidencialidade?","Servidor indisponível por manutenção","Alteração de nota sem autorização","Vazamento de dados pessoais","Execução de backup diário",,,3,1,true
+multiple_choice,"No modelo AAA, autorização responde principalmente a:","Quem é você?","O que você pode fazer?","Onde está o servidor?","Quando o sistema caiu?",,,2,1,true
+multiple_choice,"Qual opção é um controle detectivo?","Firewall bloqueando conexão","MFA no login","IDS gerando alerta de tráfego suspeito","Política de senha",,,3,1,true
+multiple_choice,"Zero Trust adota qual princípio?","Confiar automaticamente em tudo que está dentro da rede","Confiar no usuário após o primeiro login","Nunca confiar por padrão, sempre verificar","Liberar acesso por faixa de IP interna",,,3,1,true
+multiple_choice,"Qual exemplo representa controle compensatório?","Monitoramento extra quando o controle ideal não está disponível","Remover logs para ganhar desempenho","Compartilhar credenciais entre colegas","Desativar antivírus para evitar falso positivo",,,1,1,true
+checkbox,"Marque os fatores clássicos de autenticação:","Algo que você sabe","Algo que você tem","Algo que seu colega sabe","Algo que você é",,,1|2|4,2,true
+multiple_choice,"Em gestão de riscos, qual etapa deve acontecer primeiro?","Implementar ferramenta de SIEM","Identificar ameaças e vulnerabilidades","Aceitar todo risco residual","Executar auditoria externa final",,,2,1,true
+multiple_choice,"Qual afirmação descreve melhor não repúdio?","Garantir que o sistema fique sempre disponível","Permitir negar autoria de uma transação","Comprovar autoria e impedir negação de ação realizada","Ocultar dados com mascaramento",,,3,1,true
+short_answer,"Explique em uma frase a diferença entre autenticação e autorização.",,,,,,,quem|identidade|permissao|o que pode fazer,1,true

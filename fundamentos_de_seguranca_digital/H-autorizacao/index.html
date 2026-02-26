@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../F-nao-repudio/">
+        <link rel="prev" href="../G-autenticacao/">
       
       
         <link rel="next" href="../I-accounting/">
@@ -371,6 +371,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -422,6 +445,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1-o-que-e-autorizacao" class="md-nav__link">
@@ -520,6 +552,24 @@
   <a href="#4-ponto-chave" class="md-nav__link">
     <span class="md-ellipsis">
       4. Ponto-Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas de revisão rápida
     </span>
   </a>
   
@@ -2904,6 +2954,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-autorizacao" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Autorização?
@@ -3005,6 +3064,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3021,33 +3098,42 @@
 
 
 
-<h1 id="autorizacao">Autorização</h1>
+<div><h1 id="autorizacao">Autorização</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Diferenciar autenticação de autorização.
+- Entender RBAC, ABAC e políticas por regras.
+- Definir permissões por menor privilégio.</p>
+<p><strong>Tempo estimado:</strong> 12 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/7ijBiXddB7w" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="1-o-que-e-autorizacao">1. O que é Autorização?</h2>
 <p>Autorização é o processo que determina <strong>o que um usuário pode fazer</strong> dentro de um sistema <strong>após ter sua identidade confirmada</strong> pela autenticação.</p>
 <p><strong>Diferença essencial:</strong>
 - <strong>Autenticação:</strong> verifica <em>quem você é</em>.
 - <strong>Autorização:</strong> define <em>o que você pode fazer</em>.</p>
-<p><strong>Exemplo simples:</strong><br />
+<p><strong>Exemplo simples:</strong><br>
 Usar um crachá para entrar em um prédio (autenticação) e poder acessar apenas determinados andares ou salas (autorização).</p>
-<hr />
+<hr>
 <h2 id="2-por-que-a-autorizacao-e-importante">2. Por que a Autorização é Importante?</h2>
 <h3 id="21-protecao-de-dados-sensiveis">2.1 Proteção de Dados Sensíveis</h3>
-<p>Garante que apenas pessoas autorizadas acessem informações críticas.<br />
-<strong>Exemplo:</strong><br />
-- Em um hospital:<br />
-  - Enfermeiros veem sinais vitais.<br />
-  - Médicos podem alterar planos de tratamento.<br />
+<p>Garante que apenas pessoas autorizadas acessem informações críticas.<br>
+<strong>Exemplo:</strong><br>
+- Em um hospital:<br>
+  - Enfermeiros veem sinais vitais.<br>
+  - Médicos podem alterar planos de tratamento.<br>
   - Pacientes acessam apenas parte do prontuário.</p>
 <h3 id="22-manutencao-da-integridade-do-sistema">2.2 Manutenção da Integridade do Sistema</h3>
-<p>Restringe alterações a usuários capacitados, evitando erros ou manipulações indevidas.<br />
-<strong>Exemplo:</strong><br />
+<p>Restringe alterações a usuários capacitados, evitando erros ou manipulações indevidas.<br>
+<strong>Exemplo:</strong><br>
 - Em software financeiro: todos podem consultar relatórios, mas apenas contadores inserem transações.</p>
 <h3 id="23-experiencia-de-usuario-otimizada">2.3 Experiência de Usuário Otimizada</h3>
-<p>Mostra apenas funções e dados relevantes ao papel do usuário, tornando o sistema mais simples e seguro.<br />
-<strong>Exemplo:</strong><br />
-- Alunos veem quizzes e aulas.<br />
+<p>Mostra apenas funções e dados relevantes ao papel do usuário, tornando o sistema mais simples e seguro.<br>
+<strong>Exemplo:</strong><br>
+- Alunos veem quizzes e aulas.<br>
 - Instrutores podem criar ou editar conteúdos.</p>
-<hr />
+<hr>
 <h2 id="3-tipos-de-mecanismos-de-autorizacao">3. Tipos de Mecanismos de Autorização</h2>
 <h3 id="31-controle-baseado-em-funcao-rbac">3.1 Controle Baseado em Função (RBAC)</h3>
 <p>Permissões são atribuídas conforme a função do usuário (ex.: administrador, editor, leitor).</p>
@@ -3055,11 +3141,25 @@ Usar um crachá para entrar em um prédio (autenticação) e poder acessar apena
 <p>Permissões seguem políticas e condições predefinidas (ex.: horário de acesso, origem da conexão).</p>
 <h3 id="33-controle-baseado-em-atributos-abac">3.3 Controle Baseado em Atributos (ABAC)</h3>
 <p>Permissões são determinadas por atributos do usuário, do recurso e do contexto (ex.: localização, cargo, nível de confidencialidade).</p>
-<hr />
+<hr>
 <h2 id="4-ponto-chave">4. Ponto-Chave</h2>
-<p>Autorização é o <strong>porteiro interno</strong> do sistema:<br />
-Depois que ele confirma <em>quem você é</em> (autenticação), decide <em>onde você pode ir</em> e <em>o que pode fazer</em>.<br />
+<p>Autorização é o <strong>porteiro interno</strong> do sistema:<br>
+Depois que ele confirma <em>quem você é</em> (autenticação), decide <em>onde você pode ir</em> e <em>o que pode fazer</em>.<br>
 Isso garante <strong>segurança, integridade e eficiência</strong> no uso de recursos.</p>
+<hr>
+<h2 id="5-mini-caso-pratico">5. Mini-caso prático</h2>
+<p>No sistema acadêmico, todos os professores têm permissão para editar notas de qualquer turma.</p>
+<ul>
+<li><strong>Risco:</strong> alteração indevida e falta de segregação de responsabilidades.</li>
+<li><strong>Correção:</strong> RBAC por disciplina/turma e auditoria de alterações.</li>
+</ul>
+<hr>
+<h2 id="6-perguntas-de-revisao-rapida">6. Perguntas de revisão rápida</h2>
+<ol>
+<li>Qual diferença prática entre RBAC e ABAC?</li>
+<li>Qual modelo ajuda quando o contexto (horário/local) importa?</li>
+<li>O que muda quando aplicamos menor privilégio?</li>
+</ol></div>
 
 
 

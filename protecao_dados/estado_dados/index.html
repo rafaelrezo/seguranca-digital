@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -2979,16 +3002,16 @@
 
 
 
-<h1 id="estados-dos-dados">Estados dos Dados</h1>
-<p>Compreender os diferentes <strong>estados dos dados</strong> é essencial para garantir a proteção da informação ao longo de todo o seu ciclo de vida.<br />
+<div><h1 id="estados-dos-dados">Estados dos Dados</h1>
+<p>Compreender os diferentes <strong>estados dos dados</strong> é essencial para garantir a proteção da informação ao longo de todo o seu ciclo de vida.<br>
 Cada estado exige medidas de segurança específicas para mitigar riscos de acesso não autorizado, vazamento ou manipulação indevida.</p>
 <p>Os três estados principais são:
-- <strong>Dados em Repouso (Data at Rest)</strong><br />
-- <strong>Dados em Trânsito (Data in Transit)</strong><br />
+- <strong>Dados em Repouso (Data at Rest)</strong><br>
+- <strong>Dados em Trânsito (Data in Transit)</strong><br>
 - <strong>Dados em Uso (Data in Use)</strong>  </p>
-<hr />
+<hr>
 <h2 id="1-dados-em-repouso">1. Dados em Repouso</h2>
-<p>São os dados armazenados em <strong>bancos de dados, sistemas de arquivos ou outros repositórios</strong>.<br />
+<p>São os dados armazenados em <strong>bancos de dados, sistemas de arquivos ou outros repositórios</strong>.<br>
 Por estarem estáticos, são alvos atrativos para agentes maliciosos.</p>
 <h3 id="tecnicas-de-protecao">Técnicas de Proteção</h3>
 <ul>
@@ -3000,9 +3023,9 @@ Por estarem estáticos, são alvos atrativos para agentes maliciosos.</p>
 <li><strong>Criptografia de Registro</strong> – aplicada a campos individuais dentro de uma tabela.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: relatórios de calibração de máquinas em um banco de dados podem ser criptografados em nível de registro, garantindo que apenas engenheiros autorizados acessem determinados parâmetros.</p>
-<hr />
+<hr>
 <h2 id="2-dados-em-transito">2. Dados em Trânsito</h2>
-<p>São os dados que estão <strong>em movimento</strong> entre sistemas, redes ou dispositivos.<br />
+<p>São os dados que estão <strong>em movimento</strong> entre sistemas, redes ou dispositivos.<br>
 Por estarem expostos a interceptações durante o transporte, exigem canais seguros de comunicação.</p>
 <h3 id="tecnicas-de-protecao_1">Técnicas de Proteção</h3>
 <ul>
@@ -3011,9 +3034,9 @@ Por estarem expostos a interceptações durante o transporte, exigem canais segu
 <li><strong>IPSec</strong> – autentica e criptografa pacotes IP, garantindo integridade e confidencialidade.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: quando dados de sensores de uma linha de produção são transmitidos para o sistema supervisório em outro setor, é fundamental usar protocolos seguros como TLS ou VPN para evitar espionagem industrial.</p>
-<hr />
+<hr>
 <h2 id="3-dados-em-uso">3. Dados em Uso</h2>
-<p>São os dados que estão sendo <strong>processados ativamente</strong> (criando, lendo, atualizando ou excluindo).<br />
+<p>São os dados que estão sendo <strong>processados ativamente</strong> (criando, lendo, atualizando ou excluindo).<br>
 Apesar de muitas vezes negligenciados, são vulneráveis porque precisam estar descriptografados para processamento.</p>
 <h3 id="tecnicas-de-protecao_2">Técnicas de Proteção</h3>
 <ul>
@@ -3023,7 +3046,7 @@ Apesar de muitas vezes negligenciados, são vulneráveis porque precisam estar d
 <li><strong>Tecnologias de hardware</strong> – como o <strong>Intel SGX (Software Guard Extensions)</strong>, que protege dados em memória contra processos não confiáveis.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: algoritmos de controle que ajustam parâmetros em tempo real precisam processar dados em uso. A utilização de enclaves ou ambientes isolados ajuda a proteger essas informações enquanto são manipuladas.</p>
-<hr />
+<hr>
 <h2 id="4-resumo-das-estrategias-por-estado">4. Resumo das Estratégias por Estado</h2>
 <table>
 <thead>
@@ -3054,7 +3077,7 @@ Apesar de muitas vezes negligenciados, são vulneráveis porque precisam estar d
 <td>Ajuste de parâmetros em controladores</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 
 

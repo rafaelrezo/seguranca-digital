@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3219,19 +3242,19 @@
 
 
 
-<h1 id="padroes-standards-em-governanca-e-seguranca-da-informacao">Padrões (Standards) em Governança e Segurança da Informação</h1>
+<div><h1 id="padroes-standards-em-governanca-e-seguranca-da-informacao">Padrões (Standards) em Governança e Segurança da Informação</h1>
 <h2 id="introducao">Introdução</h2>
-<p>Os <strong>padrões (standards)</strong> são um dos principais pilares da <strong>governança de TI</strong>.<br />
+<p>Os <strong>padrões (standards)</strong> são um dos principais pilares da <strong>governança de TI</strong>.<br>
 Eles transformam as <strong>políticas</strong> em <strong>regras técnicas e práticas obrigatórias</strong>, assegurando que as medidas de segurança sejam aplicadas de forma <strong>uniforme, mensurável e auditável</strong> em toda a organização.</p>
 <p>Esses padrões estabelecem <strong>como as políticas devem ser implementadas</strong>, criando consistência nos controles e permitindo que a segurança evolua junto com as tecnologias e regulamentações.</p>
 <p>Nesta lição, vamos explorar os principais padrões usados em governança e segurança:
-- Padrões de Senhas<br />
-- Padrões de Controle de Acesso<br />
-- Padrões de Segurança Física<br />
+- Padrões de Senhas<br>
+- Padrões de Controle de Acesso<br>
+- Padrões de Segurança Física<br>
 - Padrões de Criptografia  </p>
-<hr />
+<hr>
 <h2 id="1-padroes-de-senhas-password-standards">1. Padrões de Senhas (Password Standards)</h2>
-<p>As <strong>senhas</strong> continuam sendo um dos mecanismos mais comuns e sensíveis da autenticação digital.<br />
+<p>As <strong>senhas</strong> continuam sendo um dos mecanismos mais comuns e sensíveis da autenticação digital.<br>
 Os padrões de senha definem <strong>níveis mínimos de complexidade, validade e armazenamento seguro</strong>, garantindo que sejam <strong>resistentes a ataques de força bruta, dicionário e engenharia social</strong>.</p>
 <h3 id="diretrizes-tipicas">Diretrizes típicas:</h3>
 <ul>
@@ -3248,56 +3271,56 @@ Os padrões de senha definem <strong>níveis mínimos de complexidade, validade 
 <li>Implementação de <strong>autenticação multifator (MFA)</strong>.  </li>
 </ul>
 <blockquote>
-<p><strong>Exemplo prático:</strong><br />
+<p><strong>Exemplo prático:</strong><br>
 A política pode exigir que todos os usuários usem senhas com pelo menos 12 caracteres e que os administradores troquem suas credenciais a cada 60 dias.</p>
-<p><strong>Paralelo industrial:</strong><br />
+<p><strong>Paralelo industrial:</strong><br>
 Assim como válvulas de segurança têm múltiplos estágios de travamento para evitar falhas catastróficas, senhas devem ter camadas de complexidade e renovação periódica para resistir a tentativas de invasão.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="2-padroes-de-controle-de-acesso-access-control-standards">2. Padrões de Controle de Acesso (Access Control Standards)</h2>
-<p>Os <strong>padrões de controle de acesso</strong> definem <strong>quem pode acessar o quê</strong>, <strong>quando</strong> e <strong>de que forma</strong>.<br />
+<p>Os <strong>padrões de controle de acesso</strong> definem <strong>quem pode acessar o quê</strong>, <strong>quando</strong> e <strong>de que forma</strong>.<br>
 Eles organizam a relação entre <strong>usuários, funções, recursos e níveis de privilégio</strong>, servindo como base para a <strong>autorização</strong> e a <strong>segregação de responsabilidades</strong>.</p>
 <h3 id="21-modelos-classicos-de-controle-de-acesso">2.1 Modelos Clássicos de Controle de Acesso</h3>
 <h4 id="a-discretionary-access-control-dac">a) Discretionary Access Control (DAC)</h4>
-<p>O proprietário do recurso decide quem pode acessá-lo.<br />
-É o modelo mais flexível, mas também o mais suscetível a erros humanos.<br />
+<p>O proprietário do recurso decide quem pode acessá-lo.<br>
+É o modelo mais flexível, mas também o mais suscetível a erros humanos.<br>
 Exemplo: o criador de um documento concede manualmente permissão de leitura a outro usuário.</p>
 <h4 id="b-mandatory-access-control-mac">b) Mandatory Access Control (MAC)</h4>
-<p>O acesso é determinado por <strong>níveis de classificação e rótulos de segurança</strong> (ex.: “Confidencial”, “Secreto”, “Top Secret”).<br />
-Comum em ambientes <strong>militares e governamentais</strong>.<br />
+<p>O acesso é determinado por <strong>níveis de classificação e rótulos de segurança</strong> (ex.: “Confidencial”, “Secreto”, “Top Secret”).<br>
+Comum em ambientes <strong>militares e governamentais</strong>.<br>
 Exemplo: um usuário com nível “Confidencial” não pode acessar arquivos “Secretos”.</p>
 <h4 id="c-role-based-access-control-rbac">c) Role-Based Access Control (RBAC)</h4>
-<p>O acesso é concedido com base em <strong>funções (roles)</strong> desempenhadas dentro da organização.<br />
-Reduz erros e simplifica a gestão de permissões.<br />
+<p>O acesso é concedido com base em <strong>funções (roles)</strong> desempenhadas dentro da organização.<br>
+Reduz erros e simplifica a gestão de permissões.<br>
 Exemplo: todos os usuários com o papel de “Analista Financeiro” têm o mesmo conjunto de permissões.</p>
-<hr />
+<hr>
 <h3 id="22-modelos-avancados-de-controle-de-acesso">2.2 Modelos Avançados de Controle de Acesso</h3>
 <h4 id="d-attribute-based-access-control-abac">d) Attribute-Based Access Control (ABAC)</h4>
-<p>O acesso é concedido com base em <strong>atributos</strong> de usuários, recursos, ações e contexto.<br />
-É mais dinâmico e adaptável.<br />
+<p>O acesso é concedido com base em <strong>atributos</strong> de usuários, recursos, ações e contexto.<br>
+É mais dinâmico e adaptável.<br>
 Exemplo: um usuário pode acessar um relatório <strong>apenas durante o horário comercial</strong> e <strong>se estiver na rede corporativa</strong>.</p>
 <blockquote>
-<p><strong>Analogia industrial:</strong><br />
+<p><strong>Analogia industrial:</strong><br>
 ABAC é como um sistema SCADA que libera uma válvula apenas se <strong>temperatura</strong>, <strong>pressão</strong> e <strong>nível do tanque</strong> estiverem dentro dos limites seguros.</p>
 </blockquote>
 <h4 id="e-policy-based-access-control-pbac">e) Policy-Based Access Control (PBAC)</h4>
-<p>Similar ao ABAC, mas com foco em <strong>políticas declarativas centralizadas</strong> que são avaliadas por um <strong>PDP (Policy Decision Point)</strong>.<br />
+<p>Similar ao ABAC, mas com foco em <strong>políticas declarativas centralizadas</strong> que são avaliadas por um <strong>PDP (Policy Decision Point)</strong>.<br>
 Essas políticas podem ser escritas em linguagens como <strong>Rego (Open Policy Agent)</strong> ou <strong>FGA (OpenFGA)</strong>.</p>
 <p>Exemplo: “Usuários do departamento de Engenharia podem aprovar ordens de serviço apenas se o projeto estiver em fase de testes”.</p>
 <h4 id="f-rule-based-access-control-rubac">f) Rule-Based Access Control (RuBAC)</h4>
-<p>O acesso é controlado por <strong>regras predefinidas</strong>, muitas vezes baseadas em eventos ou condições específicas.<br />
+<p>O acesso é controlado por <strong>regras predefinidas</strong>, muitas vezes baseadas em eventos ou condições específicas.<br>
 Exemplo: bloquear acesso administrativo durante janelas de manutenção programada.</p>
 <h4 id="g-context-based-access-control-cbac">g) Context-Based Access Control (CBAC)</h4>
-<p>Leva em conta o <strong>contexto de operação</strong> — localização, horário, dispositivo ou tipo de rede.<br />
+<p>Leva em conta o <strong>contexto de operação</strong> — localização, horário, dispositivo ou tipo de rede.<br>
 Muito usado em <strong>arquiteturas Zero Trust</strong>, onde cada requisição é autenticada e verificada continuamente.</p>
 <h4 id="h-risk-adaptive-access-control-radac">h) Risk-Adaptive Access Control (RAdAC)</h4>
-<p>Acesso ajustado <strong>dinamicamente</strong> com base em avaliação de <strong>risco em tempo real</strong>.<br />
+<p>Acesso ajustado <strong>dinamicamente</strong> com base em avaliação de <strong>risco em tempo real</strong>.<br>
 Exemplo: um login suspeito (localização desconhecida) exige fator adicional de autenticação.</p>
 <h4 id="i-relationship-based-access-control-rebac">i) Relationship-Based Access Control (ReBAC)</h4>
-<p>Baseia-se em <strong>relações entre entidades</strong>, como “coordenador”, “orientando” ou “colaborador”.<br />
+<p>Baseia-se em <strong>relações entre entidades</strong>, como “coordenador”, “orientando” ou “colaborador”.<br>
 Usado em sistemas modernos como o <strong>Google Zanzibar</strong> e <strong>OpenFGA</strong>.</p>
 <p>Exemplo: um pesquisador pode editar apenas projetos em que ele <strong>mantém uma relação ‘coordenador de’</strong>.</p>
-<hr />
+<hr>
 <h3 id="23-principios-complementares-de-seguranca">2.3 Princípios Complementares de Segurança</h3>
 <ul>
 <li><strong>Menor Privilégio (Least Privilege):</strong> cada usuário tem apenas o acesso necessário.  </li>
@@ -3306,11 +3329,11 @@ Usado em sistemas modernos como o <strong>Google Zanzibar</strong> e <strong>Ope
 <li><strong>Revisão Periódica de Acessos:</strong> os privilégios devem ser reavaliados regularmente.</li>
 </ul>
 <blockquote>
-<p><strong>Paralelo industrial:</strong><br />
-Em uma refinaria, o operador de caldeira não deve ter permissão para alterar parâmetros de controle químico.<br />
+<p><strong>Paralelo industrial:</strong><br>
+Em uma refinaria, o operador de caldeira não deve ter permissão para alterar parâmetros de controle químico.<br>
 Na TI, isso equivale a restringir administradores de banco de dados a não modificarem código de aplicação.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="3-padroes-de-seguranca-fisica-physical-security-standards">3. Padrões de Segurança Física (Physical Security Standards)</h2>
 <p>A <strong>segurança física</strong> protege os <strong>ativos tangíveis</strong> da organização — pessoas, instalações, equipamentos e mídias de armazenamento.</p>
 <h3 id="controles-comuns">Controles comuns:</h3>
@@ -3325,9 +3348,9 @@ Na TI, isso equivale a restringir administradores de banco de dados a não modif
 <li>Redundância elétrica (UPS, geradores).  </li>
 </ul>
 <blockquote>
-<p><strong>Exemplo:</strong><br />
+<p><strong>Exemplo:</strong><br>
 A norma <strong>ISO 27002</strong> recomenda a segregação de áreas físicas e o registro de entrada de visitantes em áreas sensíveis.</p>
-</blockquote>
+</blockquote></div>
 
 
 

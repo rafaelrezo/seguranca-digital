@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3045,11 +3068,11 @@
 
 
 
-<h1 id="analise-quantitativa-de-riscos">Análise Quantitativa de Riscos</h1>
-<p>A <strong>análise quantitativa de riscos</strong> é uma abordagem que busca atribuir <strong>valores numéricos e mensuráveis</strong> aos riscos identificados em um projeto, operação ou infraestrutura.<br />
+<div><h1 id="analise-quantitativa-de-riscos">Análise Quantitativa de Riscos</h1>
+<p>A <strong>análise quantitativa de riscos</strong> é uma abordagem que busca atribuir <strong>valores numéricos e mensuráveis</strong> aos riscos identificados em um projeto, operação ou infraestrutura.<br>
 Enquanto a análise qualitativa fornece uma visão subjetiva e descritiva, a análise quantitativa permite <strong>quantificar financeiramente o impacto</strong> e <strong>calcular o custo esperado das perdas</strong>.</p>
 <p>Essa metodologia é amplamente utilizada em <strong>decisões financeiras, de segurança e de disponibilidade</strong>, tanto em <strong>ambientes de TI</strong> quanto em <strong>sistemas de automação industrial</strong>.</p>
-<hr />
+<hr>
 <h2 id="1-conceito-de-analise-quantitativa-de-riscos">1. Conceito de Análise Quantitativa de Riscos</h2>
 <p>A análise quantitativa consiste em <strong>atribuir valores concretos</strong> a variáveis como impacto, frequência e exposição ao risco, gerando uma visão <strong>objetiva e comparável</strong> entre diferentes cenários.</p>
 <p>Ela permite:
@@ -3057,10 +3080,10 @@ Enquanto a análise qualitativa fornece uma visão subjetiva e descritiva, a an�
 - Comparar <strong>custos de mitigação</strong> com <strong>benefícios potenciais</strong>;
 - Tomar decisões baseadas em <strong>dados e probabilidades</strong>, e não apenas em percepções.</p>
 <blockquote>
-<p>Em TI, isso pode significar calcular o prejuízo anual esperado com falhas de servidor.<br />
+<p>Em TI, isso pode significar calcular o prejuízo anual esperado com falhas de servidor.<br>
 Em automação, pode significar estimar o custo anual médio de paradas não planejadas de uma linha de produção.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="2-componentes-principais-da-analise-quantitativa">2. Componentes Principais da Análise Quantitativa</h2>
 <p>A análise quantitativa usa quatro elementos fundamentais:</p>
 <ul>
@@ -3070,51 +3093,51 @@ Em automação, pode significar estimar o custo anual médio de paradas não pla
 <li><strong>Expectativa de Perda Anual (ALE - Annualized Loss Expectancy)</strong>  </li>
 </ul>
 <p>Esses indicadores se combinam para traduzir riscos em valores monetários mensuráveis.</p>
-<hr />
+<hr>
 <h2 id="3-fator-de-exposicao-ef">3. Fator de Exposição (EF)</h2>
-<p>O <strong>fator de exposição (Exposure Factor)</strong> representa <strong>a porcentagem do ativo que seria perdida em um evento de risco</strong>.<br />
+<p>O <strong>fator de exposição (Exposure Factor)</strong> representa <strong>a porcentagem do ativo que seria perdida em um evento de risco</strong>.<br>
 É expresso como uma porcentagem de <strong>0% (sem perda)</strong> a <strong>100% (perda total)</strong>.</p>
-<p><strong>Exemplo em TI:</strong><br />
-Um datacenter avalia que uma enchente poderia inutilizar 70% de seus equipamentos.<br />
+<p><strong>Exemplo em TI:</strong><br>
+Um datacenter avalia que uma enchente poderia inutilizar 70% de seus equipamentos.<br>
 Logo, <strong>EF = 70\%</strong>.</p>
-<p><strong>Exemplo em Automação:</strong><br />
-Uma queima de módulo de controle causa perda de metade dos componentes da célula produtiva.<br />
+<p><strong>Exemplo em Automação:</strong><br>
+Uma queima de módulo de controle causa perda de metade dos componentes da célula produtiva.<br>
 Logo, <strong>EF = 50\%</strong>.</p>
-<hr />
+<hr>
 <h2 id="4-expectativa-de-perda-unica-sle">4. Expectativa de Perda Única (SLE)</h2>
-<p>A <strong>SLE (Single Loss Expectancy)</strong> é o <strong>valor financeiro da perda esperada em um único evento</strong>.<br />
+<p>A <strong>SLE (Single Loss Expectancy)</strong> é o <strong>valor financeiro da perda esperada em um único evento</strong>.<br>
 É calculada multiplicando o <strong>valor do ativo</strong> pelo <strong>fator de exposição (EF)</strong>:</p>
 <div class="arithmatex">\[
 SLE = Valor_{ativo} \times EF
 \]</div>
-<p><strong>Exemplo 1 – TI</strong><br />
+<p><strong>Exemplo 1 – TI</strong><br>
 Um servidor vale <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }10{.}000\)</span>\)</span> e o <span class="arithmatex">\(<span class="arithmatex">\(EF = 50\% = 0{,}5\)</span>\)</span>:  </p>
 <div class="arithmatex">\[
 SLE = 10{.}000 \times 0{,}5 = \text{R\$ }5{.}000
 \]</div>
-<p><strong>Exemplo 2 – Automação</strong><br />
+<p><strong>Exemplo 2 – Automação</strong><br>
 Um CLP e seus periféricos custam <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }40{.}000\)</span>\)</span>, com <span class="arithmatex">\(<span class="arithmatex">\(EF = 25\% = 0{,}25\)</span>\)</span> (perda parcial):  </p>
 <div class="arithmatex">\[
 SLE = 40{.}000 \times 0{,}25 = \text{R\$ }10{.}000
 \]</div>
-<hr />
+<hr>
 <h2 id="5-taxa-anual-de-ocorrencia-aro">5. Taxa Anual de Ocorrência (ARO)</h2>
 <p>A <strong>ARO (Annualized Rate of Occurrence)</strong> estima <strong>com que frequência</strong> o evento ocorre por ano:</p>
 <div class="arithmatex">\[
 ARO = \frac{1}{Per\acute{\i}odo_{m\acute{e}dio}\ \text{(em anos)}}
 \]</div>
-<p><strong>Exemplo 1 – TI</strong><br />
+<p><strong>Exemplo 1 – TI</strong><br>
 Se um servidor falha uma vez a cada 2 anos:  </p>
 <div class="arithmatex">\[
 ARO = \frac{1}{2} = 0{,}5
 \]</div>
-<p><strong>Exemplo 2 – Automação</strong><br />
+<p><strong>Exemplo 2 – Automação</strong><br>
 Se uma falha elétrica causa parada a cada 6 meses (<strong>0{,}5 ano</strong>):  </p>
 <div class="arithmatex">\[
 ARO = \frac{1}{0{,}5} = 2
 \]</div>
 <p>(duas ocorrências por ano)</p>
-<hr />
+<hr>
 <h2 id="6-expectativa-de-perda-anual-ale">6. Expectativa de Perda Anual (ALE)</h2>
 <p>A <strong>ALE (Annualized Loss Expectancy)</strong> representa <strong>a perda financeira esperada por ano</strong> em função de um risco:</p>
 <div class="arithmatex">\[
@@ -3153,7 +3176,7 @@ ALE = SLE \times ARO
 </tbody>
 </table>
 <p>A empresa pode então planejar que, <strong>em média, perde R$ 2.500 por ano</strong> devido a falhas nesse servidor.</p>
-<hr />
+<hr>
 <h2 id="7-analisando-opcoes-de-mitigacao">7. Analisando Opções de Mitigação</h2>
 <p>Com o valor da <strong>ALE</strong>, é possível avaliar se <strong>vale a pena investir</strong> em uma solução de mitigação.</p>
 <h3 id="exemplo-pratico-ti">Exemplo Prático – TI</h3>
@@ -3177,9 +3200,9 @@ ALE = SLE \times ARO
 </tbody>
 </table>
 <p>Mas se o novo servidor custa <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }50.000\)</span>\)</span> e dura <strong>3 anos</strong>, o custo extra de <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }40.000\)</span>\)</span> não se paga com a economia de <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }6.000\)</span>\)</span> no período.</p>
-<hr />
+<hr>
 <h3 id="exemplo-pratico-automacao">Exemplo Prático – Automação</h3>
-<p>Uma linha de montagem perde <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }15.000\)</span>\)</span> sempre que um inversor queima (SLE).<br />
+<p>Uma linha de montagem perde <span class="arithmatex">\(<span class="arithmatex">\(\text{R\$ }15.000\)</span>\)</span> sempre que um inversor queima (SLE).<br>
 Com manutenção preventiva trimestral, a frequência de falhas cai de <strong>4 para 1 por ano</strong>:</p>
 <table>
 <thead>
@@ -3204,7 +3227,7 @@ Com manutenção preventiva trimestral, a frequência de falhas cai de <strong>4
 </tbody>
 </table>
 <p>Se o custo da manutenção anual for <strong>menor que R$ 45.000</strong>, a ação é economicamente vantajosa.</p>
-<hr />
+<hr>
 <h2 id="8-interpretacao-dos-resultados">8. Interpretação dos Resultados</h2>
 <table>
 <thead>
@@ -3243,20 +3266,20 @@ Com manutenção preventiva trimestral, a frequência de falhas cai de <strong>4
 </tbody>
 </table>
 <p>Essas métricas permitem:
-- Priorizar riscos com <strong>maior custo anual esperado (ALE)</strong>;<br />
-- Avaliar o <strong>retorno financeiro</strong> de controles de mitigação;<br />
+- Priorizar riscos com <strong>maior custo anual esperado (ALE)</strong>;<br>
+- Avaliar o <strong>retorno financeiro</strong> de controles de mitigação;<br>
 - Justificar investimentos com base em <strong>dados objetivos</strong>.</p>
-<hr />
+<hr>
 <h2 id="9-aplicacao-na-pratica">9. Aplicação na Prática</h2>
-<p>Na prática, a análise quantitativa funciona como um <strong>modelo de previsão financeira de perdas</strong>.<br />
+<p>Na prática, a análise quantitativa funciona como um <strong>modelo de previsão financeira de perdas</strong>.<br>
 Ela transforma a incerteza de eventos (falhas, ataques, paradas) em <strong>valores previsíveis</strong>, facilitando a tomada de decisão.</p>
 <blockquote>
-<p>Em TI, ela ajuda a responder: <em>“Vale a pena pagar por backup em tempo real?”</em><br />
+<p>Em TI, ela ajuda a responder: <em>“Vale a pena pagar por backup em tempo real?”</em><br>
 Em automação, responde: <em>“Compensa comprar um CLP redundante?”</em></p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="10-conclusao">10. Conclusão</h2>
-<p>A <strong>análise quantitativa de riscos</strong> é uma ferramenta poderosa e objetiva que traduz riscos em <strong>valores financeiros concretos</strong>.<br />
+<p>A <strong>análise quantitativa de riscos</strong> é uma ferramenta poderosa e objetiva que traduz riscos em <strong>valores financeiros concretos</strong>.<br>
 Ela permite comparar o custo do risco com o custo das soluções, facilitando decisões de investimento em segurança, disponibilidade e manutenção.</p>
 <p>Os componentes principais são:</p>
 <ul>
@@ -3267,7 +3290,7 @@ Ela permite comparar o custo do risco com o custo das soluções, facilitando de
 </ul>
 <blockquote>
 <p>Em última análise, a análise quantitativa é como o <strong>painel financeiro da segurança</strong>: mostra, com números, quanto custa cada risco e quanto vale investir para reduzi-lo.</p>
-</blockquote>
+</blockquote></div>
 
 
 

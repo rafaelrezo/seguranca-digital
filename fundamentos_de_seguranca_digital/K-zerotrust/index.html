@@ -374,6 +374,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../H-autorizacao/" class="md-nav__link">
         
   
@@ -493,6 +516,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-zero-trust" class="md-nav__link">
     <span class="md-ellipsis">
       1) O que é Zero Trust?
@@ -556,6 +588,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#53-fluxo-simplificado-de-decisao-mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Fluxo simplificado de decisão (Mermaid)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -601,6 +642,24 @@
   <a href="#10-ponto-chave" class="md-nav__link">
     <span class="md-ellipsis">
       10) Ponto-chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      11) Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      12) Perguntas de revisão rápida
     </span>
   </a>
   
@@ -2916,6 +2975,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-zero-trust" class="md-nav__link">
     <span class="md-ellipsis">
       1) O que é Zero Trust?
@@ -2979,6 +3047,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#53-fluxo-simplificado-de-decisao-mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Fluxo simplificado de decisão (Mermaid)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3029,6 +3106,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#11-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      11) Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      12) Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3045,9 +3140,18 @@
 
 
 
-<h1 id="zero-trust">Zero Trust</h1>
+<div><h1 id="zero-trust">Zero Trust</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Entender os princípios de Zero Trust.
+- Diferenciar plano de controle e plano de dados.
+- Propor passos práticos de adoção.</p>
+<p><strong>Tempo estimado:</strong> 20 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/21n6MVHheFU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="1-o-que-e-zero-trust">1) O que é Zero Trust?</h2>
-<p><strong>Zero Trust</strong> é um modelo de segurança em que <strong>ninguém é confiável por padrão</strong> — nem usuários, nem dispositivos, nem aplicações, estejam <strong>dentro</strong> ou <strong>fora</strong> da rede.<br />
+<p><strong>Zero Trust</strong> é um modelo de segurança em que <strong>ninguém é confiável por padrão</strong> — nem usuários, nem dispositivos, nem aplicações, estejam <strong>dentro</strong> ou <strong>fora</strong> da rede.<br>
 A regra prática é: <strong>“não confie em nada, verifique tudo, o tempo todo”</strong>.</p>
 <p>Imagine armários de encomendas inteligentes: mesmo que a encomenda esteja “no seu prédio”, o compartimento <strong>só abre</strong> quando você informa <strong>o código válido naquele momento</strong>. Estar no prédio não garante acesso; <strong>a verificação acontece a cada abertura</strong>.</p>
 <h2 id="2-origem-do-conceito">2) Origem do conceito</h2>
@@ -3062,18 +3166,18 @@ A regra prática é: <strong>“não confie em nada, verifique tudo, o tempo tod
 <h2 id="4-principios-fundamentais-do-zero-trust">4) Princípios fundamentais do Zero Trust</h2>
 <ol>
 <li>
-<p><strong>Verificação contínua</strong><br />
-   Não basta verificar no login; revalide <strong>identidade, dispositivo e contexto</strong> ao longo da sessão.<br />
+<p><strong>Verificação contínua</strong><br>
+   Não basta verificar no login; revalide <strong>identidade, dispositivo e contexto</strong> ao longo da sessão.<br>
 <em>Exemplo:</em> se o usuário troca de rede Wi-Fi no meio do acesso, o sistema pode exigir uma nova confirmação.</p>
 </li>
 <li>
-<p><strong>Menor privilégio possível (Least Privilege)</strong><br />
-   Conceda <strong>só o necessário</strong> para a tarefa.<br />
+<p><strong>Menor privilégio possível (Least Privilege)</strong><br>
+   Conceda <strong>só o necessário</strong> para a tarefa.<br>
 <em>Exemplo:</em> um colaborador do suporte vê registros de atendimento, mas não consegue exportar a base inteira.</p>
 </li>
 <li>
-<p><strong>Suposição de violação (Assume Breach)</strong><br />
-   Planeje como se as credenciais pudessem vazar e <strong>contenha o dano</strong> por segmentação e controles adicionais.<br />
+<p><strong>Suposição de violação (Assume Breach)</strong><br>
+   Planeje como se as credenciais pudessem vazar e <strong>contenha o dano</strong> por segmentação e controles adicionais.<br>
 <em>Exemplo:</em> mesmo que um token seja roubado, o invasor <strong>não alcança</strong> o banco de produção por falta de rota e política.</p>
 </li>
 </ol>
@@ -3092,6 +3196,14 @@ A regra prática é: <strong>“não confie em nada, verifique tudo, o tempo tod
 <li><strong>Ponto de Aplicação de Políticas (PEP)</strong>: “porteiro” que <strong>permite ou nega</strong> o acesso segundo as regras decididas no plano de controle.</li>
 </ul>
 <p>É como um <strong>elevador inteligente</strong> onde o cartão libera apenas os andares previstos na sua reserva, e pode pedir confirmação extra se detectar algo diferente do padrão (horário, dispositivo).</p>
+<h3 id="53-fluxo-simplificado-de-decisao-mermaid">5.3 Fluxo simplificado de decisão (Mermaid)</h3>
+<pre class="mermaid"><code>flowchart LR
+  U[Usuário/Serviço] --&gt; PEP[Ponto de Aplicação de Política]
+  PEP --&gt; PDP[Plano de Controle / Decisor]
+  PDP --&gt;|Consulta| ID[Identidade + Contexto + Risco]
+  ID --&gt; PDP
+  PDP --&gt;|Permitir ou Negar| PEP
+  PEP --&gt; R[Recurso]</code></pre>
 <h2 id="6-tecnologias-e-praticas-comuns-exemplos">6) Tecnologias e práticas comuns (exemplos)</h2>
 <ul>
 <li><strong>IdP e IAM</strong>: Okta, Azure AD, Google Cloud IAM (identidade, SSO, MFA, políticas de acesso condicional).  </li>
@@ -3125,6 +3237,20 @@ A regra prática é: <strong>“não confie em nada, verifique tudo, o tempo tod
 <h2 id="10-ponto-chave">10) Ponto-chave</h2>
 <p>Zero Trust <strong>não é um produto</strong>, é um <strong>modo de operar</strong>: verificar continuamente <strong>quem</strong> pede acesso, <strong>em que condições</strong>, <strong>a quê</strong>, e <strong>por quanto tempo</strong> — reduzindo privilégios, segmentando caminhos e reagindo a risco em tempo real.  </p>
 <p>Assim, mesmo que algo falhe, o impacto fica <strong>contido</strong> e a organização continua <strong>resiliente</strong>.</p>
+<hr>
+<h2 id="11-mini-caso-pratico">11) Mini-caso prático</h2>
+<p>Uma instituição usa VPN única para toda a rede interna. Conta comprometida ganha acesso amplo.</p>
+<ul>
+<li><strong>Problema:</strong> confiança implícita após login.</li>
+<li><strong>Melhoria Zero Trust:</strong> acesso por aplicação (ZTNA), menor privilégio e revalidação por risco.</li>
+</ul>
+<hr>
+<h2 id="12-perguntas-de-revisao-rapida">12) Perguntas de revisão rápida</h2>
+<ol>
+<li>O que muda entre VPN ampla e ZTNA por aplicação?</li>
+<li>Por que "assume breach" reduz impacto?</li>
+<li>Qual papel do PEP no fluxo de acesso?</li>
+</ol></div>
 
 
 

@@ -14,7 +14,7 @@
         <link rel="prev" href="../E-disponibilidade/">
       
       
-        <link rel="next" href="../H-autorizacao/">
+        <link rel="next" href="../G-autenticacao/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -401,6 +401,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-nao-repudio" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Não Repúdio?
@@ -487,10 +496,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2889,6 +2939,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-nao-repudio" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Não Repúdio?
@@ -2975,6 +3034,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2991,16 +3068,25 @@
 
 
 
-<h1 id="nao-repudio-non-repudiation">Não Repúdio (Non-Repudiation)</h1>
+<div><h1 id="nao-repudio-non-repudiation">Não Repúdio (Non-Repudiation)</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Entender o princípio de não repúdio.
+- Relacionar não repúdio com assinatura digital e PKI.
+- Reconhecer evidências digitais para auditoria.</p>
+<p><strong>Tempo estimado:</strong> 10 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/UlRCVihN3pE" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="1-o-que-e-nao-repudio">1. O que é Não Repúdio?</h2>
 <p>Não repúdio é o princípio que garante <strong>prova incontestável</strong> de que uma pessoa ou entidade participou de uma comunicação ou transação digital, impedindo que ela negue a autoria ou o envolvimento.</p>
-<p><strong>Exemplo simples:</strong><br />
+<p><strong>Exemplo simples:</strong><br>
 Enviar uma carta registrada que exige assinatura na entrega — a assinatura confirma que o destinatário recebeu e não pode negar.</p>
-<hr />
+<hr>
 <h2 id="2-origem-e-exemplo-historico">2. Origem e Exemplo Histórico</h2>
-<p>Antes da era digital, reis e nobres usavam <strong>anéis-sinete</strong> para imprimir um selo de cera único em documentos oficiais.<br />
+<p>Antes da era digital, reis e nobres usavam <strong>anéis-sinete</strong> para imprimir um selo de cera único em documentos oficiais.<br>
 Esse selo era prova de autenticidade, pois apenas o proprietário do anel poderia produzi-lo.</p>
-<hr />
+<hr>
 <h2 id="3-como-funciona-no-mundo-digital">3. Como Funciona no Mundo Digital</h2>
 <p>No ambiente digital, o não repúdio é implementado principalmente através de <strong>assinaturas digitais</strong>.</p>
 <p><strong>Passos básicos:</strong>
@@ -3010,24 +3096,38 @@ Esse selo era prova de autenticidade, pois apenas o proprietário do anel poderi
 <p><strong>Benefícios:</strong>
 - Garante que o remetente é quem afirma ser (<strong>autenticidade</strong>).
 - Garante que o conteúdo não foi alterado (<strong>integridade</strong>).</p>
-<hr />
+<hr>
 <h2 id="4-por-que-o-nao-repudio-e-importante">4. Por que o Não Repúdio é Importante?</h2>
 <h3 id="41-confirmar-autenticidade-de-transacoes-digitais">4.1 Confirmar Autenticidade de Transações Digitais</h3>
-<p>Evita que alguém negue ter enviado uma mensagem ou realizado uma ação.<br />
+<p>Evita que alguém negue ter enviado uma mensagem ou realizado uma ação.<br>
 <strong>Exemplo:</strong> Um e-mail assinado digitalmente para um corretor de ações solicitando a venda de ativos.</p>
 <h3 id="42-garantir-integridade">4.2 Garantir Integridade</h3>
 <p>Alterações no conteúdo quebram o vínculo com a assinatura digital, denunciando qualquer modificação não autorizada.</p>
 <h3 id="43-prover-responsabilidade-accountability">4.3 Prover Responsabilidade (Accountability)</h3>
-<p>Ações ficam associadas a um usuário específico, incentivando comportamento responsável.<br />
+<p>Ações ficam associadas a um usuário específico, incentivando comportamento responsável.<br>
 <strong>Exemplo:</strong> Aplicativos de seguro de carro que registram dados de direção vinculados ao motorista autenticado.</p>
-<hr />
+<hr>
 <h2 id="5-ferramenta-principal-assinatura-digital">5. Ferramenta Principal: Assinatura Digital</h2>
-<p>A assinatura digital é para o mundo eletrônico o que o anel-sinete foi para a Idade Média:<br />
+<p>A assinatura digital é para o mundo eletrônico o que o anel-sinete foi para a Idade Média:<br>
 uma <strong>marca única e comprovável</strong> que liga o autor a uma mensagem ou ação.</p>
-<hr />
+<hr>
 <h2 id="6-ponto-chave">6. Ponto-Chave</h2>
-<p>Sempre que ouvir o termo <strong>não repúdio</strong>, associe a <strong>assinaturas digitais</strong>.<br />
+<p>Sempre que ouvir o termo <strong>não repúdio</strong>, associe a <strong>assinaturas digitais</strong>.<br>
 Elas são essenciais para criar <strong>confiança, autenticidade e responsabilização</strong> nas interações digitais.</p>
+<hr>
+<h2 id="7-mini-caso-pratico">7. Mini-caso prático</h2>
+<p>Um fornecedor diz que não autorizou uma ordem de compra enviada por e-mail.</p>
+<ul>
+<li><strong>Problema:</strong> ausência de prova forte de autoria.</li>
+<li><strong>Controle recomendado:</strong> assinatura digital com certificado válido e guarda de logs da transação.</li>
+</ul>
+<hr>
+<h2 id="8-perguntas-de-revisao-rapida">8. Perguntas de revisão rápida</h2>
+<ol>
+<li>Qual evidência técnica reduz a negação de autoria?</li>
+<li>Não repúdio depende de qual par de chaves?</li>
+<li>Por que logs sozinhos podem não ser suficientes?</li>
+</ol></div>
 
 
 

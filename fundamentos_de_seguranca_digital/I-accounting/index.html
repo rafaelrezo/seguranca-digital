@@ -374,6 +374,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../H-autorizacao/" class="md-nav__link">
         
   
@@ -445,6 +468,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1-o-que-e-accounting" class="md-nav__link">
@@ -579,6 +611,24 @@
   <a href="#4-ponto-chave" class="md-nav__link">
     <span class="md-ellipsis">
       4. Ponto-Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas de revisão rápida
     </span>
   </a>
   
@@ -2940,6 +2990,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-accounting" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Accounting?
@@ -3077,6 +3136,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3093,12 +3170,21 @@
 
 
 
-<h1 id="accounting-contabilizacao">Accounting (Contabilização)</h1>
+<div><h1 id="accounting-contabilizacao">Accounting (Contabilização)</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Entender o papel do accounting no modelo AAA.
+- Identificar fontes e tipos de logs relevantes.
+- Relacionar logging com auditoria, forense e conformidade.</p>
+<p><strong>Tempo estimado:</strong> 15 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/iSpglxHTJVM" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="1-o-que-e-accounting">1. O que é Accounting?</h2>
 <p>No contexto da segurança da informação, <strong>accounting</strong> é o processo de <strong>monitorar, registrar e armazenar todas as ações realizadas</strong> por usuários ou sistemas durante interações digitais.</p>
-<p><strong>Exemplo simples:</strong><br />
+<p><strong>Exemplo simples:</strong><br>
 Assim como um extrato bancário detalhado fornece cada transação, data, hora e valor, o accounting registra todos os eventos dentro de um sistema, permitindo verificar e rastrear atividades.</p>
-<hr />
+<hr>
 <h2 id="2-por-que-o-accounting-e-importante">2. Por que o Accounting é Importante?</h2>
 <h3 id="21-trilha-de-auditoria-audit-trail">2.1 Trilha de Auditoria (Audit Trail)</h3>
 <p>Mantém um registro cronológico de todas as ações, permitindo rastrear mudanças, identificar acessos não autorizados e detectar comportamentos anômalos.</p>
@@ -3110,9 +3196,9 @@ Assim como um extrato bancário detalhado fornece cada transação, data, hora e
 <p>Permite identificar o uso de recursos (ex.: largura de banda, armazenamento) e otimizar sua alocação, reduzindo custos.</p>
 <h3 id="25-responsabilidade-do-usuario">2.5 Responsabilidade do Usuário</h3>
 <p>Com o registro das ações, os usuários sabem que são monitorados, o que ajuda a prevenir abusos e incentivar o cumprimento das políticas internas.</p>
-<hr />
+<hr>
 <h2 id="3-ferramentas-utilizadas">3. Ferramentas Utilizadas</h2>
-<p>O accounting depende de <strong>tecnologias de monitoramento e registro</strong> que coletam, centralizam e analisam eventos.<br />
+<p>O accounting depende de <strong>tecnologias de monitoramento e registro</strong> que coletam, centralizam e analisam eventos.<br>
 Essas ferramentas podem ser utilizadas de forma isolada ou integradas em um ecossistema de segurança.</p>
 <h3 id="31-servidores-syslog">3.1 Servidores Syslog</h3>
 <ul>
@@ -3169,14 +3255,28 @@ Essas ferramentas podem ser utilizadas de forma isolada ou integradas em um ecos
 <li><strong>Fluentd</strong>.  </li>
 <li><strong>Loki/Grafana</strong>.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="4-ponto-chave">4. Ponto-Chave</h2>
 <p>Accounting é essencial para:
 - <strong>Transparência</strong>
 - <strong>Rastreabilidade</strong>
 - <strong>Confiabilidade</strong> dos sistemas</p>
-<p>Ele é o <strong>histórico oficial</strong> de todas as ações realizadas, funcionando como um extrato bancário para a segurança digital.<br />
+<p>Ele é o <strong>histórico oficial</strong> de todas as ações realizadas, funcionando como um extrato bancário para a segurança digital.<br>
 Ferramentas modernas permitem integrar logs de diferentes fontes, correlacionar eventos e responder a incidentes com agilidade.</p>
+<hr>
+<h2 id="5-mini-caso-pratico">5. Mini-caso prático</h2>
+<p>Após incidente de acesso indevido, a equipe não consegue identificar qual conta executou a ação.</p>
+<ul>
+<li><strong>Causa provável:</strong> logs incompletos ou sem centralização.</li>
+<li><strong>Ação recomendada:</strong> padronizar logs, centralizar em SIEM e definir retenção mínima.</li>
+</ul>
+<hr>
+<h2 id="6-perguntas-de-revisao-rapida">6. Perguntas de revisão rápida</h2>
+<ol>
+<li>Qual a diferença entre log local e SIEM?</li>
+<li>Quais dados mínimos um evento de autenticação deve registrar?</li>
+<li>Por que retenção de logs é crítica para forense?</li>
+</ol></div>
 
 
 

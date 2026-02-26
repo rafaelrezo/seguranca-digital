@@ -378,6 +378,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-disponibilidade" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Disponibilidade?
@@ -506,6 +515,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -528,6 +555,29 @@
   
   <span class="md-ellipsis">
     Não Repudio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
     
   </span>
   
@@ -2931,6 +2981,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-o-que-e-disponibilidade" class="md-nav__link">
     <span class="md-ellipsis">
       1. O que é Disponibilidade?
@@ -3059,6 +3118,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3075,11 +3152,20 @@
 
 
 
-<h1 id="disponibilidade">Disponibilidade</h1>
+<div><h1 id="disponibilidade">Disponibilidade</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Entender por que disponibilidade é um pilar de segurança.
+- Ler níveis de uptime com "números de nove".
+- Relacionar disponibilidade com redundância e continuidade.</p>
+<p><strong>Tempo estimado:</strong> 15 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/tnVWE0cWSvk" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="1-o-que-e-disponibilidade">1. O que é Disponibilidade?</h2>
 <p>Disponibilidade é o princípio que garante que <strong>informações, sistemas e recursos estejam acessíveis e operacionais</strong> para usuários autorizados sempre que necessário.</p>
 <p><strong>Exemplo simples:</strong>  </p>
-<p>Você tem uma reunião online marcada para as 10h, mas minutos antes a internet cai.<br />
+<p>Você tem uma reunião online marcada para as 10h, mas minutos antes a internet cai.<br>
 Assim como você espera que sua internet funcione nesse momento crítico, empresas precisam que seus sistemas e serviços estejam sempre disponíveis para atender clientes e manter suas operações.</p>
 <h2 id="2-por-que-a-disponibilidade-e-importante">2. Por que a Disponibilidade é Importante?</h2>
 <h3 id="21-continuidade-de-negocios">2.1 Continuidade de Negócios</h3>
@@ -3087,10 +3173,10 @@ Assim como você espera que sua internet funcione nesse momento crítico, empres
 <ul>
 <li>E-commerce: perda direta de vendas.</li>
 <li>Hospital: risco à vida se sistemas críticos ficarem indisponíveis.</li>
-<li>Telecomunicações: até <strong>US$ 33 mil de prejuízo por minuto</strong> de indisponibilidade.</li>
+<li>Telecomunicações: prejuízo por minuto pode ser muito alto e varia por porte, setor e criticidade do serviço.</li>
 </ul>
 <h3 id="22-manutencao-da-confianca-do-cliente">2.2 Manutenção da Confiança do Cliente</h3>
-<p>Se clientes não conseguem acessar contas, comprar produtos ou usar serviços, a confiança na empresa cai.<br />
+<p>Se clientes não conseguem acessar contas, comprar produtos ou usar serviços, a confiança na empresa cai.<br>
 Indisponibilidades prolongadas podem levá-los a buscar concorrentes.</p>
 <h3 id="23-reputacao-organizacional">2.3 Reputação Organizacional</h3>
 <p>Falhas frequentes prejudicam a imagem da organização e dificultam a reconquista da confiança de clientes que migraram para outras empresas.</p>
@@ -3131,10 +3217,10 @@ Indisponibilidades prolongadas podem levá-los a buscar concorrentes.</p>
 <h3 id="51-servidor">5.1 Servidor</h3>
 <p>Uso de múltiplos servidores em <strong>balanceamento de carga</strong> ou <strong>failover</strong>, garantindo que, se um falhar ou ficar sobrecarregado, outro continue atendendo.</p>
 <h3 id="52-dados">5.2 Dados</h3>
-<p>Armazenamento de informações em múltiplos locais.<br />
+<p>Armazenamento de informações em múltiplos locais.<br>
 Pode ser local (ex.: RAID) ou combinado com <strong>backup na nuvem</strong>, garantindo acesso mesmo se um sistema falhar.</p>
 <h3 id="53-rede">5.3 Rede</h3>
-<p>Múltiplos caminhos ou provedores para tráfego de dados.<br />
+<p>Múltiplos caminhos ou provedores para tráfego de dados.<br>
 <strong>Exemplo:</strong></p>
 <p>Internet via fibra, link de rádio e conexão 4G como backup.</p>
 <h3 id="54-energia">5.4 Energia</h3>
@@ -3145,6 +3231,20 @@ Pode ser local (ex.: RAID) ou combinado com <strong>backup na nuvem</strong>, ga
 <li>Garantir alta disponibilidade exige planejamento, investimento e monitoramento constantes.  </li>
 <li>No mundo digital, <strong>tempo é dinheiro</strong>: cada segundo de indisponibilidade pode gerar prejuízos financeiros e perda de confiança.</li>
 </ul>
+<hr>
+<h2 id="7-mini-caso-pratico">7. Mini-caso prático</h2>
+<p>Um ambiente de ensino remoto cai durante prova online porque há apenas um link de internet.</p>
+<ul>
+<li><strong>Risco:</strong> indisponibilidade em horário crítico.</li>
+<li><strong>Controles recomendados:</strong> segundo link com failover, monitoramento pró-ativo e plano de contingência para avaliação.</li>
+</ul>
+<hr>
+<h2 id="8-perguntas-de-revisao-rapida">8. Perguntas de revisão rápida</h2>
+<ol>
+<li>Qual a diferença entre balanceamento e failover?</li>
+<li>Por que backup não substitui alta disponibilidade?</li>
+<li>Quais dois controles você priorizaria no mini-caso?</li>
+</ol></div>
 
 
 

@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -2979,18 +3002,18 @@
 
 
 
-<h1 id="metodos-de-protecao-de-dados">Métodos de Proteção de Dados</h1>
-<p>Na era digital, a <strong>segurança da informação</strong> é uma prioridade global.<br />
-Com a evolução constante das ameaças, as organizações precisam adotar estratégias diversificadas para proteger seus dados.<br />
+<div><h1 id="metodos-de-protecao-de-dados">Métodos de Proteção de Dados</h1>
+<p>Na era digital, a <strong>segurança da informação</strong> é uma prioridade global.<br>
+Com a evolução constante das ameaças, as organizações precisam adotar estratégias diversificadas para proteger seus dados.<br>
 Nesta aula, exploramos as principais técnicas utilizadas, cada uma aplicada de acordo com o contexto e a criticidade da informação.</p>
-<hr />
+<hr>
 <h2 id="1-restricoes-geograficas-geofencing">1. Restrições Geográficas (Geofencing)</h2>
 <ul>
 <li>Definem <strong>limites virtuais</strong> para restringir acessos de acordo com a localização geográfica.  </li>
 <li>Auxiliam na conformidade com <strong>leis de soberania de dados</strong> e reduzem riscos de acessos indevidos.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: restringir acessos aos sistemas de supervisão de uma planta industrial apenas para conexões vindas do território nacional.</p>
-<hr />
+<hr>
 <h2 id="2-criptografia">2. Criptografia</h2>
 <ul>
 <li>Converte dados legíveis (plaintext) em dados ilegíveis (ciphertext).  </li>
@@ -2998,21 +3021,21 @@ Nesta aula, exploramos as principais técnicas utilizadas, cada uma aplicada de 
 <li>Aplicável a <strong>dados em repouso</strong> (bancos de dados, discos) e <strong>dados em trânsito</strong> (redes, VPNs).  </li>
 </ul>
 <p><em>Exemplo implícito</em>: relatórios de manutenção armazenados em servidores de chão de fábrica criptografados em disco completo.</p>
-<hr />
+<hr>
 <h2 id="3-hashing">3. Hashing</h2>
 <ul>
 <li>Converte dados em <strong>valores fixos (hashes)</strong>, impossíveis de serem revertidos.  </li>
 <li>Usado para proteger <strong>senhas</strong> e validar a <strong>integridade de arquivos</strong>.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: verificação de firmware de controladores industriais antes da atualização.</p>
-<hr />
+<hr>
 <h2 id="4-mascaramento">4. Mascaramento</h2>
 <ul>
 <li>Substitui total ou parcialmente dados originais por caracteres fictícios, mantendo o <strong>formato</strong>.  </li>
 <li>É um método de <strong>desidentificação</strong> irreversível.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: exibir apenas parte do número de registro de funcionários em relatórios de auditoria.</p>
-<hr />
+<hr>
 <h2 id="5-tokenizacao">5. Tokenização</h2>
 <ul>
 <li>Substitui dados sensíveis por <strong>tokens não sensíveis</strong>.  </li>
@@ -3020,31 +3043,31 @@ Nesta aula, exploramos as principais técnicas utilizadas, cada uma aplicada de 
 <li>Muito usado em <strong>sistemas de pagamento</strong>.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: substituição de identificadores de cartões de acesso de operadores por tokens em sistemas de autenticação.</p>
-<hr />
+<hr>
 <h2 id="6-ofuscacao">6. Ofuscação</h2>
 <ul>
 <li>Torna dados ou código <strong>difíceis de compreender</strong> para usuários não autorizados.  </li>
 <li>Pode incluir criptografia, pseudonimização e técnicas de embaralhamento.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: ofuscar parâmetros de programação de CLPs exportados para arquivos externos.</p>
-<hr />
+<hr>
 <h2 id="7-segmentacao">7. Segmentação</h2>
 <ul>
 <li>Divide a rede em <strong>múltiplos segmentos</strong>, cada um com controles próprios.  </li>
 <li>Impede movimentação lateral de atacantes em caso de invasão.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: separar a rede administrativa (TI) da rede de automação (OT) em uma planta industrial.</p>
-<hr />
+<hr>
 <h2 id="8-restricoes-de-permissao">8. Restrições de Permissão</h2>
 <ul>
 <li>Definem <strong>quem pode acessar</strong> e <strong>o que pode fazer</strong> com os dados.  </li>
 <li>Usam modelos como <strong>ACL (Access Control List)</strong> ou <strong>RBAC (Role-Based Access Control)</strong>.  </li>
 </ul>
 <p><em>Exemplo implícito</em>: permitir que apenas engenheiros de manutenção autorizados alterem parâmetros de equipamentos críticos.</p>
-<hr />
+<hr>
 <h2 id="9-conclusao">9. Conclusão</h2>
-<p>A proteção de dados exige um <strong>conjunto de técnicas complementares</strong>, ajustadas ao perfil da organização e ao tipo de dado tratado.<br />
-No contexto da <strong>engenharia de controle e automação</strong>, o uso combinado de <strong>geofencing, criptografia, hashing, mascaramento, tokenização, ofuscação, segmentação e controle de permissões</strong> garante a resiliência contra ameaças internas e externas, preservando tanto os ativos digitais quanto a continuidade operacional.</p>
+<p>A proteção de dados exige um <strong>conjunto de técnicas complementares</strong>, ajustadas ao perfil da organização e ao tipo de dado tratado.<br>
+No contexto da <strong>engenharia de controle e automação</strong>, o uso combinado de <strong>geofencing, criptografia, hashing, mascaramento, tokenização, ofuscação, segmentação e controle de permissões</strong> garante a resiliência contra ameaças internas e externas, preservando tanto os ativos digitais quanto a continuidade operacional.</p></div>
 
 
 

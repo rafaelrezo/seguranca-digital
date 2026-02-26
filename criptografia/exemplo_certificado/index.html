@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -2889,10 +2912,10 @@
 
 
 
-<h1 id="demonstracao-explorando-certificados-digitais-em-sites-brasileiros">Demonstração: Explorando Certificados Digitais em Sites Brasileiros</h1>
-<p>Nesta demonstração, vamos analisar os <strong>certificados digitais</strong> de alguns sites conhecidos no Brasil e observar as informações contidas nesses certificados públicos.<br />
+<div><h1 id="demonstracao-explorando-certificados-digitais-em-sites-brasileiros">Demonstração: Explorando Certificados Digitais em Sites Brasileiros</h1>
+<p>Nesta demonstração, vamos analisar os <strong>certificados digitais</strong> de alguns sites conhecidos no Brasil e observar as informações contidas nesses certificados públicos.<br>
 Os exemplos a seguir utilizam conexões HTTPS na <strong>porta 443</strong>, padrão para navegação segura.</p>
-<hr />
+<hr>
 <h2 id="1-exemplo-governo-federal-govbr">1) Exemplo: Governo Federal (gov.br)</h2>
 <ul>
 <li>Ao acessar <code>https://www.gov.br</code>, é exibido o ícone de cadeado ao lado do endereço.  </li>
@@ -2905,7 +2928,7 @@ Os exemplos a seguir utilizam conexões HTTPS na <strong>porta 443</strong>, pad
 <blockquote>
 <p>Exemplo industrial: em sistemas de controle governamentais (ex.: fiscalização de energia ou saneamento), certificados como os emitidos pela SERPRO podem ser usados para garantir autenticidade das comunicações com portais oficiais.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="2-outras-informacoes-relevantes-dos-certificados">2) Outras Informações Relevantes dos Certificados</h2>
 <ul>
 <li><strong>Identificação</strong>: Razão social, localização (cidade/estado) e domínio.  </li>
@@ -2914,7 +2937,7 @@ Os exemplos a seguir utilizam conexões HTTPS na <strong>porta 443</strong>, pad
 <li><strong>Fingerprint único</strong>: identificação exclusiva do certificado.  </li>
 <li><strong>Cadeia de confiança</strong>: Root CA → CA intermediária → Certificado do site.  </li>
 </ul>
-<hr />
+<hr>
 <h2 id="3-observacoes-didaticas">3) Observações Didáticas</h2>
 <ul>
 <li>Certificados digitais não se restringem a sites de internet.  </li>
@@ -2923,12 +2946,12 @@ Os exemplos a seguir utilizam conexões HTTPS na <strong>porta 443</strong>, pad
 <li><strong>Servidores SCADA</strong> que exigem autenticação forte antes de aceitar conexões.  </li>
 <li><strong>VPNs corporativas</strong> que interligam unidades fabris com a matriz.  </li>
 </ul>
-<hr />
+<hr>
 <h2 id="4-conclusao">4) Conclusão</h2>
-<p>A análise de certificados em sites como <strong>gov.br</strong> e <strong>Banco do Brasil</strong> ilustra como <strong>diferentes algoritmos e tamanhos de chave</strong> são escolhidos conforme o contexto:<br />
-- RSA (compatibilidade ampla, usado em portais governamentais).<br />
+<p>A análise de certificados em sites como <strong>gov.br</strong> e <strong>Banco do Brasil</strong> ilustra como <strong>diferentes algoritmos e tamanhos de chave</strong> são escolhidos conforme o contexto:<br>
+- RSA (compatibilidade ampla, usado em portais governamentais).<br>
 - ECC (eficiência em dispositivos móveis, adotado por instituições financeiras).  </p>
-<p>Em ambientes de <strong>Engenharia de Controle e Automação</strong>, compreender essas diferenças é essencial para projetar <strong>redes industriais seguras</strong>, escolhendo certificados digitais de acordo com os requisitos de desempenho e confiabilidade do processo.</p>
+<p>Em ambientes de <strong>Engenharia de Controle e Automação</strong>, compreender essas diferenças é essencial para projetar <strong>redes industriais seguras</strong>, escolhendo certificados digitais de acordo com os requisitos de desempenho e confiabilidade do processo.</p></div>
 
 
 

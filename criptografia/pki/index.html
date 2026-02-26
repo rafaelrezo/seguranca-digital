@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3009,16 +3032,16 @@
 
 
 
-<h1 id="public-key-infrastructure-pki">Public Key Infrastructure (PKI)</h1>
+<div><h1 id="public-key-infrastructure-pki">Public Key Infrastructure (PKI)</h1>
 <p>Este material organiza os principais conceitos sobre <strong>Infraestrutura de Chave Pública (PKI)</strong>. O foco está em como a PKI garante <strong>confidencialidade, autenticação e integridade</strong> em comunicações digitais, incluindo cenários discretos aplicados a <strong>sistemas industriais</strong>, como SCADA, CLPs e gateways de rede.</p>
-<hr />
+<hr>
 <h2 id="1-o-que-e-pki">1) O que é PKI?</h2>
 <ul>
 <li><strong>Definição</strong>: conjunto de <strong>hardware, software, políticas, procedimentos e pessoas</strong> que viabilizam o uso de criptografia assimétrica.  </li>
 <li><strong>Objetivo</strong>: garantir <strong>segurança ponta a ponta</strong> em redes corporativas e industriais.  </li>
 <li><strong>Exemplo prático</strong>: ao acessar um painel de supervisão via HTTPS, o navegador ou cliente se apoia na PKI para validar o servidor antes de exibir dados de sensores.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="2-processo-de-estabelecimento-de-conexao-segura">2) Processo de Estabelecimento de Conexão Segura</h2>
 <ol>
 <li><strong>Navegador/cliente</strong> acessa um servidor (ex.: <code>https://planta.empresa.com</code>).  </li>
@@ -3031,13 +3054,13 @@
 <blockquote>
 <p>Exemplo industrial: estação de operação estabelece um túnel TLS com o <strong>servidor SCADA central</strong>, garantindo que leituras de pressão e comandos não sejam interceptados.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="3-diferenca-entre-criptografia-assimetrica-e-pki">3) Diferença entre Criptografia Assimétrica e PKI</h2>
 <ul>
 <li><strong>Criptografia assimétrica</strong>: apenas o processo matemático de usar chaves públicas e privadas.  </li>
 <li><strong>PKI</strong>: toda a <strong>infraestrutura</strong> que gera, distribui, valida e revoga certificados, mantendo a confiança entre partes.  </li>
 </ul>
-<hr />
+<hr>
 <h2 id="4-componentes-essenciais-da-pki">4) Componentes Essenciais da PKI</h2>
 <h3 id="41-autoridade-certificadora-ca">4.1 Autoridade Certificadora (CA)</h3>
 <ul>
@@ -3063,7 +3086,7 @@
 <blockquote>
 <p>Exemplo industrial: engenheiro cifra relatórios de calibração com seu certificado pessoal; se ele sair da empresa, a chave no <strong>escrow</strong> garante acesso aos arquivos.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="5-beneficios-do-pki">5) Benefícios do PKI</h2>
 <ul>
 <li><strong>Confidencialidade</strong>: apenas partes autorizadas acessam os dados.  </li>
@@ -3074,7 +3097,7 @@
 <blockquote>
 <p>Exemplo industrial: assinaturas digitais em <strong>firmwares de CLPs</strong> asseguram que apenas software legítimo do fabricante será instalado.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="6-desafios-e-boas-praticas">6) Desafios e Boas Práticas</h2>
 <ul>
 <li><strong>Proteção do Key Escrow</strong>: exigir controles rígidos de acesso.  </li>
@@ -3082,11 +3105,11 @@
 <li><strong>Segmentação</strong>: uso de PKI em redes industriais isoladas reduz riscos de ataque externo.  </li>
 <li><strong>Automação</strong>: integração de certificados em <strong>pipelines de CI/CD</strong> garante que apenas aplicações assinadas cheguem à produção.  </li>
 </ul>
-<hr />
+<hr>
 <h2 id="7-conclusao">7) Conclusão</h2>
-<p>A <strong>PKI</strong> é mais do que criptografia: é uma <strong>estrutura completa</strong> que garante <strong>segurança confiável</strong> em ambientes industriais e corporativos.<br />
+<p>A <strong>PKI</strong> é mais do que criptografia: é uma <strong>estrutura completa</strong> que garante <strong>segurança confiável</strong> em ambientes industriais e corporativos.<br>
 Sua adoção em sistemas de <strong>automação e controle</strong> protege dados de sensores, impede adulteração de comandos e garante que apenas softwares e usuários autorizados participem da rede crítica.</p>
-<hr />
+<hr></div>
 
 
 

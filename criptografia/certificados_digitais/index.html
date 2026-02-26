@@ -372,6 +372,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
         
   
@@ -3279,7 +3302,7 @@
 
 
 
-<h1 id="certificados-digitais-x509-organizacao-dos-principais-topicos">Certificados Digitais (X.509) — Organização dos Principais Tópicos</h1>
+<div><h1 id="certificados-digitais-x509-organizacao-dos-principais-topicos">Certificados Digitais (X.509) — Organização dos Principais Tópicos</h1>
 <h2 id="1-conceito-e-finalidade">1) Conceito e Finalidade</h2>
 <ul>
 <li><strong>Certificado digital</strong>: documento eletrônico <strong>assinado digitalmente</strong> que associa uma <strong>chave pública</strong> à <strong>identidade</strong> de um sujeito (pessoa, servidor, equipamento).</li>
@@ -3289,7 +3312,7 @@
 <blockquote>
 <p>Exemplo industrial: um <strong>gateway de dados</strong> apresenta seu certificado X.509 ao <strong>servidor SCADA</strong> para comprovar identidade antes de enviar telemetria.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="2-estrutura-de-um-certificado-x509-visao-didatica">2) Estrutura de um Certificado X.509 (visão didática)</h2>
 <ul>
 <li><strong>Sujeito (Subject)</strong>: identidade do titular (CN, OU, O, L, C).</li>
@@ -3305,7 +3328,7 @@
 <blockquote>
 <p>Exemplo industrial: certificados de <strong>dispositivos de campo</strong> incluem SAN com nomes DNS internos (ex.: <code>clp01.planta.local</code>) e/ou endereços IP estáticos de rede OT.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="3-tipos-e-cenarios-de-uso">3) Tipos e Cenários de Uso</h2>
 <h3 id="31-wildcard-certificate-dominiocom">3.1 Wildcard Certificate (<code>*.dominio.com</code>)</h3>
 <ul>
@@ -3345,7 +3368,7 @@
 <li>Assinados por <strong>CA reconhecida</strong> (trust stores de SO/navegadores).</li>
 <li><strong>Preferência</strong>: aplicações públicas e integrações externas.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="4-cadeia-de-confianca-root-of-trust">4) Cadeia de Confiança (Root of Trust)</h2>
 <ul>
 <li><strong>Raiz (Root CA)</strong> → <strong>CA Intermediária</strong> → <strong>Certificado final</strong>.</li>
@@ -3355,7 +3378,7 @@
 <blockquote>
 <p>Exemplo industrial: clientes de manutenção remota confiam na <strong>Root CA corporativa</strong> que assina certificados de gateways e aplicações industriais.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="5-papeis-e-processos-na-emissao">5) Papéis e Processos na Emissão</h2>
 <h3 id="51-ca-certificate-authority">5.1 <strong>CA (Certificate Authority)</strong></h3>
 <ul>
@@ -3373,7 +3396,7 @@
 <blockquote>
 <p>Exemplo industrial: um <strong>servidor de historiador</strong> gera o CSR localmente; a chave privada fica protegida por <strong>TPM/HSM</strong> do servidor.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="6-revogacao-e-status-de-certificados">6) Revogação e Status de Certificados</h2>
 <h3 id="61-crl-certificate-revocation-list">6.1 <strong>CRL (Certificate Revocation List)</strong></h3>
 <ul>
@@ -3390,7 +3413,7 @@
 <li>O <strong>servidor</strong> “anexa” (staple) uma resposta OCSP <strong>recente</strong> durante o <strong>handshake TLS</strong>.</li>
 <li><strong>Benefícios</strong>: menos latência e menor dependência de consulta externa pelo cliente.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="7-public-key-pinning-conceito">7) Public Key Pinning (conceito)</h2>
 <ul>
 <li><strong>Pinning</strong> de chaves públicas para <strong>reduzir risco</strong> de certificados fraudulentos.</li>
@@ -3400,7 +3423,7 @@
 <blockquote>
 <p>Exemplo industrial: aplicações de engenharia podem realizar <strong>pinning</strong> da CA interna para evitar conexão com serviços falsos em redes remotas.</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="8-key-escrow-e-key-recovery">8) Key Escrow e Key Recovery</h2>
 <h3 id="81-key-escrow">8.1 <strong>Key Escrow</strong></h3>
 <ul>
@@ -3416,7 +3439,7 @@
 <blockquote>
 <p>Exemplo industrial: chaves usadas para <strong>assinar firmware</strong> ficam sob escrow com liberação somente mediante <strong>duas aprovações</strong> (segregação de deveres).</p>
 </blockquote>
-<hr />
+<hr>
 <h2 id="9-boas-praticas-operacionais-ambiente-industrial">9) Boas Práticas Operacionais (ambiente industrial)</h2>
 <ul>
 <li><strong>Inventário</strong> e ciclo de vida: emitir, renovar <strong>antes da expiração</strong>, revogar quando necessário.</li>
@@ -3424,7 +3447,7 @@
 <li><strong>Armazenamento de chaves privadas</strong>: <strong>HSM/TPM/KMS</strong>, permissões mínimas, backup seguro.</li>
 <li><strong>mTLS</strong> para canais críticos entre <strong>gateways ↔ servidores OT/IT</strong>.</li>
 <li><strong>SAN/Wildcard</strong>: escolher conforme <strong>arquitetura de nomes</strong>; avaliar i</li>
-</ul>
+</ul></div>
 
 
 
