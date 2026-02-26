@@ -1,5 +1,16 @@
 # Confidencialidade 
 
+> **Objetivos de aprendizagem**
+> - Compreender o princípio de confidencialidade.
+> - Relacionar confidencialidade com LGPD e privacidade.
+> - Selecionar controles adequados para reduzir exposição de dados.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/AWykXE3XbaY)
+
 ## 1. O que é Confidencialidade?
 
 Confidencialidade é o princípio da **proteção de informações contra acesso ou divulgação não autorizados**.  
@@ -114,3 +125,20 @@ No mundo digital, preservar a confidencialidade:
 - Mantém a **confiança** de clientes.
 - Garante **conformidade legal**.
 - Assegura a **continuidade dos negócios**.
+
+---
+
+## 5. Mini-caso prático
+
+Uma secretaria escolar envia planilhas com CPF e telefone por e-mail sem senha.
+
+- **Risco principal:** vazamento de dados pessoais.
+- **Controles mínimos:** criptografia do arquivo, senha em canal separado, permissão apenas por necessidade e trilha de acesso.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual a diferença entre criptografia e mascaramento de dados?
+2. Por que controle de acesso é essencial para confidencialidade?
+3. Qual requisito da LGPD é violado no mini-caso?

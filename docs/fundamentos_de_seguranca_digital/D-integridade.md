@@ -1,5 +1,16 @@
 # Integridade 
 
+> **Objetivos de aprendizagem**
+> - Entender o que compromete a integridade de dados.
+> - Diferenciar hash, checksum e assinatura digital.
+> - Aplicar controles de prevenção e detecção de alteração indevida.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/UlRCVihN3pE)
+
 ## 1. O que é Integridade?
 
 Integridade é o princípio que garante que **dados e informações permaneçam precisos, consistentes e inalterados** desde sua criação até o fim de seu ciclo de vida, **exceto quando modificados de forma autorizada**.
@@ -46,7 +57,9 @@ Dados corrompidos podem provocar falhas no funcionamento de softwares e sistemas
 
 - **O que é:** Código gerado a partir dos dados para verificar se houve alteração durante a transmissão.
 - **Como funciona:** O remetente envia o dado junto com o checksum; o destinatário recalcula o checksum e compara.
-- **Benefício:** Detecta alterações ou corrupção de dados durante o envio.
+- **Benefício:** Detecta alterações ou corrupção de dados durante o envio (especialmente erros acidentais).
+
+> **Atenção didática:** checksum é ótimo para erro acidental, mas não substitui hash criptográfico + assinatura digital quando há risco de adulteração maliciosa.
 
 
 ### 3.4 Controles de Acesso
@@ -68,4 +81,19 @@ Dados corrompidos podem provocar falhas no funcionamento de softwares e sistemas
 - **Hashing** é uma das principais ferramentas para verificar se dados foram alterados.
 - Sem integridade, a **confiança**, a **tomada de decisão correta** e a **continuidade operacional** ficam comprometidas.
 
+---
 
+## 5. Mini-caso prático
+
+Uma empresa publica um instalador para download sem hash oficial no site.
+
+- **Problema:** o usuário não consegue validar se o arquivo foi adulterado.
+- **Melhoria:** publicar hash SHA-256 oficial e assinatura digital do binário.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual técnica valida integridade e também autenticidade?
+2. Quando checksum sozinho não é suficiente?
+3. Qual evidência o usuário deve conferir antes de instalar um arquivo?

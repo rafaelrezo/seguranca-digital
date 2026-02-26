@@ -1,0 +1,135 @@
+{
+  "title": "Fundamentos de Segurança Digital - Quiz de Fixação",
+  "description": "Quiz baseado na trilha de Fundamentos (CIA, AAA, controles, riscos e Zero Trust).",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "A tríade CIA significa:",
+      "options": [
+        "Controle, Inspeção e Auditoria",
+        "Confidencialidade, Integridade e Disponibilidade",
+        "Criptografia, Identidade e Autenticação",
+        "Confiabilidade, Integridade e Acesso"
+      ],
+      "correct_answers": [2],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Qual opção representa quebra de confidencialidade?",
+      "options": [
+        "Servidor indisponível por manutenção",
+        "Alteração de nota sem autorização",
+        "Vazamento de dados pessoais",
+        "Execução de backup diário"
+      ],
+      "correct_answers": [3],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "No modelo AAA, autorização responde principalmente a:",
+      "options": [
+        "Quem é você?",
+        "O que você pode fazer?",
+        "Onde está o servidor?",
+        "Quando o sistema caiu?"
+      ],
+      "correct_answers": [2],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Qual opção é um controle detectivo?",
+      "options": [
+        "Firewall bloqueando conexão",
+        "MFA no login",
+        "IDS gerando alerta de tráfego suspeito",
+        "Política de senha"
+      ],
+      "correct_answers": [3],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Zero Trust adota qual princípio?",
+      "options": [
+        "Confiar automaticamente em tudo que está dentro da rede",
+        "Confiar no usuário após o primeiro login",
+        "Nunca confiar por padrão, sempre verificar",
+        "Liberar acesso por faixa de IP interna"
+      ],
+      "correct_answers": [3],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Qual exemplo representa controle compensatório?",
+      "options": [
+        "Monitoramento extra quando o controle ideal não está disponível",
+        "Remover logs para ganhar desempenho",
+        "Compartilhar credenciais entre colegas",
+        "Desativar antivírus para evitar falso positivo"
+      ],
+      "correct_answers": [1],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "checkbox",
+      "question": "Marque os fatores clássicos de autenticação:",
+      "options": [
+        "Algo que você sabe",
+        "Algo que você tem",
+        "Algo que seu colega sabe",
+        "Algo que você é"
+      ],
+      "correct_answers": [1, 2, 4],
+      "points": 2,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Em gestão de riscos, qual etapa deve acontecer primeiro?",
+      "options": [
+        "Implementar ferramenta de SIEM",
+        "Identificar ameaças e vulnerabilidades",
+        "Aceitar todo risco residual",
+        "Executar auditoria externa final"
+      ],
+      "correct_answers": [2],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Qual afirmação descreve melhor não repúdio?",
+      "options": [
+        "Garantir que o sistema fique sempre disponível",
+        "Permitir negar autoria de uma transação",
+        "Comprovar autoria e impedir negação de ação realizada",
+        "Ocultar dados com mascaramento"
+      ],
+      "correct_answers": [3],
+      "points": 1,
+      "required": true
+    },
+    {
+      "type": "short_answer",
+      "question": "Explique em uma frase a diferença entre autenticação e autorização.",
+      "answer_key_keywords": [
+        "quem",
+        "identidade",
+        "o que pode fazer",
+        "permissão"
+      ],
+      "points": 1,
+      "required": true
+    }
+  ]
+}

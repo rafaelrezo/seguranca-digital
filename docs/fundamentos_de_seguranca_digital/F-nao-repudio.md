@@ -1,5 +1,16 @@
 # Não Repúdio (Non-Repudiation)
 
+> **Objetivos de aprendizagem**
+> - Entender o princípio de não repúdio.
+> - Relacionar não repúdio com assinatura digital e PKI.
+> - Reconhecer evidências digitais para auditoria.
+>
+> **Tempo estimado:** 10 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/UlRCVihN3pE)
+
 ## 1. O que é Não Repúdio?
 Não repúdio é o princípio que garante **prova incontestável** de que uma pessoa ou entidade participou de uma comunicação ou transação digital, impedindo que ela negue a autoria ou o envolvimento.
 
@@ -52,3 +63,20 @@ uma **marca única e comprovável** que liga o autor a uma mensagem ou ação.
 ## 6. Ponto-Chave
 Sempre que ouvir o termo **não repúdio**, associe a **assinaturas digitais**.  
 Elas são essenciais para criar **confiança, autenticidade e responsabilização** nas interações digitais.
+
+---
+
+## 7. Mini-caso prático
+
+Um fornecedor diz que não autorizou uma ordem de compra enviada por e-mail.
+
+- **Problema:** ausência de prova forte de autoria.
+- **Controle recomendado:** assinatura digital com certificado válido e guarda de logs da transação.
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual evidência técnica reduz a negação de autoria?
+2. Não repúdio depende de qual par de chaves?
+3. Por que logs sozinhos podem não ser suficientes?

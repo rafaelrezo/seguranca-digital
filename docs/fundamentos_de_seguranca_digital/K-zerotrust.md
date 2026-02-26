@@ -1,4 +1,16 @@
 # Zero Trust
+
+> **Objetivos de aprendizagem**
+> - Entender os princípios de Zero Trust.
+> - Diferenciar plano de controle e plano de dados.
+> - Propor passos práticos de adoção.
+>
+> **Tempo estimado:** 20 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/21n6MVHheFU)
+
 ## 1) O que é Zero Trust?
 **Zero Trust** é um modelo de segurança em que **ninguém é confiável por padrão** — nem usuários, nem dispositivos, nem aplicações, estejam **dentro** ou **fora** da rede.  
 A regra prática é: **“não confie em nada, verifique tudo, o tempo todo”**.
@@ -46,6 +58,18 @@ Pense em um **estúdio de gravação**: cada sala (mixagem, master, instrumentos
 
 É como um **elevador inteligente** onde o cartão libera apenas os andares previstos na sua reserva, e pode pedir confirmação extra se detectar algo diferente do padrão (horário, dispositivo).
 
+### 5.3 Fluxo simplificado de decisão (Mermaid)
+
+```mermaid
+flowchart LR
+  U[Usuário/Serviço] --> PEP[Ponto de Aplicação de Política]
+  PEP --> PDP[Plano de Controle / Decisor]
+  PDP -->|Consulta| ID[Identidade + Contexto + Risco]
+  ID --> PDP
+  PDP -->|Permitir ou Negar| PEP
+  PEP --> R[Recurso]
+```
+
 ## 6) Tecnologias e práticas comuns (exemplos)
 - **IdP e IAM**: Okta, Azure AD, Google Cloud IAM (identidade, SSO, MFA, políticas de acesso condicional).  
 - **Postura do dispositivo (EPP/EDR/XDR)**: Microsoft Defender for Endpoint, CrowdStrike (verifica se a “máquina está saudável”).  
@@ -80,3 +104,20 @@ Dica: Zero Trust funciona melhor quando essas peças **conversam entre si** (tel
 Zero Trust **não é um produto**, é um **modo de operar**: verificar continuamente **quem** pede acesso, **em que condições**, **a quê**, e **por quanto tempo** — reduzindo privilégios, segmentando caminhos e reagindo a risco em tempo real.  
 
 Assim, mesmo que algo falhe, o impacto fica **contido** e a organização continua **resiliente**.
+
+---
+
+## 11) Mini-caso prático
+
+Uma instituição usa VPN única para toda a rede interna. Conta comprometida ganha acesso amplo.
+
+- **Problema:** confiança implícita após login.
+- **Melhoria Zero Trust:** acesso por aplicação (ZTNA), menor privilégio e revalidação por risco.
+
+---
+
+## 12) Perguntas de revisão rápida
+
+1. O que muda entre VPN ampla e ZTNA por aplicação?
+2. Por que "assume breach" reduz impacto?
+3. Qual papel do PEP no fluxo de acesso?

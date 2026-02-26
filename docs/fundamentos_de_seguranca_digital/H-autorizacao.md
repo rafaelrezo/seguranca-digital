@@ -1,5 +1,16 @@
 # Autorização
 
+> **Objetivos de aprendizagem**
+> - Diferenciar autenticação de autorização.
+> - Entender RBAC, ABAC e políticas por regras.
+> - Definir permissões por menor privilégio.
+>
+> **Tempo estimado:** 12 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/7ijBiXddB7w)
+
 ## 1. O que é Autorização?
 Autorização é o processo que determina **o que um usuário pode fazer** dentro de um sistema **após ter sua identidade confirmada** pela autenticação.
 
@@ -52,3 +63,20 @@ Permissões são determinadas por atributos do usuário, do recurso e do context
 Autorização é o **porteiro interno** do sistema:  
 Depois que ele confirma *quem você é* (autenticação), decide *onde você pode ir* e *o que pode fazer*.  
 Isso garante **segurança, integridade e eficiência** no uso de recursos.
+
+---
+
+## 5. Mini-caso prático
+
+No sistema acadêmico, todos os professores têm permissão para editar notas de qualquer turma.
+
+- **Risco:** alteração indevida e falta de segregação de responsabilidades.
+- **Correção:** RBAC por disciplina/turma e auditoria de alterações.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual diferença prática entre RBAC e ABAC?
+2. Qual modelo ajuda quando o contexto (horário/local) importa?
+3. O que muda quando aplicamos menor privilégio?

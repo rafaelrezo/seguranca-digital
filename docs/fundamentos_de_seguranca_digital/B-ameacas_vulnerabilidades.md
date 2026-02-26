@@ -1,5 +1,16 @@
 # Ameaças, Vulnerabilidades e Gestão de Riscos em Cibersegurança
 
+> **Objetivos de aprendizagem**
+> - Diferenciar ameaça, vulnerabilidade e risco.
+> - Entender como priorizar tratamento de risco.
+> - Aplicar o raciocínio em cenários reais.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/iSpglxHTJVM)
+
 ## 1. Ameaças (Threats)
 **Definição:**  
 Ameaça é qualquer evento ou condição externa que possa causar **dano, perda ou comprometimento** a um sistema de Tecnologia da Informação.  
@@ -45,7 +56,8 @@ O risco surge **somente quando uma ameaça encontra uma vulnerabilidade** corres
 
 **Fórmula simplificada:**  
 
-Risco = Ameaça + Vulnerabilidade
+Risco = Probabilidade x Impacto  
+(Ameaça explora uma vulnerabilidade e gera impacto)
 
 
 ---
@@ -86,3 +98,22 @@ Assim como na ida ao trabalho, na cibersegurança:
 - **Ameaças** são inevitáveis, mas seu impacto pode ser reduzido.
 - **Vulnerabilidades** devem ser corrigidas ou controladas.
 - A **gestão de riscos** garante segurança, continuidade e proteção contra incidentes como vazamentos de dados e indisponibilidade de serviços.
+
+---
+
+## 7. Mini-caso prático
+
+Uma escola técnica mantém um portal acadêmico sem MFA e com servidor desatualizado.
+
+- **Ameaça:** ataque de força bruta e exploração de falha conhecida.
+- **Vulnerabilidade:** ausência de MFA e patch pendente.
+- **Risco:** invasão de contas e vazamento de dados de alunos.
+- **Tratamento prioritário:** mitigar (MFA + atualização + monitoramento de login).
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual a diferença entre ameaça e vulnerabilidade?
+2. Em que situação faz sentido **aceitar** um risco?
+3. Qual controle reduziria mais rápido o risco do mini-caso?

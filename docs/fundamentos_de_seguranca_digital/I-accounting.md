@@ -1,4 +1,16 @@
 # Accounting (Contabilização)
+
+> **Objetivos de aprendizagem**
+> - Entender o papel do accounting no modelo AAA.
+> - Identificar fontes e tipos de logs relevantes.
+> - Relacionar logging com auditoria, forense e conformidade.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/iSpglxHTJVM)
+
 ## 1. O que é Accounting?
 No contexto da segurança da informação, **accounting** é o processo de **monitorar, registrar e armazenar todas as ações realizadas** por usuários ou sistemas durante interações digitais.
 
@@ -91,3 +103,20 @@ Accounting é essencial para:
 
 Ele é o **histórico oficial** de todas as ações realizadas, funcionando como um extrato bancário para a segurança digital.  
 Ferramentas modernas permitem integrar logs de diferentes fontes, correlacionar eventos e responder a incidentes com agilidade.
+
+---
+
+## 5. Mini-caso prático
+
+Após incidente de acesso indevido, a equipe não consegue identificar qual conta executou a ação.
+
+- **Causa provável:** logs incompletos ou sem centralização.
+- **Ação recomendada:** padronizar logs, centralizar em SIEM e definir retenção mínima.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual a diferença entre log local e SIEM?
+2. Quais dados mínimos um evento de autenticação deve registrar?
+3. Por que retenção de logs é crítica para forense?

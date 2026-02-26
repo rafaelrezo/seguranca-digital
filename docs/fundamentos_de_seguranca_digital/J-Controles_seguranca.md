@@ -1,5 +1,16 @@
 # Controles de Segurança
 
+> **Objetivos de aprendizagem**
+> - Classificar controles por categoria e por objetivo.
+> - Combinar controles em camadas complementares.
+> - Selecionar evidências para auditoria de controles.
+>
+> **Tempo estimado:** 18 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/iSpglxHTJVM)
+
 ## 1. O que são Controles de Segurança?
 
 São medidas implementadas para proteger sistemas, dados e recursos contra ameaças, reduzir riscos e manter operações seguras.  
@@ -94,9 +105,19 @@ Um bom programa de segurança combina:
 
 Assim como um estádio de futebol precisa de grades, câmeras, seguranças e regras para manter a ordem, uma empresa precisa de todos esses tipos de controles para manter seus ativos e dados seguros.
 
-# Tipos de Controles de Segurança
+## 4. Matriz de aplicação rápida
 
-## 1. Introdução
+| Categoria | Tipo | Exemplo | Evidência esperada |
+|---|---|---|---|
+| Técnico | Preventivo | MFA no portal institucional | Política ativa + teste de login |
+| Técnico | Detectivo | IDS/alertas de anomalia | Alertas e registros no SIEM |
+| Operacional | Corretivo | Restauração de backup | Relatório de recuperação |
+| Gerencial | Diretivo | Política de uso aceitável | Documento aprovado e comunicado |
+| Físico | Dissuassório | Placas de área monitorada | Inspeção local e registros de acesso |
+
+## 5. Tipos de Controles por Objetivo
+
+### 5.1 Introdução
 Em segurança da informação, diferentes ameaças exigem diferentes respostas.  
 Assim como um médico escolhe o tratamento adequado para cada estágio de uma doença, o profissional de segurança seleciona controles específicos para cada cenário.
 
@@ -110,7 +131,7 @@ Os principais tipos são:
 
 ---
 
-## 2. Preventivos
+### 5.2 Preventivos
 - **Objetivo:** Evitar que um incidente aconteça.
 - **Exemplos:**
   - Firewalls filtrando tráfego.
@@ -121,7 +142,7 @@ Os principais tipos são:
 
 ---
 
-## 3. Dissuassórios (Deterrentes)
+### 5.3 Dissuassórios (Deterrentes)
 - **Objetivo:** Desencorajar ataques, tornando-os menos atraentes ou mais arriscados.
 - **Exemplos:**
   - Avisos de “Ambiente Monitorado”.
@@ -132,7 +153,7 @@ Os principais tipos são:
 
 ---
 
-## 4. Detetivos
+### 5.4 Detetivos
 - **Objetivo:** Identificar e alertar sobre atividades suspeitas ou incidentes.
 - **Exemplos:**
   - Sistemas de detecção de intrusão (IDS).
@@ -143,7 +164,7 @@ Os principais tipos são:
 
 ---
 
-## 5. Corretivos
+### 5.5 Corretivos
 - **Objetivo:** Conter e restaurar o ambiente após um incidente.
 - **Exemplos:**
   - Ferramentas de remoção de malware.
@@ -154,7 +175,7 @@ Os principais tipos são:
 
 ---
 
-## 6. Compensatórios
+### 5.6 Compensatórios
 - **Objetivo:** Oferecer proteção alternativa quando o controle ideal não é viável.
 - **Exemplos:**
   - Uso de VPN para reforçar segurança em redes Wi-Fi antigas.
@@ -164,7 +185,7 @@ Os principais tipos são:
 
 ---
 
-## 7. Diretivos
+### 5.7 Diretivos
 - **Objetivo:** Orientar e definir regras de uso e conduta.
 - **Exemplos:**
   - Políticas de uso aceitável (AUP).
@@ -175,7 +196,7 @@ Os principais tipos são:
 
 ---
 
-## 8. Conclusão
+## 6. Conclusão
 Cada tipo de controle tem um papel único:
 - **Preventivo:** impede.
 - **Dissuassório:** desmotiva.
@@ -185,3 +206,22 @@ Cada tipo de controle tem um papel único:
 - **Diretivo:** orienta.
 
 Uma defesa eficaz combina todos eles, criando múltiplas camadas de segurança que se complementam para proteger a organização.
+
+---
+
+## 7. Mini-caso prático
+
+Um laboratório sofre tentativa de intrusão física e lógica no mesmo dia.
+
+- **Físico dissuassório:** sinalização e catraca com vigilância.
+- **Técnico preventivo:** MFA + segmentação de rede.
+- **Detectivo:** IDS + câmera com gravação.
+- **Corretivo:** playbook de resposta e restauração de estação comprometida.
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual diferença entre controle preventivo e detectivo?
+2. Quando um controle compensatório é aceitável?
+3. Quais evidências provam que um controle está realmente funcionando?

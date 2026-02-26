@@ -1,5 +1,16 @@
 # Autenticação
 
+> **Objetivos de aprendizagem**
+> - Entender a função da autenticação no controle de acesso.
+> - Diferenciar fatores de autenticação.
+> - Aplicar MFA em cenários de risco.
+>
+> **Tempo estimado:** 12 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/7ijBiXddB7w)
+
 ## 1. O que é Autenticação?
 Autenticação é o processo de **verificar a identidade** de pessoas ou sistemas em interações digitais, confirmando que são quem afirmam ser.
 
@@ -64,3 +75,20 @@ Evita que usuários não autenticados consumam recursos de rede, armazenamento o
 ## 5. Ponto-Chave
 Autenticação é como um **porteiro digital**, controlando quem entra e o que pode acessar.  
 Quanto mais fatores combinamos, mais difícil fica para um invasor se passar por um usuário legítimo.
+
+---
+
+## 6. Mini-caso prático
+
+Um aluno usa a mesma senha em e-mail, AVA e rede social. Após vazamento externo, sua conta institucional é invadida.
+
+- **Falha principal:** autenticação baseada em um único fator reutilizado.
+- **Correção:** MFA + política de senha única + gestor de senhas.
+
+---
+
+## 7. Perguntas de revisão rápida
+
+1. Qual a diferença entre 2FA e MFA?
+2. SMS é fator de posse ou conhecimento?
+3. Em quais situações você exigiria reautenticação?

@@ -1,5 +1,16 @@
 # Análise de Gaps
 
+> **Objetivos de aprendizagem**
+> - Entender o que é análise de lacunas (Gap Analysis).
+> - Identificar diferenças entre estado atual e estado desejado.
+> - Priorizar ações de melhoria com base em risco e impacto.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/iSpglxHTJVM)
+
 ## 1) O que é Análise de Gaps.
 **Gap Analysis** (ou análise de lacunas) é um processo que compara a **situação atual** de uma organização com a **situação desejada** para identificar onde existem diferenças significativas — as “lacunas” — e definir como fechá-las.  
 O objetivo é criar um **plano estruturado** para alcançar um desempenho melhor, seja em segurança, eficiência operacional ou produtividade.
@@ -72,3 +83,21 @@ A partir disso, é criado um **Plano de Ação e Marcos (POA&M)**, priorizando:
 ## 8) Conclusão
 O Gap Analysis não é apenas um diagnóstico, mas um **instrumento de melhoria contínua**.  
 Permite alinhar tecnologia, processos e pessoas a objetivos estratégicos, garantindo mais segurança, eficiência e competitividade.
+
+---
+
+## 9) Mini-caso prático
+
+Um laboratório quer aderir ao padrão ISO 27001 em 6 meses.
+
+- **Estado atual:** sem classificação formal de ativos e sem rotina de revisão de acesso.
+- **Estado desejado:** inventário de ativos, gestão de risco documentada e controles auditáveis.
+- **Primeiros marcos:** inventário, matriz de riscos, política de acesso e plano de auditoria interna.
+
+---
+
+## 10) Perguntas de revisão rápida
+
+1. Qual diferença entre gap técnico e gap de negócio?
+2. Por que definir escopo vem antes da coleta de dados?
+3. Quais critérios você usaria para priorizar lacunas?

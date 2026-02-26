@@ -1,4 +1,16 @@
 # Disponibilidade 
+
+> **Objetivos de aprendizagem**
+> - Entender por que disponibilidade é um pilar de segurança.
+> - Ler níveis de uptime com "números de nove".
+> - Relacionar disponibilidade com redundância e continuidade.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/tnVWE0cWSvk)
+
 ## 1. O que é Disponibilidade?
 
 Disponibilidade é o princípio que garante que **informações, sistemas e recursos estejam acessíveis e operacionais** para usuários autorizados sempre que necessário.
@@ -18,7 +30,7 @@ Cada minuto de inatividade pode gerar prejuízos significativos:
 
 - E-commerce: perda direta de vendas.
 - Hospital: risco à vida se sistemas críticos ficarem indisponíveis.
-- Telecomunicações: até **US$ 33 mil de prejuízo por minuto** de indisponibilidade.
+- Telecomunicações: prejuízo por minuto pode ser muito alto e varia por porte, setor e criticidade do serviço.
 
 ### 2.2 Manutenção da Confiança do Cliente
 
@@ -83,3 +95,20 @@ Fontes alternativas como **geradores** e **no-breaks (UPS)** para manter equipam
 - **Disponibilidade** e **redundância** andam juntas.  
 - Garantir alta disponibilidade exige planejamento, investimento e monitoramento constantes.  
 - No mundo digital, **tempo é dinheiro**: cada segundo de indisponibilidade pode gerar prejuízos financeiros e perda de confiança.
+
+---
+
+## 7. Mini-caso prático
+
+Um ambiente de ensino remoto cai durante prova online porque há apenas um link de internet.
+
+- **Risco:** indisponibilidade em horário crítico.
+- **Controles recomendados:** segundo link com failover, monitoramento pró-ativo e plano de contingência para avaliação.
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual a diferença entre balanceamento e failover?
+2. Por que backup não substitui alta disponibilidade?
+3. Quais dois controles você priorizaria no mini-caso?
