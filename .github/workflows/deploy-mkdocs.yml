@@ -21,7 +21,7 @@ jobs:
         run: |
           python -m venv .venv
           source .venv/bin/activate
-          pip install mkdocs mkdocs-material
+          pip install mkdocs mkdocs-material mkdocs-video
       - name: Build MkDocs
         run: |
           source .venv/bin/activate
@@ -40,4 +40,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
