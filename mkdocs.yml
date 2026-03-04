@@ -28,7 +28,6 @@ extra_javascript:
 nav:
   - Fundamentos de Segurança:
       - Visão geral: fundamentos_de_seguranca_digital/index.md
-      - Exercícios (Google Forms): fundamentos_de_seguranca_digital/M-exercicios_google_forms.md
       - Ameaças e Vulnerabilidades: fundamentos_de_seguranca_digital/B-ameacas_vulnerabilidades.md
       - Confidencialidade: fundamentos_de_seguranca_digital/C-confidencialidade.md
       - Integridade: fundamentos_de_seguranca_digital/D-integridade.md
@@ -43,7 +42,7 @@ nav:
   - Ameaças :
       - Visão geral: ameacas/index.md
       - Metodologias de análise de ameaças: ameacas/metodologias.md
-      - Compartivo de metodologias: ameacas/comparativo.md
+      - Comparativo de metodologias: ameacas/comparativo.md
   - Segurança Física:
       - Introdução: seguranca_fisica/introducao.md
       - Controles de Segurança Física: seguranca_fisica/controles_fisicos.md
@@ -52,13 +51,13 @@ nav:
       - Bypass da Vigilância: seguranca_fisica/bypass_vigilancia.md
       - Câmaras de acesso controlado: seguranca_fisica/camaras_acesso.md
       - Fechaduras e Trancas: seguranca_fisica/fechaduras_trancas.md
-      - Clonagem de acesso: segurança_fisica/clonagem_cracha.md
+      - Clonagem de acesso: seguranca_fisica/clonagem_cracha.md
   - Engenharia Social:
       - Introdução: engenharia_social/introducao.md
       - Gatilhos Motivacionais: engenharia_social/gatilhos.md
       - Impersonificação: engenharia_social/impersonificacao.md
       - Falsificação de pretextos: engenharia_social/pretexting.md
-      - Ataques de phishing: engenharia_social/pishing.md
+      - Ataques de phishing: engenharia_social/phishing.md
       - Prevenção de Phishing: engenharia_social/prevencao_phishing.md
       - Campanha Simulação de Phishing: engenharia_social/campanhas_simulacao_pishing.md
       - Fraudes e Golpes(Scams): engenharia_social/fraudes_golpes.md

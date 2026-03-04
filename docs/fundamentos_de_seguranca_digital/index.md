@@ -86,4 +86,4 @@ Princípio operacional: **nunca confiar por padrão; sempre verificar** identida
 - [ ] Sei classificar um controle como técnico, gerencial, operacional ou físico.
 - [ ] Sei diferenciar controle preventivo, detectivo e corretivo.
 - [ ] Sei descrever o princípio de menor privilégio em Zero Trust.
-- [ ] Completei o quiz em [Exercícios (Google Forms)](M-exercicios_google_forms.md).
+- [ ] Revisei os mini-casos e respondi as perguntas de revisão rápida de cada módulo.
