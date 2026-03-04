@@ -1,31 +1,93 @@
-## 📊 Tabela Comparativa das Metodologias
+# Comparativo de Metodologias de Análise de Ameaças
 
-| Metodologia       | Origem / Enfoque                        | Objetivo Principal                                  | Aplicação Prática | Nível de Uso |
-|-------------------|------------------------------------------|---------------------------------------------------|------------------|--------------|
-| **STRIDE**        | Microsoft (modelagem de ameaças)         | Identificar categorias de ameaças (Spoofing, Tampering etc.) | Avaliação de arquiteturas e software | Técnico |
-| **DREAD**         | Microsoft (priorização de riscos)        | Classificar e priorizar ameaças por impacto        | Análise de vulnerabilidades e correções | Técnico |
-| **OCTAVE**        | Carnegie Mellon (governança)             | Avaliar riscos em nível organizacional             | Gestão de ativos críticos e riscos corporativos | Estratégico |
-| **PASTA**         | Consultoria de segurança (simulação)     | Simular ataques em cenários reais                  | Testar defesas em pipelines de ataque | Técnico ↔ Estratégico |
-| **MITRE ATT&CK**  | MITRE (inteligência de ameaças)          | Catalogar táticas e técnicas de atacantes reais    | Threat Hunting, Red/Blue Teaming | Operacional |
-| **NIST RMF**      | NIST (normas de conformidade)            | Estruturar processo de gestão de riscos            | Conformidade regulatória, auditorias | Estratégico |
-| **Kill Chain**    | Lockheed Martin (ciclo de ataque)        | Mapear etapas do ataque para interromper           | SOC, defesa proativa, monitoramento | Operacional |
+> **Objetivos de aprendizagem**
+> - Comparar metodologias por esforço, profundidade e resultado esperado.
+> - Selecionar combinações adequadas ao contexto da organização.
+> - Evitar erros comuns na aplicação em sala, laboratório e empresa.
+>
+> **Tempo estimado:** 15 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/7ugY9AXiKZ4)
+
+## 1. Comparativo rápido
+
+| Metodologia | Melhor uso | Esforço | Entregável típico | Limitação principal |
+|---|---|---|---|---|
+| **STRIDE** | Projeto de software e revisão de arquitetura | Baixo a médio | Lista de ameaças por categoria | Não prioriza negócio sozinho |
+| **DREAD** | Ranqueamento de riscos técnicos | Baixo | Score de risco por ameaça | Subjetividade alta |
+| **PASTA** | Sistemas críticos e análise aprofundada | Alto | Cenários de ataque + plano de mitigação | Exige maturidade e tempo |
+| **OCTAVE** | Governança e risco institucional | Médio | Matriz de risco por ativo crítico | Pouco detalhamento de baixo nível |
+| **MITRE ATT&CK** | SOC, hunting, resposta e purple team | Médio | Mapa de cobertura por TTP | Não substitui modelagem no design |
+| **Kill Chain** | Comunicação e interrupção do ataque por fase | Baixo a médio | Estratégia de detecção por etapa | Menos granular que ATT&CK |
 
 ---
 
-## 🛠️ Guia Prático: Quando Usar Cada Metodologia
+## 2. Escolha por cenário
 
-- **STRIDE** → Use no **design de aplicações e arquiteturas** para identificar possíveis ameaças desde a fase de concepção.  
-- **DREAD** → Ideal para **priorizar vulnerabilidades** já encontradas, decidindo o que corrigir primeiro.  
-- **OCTAVE** → Aplicado em **organizações** para entender riscos em nível de negócio, não apenas técnico.  
-- **PASTA** → Bom para **projetos avançados**, onde se deseja simular ataques e avaliar impactos reais.  
-- **MITRE ATT&CK** → Excelente em ambientes de **operações de segurança (SOC)**, Threat Hunting e Red Teaming.  
-- **NIST RMF** → Use em **projetos regulados** (governo, indústria crítica), onde conformidade é essencial.  
-- **Kill Chain** → Indicado para **resposta a incidentes e defesa proativa**, entendendo em qual fase deter o ataque.  
+### 2.1 Cenário acadêmico (disciplina/laboratório)
 
-## Conclusão
+- Comece com **STRIDE** para treinar modelagem.
+- Use **DREAD** para priorizar correções.
+- Introduza **ATT&CK** para conectar com detecção real.
 
-Essas metodologias não são excludentes — na prática, elas se **complementam**:
+### 2.2 Cenário corporativo com SOC
 
-- **STRIDE e DREAD** ajudam no **nível técnico** (aplicações e sistemas).  
-- **OCTAVE e NIST RMF** focam no **nível estratégico** (organização e conformidade).  
-- **PASTA, MITRE ATT&CK e Kill Chain** são muito úteis no **nível operacional** (ataques reais e defesa).  
+- **ATT&CK + Kill Chain** para operação diária.
+- **STRIDE** em novos sistemas.
+- **OCTAVE/RMF** para risco institucional e auditoria.
+
+### 2.3 Cenário de alta criticidade (saúde, finanças, indústria)
+
+- **PASTA** para análise profunda orientada ao negócio.
+- **ATT&CK** para monitoramento contínuo.
+- **Kill Chain** para playbooks de contenção por fase.
+
+---
+
+## 3. Erros comuns ao aplicar metodologias
+
+- Usar apenas uma metodologia para tudo.
+- Tratar ATT&CK como checklist estático e não como base viva.
+- Fazer STRIDE no início do projeto e nunca revisar.
+- Priorizar por “achismo”, sem critérios explícitos.
+- Ignorar risco de terceiros e cadeia de suprimentos.
+
+---
+
+## 4. Fluxo de decisão sugerido
+
+```mermaid
+flowchart TD
+    A[Qual problema principal?] --> B{Design de sistema?}
+    B -->|Sim| C[Aplicar STRIDE]
+    B -->|Não| D{Operacao SOC?}
+    D -->|Sim| E[MITRE ATT&CK + Kill Chain]
+    D -->|Nao| F{Risco corporativo?}
+    F -->|Sim| G[OCTAVE / RMF]
+    F -->|Nao| H{Sistema critico?}
+    H -->|Sim| I[PASTA]
+    H -->|Nao| J[DREAD para priorizacao tática]
+```
+
+---
+
+## 5. Mini-caso de seleção
+
+Uma faculdade quer melhorar segurança em 90 dias:
+
+1. **Semana 1-2:** STRIDE no portal acadêmico e API de notas.
+2. **Semana 3-4:** priorização com DREAD + impacto de negócio.
+3. **Semana 5-8:** mapeamento ATT&CK no SIEM e regras de detecção.
+4. **Semana 9-12:** playbooks por fase da Kill Chain e exercício de resposta.
+
+Resultado esperado: redução de exposição técnica e melhoria de tempo de detecção/resposta.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual metodologia gera mais valor imediato para um SOC?
+2. Em que contexto PASTA é justificável?
+3. Por que STRIDE e ATT&CK não são concorrentes diretos?

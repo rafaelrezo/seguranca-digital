@@ -1,144 +1,173 @@
-# Metodologias de Análise de Ameaças em Cibersegurança
+# Metodologias de Análise de Ameaças
 
-A **análise de ameaças** é um processo essencial para entender os riscos que podem comprometer a segurança de sistemas, dados e operações de uma organização. Existem diversas metodologias reconhecidas no mercado e na academia que ajudam profissionais a **identificar, classificar, priorizar e responder** a ameaças de maneira sistemática.
+> **Objetivos de aprendizagem**
+> - Entender o propósito de cada metodologia de análise de ameaças.
+> - Escolher a metodologia adequada por contexto (projeto, operação ou governança).
+> - Combinar abordagens sem sobrecarregar a equipe.
+>
+> **Tempo estimado:** 22 minutos
 
-A seguir, vamos explorar as principais metodologias, seus objetivos, aplicações práticas e exemplos.
+## Vídeo de contexto
 
----
+![type:video](https://www.youtube.com/embed/cr-vpVvq8Fw)
 
-## 1. STRIDE
+## 1. Por que usar metodologia?
 
-- **Origem:** Criada pela Microsoft.  
-- **Objetivo:** Identificar diferentes tipos de ameaças em sistemas e aplicações.  
-- **Funcionamento:** O nome STRIDE é um acrônimo que representa seis categorias de ameaças:
-- **Mais informações**: [What is STRIDE threat model?](https://www.practical-devsecops.com/what-is-stride-threat-model/?srsltid=AfmBOoowqYbc8LJ8fqniz3US56mCB4vICAzu9AevK5w3xwANnkvXx-n0)
+Sem método, a análise de ameaças vira opinião.  
+Com método, a equipe consegue:
 
-| Letra | Tipo de ameaça | Explicação |
-|-------|----------------|------------|
-| **S** | **Spoofing** | Quando alguém falsifica a identidade de outro usuário (ex.: login com credenciais roubadas). |
-| **T** | **Tampering** | Alteração de dados sem autorização (ex.: modificar configurações de um sistema). |
-| **R** | **Repudiation** | Quando o autor de uma ação nega tê-la realizado, e não há provas suficientes para contestar. |
-| **I** | **Information Disclosure** | Vazamento de informações sensíveis (ex.: dados pessoais expostos em um site). |
-| **D** | **Denial of Service** | Ataques que impedem o acesso a sistemas (ex.: DDoS). |
-| **E** | **Elevation of Privilege** | Quando um usuário comum consegue permissões de administrador. |
-
-**Exemplo prático:**  
-Ao analisar um aplicativo bancário, a equipe de segurança pode aplicar STRIDE para verificar se o app está protegido contra falsificação de identidade (Spoofing) ou contra vazamento de dados sensíveis (Information Disclosure).
+- repetir o processo com qualidade,
+- justificar prioridades,
+- rastrear decisões de segurança ao longo do tempo.
 
 ---
 
-## 2. DREAD
+## 2. STRIDE (Microsoft)
 
-- **Origem:** Criada também pela Microsoft.  
-- **Objetivo:** Priorizar ameaças com base no **risco**.  
-- **Funcionamento:** Cada ameaça é avaliada em **cinco dimensões**, geralmente em uma escala de 1 a 10:
-- **Mais informações:** [DREAD Threat Modeling Methology](https://www.practical-devsecops.com/dread-threat-modeling/?srsltid=AfmBOopsgihg1_oI_W1TOwjr4SJ2vv1OYkldTjD3PRxjCh7CJ_ZGezAZ)
+**Quando usar:** design de software, revisão de arquitetura e APIs.
 
-1. **Damage Potential (Potencial de dano):** Quanto impacto a ameaça pode causar?  
-2. **Reproducibility (Reprodutibilidade):** O ataque pode ser facilmente repetido?  
-3. **Exploitability (Explorabilidade):** É fácil ou difícil explorar essa falha?  
-4. **Affected Users (Usuários afetados):** Quantos usuários seriam impactados?  
-5. **Discoverability (Descobribilidade):** A falha pode ser facilmente descoberta por atacantes?  
+**Categorias:**
 
-A soma ou média dessas notas ajuda a determinar quais ameaças são **mais críticas** e devem ser tratadas primeiro.
+| Letra | Ameaça | Pergunta prática |
+|---|---|---|
+| S | Spoofing | Alguém pode se passar por outro usuário/serviço? |
+| T | Tampering | Alguém consegue alterar dados sem autorização? |
+| R | Repudiation | Existe trilha para provar quem fez o quê? |
+| I | Information Disclosure | Dados sensíveis podem vazar? |
+| D | Denial of Service | É possível derrubar ou degradar o serviço? |
+| E | Elevation of Privilege | Um usuário comum pode virar admin? |
 
-**Exemplo prático:**  
-Uma falha de SQL Injection pode ter alto potencial de dano (roubo de banco de dados), ser fácil de explorar e afetar todos os usuários do sistema. Logo, teria prioridade máxima.
-
----
-
-## 3. PASTA (Process for Attack Simulation and Threat Analysis)
-
-- **Origem:** Metodologia moderna, muito usada em ambientes corporativos.  
-- **Objetivo:** Simular ataques reais para entender riscos técnicos e de negócio.  
-- **Funcionamento:** Segue **7 etapas estruturadas**, desde a definição de objetivos até a simulação de ataques e recomendações de mitigação.
-
-As 7 etapas são:
-1. Definir objetivos de negócio.  
-2. Identificar ativos críticos.  
-3. Modelar ameaças.  
-4. Analisar vulnerabilidades.  
-5. Simular ataques.  
-6. Avaliar impacto nos negócios.  
-7. Desenvolver contramedidas.  
-
-**Exemplo prático:**  
-Uma empresa que deseja migrar para a nuvem pode usar PASTA para simular ataques durante a migração, avaliando riscos como falhas de criptografia ou erros na configuração de permissões.
+**Ponto forte:** simples e direto para identificar lacunas cedo.  
+**Limitação:** não prioriza impacto de negócio sozinho.
 
 ---
 
-## 4. OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)
+## 3. DREAD (priorização de risco)
 
-- **Origem:** Desenvolvida pela Carnegie Mellon University.  
-- **Objetivo:** Avaliar riscos organizacionais de forma estratégica.  
-- **Funcionamento:** OCTAVE é menos técnico e mais voltado à **gestão**, permitindo que a organização identifique:
+**Quando usar:** priorizar lista de ameaças já identificadas.
 
-1. **Ativos críticos** – O que precisa ser protegido.  
-2. **Ameaças internas e externas** – O que pode comprometer esses ativos.  
-3. **Vulnerabilidades** – Quais fraquezas existem que podem ser exploradas.  
+Critérios clássicos:
 
-**Exemplo prático:**  
-Uma universidade pode usar OCTAVE para identificar que seus sistemas de matrícula online são ativos críticos. A análise revela que falhas de backup e falta de treinamento de funcionários são vulnerabilidades que expõem o sistema a riscos.
+- Damage (dano),
+- Reproducibility (repetibilidade),
+- Exploitability (explorabilidade),
+- Affected Users (usuários afetados),
+- Discoverability (descoberta).
 
----
-
-## 5. MITRE ATT&CK
-
-- **Origem:** Criado pelo MITRE, organização sem fins lucrativos ligada ao governo dos EUA.  
-- **Objetivo:** Mapear técnicas de ataque utilizadas por adversários no mundo real.  
-- **Funcionamento:** É uma **base de conhecimento viva**, que documenta **táticas, técnicas e procedimentos (TTPs)** usados em ataques cibernéticos.  
-- Estrutura dividida em fases, como:
-  - Reconhecimento  
-  - Execução  
-  - Persistência  
-  - Escalada de privilégios  
-  - Exfiltração de dados  
-
-**Exemplo prático:**  
-Se uma empresa sofrer um ataque de ransomware, pode usar o MITRE ATT&CK para identificar em qual fase do ataque está, e quais medidas de defesa são mais eficazes contra as técnicas usadas.
+**Ponto forte:** ajuda a ranquear correções.  
+**Limitação:** alta subjetividade entre avaliadores; muitas equipes modernas combinam com métricas como CVSS, EPSS e contexto de negócio.
 
 ---
 
-## 6. Cyber Kill Chain (Lockheed Martin)
+## 4. PASTA (Process for Attack Simulation and Threat Analysis)
 
-- **Origem:** Desenvolvido pela Lockheed Martin.  
-- **Objetivo:** Descrever as **fases de um ataque cibernético** para identificar pontos de defesa.  
-- **Funcionamento:** Divide um ataque em **7 etapas**:
+**Quando usar:** sistemas críticos e decisões que exigem ligação direta com risco de negócio.
 
-1. Reconhecimento (coleta de informações).  
-2. Preparação (weaponization).  
-3. Entrega (delivery).  
-4. Exploração (exploit).  
-5. Instalação (malware/backdoor).  
-6. Comando e Controle (C2).  
-7. Ações finais (roubo, espionagem, destruição).  
+Etapas (resumo):
 
-**Exemplo prático:**  
-Se um atacante envia um e-mail malicioso, o ataque percorre etapas como **entrega** (phishing), **exploração** (abrir anexo infectado) e **instalação** (malware). O objetivo da Kill Chain é interromper o ataque no meio do caminho, antes que chegue às ações finais.
+1. Definir objetivos de negócio.
+2. Definir escopo técnico.
+3. Decompor aplicação/ambiente.
+4. Analisar ameaças.
+5. Mapear vulnerabilidades.
+6. Simular cenários de ataque.
+7. Priorizar contramedidas.
 
----
-
-# Comparação Geral
-
-| Metodologia       | Foco principal                     | Nível de aplicação |
-|-------------------|-------------------------------------|--------------------|
-| **STRIDE**        | Identificar categorias de ameaças   | Técnico            |
-| **DREAD**         | Priorizar ameaças                  | Técnico            |
-| **PASTA**         | Simulação de ataques reais         | Técnico + Negócio  |
-| **OCTAVE**        | Risco organizacional e gestão      | Estratégico        |
-| **MITRE ATT&CK**  | Técnicas reais de adversários       | Técnico            |
-| **Kill Chain**    | Etapas de um ataque cibernético     | Técnico/Operacional|
+**Ponto forte:** profundidade técnica + visão de impacto no negócio.  
+**Limitação:** exige mais tempo, maturidade e dados.
 
 ---
 
-# Conclusão
+## 5. OCTAVE (CMU/SEI)
 
-Essas metodologias **não competem entre si**, mas se **complementam**.  
-- **STRIDE** ajuda a identificar ameaças,  
-- **DREAD** define a prioridade,  
-- **PASTA** mostra o impacto no negócio,  
-- **OCTAVE** olha de forma estratégica,  
-- **MITRE ATT&CK** conecta a análise a técnicas reais,  
-- e a **Kill Chain** mostra como bloquear ataques em cada fase.  
+**Quando usar:** gestão de risco organizacional e governança.
 
-Um bom programa de segurança pode combinar várias dessas abordagens para criar uma **defesa em camadas**, robusta e alinhada tanto à tecnologia quanto ao negócio.
+Foco principal:
+
+- identificar ativos críticos,
+- avaliar ameaças internas e externas,
+- definir estratégia de proteção institucional.
+
+**Ponto forte:** excelente para nível estratégico.  
+**Limitação:** menor detalhamento técnico para engenharia de aplicação.
+
+---
+
+## 6. MITRE ATT&CK
+
+**Quando usar:** detecção, threat hunting, resposta a incidentes e purple team.
+
+O ATT&CK organiza **táticas e técnicas observadas em ataques reais** (TTPs), permitindo:
+
+- mapear cobertura de controles,
+- traduzir alertas em comportamento adversário,
+- medir lacunas do SOC.
+
+**Ponto forte:** base viva e orientada a evidência operacional.  
+**Limitação:** não substitui modelagem de ameaça no design.
+
+---
+
+## 7. Cyber Kill Chain (Lockheed Martin)
+
+**Quando usar:** entender progressão de campanhas e pontos de interrupção.
+
+Fases clássicas:
+
+1. Reconhecimento
+2. Armazenamento/preparação de artefatos
+3. Entrega
+4. Exploração
+5. Instalação
+6. Comando e Controle (C2)
+7. Ações no objetivo
+
+**Ponto forte:** ótimo para explicar e comunicar ataques em sequência.  
+**Limitação:** menos granular que ATT&CK para mapeamento moderno de TTPs.
+
+---
+
+## 8. Como combinar metodologias na prática
+
+Uma combinação equilibrada para curso e ambiente real:
+
+- **Projeto/arquitetura:** STRIDE.
+- **Priorização de backlog:** DREAD (ou equivalente com critérios objetivos).
+- **Operação/SOC:** ATT&CK + Kill Chain.
+- **Risco corporativo:** OCTAVE ou RMF/NIST em governança.
+- **Sistemas críticos:** PASTA para análise aprofundada.
+
+---
+
+## 9. Mini-caso prático
+
+Portal acadêmico em nuvem com autenticação fraca e APIs públicas.
+
+- **STRIDE:** identifica spoofing e information disclosure.
+- **DREAD:** classifica spoofing de credenciais como prioridade alta.
+- **ATT&CK:** mapeia técnicas observáveis de credential access e lateral movement.
+- **Kill Chain:** define onde interromper (entrega e exploração).
+- **PASTA/OCTAVE:** conecta impacto técnico ao impacto institucional.
+
+---
+
+## 10. Perguntas de revisão rápida
+
+1. Em que cenário STRIDE é mais útil que ATT&CK?
+2. Qual limitação prática do DREAD em equipes grandes?
+3. Por que Kill Chain e ATT&CK podem ser usados juntos?
+
+---
+
+## 11. Fontes de referência
+
+- Microsoft Threat Modeling (STRIDE)  
+  https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats
+- OWASP Threat Modeling  
+  https://owasp.org/www-community/Threat_Modeling
+- MITRE ATT&CK  
+  https://attack.mitre.org/
+- Cyber Kill Chain (Lockheed Martin)  
+  https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html
+- OCTAVE (CMU SEI)  
+  https://www.sei.cmu.edu/library/octave-octave-s-and-octave-allegro/

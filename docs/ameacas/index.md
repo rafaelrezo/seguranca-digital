@@ -1,114 +1,129 @@
-# Atores de Ameaça (Threat Actors)
+# Ameaças Cibernéticas e Atores de Ameaça
 
-## O que são Threat Actors?
+> **Objetivos de aprendizagem**
+> - Diferenciar ameaça, ator de ameaça e vetor de ataque.
+> - Entender as motivações de atacantes e seu impacto no risco.
+> - Relacionar tendências atuais de ataques com controles práticos.
+>
+> **Tempo estimado:** 18 minutos
 
-Um **Threat Actor** é qualquer indivíduo ou grupo responsável por ações que comprometem a segurança da informação.  
-Eles podem variar desde um estudante curioso que tenta invadir uma rede Wi-Fi até **governos inteiros que financiam operações de espionagem digital**.
+## Vídeo de contexto
 
-Compreender quem são esses atores, suas **motivações** e **atributos** é essencial para fortalecer estratégias de cibersegurança.
+![type:video](https://www.youtube.com/embed/vb-0zwDJ4YQ)
 
----
+## 1. O que é uma ameaça cibernética?
 
-## Principais Motivações dos Atores de Ameaça
+Uma ameaça cibernética é qualquer evento, agente ou ação capaz de comprometer a **confidencialidade, integridade ou disponibilidade** de sistemas e dados.
 
-1. **Exfiltração de Dados**  
-   Roubo de informações confidenciais, como listas de clientes ou segredos industriais.  
-   Um exemplo seria um funcionário copiando dados sigilosos e os vendendo para concorrentes.
+Em termos práticos:
 
-2. **Ganho Financeiro**  
-   Crimes virtuais que visam dinheiro, como **ransomware** ou fraudes com cartão de crédito.  
-   Assim como um ladrão pode roubar uma carteira na rua, um criminoso digital pode roubar credenciais bancárias.
-
-3. **Chantagem (Blackmail)**  
-   Obtenção de informações comprometedoras para exigir pagamentos ou favores.  
-   Isso pode ocorrer, por exemplo, no roubo de fotos pessoais com ameaça de exposição.
-
-4. **Espionagem**  
-   Espiar organizações ou países para obter vantagem competitiva ou estratégica.  
-   Empresas rivais podem tentar descobrir fórmulas secretas ou novos projetos de inovação tecnológica.
-
-5. **Disrupção de Serviços**  
-   Tornar sistemas indisponíveis para causar prejuízos ou chamar atenção.  
-   Ataques de negação de serviço (DDoS) contra sites bancários são um caso típico.
-
-6. **Motivações Políticas ou Filosóficas (Hacktivismo)**  
-   Uso de ataques digitais como forma de protesto ou ativismo.  
-   Grupos já derrubaram sites de governos para protestar contra determinadas políticas.
-
-7. **Razões Éticas (White Hat Hackers)**  
-   Hackers que agem legalmente para ajudar empresas a melhorar sua segurança.  
-   Profissionais de segurança são contratados para testar sistemas em busca de falhas.
-
-8. **Vingança**  
-   Funcionários insatisfeitos ou ex-colaboradores que usam acessos privilegiados de forma maliciosa.  
-   Por exemplo, um ex-funcionário pode apagar bancos de dados ao sair da empresa.
-
-9. **Caos e Destruição**  
-   Ataques feitos por diversão ou para provar capacidade técnica.  
-   Da mesma forma que alguém pode pichar um muro apenas para causar bagunça, no mundo digital acontecem invasões apenas pelo desafio.
-
-10. **Guerra Cibernética**  
-    Estados-nação utilizam ataques digitais como parte de estratégias militares.  
-    Já ocorreram ataques direcionados a redes de energia elétrica e sistemas críticos de países rivais.
+- **Ameaça**: o perigo (ex.: campanha de ransomware).
+- **Vulnerabilidade**: a fraqueza explorável (ex.: servidor sem correção).
+- **Risco**: probabilidade e impacto da exploração.
 
 ---
 
-## Atributos dos Atores de Ameaça
+## 2. Quem são os atores de ameaça?
 
-1. **Origem**  
-   - **Internos**: atuam dentro da organização, com acesso legítimo (funcionários, prestadores).  
-   - **Externos**: atacam de fora, sem privilégios de acesso.
+Atores de ameaça (*threat actors*) são indivíduos ou grupos que executam ou patrocinam ataques.
 
-2. **Recursos e Financiamento**  
-   Um invasor amador conta apenas com um computador pessoal, enquanto um grupo patrocinado por um governo pode ter equipes dedicadas, supercomputadores e orçamentos milionários.
+### 2.1 Categorias mais comuns
 
-3. **Nível de Sofisticação**  
-   - **Baixo:** indivíduos que usam ferramentas prontas disponíveis na internet.  
-   - **Alto:** grupos avançados que desenvolvem malwares exclusivos e exploram falhas desconhecidas (*zero-days*).
+- **Cibercrime organizado:** foco em lucro (ransomware, fraude, extorsão).
+- **Hacktivistas:** motivação ideológica e política, frequentemente com DDoS e defacement.
+- **Estados-nação e grupos alinhados:** espionagem, sabotagem e influência.
+- **Ameaças internas:** abuso de acesso legítimo por funcionário, terceiro ou ex-colaborador.
+- **Oportunistas/script kiddies:** baixa sofisticação, alto volume.
 
----
+### 2.2 Motivação define estratégia
 
-## Tipos Comuns de Atores de Ameaça
-
-- **Atacantes Inexperientes (Script Kiddies):** usam ferramentas prontas sem entender como funcionam.  
-- **Hacktivistas:** motivados por ideologias políticas ou sociais.  
-- **Crime Organizado:** grupos estruturados que buscam lucro financeiro.  
-- **Estados-Nação:** patrocinados por governos para espionagem ou guerra cibernética.  
-- **Ameaças Internas:** funcionários ou parceiros que abusam do acesso autorizado.
+- **Financeira:** rápido retorno, alta escala.
+- **Espionagem:** persistência e discrição.
+- **Disrupção:** indisponibilidade e dano reputacional.
+- **Influência:** manipulação de narrativa, vazamento seletivo, desinformação.
 
 ---
 
-## Vetores e Superfícies de Ataque
+## 3. Vetores de ataque mais observados
 
-- **Vetores de Ataque:** caminhos usados por atacantes para invadir sistemas.  
-  Incluem e-mails de phishing, arquivos infectados, imagens adulteradas, ligações falsas (vishing), dispositivos USB maliciosos e redes Wi-Fi abertas.
+Com base em relatórios recentes, três padrões se destacam:
 
-- **Superfície de Ataque:** todos os pontos vulneráveis que podem ser explorados.  
-  Quanto mais portas e janelas uma casa tiver, maiores as chances de alguém encontrar uma entrada — o mesmo acontece com sistemas digitais.
+- **Phishing e engenharia social** continuam como porta de entrada relevante.
+- **Exploração de vulnerabilidades** cresceu e acelera comprometimentos iniciais.
+- **Terceiros/cadeia de suprimentos** ampliam impacto, porque um fornecedor afeta vários clientes.
 
----
-
-## Shadow IT
-
-**Shadow IT** é o uso de softwares, serviços e dispositivos sem autorização oficial da empresa.  
-Exemplo: funcionários instalando aplicativos de mensagens não homologados para compartilhar documentos internos.
-
-Embora aumente a produtividade, também **abre brechas de segurança**, já que esses sistemas não são monitorados.
+Isso reforça um ponto: não basta “proteger o perímetro”, é necessário reduzir exposição interna e dependências externas.
 
 ---
 
-## Técnicas de Engano e Defesa
+## 4. Tendências atuais (visão 2025)
 
-- **Honeypots:** servidores falsos criados para atrair atacantes e estudar seus métodos.  
-- **Honeynets:** redes inteiras de sistemas falsos.  
-- **Honeyfiles:** arquivos isca que denunciam acessos indevidos.  
-- **Honeytokens:** credenciais falsas usadas para identificar invasores.
+### 4.1 O que os dados mostram
 
-É como deixar uma carteira vazia em um local público apenas para observar quem tenta pegá-la.
+- O **DBIR 2025 (Verizon)** analisou mais de 22 mil incidentes e 12.195 violações confirmadas, com aumento de exploração de vulnerabilidades e maior peso de terceiros.
+- O **ENISA Threat Landscape 2025** destacou forte presença de DDoS em campanhas hacktivistas e apontou ransomware como ameaça de alto impacto.
+- O **CISA KEV Catalog** segue crescendo e reforça que vulnerabilidades já exploradas em ambiente real devem ter prioridade máxima de correção.
+
+### 4.2 Tradução prática para empresas
+
+- Tempo de patch virou fator crítico de sobrevivência.
+- Gestão de terceiros não pode ser apenas contratual.
+- Controles de identidade (MFA, privilégio mínimo, revisão de acesso) reduzem impacto real.
 
 ---
 
-## Conclusão
+## 5. Superfície de ataque e Shadow IT
 
-Compreender os **atores de ameaça**, suas **motivações**, **atributos** e os **caminhos de ataque** é essencial para criar defesas eficazes.  
-A segurança não depende apenas de tecnologia, mas também de vigilância, políticas adequadas e estratégias inteligentes para **prevenir, detectar e responder** a incidentes.
+Superfície de ataque é o conjunto de pontos exploráveis por um invasor:
+
+- ativos expostos na Internet,
+- contas e credenciais,
+- APIs e integrações,
+- serviços em nuvem mal configurados,
+- dispositivos e software não homologados.
+
+**Shadow IT** aumenta essa superfície sem visibilidade da equipe de segurança.
+
+---
+
+## 6. Técnicas de engano para detecção
+
+Controles de engano ajudam a detectar movimentação do atacante:
+
+- **Honeypots**: serviços isca.
+- **Honeytokens**: credenciais falsas.
+- **Honeyfiles**: arquivos que disparam alerta ao serem abertos.
+
+Quando bem usados, esses recursos antecipam a detecção antes do dano principal.
+
+---
+
+## 7. Mini-caso prático
+
+Uma instituição de ensino utiliza VPN legada sem MFA e com plugins desatualizados.
+
+- **Ameaça:** grupo de ransomware com acesso inicial por exploração de falha conhecida.
+- **Vulnerabilidade:** ausência de MFA e correções pendentes.
+- **Risco:** interrupção das aulas e vazamento de dados acadêmicos.
+- **Tratamento prioritário:** patch baseado em KEV, MFA obrigatório, segmentação de rede e plano de resposta testado.
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual a diferença entre ator de ameaça e vetor de ataque?
+2. Por que exploração de vulnerabilidade exige priorização diferente de CVEs “teóricas”?
+3. Como Shadow IT altera a superfície de ataque?
+
+---
+
+## 9. Fontes de referência
+
+- Verizon: 2025 Data Breach Investigations Report (DBIR)  
+  https://www.verizon.com/about/news/2025-data-breach-investigations-report-apac
+- ENISA Threat Landscape 2025  
+  https://www.enisa.europa.eu/publications/enisa-threat-landscape-2025
+- ENISA (press release ETL 2025)  
+  https://www.enisa.europa.eu/news/etl-2025-eu-consistently-targeted-by-diverse-yet-convergent-threat-groups
+- CISA Known Exploited Vulnerabilities Catalog  
+  https://www.cisa.gov/known-exploited-vulnerabilities-catalog
