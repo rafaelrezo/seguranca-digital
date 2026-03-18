@@ -1,6 +1,10 @@
 site_name: Segurança Digital 
 site_author: Prof. Rafael Emerick
-theme: material
+theme:
+  name: material
+  features:
+    - navigation.expand
+    - toc.integrate
 
 plugins:
   - search
@@ -23,6 +27,9 @@ markdown_extensions:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
   
 
 nav:
@@ -43,6 +50,7 @@ nav:
       - Visão geral: ameacas/index.md
       - Metodologias de análise de ameaças: ameacas/metodologias.md
       - Comparativo de metodologias: ameacas/comparativo.md
+      - Prática guiada em sala: ameacas/pratica_guiada_ameacas.md
   - Segurança Física:
       - Introdução: seguranca_fisica/introducao.md
       - Controles de Segurança Física: seguranca_fisica/controles_fisicos.md
