@@ -1,0 +1,3797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Prof. Rafael Emerick">
+      
+      
+      
+        <link rel="prev" href="../comparativo/">
+      
+      
+        <link rel="next" href="../../seguranca_fisica/introducao/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Prática guiada em sala - Segurança Digital</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pratica-guiada-de-avaliacao-de-ameacas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Segurança Digital" class="md-header__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Segurança Digital
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prática guiada em sala
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Segurança Digital" class="md-nav__button md-logo" aria-label="Segurança Digital" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Segurança Digital
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentos de Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/B-ameacas_vulnerabilidades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças e Vulnerabilidades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/C-confidencialidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Confidencialidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/D-integridade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integridade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/E-disponibilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disponibilidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/F-nao-repudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Não Repudio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/G-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/H-autorizacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/I-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/J-Controles_seguranca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/K-zerotrust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zero Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_seguranca_digital/L-analise-lacunas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise de Gaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ameaças
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ameaças
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metodologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metodologias de análise de ameaças
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparativo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparativo de metodologias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Prática guiada em sala
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prática guiada em sala
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#video-da-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vídeo da aula
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cenario-real-da-atividade" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Cenário real da atividade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Cenário real da atividade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-componentes-do-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Componentes do cenário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ativos-mais-sensiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Ativos mais sensíveis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-diagrama-inicial-do-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Diagrama inicial do ambiente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-organizacao-da-atividade" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Organização da atividade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Organização da atividade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sequencia-sugerida" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Sequência sugerida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ferramentas-reais-e-artefatos-profissionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ferramentas reais e artefatos profissionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Ferramentas reais e artefatos profissionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pacote-de-entrega-sugerido" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Pacote de entrega sugerido
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-passo-a-passo-com-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Passo a passo com STRIDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Passo a passo com STRIDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-preparacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Preparação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-perguntas-guia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Perguntas-guia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-registro-stride-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Registro STRIDE esperado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-priorizacao-com-dread" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Priorização com DREAD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Priorização com DREAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-criterios" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Critérios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-matriz-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Matriz exemplo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-como-aplicar-em-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Como aplicar em grupo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-construindo-o-raciocinio-com-pasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Construindo o raciocínio com PASTA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Construindo o raciocínio com PASTA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-sete-etapas-resumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Sete etapas resumidas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-exemplo-de-cenario-consolidado" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Exemplo de cenário consolidado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-artefato-pasta-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Artefato PASTA esperado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-diferencas-e-potencialidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Diferenças e potencialidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Diferenças e potencialidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-recomendacao-pratica" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Recomendação prática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-entregaveis-consistentes-e-profissionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Entregáveis consistentes e profissionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Entregáveis consistentes e profissionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-criterios-de-qualidade-da-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Critérios de qualidade da entrega
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-mini-caso-pratico" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Mini-caso prático
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-perguntas-de-revisao-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Perguntas de revisão rápida
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-fontes-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Fontes de referência
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Segurança Física
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Segurança Física
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/controles_fisicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controles de Segurança Física
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/forca_bruta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Força Bruta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/sistema_vigilancia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas de Vigilância
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/bypass_vigilancia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bypass da Vigilância
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/camaras_acesso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Câmaras de acesso controlado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/fechaduras_trancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fechaduras e Trancas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca_fisica/clonagem_cracha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clonagem de acesso
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Engenharia Social
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Engenharia Social
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/gatilhos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gatilhos Motivacionais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/impersonificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impersonificação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/pretexting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falsificação de pretextos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/phishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ataques de phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/prevencao_phishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prevenção de Phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/campanhas_simulacao_pishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Campanha Simulação de Phishing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/fraudes_golpes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fraudes e Golpes(Scams)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/desinformacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Campanhas de Influência e Desinformação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engenharia_social/outros_ataques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outros Ataques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Malwares
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Malwares
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/virus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/worms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Worms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/trojans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trojans
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/ransomware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ransomware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/botnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Botnets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/rootkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rootkits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/backdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backdoors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/keylogger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keylogger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/spyware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spywares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwares/tecnica_ataque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Técnicas de Ataque
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proteção de dados
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Proteção de dados
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/classificacao_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classificação de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/propriedade_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Propriedade de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/estado_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estado de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/tipos_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tipos de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/soberania_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Soberania de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/metodos_protecao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métodos de proteção de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/prevencao_perda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prevenção de perda de dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protecao_dados/configuracao_dlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuração de DLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Criptografia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/principais_tipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tipos de Criptografia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/simetricos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Simétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/assimetricos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algorítmos Assimétricos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hashing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/seguranca_de_hashes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Segurança de Hashes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PKI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/certificados_digitais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certificados Digitais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/exemplo_certificado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exemplos de Certificado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/blockchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ferramentas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ofuscacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ofuscação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/ameacas_criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ameaças à Criptografia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gestão de Riscos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão de Riscos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/frequencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frequência das avaliações
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/identificacao_analise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identificação e Análise de Impacto dos riscos nos Negócios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/registro_riscos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Registro de Riscos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/analise_qualitativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise Qualitativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/analise_quantitativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Análise Quantitativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/estrategias_gerenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estratégias de Gerenciamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/monitoramento_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoramento e Relatório
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Riscos de Terceiros
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Riscos de Terceiros
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/riscos_terceiros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/cadeia_suprimentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Riscos da Cadeia de Suprimentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/ataques_cadeias_suprimentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ataques a Cadeias de Suprimentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/avaliacao_fornecedores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avaliação de Fornecedores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/selecao_fornecedores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seleção de Fornecedores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_riscos/contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contratos e Acordos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Governança de Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Governança de Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/governanca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Governança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/estrutura_governanca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Estrutura da Governança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/politicas_governanca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Políticas de Governança
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/padroes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Padrões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/procedimentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Procedimentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governanca/compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pentests
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Pentests
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentest/visaogeral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentest/planejamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Planejamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentest/coleta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coleta de Informações
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="pratica-guiada-de-avaliacao-de-ameacas">Prática Guiada de Avaliação de Ameaças</h1>
+<blockquote>
+<p><strong>Objetivos de aprendizagem</strong>
+- Aplicar STRIDE, DREAD e PASTA no mesmo cenário de forma complementar.
+- Produzir artefatos profissionais de análise de ameaças com ferramentas reais.
+- Explicar por que cada metodologia responde a perguntas diferentes da defesa.</p>
+<p><strong>Tempo estimado:</strong> 60 minutos</p>
+</blockquote>
+<h2 id="video-da-aula">Vídeo da aula</h2>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/cr-vpVvq8Fw" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h2 id="1-cenario-real-da-atividade">1. Cenário real da atividade</h2>
+<p>Nesta atividade, você e seu grupo atuarão como equipe de segurança de uma <strong>instituição de ensino com portal acadêmico em nuvem</strong>. O ambiente atende alunos, professores e secretaria, e integra autenticação corporativa, banco de dados acadêmico, armazenamento de documentos e um fornecedor terceirizado.</p>
+<h3 id="11-componentes-do-cenario">1.1 Componentes do cenário</h3>
+<ul>
+<li><strong>Portal web</strong> para acesso de alunos e professores.</li>
+<li><strong>Painel administrativo</strong> usado pela secretaria.</li>
+<li><strong>API acadêmica</strong> para notas, matrículas, faltas e documentos.</li>
+<li><strong>Banco de dados acadêmico</strong> com dados pessoais e históricos.</li>
+<li><strong>Armazenamento em nuvem</strong> com boletins e declarações.</li>
+<li><strong>SSO/IdP</strong> para autenticação institucional.</li>
+<li><strong>Fornecedor terceirizado</strong> para emissão de boletos e integrações financeiras.</li>
+</ul>
+<h3 id="12-ativos-mais-sensiveis">1.2 Ativos mais sensíveis</h3>
+<ul>
+<li>credenciais e sessões;</li>
+<li>dados pessoais de alunos e docentes;</li>
+<li>notas e histórico acadêmico;</li>
+<li>documentos institucionais;</li>
+<li>registros de auditoria;</li>
+<li>disponibilidade do portal em período de matrícula.</li>
+</ul>
+<h3 id="13-diagrama-inicial-do-ambiente">1.3 Diagrama inicial do ambiente</h3>
+<pre class="mermaid"><code>flowchart LR
+    aluno[Aluno] --&gt; portal[Portal Web]
+    professor[Professor] --&gt; portal
+    secretaria[Secretaria] --&gt; admin[Painel Administrativo]
+    admin --&gt; api[API Academica]
+    portal --&gt; api
+    api --&gt; db[(Banco Academico)]
+    api --&gt; storage[(Storage de Documentos)]
+    api --&gt; sso[SSO / IdP]
+    api --&gt; terceiro[Fornecedor Terceirizado]</code></pre>
+<p>Esse diagrama já é suficiente para iniciar a atividade. Se o grupo quiser aprofundar a análise, ele pode ser refinado com <strong>fronteiras de confiança</strong>, fluxos autenticados e dependências externas.</p>
+<hr>
+<h2 id="2-organizacao-da-atividade">2. Organização da atividade</h2>
+<p>Uma divisão eficiente é trabalhar em grupos de 4 a 5 alunos, com papéis explícitos:</p>
+<ul>
+<li><strong>Facilitador:</strong> mantém o foco no método.</li>
+<li><strong>Arquiteto:</strong> desenha o fluxo e identifica fronteiras.</li>
+<li><strong>Analista de risco:</strong> conduz a discussão de impacto.</li>
+<li><strong>Redator:</strong> consolida o artefato final.</li>
+<li><strong>Relator:</strong> apresenta os achados na discussão final.</li>
+</ul>
+<h3 id="21-sequencia-sugerida">2.1 Sequência sugerida</h3>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Tempo</th>
+<th>Saída esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entendimento do cenário</td>
+<td>10 min</td>
+<td>Escopo, ativos e atores</td>
+</tr>
+<tr>
+<td>STRIDE</td>
+<td>20 min</td>
+<td>Registro inicial de ameaças</td>
+</tr>
+<tr>
+<td>DREAD</td>
+<td>10 min</td>
+<td>Priorização das ameaças principais</td>
+</tr>
+<tr>
+<td>PASTA</td>
+<td>15 min</td>
+<td>Cenário de ataque e plano de resposta</td>
+</tr>
+<tr>
+<td>Fechamento</td>
+<td>5 min</td>
+<td>Apresentação curta da equipe</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-ferramentas-reais-e-artefatos-profissionais">3. Ferramentas reais e artefatos profissionais</h2>
+<table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>Uso na atividade</th>
+<th>Artefato gerado</th>
+<th>Observação prática</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OWASP Threat Dragon</strong></td>
+<td>Modelar o sistema e registrar ameaças STRIDE</td>
+<td>Diagrama e lista de ameaças</td>
+<td>Boa opção multiplataforma e visual</td>
+</tr>
+<tr>
+<td><strong>Microsoft Threat Modeling Tool</strong></td>
+<td>Alternativa guiada para STRIDE em laboratório Windows</td>
+<td>Modelo de ameaça com catálogo inicial</td>
+<td>Útil para ambientes baseados em Windows e ecossistema Microsoft</td>
+</tr>
+<tr>
+<td><strong>diagrams.net</strong> ou <strong>Mermaid</strong></td>
+<td>Refinar diagrama para relatório final</td>
+<td>DFD/contexto em PNG, SVG ou Markdown</td>
+<td>Simples para padronizar entrega</td>
+</tr>
+<tr>
+<td><strong>LibreOffice Calc / Excel / Google Sheets</strong></td>
+<td>Aplicar DREAD com notas e justificativas</td>
+<td>Matriz de priorização</td>
+<td>Facilita consenso e apresentação</td>
+</tr>
+<tr>
+<td><strong>Markdown / Google Docs / editor institucional</strong></td>
+<td>Consolidar o raciocínio PASTA</td>
+<td>Relatório executivo e técnico</td>
+<td>Mantém rastreabilidade</td>
+</tr>
+<tr>
+<td><strong>OWASP pytm</strong></td>
+<td>Automação opcional para grupos com perfil mais técnico</td>
+<td>DFD, sequência e relatório gerado por código</td>
+<td>Excelente para DevSecOps e versionamento</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-pacote-de-entrega-sugerido">3.1 Pacote de entrega sugerido</h3>
+<p>Ao final da atividade, cada grupo deve entregar um conjunto simples e profissional:</p>
+<ul>
+<li><code>01-contexto-e-dfd.pdf</code></li>
+<li><code>02-registro-stride.xlsx</code></li>
+<li><code>03-matriz-dread.xlsx</code></li>
+<li><code>04-relatorio-pasta.md</code> ou <code>.pdf</code></li>
+<li><code>05-plano-de-tratamento.csv</code></li>
+</ul>
+<p>Esses nomes ajudam a padronizar as entregas e facilitam revisão, comparação entre grupos e reaproveitamento em portfólios ou evidências de laboratório.</p>
+<hr>
+<h2 id="4-passo-a-passo-com-stride">4. Passo a passo com STRIDE</h2>
+<p>STRIDE é a melhor porta de entrada para a prática porque obriga a equipe a olhar para <strong>componentes, fluxos e fronteiras de confiança</strong> antes de discutir prioridade.</p>
+<h3 id="41-preparacao">4.1 Preparação</h3>
+<ol>
+<li>Liste os componentes do cenário.</li>
+<li>Marque onde há mudança de confiança: Internet, SSO, storage, terceiro, painel administrativo.</li>
+<li>Identifique quais dados circulam entre os elementos.</li>
+<li>Registre as premissas: MFA parcial, fornecedor externo, períodos críticos de matrícula.</li>
+</ol>
+<h3 id="42-perguntas-guia">4.2 Perguntas-guia</h3>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Pergunta orientadora</th>
+<th>Exemplo no cenário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spoofing</strong></td>
+<td>Alguém pode se passar por outro usuário ou serviço?</td>
+<td>Reuso de sessão de professor em login federado</td>
+</tr>
+<tr>
+<td><strong>Tampering</strong></td>
+<td>Alguém pode alterar dados ou parâmetros?</td>
+<td>Mudança indevida de nota ou boleto</td>
+</tr>
+<tr>
+<td><strong>Repudiation</strong></td>
+<td>É possível negar uma ação sem evidência confiável?</td>
+<td>Secretaria altera cadastro sem trilha forte</td>
+</tr>
+<tr>
+<td><strong>Information Disclosure</strong></td>
+<td>Dados podem vazar para quem não deveria vê-los?</td>
+<td>Exposição de documentos no storage</td>
+</tr>
+<tr>
+<td><strong>Denial of Service</strong></td>
+<td>O serviço pode ser degradado ou indisponibilizado?</td>
+<td>API indisponível em período de matrícula</td>
+</tr>
+<tr>
+<td><strong>Elevation of Privilege</strong></td>
+<td>Um usuário comum pode ganhar privilégio maior?</td>
+<td>Professor acessa função administrativa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-registro-stride-esperado">4.3 Registro STRIDE esperado</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Elemento</th>
+<th>Categoria</th>
+<th>Cenário de abuso</th>
+<th>Impacto</th>
+<th>Controle atual</th>
+<th>Ação recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TM-01</td>
+<td>SSO / Portal</td>
+<td>Spoofing</td>
+<td>Conta docente comprometida por phishing reutiliza sessão</td>
+<td>Alto</td>
+<td>MFA opcional</td>
+<td>MFA obrigatório e revisão de sessão</td>
+</tr>
+<tr>
+<td>TM-02</td>
+<td>API / Banco</td>
+<td>Tampering</td>
+<td>Alteração indevida de notas via falha de autorização</td>
+<td>Alto</td>
+<td>Controle parcial por perfil</td>
+<td>Revisar autorização e trilhas por função</td>
+</tr>
+<tr>
+<td>TM-03</td>
+<td>Painel administrativo</td>
+<td>Repudiation</td>
+<td>Mudança de dados sem log confiável</td>
+<td>Médio</td>
+<td>Log incompleto</td>
+<td>Log assinado e trilha de auditoria</td>
+</tr>
+<tr>
+<td>TM-04</td>
+<td>Storage</td>
+<td>Information Disclosure</td>
+<td>Documento acadêmico acessado por link exposto</td>
+<td>Alto</td>
+<td>Links compartilháveis</td>
+<td>Expiração, escopo mínimo e DLP</td>
+</tr>
+<tr>
+<td>TM-05</td>
+<td>API pública</td>
+<td>Denial of Service</td>
+<td>Picos de requisição derrubam matrícula online</td>
+<td>Alto</td>
+<td>Rate limit insuficiente</td>
+<td>WAF, fila e proteção anti-DDoS</td>
+</tr>
+<tr>
+<td>TM-06</td>
+<td>Painel / API</td>
+<td>Elevation of Privilege</td>
+<td>Usuário comum obtém função de secretaria</td>
+<td>Alto</td>
+<td>Perfis amplos</td>
+<td>RBAC, revisão periódica e aprovação dupla</td>
+</tr>
+</tbody>
+</table>
+<p>O artefato profissional aqui não é apenas a lista. Ele precisa trazer <strong>evidência, hipótese e ação recomendada</strong>.</p>
+<hr>
+<h2 id="5-priorizacao-com-dread">5. Priorização com DREAD</h2>
+<p>DREAD entra depois de STRIDE para evitar discussão vaga. A lógica é simples: as ameaças já identificadas passam por uma pontuação explícita.</p>
+<h3 id="51-criterios">5.1 Critérios</h3>
+<ul>
+<li><strong>Damage:</strong> quão grave é o dano?</li>
+<li><strong>Reproducibility:</strong> o ataque pode ser repetido com facilidade?</li>
+<li><strong>Exploitability:</strong> o esforço técnico para explorar é baixo ou alto?</li>
+<li><strong>Affected Users:</strong> quantos usuários ou processos são impactados?</li>
+<li><strong>Discoverability:</strong> a fraqueza é fácil de descobrir?</li>
+</ul>
+<h3 id="52-matriz-exemplo">5.2 Matriz exemplo</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Ameaça</th>
+<th style="text-align: right;">Damage</th>
+<th style="text-align: right;">Reproducibility</th>
+<th style="text-align: right;">Exploitability</th>
+<th style="text-align: right;">Affected Users</th>
+<th style="text-align: right;">Discoverability</th>
+<th style="text-align: right;">Média</th>
+<th>Prioridade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TM-01</td>
+<td>Reuso de sessão no SSO</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7,8</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>TM-02</td>
+<td>Alteração de notas via falha de autorização</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6,8</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>TM-04</td>
+<td>Exposição de documentos no storage</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8,4</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td>TM-05</td>
+<td>Indisponibilidade na matrícula</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7,8</td>
+<td>Alta</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-como-aplicar-em-grupo">5.3 Como aplicar em grupo</h3>
+<ol>
+<li>Defina uma escala comum de <code>1 a 10</code>.</li>
+<li>Exija uma justificativa curta para cada nota.</li>
+<li>Peça consenso do grupo, não votação apressada.</li>
+<li>Converta a média em fila de ação.</li>
+</ol>
+<p>Uma prática madura reconhece a limitação do DREAD: ele ajuda muito a <strong>priorizar conversas</strong>, mas não deve substituir evidência técnica, contexto regulatório e impacto institucional.</p>
+<hr>
+<h2 id="6-construindo-o-raciocinio-com-pasta">6. Construindo o raciocínio com PASTA</h2>
+<p>PASTA é útil quando o grupo já tem ameaças identificadas e precisa transformar isso em <strong>cenários de risco defendíveis para gestão, auditoria ou priorização estratégica</strong>.</p>
+<h3 id="61-sete-etapas-resumidas">6.1 Sete etapas resumidas</h3>
+<table>
+<thead>
+<tr>
+<th>Etapa PASTA</th>
+<th>Pergunta principal</th>
+<th>Saída esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Objetivos de negócio</td>
+<td>O que precisa continuar confiável, íntegro e disponível?</td>
+<td>Critérios de impacto</td>
+</tr>
+<tr>
+<td>2. Escopo técnico</td>
+<td>O que está dentro e fora da análise?</td>
+<td>Escopo validado</td>
+</tr>
+<tr>
+<td>3. Decomposição</td>
+<td>Como os dados e os componentes se relacionam?</td>
+<td>DFD/contexto</td>
+</tr>
+<tr>
+<td>4. Análise de ameaças</td>
+<td>Quem atacaria, por qual motivação e por qual vetor?</td>
+<td>Catálogo de atores e caminhos</td>
+</tr>
+<tr>
+<td>5. Análise de vulnerabilidades</td>
+<td>Quais fraquezas tornam o ataque viável?</td>
+<td>Evidências e lacunas</td>
+</tr>
+<tr>
+<td>6. Simulação de ataque</td>
+<td>Como a cadeia de ataque ocorreria de ponta a ponta?</td>
+<td>Narrativa de ataque</td>
+</tr>
+<tr>
+<td>7. Tratamento</td>
+<td>O que reduzirá risco com melhor retorno?</td>
+<td>Plano priorizado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-exemplo-de-cenario-consolidado">6.2 Exemplo de cenário consolidado</h3>
+<p><strong>Cenário PASTA:</strong> um atacante obtém credenciais docentes por phishing, acessa o portal, encontra uma falha de autorização na API, altera notas e exfiltra documentos acadêmicos antes de apagar rastros operacionais.</p>
+<p>Esse cenário é mais forte do que uma lista isolada de ameaças porque:</p>
+<ul>
+<li>relaciona motivação, vetor e vulnerabilidade;</li>
+<li>mostra dependência entre autenticação, autorização e monitoramento;</li>
+<li>evidencia impacto acadêmico, reputacional e regulatório;</li>
+<li>justifica investimento em controles com linguagem de negócio.</li>
+</ul>
+<h3 id="63-artefato-pasta-esperado">6.3 Artefato PASTA esperado</h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objetivo de negócio afetado</td>
+<td>Continuidade da matrícula e integridade do histórico escolar</td>
+</tr>
+<tr>
+<td>Ator de ameaça</td>
+<td>Cibercriminoso com acesso inicial por phishing</td>
+</tr>
+<tr>
+<td>Caminho de ataque</td>
+<td>Roubo de sessão -&gt; API sem autorização robusta -&gt; exfiltração -&gt; manipulação de registros</td>
+</tr>
+<tr>
+<td>Evidência principal</td>
+<td>MFA opcional, RBAC incompleto, logs sem correlação</td>
+</tr>
+<tr>
+<td>Impacto</td>
+<td>Parada operacional, retrabalho institucional, incidente de privacidade</td>
+</tr>
+<tr>
+<td>Contramedidas</td>
+<td>MFA obrigatório, revisão de RBAC, trilha imutável, proteção do storage</td>
+</tr>
+<tr>
+<td>Dono da ação</td>
+<td>TI + Segurança + Secretaria acadêmica</td>
+</tr>
+<tr>
+<td>Prazo</td>
+<td>30, 60 e 90 dias</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="7-diferencas-e-potencialidades">7. Diferenças e potencialidades</h2>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Pergunta que responde melhor</th>
+<th>Potencialidade</th>
+<th>Limitação prática</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>STRIDE</strong></td>
+<td>O que pode dar errado em cada fluxo ou componente?</td>
+<td>Excelente para descobrir lacunas cedo</td>
+<td>Gera volume alto se o escopo estiver mal definido</td>
+</tr>
+<tr>
+<td><strong>DREAD</strong></td>
+<td>O que tratar primeiro?</td>
+<td>Simples para priorizar backlog e debate em grupo</td>
+<td>Sofre com subjetividade sem critérios claros</td>
+</tr>
+<tr>
+<td><strong>PASTA</strong></td>
+<td>Qual cenário ameaça de fato o negócio?</td>
+<td>Conecta técnica, impacto e decisão executiva</td>
+<td>Requer mais maturidade e documentação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="71-recomendacao-pratica">7.1 Recomendação prática</h3>
+<p>Para uma aula orientada a resultado, a combinação mais eficiente é:</p>
+<ol>
+<li><strong>STRIDE</strong> para descobrir.</li>
+<li><strong>DREAD</strong> para ordenar.</li>
+<li><strong>PASTA</strong> para justificar e comunicar.</li>
+</ol>
+<p>Essa sequência evita que o grupo pule da arquitetura direto para controles genéricos.</p>
+<hr>
+<h2 id="8-entregaveis-consistentes-e-profissionais">8. Entregáveis consistentes e profissionais</h2>
+<p>Um bom trabalho final precisa permitir auditoria e reaproveitamento. Por isso, os artefatos devem conter:</p>
+<ul>
+<li>identificador único da ameaça;</li>
+<li>ativo ou componente afetado;</li>
+<li>premissa usada na análise;</li>
+<li>evidência ou lacuna observada;</li>
+<li>impacto técnico e impacto no negócio;</li>
+<li>controle atual;</li>
+<li>ação recomendada;</li>
+<li>responsável e prazo.</li>
+</ul>
+<h3 id="81-criterios-de-qualidade-da-entrega">8.1 Critérios de qualidade da entrega</h3>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>O que observar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clareza do escopo</td>
+<td>O grupo delimitou o sistema analisado</td>
+</tr>
+<tr>
+<td>Qualidade do diagrama</td>
+<td>Há fluxos, componentes e fronteiras de confiança</td>
+</tr>
+<tr>
+<td>Consistência do STRIDE</td>
+<td>As ameaças fazem sentido para o elemento avaliado</td>
+</tr>
+<tr>
+<td>Rigor do DREAD</td>
+<td>As notas têm justificativa e coerência</td>
+</tr>
+<tr>
+<td>Maturidade do PASTA</td>
+<td>O cenário conecta técnica e negócio</td>
+</tr>
+<tr>
+<td>Tratamento proposto</td>
+<td>Há ações viáveis com responsável e prioridade</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-mini-caso-pratico">9. Mini-caso prático</h2>
+<p>Para testar a robustez da análise, considere esta variação: o fornecedor terceirizado de boletos sofre comprometimento e passa a receber tokens válidos da API acadêmica.</p>
+<ul>
+<li><strong>STRIDE</strong> ajuda a discutir spoofing do terceiro, tampering em dados financeiros e information disclosure.</li>
+<li><strong>DREAD</strong> mostra se o problema deve subir acima das falhas internas já identificadas.</li>
+<li><strong>PASTA</strong> evidencia que o incidente afeta não só tecnologia, mas cobrança, reputação e continuidade administrativa.</li>
+</ul>
+<p>Esse fechamento é útil para mostrar que ameaças de terceiros não são apenas “mais uma integração”, mas um multiplicador de superfície de ataque.</p>
+<hr>
+<h2 id="10-perguntas-de-revisao-rapida">10. Perguntas de revisão rápida</h2>
+<ol>
+<li>Por que STRIDE deve começar pelo diagrama e não pela lista de controles?</li>
+<li>Em que situação DREAD ajuda, mas não é suficiente para decidir sozinho?</li>
+<li>O que PASTA acrescenta quando a equipe já possui uma lista de ameaças priorizadas?</li>
+</ol>
+<hr>
+<h2 id="11-fontes-de-referencia">11. Fontes de referência</h2>
+<ul>
+<li>OWASP Threat Dragon<br>
+  https://owasp.org/www-project-threat-dragon/</li>
+<li>OWASP Threat Modeling<br>
+  https://owasp.org/www-community/Threat_Modeling</li>
+<li>OWASP pytm<br>
+  https://owasp.org/www-project-pytm/</li>
+<li>Microsoft Threat Modeling (STRIDE)<br>
+  https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats</li>
+<li>Risk-Centric Threat Modeling: Process for Attack Simulation and Threat Analysis (PASTA)<br>
+  https://www.oreilly.com/library/view/risk-centric-threat/9780470500965/</li>
+</ul></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -26,6 +26,12 @@ Com método, a equipe consegue:
 
 **Quando usar:** design de software, revisão de arquitetura e APIs.
 
+### Vídeo complementar: STRIDE na prática
+
+O vídeo abaixo ajuda a visualizar o STRIDE como um roteiro de perguntas aplicado à arquitetura, útil para transformar categorias abstratas em cenários concretos de ameaça.
+
+![type:video](https://www.youtube.com/embed/rEnJYNkUde0)
+
 **Categorias:**
 
 | Letra | Ameaça | Pergunta prática |
