@@ -52,7 +52,7 @@ nav:
       - Comparativo de metodologias: ameacas/comparativo.md
       - Prática guiada em sala: ameacas/pratica_guiada_ameacas.md
   - Segurança Física:
-      - Introdução: seguranca_fisica/introducao.md
+      - Visão geral: seguranca_fisica/introducao.md
       - Controles de Segurança Física: seguranca_fisica/controles_fisicos.md
       - Força Bruta: seguranca_fisica/forca_bruta.md
       - Sistemas de Vigilância: seguranca_fisica/sistema_vigilancia.md
