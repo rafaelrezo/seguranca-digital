@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Comparacao de controles fisicos em TIC e OT</title>
+  <desc id="desc">Tabela ilustrada comparando ativos, riscos e controles fisicos prioritarios em TIC e ambientes industriais.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#eef7f1"/>
+      <stop offset="100%" stop-color="#f7f1ea"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #17324d; }
+      .header { font: 700 24px Arial, sans-serif; fill: #17324d; }
+      .text { font: 500 19px Arial, sans-serif; fill: #1f2937; }
+      .small { font: 500 17px Arial, sans-serif; fill: #334155; }
+      .card { stroke-width: 2; rx: 24; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="760" fill="url(#bg)"/>
+  <text x="60" y="70" class="title">TIC e OT: o que muda na seguranca fisica</text>
+  <text x="60" y="106" class="text">Os principios sao parecidos, mas o impacto operacional e a criticidade dos ativos mudam.</text>
+
+  <rect x="70" y="150" width="500" height="500" rx="28" fill="#ffffff" stroke="#7ca4d2" class="card"/>
+  <rect x="630" y="150" width="500" height="500" rx="28" fill="#ffffff" stroke="#d2a77c" class="card"/>
+
+  <text x="100" y="198" class="header">TIC / Datacenter</text>
+  <text x="660" y="198" class="header">OT / Industrial</text>
+
+  <text x="100" y="252" class="text">Ativos fisicos</text>
+  <text x="100" y="282" class="small">Salas de servidores, racks, armarios</text>
+  <text x="100" y="308" class="small">de rede, backup, estacoes privilegiadas</text>
+
+  <text x="100" y="364" class="text">Riscos dominantes</text>
+  <text x="100" y="394" class="small">Tailgating, furto, sabotagem, desligamento</text>
+  <text x="100" y="420" class="small">indevido, acesso a cabos e midias</text>
+
+  <text x="100" y="476" class="text">Controles prioritarios</text>
+  <text x="100" y="506" class="small">Catraca, cracha nominal, CFTV, visitante</text>
+  <text x="100" y="532" class="small">registrado, fogo, agua, energia e HVAC</text>
+
+  <text x="100" y="588" class="text">Leitura normativa</text>
+  <text x="100" y="618" class="small">NIST SP 800-53 PE, registros, monitora-</text>
+  <text x="100" y="644" class="small">mento fisico e protecao ambiental</text>
+
+  <text x="660" y="252" class="text">Ativos fisicos</text>
+  <text x="660" y="282" class="small">Sala de controle, PLC, HMI, paineis,</text>
+  <text x="660" y="308" class="small">estacao de engenharia, utilidades, campo</text>
+
+  <text x="660" y="364" class="text">Riscos dominantes</text>
+  <text x="660" y="394" class="small">Parada de processo, mudanca indevida de</text>
+  <text x="660" y="420" class="small">parametro, risco a seguranca operacional</text>
+
+  <text x="660" y="476" class="text">Controles prioritarios</text>
+  <text x="660" y="506" class="small">Zonas restritas, gabinetes trancados,</text>
+  <text x="660" y="532" class="small">manutencao controlada, escolta, CFTV</text>
+
+  <text x="660" y="588" class="text">Leitura normativa</text>
+  <text x="660" y="618" class="small">NIST SP 800-82 e IEC 62443 com foco</text>
+  <text x="660" y="644" class="small">em zonas, conduits e nivel de protecao</text>
+
+  <rect x="180" y="680" width="840" height="42" rx="18" fill="#17324d"/>
+  <text x="210" y="708" style="font: 600 18px Arial, sans-serif; fill: #ffffff;">Convergencia: em ambos os casos, acesso fisico indevido pode neutralizar controles logicos.</text>
+</svg>
