@@ -62,27 +62,27 @@ nav:
       - Clonagem de acesso: seguranca_fisica/clonagem_cracha.md
   - Engenharia Social:
       - Introdução: engenharia_social/introducao.md
-      - Gatilhos Motivacionais: engenharia_social/gatilhos.md
+      - Gatilhos Psicológicos: engenharia_social/gatilhos.md
       - Impersonificação: engenharia_social/impersonificacao.md
-      - Falsificação de pretextos: engenharia_social/pretexting.md
-      - Ataques de phishing: engenharia_social/phishing.md
-      - Prevenção de Phishing: engenharia_social/prevencao_phishing.md
-      - Campanha Simulação de Phishing: engenharia_social/campanhas_simulacao_pishing.md
-      - Fraudes e Golpes(Scams): engenharia_social/fraudes_golpes.md
-      - Campanhas de Influência e Desinformação: engenharia_social/desinformacao.md
-      - Outros Ataques: engenharia_social/outros_ataques.md
+      - Pretexting: engenharia_social/pretexting.md
+      - Phishing e suas variações: engenharia_social/phishing.md
+      - Prevenção de phishing: engenharia_social/prevencao_phishing.md
+      - Campanhas de simulação de phishing: engenharia_social/campanhas_simulacao_pishing.md
+      - Fraudes e golpes: engenharia_social/fraudes_golpes.md
+      - Desinformação e campanhas de influência: engenharia_social/desinformacao.md
+      - Outros ataques: engenharia_social/outros_ataques.md
   - Malwares:
-      - Introdução: malwares/introducao.md
-      - Virus: malwares/virus.md
+      - Visão geral: malwares/introducao.md
+      - Vírus: malwares/virus.md
       - Worms: malwares/worms.md
-      - Trojans: malwares/trojans.md
+      - Cavalos de Troia: malwares/trojans.md
       - Ransomware: malwares/ransomware.md
-      - Botnets: malwares/botnet.md
+      - Botnets e dispositivos zumbis: malwares/botnet.md
       - Rootkits: malwares/rootkit.md
-      - Backdoors: malwares/backdoors.md
-      - Keylogger: malwares/keylogger.md
-      - Spywares: malwares/spyware.md
-      - Técnicas de Ataque: malwares/tecnica_ataque.md
+      - Backdoors e bombas lógicas: malwares/backdoors.md
+      - Keyloggers: malwares/keylogger.md
+      - Spyware e Bloatware: malwares/spyware.md
+      - Técnicas modernas de ataque: malwares/tecnica_ataque.md
   - Proteção de dados:
       - Introdução: protecao_dados/introducao.md
       - Classificação de dados: protecao_dados/classificacao_dados.md

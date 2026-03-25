@@ -1,63 +1,103 @@
-# Pretexting em Engenharia Social
+# Pretexting: o Ataque do Contexto Falso
 
-## 1. Introdução
-- **Pretexting** = criação de um **cenário falso** para enganar a vítima e obter informações.  
-- O atacante apresenta dados parciais ou plausíveis, levando a vítima a **completar as lacunas** com informações reais.  
-- Muitas vezes, as informações obtidas parecem “inocentes”, mas podem ser usadas em ataques mais avançados.  
+> **Objetivos de aprendizagem**
+> - Entender como pretexting usa histórias plausíveis para extrair informações.
+> - Identificar sinais de coleta gradual de dados em ligações, mensagens e visitas.
+> - Aplicar respostas seguras a pedidos aparentemente inocentes.
+>
+> **Tempo estimado:** 12 minutos
 
----
+## Vídeo de contexto
 
-## 2. Demonstração Prática (Exemplo)
-- **Atacante** liga para a recepção de uma empresa fingindo ser fornecedor de toner.  
-- Inventa um “problema no pedido” e pede o **modelo da impressora**.  
-- Ao ser corrigido pela recepcionista, ele confirma e usa essa informação para aumentar a credibilidade.  
-- Em seguida, tenta pedir o **endereço IP da impressora**, disfarçando como parte do “suporte técnico”.  
-- Resultado: a vítima fornece dados que podem ser usados em ataques de rede ou movimentação lateral.  
+![type:video](https://www.youtube.com/embed/R9RcENv-jo4)
 
----
+## 1. O que é pretexting?
 
-## 3. Outros Cenários Comuns de Pretexting
-- **Golpe do “Suporte da Microsoft”**: ligação dizendo que o computador da vítima está infectado.  
-    - Pedem que a pessoa siga passos técnicos para instalar malware ou dar acesso remoto.  
-- **Chamadas falsas de bancos**: fingem confirmar dados de cartão “por segurança”.  
-- **Autoridades falsas**: impostores como policiais, fiscais ou auditores exigindo dados sigilosos.  
-- **Analogia**: é como se alguém desse uma pista incompleta (“seu carro é um Ford, certo?”) para que você corrija: “não, é um Chevrolet”, entregando sem perceber a informação real.  
+Pretexting é a criação de um **pretexto convincente** para obter informação, acesso ou ação.
+
+O atacante não pede tudo de uma vez. Ele constrói um contexto em que a vítima:
+
+- acredita estar ajudando,
+- corrige detalhes do próprio atacante,
+- entrega pequenas informações que juntas viram inteligência útil.
 
 ---
 
-## 4. Por que o Pretexting Funciona?
-- O atacante:
-    - Usa **informações plausíveis** (marcas populares, problemas comuns).  
-    - **Explora a cortesia natural** das pessoas em querer ajudar.  
-    - Cria uma narrativa convincente, onde a vítima sente que **completar os detalhes é inofensivo**.  
+## 2. Como o pretexto é montado
+
+Um bom pretexto normalmente contém:
+
+- uma identidade plausível;
+- um motivo urgente, mas crível;
+- detalhes parciais que parecem verdadeiros;
+- um pedido simples como ponto de entrada.
+
+Quanto mais o contexto combina com a rotina da vítima, maior a taxa de sucesso.
 
 ---
 
-## 5. Consequências do Pretexting
-- Coleta de informações técnicas (ex.: IPs, modelos de dispositivos, topologia de rede).  
-- Acesso a dados internos que permitem **ataques mais sofisticados**.  
-- Possibilidade de fraude financeira ou até **controle remoto de sistemas**.  
+## 3. Canais em que o pretexting aparece
+
+Ele pode surgir em vários formatos:
+
+- **telefone:** falso suporte, banco, auditoria ou fornecedor;
+- **e-mail:** pesquisa, atualização cadastral, confirmação de cadastro;
+- **mensagem instantânea:** pedido rápido de código, arquivo ou contato;
+- **presencial:** visitante, técnico, entregador ou manutenção.
+
+O canal muda, mas a lógica é a mesma: usar uma narrativa para reduzir a desconfiança.
 
 ---
 
-## 6. Como se Proteger
-- **Treinamento de Conscientização**: ensinar funcionários a nunca fornecer informações por telefone ou e-mail sem validação.  
-- **Políticas de verificação**: confirmar a identidade de quem solicita dados (ex.: retorno de ligação para número oficial).  
-- **Não preencher lacunas**: se alguém fizer uma suposição, **não corrigi-la automaticamente** com informações reais.  
-- **Exemplo prático**:  
-    - Se alguém disser “vocês ainda usam impressoras HP, certo?”  
-    - A resposta deve ser: “Desculpe, não posso confirmar esse tipo de informação. Por favor, fale com nosso suporte interno.”  
+## 4. Que tipo de dado o atacante procura?
+
+Pretexting costuma buscar informações que parecem "não críticas", mas ajudam em etapas seguintes:
+
+- nome de sistemas internos;
+- modelo e fabricante de equipamentos;
+- ramais, e-mails e nomes de responsáveis;
+- horários, rotinas e fluxos de aprovação;
+- detalhes de rede, impressoras, acessos e fornecedores.
+
+Esses dados alimentam phishing direcionado, fraude financeira, movimentação lateral e acesso físico.
 
 ---
 
-## 7. Resumo
-- **Pretexting** é uma técnica de engenharia social baseada em **criar histórias plausíveis** para extrair dados.  
-- Funciona porque a vítima:  
-    - Quer ser prestativa.  
-    - Supõe que parte da informação já é verdadeira.  
-- **Defesa principal**:  
-  - **Educar funcionários** para questionar pedidos inusitados.  
-  - **Nunca fornecer dados técnicos** (mesmo simples, como modelo de impressora ou IP) sem confirmação oficial.  
+## 5. Resposta segura ao pedido suspeito
+
+Boas respostas operacionais incluem:
+
+- não confirmar nem corrigir detalhes fornecidos pelo solicitante;
+- interromper a conversa quando o pedido fugir do processo;
+- pedir abertura formal de chamado ou canal oficial;
+- ligar de volta para número conhecido da organização;
+- reportar a tentativa para que outros setores sejam alertados.
+
+Ser educado não significa fornecer contexto interno.
 
 ---
-``
+
+## 6. Mini-caso prático
+
+Uma pessoa liga para a recepção dizendo ser do fornecedor de impressoras e informa que "o chamado da HP do laboratório está quase fechado; só preciso confirmar o IP e o modelo para liberar a visita".
+
+- **Técnica usada:** pretexting com detalhes parciais.
+- **Erro provável:** a recepção completa as lacunas e entrega dados técnicos.
+- **Impacto possível:** mapeamento da rede e preparação de ataque direcionado.
+- **Resposta correta:** não confirmar dados, exigir canal formal e reportar a tentativa.
+
+---
+
+## 7. Perguntas de revisão rápida
+
+1. Por que pedidos aparentemente simples podem ser perigosos em pretexting?
+2. Qual erro humano mais explorado nessa técnica: curiosidade, pressa ou desejo de ajudar?
+3. O que fazer quando o solicitante já chega com parte da informação correta?
+
+---
+
+## 8. Fontes de referência
+
+- [CERT.br - Fascículo Phishing e Outros Golpes](https://cartilha.cert.br/fasciculos/phishing-golpes/fasciculo-phishing-golpes.pdf)
+- [CISA - Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)
+- [NIST - Training for Social Engineering and Phishing Awareness](https://www.nist.gov/itl/smallbusinesscyber/training)

@@ -1,94 +1,109 @@
 # Phishing e Suas Variações
 
-## 1. Introdução
-- **Phishing** = ataques de engenharia social que usam **mensagens falsas** para enganar usuários e obter informações sensíveis.  
-- Não é apenas um tipo de ataque, mas uma **categoria** que inclui:  
-    1. Phishing (e-mail)  
-    2. Spear Phishing (direcionado)  
-    3. Whaling (altos executivos)  
-    4. Business Email Compromise (BEC)  
-    5. Vishing (telefone)  
-    6. Smishing (SMS)  
+> **Objetivos de aprendizagem**
+> - Distinguir phishing genérico, spear phishing, whaling, BEC, vishing e smishing.
+> - Reconhecer sinais técnicos e comportamentais de uma mensagem maliciosa.
+> - Relacionar phishing com roubo de credenciais, fraude financeira e implantação de malware.
+>
+> **Tempo estimado:** 18 minutos
+
+## Vídeo da aula
+
+![type:video](https://www.youtube.com/embed/Q1uOhtm6aSo)
+
+## 1. O que é phishing?
+
+Phishing é o uso de mensagens fraudulentas para induzir a vítima a:
+
+- clicar em link malicioso,
+- abrir anexo perigoso,
+- informar credenciais,
+- aprovar pagamento,
+- instalar software ou conceder acesso.
+
+O phishing continua relevante porque combina **baixo custo para o atacante** com alto potencial de retorno.
 
 ---
 
-## 2. Phishing (E-mail Fraudulento)
-- **Definição**: envio massivo de e-mails falsos que parecem vir de fontes confiáveis.  
-- **Técnicas**:  
-    - Criar senso de urgência ou medo.  
-    - Inserir links falsos para páginas de login.  
-- **Exemplo**: e-mail do “Google” pedindo para verificar sua identidade.  
-- **Analogia**: como um pescador lançando uma rede ampla no mar — não pega todos, mas sempre captura alguns peixes.  
+## 2. Principais variações
+
+| Técnica | Característica | Alvo mais comum | Objetivo predominante |
+|---|---|---|---|
+| **Phishing** | Disparo amplo e pouco personalizado | Público geral | Credenciais e malware |
+| **Spear phishing** | Mensagem adaptada ao contexto da vítima | Setores ou pessoas específicas | Acesso inicial mais convincente |
+| **Whaling** | Foco em executivos e tom decisório | Alta gestão | Fraude financeira ou espionagem |
+| **BEC** | Uso de conta comprometida ou muito bem falsificada | Financeiro, RH, compras | Transferência indevida e roubo de dados |
+| **Vishing** | Engenharia social por voz | Clientes e funcionários | Confirmação de dados, OTP e senha |
+| **Smishing** | Fraude por SMS ou aplicativo de mensagem | Usuários móveis | Clique rápido e roubo de conta |
+
+O FBI/IC3 continua tratando **BEC** como uma das fraudes cibernéticas de maior prejuízo financeiro para organizações.
 
 ---
 
-## 3. Spear Phishing (Direcionado)
-- **Definição**: phishing mais **personalizado e específico**, usando informações sobre a vítima.  
-- **Exemplo**:  
-    - Atacante obtém lista de clientes de um banco real.  
-    - Envia e-mails direcionados apenas para esses clientes, pedindo redefinição de senha.  
-- **Diferença**: phishing comum = envio em massa; spear phishing = ataque **cirúrgico** e mais difícil de detectar.  
-- **Analogia**: o pescador estudando os hábitos de um peixe específico antes de lançar a isca.  
+## 3. Anatomia de uma mensagem de phishing
+
+A maioria das campanhas combina elementos previsíveis:
+
+- remetente com aparência legítima;
+- assunto que desperta urgência ou medo;
+- pedido de ação imediata;
+- link ou anexo como ponto de execução;
+- linguagem que tenta reduzir a checagem.
+
+Hoje, erros gramaticais ainda existem, mas já não são um indicador suficiente. Mensagens geradas com IA podem parecer muito convincentes.
 
 ---
 
-## 4. Whaling (Caça às Baleias)
-- **Definição**: spear phishing focado em **altos executivos** (CEO, CFO, diretores).  
-- **Por quê?**: eles têm poder para aprovar grandes transações financeiras.  
-- **Exemplo**: e-mail falso pedindo ao CFO que autorize transferência urgente de fundos.  
-- **Analogia**: em vez de pescar peixinhos, o atacante tenta capturar uma “baleia” que vale muito mais.  
+## 4. Sinais de alerta que merecem pausa
+
+Os sinais mais úteis para o usuário são:
+
+- pedido de senha, código MFA ou atualização cadastral fora do processo;
+- domínio estranho ou ligeiramente diferente;
+- link incompatível com o texto exibido;
+- urgência desproporcional;
+- mudança inesperada de conta bancária ou instrução de pagamento;
+- anexo não solicitado.
+
+Em ambiente corporativo, o melhor reflexo é **não interagir** e encaminhar para verificação.
 
 ---
 
-## 5. Business Email Compromise (BEC)
-- **Definição**: comprometimento ou falsificação de e-mails corporativos internos.  
-- **Técnica**: invasor toma controle de uma conta legítima e envia pedidos falsos.  
-- **Exemplos**:  
-    - Pedido de transferência bancária urgente.  
-    - Solicitação de dados de RH (folha de pagamento, dados pessoais).  
-- **Impacto real**: em 2022, o FBI reportou perdas de **2,7 bilhões de dólares** em empresas vítimas de BEC.  
-- **Analogia**: é como um golpista usando o telefone real de um gerente para enganar os funcionários.  
+## 5. O que fazer ao suspeitar
+
+Uma resposta adequada inclui:
+
+1. não clicar no link nem abrir o anexo;
+2. não responder ao remetente;
+3. reportar no canal institucional definido;
+4. confirmar por outro canal, se o pedido envolver operação crítica;
+5. se houve clique, informar imediatamente para contenção e troca de senha.
+
+Quanto mais cedo a equipe souber, menor a chance de o ataque escalar.
 
 ---
 
-## 6. Vishing (Voice Phishing)
-- **Definição**: ataques por **telefone**.  
-- **Exemplo**: alguém liga fingindo ser do banco e pede que você “confirme” seus dados.  
-- **Por que funciona?**:  
-    - Pessoas tendem a ser mais amigáveis e cooperativas em ligações.  
-    - A voz humana transmite **autoridade e urgência**.  
-- **Analogia**: como um ator convincente que liga representando um papel, explorando a confiança da vítima.  
+## 6. Mini-caso prático
+
+O setor financeiro recebe e-mail aparentemente enviado pelo diretor pedindo pagamento urgente a um novo fornecedor antes do fechamento do expediente.
+
+- **Técnica provável:** BEC com impersonificação.
+- **Sinal crítico:** mudança de fluxo e pressão por rapidez.
+- **Dano possível:** transferência indevida e perda financeira imediata.
+- **Controle decisivo:** dupla validação e confirmação fora da banda com o solicitante legítimo.
 
 ---
 
-## 7. Smishing (SMS Phishing)
-- **Definição**: uso de **mensagens de texto (SMS)** fraudulentas.  
-- **Exemplo**: “Seu pacote está parado no correio, clique aqui para liberar.”  
-- **Técnicas**:  
-    - Inserir links maliciosos.  
-    - Criar senso de urgência.  
-- **Analogia**: bilhete falso deixado em sua porta, pedindo que você ligue para um número ou acesse um link.  
+## 7. Perguntas de revisão rápida
+
+1. Em que o spear phishing difere do phishing genérico?
+2. Por que BEC tende a gerar prejuízo maior do que phishing comum?
+3. Qual deve ser a primeira ação depois de clicar em um link suspeito e perceber o erro?
 
 ---
 
-## 8. Estratégias de Defesa
-- **Educação contínua**: treinar usuários para identificar mensagens suspeitas.  
-- **Verificação fora da banda**: confirmar pedidos financeiros ou de credenciais por outro canal.  
-- **Filtros técnicos**: SPF, DKIM e DMARC para validação de e-mails.  
-- **Simulações de phishing**: campanhas internas para avaliar e conscientizar funcionários.  
-- **Desconfiar de urgência**: nunca tomar decisões sem verificar a fonte.  
+## 8. Fontes de referência
 
----
-
-## 9. Resumo
-- **Phishing**: disparo em massa, iscas genéricas.  
-- **Spear Phishing**: ataque personalizado a indivíduos ou grupos.  
-- **Whaling**: foco em executivos de alto escalão.  
-- **BEC**: comprometimento de e-mails corporativos para enganar a empresa.  
-- **Vishing**: engenharia social por telefone.  
-- **Smishing**: golpes por SMS.  
-
-**Defesa principal**: combinação de **tecnologia, políticas e conscientização**.  
-Só com a união desses três pilares é possível reduzir a eficácia dos ataques de phishing.  
-
----
+- [CERT.br - Fascículo Phishing e Outros Golpes](https://cartilha.cert.br/fasciculos/phishing-golpes/fasciculo-phishing-golpes.pdf)
+- [CISA - Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)
+- [FBI IC3 - 2024 Internet Crime Report](https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf)

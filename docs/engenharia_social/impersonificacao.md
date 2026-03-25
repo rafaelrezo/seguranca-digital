@@ -1,84 +1,124 @@
-# Impersonificação (Impersonation) em Engenharia Social
+# Impersonificação e Falsificação de Identidade
 
-## 1. Introdução
-- A **impersonificação** é uma técnica de engenharia social em que o atacante **assume a identidade de outra pessoa ou entidade** para obter acesso não autorizado ou roubar dados sensíveis.  
-- Existem **quatro formas principais** de ataques de impersonificação:  
-    1. Impersonificação direta (pessoa)  
-    2. Impersonificação de marca (brand impersonation)  
-    3. Typosquatting (domínios falsos com erros de digitação)  
-    4. Watering Hole (armadilha em sites legítimos)  
+> **Objetivos de aprendizagem**
+> - Diferenciar impersonificação de pessoa, de marca e de domínio.
+> - Relacionar sites falsos, perfis falsos e watering hole com abuso de confiança.
+> - Definir controles para validar identidade antes de conceder acesso ou executar pedidos.
+>
+> **Tempo estimado:** 15 minutos
 
----
+## Vídeo de contexto
 
-## 2. Impersonificação Direta
-- O atacante finge ser **alguém confiável ou de autoridade**.  
-- Estratégias:
-    - Personificar colegas de trabalho (“sou do TI do 3º andar”).  
-    - Fingir ser cliente importante ou chefe para pressionar funcionários.  
-- **Exemplo**: um invasor liga para um colaborador fingindo ser do suporte interno e pede acesso remoto para “resolver um problema”.  
-- **Impactos**:
-    - Acesso indevido a dados sensíveis.  
-    - Interrupção de serviços.  
-    - Possível **tomada de controle total do sistema**.  
-- **Defesa**: Treinamento regular em conscientização de segurança e validação de identidade antes de atender solicitações.  
+![type:video](https://www.youtube.com/embed/tlpvbXirkoQ)
+
+## 1. O que é impersonificação?
+
+Impersonificação é o ato de **assumir uma identidade falsa ou indevidamente emprestada** para obter confiança, acesso ou informação.
+
+O atacante tenta parecer legítimo o suficiente para vencer a etapa mais importante do ataque: a validação humana.
 
 ---
 
-## 3. Impersonificação de Marca
-- Atacante finge ser uma **empresa legítima** (banco, fabricante, e-commerce).  
-- Técnicas:
-    - Phishing com e-mails usando logotipo, identidade visual e linguagem da marca.  
-    - Perfis falsos em redes sociais.  
-- **Exemplo real**:  
-    - Em 2020, uma conta falsa no Twitter se passou pela farmacêutica Eli Lilly e anunciou que “a insulina seria gratuita”.  
-    - O tweet viralizou e fez as ações da empresa caírem 4% em 24h, resultando em **bilhões de dólares em perdas** de valor de mercado.  
-- **Defesa**:
-    - Gateways de e-mail com filtros de phishing.  
-    - Monitoramento ativo da presença digital da marca.  
-    - Alertar usuários sobre golpes recorrentes.  
+## 2. Impersonificação direta de pessoa
+
+Nesse caso, o invasor se passa por alguém específico:
+
+- colaborador do suporte;
+- gestor ou diretor;
+- fornecedor;
+- auditor;
+- técnico de campo;
+- visitante "já autorizado".
+
+Esse tipo de ataque aparece em:
+
+- ligações pedindo redefinição de senha;
+- mensagens solicitando documentos;
+- visitas presenciais para entrar em área restrita;
+- conversas em redes sociais profissionais.
 
 ---
 
-## 4. Typosquatting (Domínios Parecidos)
-- Também chamado de **URL hijacking ou cybersquatting**.  
-- O atacante registra domínios com erros de digitação comuns ou variações visuais.  
-- Objetivo: levar vítimas a sites fraudulentos para roubo de credenciais ou instalação de malware.  
-- **Exemplos**:
-    - `gnail.com` no lugar de `gmail.com`.  
-    - `Di0ntraining.com` (com número 0 no lugar da letra O).  
-    - Subdomínios falsos usando provedores confiáveis, ex.: `empresa.azure.com`.  
-- **Defesa**:
-    - Registrar variações comuns do domínio da organização.  
-    - Monitorar registros suspeitos de domínios semelhantes.  
-    - Treinar usuários a sempre verificar a URL com atenção.  
-- **Caso real**: empresas como **Accolade** registram domínios com erros comuns (ex.: `acclade.com`) e redirecionam para o site oficial, evitando que atacantes usem essas variações.  
+## 3. Impersonificação de marca
+
+Aqui o alvo não é a relação pessoal, mas a **confiança na instituição**.
+
+Exemplos comuns:
+
+- e-mail com identidade visual de banco, universidade ou marketplace;
+- perfil falso em rede social respondendo clientes;
+- página de login com logo e layout quase idênticos ao original;
+- falso suporte técnico com nome de fabricante conhecido.
+
+O ponto crítico é que a vítima transfere a confiança da marca para o atacante.
 
 ---
 
-## 5. Watering Hole Attacks
-- O atacante **compromete um site legítimo** frequentado pelo alvo.  
-- Objetivo: instalar malware ou explorar vulnerabilidades quando a vítima acessa o site.  
-- Características:
-    - **Ataque passivo**: o invasor não aborda diretamente a vítima.  
-    - Usa a confiança no site como vetor de ataque.  
-- **Metáfora**:  
-    - Tal como predadores na savana esperam animais no bebedouro (“watering hole”), o invasor espera que as vítimas acessem um site confiável para atacá-las.  
-- **Defesa**:
-    - Manter sistemas atualizados.  
-    - Usar inteligência de ameaças (Threat Intelligence) para detectar compromissos em sites parceiros.  
-    - Implementar ferramentas avançadas de detecção de malware.  
+## 4. Domínios parecidos e typosquatting
+
+Typosquatting usa domínios muito semelhantes ao verdadeiro para capturar erros de leitura ou digitação.
+
+Exemplos:
+
+- troca de letras visualmente parecidas;
+- inclusão de hífen ou termo extra;
+- subdomínio enganoso;
+- domínio internacionalizado que parece legítimo à primeira vista.
+
+Na prática, esse recurso fortalece phishing, páginas de pagamento falsas e roubo de credenciais.
 
 ---
 
-## 6. Resumo
-- **Impersonificação direta**: fingir ser uma pessoa confiável ou de autoridade.  
-- **Impersonificação de marca**: usar identidade visual de empresas para enganar.  
-- **Typosquatting**: criar domínios parecidos para capturar erros de digitação.  
-- **Watering Hole**: comprometer sites confiáveis usados pelas vítimas.  
+## 5. Watering hole e abuso de confiança em canais legítimos
 
-**Defesa principal**:  
-- **Educação do usuário** (treinamento contínuo).  
-- **Políticas de validação** de identidade.  
-- **Monitoramento e resposta proativa** a fraudes digitais.  
+Watering hole não é impersonificação clássica, mas explora o mesmo princípio: **confiança em um ambiente conhecido**.
+
+Em vez de abordar diretamente a vítima, o atacante compromete um site, portal ou recurso frequentemente acessado por aquele público.
+
+Resultado:
+
+- o usuário entra voluntariamente,
+- reduz a desconfiança,
+- executa conteúdo malicioso ou entrega informações em um contexto aparentemente seguro.
+
+É uma técnica útil para atingir grupos específicos, como equipes técnicas, fornecedores ou parceiros.
 
 ---
+
+## 6. Controles que funcionam melhor
+
+As defesas mais eficazes contra impersonificação combinam:
+
+- validação fora da banda para pedidos críticos;
+- revisão cuidadosa de domínio, remetente e URL;
+- políticas de visitantes e terceirizados;
+- proteção de domínio, SPF, DKIM e DMARC;
+- monitoramento de marca e denúncia rápida de páginas falsas.
+
+O ponto central é simples: **identidade declarada não equivale a identidade comprovada**.
+
+---
+
+## 7. Mini-caso prático
+
+Um atacante registra um domínio parecido com o da instituição e envia ao RH um formulário de "atualização cadastral obrigatória" usando a marca oficial.
+
+- **Técnica principal:** impersonificação de marca com domínio lookalike.
+- **Dano provável:** coleta de CPF, senha e dados bancários.
+- **Controles prioritários:** conferência de domínio, canal oficial para formulários internos e reporte rápido ao time de segurança.
+
+---
+
+## 8. Perguntas de revisão rápida
+
+1. Qual a diferença entre impersonificação de pessoa e impersonificação de marca?
+2. Por que typosquatting aumenta a eficácia de páginas falsas?
+3. Como watering hole aproveita a confiança da vítima sem contato direto?
+
+---
+
+## 9. Fontes de referência
+
+- [CERT.br - Fascículo Phishing e Outros Golpes](https://cartilha.cert.br/fasciculos/phishing-golpes/fasciculo-phishing-golpes.pdf)
+- [CISA - Enhance Email and Web Security](https://www.cisa.gov/resources-tools/resources/enhance-email-web-security)
+- [CISA - Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)

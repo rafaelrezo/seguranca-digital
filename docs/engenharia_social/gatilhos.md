@@ -1,86 +1,105 @@
-# Gatilhos Motivacionais em Engenharia Social
+# Gatilhos Psicológicos em Engenharia Social
 
-## 1. Introdução
-- O núcleo da engenharia social está na habilidade de **induzir pessoas a agir** em favor do atacante.  
-- Os atacantes exploram **gatilhos psicológicos** para convencer usuários a realizarem ações que comprometem a segurança.  
-- Existem **seis principais gatilhos motivacionais** usados em ataques:  
-    1. Autoridade  
-    2. Urgência  
-    3. Prova Social (Social Proof)  
-    4. Escassez  
-    5. Simpatia (Likability)  
-    6. Medo  
+> **Objetivos de aprendizagem**
+> - Reconhecer os gatilhos psicológicos mais usados em ataques de engenharia social.
+> - Entender como atacantes combinam gatilhos para aumentar taxa de sucesso.
+> - Aplicar perguntas de verificação que reduzem decisões impulsivas.
+>
+> **Tempo estimado:** 15 minutos
 
----
+## Vídeo de contexto
 
-## 2. Autoridade
-- As pessoas tendem a **obedecer ordens** vindas de figuras de autoridade.  
-- Exemplos:
-    - Atacante finge ser gerente ou diretor para pedir acesso ou dados.
-    - Golpe usando “órgão governamental” (ex.: Receita Federal, FBI) exigindo pagamento imediato.
-- **Analogia**: como um aluno seguindo ordens de um professor, mesmo sem questionar, apenas porque ele representa autoridade.
+![type:video](https://www.youtube.com/embed/R9RcENv-jo4)
 
----
+## 1. O que são gatilhos psicológicos?
 
-## 3. Urgência
-- Criação de uma sensação de que **algo precisa ser feito imediatamente**.  
-- Exemplos:
-    - Atacante carregando caixas pede para alguém abrir a porta rapidamente, sem usar crachá.  
-    - Entrega de pendrive com “apresentação urgente” para ser impresso.  
-    - Ligação ao help desk pedindo reset imediato de senha para cumprir “prazo crítico”.  
-- **Analogia**: como comprar algo em promoção relâmpago sem pensar duas vezes, só porque o tempo é limitado.
+Gatilhos psicológicos são estímulos que empurram a vítima para uma decisão rápida, emocional ou automática.
+
+O atacante não precisa provar tudo. Ele precisa apenas gerar a sensação de que:
+
+- o pedido é legítimo,
+- o tempo é curto,
+- discordar será inconveniente,
+- verificar parece exagero.
 
 ---
 
-## 4. Prova Social (Social Proof)
-- As pessoas tendem a **seguir o que os outros fazem ou recomendam**.  
-- Exemplos:
-    - Site falso divulgado por amigos nas redes sociais, ganhando credibilidade.  
-    - Campanhas falsas com “milhares de curtidas” ou “avaliações positivas”.  
-- **Analogia**: antes de escolher um restaurante, checamos se está cheio. Se muitas pessoas estão lá, parece confiável.
+## 2. Gatilhos mais usados
+
+| Gatilho | Como aparece no ataque | Sinal de alerta | Resposta recomendada |
+|---|---|---|---|
+| **Autoridade** | "Sou do jurídico", "sou do provedor", "sou do diretor" | Pedido fora do processo normal | Validar identidade e canal |
+| **Urgência** | "Precisa agora", "última chance", "sua conta será bloqueada" | Pressão para agir sem pensar | Pausar e confirmar |
+| **Escassez** | "Oferta limitada", "só hoje", "poucas vagas" | Medo de perder oportunidade | Ignorar o relógio imposto |
+| **Prova social** | "Todos já fizeram", "o setor inteiro aprovou" | Tentativa de normalizar o pedido | Checar no sistema oficial |
+| **Simpatia/Familiaridade** | Conversa amigável, elogio, conexão pessoal | Excesso de proximidade repentina | Separar cordialidade de autorização |
+| **Medo** | Ameaça de multa, bloqueio, punição ou exposição | Linguagem intimidatória | Verificar fora da banda |
 
 ---
 
-## 5. Escassez
-- Pressão psicológica causada pela **limitação de recursos ou oportunidades**.  
-- Exemplos:
-    - E-mails de phishing: “apenas 5 vagas disponíveis”, “estoque limitado”.  
-    - Ofertas falsas de produtos com desconto exclusivo para poucos compradores.  
-- **Analogia**: ingressos para um show que “quase acabaram” — a pressa leva a decisões sem verificar autenticidade.
+## 3. O poder está na combinação
+
+Ataques mais convincentes não usam um gatilho só.
+
+Um exemplo comum:
+
+- **autoridade:** "mensagem do banco";
+- **urgência:** "ação necessária em 30 minutos";
+- **medo:** "sua conta será suspensa";
+- **prova social:** "esse procedimento foi aplicado a todos os clientes".
+
+Essa combinação reduz o tempo de reflexão e aumenta a chance de erro operacional.
 
 ---
 
-## 6. Simpatia (Likability)
-- As pessoas tendem a **ajudar quem gostam ou acham simpático**.  
-- Exemplos:
-    - Social engineer carismático ou atraente que conquista confiança.  
-    - Conversa informal sobre esportes, música ou séries para criar vínculo.  
-- **Analogia**: emprestar algo mais facilmente para um vizinho simpático do que para alguém mal-humorado.
+## 4. Perguntas de defesa que quebram o ataque
+
+Antes de agir, a vítima precisa aprender a fazer perguntas simples:
+
+1. **Quem está pedindo isso e como eu valido essa identidade?**
+2. **Esse pedido existe em algum processo oficial?**
+3. **Se eu não fizer isso agora, o que realmente acontece?**
+4. **Posso confirmar por outro canal sem usar o link ou telefone recebido?**
+
+Essas perguntas introduzem fricção saudável e enfraquecem o efeito do gatilho.
 
 ---
 
-## 7. Medo
-- O medo pode levar a **ações impulsivas para evitar consequências negativas**.  
-- Exemplos:
-    - Ransomware: “pague ou perderá todos os seus arquivos.”  
-    - Golpe com falsa ameaça de prisão se não houver pagamento imediato.  
-- **Combinação de gatilhos**: muitas vezes, medo é usado junto com **autoridade** (ex.: impostor se passando por órgão governamental).  
-- **Analogia**: como pagar rapidamente uma multa falsa deixada no carro só para evitar “problemas maiores”.
+## 5. Como a organização reduz a eficácia desses gatilhos
+
+Treinamento isolado não basta. É preciso ajustar o ambiente:
+
+- padronizar pedidos críticos com fluxo formal;
+- proibir solicitação de senha por qualquer canal;
+- exigir dupla validação em pagamentos e mudança cadastral;
+- usar frases internas de orientação, como "urgência não substitui verificação";
+- medir campanhas simuladas e retroalimentar o treinamento.
+
+Quando o processo é claro, o gatilho perde força.
 
 ---
 
-## 8. Combinação de Gatilhos
-- Os gatilhos podem ser usados **isoladamente** ou em **combinação** para aumentar a eficácia.  
-- Exemplo: um e-mail pode usar **escassez** (“última chance”), **urgência** (“até hoje”) e **autoridade** (“mensagem do banco”) ao mesmo tempo.  
-- Essa sobreposição aumenta drasticamente a chance de sucesso do ataque.  
+## 6. Mini-caso prático
+
+Um colaborador do financeiro recebe uma ligação: "Aqui é o diretor, estou entrando em reunião e preciso que você antecipe uma transferência agora. Já alinhei isso com o restante da equipe."
+
+- **Gatilhos usados:** autoridade, urgência e prova social.
+- **Erro provável:** executar a transação sem checar.
+- **Controle decisivo:** confirmação em canal secundário e política de dupla aprovação.
+- **Lição:** pedido plausível não é pedido validado.
 
 ---
 
-## 9. Resumo
-- **Autoridade**: confiança em figuras de poder.  
-- **Urgência**: pressão temporal para agir sem pensar.  
-- **Prova Social**: seguir o comportamento dos outros.  
-- **Escassez**: medo de perder oportunidade rara.  
-- **Simpatia**: confiança em pessoas agradáveis.  
-- **Medo**: ação motivada pela ameaça de consequência negativa.  
-- **Defesa**: treinamento contínuo, pensamento crítico e validação de fontes antes de agir.  
+## 7. Perguntas de revisão rápida
+
+1. Qual gatilho costuma ser mais explorado em fraudes financeiras?
+2. Por que combinações de gatilhos são mais perigosas do que um único estímulo?
+3. Que pergunta simples ajuda a quebrar a pressão de urgência?
+
+---
+
+## 8. Fontes de referência
+
+- [CERT.br - Fascículo Phishing e Outros Golpes](https://cartilha.cert.br/fasciculos/phishing-golpes/fasciculo-phishing-golpes.pdf)
+- [CISA - Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)
+- [NIST - Training for Social Engineering and Phishing Awareness](https://www.nist.gov/itl/smallbusinesscyber/training)

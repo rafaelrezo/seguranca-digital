@@ -1,81 +1,104 @@
-# Prevenção de Ataques de Phishing
+# Prevenção de Phishing em Organizações
 
-## 1. Introdução
-- O **phishing** é um dos ataques mais comuns e persuasivos usados por criminosos.  
-- Objetivo: enganar usuários para que revelem informações sensíveis (senhas, cartões, dados corporativos).  
-- Consequências:  
-    - **Perdas financeiras significativas**.  
-    - **Vazamentos de dados** e incidentes de segurança.  
-- Defesa eficaz = **treinamento contínuo + simulações + resposta rápida a incidentes**.  
+> **Objetivos de aprendizagem**
+> - Organizar a prevenção de phishing em camadas técnicas, humanas e processuais.
+> - Relacionar controles como MFA, autenticação de e-mail e reporte rápido com redução de impacto.
+> - Definir uma resposta mínima quando uma mensagem suspeita chega ao usuário.
+>
+> **Tempo estimado:** 16 minutos
 
----
+## Vídeo da aula
 
-## 2. Campanhas Anti-Phishing
-- **Definição**: treinamentos práticos para ensinar usuários a identificar e-mails suspeitos.  
-- Estrutura:  
-    - **Treinamento teórico**: explicação de técnicas como phishing, spear phishing, whaling, BEC, vishing e smishing.  
-    - **Simulações**: envio de e-mails falsos (controlados) para avaliar a reação dos usuários.  
-    - **Correção**: treinamento extra para aqueles que caírem nas simulações.  
-- **Importante**: campanhas devem ser **contínuas**, pois os ataques evoluem constantemente.  
+![type:video](https://www.youtube.com/embed/Q1uOhtm6aSo)
 
----
+## 1. Prevenção eficaz não depende de um único controle
 
-## 3. Indicadores de Phishing
-### 3.1 Urgência
-- E-mails que exigem ação imediata (“sua conta será bloqueada em 4h”).  
-- Criam **pressão psicológica** para agir sem verificar.  
+Phishing não é bloqueado apenas com antivírus nem apenas com treinamento.
 
-### 3.2 Pedidos Incomuns
-- Solicitação de **senhas, números de cartão ou credenciais**.  
-- Exemplo: suporte de TI pedindo login, banco pedindo cartão por e-mail → **falso**.  
+Organizações maduras tratam o problema em três camadas:
 
-### 3.3 URLs Falsos (Links Incompatíveis)
-- Texto exibido ≠ link real.  
-- Exemplo: `paypal.com/login` → redireciona para `paypal.hacked.xyz`.  
-- **Boa prática**: passar o mouse sobre o link para verificar o destino real.  
-
-### 3.4 Endereços de E-mail Suspeitos
-- O nome exibido pode ser diferente do remetente real.  
-- Exemplo: “Suporte Amazon” <mr.weirdo578@yahoo.com>.  
-- **Sinais de alerta**:  
-    - Domínio estranho ou não oficial.  
-    - Endereço muito complexo ou aleatório.  
-
-### 3.5 Erros de Gramática e Ortografia
-- Muitos ataques ainda usam **erros propositais** para filtrar vítimas mais ingênuas.  
-- Hoje, com **IA generativa**, alguns e-mails são bem escritos, mas os erros ainda são comuns.  
+- **usuário:** reconhecer sinais e reportar cedo;
+- **processo:** validar pagamentos, credenciais e mudanças cadastrais;
+- **tecnologia:** filtrar, autenticar, monitorar e conter.
 
 ---
 
-## 4. O Que Fazer ao Suspeitar de Phishing
-1. **Não clicar em links** nem abrir anexos.  
-2. **Reportar imediatamente** ao time de segurança (ex.: phishing@seudominio.com).  
-3. **Seguir políticas internas** (apagar, encaminhar ou marcar como spam, conforme a organização).  
-4. **Notificar usuários**: alertar sobre a campanha para que outros não sejam enganados.  
-5. **Investigar**: verificar se houve clique ou abertura, inspecionando os sistemas afetados.  
-6. **Corrigir**: reforçar filtros de e-mail, revisar políticas e intensificar treinamentos.  
+## 2. Comportamentos que precisam virar rotina
+
+Os hábitos mais úteis para o usuário são:
+
+- desconfiar de pedidos urgentes fora do fluxo;
+- nunca informar senha ou código MFA;
+- conferir domínio antes de clicar;
+- acessar portais digitando a URL ou usando favoritos confiáveis;
+- confirmar pedidos críticos por outro canal.
+
+A meta do treinamento não é decorar golpes. É desenvolver **comportamento de verificação**.
 
 ---
 
-## 5. Estratégias de Defesa
-- **Treinamento contínuo**: manter usuários atualizados sobre novas técnicas de phishing.  
-- **Tecnologia**:  
-    - SPF, DKIM e DMARC para autenticação de e-mails.  
-    - Filtros de spam e sistemas de detecção de intrusão.  
-- **Políticas organizacionais**:  
-    - Nunca compartilhar credenciais por e-mail/telefone.  
-    - Exigir múltiplos fatores de validação para transferências financeiras.  
-- **Resposta rápida**: triagem e investigação imediata ao detectar e-mails suspeitos.  
+## 3. Controles técnicos mais importantes
+
+| Controle | Função | Limitação prática |
+|---|---|---|
+| **SPF, DKIM e DMARC** | Reduzir spoofing de domínio | Não impede todo tipo de phishing |
+| **Secure Email Gateway** | Filtrar links, anexos e reputação | Pode falhar em campanhas muito novas |
+| **MFA** | Reduzir impacto de senha roubada | OTP por SMS ainda pode ser capturado |
+| **Proteção de navegador/URL** | Bloquear páginas maliciosas conhecidas | Depende de atualização e cobertura |
+| **EDR/antimalware** | Conter execução de payloads | Age depois do clique, não antes |
+
+Controle bom não elimina a tentativa. Ele reduz a chance de sucesso e o tamanho do dano.
 
 ---
 
-## 6. Resumo
-- **Phishing é persistente** porque explora a **falha humana**.  
-- **Principais sinais**: urgência, pedidos incomuns, links falsos, e-mails suspeitos e erros de escrita.  
-- **Defesa eficaz**:  
-    - Conscientização contínua.  
-    - Simulações e treinamentos.  
-    - Uso de tecnologia de proteção em camadas.  
-    - Políticas claras de resposta a incidentes.  
+## 4. Processo de resposta ao e-mail suspeito
+
+Uma resposta mínima bem definida costuma seguir este fluxo:
+
+1. usuário reporta sem interagir;
+2. time de segurança analisa remetente, link, cabeçalhos e anexo;
+3. se confirmado, a mensagem é removida de outras caixas;
+4. usuários potencialmente expostos são orientados;
+5. se houve clique, inicia-se contenção e troca de credenciais.
+
+Sem fluxo claro, o phishing vira um problema repetido e mal documentado.
 
 ---
+
+## 5. Métricas úteis para melhoria contínua
+
+Métricas mais úteis do que "quem errou" são:
+
+- taxa de reporte antes do clique;
+- tempo entre recebimento e notificação;
+- setores mais expostos;
+- volume de campanhas bloqueadas por domínio ou tema;
+- reincidência por tipo de isca.
+
+O valor da métrica está em ajustar processo e treinamento, não em constranger usuário.
+
+---
+
+## 6. Mini-caso prático
+
+A instituição percebe aumento de mensagens falsas imitando o portal acadêmico durante o período de rematrícula.
+
+- **Risco principal:** roubo de credenciais institucionais.
+- **Ações imediatas:** reforço de MFA, aviso institucional, ajuste em DMARC e campanha curta de alerta.
+- **Ação estrutural:** criar botão de reporte no e-mail e rotina de remoção centralizada.
+
+---
+
+## 7. Perguntas de revisão rápida
+
+1. Por que MFA é importante, mas não suficiente sozinho, contra phishing?
+2. Qual a função conjunta de SPF, DKIM e DMARC?
+3. Que métrica mostra maturidade melhor: número de cliques ou velocidade de reporte?
+
+---
+
+## 8. Fontes de referência
+
+- [CERT.br - Fascículo Phishing e Outros Golpes](https://cartilha.cert.br/fasciculos/phishing-golpes/fasciculo-phishing-golpes.pdf)
+- [CISA - Recognize and Report Phishing](https://www.cisa.gov/secure-our-world/recognize-and-report-phishing)
+- [NIST - Training for Social Engineering and Phishing Awareness](https://www.nist.gov/itl/smallbusinesscyber/training)
