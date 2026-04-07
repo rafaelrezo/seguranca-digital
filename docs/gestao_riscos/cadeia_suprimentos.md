@@ -1,161 +1,102 @@
-# Riscos na Cadeia de Suprimentos (Supply Chain Risks)
+# Riscos na Cadeia de Suprimentos
 
-Na paisagem tecnológica atual — altamente interconectada, global e dependente de múltiplos fornecedores — os **riscos na cadeia de suprimentos** tornaram-se uma das maiores preocupações para profissionais de segurança da informação e continuidade operacional.  
-Esses riscos podem se originar em **qualquer ponto da cadeia**, desde o **fabricante de hardware** até **desenvolvedores de software** ou **provedores de serviços gerenciados (MSPs)**.
+> **Objetivos de aprendizagem**
+> - Explicar como hardware, firmware, software e servicos podem entrar comprometidos na cadeia de suprimentos.
+> - Reconhecer sinais de maturidade como SBOM, assinatura de codigo e rastreabilidade de origem.
+> - Aplicar controles de aquisicao segura, inventario e validacao continua para reduzir risco.
+>
+> **Tempo estimado:** 22 minutos
 
-Compreender e mitigar esses riscos é essencial para manter a **integridade, a confidencialidade e a disponibilidade** dos sistemas de uma organização.
+## Vídeo de contexto
 
----
-
-## 1. Conceito de Risco na Cadeia de Suprimentos
-
-A cadeia de suprimentos digital envolve **todos os parceiros externos** que participam da concepção, fabricação, desenvolvimento e operação de produtos e serviços utilizados pela organização.  
-Cada elo dessa cadeia pode representar **um ponto de vulnerabilidade** que, se explorado, compromete toda a estrutura.
-
-> Assim como em um sistema de automação industrial, onde uma falha em um sensor pode parar toda a linha,  
-> em TI uma vulnerabilidade em um fornecedor pode comprometer toda a infraestrutura de rede.
+![type:video](https://www.youtube.com/embed/0LfsQtv0_6w)
 
 ---
 
-## 2. Riscos em Fabricantes de Hardware
+## 1. O que e a cadeia de suprimentos digital?
 
-No centro dos riscos da cadeia está a **complexidade do processo de fabricação de produtos físicos**, como roteadores, switches, servidores e sensores industriais.  
-Cada dispositivo é composto por **centenas de componentes** vindos de diferentes fornecedores — e qualquer um desses componentes pode conter vulnerabilidades ou código malicioso.
+A cadeia de suprimentos digital inclui tudo o que chega ate a organizacao por meio de terceiros: dispositivos fisicos, firmware, bibliotecas, imagens de container, atualizacoes, servicos em nuvem e componentes open source.
 
-### a) Integridade dos Componentes
+Se a organizacao nao conhece a procedencia do que instala, ela nao conhece a confiabilidade do que defende.
 
-É essencial **verificar a procedência e autenticidade** de cada peça.  
-Componentes falsificados ou alterados durante a produção podem introduzir riscos sérios, como:
-
-- **Firmware adulterado** com *backdoors*;
-- **Microchips comprometidos** para espionagem;
-- **Falhas intencionais** que afetam confiabilidade e desempenho.
-
-**Exemplo – Defesa e Infraestrutura Crítica:**  
-O *Department of Defense (EUA)* implementou o programa **Trusted Foundry**, garantindo que cada microprocessador usado em suas redes seja produzido em instalações auditadas, com rastreabilidade completa e validação criptográfica.
-
-### b) Riscos de Hardware Secundário ou Paralelo
-
-Comprar equipamentos de **mercado paralelo ou revendedores não oficiais** pode reduzir custos, mas aumenta drasticamente o risco de:
-
-- Dispositivos **contrafeitos ou adulterados**;  
-- Inclusão de **malwares embutidos (Trojans)**;  
-- **Acesso remoto não autorizado**;  
-- **Falhas operacionais recorrentes**.
-
-> Em automação industrial, isso equivale a adquirir CLPs “recondicionados” sem certificação — o custo inicial menor pode resultar em falhas críticas e riscos de segurança.
-
-### Medidas Preventivas
-
-- **Rastrear a origem** dos componentes e exigir **cadeia de custódia documentada**;  
-- Utilizar fornecedores certificados por programas de segurança reconhecidos;  
-- Implementar **auditorias de hardware** antes da instalação.
+> Analogia: comprar um equipamento "novo" sem verificar a procedencia e como receber uma caixa lacrada sem saber se o lacre foi trocado no caminho.
 
 ---
 
-## 3. Riscos em Desenvolvedores e Fornecedores de Software
+## 2. Principais superficies de risco
 
-Nem sempre o risco está no hardware — muitas vezes, ele vem do **software** que roda sobre ele.  
-Desenvolvedores e fornecedores de software são partes críticas da cadeia de suprimentos digital.
+| Camada | Exemplo de risco | Impacto prático |
+|---|---|---|
+| Hardware | Componente falsificado ou alterado | Backdoor, falha intermitente, perda de confianca no equipamento |
+| Firmware | Atualizacao adulterada no dispositivo | Persistencia maliciosa antes da camada de sistema operacional |
+| Software | Biblioteca contaminada ou pacote malicioso | Execucao de codigo indevido durante instalacao ou atualizacao |
+| Servicos | SaaS, MSP ou integrador comprometido | Acesso indevido a dados e configuracoes internas |
+| Open source | Dependencia sem manutencao ou sem assinatura | Introducao de vulnerabilidades ou dependencia abandonada |
 
-### a) Autenticidade e Licenciamento
-
-Todo software utilizado deve ser:
-- **Autêntico e devidamente licenciado**;  
-- **Livre de vulnerabilidades conhecidas**;  
-- **Verificado com antivírus e ferramentas de análise estática/dinâmica**.
-
-### b) Código Aberto vs. Proprietário
-
-O **software de código aberto (open source)** oferece transparência — o código pode ser auditado por qualquer parte interessada.  
-Por outro lado, **softwares proprietários** exigem **verificação de integridade e validação de versões**, pois não é possível auditar internamente o código.
-
-> Exemplo: Mesmo usando o Microsoft Office ou um ERP industrial proprietário, é possível rodar **scans de vulnerabilidades (Nessus, OpenVAS, etc.)** para detectar falhas conhecidas.
-
-### c) Vulnerabilidades Reais
-
-Ataques como o **SolarWinds (2020)** mostraram como uma simples **atualização de software comprometida** pode abrir portas para espionagem em milhares de organizações, inclusive agências governamentais.  
-Isso reforça a importância de **avaliar a segurança do fornecedor de software** e monitorar continuamente suas práticas.
+Para Security+, saiba associar cadeia de suprimentos a "origem", "integridade", "atualizacao assinada" e "terceiros com acesso privilegiado".
 
 ---
 
-## 4. Riscos em Provedores de Serviço (MSPs e SaaS)
+## 3. O que indica maturidade na cadeia
 
-Com a crescente adoção de **serviços terceirizados e soluções em nuvem**, os **provedores de serviço e MSPs** tornaram-se parte integral das operações empresariais.  
-Entretanto, delegar funções críticas também significa **delegar riscos**.
+Os controles abaixo ajudam a transformar confianca subjetiva em confianca verificavel:
 
-### a) Questões Fundamentais
+- **Inventario de ativos e dependencias** para saber o que existe.
+- **SBOM** para enxergar componentes de software.
+- **Assinatura de codigo e de atualizacoes** para validar origem.
+- **Controle de integridade** e validacao de hashes.
+- **Processo de patch e change management** para reduzir janela de exposicao.
+- **Rastreabilidade de fornecedores** e subfornecedores.
+- **Plano de resposta** para revogar, isolar e substituir rapidamente.
 
-Antes de contratar um provedor, a organização deve responder:
-
-- O provedor **segue práticas robustas de segurança cibernética**?  
-- Os dados compartilhados mantêm **confidencialidade e integridade**?  
-- Em caso de incidente, o provedor está preparado para **colaborar em resposta e perícia forense**?
-
-> Exemplo: Um provedor de SaaS que armazena dados de clientes sem criptografia pode expor a empresa contratante a multas por violação da LGPD.
-
-### b) Avaliação de Maturidade do Fornecedor
-
-É essencial verificar:
-- **Certificações** (ISO 27001, SOC 2, PCI DSS, IEC 62443);  
-- **Histórico de incidentes e vazamentos**;  
-- **Planos de continuidade e resposta a incidentes (BCP/IRP)**;  
-- **Cláusulas contratuais de auditoria e SLA de segurança**.
+> A regra pratica e: se voce nao consegue listar o que usa, tambem nao consegue proteger o que usa.
 
 ---
 
-## 5. Estratégias de Mitigação de Riscos na Cadeia de Suprimentos
+## 4. Como reduzir o risco
 
-### a) Avaliação e Auditoria de Fornecedores
-- Conduzir **avaliações prévias de segurança (due diligence)**;  
-- Solicitar **relatórios de auditoria externa**;  
-- Incluir **direito de auditoria contratual**.
+- Comprar de fontes autorizadas e verificaveis.
+- Exigir comprovantes de integridade, assinatura e procedencia.
+- Validar atualizacoes antes de expandir para todo o ambiente.
+- Manter segmentacao entre ambientes de teste, homologacao e producao.
+- Limitar privilegios de instalacao e atualizacao.
+- Revisar fornecedores e dependencias periodicamente.
 
-### b) Gestão de Inventário e Ciclo de Vida
-- Manter **inventário completo** de hardware, software e serviços terceirizados;  
-- Identificar componentes **críticos ou obsoletos**;  
-- Adotar **políticas de atualização e descarte seguro**.
-
-### c) Contratos e Acordos de Segurança
-- Incluir cláusulas de **responsabilidade e confidencialidade (NDA)**;  
-- Estabelecer **acordos de nível de serviço (SLA)** com métricas claras de segurança;  
-- Exigir **planos de contingência e notificação de incidentes**.
+Em ambientes OT/ICS, a cautela precisa ser maior porque um dispositivo comprometido pode afetar disponibilidade e seguranca fisica.
 
 ---
 
-## 6. Abordagem Holística de Segurança
+## 5. Mini-caso prático
 
-A segurança da cadeia de suprimentos deve ser tratada de forma **integrada e contínua**.  
-Desde o design até a operação, cada fornecedor e parceiro precisa ser **avaliado, certificado e monitorado**.
+Uma equipe instala uma versao nova de um agente de monitoramento enviada por um fornecedor conhecido. Dias depois, o software abre conexoes externas inesperadas.
 
-> **Você é tão seguro quanto o elo mais fraco da sua cadeia de suprimentos.**
+Licoes do caso:
 
-Essa frase resume o princípio fundamental da gestão moderna de riscos:  
-não importa quão forte seja sua defesa interna — se um fornecedor for comprometido, todo o ecossistema será afetado.
-
----
-
-## 7. Analogias Práticas
-
-- **Profissional de TI:**  
-  Imagine que você instala um switch de rede de origem duvidosa. Ele funciona bem, mas contém um chip com firmware adulterado que espiona o tráfego.  
-  Um pequeno componente pode comprometer toda a infraestrutura.
-
-- **Profissional de Automação Industrial:**  
-  Pense em um sensor recondicionado comprado sem rastreabilidade. Ele falha de forma intermitente e causa paradas na linha.  
-  O custo de aquisição baixo resulta em perda de produtividade e risco operacional elevado.
+- Confiar no nome do fornecedor nao e o mesmo que validar a entrega.
+- Atualizacao assinada e ambiente de homologacao reduzem o risco.
+- Monitoramento de saida de rede ajuda a detectar o problema cedo.
 
 ---
 
-## 8. Conclusão
+## 6. Perguntas de revisão rápida
 
-Os **riscos na cadeia de suprimentos** abrangem desde o **nível físico (hardware)** até o **virtual (software e serviços)**.  
-Mitigá-los exige **visibilidade, auditoria, rastreabilidade e confiança verificável**.
+1. Qual a diferenca entre risco de fornecedor e risco de cadeia de suprimentos?
+2. Por que SBOM ajuda a responder mais rapido a incidentes?
+3. Qual o papel de assinatura de codigo e de atualizacao?
 
-Para garantir resiliência:
-- Conheça seus fornecedores;  
-- Verifique a origem de cada componente;  
-- Monitore continuamente a conformidade e o desempenho;  
-- Trate a cadeia de suprimentos como parte **integrada da sua arquitetura de segurança**.
+---
 
-> Em segurança cibernética e automação, a confiança não é presumida — **é conquistada e verificada em cada elo da cadeia**.
+## 7. Fontes de referência
+
+- NIST SP 800-161 Rev. 1, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*  
+  https://csrc.nist.gov/pubs/sp/800/161/r1/final
+- CISA, *Procuring Safe and Secure ICT Products and Services Fact Sheet*  
+  https://www.cisa.gov/resources-tools/resources/procuring-safe-and-secure-ict-products-and-services-fact-sheet
+- CISA, NSA and partners, *Securing the Software Supply Chain: Recommended Practices for Software Bill of Materials Consumption*  
+  https://www.cisa.gov/news-events/alerts/2023/11/09/cisa-nsa-and-partners-release-new-guidance-securing-software-supply-chain
+- OWASP, *CycloneDX v1.6 Released*  
+  https://owasp.org/blog/2024/04/09/CycloneDX-v1.6-Released
+- NIC.br / Cidadão na Rede, *Cuidado com Aplicativos Falsos*  
+  https://www.youtube.com/watch?v=0LfsQtv0_6w
+- NIC.br / Cidadão na Rede, *Mantenha os programas atualizados*  
+  https://cidadaonarede.nic.br/pt/videos/seguranca/mantenha-os-programas-atualizados

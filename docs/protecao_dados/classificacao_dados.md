@@ -1,81 +1,104 @@
 # Classificação de Dados
 
-A **classificação de dados** é uma prática fundamental da segurança da informação, baseada no valor que a informação tem para a organização e na sensibilidade em caso de divulgação.  
-O nível de classificação é definido pelo **dono do dado (Data Owner)**, que deve equilibrar custos e recursos para aplicar os controles adequados.
+> **Objetivos de aprendizagem**
+> - Explicar por que a classificação orienta controles, retenção e compartilhamento.
+> - Diferenciar classificações comuns como público, interno, confidencial e crítico.
+> - Aplicar classificação para reduzir risco e responder melhor a incidentes e auditorias.
+>
+> **Tempo estimado:** 20 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. O que a classificacao resolve
+
+A classificação existe para evitar dois extremos: **proteger pouco** e **proteger tudo da mesma forma**.
+
+Quando tudo é tratado como sensível, a operação fica lenta e cara. Quando nada é rotulado, o risco cresce porque cada usuário decide sozinho como compartilhar o dado.
+
+Na prática, a classificação responde a três perguntas:
+
+1. Qual o impacto se o dado vazar?
+2. Quem pode acessar esse dado?
+3. Que controles sao obrigatorios para ele?
+
+> Analogia: um almoxarifado sem etiquetas faz o técnico gastar tempo procurando peças e aumenta a chance de entregar o item errado. Dados sem classificação geram o mesmo tipo de confusão, só que com custo de segurança.
 
 ---
 
-## 1. Importância da Classificação
-- **Evitar sobreclassificação**: tratar todos os dados como críticos gera desperdício de tempo, dinheiro e pessoal.  
-- **Aplicar controles de forma proporcional**: quanto mais alta a classificação, mais recursos e mecanismos de segurança são aplicados.  
+## 2. Esquemas de classificação mais comuns
 
-*Exemplo implícito*: em uma planta industrial, registros de calibração temporária de sensores podem ter proteção básica, enquanto parâmetros de segurança de caldeiras devem ter classificação mais elevada.
+| Nível | Uso típico | Exemplo | Controle esperado |
+|---|---|---|---|
+| Público | Divulgação sem impacto relevante | material de marketing, site institucional | acesso amplo, integridade e disponibilidade |
+| Interno | Uso dentro da organização | políticas operacionais, comunicados internos | acesso restrito por função |
+| Confidencial | Exposição causa dano relevante | contratos, incidentes, listas internas | criptografia, DLP e logging |
+| Restrito/Crítico | Exposição traz risco alto ou imediato | credenciais, chaves, configurações sensíveis | menor privilégio, MFA e monitoramento reforçado |
 
----
-
-## 2. Esquemas de Classificação
-
-### 2.1. Empresas Comerciais
-Classificação usual em ambientes corporativos e industriais:
-- **Público** – informações que podem ser divulgadas sem impacto.  
-  *Exemplo*: manuais técnicos em sites institucionais.  
-- **Sensível** – impacto mínimo em caso de divulgação.  
-  *Exemplo*: relatórios financeiros internos ou especificações preliminares de automação.  
-- **Privado** – dados pessoais de colaboradores ou clientes.  
-  *Exemplo*: folha de pagamento de técnicos de manutenção.  
-- **Confidencial** – informações que, se divulgadas, trariam sérios prejuízos.  
-  *Exemplo*: algoritmos de controle de processos produtivos.  
-- **Crítico** – dados cuja exposição é inaceitável.  
-  *Exemplo*: credenciais de acesso a sistemas SCADA.  
+A nomenclatura varia entre empresas, mas a lógica é a mesma: **quanto maior o impacto, maior o nível de proteção**.
 
 ---
 
-### 2.2. Governo e Setor Militar
-Classificação inspirada em legislações e práticas de segurança nacional:
-- **Não Classificado** – divulgação pública permitida (ex.: Lei de Acesso à Informação no Brasil).  
-- **Sensível mas Não Classificado** – informações pessoais, como registros médicos de militares.  
-- **Confidencial** – dados que, se expostos, afetam seriamente a organização.  
-- **Secreto** – informações estratégicas cuja divulgação causaria danos significativos.  
-- **Altamente Secreto (Top Secret)** – dados críticos cuja exposição pode gerar danos graves à segurança nacional.  
+## 3. Como decidir a classificação
+
+Uma classificacao util considera:
+
+- valor do dado para o negócio;
+- obrigações legais ou regulatórias;
+- impacto de vazamento, alteração ou perda;
+- tempo de retenção exigido;
+- facilidade de recomposição do dado.
+
+Se o dado ajuda a operar, mas não pode ser publicado, ele raramente deveria ser classificado como público.
 
 ---
 
-## 3. Ciclo de Vida da Informação
-- **Coleta** – definição clara do que é necessário armazenar.  
-- **Armazenamento** – uso de meios seguros (criptografia, segmentação de rede).  
-- **Retenção** – definição do período de guarda (curto, médio ou longo prazo).  
-- **Descarte** – eliminação segura dos dados quando não forem mais necessários.  
+## 4. Classificação e Security+
 
-*Exemplo implícito*: dados de sensores para auditoria de qualidade podem ser retidos por anos, enquanto logs de testes de linha podem ser descartados em semanas.
+Em Security+, a melhor resposta costuma unir classificacao com outros controles:
 
----
+- dado confidencial em notebook perdido -> criptografia e bloqueio de tela;
+- planilha com dados pessoais compartilhada fora da empresa -> DLP e rotulagem;
+- arquivo de configuração crítico -> restrição de acesso e auditoria;
+- log regulado -> retenção e descarte seguro.
 
-## 4. Conformidade Legal
-A classificação deve estar alinhada às políticas internas e às leis que determinam:
-- Como os dados são armazenados.  
-- Por quanto tempo devem ser retidos.  
-- Quais métodos de descarte devem ser utilizados.  
+A regra prática é simples: **a classificação define o tratamento; o tratamento define o controle**.
 
 ---
 
-## 5. Principais Legislações Aplicáveis
+## 5. Mini-caso prático
 
-### 5.1. Nacionais
-- **LGPD (Lei Geral de Proteção de Dados – Lei 13.709/2018, Brasil)**  
-  Regula o tratamento de dados pessoais em qualquer setor, inclusive industrial.  
-- **Lei de Acesso à Informação (Lei 12.527/2011, Brasil)**  
-  Garante a publicidade de informações não classificadas da administração pública.  
-- **Normas da ANPD (Autoridade Nacional de Proteção de Dados)**  
-  Orientações específicas sobre aplicação da LGPD.  
+Uma empresa publica em um drive compartilhado:
 
-### 5.2. Internacionais
-- **GDPR (General Data Protection Regulation – União Europeia)**  
-  Regula o tratamento de dados pessoais, com foco em privacidade e consentimento.  
-- **HIPAA (Health Insurance Portability and Accountability Act – EUA)**  
-  Regula dados de saúde, importante em contextos industriais ligados à saúde ocupacional.  
-- **SOX (Sarbanes-Oxley Act – EUA)**  
-  Exige controles sobre informações financeiras corporativas.  
-- **ISO/IEC 27001**  
-  Norma internacional para sistemas de gestão de segurança da informação, aplicável a qualquer setor.  
+- manual de produto;
+- planilhas de clientes;
+- extrato financeiro;
+- chaves de API de integracao.
+
+Sem classificação, tudo recebe o mesmo nível de acesso. Com classificação, o manual pode ser público, as planilhas ficam internas ou confidenciais, e as chaves de API entram em categoria crítica com acesso altamente restrito.
+
+Isso reduz o risco sem travar o trabalho do time.
 
 ---
+
+## 6. Perguntas de revisão rápida
+
+1. Por que tratar todo dado como critico e um erro?
+2. Quais criterios ajudam a definir a classificacao correta?
+3. Qual a relacao entre classificacao e DLP?
+
+---
+
+## 7. Fontes de referência
+
+- NIST FIPS 199 - Standards for Security Categorization of Federal Information and Information Systems  
+  https://csrc.nist.gov/pubs/fips/199/final
+- NIST SP 800-60, Volume 1 - Guide for Mapping Types of Information and Information Systems to Security Categories  
+  https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final
+- NIST SP 800-122 - Guide to Protecting the Confidentiality of Personally Identifiable Information (PII)  
+  https://csrc.nist.gov/pubs/sp/800/122/final
+- LGPD - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- Curso em Video - Lei Geral de Protecao de Dados  
+  https://www.youtube.com/watch?v=36Bq7Ejns_o

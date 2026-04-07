@@ -1,165 +1,100 @@
-# Políticas em Governança de TI
+# Políticas de Governança
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Entender o papel das políticas na definição de obrigações organizacionais.
+> - Diferenciar políticas comuns de segurança e continuidade.
+> - Aplicar o conceito de política como base para padrões, procedimentos e auditoria.
+>
+> **Tempo estimado:** 22 minutos
 
-Em um sistema de **governança de TI**, as **políticas** são o alicerce que orienta o comportamento, as decisões e as operações dentro da organização.  
-Elas garantem **consistência, segurança e conformidade** com normas e legislações, funcionando como um “**manual de boas práticas**” que todos devem seguir.
+## Vídeo de contexto
 
-Nesta lição, vamos abordar as principais políticas que compõem a base de uma boa governança de TI:
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
-- **Política de Uso Aceitável (AUP)**  
-- **Política de Segurança da Informação**  
-- **Política de Continuidade de Negócios**  
-- **Política de Recuperação de Desastres**  
-- **Política de Resposta a Incidentes**  
-- **Política de Ciclo de Vida de Desenvolvimento de Software (SDLC)**  
-- **Política de Gerenciamento de Mudanças**
+## 1. O que é uma política
 
----
+Política é uma declaração formal de intenção e obrigação. Ela define o que a organização exige, sem descrever cada detalhe operacional.
 
-## 1. Política de Uso Aceitável (Acceptable Use Policy – AUP)
+Uma boa política precisa ser:
 
-A **AUP** define os **limites e responsabilidades dos usuários** ao interagirem com os sistemas, redes e recursos tecnológicos da organização.  
-Ela estabelece o que é **permitido** e o que é **proibido**, com o objetivo de proteger a empresa de **riscos legais, vazamentos de dados** e **ameaças de segurança**.
+- clara;
+- aprovada por autoridade competente;
+- aplicável ao negócio;
+- revisável;
+- auditável.
 
-### Exemplo de regras típicas:
-- É **proibido instalar softwares não autorizados**.  
-- Não é permitido **acessar sites potencialmente maliciosos**.  
-- O uso de recursos corporativos para fins pessoais deve ser **limitado e supervisionado**.  
-- Credenciais e senhas são **pessoais e intransferíveis**.
-
-> **Paralelo industrial:**  
-> Assim como um operador de planta não pode usar um painel de controle para fins não relacionados à produção, um colaborador de TI não deve usar servidores corporativos para experimentos pessoais.
-
-A AUP serve como um **contrato ético** entre a organização e seus usuários, garantindo um ambiente **seguro, produtivo e responsável**.
+Se a política não puder ser entendida, aplicada ou verificada, ela falha como instrumento de governança.
 
 ---
 
-## 2. Política de Segurança da Informação
+## 2. Políticas mais comuns em segurança
 
-A **Política de Segurança da Informação (PSI)** é a espinha dorsal da postura de segurança da organização.  
-Ela define **como proteger os ativos de informação** contra ameaças internas e externas, garantindo os princípios de **Confidencialidade, Integridade e Disponibilidade (CIA)**.
-
-### Principais áreas cobertas:
-- **Classificação de dados:** definição do que é público, interno, confidencial e restrito.  
-- **Controle de acesso:** quem pode acessar o quê e sob quais condições.  
-- **Criptografia:** exigência de proteção de dados em trânsito e em repouso.  
-- **Segurança física:** restrição de acesso a datacenters e áreas críticas.  
-- **Treinamento e conscientização:** garantir que todos compreendam suas responsabilidades.
-
-> **Exemplo prático:**  
-> Dados sensíveis (como informações de clientes) devem ser **criptografados** e **acessíveis apenas a pessoal autorizado**.
-
+| Política | O que define | Exemplo de decisão |
+|---|---|---|
+| **Uso aceitável** | limites de uso de recursos corporativos | instalação de software não autorizado |
+| **Segurança da informação** | princípios gerais de proteção | classificação e acesso a dados |
+| **Continuidade de negócios** | prioridades para manter operação | serviços críticos e RTO/RPO |
+| **Resposta a incidentes** | regras de detecção, escalonamento e comunicação | quando acionar CSIRT/SOC |
+| **Mudanças** | como alterações relevantes são aprovadas | janela, rollback, evidência |
+| **SDLC seguro** | requisitos de segurança no desenvolvimento | revisão de código e testes |
 
 ---
 
-## 3. Política de Continuidade de Negócios
+## 3. O que uma política não deve fazer
 
-A **Política de Continuidade de Negócios (BCP – Business Continuity Policy)** define como a organização **mantém suas operações críticas** diante de interrupções — sejam falhas técnicas, desastres naturais ou ataques cibernéticos.
+Uma política não deve tentar virar manual técnico. Quando ela detalha demais:
 
-### Objetivos principais:
-- **Assegurar funcionamento mínimo** dos serviços essenciais.  
-- **Reduzir o impacto financeiro e operacional** de incidentes.  
-- **Estabelecer prioridades e tempos de recuperação (RTO/RPO).**
+- envelhece rápido;
+- perde legibilidade;
+- duplica conteúdo de procedimento;
+- dificulta auditoria.
 
-### Exemplo:
-Durante uma falha de energia, o BCP pode prever:
-- Ativação de **geradores automáticos**.  
-- Transferência de serviços para **servidores em nuvem**.  
-- Comunicação imediata com stakeholders e clientes.
-
-> **Paralelo industrial:**  
-> Assim como uma planta prevê **modos de operação degradada** (produção reduzida) em caso de falha de sensores, a TI prevê mecanismos para manter a operação mínima durante incidentes.
+O papel da política é dizer "o que precisa existir". O padrão e o procedimento explicam "como".
 
 ---
 
-## 4. Política de Recuperação de Desastres (Disaster Recovery Policy)
+## 4. Como políticas se conectam à Security+
 
-A **Política de Recuperação de Desastres (DRP)** complementa o plano de continuidade, com foco específico em **restaurar sistemas de TI e dados** após um incidente grave.
+Em `Security+`, políticas aparecem em cenários de:
 
-### Elementos fundamentais:
-- **Backup e restauração:** frequência, local seguro (offsite ou em nuvem) e testes de recuperação.  
-- **Plano de contingência:** designação de locais alternativos e responsáveis pela recuperação.  
-- **Validação periódica:** simulações e auditorias de prontidão.
+- exceção a controle;
+- revisão de acesso;
+- uso de BYOD;
+- resposta a incidente;
+- retenção e descarte;
+- cadeia de aprovação.
 
-### Exemplo:
-A política pode exigir **backups diários criptografados em data centers secundários**, com testes de restauração trimestrais.
-
----
-
-## 5. Política de Resposta a Incidentes
-
-A **Política de Resposta a Incidentes (IRP – Incident Response Policy)** estabelece **como detectar, comunicar e resolver** incidentes de segurança.  
-Ela é essencial para **minimizar danos, tempo de inatividade** e **evitar recorrências**.
-
-### Fases típicas de resposta:
-1. **Detecção e relato:** identificar e comunicar o incidente.  
-2. **Contenção:** isolar o impacto (por exemplo, desconectar sistemas comprometidos).  
-3. **Erradicação:** remover a causa raiz.  
-4. **Recuperação:** restaurar sistemas e serviços.  
-5. **Lições aprendidas:** documentar e melhorar controles.
-
-### Exemplo:
-Ao detectar um **ransomware**, a equipe deve seguir um procedimento documentado:
-- Desconectar servidores afetados.  
-- Acionar a equipe de segurança.  
-- Restaurar dados de backup verificado.  
-- Reforçar medidas preventivas.
-
-> **Paralelo industrial:**  
-> Equivalente ao plano de resposta a emergências em uma refinaria — onde o tempo de reação e a clareza de papéis são vitais para evitar danos maiores.
+Quando a questão traz "qual documento orienta a regra de alto nível?", a resposta normalmente aponta para política.
 
 ---
 
-## 6. Política de Ciclo de Vida de Desenvolvimento de Software (SDLC)
+## 5. Mini-caso prático
 
-A **Política de SDLC** define **como o software deve ser planejado, desenvolvido, testado e mantido**.  
-Seu objetivo é assegurar **qualidade, segurança e rastreabilidade** em todo o processo de desenvolvimento.
+Uma empresa possui backup diário, mas não tem política formal de retenção, restauração e teste.
 
-### Fases cobertas:
-- Levantamento de requisitos  
-- Desenho e arquitetura  
-- Codificação e revisão de código  
-- Testes (funcionais, segurança, integração)  
-- Implantação controlada  
-- Manutenção e documentação
+Na prática:
 
-### Padrões comuns:
-- Revisão obrigatória de código (*code review*).  
-- Práticas de **Secure Coding** (ex.: OWASP Top 10).  
-- Automação de testes e **CI/CD pipelines**.
+- a equipe técnica até faz backup;
+- a direção não definiu prioridade de recuperação;
+- auditoria não consegue provar consistência.
+
+Quando a política é criada, padrões e procedimentos passam a ter base institucional.
 
 ---
 
-## 7. Política de Gerenciamento de Mudanças (Change Management Policy)
+## 6. Perguntas de revisão rápida
 
-A **Política de Gerenciamento de Mudanças (CMP)** regula **como alterações em sistemas, infraestrutura ou processos devem ser propostas, avaliadas e implementadas**.
-
-### Objetivos:
-- Garantir que mudanças sejam **planejadas, revisadas e aprovadas**.  
-- Reduzir riscos de falhas e indisponibilidades.  
-- Documentar e auditar todas as alterações.
-
-### Ciclo típico:
-1. **Solicitação de mudança (RFC).**  
-2. **Avaliação de impacto e aprovação.**  
-3. **Execução controlada.**  
-4. **Validação e revisão pós-implementação.**
+1. O que diferencia política de padrão?
+2. Por que política excessivamente técnica é um problema?
+3. Qual política é mais diretamente ligada a RTO e RPO?
 
 ---
 
-## Conclusão
+## 7. Fontes de referência
 
-As políticas de TI formam a **coluna vertebral da governança corporativa**.  
-Elas transformam princípios em ações concretas, promovendo **segurança, continuidade e confiabilidade**.
-
-- A **AUP** define o uso ético e seguro dos recursos.  
-- A **PSI** protege dados e sistemas.  
-- O **BCP e o DRP** asseguram a continuidade e a recuperação após falhas.  
-- A **IRP** garante resposta rápida a incidentes.  
-- A **SDLC** mantém qualidade e segurança no desenvolvimento.  
-- A **CMP** controla mudanças com previsibilidade.
-
-> **Resumo geral:**  
-> Sem políticas claras, a TI age de forma reativa e vulnerável.  
-> Com políticas bem estruturadas, ela se torna um **sistema integrado e confiável**, tão seguro e previsível quanto uma planta automatizada bem controlada.
+- NIST Cybersecurity Framework 2.0  
+  https://www.nist.gov/cyberframework
+- NIST SP 800-61 Rev. 2, Computer Security Incident Handling Guide  
+  https://csrc.nist.gov/pubs/sp/800/61/r2/final
+- NIST SP 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems  
+  https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final

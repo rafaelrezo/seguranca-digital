@@ -1,97 +1,92 @@
-# Estruturas de Governança Organizacional
+# Estrutura da Governança
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Identificar os principais atores da estrutura de governança.
+> - Entender como conselhos, comitês e funções operacionais se complementam.
+> - Relacionar estrutura de governança com supervisão, auditoria e resposta a risco.
+>
+> **Tempo estimado:** 18 minutos
 
-A **governança organizacional** é um conceito multifacetado e essencial para o funcionamento eficaz de qualquer instituição — seja uma **empresa de tecnologia**, uma **indústria automatizada** ou um **órgão público**.  
-Ela define **como as decisões são tomadas, supervisionadas e controladas**, assegurando que os objetivos estratégicos sejam alcançados de forma **ética, eficiente e conforme as normas**.
+## Vídeo de contexto
 
-Para entender como a governança se concretiza na prática, é fundamental conhecer suas **estruturas**:  
-**Conselhos (Boards), Comitês, Entidades Governamentais**, e os modelos **Centralizado e Descentralizado**.
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
----
+## 1. Quem compõe a estrutura de governança
 
-## 1. Conselhos (Boards of Directors)
+Uma estrutura de governança normalmente inclui:
 
-O **Conselho de Administração** é um grupo de pessoas **eleitas pelos acionistas ou nomeadas pela alta direção** para supervisionar a gestão de uma organização.  
-Ele atua como **instância máxima de decisão estratégica**, sendo responsável por definir **rumos, políticas e princípios corporativos**.
+- **conselho ou alta direção**, que define direção e apetite ao risco;
+- **comitês**, que analisam temas críticos como auditoria, risco e segurança;
+- **gestores executivos**, que transformam decisão em programa;
+- **equipes operacionais**, que implementam controles;
+- **auditoria interna e compliance**, que verificam aderência e eficácia.
 
-### Funções principais:
-- Definir a **visão e missão** da organização.  
-- Aprovar políticas de **governança e compliance**.  
-- Supervisionar a **execução das estratégias** pela diretoria executiva.  
-- Avaliar **riscos corporativos** e assegurar que os controles estejam funcionando.
-
-
-### Exemplo prático:
-Uma empresa de tecnologia pode ter em seu conselho:
-- **Especialistas em segurança da informação**, para orientar políticas de proteção de dados.  
-- **Executivos de inovação**, para alinhar produtos às tendências de mercado.  
-- **Representantes financeiros**, para avaliar sustentabilidade e investimentos.
+Não é necessário que toda organização tenha todos os níveis com o mesmo nome. O importante é que as funções existam.
 
 ---
 
-## 2. Comitês
+## 2. Estruturas típicas
 
-Os **Comitês** são **subgrupos do conselho de administração**, criados para tratar de **áreas específicas** que exigem análise técnica mais detalhada.  
-Eles permitem que decisões estratégicas sejam tomadas com base em **estudos especializados** e **monitoramento contínuo**.
+| Estrutura | Melhor uso | Vantagem | Limitação |
+|---|---|---|---|
+| **Centralizada** | organizações grandes ou muito reguladas | maior padronização | menor agilidade local |
+| **Descentralizada** | ambientes inovadores ou distribuídos | resposta mais rápida | risco de inconsistência |
+| **Híbrida** | múltiplas unidades com governança comum | equilíbrio entre padrão e autonomia | exige coordenação mais madura |
 
-### Tipos comuns de comitês:
-- **Comitê de Auditoria:** supervisiona processos financeiros, auditorias internas e controles de risco.  
-- **Comitê de Governança:** assegura que o conselho funcione conforme princípios éticos e boas práticas.  
-- **Comitê de Segurança Cibernética:** define diretrizes e monitora riscos de segurança digital.  
-- **Comitê de Sustentabilidade:** garante que práticas ambientais e sociais estejam em conformidade com normas e valores corporativos.
-
+Em segurança, o modelo híbrido é comum: política central, execução adaptada por unidade.
 
 ---
 
-## 3. Entidades Governamentais e Reguladoras
+## 3. Comitês que aparecem com frequência
 
-As **entidades governamentais** exercem papel essencial na **regulação e fiscalização** das organizações.  
-Elas estabelecem **leis, normas e padrões** que guiam a governança corporativa, especialmente em setores públicos e áreas fortemente regulamentadas.
+- **Comitê de auditoria**: acompanha controles, evidências e não conformidades.
+- **Comitê de risco**: revisa cenários críticos, apetite e tratamento.
+- **Comitê de segurança ou tecnologia**: prioriza iniciativas e acompanha incidentes relevantes.
+- **Comitê de mudanças**: aprova alterações sensíveis e suas janelas.
 
-### Exemplos:
-- **Brasil:**  
-  - **ANPD (Autoridade Nacional de Proteção de Dados)** — garante o cumprimento da **LGPD**.  
-  - **CVM (Comissão de Valores Mobiliários)** — supervisiona práticas de governança em empresas de capital aberto.  
-  - **ANVISA, ANEEL, ANATEL** — fiscalizam práticas em saúde, energia e telecomunicações.  
-- **Internacional:**  
-  - **FTC (Federal Trade Commission – EUA)** — regula práticas de concorrência e proteção ao consumidor.  
-  - **GDPR (Europa)** — define padrões de proteção de dados e transparência.
-
-> **Na automação industrial**, as normas **IEC 62443** e **ISO 13849** funcionam como reguladores técnicos — elas impõem padrões mínimos de segurança para sistemas industriais, definindo responsabilidades entre fabricantes, integradores e operadores.
+Esses fóruns existem para evitar decisões isoladas e sem contexto de negócio.
 
 ---
 
-## 4. Estruturas Centralizadas e Descentralizadas
+## 4. Três linhas de visão prática
 
-A forma como as decisões são distribuídas dentro de uma organização define se sua estrutura de governança é **centralizada** ou **descentralizada**.
+Uma forma simples de entender a estrutura é:
 
-### 4.1 Estrutura Centralizada
+1. **Primeira linha**: áreas que operam o processo e executam controles.
+2. **Segunda linha**: risco, compliance, segurança e políticas.
+3. **Terceira linha**: auditoria interna e avaliação independente.
 
-Na **governança centralizada**, as decisões são **concentradas nos níveis superiores** da administração.  
-Ela garante **uniformidade e controle rigoroso**, mas pode ser **menos ágil** diante de demandas locais.
+Essa separação ajuda a evitar conflito entre "quem faz" e "quem verifica".
 
-#### Características:
-- Diretrizes unificadas e coerentes.  
-- Facilidade de auditoria e conformidade.  
-- Menor autonomia em filiais e departamentos.  
-- Decisões mais lentas em ambientes dinâmicos.
+---
 
-#### Exemplo:
-Uma grande corporação global (como a IBM ou Siemens) pode adotar uma governança centralizada para garantir **padrões globais de segurança e ética**.
+## 5. Mini-caso prático
 
+Uma universidade concentra toda decisão de segurança no time técnico, sem comitê, sem revisão da gestão e sem auditoria periódica.
 
-### 4.2 Estrutura Descentralizada
+Resultado:
 
-Na **governança descentralizada**, o poder decisório é **distribuído** entre diferentes áreas, equipes ou unidades de negócio.  
-Isso promove **agilidade**, **inovação** e **resposta rápida** às mudanças — embora possa gerar **inconsistências** se não houver padrões mínimos.
+- o time implementa controles, mas também aprova exceções;
+- não há instância clara para priorizar investimento;
+- riscos relevantes ficam invisíveis para a direção.
 
-#### Características:
-- Maior autonomia e inovação local.  
-- Tomada de decisão mais rápida.  
-- Necessidade de mecanismos de coordenação para evitar divergências.  
-- Maior dependência de comunicação entre equipes.
+Com uma estrutura mínima de comitê, responsável executivo e auditoria, a decisão deixa de ser improvisada.
 
-#### Exemplo:
-Uma **startup de tecnologia** pode usar uma estrutura descentralizada para permitir que cada time de desenvolvimento defina seus próprios processos de integração e entrega contínua (CI/CD).
+---
 
+## 6. Perguntas de revisão rápida
+
+1. Quando uma estrutura centralizada pode ser vantajosa?
+2. Qual o papel de um comitê de risco?
+3. Por que separar execução e verificação melhora a governança?
+
+---
+
+## 7. Fontes de referência
+
+- NIST Cybersecurity Framework 2.0  
+  https://www.nist.gov/cyberframework
+- ISACA COBIT  
+  https://www.isaca.org/resources/cobit
+- CISA Cybersecurity Performance Goals  
+  https://www.cisa.gov/cybersecurity-performance-goals

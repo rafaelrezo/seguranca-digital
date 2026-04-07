@@ -1,131 +1,103 @@
-# Governança na Segurança da Informação e na Tecnologia
+# Governança: Decisão, Responsabilidade e Direção
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Entender o papel da governança na priorização de segurança e no alinhamento com o negócio.
+> - Diferenciar diretrizes, políticas, padrões e procedimentos.
+> - Aplicar o conceito de accountability em cenários reais de segurança.
+>
+> **Tempo estimado:** 18 minutos
 
-No universo da **Tecnologia da Informação (TI)** e da **Cibersegurança**, a **governança** é o **pilar estrutural** que sustenta todas as operações.  
-Ela define **como a organização deve agir, decidir e se adaptar** em um cenário tecnológico em constante transformação.  
-Assim como em uma planta industrial automatizada, onde a lógica de controle determina o funcionamento seguro dos equipamentos, na TI a governança define a lógica de controle da própria organização.
+## Vídeo de contexto
 
----
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
-## 1. O que é Governança
+## 1. O que a governança realmente faz
 
-A **governança** é o primeiro componente do trio **GRC** — *Governance, Risk, and Compliance* (Governança, Risco e Conformidade).
+Governança não executa cada tarefa operacional. Ela define direção, prioridade e critérios de controle.
 
-Ela representa a **liderança estratégica**, as **estruturas de decisão** e os **processos de gestão** que asseguram que a **infraestrutura de TI** da organização esteja alinhada com seus **objetivos de negócio** e **obrigações regulatórias**.
+Isso inclui:
 
-Em termos práticos, governança é a **capacidade de transformar objetivos estratégicos em ações controladas e mensuráveis**, garantindo que a tecnologia e os processos trabalhem de forma coordenada para sustentar a missão institucional.
+- aprovar políticas e exceções;
+- definir papéis e níveis de autoridade;
+- alinhar segurança a objetivos institucionais;
+- revisar indicadores, riscos e auditorias.
 
-
----
-
-## 2. Estrutura da Governança
-
-A governança é composta por um **conjunto interligado de elementos**, cada um com uma função específica na orientação da organização:
-
-### 2.1 Diretrizes (Guidelines)
-São **recomendações e boas práticas**.  
-Não são obrigatórias, mas servem como **norte** para tomadas de decisão em situações de risco ou incerteza.  
-Por exemplo, recomendações da **ISO 27002** sobre boas práticas de segurança.
-
-### 2.2 Políticas
-Representam **compromissos e intenções formais** da organização.  
-Definem o **“o que”** deve ser feito, sem detalhar o “como”.
-
-Exemplo:  
-> “A organização se compromete a proteger dados pessoais de acordo com a LGPD.”
-
-Na automação industrial, isso é equivalente à política de segurança operacional que define que *nenhum equipamento pode operar fora de sua faixa segura de temperatura ou pressão*.
-
-### 2.3 Padrões (Standards)
-Traduzem as políticas em **regras técnicas obrigatórias**.  
-São frequentemente baseados em normas **industriais ou regulatórias**.
-
-Exemplo:  
-- Uso obrigatório de **criptografia AES-256** para armazenamento de dados sensíveis.  
-- Senhas com **mínimo de 12 caracteres e autenticação multifator**.
-
-Na engenharia industrial, padrões equivalem às **normas IEC 62443**, que definem práticas obrigatórias para redes e sistemas de controle industrial.
-
-### 2.4 Procedimentos
-São os **passos operacionais** para executar atividades específicas.  
-Garantem **consistência e conformidade** com políticas e padrões.
-
-Exemplo:  
-Procedimento de **onboarding de colaboradores** ou de **resposta a incidentes**.
-
-> **Analogia:**  
-> Um técnico que segue um procedimento de parada segura de um motor de indução está aplicando o mesmo princípio de governança que um analista segue ao desligar um servidor de forma controlada.
+Se a operação responde "como executar", a governança responde "o que precisa ser garantido e por quê".
 
 ---
 
-## 3. Governança e a Tomada de Decisão
+## 2. Os elementos básicos da governança
 
-A governança define **quem toma decisões, como elas são registradas e monitoradas**, e **como se mede o impacto dessas decisões**.  
-Ela envolve:
+| Elemento | Função | Exemplo |
+|---|---|---|
+| **Diretriz** | Orienta decisões, mas pode não ser obrigatória | recomendação de boas práticas |
+| **Política** | Define regra de alto nível | política de acesso remoto |
+| **Padrão** | Estabelece requisito mínimo mensurável | MFA obrigatório para contas administrativas |
+| **Procedimento** | Descreve o passo a passo operacional | fluxo de onboarding e offboarding |
 
-- **Gestão de riscos:** avaliação contínua das ameaças à segurança e à operação.  
-- **Gestão de recursos:** alocação eficiente de tempo, pessoal e orçamento.  
-- **Medição de desempenho:** definição de indicadores e auditorias periódicas.  
+Essa hierarquia ajuda a evitar dois problemas comuns:
 
-Assim, a governança garante que cada escolha técnica — seja a adoção de uma nova tecnologia ou a revisão de um processo — tenha **base estratégica e justificativa documental**.
-
----
-
-## 4. Governança como Estrutura Dinâmica
-
-A governança **não é estática**.  
-À medida que **a tecnologia evolui**, **as leis mudam** e **a cultura organizacional se transforma**, o framework de governança deve ser **monitorado e revisado**.
-
-### 4.1 Monitoramento
-O **monitoramento** consiste em revisar periodicamente a **eficácia** das políticas e controles.  
-Ele permite detectar **lacunas e fraquezas** decorrentes de:
-
-- Novas tecnologias (como computação em nuvem ou IA);
-- Alterações regulatórias (como LGPD, GDPR, ISO, etc.);
-- Mudanças culturais (como o trabalho remoto ou BYOD).
-
-### 4.2 Revisão
-A **revisão** é o processo de **atualizar a estrutura de governança** para corrigir as lacunas encontradas.  
-Pode envolver:
-
-- Atualização de **políticas** e **padrões**;
-- Revisão de **procedimentos operacionais**;
-- Ajustes na **infraestrutura de TI** e nas **operações**.
+- política vaga demais, sem implementação clara;
+- procedimento isolado, sem fundamento institucional.
 
 ---
 
-## 5. Exemplo Prático: O Caso “TechFirm”
+## 3. Accountability e tomada de decisão
 
-Vamos observar como a governança evolui com o tempo por meio de um exemplo prático.
+Em segurança, accountability significa deixar claro:
 
-**TechFirm** é uma empresa fictícia de desenvolvimento de software que possui um framework de governança voltado à **segurança no desenvolvimento de código**.
+- quem aprova;
+- quem executa;
+- quem monitora;
+- quem responde por falhas e exceções.
 
-1. **2015 – Adoção da Nuvem**  
-   A empresa passa a usar serviços em nuvem.  
-   Isso exige **revisão das políticas de segurança**, adicionando regras para o **uso seguro da nuvem**.
+Quando ninguém "é dono" da decisão, o ambiente acumula acessos indevidos, controles inconsistentes e justificativas frágeis para auditoria.
 
-2. **2018 – Novas Leis de Proteção de Dados**  
-   Com o surgimento de novas regulamentações (como o GDPR na Europa), TechFirm revisa sua **política de proteção de dados** e adota **novos padrões de segurança**.
-
-3. **2020–2023 – Cultura do Trabalho Remoto**  
-   Com a popularização do *home office*, a empresa atualiza novamente seu framework:  
-   - Nova **política de trabalho remoto**;  
-   - Procedimentos para **acesso seguro via VPN**;  
-   - Implementação de **sistemas de monitoramento remoto**.
-
-Em cada etapa, a empresa **monitorou o ambiente externo**, **revisou seus controles internos** e **manteve sua estrutura de governança atualizada**.  
-Assim, garantiu **continuidade operacional**, **segurança dos dados** e **aderência às normas legais**.
+> Analogia: um laboratório pode ter equipamentos sofisticados, mas sem responsável formal por calibração e liberação de uso, a operação fica vulnerável mesmo com tecnologia boa.
 
 ---
 
-## 6. O Papel Estratégico da Governança
+## 4. Governança como processo dinâmico
 
-A governança é o **elo entre o negócio e a tecnologia**.  
-Ela garante que as decisões técnicas sejam coerentes com os **valores, metas e restrições legais** da organização.
+Governança precisa ser revisada quando mudam:
 
-- Sem governança, a TI atua de forma reativa, respondendo a problemas sem estratégia.  
-- Com governança, a TI atua de forma **proativa e previsível**, antecipando riscos e alinhando inovação à conformidade.
+- leis e regulações;
+- modelo de trabalho;
+- arquitetura em nuvem;
+- uso de terceiros;
+- criticidade dos dados e serviços.
 
-> **Paralelo industrial:**  
-> Uma usina
+Por isso, governança madura não é documento parado. É revisão contínua apoiada em evidência.
+
+---
+
+## 5. Mini-caso prático
+
+Uma organização permite exceção de MFA para "usuários críticos", mas não registra prazo, justificativa nem aprovador.
+
+Consequências:
+
+- a exceção vira regra;
+- o risco residual não é formalmente aceito;
+- a auditoria não consegue provar quem assumiu a decisão.
+
+Correção: abrir processo de exceção com justificativa, aprovador, prazo, compensações e revisão periódica.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual a diferença entre política e procedimento?
+2. Por que accountability reduz risco operacional?
+3. O que torna a governança um processo dinâmico?
+
+---
+
+## 7. Fontes de referência
+
+- NIST Cybersecurity Framework 2.0  
+  https://www.nist.gov/cyberframework
+- ISACA COBIT  
+  https://www.isaca.org/resources/cobit
+- CISA Cybersecurity Performance Goals  
+  https://www.cisa.gov/cybersecurity-performance-goals

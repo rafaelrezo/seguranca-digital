@@ -1,91 +1,96 @@
 # Propriedade de Dados
 
-A **propriedade de dados** define quem é o responsável por garantir a **confidencialidade, integridade, disponibilidade e privacidade** das informações dentro de uma organização.  
-Não se trata necessariamente de quem criou o arquivo ou o registro, mas sim de papéis bem estabelecidos que compõem a governança de dados.
+> **Objetivos de aprendizagem**
+> - Diferenciar owner, controller, processor, steward, custodian e encarregado.
+> - Entender por que propriedade de dados e um tema de responsabilidade e governanca.
+> - Aplicar esse modelo para decidir quem aprova, executa e audita controles.
+>
+> **Tempo estimado:** 22 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. O que significa propriedade de dados
+
+Propriedade de dados não é "quem criou o arquivo". É o conjunto de responsabilidades que define **quem decide sobre o uso do dado, quem o protege e quem responde por incidentes**.
+
+Esse tema é central para Security+ porque evita uma confusão comum: o time de TI opera os sistemas, mas nem sempre é o dono do dado do negócio.
+
+> Analogia: o proprietário de uma loja decide o que pode ficar exposto na vitrine; o gerente organiza o estoque; o segurança controla a entrada. Com dados, a separação é parecida.
 
 ---
 
-## 1. Principais Papéis na Propriedade de Dados
+## 2. Papéis principais
 
-### 1.1. Data Owner (Dono do Dado)
-- Papel executivo, geralmente associado a líderes de área.  
-- Responsável por definir a **classificação**, **rótulo** e **controles de proteção** aplicados aos dados.  
-- Exemplo: em uma indústria de automação, o gerente de produção pode ser dono dos dados de telemetria da linha, definindo-os como **críticos** para segurança operacional.
+| Papel | Responsabilidade principal | Observacao pratica |
+|---|---|---|
+| Data Owner | Define valor, classificação e regras de uso | normalmente está no negócio |
+| Data Controller | Decide finalidades e meios do tratamento | termo comum em LGPD/GDPR |
+| Data Processor | Executa o tratamento sob instrucao | fornecedor, SaaS, BPO ou integrador |
+| Data Steward | Cuida de qualidade, consistência e catalogação | ajuda a manter a classificação correta |
+| Data Custodian | Opera controles técnicos, backup e acesso | equipe de infraestrutura ou segurança |
+| Encarregado/DPO | Faz a ponte com titulares e conformidade | responde por privacidade e governança |
 
-### 1.2. Data Controller (Controlador de Dados)
-- Entidade ou pessoa responsável por decidir **como os dados serão coletados, armazenados e utilizados**.  
-- É quem responde legalmente por violações de privacidade e conformidade.  
-- Exemplo: em um projeto de integração de sistemas SCADA com ERP, o controlador decide finalidades de uso e garante a legalidade do processamento.
-
-### 1.3. Data Processor (Processador de Dados)
-- Executa tarefas de coleta, análise ou armazenamento sob instruções do controlador.  
-- Não toma decisões sobre finalidade, apenas aplica as regras.  
-- Exemplo: empresa terceirizada que armazena registros de sensores industriais em nuvem.
-
-### 1.4. Data Steward (Administrador de Dados)
-- Responsável pela **qualidade** e **consistência** dos dados.  
-- Garante que rótulos e classificações sejam aplicados corretamente.  
-- Exemplo: validar que todos os relatórios de eficiência energética estão devidamente classificados como “dados regulatórios”.
-
-### 1.5. Data Custodian (Custodiante de Dados)
-- Geralmente a equipe de TI.  
-- Responsável por sistemas, backups, criptografia e controles de acesso.  
-- Exemplo: administrador de banco de dados que garante redundância e segurança de registros de manutenção preditiva.
-
-### 1.6. Data Privacy Officer (Encarregado de Privacidade)
-- Garante conformidade com legislações de proteção de dados.  
-- Responsável por PII (informações pessoais identificáveis), SPI (informações sensíveis) e PHI (dados de saúde).  
-- Exemplo: zelar pela conformidade da empresa industrial com a **LGPD**, quando coleta dados pessoais de operadores e visitantes.
+Em provas e em ambientes reais, o ponto mais importante é este: **quem decide finalidade não é necessariamente quem administra o servidor**.
 
 ---
 
-## 2. Quem Deve Ser o Data Owner?
-- Não deve ser a equipe de TI, pois conhece os sistemas, mas não o **contexto do dado**.  
-- O Data Owner deve estar no **lado do negócio**, ou seja, nas áreas que produzem ou usam a informação.  
-- Exemplos:  
-  - Em uma empresa de software → líder de desenvolvimento.  
-  - Em uma indústria de manufatura → gerente de qualidade ou de produção.  
-  - Em uma empresa de auditoria → CFO ou líder financeiro.  
+## 3. Responsabilidade e prestação de contas
+
+Uma estrutura boa de propriedade de dados precisa deixar claro:
+
+1. quem aprova o uso;
+2. quem aplica o controle;
+3. quem monitora o risco;
+4. quem responde a auditorias e incidentes.
+
+Sem isso, o problema clássico aparece: a TI fica com o trabalho operacional, mas o negócio não assume a decisão.
 
 ---
 
-## 3. Ciclo de Responsabilidade
-- **Data Owner** define políticas e classificação.  
-- **Data Steward** garante conformidade.  
-- **Data Custodian** aplica controles técnicos.  
-- **Data Privacy Officer** assegura aderência às leis.  
+## 4. Relação com LGPD e GDPR
+
+Na LGPD, os conceitos de **controlador** e **operador** ajudam a separar decisão e execução.
+
+- controlador: decide a finalidade do tratamento;
+- operador: trata dados em nome do controlador;
+- encarregado: atua como canal de comunicação e apoio à conformidade.
+
+Na prática, a propriedade de dados precisa sustentar essa divisão. Isso é importante para provar diligência, limitar acesso e reduzir impacto de terceirizações.
 
 ---
 
-## 4. Papel do Data Owner nas Legislações
+## 5. Mini-caso prático
 
-### 4.1. Brasil
-- **LGPD (Lei 13.709/2018)**:  
-  - Define papéis equivalentes a **controlador** e **operador** (análogos a Data Controller e Data Processor).  
-  - O **Data Owner** se aproxima do papel de controlador, pois decide finalidade e tratamento.  
-  - Exemplo industrial: controlador decide por quanto tempo manter dados pessoais de trabalhadores em registros de segurança.
+Uma faculdade contrata um fornecedor de nuvem para armazenar dados de alunos e historico academico.
 
-### 4.2. União Europeia
-- **GDPR (Regulamento Geral de Proteção de Dados)**:  
-  - Define claramente **Data Controller** e **Data Processor**.  
-  - O **Data Owner** é associado ao **Controller**, pois tem responsabilidade legal primária sobre dados.  
+- o coordenador acadêmico deve definir quem pode ver cada classe de dado;
+- o fornecedor e o processor, nao o owner;
+- a equipe de TI protege a infraestrutura;
+- o encarregado acompanha pedidos de titulares e incidentes.
 
-### 4.3. Estados Unidos
-- **HIPAA (saúde)**: Owner e Controller se aproximam de “Covered Entity”.  
-- **SOX (Sarbanes-Oxley)**: exige clareza sobre propriedade e retenção de dados financeiros.  
+Se todos acharem que o "outro lado" e o responsavel, a resposta a vazamentos e lenta e incompleta.
 
 ---
 
-## 5. Normas e Padrões Relacionados
+## 6. Perguntas de revisão rápida
 
-- **ISO/IEC 27001**:  
-  - Estabelece papéis de responsabilidade pela segurança da informação.  
-  - O Data Owner é quem define a criticidade e controles de ativos de informação.  
+1. Por que o dono do dado normalmente pertence ao negocio?
+2. Qual a diferenca entre controller e processor?
+3. Qual papel garante que a classificacao e o uso continuem consistentes?
 
-- **NIST Privacy Framework (EUA)**:  
-  - Propõe divisão clara de papéis semelhantes a **owner**, **controller** e **custodian**.  
+---
 
-- **ISA/IEC 62443 (Indústria e Automação)**:  
-  - Define papéis de responsabilidade na proteção de ativos industriais.  
-  - O Data Owner é correlacionado ao **responsável pelos ativos de automação**, garantindo que informações de sistemas industriais sejam protegidas conforme risco.  
+## 7. Fontes de referência
 
+- LGPD - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- GDPR - Data protection roles: controller and processor  
+  https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- NIST Privacy Framework  
+  https://www.nist.gov/privacy-framework
+- NIST SP 800-122 - Guide to Protecting the Confidentiality of Personally Identifiable Information (PII)  
+  https://csrc.nist.gov/pubs/sp/800/122/final
+- Curso em Video - Lei Geral de Protecao de Dados  
+  https://www.youtube.com/watch?v=36Bq7Ejns_o

@@ -1,148 +1,121 @@
 # Frequência das Avaliações de Risco
 
-A **frequência das avaliações de risco** define **com que regularidade** uma organização realiza o processo de identificação, análise e tratamento de riscos.  
-Essa regularidade depende do tipo de atividade da organização, do ambiente em que ela atua e da natureza dos riscos envolvidos.
+> **Objetivos de aprendizagem**
+> - Diferenciar avaliações ad hoc, recorrentes, pontuais e contínuas.
+> - Escolher a frequência adequada com base em criticidade e mudança.
+> - Relacionar frequência com monitoramento continuo e Security+.
+>
+> **Tempo estimado:** 16 minutos
 
-Em ambientes de **TI corporativa**, isso pode envolver vulnerabilidades de sistemas, falhas de configuração ou riscos de segurança da informação.  
-Já na **automação industrial**, pode estar relacionado à confiabilidade de sensores, falhas de comunicação entre CLPs ou ameaças cibernéticas a redes industriais.
+## Vídeo de contexto
 
----
-
-## 1. Tipos de Frequência de Avaliação de Risco
-
-Existem quatro tipos principais de frequência de avaliação:
-
-- Avaliações **Ad hoc**
-- Avaliações **Recorrentes**
-- Avaliações **Pontuais (One-time)**
-- Avaliações **Contínuas**
-
-Cada tipo tem um propósito específico e é aplicado de acordo com a maturidade da organização e o contexto operacional.
+![type:video](https://www.youtube.com/embed/nnZVWbmVmG0)
 
 ---
 
-## 2. Avaliações Ad Hoc
+## 1. O que a frequência responde
 
-As **avaliações ad hoc** são realizadas **quando necessário**, geralmente em resposta a **eventos específicos** que podem introduzir novos riscos ou alterar os existentes.
+A frequência define **quando** a organizacao vai reavaliar seus riscos.
 
-### Exemplos em TI:
-- Lançamento de um novo produto digital ou serviço em nuvem.  
-- Mudança significativa em políticas de privacidade (por exemplo, adequação à LGPD).  
-- Incidente de segurança, como um ataque de ransomware ou vazamento de dados.
+Nao existe uma periodicidade universal. A decisao depende de:
 
-### Exemplos em Automação:
-- Instalação de um novo controlador lógico programável (CLP) em uma linha de produção.  
-- Interferência eletromagnética inesperada em um sensor crítico.  
-- Alteração no fornecedor de energia ou atualização de firmware de um equipamento industrial.
+- criticidade do ativo;
+- velocidade de mudanca do ambiente;
+- exigencias legais ou contratuais;
+- apetite e tolerancia ao risco.
 
-> Assim como um engenheiro realiza uma **análise emergencial** após um pico de corrente elétrica em uma subestação, a equipe de segurança realiza uma avaliação ad hoc após um evento que pode comprometer a integridade dos sistemas.
+> Analogia: uma planta industrial nao calibra todos os sensores com a mesma urgencia. Os sensores que controlam temperatura critica exigem verificacao mais frequente do que um indicador auxiliar.
 
 ---
 
-## 3. Avaliações Recorrentes
+## 2. Tipos de avaliacao
 
-As **avaliações recorrentes** são realizadas **em intervalos regulares** — mensal, trimestral, semestral ou anual — e fazem parte das rotinas de operação da organização.
+| Tipo | Gatilho | Melhor uso | Esforco |
+|---|---|---|---|
+| Ad hoc | Evento inesperado | Incidente, mudanca abrupta, nova ameaca | Medio |
+| Recorrente | Calendario fixo | Revisoes mensais, trimestrais ou anuais | Medio |
+| Pontual | Projeto especifico | Nova implementacao, fusao, migracao | Alto |
+| Continua | Telemetria e alertas | Ambientes dinamicos, cloud, SOC, OT conectada | Alto |
 
-### Exemplos em TI:
-- Avaliações anuais de conformidade com normas ISO 27001.  
-- Testes de invasão (pentests) realizados trimestralmente.  
-- Revisão periódica de permissões de acesso em sistemas críticos.
+### 2.1 Avaliacao ad hoc
 
-### Exemplos em Automação:
-- Inspeções mensais de sistemas de instrumentação e controle.  
-- Testes de redundância de rede industrial (Modbus, Profinet, EtherCAT).  
-- Revisão semestral da calibração de sensores e atuadores.
+E disparada quando algo relevante acontece:
 
-> A lógica é similar à **manutenção preventiva** em equipamentos: prevenir falhas ao invés de apenas reagir a elas.
+- incidente de seguranca;
+- mudanca grande em tecnologia;
+- nova exigencia regulatoria;
+- descoberta de nova exposicao.
 
----
+### 2.2 Avaliacao recorrente
 
-## 4. Avaliações Pontuais (One-Time)
+Segue um calendario definido. E a forma mais comum de manter a governanca viva sem depender de crise.
 
-As **avaliações pontuais** são executadas **uma única vez**, geralmente relacionadas a um projeto, sistema ou iniciativa específica.
+### 2.3 Avaliacao pontual
 
-### Características:
-- Têm **escopo definido** e **prazo determinado**.  
-- São **não recorrentes** — uma vez concluído o projeto, a avaliação é encerrada.
+Tem inicio e fim claros. E tipica de projetos com escopo fechado.
 
-### Exemplos em TI:
-- Avaliação de riscos antes da implantação de um novo ERP.  
-- Auditoria única de segurança antes de um processo de certificação.  
+### 2.4 Avaliacao continua
 
-### Exemplos em Automação:
-- Avaliação de riscos durante a construção de uma nova planta fabril.  
-- Integração de sistemas SCADA de diferentes fornecedores.
-
-> Enquanto a avaliação ad hoc é **reativa** (resposta a um evento inesperado), a avaliação pontual é **planejada** e vinculada a um **projeto específico**.
+Usa sinais permanentes para atualizar o risco em tempo quase real. E comum com SIEM, EDR, dashboards de vulnerabilidade e monitoramento de fornecedores.
 
 ---
 
-## 5. Diferença entre Ad Hoc e Pontual
+## 3. Como escolher a periodicidade
 
-Embora pareçam semelhantes, há uma distinção clara:
+A regra pratica e simples:
 
-| Tipo | Gatilho | Repetição | Exemplo |
-|------|----------|------------|----------|
-| **Ad Hoc** | Evento inesperado ou circunstancial | Pode se repetir se o evento ocorrer novamente | Avaliação após um incidente de rede |
-| **Pontual** | Projeto planejado e com início e fim definidos | Não se repete | Avaliação antes da entrega de uma nova planta industrial |
+1. Quanto maior o impacto, menor o intervalo entre revisoes.
+2. Quanto mais rapido o ambiente muda, mais automatizado deve ser o monitoramento.
+3. Quanto maior a dependencia de terceiros, mais relevante a reavaliacao.
+4. Quanto mais madura a organizacao, maior a chance de combinar ciclos fixos com monitoramento continuo.
 
-> Em termos de engenharia, é como comparar um **ajuste emergencial** em uma linha de produção com um **estudo de viabilidade** antes de montar uma nova linha.
+### Exemplo rapido
 
----
-
-## 6. Avaliações Contínuas
-
-As **avaliações contínuas** são realizadas **em tempo real**, com monitoramento e análise constante de riscos.  
-Essa abordagem é viabilizada por **tecnologias de automação, telemetria e análise de dados**.
-
-### Exemplos em TI:
-- Sistemas de detecção e resposta a incidentes (SIEM, XDR) que analisam logs e alertas em tempo real.  
-- Ferramentas de monitoramento contínuo de vulnerabilidades.  
-
-### Exemplos em Automação:
-- Sistemas SCADA com alarmes inteligentes que detectam variações anômalas de processo.  
-- Monitoramento contínuo de vibração em motores com sensores IoT.  
-- Supervisão preditiva baseada em IA que identifica falhas antes que causem paradas.
-
-> Essa abordagem é comparável a um **sistema de controle em malha fechada**: há coleta contínua de dados e ajustes automáticos para manter a operação dentro dos limites seguros.
+- Sistema de folha de pagamento: recorrente.
+- Migração para nuvem: pontual + recorrente depois da entrada em producao.
+- SOC com detecao 24x7: continua.
 
 ---
 
-## 7. Escolhendo a Frequência Adequada
+## 4. Ligacao com Security+ e continuidade
 
-A escolha da frequência depende de diversos fatores:
+Na Security+, a ideia central e entender que:
 
-- **Criticidade do ativo:** quanto mais importante, mais frequente deve ser a avaliação.  
-- **Exposição a ameaças:** ambientes com alto risco cibernético ou físico requerem avaliações contínuas.  
-- **Regulamentações:** setores financeiros e industriais críticos possuem exigências específicas.  
-- **Cultura de segurança:** organizações maduras tendem a adotar avaliações recorrentes e contínuas.
+- risco muda quando o ambiente muda;
+- controles envelhecem;
+- avaliacao unica nao sustenta segurança duradoura;
+- continuidade e resposta a incidente dependem de revisao frequente.
 
----
-
-## 8. Comparativo Geral
-
-| Tipo de Avaliação | Gatilho | Frequência | Custo | Automação | Exemplo Prático |
-|--------------------|----------|-------------|--------|------------|----------------|
-| **Ad Hoc** | Evento inesperado | Sob demanda | Médio | Baixa | Avaliar impacto de ataque DDoS |
-| **Recorrente** | Procedimento padrão | Regular | Médio | Média | Pentest trimestral |
-| **Pontual** | Projeto específico | Única | Alto | Baixa | Avaliação antes de uma fusão |
-| **Contínua** | Monitoramento permanente | Constante | Alto | Alta | SIEM em tempo real |
+Se o negocio nao tolera parada longa, a organizacao precisa revisar riscos com mais rigor, especialmente apos mudancas de arquitetura, fornecedores ou permissões.
 
 ---
 
-## 9. Conclusão
+## 5. Mini-caso prático
 
-A **frequência da avaliação de riscos** deve ser ajustada ao contexto da organização e à criticidade de seus ativos.  
-Nenhum tipo é universalmente melhor — o equilíbrio entre custo, complexidade e sensibilidade operacional é o que define a melhor abordagem.
+Uma empresa aprova uma nova aplicacao SaaS para RH. O sistema entra em producao sem integracao com o processo de revisao de riscos.
 
-Em síntese:
+- Antes da entrada: avaliacao pontual.
+- Depois da entrada: revisao recorrente de acessos e logs.
+- Se houver alteracao contratual: avaliacao ad hoc.
+- Se houver monitoramento de integracao e alertas: avaliacao continua.
 
-- **Ad Hoc:** reativa e situacional.  
-- **Recorrente:** preventiva e cíclica.  
-- **Pontual:** específica e planejada.  
-- **Contínua:** preditiva e automatizada.
+---
 
-> Em TI, isso garante a segurança da informação.  
-> Em automação industrial, garante **a segurança das operações e das pessoas**.
+## 6. Perguntas de revisão rápida
 
-Assim, compreender e aplicar corretamente a frequência das avaliações de risco é um passo essencial para construir uma **gestão de riscos robusta e resiliente**.
+1. Qual a diferenca entre avaliacao ad hoc e pontual?
+2. Por que ambientes cloud costumam exigir revisao mais frequente?
+3. O que torna uma avaliacao continua mais eficaz do que uma revisao anual isolada?
+
+---
+
+## 7. Fontes de referência
+
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final
+- NIST SP 800-37 Rev. 2, Risk Management Framework for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/37/r2/final
+- NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+- NIST SP 800-137, Information Security Continuous Monitoring (ISCM)  
+  https://csrc.nist.gov/pubs/sp/800/137/final

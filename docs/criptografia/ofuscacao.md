@@ -1,41 +1,88 @@
-# Ofuscação e Técnicas de Proteção de Dados
+# Ofuscação, Tokenização e Mascaramento
 
-A **ofuscação de informações** é uma estratégia importante na proteção de dados, pois reduz a exposição de informações sensíveis em diferentes contextos de uso, armazenamento e compartilhamento.  
-Ela não substitui a criptografia, mas pode ser usada de forma complementar, aumentando a resiliência contra acessos indevidos.  
-Entre as principais técnicas estão a **esteganografia**, a **tokenização** e o **mascaramento de dados**.
+> **Objetivos de aprendizagem**
+> - Diferenciar ofuscação, tokenização, mascaramento e esteganografia.
+> - Entender por que essas técnicas complementam, mas não substituem, criptografia.
+> - Escolher a técnica mais adequada para reduzir exposição de dados.
+>
+> **Tempo estimado:** 18 minutos
 
----
+## Vídeo de contexto
 
-## 1. Esteganografia
+![type:video](https://www.youtube.com/embed/FXle5aD7dXU)
 
-- **Definição**: prática de ocultar dados dentro de outros arquivos (imagens, áudios, textos) de forma que a existência da mensagem passe despercebida.  
-- **Objetivo**: impedir que terceiros percebam que há informações sensíveis embutidas no arquivo.  
-- **Exemplo prático**: inserção de metadados de auditoria em imagens de inspeção industrial, garantindo que apenas sistemas autorizados consigam recuperar as informações ocultas.  
+## 1. O que essas técnicas fazem
 
----
+Essas técnicas existem para reduzir exposição de informação sensível em situações em que o dado precisa ser exibido, testado, compartilhado ou processado parcialmente.
 
-## 2. Tokenização
+Elas não têm todas o mesmo objetivo:
 
-- **Definição**: substitui dados sensíveis por códigos (tokens) que não têm valor real fora do sistema autorizado.  
-- **Objetivo**: preservar a privacidade e evitar que informações críticas fiquem expostas.  
-- **Exemplo prático**: em registros de acesso de funcionários a máquinas industriais, os CPFs podem ser substituídos por tokens, permitindo rastreabilidade sem expor os dados pessoais diretamente.  
-
----
-
-## 3. Mascaramento de Dados
-
-- **Definição**: técnica que altera parcialmente os dados, mantendo sua estrutura para testes e consultas, mas sem revelar o conteúdo completo.  
-- **Objetivo**: possibilitar o uso de dados em ambientes de desenvolvimento ou monitoramento sem expor informações sensíveis.  
-- **Exemplo prático**: em relatórios de manutenção, exibir apenas os últimos dígitos de um identificador de colaborador, ocultando o restante.  
+- algumas escondem o valor;
+- outras substituem o valor;
+- outras apenas dificultam leitura ou engenharia reversa.
 
 ---
 
-## 4. Conclusão
+## 2. Comparativo rápido
 
-As técnicas de ofuscação ajudam a equilibrar **usabilidade e segurança** no tratamento de informações:  
+| Técnica | Melhor uso | Resultado | Limitação |
+|---|---|---|---|
+| **Mascaramento** | exibição parcial e ambientes de teste | parte do valor fica ocultada | dado real continua existindo na origem |
+| **Tokenização** | reduzir exposição operacional | valor sensível vira referência | depende de cofre e mapeamento seguro |
+| **Ofuscação** | dificultar compreensão de código ou dado | leitura mais difícil | não garante confidencialidade forte |
+| **Esteganografia** | ocultar existência de mensagem | dado fica embutido em outro meio | não substitui proteção criptográfica |
 
-- **Esteganografia** → útil para esconder dados em arquivos comuns, reduzindo riscos de exposição.  
-- **Tokenização** → garante que dados reais sejam substituídos por representações sem valor fora do sistema.  
-- **Mascaramento** → mantém a estrutura para fins de análise ou testes, sem expor os dados originais.  
+---
 
-Essas práticas aumentam a proteção de dados em cenários industriais e corporativos, apoiando requisitos de **segurança da informação** e, quando aplicável, requisitos legais como os previstos na LGPD.  
+## 3. Quando usar
+
+- **Mascaramento**: relatórios, telas, demonstrações e logs.
+- **Tokenização**: pagamentos, identificadores sensíveis e integrações.
+- **Ofuscação**: distribuição de código e redução de exposição casual.
+- **Esteganografia**: cenário específico e menos comum em defesa corporativa.
+
+O erro clássico é tratar qualquer uma dessas técnicas como substituta universal de criptografia.
+
+---
+
+## 4. O que a Security+ costuma explorar
+
+Questões costumam cobrar:
+
+- qual técnica preserva formato sem revelar o valor;
+- qual reduz exposição em sistemas que não precisam do dado real;
+- qual método é melhor para desenvolvimento e homologação;
+- por que ofuscação não equivale a criptografia.
+
+> Analogia: mascaramento é como cobrir parte de um crachá; tokenização é trocar o crachá real por um identificador temporário; criptografia é guardar o crachá em cofre e só abrir com a chave certa.
+
+---
+
+## 5. Mini-caso prático
+
+Uma equipe de desenvolvimento precisa testar integração com base de alunos, mas não deve receber CPFs reais.
+
+Solução mais coerente:
+
+- tokenizar ou mascarar os dados, conforme a necessidade do teste;
+- manter o dado real fora do ambiente de desenvolvimento;
+- registrar quem acessa o cofre ou o mapeamento.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual a diferença entre tokenização e mascaramento?
+2. Por que ofuscação não substitui criptografia?
+3. Em que cenário o dado real pode deixar de circular graças à tokenização?
+
+---
+
+## 7. Fontes de referência
+
+- PCI Security Standards Council  
+  https://www.pcisecuritystandards.org/
+- Microsoft Learn, Dynamic Data Masking  
+  https://learn.microsoft.com/sql/relational-databases/security/dynamic-data-masking
+- NIST SP 800-122  
+  https://csrc.nist.gov/pubs/sp/800/122/final

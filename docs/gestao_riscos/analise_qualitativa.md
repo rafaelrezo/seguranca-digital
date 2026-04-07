@@ -1,153 +1,114 @@
 # Análise Qualitativa de Riscos
 
-A **análise qualitativa de riscos** é um dos métodos fundamentais utilizados na **gestão de riscos**.  
-Seu objetivo é **avaliar e priorizar os riscos** de acordo com sua **probabilidade de ocorrência** e seu **impacto potencial** sobre os objetivos do projeto ou operação.
+> **Objetivos de aprendizagem**
+> - Classificar riscos com base em impacto e probabilidade.
+> - Interpretar uma matriz de calor sem depender de formulas complexas.
+> - Priorizar tratativas para apoiar Security+ e GRC.
+>
+> **Tempo estimado:** 15 minutos
 
-Essa abordagem é **subjetiva**, baseada na **experiência e julgamento de especialistas**, mas oferece uma forma prática e eficiente de avaliar riscos sem a complexidade matemática da análise quantitativa.
+## Vídeo de contexto
 
----
-
-## 1. Conceito de Análise Qualitativa de Riscos
-
-A **análise qualitativa de riscos** busca **classificar** os riscos identificados em categorias como **alto**, **médio** ou **baixo**, conforme o potencial de dano que representam.
-
-Essa análise ajuda equipes de projetos, operações industriais e áreas de TI a **priorizarem recursos** e **definirem ações preventivas e corretivas** mais adequadas.
-
-> Em outras palavras, é como fazer um “check-up visual” da saúde de um sistema: sem números precisos, mas suficiente para saber onde está o problema mais urgente.
+![type:video](https://www.youtube.com/embed/nnZVWbmVmG0)
 
 ---
 
-## 2. Componentes-Chave da Análise Qualitativa
+## 1. O que é análise qualitativa
 
-A análise qualitativa se baseia em dois fatores principais:
+A análise qualitativa classifica riscos em categorias como baixo, medio, alto ou critico.
 
-- **Probabilidade (ou Likelihood):** a chance de o risco ocorrer.  
-- **Impacto (ou Impact):** as consequências caso o risco aconteça.
+Ela é rapida, comunicavel e muito util quando ainda nao existem dados numericos suficientes para uma abordagem mais precisa.
 
-Ambos são avaliados de forma **qualitativa**, normalmente em escalas como:
-
-- **Baixo (Low)**
-- **Médio (Medium)**
-- **Alto (High)**
-
-Essas categorias podem ser expressas em cores (verde, amarelo, vermelho) ou descrições textuais (raro, possível, provável).
+> Analogia: e o equivalente ao primeiro diagnostico de um equipamento. Antes de medir tudo com precisão, o tecnico experiente ja percebe onde esta a anomalia mais urgente.
 
 ---
 
-## 3. Probabilidade (Likelihood)
+## 2. Fatores avaliados
 
-A **probabilidade** indica o **grau de chance de um evento de risco ocorrer**.  
-É estimada com base em **histórico, experiência anterior, estatísticas** ou **julgamento especializado**.
+Os dois eixos principais sao:
 
-| Categoria | Descrição | Exemplo em TI | Exemplo em Automação |
-|------------|------------|----------------|----------------------|
-| **Baixa** | Pouco provável de ocorrer | Falha em sistema redundante | Queima de motor recém-substituído |
-| **Média** | Pode ocorrer ocasionalmente | Interrupção de rede por atualização | Falha de sensor por desgaste natural |
-| **Alta** | Provável ou frequente | Ataques de phishing semanais | Oscilação elétrica em ambiente industrial |
+- **Probabilidade**: chance de o evento ocorrer.
+- **Impacto**: gravidade da consequencia.
 
-> Assim como engenheiros de manutenção avaliam a probabilidade de falha de um componente com base em horas de uso, analistas de segurança avaliam riscos digitais com base em frequência histórica de incidentes.
+Esses eixos sao combinados em uma matriz de risco. A leitura da matriz ajuda a decidir o que deve receber acao imediata e o que pode ser monitorado.
 
----
+### Escalas comuns
 
-## 4. Impacto (Impact)
-
-O **impacto** representa o **efeito ou gravidade** das consequências caso o risco se concretize.  
-Ele pode afetar **custos, prazos, qualidade, segurança, reputação ou continuidade operacional**.
-
-| Categoria | Descrição | Exemplo em TI | Exemplo em Automação |
-|------------|------------|----------------|----------------------|
-| **Baixo** | Danos mínimos; sistema continua operando | Erro menor no log do servidor | Pequena oscilação de leitura em sensor |
-| **Médio** | Perdas moderadas; afeta desempenho | Lentidão em sistema de banco de dados | Parada parcial de uma célula de produção |
-| **Alto** | Impacto crítico; operação interrompida | Queda de serviço em produção | Falha em CLP principal ou linha parada |
-
-> Em um ambiente industrial, “baixo impacto” pode ser a falha de um sensor redundante; “alto impacto” é quando o controlador principal deixa de operar e paralisa toda a planta.
+| Nivel | Probabilidade | Impacto |
+|---|---|---|
+| Baixo | Raro ou improvavel | Dano limitado |
+| Medio | Possivel | Dano relevante, mas controlavel |
+| Alto | Provavel | Dano serio |
+| Critico | Muito provavel com dano alto | Efeito severo sobre negocio ou operação |
 
 ---
 
-## 5. Matriz de Risco Qualitativa
+## 3. Matriz de calor
 
-Combinando probabilidade e impacto, é possível visualizar os riscos em uma **matriz de calor** (heat map):
+| Impacto \ Probabilidade | Baixa | Media | Alta |
+|---|---|---|---|
+| Baixo | Baixo | Baixo | Medio |
+| Medio | Baixo | Medio | Alto |
+| Alto | Medio | Alto | Critico |
 
-| Impacto ↓ / Probabilidade → | Baixa | Média | Alta |
-|------------------------------|--------|--------|------|
-| **Baixo** | Baixo | Baixo | Médio |
-| **Médio** | Baixo | Médio | Alto |
-| **Alto** | Médio | Alto | Crítico |
-
-Essa matriz ajuda gestores a **priorizar esforços**, concentrando mitigação nos riscos classificados como **Altos ou Críticos**.
-
-> É como em um painel SCADA: cores e níveis ajudam a perceber rapidamente onde a operação está sob risco.
+A matriz nao substitui julgamento profissional. Ela organiza a conversa para que gestores e equipes tecnicas falem a mesma lingua.
 
 ---
 
-## 6. Exemplos de Aplicação
+## 4. Quando usar
 
-### 6.1 Em Projetos de Software
-**Risco:** saída de um desenvolvedor-chave durante o projeto.
+A abordagem qualitativa e a melhor escolha quando:
 
-- **Probabilidade:** Média (devido à rotatividade da área).  
-- **Impacto:** Alto (atrasos, retrabalho, perda de conhecimento).  
-- **Classificação:** **Alto risco**.  
+- o prazo e curto;
+- o dado historico e limitado;
+- a organizacao precisa priorizar rapidamente;
+- o objetivo e comunicar risco para publico misto, tecnico e executivo.
 
-**Mitigações possíveis:**
-- Realizar **cross-training** entre membros da equipe.  
-- Manter documentação atualizada.  
-- Criar plano de retenção de talentos.
+Em Security+, isso aparece bastante em perguntas sobre priorizacao de controles, resposta a incidentes e continuidade.
 
 ---
 
-### 6.2 Em Projetos de Construção Civil
-**Risco:** atraso na entrega de materiais críticos.
+## 5. Limites da abordagem
 
-- **Probabilidade:** Alta (cadeia de suprimentos instável).  
-- **Impacto:** Alto (custos e prazos comprometidos).  
-- **Classificação:** **Risco Crítico**.  
+- Depende da experiencia dos avaliadores.
+- Pode variar entre areas diferentes.
+- Nao gera um valor financeiro exato.
 
-**Mitigações possíveis:**
-- Trabalhar com **múltiplos fornecedores**.  
-- **Antecipar pedidos** e definir contratos com cláusulas de contingência.  
-- Manter **estoque mínimo** de materiais essenciais.
+Por isso, ela costuma ser o primeiro passo antes da analise quantitativa.
 
 ---
 
-### 6.3 Em Automação Industrial
-**Risco:** falha de comunicação entre CLPs de uma linha de montagem.
+## 6. Mini-caso prático
 
-- **Probabilidade:** Média (instalação exposta a interferências).  
-- **Impacto:** Alto (parada de produção e perda de dados).  
-- **Classificação:** **Alto risco**.
+Uma universidade identifica tres riscos:
 
-**Mitigações possíveis:**
-- Implementar **malha de redundância de rede**.  
-- Monitorar a **latência e perda de pacotes** com KRIs.  
-- Revisar aterramento e blindagem de cabos.
+- senha fraca em sistema academico;
+- falha intermitente em backup;
+- atraso na renovacao de licencas.
 
----
+O time classifica:
 
-## 7. Benefícios da Análise Qualitativa
+- senha fraca: alto/critico;
+- backup intermitente: alto;
+- licencas: medio.
 
-- **Rápida e acessível:** pode ser aplicada mesmo sem dados numéricos detalhados.  
-- **Facilita a comunicação:** apresenta resultados compreensíveis a todos os níveis da organização.  
-- **Prioriza ações:** direciona esforços para os riscos mais críticos.  
-- **Complementa a análise quantitativa:** serve como primeira triagem antes de cálculos financeiros mais complexos.
-
-> É semelhante à manutenção preditiva visual: mesmo sem sensores precisos, um técnico experiente pode identificar sinais de alerta antes que o problema se agrave.
+Essa triagem permite agir primeiro no risco com maior chance de vazamento e maior impacto sobre alunos e docentes.
 
 ---
 
-## 8. Limitações
+## 7. Perguntas de revisão rápida
 
-- **Subjetividade:** depende da experiência e percepção dos avaliadores.  
-- **Ausência de dados numéricos:** não permite estimar custos exatos de impacto.  
-- **Comparabilidade limitada:** os critérios de “alto” ou “baixo” podem variar entre projetos.
-
-Por isso, em projetos complexos, a análise qualitativa é frequentemente **complementada** por uma **análise quantitativa**, que aplica valores e cálculos objetivos aos riscos.
+1. Por que a analise qualitativa e util mesmo sem numeros precisos?
+2. O que a matriz de calor ajuda a priorizar?
+3. Quando vale a pena complementar a analise qualitativa com uma quantitativa?
 
 ---
 
-## 9. Conclusão
+## 8. Fontes de referência
 
-A **análise qualitativa de riscos** é uma ferramenta essencial para qualquer tipo de organização — seja em **TI, engenharia ou automação**.  
-Ela oferece uma visão clara das vulnerabilidades, permite **classificar prioridades** e fornece uma base sólida para as próximas etapas da gestão de riscos.
-
-> Em resumo: assim como um engenheiro usa sinais visuais e históricos de falha para prever uma parada, o gestor de riscos usa a análise qualitativa para antecipar incertezas e manter a operação sob controle.
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final
+- NIST SP 800-39, Managing Information Security Risk  
+  https://csrc.nist.gov/pubs/sp/800/39/final
+- NIST SP 800-37 Rev. 2, Risk Management Framework for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/37/r2/final

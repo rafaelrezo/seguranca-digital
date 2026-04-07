@@ -1,63 +1,114 @@
 # Estados dos Dados
 
-Compreender os diferentes **estados dos dados** é essencial para garantir a proteção da informação ao longo de todo o seu ciclo de vida.  
-Cada estado exige medidas de segurança específicas para mitigar riscos de acesso não autorizado, vazamento ou manipulação indevida.
+> **Objetivos de aprendizagem**
+> - Diferenciar dados em repouso, em trânsito e em uso.
+> - Relacionar cada estado aos controles mais adequados.
+> - Aplicar o conceito de estado do dado em cenários cobrados em Security+.
+>
+> **Tempo estimado:** 18 minutos
 
-Os três estados principais são:
-- **Dados em Repouso (Data at Rest)**  
-- **Dados em Trânsito (Data in Transit)**  
-- **Dados em Uso (Data in Use)**  
+## Vídeo de contexto
 
----
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
 
-## 1. Dados em Repouso
-São os dados armazenados em **bancos de dados, sistemas de arquivos ou outros repositórios**.  
-Por estarem estáticos, são alvos atrativos para agentes maliciosos.
+## 1. Por que o estado do dado importa
 
-### Técnicas de Proteção
-- **Criptografia de Disco Completo (Full Disk Encryption)** – protege todo o dispositivo de armazenamento.  
-- **Criptografia de Partição** – protege apenas uma partição, permitindo segmentar informações.  
-- **Criptografia de Arquivo** – aplicada a documentos específicos que contêm dados sensíveis.  
-- **Criptografia de Volume/Pasta** – aplicada a grupos de arquivos e diretórios.  
-- **Criptografia de Banco de Dados** – em nível de coluna, linha ou tabela.  
-- **Criptografia de Registro** – aplicada a campos individuais dentro de uma tabela.  
+O mesmo dado exige controles diferentes conforme o contexto em que está sendo tratado.
 
-*Exemplo implícito*: relatórios de calibração de máquinas em um banco de dados podem ser criptografados em nível de registro, garantindo que apenas engenheiros autorizados acessem determinados parâmetros.
+Pense em um prontuário digital:
 
----
+- no disco do servidor, ele está **em repouso**;
+- na rede, ele está **em trânsito**;
+- aberto na tela para consulta, ele está **em uso**.
 
-## 2. Dados em Trânsito
-São os dados que estão **em movimento** entre sistemas, redes ou dispositivos.  
-Por estarem expostos a interceptações durante o transporte, exigem canais seguros de comunicação.
-
-### Técnicas de Proteção
-- **SSL/TLS** – protocolos para comunicação segura em navegação web, e-mails e integrações de sistemas.  
-- **VPN (Virtual Private Network)** – cria um túnel criptografado em redes inseguras, como a Internet.  
-- **IPSec** – autentica e criptografa pacotes IP, garantindo integridade e confidencialidade.  
-
-*Exemplo implícito*: quando dados de sensores de uma linha de produção são transmitidos para o sistema supervisório em outro setor, é fundamental usar protocolos seguros como TLS ou VPN para evitar espionagem industrial.
+O erro comum é aplicar um único controle e assumir que ele cobre todo o ciclo de vida.
 
 ---
 
-## 3. Dados em Uso
-São os dados que estão sendo **processados ativamente** (criando, lendo, atualizando ou excluindo).  
-Apesar de muitas vezes negligenciados, são vulneráveis porque precisam estar descriptografados para processamento.
+## 2. Dados em repouso
 
-### Técnicas de Proteção
-- **Criptografia em nível de aplicação** – protege dados durante operações críticas.  
-- **Controles de Acesso** – garantem que apenas usuários autorizados executem operações.  
-- **Ambientes Isolados (Secure Enclaves)** – permitem processar dados de forma protegida na memória.  
-- **Tecnologias de hardware** – como o **Intel SGX (Software Guard Extensions)**, que protege dados em memória contra processos não confiáveis.  
+São dados armazenados em disco, banco, backup, fita, pendrive ou nuvem.
 
-*Exemplo implícito*: algoritmos de controle que ajustam parâmetros em tempo real precisam processar dados em uso. A utilização de enclaves ou ambientes isolados ajuda a proteger essas informações enquanto são manipuladas.
+Controles comuns:
+
+- criptografia de disco e de banco;
+- gestão de chaves;
+- controle de acesso;
+- retenção e descarte;
+- backup testado.
+
+Exemplo prático: notebook perdido com dados de alunos. Se o disco estiver cifrado e protegido por credencial forte, o risco cai muito.
 
 ---
 
-## 4. Resumo das Estratégias por Estado
+## 3. Dados em trânsito
 
-| Estado do Dado      | Principais Riscos                 | Medidas de Proteção                          | Exemplo Industrial |
-|---------------------|-----------------------------------|----------------------------------------------|--------------------|
-| **Em Repouso**      | Acesso indevido a repositórios    | Criptografia de disco, partição, banco/registro | Histórico de manutenção armazenado |
-| **Em Trânsito**     | Interceptação ou espionagem       | TLS, VPN, IPSec                              | Transmissão de dados de sensores |
-| **Em Uso**          | Exposição em memória/processamento | Criptografia em aplicação, enclaves, ACLs    | Ajuste de parâmetros em controladores |
+São dados trafegando entre sistemas, usuários, APIs ou dispositivos.
 
+Controles comuns:
+
+- TLS moderno;
+- VPN ou túnel seguro quando aplicável;
+- validação de certificados;
+- integridade do canal;
+- segmentação e inspeção quando necessário.
+
+Exemplo prático: envio de notas e documentos entre campus e sistema central. O risco maior aqui é interceptação, alteração ou redirecionamento do tráfego.
+
+---
+
+## 4. Dados em uso
+
+São dados sendo processados por aplicações, serviços ou usuários.
+
+Controles comuns:
+
+- menor privilégio;
+- controle de sessão;
+- isolamento de processo;
+- DLP de endpoint;
+- redução de cópia e exportação;
+- proteção de memória e ambientes confiáveis quando aplicável.
+
+Esse estado é crítico porque o dado já está descriptografado para alguém ou para algum processo.
+
+---
+
+## 5. Resumo rápido por estado
+
+| Estado | Risco principal | Controle mais lembrado |
+|---|---|---|
+| **Em repouso** | perda física ou acesso indevido ao armazenamento | criptografia e retenção |
+| **Em trânsito** | interceptação ou adulteração do tráfego | TLS, VPN e certificados |
+| **Em uso** | abuso de acesso, cópia, captura ou exfiltração | menor privilégio, DLP e sessão controlada |
+
+---
+
+## 6. Mini-caso prático
+
+Uma instituição usa disco cifrado nos notebooks, mas envia planilhas sensíveis por e-mail sem proteção adicional e permite exportação irrestrita em estações compartilhadas.
+
+- Em repouso: o controle está razoável.
+- Em trânsito: a proteção é insuficiente.
+- Em uso: o risco de cópia e exfiltração continua alto.
+
+Conclusão: proteger apenas um estado do dado não resolve o problema inteiro.
+
+---
+
+## 7. Perguntas de revisão rápida
+
+1. Qual a diferença entre dado em repouso e dado em uso?
+2. Por que TLS não resolve sozinho o risco de exfiltração?
+3. Em qual estado o DLP de endpoint costuma ser mais relevante?
+
+---
+
+## 8. Fontes de referência
+
+- NIST SP 800-111, Guide to Storage Encryption Technologies for End User Devices  
+  https://csrc.nist.gov/pubs/sp/800/111/final
+- NIST SP 800-52 Rev. 2, Guidelines for the Selection, Configuration, and Use of TLS Implementations  
+  https://csrc.nist.gov/pubs/sp/800/52/r2/final
+- Microsoft Learn, Confidential Computing  
+  https://learn.microsoft.com/azure/confidential-computing/

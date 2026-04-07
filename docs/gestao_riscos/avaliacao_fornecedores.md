@@ -1,159 +1,112 @@
-# Avaliação de Fornecedores (Vendor Assessments)
+# Avaliação de Fornecedores
 
-A **avaliação de fornecedores** é um processo essencial para **garantir a segurança, confiabilidade e desempenho** das entidades externas das quais uma organização depende.  
-Em um mundo corporativo **altamente interconectado**, um elo fraco em um fornecedor pode gerar **vulnerabilidades em cascata**, resultando em **falhas operacionais**, **vazamentos de dados** e **impactos financeiros severos**.
+> **Objetivos de aprendizagem**
+> - Explicar o que deve ser avaliado em um fornecedor antes e depois da contratacao.
+> - Diferenciar evidencias internas, auditorias independentes e questionarios de risco.
+> - Aplicar avaliacao continua para detectar mudancas na postura de seguranca do terceiro.
+>
+> **Tempo estimado:** 22 minutos
 
----
+## Vídeo de contexto
 
-## 1. O que é uma Avaliação de Fornecedores
-
-A avaliação de fornecedores consiste em um **conjunto estruturado de práticas** que permitem analisar o nível de **maturidade em segurança da informação**, **conformidade regulatória** e **capacidade técnica** de empresas terceirizadas que fornecem bens, serviços ou infraestrutura crítica.
-
-> Em outras palavras: o risco de um fornecedor **passa a ser o seu risco** — especialmente quando ele manipula dados sensíveis ou opera em sua infraestrutura.
-
----
-
-## 2. Tipos de Entidades Avaliadas
-
-Durante o processo de vendor assessment, as organizações geralmente avaliam três categorias principais:
-
-### a) **Vendors (Fornecedores de Serviços ou Software)**
-Empresas ou indivíduos que oferecem **bens ou serviços diretos** à organização.  
-Exemplos: **Microsoft**, **Oracle**, **SAP**, **Red Hat**, entre outros.
-
-> Em TI, podem fornecer sistemas ERP, bancos de dados, software de virtualização, etc.  
-> Em automação industrial, podem fornecer sistemas supervisórios (SCADA), IHMs e módulos de controle lógico.
+![type:video](https://www.youtube.com/embed/QQrwJDw2iss)
 
 ---
 
-### b) **Suppliers (Fornecedores de Componentes)**
-Fornecedores envolvidos na **produção e entrega de produtos físicos** ou partes de produtos.
+## 1. O que e uma avaliacao de fornecedores?
 
-**Exemplo:**  
-Um fabricante de computadores pode ter:
-- Um fornecedor de **processadores (CPU)**;  
-- Outro de **memória (RAM)**;  
-- E outro de **armazenamento (SSD)**.
+A avaliacao de fornecedores e o processo de coletar evidencias para decidir se um terceiro e confiavel o suficiente para receber dados, acesso ou responsabilidade operacional. Ela acontece antes da contratacao e continua ao longo do relacionamento.
 
-> Em automação, um fornecedor pode entregar sensores, módulos de E/S, cabos e controladores que compõem uma célula de produção.
+Para Security+, o conceito importante nao e so "quem e o fornecedor", mas "o que ele consegue tocar, ver, alterar e recuperar dentro do seu ambiente".
 
 ---
 
-### c) **MSPs (Managed Service Providers — Provedores de Serviços Gerenciados)**
-Empresas contratadas para **gerenciar serviços de TI** ou infraestrutura em nome da organização.  
-Exemplos: **AWS**, **Google Cloud**, **Azure**, **Oracle Cloud**.
+## 2. O que precisa ser verificado
 
-Esses provedores administram **dados e serviços críticos**, e qualquer falha de segurança neles pode afetar diretamente a empresa contratante.
+As perguntas basicas de uma avaliacao madura costumam cobrir:
 
----
+- Governanca e politicas de seguranca.
+- Protecao de dados e classificacao da informacao.
+- Controles de acesso, MFA e segregacao de privilegios.
+- Resposta a incidentes, continuidade e backup.
+- Uso de subcontratados e controle da cadeia secundaria.
+- Evidencias de auditoria, certificacoes e testes.
 
-## 3. Testes de Penetração em Fornecedores
-
-Um dos passos mais relevantes da avaliação de fornecedores é a **realização de testes de penetração (pentests)**.  
-O objetivo é **simular um ataque real** para identificar vulnerabilidades em sistemas, softwares ou serviços oferecidos por terceiros.
-
-**Exemplo prático:**
-Se sua empresa utiliza um software de um fornecedor externo:
-- O pentest simula a exploração de vulnerabilidades no software.  
-- Caso sejam encontradas falhas, isso indica que o produto **pode expor sua organização a riscos cibernéticos**.
-
-> Em TI, o teste pode identificar falhas em APIs, autenticação ou criptografia.  
-> Em automação, pode revelar vulnerabilidades em protocolos industriais (ex.: Modbus, DNP3, OPC UA).
+| Area | Pergunta pratica | Evidencia esperada |
+|---|---|---|
+| Acesso | Quem acessa o ambiente e por qual motivo? | Lista de contas, MFA, menor privilegio |
+| Dados | Como os dados sao armazenados e descartados? | Politica, criptografia, retencao |
+| Continuidade | O que acontece se o fornecedor cair? | BCP/DRP, RTO, RPO |
+| Incidente | Como o fornecedor responde a um evento? | Plano de resposta, SLA de notificacao |
+| Cadeia secundaria | O fornecedor usa outros terceiros? | Lista de subcontratados e controles |
 
 ---
 
-## 4. Cláusula de Direito de Auditoria (Right to Audit)
+## 3. Tipos de evidencia
 
-Todo contrato com fornecedores **deve conter uma cláusula de “direito de auditoria”**, que garanta à organização o direito de inspecionar processos internos e verificar a conformidade com normas e requisitos acordados.
+### 3.1 Questionarios e declaracoes
 
-**Exemplo:**
-Se uma empresa contrata uma firma para gerenciar dados de clientes,  
-a cláusula de auditoria permite **verificar periodicamente como esses dados são armazenados, protegidos e descartados**.
+Questionarios padronizados ajudam a comparar fornecedores. Sao uteis para verificar se existe um minimo de controles, mas nao substituem prova tecnica.
 
-> Essa prática não é sinal de desconfiança — é um **mecanismo de transparência e governança**.  
-> Em segurança, seguimos o princípio: **“confie, mas verifique.”**
+### 3.2 Auditorias internas e externas
 
----
+Auditorias internas mostram maturidade operacional. Auditorias externas e certificacoes adicionam imparcialidade.
 
-## 5. Evidências de Auditorias Internas
+### 3.3 Testes e validacoes tecnicas
 
-Fornecedores maduros em segurança costumam realizar **auditorias internas periódicas**, avaliando seus próprios controles e conformidades.  
-Essas auditorias podem ser baseadas em normas reconhecidas, como **ISO 27001**, **SOC 2**, **NIST 800-53** ou **IEC 62443**.
+Quando aplicavel, vale pedir evidencias de:
 
-**Exemplo:**  
-Um provedor de nuvem pode auditar:
-- Suas práticas de criptografia;  
-- Políticas de controle de acesso;  
-- Respostas a incidentes e planos de contingência.
+- Teste de penetracao recente.
+- Revisao de configuracao.
+- Relatorio de vulnerabilidades.
+- Evidencia de patching e hardening.
 
-Quando um fornecedor **apresenta evidências dessas auditorias**, isso demonstra comprometimento com **melhoria contínua e conformidade**.
+> Analogia: ler um contrato sobre um cofre nao e o mesmo que abrir o cofre e verificar se ele realmente trava.
 
 ---
 
-## 6. Avaliações Independentes (Third-Party Assessments)
+## 4. Sinais de alerta
 
-Auditorias internas são valiosas, mas podem **carecer de imparcialidade**.  
-Por isso, recomenda-se também a **avaliação independente**, conduzida por **entidades externas** sem vínculo com o fornecedor.
+- Respostas vagas ou copiadas em questionarios.
+- Recusa em falar sobre subcontratados.
+- Falta de plano de resposta ou de notificacao de incidente.
+- Credenciais compartilhadas ou acesso sem rastreabilidade.
+- Ausencia de inventario, backup ou controle de mudancas.
 
-**Exemplo:**  
-Um **data center** que armazena dados sensíveis pode ser auditado pela **ISO (International Organization for Standardization)** para verificar se segue práticas globais de segurança.
-
-Essas certificações externas — como **ISO/IEC 27001**, **SOC 2 Type II**, **PCI DSS** ou **IEC 62443-2-4** — fornecem **validação objetiva da segurança** do fornecedor.
-
----
-
-## 7. Análise da Cadeia de Suprimentos
-
-Uma **avaliação robusta de fornecedores** vai além do fornecedor direto: ela deve incluir toda a **cadeia de suprimentos** envolvida.  
-Isso porque **as vulnerabilidades podem estar em qualquer elo** — inclusive em subfornecedores.
-
-**Exemplo:**  
-Um fornecedor de hardware pode adquirir componentes de vários países.  
-Uma análise de cadeia de suprimentos examina:
-- Origem dos componentes;  
-- Políticas de controle de qualidade;  
-- Risco de falsificação (hardware adulterado);  
-- Possíveis inserções de firmware malicioso.
-
-> Em automação industrial, isso é fundamental para evitar a entrada de **equipamentos comprometidos em redes OT (Operational Technology)**.
+Se o fornecedor nao consegue explicar como protege dados e acessos, o risco nao e apenas tecnico. Ele e operacional e juridico tambem.
 
 ---
 
-## 8. Etapas Recomendadas de Avaliação de Fornecedores
+## 5. Mini-caso prático
 
-| Etapa | Descrição | Benefício |
-|-------|------------|-----------|
-| **1. Due Diligence Inicial** | Avaliação documental e técnica antes da contratação. | Reduz riscos de onboarding. |
-| **2. Testes de Penetração** | Identificação de vulnerabilidades em sistemas e aplicações. | Aumenta a visibilidade sobre riscos reais. |
-| **3. Auditoria Contratual** | Revisão de cláusulas, SLAs e direito de auditoria. | Garante governança e rastreabilidade. |
-| **4. Avaliação de Conformidade** | Verificação de aderência a normas e boas práticas. | Assegura padrão mínimo de segurança. |
-| **5. Avaliação Contínua** | Monitoramento periódico e auditorias anuais. | Mantém controle sobre riscos emergentes. |
+Uma empresa avalia um fornecedor de SaaS que tera acesso a dados de clientes. O fornecedor apresenta uma certificacao, mas nao consegue informar quem sao os subcontratados nem o tempo de notificacao em caso de vazamento.
 
----
+Resposta correta:
 
-## 9. Analogias para Fixação
-
-- **Profissionais de TI:**  
-  Avaliar fornecedores é como auditar bibliotecas externas antes de usá-las no seu código.  
-  Se uma dependência tiver uma vulnerabilidade, todo o seu sistema pode ser comprometido.
-
-- **Profissionais de Automação:**  
-  É como validar o fornecedor de um sensor crítico.  
-  Se ele falhar ou for falsificado, pode gerar **paradas na linha**, **perda de produção** e até **riscos de segurança física**.
+- Exigir clarificacao documental.
+- Validar direito de auditoria e notificacao de incidente.
+- Confirmar controles de acesso e criptografia.
+- Verificar se a certificacao cobre o servico contratado, e nao apenas a empresa de forma generica.
 
 ---
 
-## 10. Conclusão
+## 6. Perguntas de revisão rápida
 
-A **avaliação de fornecedores** é um componente essencial da **gestão de riscos cibernéticos e operacionais**.  
-Ela garante que **a confiança depositada em parceiros externos seja validada por evidências concretas**.
+1. Qual a diferenca entre questionario e auditoria?
+2. Por que subcontratados sao relevantes para a avaliacao?
+3. O que e mais importante: certificacao ou evidencia tecnica concreta?
 
-Para garantir segurança e conformidade:
-- Realize **due diligence** e **testes de penetração**;  
-- Mantenha **direito de auditoria** em contratos;  
-- Exija **auditorias internas e externas periódicas**;  
-- Avalie **toda a cadeia de suprimentos**;  
-- Adote o princípio **“confie, mas verifique.”**
+---
 
-> Em um ecossistema digital e industrial cada vez mais interdependente,  
-> **a segurança da sua organização é tão forte quanto a segurança dos seus fornecedores.**
+## 7. Fontes de referência
+
+- CISA, *Procuring Safe and Secure ICT Products and Services Fact Sheet*  
+  https://www.cisa.gov/resources-tools/resources/procuring-safe-and-secure-ict-products-and-services-fact-sheet
+- CISA, *Vendor SCRM Template*  
+  https://www.cisa.gov/resources-tools/resources/vendor-scrm-template
+- NIST SP 800-161 Rev. 1, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*  
+  https://csrc.nist.gov/pubs/sp/800/161/r1/final
+- NIST SP 800-218, *Secure Software Development Framework (SSDF)*  
+  https://csrc.nist.gov/pubs/sp/800/218/final
+- NIC.br / Cidadão na Rede, *Nas compras on-line verifique o vendedor*  
+  https://cidadaonarede.nic.br/pt/videos/seguranca/nas-compras-online-verifique-o-vendedor

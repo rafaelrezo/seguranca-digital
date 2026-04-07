@@ -1,93 +1,101 @@
 # Proteção de Dados
 
-A proteção de dados é um pilar essencial da segurança da informação.  
-Seu objetivo é salvaguardar informações importantes contra corrupção, comprometimento ou perda, garantindo **confidencialidade, integridade e disponibilidade**.  
-No contexto atual, altamente digitalizado, sua importância se torna central para indivíduos, empresas e governos.
+> **Objetivos de aprendizagem**
+> - Explicar por que a proteção de dados depende de classificação, propriedade e estado da informação.
+> - Diferenciar controles para dados em repouso, em trânsito e em uso.
+> - Relacionar proteção de dados com DLP, privacidade, governança e Security+.
+>
+> **Tempo estimado:** 25 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. Por que proteger dados
+
+Proteção de dados não é apenas criptografar arquivos. O objetivo real é reduzir a chance de **exposição indevida, alteração não autorizada, indisponibilidade e uso fora de propósito**.
+
+Em Security+, isso aparece sempre que o exame pergunta qual controle é mais adequado para:
+
+- proteger dados sensíveis em um notebook perdido;
+- impedir que informações saiam da organização por e-mail ou nuvem pessoal;
+- limitar o acesso de pessoas e sistemas apenas ao necessário.
+
+Uma boa regra prática é pensar em dados como um **cofre com etiqueta**: primeiro você precisa saber o que está guardando, depois quem pode abrir, em que situação e com quais ferramentas.
 
 ---
 
-## 1. Objetivos de Aprendizagem (Domínios)
-- **1.4**: Explicar a importância do uso de soluções criptográficas adequadas.  
-- **3.3**: Comparar e contrastar conceitos e estratégias para proteção de dados.  
-- **4.2**: Explicar as implicações de segurança no gerenciamento de hardware, software e ativos de dados.  
-- **4.4**: Explicar conceitos e ferramentas de alerta e monitoramento de segurança.  
-- **5.1**: Resumir elementos de uma governança de segurança eficaz.  
+## 2. Os quatro pilares da proteção
+
+| Pilar | Pergunta principal | Exemplos de controle |
+|---|---|---|
+| Classificação | O dado é público, interno, confidencial ou crítico? | Rótulos, políticas e tratamento diferenciado |
+| Propriedade | Quem decide o uso e responde pelo dado? | Data owner, controller, processor, custodian |
+| Estado | O dado está parado, trafegando ou sendo processado? | FDE, TLS, IPsec, enclaves, acesso mínimo |
+| Exposição | Como impedir perda, vazamento ou abuso? | DLP, MFA, segmentação, logs, retenção |
+
+Essa visão ajuda a sair de uma segurança baseada só em tecnologia e passar para uma segurança **orientada ao risco do dado**.
 
 ---
 
-## 2. Classificação de Dados
-A classificação define como os dados devem ser tratados e protegidos:
-- **Sensíveis** – registros de sensores críticos.  
-- **Confidenciais** – manuais internos de operação.  
-- **Públicos** – relatórios de divulgação ao mercado.  
-- **Restritos** – procedimentos internos de manutenção.  
-- **Privados** – informações pessoais de funcionários.  
-- **Críticos** – parâmetros de controle em tempo real.  
+## 3. Ciclo de vida da informação
+
+A proteção precisa acompanhar o dado do nascimento ao descarte.
+
+1. **Criação/coleta**: o dado entra no ambiente.
+2. **Classificação**: define o nível de proteção.
+3. **Armazenamento**: aplica criptografia, controle de acesso e retenção.
+4. **Uso/compartilhamento**: controla cópias, exportações e integrações.
+5. **Arquivamento ou descarte**: aplica retenção legal e destruição segura.
+
+> Analogia: é como a gestão de prontuários de um laboratório. O material não pode circular livremente porque muda de valor ao longo do tempo e pode continuar sensível mesmo após a operação terminar.
 
 ---
 
-## 3. Papéis e Responsabilidades
-Para garantir a proteção ao longo do ciclo de vida da informação, existem diferentes funções:
-- **Dono do Dado (Data Owner)** – define requisitos e classificação.  
-- **Controlador (Data Controller)** – decide como os dados são processados.  
-- **Processador (Data Processor)** – executa o processamento.  
-- **Custodiante (Data Custodian)** – cuida do armazenamento seguro.  
-- **Administrador/Steward** – garante conformidade com políticas.  
+## 4. Onde a Security+ cobra este tema
 
-*Exemplo implícito*: Um engenheiro de produção pode ser dono dos registros de eficiência das linhas, enquanto o time de TI atua como custodiante.
+Os pontos mais recorrentes na certificação são:
 
----
+- proteção de dados pessoais e dados regulados;
+- diferença entre `data at rest`, `data in transit` e `data in use`;
+- criptografia, hashing, tokenização e mascaramento;
+- DLP e prevenção de exfiltração;
+- governança e responsabilidade sobre dados.
 
-## 4. Estados dos Dados
-- **Em Repouso (At Rest)** – armazenados em bancos de dados industriais.  
-- **Em Trânsito (In Transit)** – transmissão de medições entre sensores e supervisórios.  
-- **Em Uso (In Use)** – processamento por algoritmos de controle em tempo real.  
-
-**Técnicas de proteção**: criptografia de disco, tunelamento de comunicação (VPN, TLS) e segmentação de rede.
+Quando o enunciado falar em impacto regulatório, privacidade ou retenção, normalmente a resposta correta envolve **processo e política**, não só ferramenta.
 
 ---
 
-## 5. Tipos de Dados
-- **Regulados** – relatórios ambientais exigidos por lei.  
-- **Segredos Comerciais** – parâmetros de calibração exclusivos.  
-- **Propriedade Intelectual** – diagramas de automação.  
-- **Informações Legais e Financeiras** – contratos com fornecedores.  
-- **Dados Humanos e Não-humanos** – relatórios manuais vs. telemetria de máquinas.  
+## 5. Mini-caso prático
+
+Uma escola técnica usa um drive corporativo para compartilhar planilhas com dados de alunos, notas e contatos pessoais.
+
+- sem classificação, todo mundo trata os arquivos como iguais;
+- sem propriedade definida, ninguém responde por vazamentos;
+- sem DLP, uma cópia pode ir para uma conta pessoal sem alerta;
+- sem criptografia e retenção, a exposição aumenta durante todo o ciclo de vida.
+
+A correção não depende de um único produto. O cenário melhora quando a organização combina **classificação, papéis claros, criptografia, DLP e revisão periódica de acesso**.
 
 ---
 
-## 6. Soberania de Dados
-Informações devem obedecer às leis do país onde são coletadas.  
-No setor industrial, isso pode significar que dados de telemetria de fábricas devem permanecer em servidores locais para cumprir requisitos legais.
+## 6. Perguntas de revisão rápida
+
+1. Por que proteção de dados começa na classificação?
+2. Qual a diferença prática entre proteger dado em repouso e em trânsito?
+3. Por que DLP é um controle de processo, não só de ferramenta?
 
 ---
 
-## 7. Métodos de Proteção de Dados
-- Restrições geográficas  
-- Criptografia e hashing  
-- Mascaramento e tokenização  
-- Ofuscação e segmentação  
-- Restrições de permissão  
+## 7. Fontes de referência
 
-*Nota industrial*: a separação entre redes de TI (escritório) e redes de OT (chão de fábrica) reduz riscos de exposição.
-
----
-
-## 8. Prevenção de Perda de Dados (DLP)
-Estratégia para evitar que informações sensíveis saiam da organização, intencional ou não intencionalmente.  
-Exemplo: bloqueio da cópia de arquivos de configuração de CLPs ou relatórios de segurança para dispositivos externos.
-
----
-
-## 9. Governança de Segurança
-A governança eficaz envolve:
-- Definição de políticas  
-- Monitoramento contínuo  
-- Auditorias periódicas  
-- Revisão de processos  
-
-*Aplicação*: auditorias de logs de sistemas de manutenção para rastrear acesso e garantir conformidade regulatória.
-
----
-
-
+- NIST FIPS 199 - Standards for Security Categorization of Federal Information and Information Systems  
+  https://csrc.nist.gov/pubs/fips/199/final
+- NIST SP 800-60, Volume 1 - Guide for Mapping Types of Information and Information Systems to Security Categories  
+  https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final
+- NIST SP 800-122 - Guide to Protecting the Confidentiality of Personally Identifiable Information (PII)  
+  https://csrc.nist.gov/pubs/sp/800/122/final
+- Lei Geral de Proteção de Dados - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- Curso em Video - Lei Geral de Proteção de Dados  
+  https://www.youtube.com/watch?v=36Bq7Ejns_o

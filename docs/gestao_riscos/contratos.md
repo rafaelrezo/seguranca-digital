@@ -1,194 +1,107 @@
-# Contratos e Acordos (Contracts and Agreements)
+# Contratos e Acordos
 
-No mundo dos negócios, **confiança é essencial**, mas **não é suficiente**.  
-Para garantir segurança jurídica, clareza e responsabilidade entre as partes, são necessários **contratos e acordos formais**.
+> **Objetivos de aprendizagem**
+> - Diferenciar SLA, MSA, SOW, NDA, MOU e outros acordos comuns em seguranca e terceiros.
+> - Identificar clausulas que reduzem risco, como notificacao de incidente, direito de auditoria e retencao.
+> - Relacionar contratos a governanca, privacidade e continuidade de negocio.
+>
+> **Tempo estimado:** 24 minutos
 
-Esses documentos são o alicerce sobre o qual as relações profissionais se constroem, definindo **direitos, deveres, prazos e expectativas**.  
-Eles também estabelecem **limites claros** para evitar conflitos e proteger ambas as partes em caso de desacordo.
+## Vídeo de contexto
 
----
-
-## 1. A Função dos Contratos e Acordos
-
-Um contrato é mais do que uma formalidade: é uma **ferramenta de governança e gestão de riscos**.  
-Em ambientes complexos, especialmente na área de **tecnologia e automação industrial**, os contratos:
-
-- Previnem ambiguidades;  
-- Protegem informações sensíveis;  
-- Delimitam responsabilidades;  
-- Formalizam níveis de serviço e qualidade;  
-- Sustentam a continuidade operacional e legal das relações comerciais.
-
-> **Analogia:**  
-> Em TI, um contrato é como um arquivo de configuração — define os parâmetros que regulam o funcionamento da parceria.  
-> Em automação industrial, é como um diagrama elétrico — sem ele, a conexão entre os elementos pode gerar curto-circuitos.
+![type:video](https://www.youtube.com/embed/zVQ8Hl2m5tI)
 
 ---
 
-## 2. Tipos de Contratos e Acordos
+## 1. Por que contratos importam?
 
-Vamos conhecer os principais tipos utilizados em relações comerciais e tecnológicas.
+Confianca sem documento e fragil. Em seguranca, o contrato transforma expectativa em obrigacao verificavel: define responsabilidades, limites, prazos, evidencias e consequencias.
 
----
-
-### 2.1. **Contrato Básico (Basic Contract)**
-
-É o **instrumento principal de qualquer relação comercial**.  
-Estabelece papéis, obrigações, prazos, pagamentos e consequências em caso de descumprimento.
-
-**Exemplo:**  
-Um contrato entre uma empresa de software e um cliente pode conter:
-- Valor e forma de pagamento;  
-- Cronograma de entrega;  
-- Regras de suporte e manutenção;  
-- Penalidades por atraso.
-
-> Ele é o **mapa do relacionamento** — simples, mas essencial para garantir transparência.
+Para Security+, a mensagem e direta: contratos sao controles de governanca. Eles fazem parte da resposta de risco tanto quanto criptografia, backup ou MFA.
 
 ---
 
-### 2.2. **Acordo de Nível de Serviço (SLA – Service Level Agreement)**
+## 2. Tipos de acordo mais cobrados
 
-O **SLA** define os **níveis de qualidade e desempenho** esperados de um serviço.
+| Tipo de acordo | Melhor uso | Esforço | Entregável | Limitação |
+|---|---|---|---|---|
+| **SLA** | Definir disponibilidade, tempo de resposta e qualidade do servico | Medio | Metricas e penalidades | Nao cobre todo o relacionamento juridico |
+| **MSA** | Estabelecer termos gerais para varios projetos | Medio | Regras-base do contrato | Precisa de anexos para cada trabalho |
+| **SOW** | Detalhar escopo, marcos e entregas de um projeto | Alto | Escopo operacional | Nao substitui contrato-base |
+| **NDA** | Proteger informacoes confidenciais | Baixo | Obrigacao de sigilo | Nao resolve requisitos tecnicos de seguranca |
+| **MOU/MOA** | Formalizar parceria ou intencao de cooperacao | Baixo a medio | Intencao ou responsabilidades | Pode ser menos especifico que um contrato completo |
+| **DPA/BAA** | Tratar dados pessoais ou dados sensiveis de forma formal | Medio | Regras de tratamento de dados | Exige alinhamento legal especifico |
 
-**Exemplo:**  
-Um provedor de TI promete disponibilidade de **99,8%** de uptime mensal.  
-Se o serviço ficar fora do ar por mais de 2 horas no mês, o cliente pode receber **descontos, créditos ou compensações financeiras**.
-
-> Em TI, SLAs são comuns em **serviços de nuvem, hospedagem e suporte técnico**.  
-> Em automação, podem ser usados para **manutenção preventiva e suporte remoto** de equipamentos industriais.
-
----
-
-### 2.3. **Memorando de Acordo (MOA) e Memorando de Entendimento (MOU)**
-
-Ambos são instrumentos de **colaboração e parceria**, mas diferem em formalidade.
-
-#### a) **MOA (Memorandum of Agreement)**
-Documento **formal e vinculante**, que define **responsabilidades específicas** de cada parte.
-
-**Exemplo:**  
-Duas empresas colaboram em uma campanha de marketing:
-- Empresa A: criação de conteúdo;  
-- Empresa B: distribuição e financiamento.  
-
-O MOA detalha essas funções e as regras de cooperação.
-
-#### b) **MOU (Memorandum of Understanding)**
-Documento **não vinculante**, usado para **manifestar intenção de cooperação**.  
-Define objetivos gerais, sem obrigações contratuais imediatas.
-
-**Exemplo:**  
-Universidades podem assinar um MOU para **explorar futuras pesquisas conjuntas** sem compromisso financeiro inicial.
+> Regra pratica: SLA mede servico; NDA protege informacao; SOW descreve trabalho; MSA organiza o relacionamento.
 
 ---
 
-### 2.4. **Acordo de Serviços Mestres (MSA – Master Service Agreement)**
+## 3. Clausulas que valem ouro
 
-O **MSA** funciona como um **contrato guarda-chuva**, válido para várias transações recorrentes.  
-Ele padroniza termos gerais, como:
-- Pagamentos;  
-- Propriedade intelectual;  
-- Confidencialidade;  
-- Resolução de disputas.
+Os contratos de terceiros devem responder, no minimo, estas perguntas:
 
-Cada novo projeto é formalizado com um **pedido de trabalho (Work Order)** ou um **escopo específico (SOW)**.
+- Quem pode acessar os dados e com qual finalidade.
+- Como os dados sao criptografados, armazenados e descartados.
+- Em quanto tempo incidentes devem ser comunicados.
+- Se existe direito de auditoria e evidencias periodicas.
+- Como sao tratados subcontratados e transferencias internacionais.
+- O que acontece no encerramento do contrato e na revogacao de acessos.
+- Quais sao os SLAs de disponibilidade, suporte e recuperacao.
 
-**Exemplo:**  
-Uma empresa contrata uma consultoria de TI para projetos anuais.  
-O MSA cobre regras gerais, enquanto cada projeto é detalhado em um documento adicional.
-
----
-
-### 2.5. **Declaração ou Escopo de Trabalho (SOW – Statement of Work)**
-
-O **SOW** (ou **Scope of Work**) define os **detalhes específicos** de um projeto, incluindo:
-- Entregas (deliverables);  
-- Cronograma;  
-- Metas e marcos;  
-- Critérios de aceitação.
-
-**Exemplo:**  
-No contexto de automação, um SOW pode especificar:
-- “Instalar e testar três controladores CLP Siemens modelo X.”  
-- “Executar calibração e validação até 30 de junho.”  
-
-> O SOW é o **manual de execução** do contrato principal.
+Se a clausula nao permitir medir, auditar ou revogar, ela esta fraca demais para um ambiente com risco real.
 
 ---
 
-### 2.6. **Acordo de Confidencialidade (NDA – Non-Disclosure Agreement)**
+## 4. Contratos como controle de saida
 
-O **NDA** protege **informações sensíveis** trocadas durante negociações ou parcerias.  
-Ele assegura que segredos comerciais e dados técnicos **não sejam divulgados a terceiros**.
+Um bom contrato tambem precisa prever o fim da relacao:
 
-**Exemplo:**  
-Uma startup de IA compartilha detalhes de seu algoritmo com investidores.  
-O NDA garante que, mesmo que o investimento não ocorra, **a tecnologia não possa ser copiada**.
+- devolucao ou destruicao de dados;
+- revogacao de credenciais e chaves;
+- confirmacao de exclusao em sistemas e backups quando aplicavel;
+- apoio na transicao para outro fornecedor;
+- retencao de logs para auditoria e forense.
 
-> NDAs são essenciais em **pesquisa e desenvolvimento (P&D)**, **engenharia de produto** e **projetos com propriedade intelectual**.
-
----
-
-### 2.7. **Acordo de Parceria Empresarial (BPA – Business Partnership Agreement)**
-
-O **BPA** formaliza uma **parceria estratégica** entre duas ou mais empresas.  
-Define:
-- Estrutura de decisão conjunta;  
-- Mecanismos de divisão de lucros;  
-- Propriedade intelectual dos produtos gerados;  
-- Estratégias de saída (exit strategies).
-
-**Exemplo:**  
-Duas empresas de tecnologia criam juntas um novo sistema de automação.  
-O BPA define:
-- Quem detém o código-fonte;  
-- Como os lucros serão divididos;  
-- O que acontece se uma das partes deixar o projeto.
-
-Esse tipo de acordo também pode ser chamado de **Joint Venture (JV)**.
+> Analogia: o contrato e a planta eletrica do relacionamento. Sem ele, desligar com seguranca fica muito mais dificil.
 
 ---
 
-## 3. Comparativo entre os Tipos de Acordos
+## 5. Mini-caso prático
 
-| Tipo de Acordo | Grau de Vinculação | Finalidade Principal | Exemplo Prático |
-|----------------|--------------------|----------------------|----------------|
-| **Basic Contract** | Alto | Formalizar relação comercial básica | Contrato de prestação de serviço |
-| **SLA** | Alto | Definir métricas e penalidades de desempenho | Contrato de suporte de TI |
-| **MOA** | Alto | Formalizar responsabilidades em cooperação | Projeto de marketing conjunto |
-| **MOU** | Baixo | Manifestar intenção de parceria | Cooperação entre universidades |
-| **MSA** | Alto | Estabelecer regras gerais para vários projetos | Consultorias de longo prazo |
-| **SOW** | Alto | Especificar escopo técnico de um projeto | Instalação de sistemas industriais |
-| **NDA** | Alto | Proteger informações confidenciais | Negociação com investidores |
-| **BPA / JV** | Muito alto | Criar parceria empresarial formal | Desenvolvimento conjunto de produto |
+Uma empresa contrata um SaaS para armazenar dados de clientes. O contrato possui SLA de uptime, mas nao traz prazo de notificacao de incidente nem clausula de auditoria.
 
----
+Risco residual:
 
-## 4. A Importância dos Contratos na Gestão de Riscos
+- Demora para resposta em vazamento.
+- Falta de visibilidade sobre controles reais.
+- Dificuldade de responsabilizacao.
 
-Contratos e acordos são **ferramentas de mitigação de risco**, pois:
-- Evitam mal-entendidos;  
-- Garantem transparência nas expectativas;  
-- Oferecem base legal em caso de disputas;  
-- Protegem dados, propriedade intelectual e reputação.
+O que deveria constar:
 
-> Em TI, contratos mal elaborados podem levar à **exposição de dados sensíveis**.  
-> Em automação, podem resultar em **falhas operacionais ou prejuízos logísticos**.
+- Prazo maximo de notificacao.
+- Direito de auditoria.
+- Regras de subcontratacao.
+- Requisitos de criptografia e descarte.
 
 ---
 
-## 5. Conclusão
+## 6. Perguntas de revisão rápida
 
-Em um ecossistema corporativo complexo, **a confiança deve ser documentada**.  
-Os contratos e acordos — de SLAs a NDAs — formam uma **estrutura robusta** que sustenta relacionamentos comerciais com **clareza, segurança e respeito mútuo**.
+1. Qual a diferenca entre SLA e SOW?
+2. Por que um NDA sozinho nao basta para proteger dados?
+3. Quais clausulas reduzem mais o risco de um terceiro?
 
-Boas práticas incluem:
-- Formalizar todas as relações comerciais relevantes;  
-- Garantir que cláusulas sejam compreensíveis e exequíveis;  
-- Revisar periodicamente contratos de longo prazo;  
-- Consultar especialistas jurídicos e de compliance.
+---
 
-> **Resumo final:**  
-> Contratos são como firewalls jurídicos — protegem, controlam e organizam o tráfego das relações empresariais.  
-> São eles que transformam a confiança em **segurança real** e o acordo verbal em **governança documentada**.
+## 7. Fontes de referência
+
+- CISA, *Procuring Safe and Secure ICT Products and Services Fact Sheet*  
+  https://www.cisa.gov/resources-tools/resources/procuring-safe-and-secure-ict-products-and-services-fact-sheet
+- CISA, *Vendor SCRM Template*  
+  https://www.cisa.gov/resources-tools/resources/vendor-scrm-template
+- NIST SP 800-161 Rev. 1, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*  
+  https://csrc.nist.gov/pubs/sp/800/161/r1/final
+- NIST SP 800-218, *Secure Software Development Framework (SSDF)*  
+  https://csrc.nist.gov/pubs/sp/800/218/final
+- NIC.br / Cidadão na Rede, *Garantias de segurança para cumprimento da LGPD*  
+  https://www.youtube.com/watch?v=zVQ8Hl2m5tI

@@ -1,148 +1,98 @@
-# Conformidade (Compliance)
+# Compliance em Segurança
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Explicar o papel de compliance na demonstração de aderência a leis, normas e políticas.
+> - Diferenciar due diligence, due care, monitoramento e relatório de conformidade.
+> - Relacionar compliance a auditoria, evidência e melhoria contínua.
+>
+> **Tempo estimado:** 22 minutos
 
-A **conformidade** — ou **compliance** — é um dos pilares fundamentais da **governança corporativa e da segurança da informação**.  
-Ela representa o **compromisso da organização em seguir leis, regulamentos, normas e políticas internas** relevantes para suas atividades.
+## Vídeo de contexto
 
-Mais do que evitar penalidades, o compliance fortalece a **confiança dos clientes, investidores e parceiros**, e ajuda a construir uma cultura de **ética, responsabilidade e transparência**.
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
+## 1. O que é compliance
 
-## 1. Relatórios de Conformidade (Compliance Reporting)
+Compliance é a disciplina que verifica se a organização está operando de acordo com obrigações legais, contratuais e internas.
 
-Os **relatórios de conformidade** são documentos formais que demonstram que a organização **segue suas políticas internas e regulamentos externos**.  
-Eles fornecem **evidências de aderência** às regras, servindo como base para auditorias, certificações e prestação de contas.
+Em segurança, isso significa provar que controles existem, funcionam e são revisados.
 
-Existem dois tipos principais de relatórios de conformidade:
-- **Relatórios Internos**  
-- **Relatórios Externos**
-
----
-
-### 1.1 Relatórios Internos
-
-Os **relatórios internos** são elaborados para **avaliar se a organização está cumprindo suas próprias políticas, padrões e procedimentos**.  
-São normalmente conduzidos pelo setor de **auditoria interna** ou pelo **departamento de compliance**.
-
-#### Exemplo prático:
-Um banco possui uma política interna que determina que todas as transações acima de **R$ 100.000** devem ser revisadas por um **oficial de compliance**.  
-Mensalmente, o setor de conformidade gera um relatório listando todas as transações desse tipo e verifica se a revisão foi feita corretamente.
-
-
-### 1.2 Relatórios Externos
-
-Os **relatórios externos** são destinados a **entidades reguladoras, auditores independentes ou clientes**.  
-São muitas vezes **exigidos por lei ou contrato**, e devem comprovar o cumprimento de normas específicas.
-
-#### Exemplo prático:
-Uma indústria farmacêutica precisa enviar relatórios regulares à **Agência Nacional de Vigilância Sanitária (ANVISA)**, demonstrando conformidade com as **Boas Práticas de Fabricação (BPF)**.  
-Esses relatórios incluem dados sobre qualidade do produto, controle de processos e segurança sanitária.
-
-
-## 2. Monitoramento de Conformidade (Compliance Monitoring)
-
-O **monitoramento de conformidade** consiste na **verificação contínua das operações organizacionais** para garantir que elas permaneçam em conformidade com **leis, normas e políticas internas**.  
-É uma atividade dinâmica e preventiva que identifica **riscos, desvios e oportunidades de melhoria**.
-
-Os principais componentes do monitoramento de conformidade incluem:
-
-- **Diligência prévia (due diligence)**  
-- **Dever de cuidado (due care)**  
-- **Atestação e reconhecimento**  
-- **Monitoramento interno e externo**
+Não basta dizer "seguimos a política". É preciso ter evidência.
 
 ---
 
-### 2.1 Due Diligence e Due Care
+## 2. Conceitos que aparecem com frequência
 
-#### Due Diligence
-Refere-se à **investigação prévia e detalhada** para identificar riscos de não conformidade antes de tomar decisões estratégicas.  
-É o momento de **avaliar as obrigações legais e regulatórias** envolvidas em determinada ação.
-
-#### Due Care
-Consiste nas **ações práticas adotadas para mitigar riscos** e garantir a conformidade no dia a dia da operação.
-
-#### Exemplo prático:
-Uma empresa brasileira que planeja abrir filial na Alemanha:
-- Realiza **due diligence** estudando as leis tributárias e trabalhistas locais;  
-- Aplica **due care** treinando sua equipe e contratando um consultor jurídico local para garantir conformidade contínua.
-
-> **Paralelo industrial:**  
-> Antes de instalar um novo sistema de controle, engenheiros realizam **análises de risco (HAZOP)** e, depois, aplicam **manutenções preventivas** para garantir que o sistema continue operando dentro dos limites seguros.
+| Conceito | Significado prático |
+|---|---|
+| **Due diligence** | diligência prévia antes de contratar, mudar ou decidir |
+| **Due care** | cuidado contínuo para manter controles adequados |
+| **Atestação** | declaração formal de aderência |
+| **Acknowledgement** | confirmação de ciência de política ou responsabilidade |
+| **Monitoramento** | verificação contínua de aderência |
+| **Relatório** | consolidação de evidências, desvios e ações |
 
 ---
 
-### 2.2 Atestação e Reconhecimento (Attestation and Acknowledgement)
+## 3. O que compliance monitora
 
-- **Atestação:** declaração formal de que um processo ou sistema **está em conformidade**.  
-- **Reconhecimento:** confirmação por parte dos colaboradores de que **compreendem e aceitam** as políticas e responsabilidades relacionadas à conformidade.
+Entre os temas mais comuns:
 
-#### Exemplo prático:
-Uma empresa de tecnologia exige que seus desenvolvedores **ateste** a adoção de práticas de **segurança de software (Secure Coding)** antes de liberar uma nova aplicação.  
-Os mesmos colaboradores **reconhecem** essas políticas assinando um termo digital de responsabilidade.
+- proteção de dados e privacidade;
+- retenção de logs e evidências;
+- segregação de funções;
+- gestão de terceiros;
+- treinamento e reconhecimento de políticas;
+- tratamento de não conformidades.
 
+Compliance eficiente não vive apenas de auditoria anual. Ele depende de acompanhamento contínuo.
 
+---
 
-### 2.3 Monitoramento Interno e Externo
+## 4. Relatórios de conformidade
 
-#### Monitoramento Interno
-Executado pela própria organização para avaliar **adesão a políticas e padrões internos**.  
-Exemplo: auditorias periódicas nos controles de qualidade, segurança e proteção de dados.
+Um bom relatório de compliance normalmente traz:
 
-#### Monitoramento Externo
-Realizado por **entidades independentes** (auditores, certificadores ou órgãos reguladores) para verificar o **cumprimento de normas externas**.
+- requisito avaliado;
+- evidência coletada;
+- status de aderência;
+- risco da não conformidade;
+- responsável;
+- prazo de correção.
 
-#### Exemplo prático:
-Uma fábrica realiza **auditorias internas** mensais para garantir a conformidade com seu sistema de qualidade.  
-Além disso, passa por **auditorias externas** para manter sua certificação **ISO 9001**.
+Isso transforma auditoria em insumo para decisão e não apenas em checklist burocrático.
 
+---
 
+## 5. Mini-caso prático
 
-## 3. O Papel da Automação no Compliance
+Uma organização exige treinamento anual de segurança, mas não mantém registro de participação nem aceite formal das políticas.
 
-A **automação** está revolucionando o campo do compliance, tornando os processos mais rápidos, precisos e rastreáveis.  
-Soluções tecnológicas modernas permitem **monitorar riscos em tempo real** e gerar **relatórios automáticos de conformidade**.
+Consequências:
 
-### Benefícios da automação:
-- **Coleta e análise de dados em tempo real**;  
-- **Detecção automática de violações**;  
-- **Geração de alertas e relatórios automatizados**;  
-- **Redução de erros humanos**;  
-- **Auditoria contínua e previsível**.
+- não consegue comprovar aderência;
+- falha em auditoria;
+- enfraquece a responsabilização em incidente.
 
-#### Exemplos práticos:
+Com monitoramento e evidência, o requisito passa a ser verificável e gerenciável.
 
-- **Setor de saúde:**  
-  Um hospital utiliza um sistema automatizado para monitorar **acessos não autorizados a prontuários médicos**.  
-  O sistema alerta o time de segurança sempre que detecta atividades suspeitas, evitando violações da **Lei Geral de Proteção de Dados (LGPD)**.
+---
 
-- **Setor bancário:**  
-  Uma instituição financeira usa automação para monitorar **transações suspeitas** e gerar relatórios automáticos de **prevenção à lavagem de dinheiro (AML)**.  
-  O sistema aplica regras de negócio e aprendizado de máquina para identificar padrões de risco.
+## 6. Perguntas de revisão rápida
 
+1. Qual a diferença entre due diligence e due care?
+2. Por que compliance depende de evidência?
+3. O que um relatório de conformidade precisa mostrar além do status "ok"?
 
+---
 
-## 4. Importância Estratégica do Compliance
+## 7. Fontes de referência
 
-Implementar uma estrutura de compliance robusta vai além de cumprir obrigações legais.  
-Ela se torna uma **vantagem competitiva**, pois demonstra **responsabilidade, transparência e maturidade organizacional**.
-
-### Benefícios principais:
-- **Reduz riscos legais e financeiros**;  
-- **Fortalece a reputação e a confiança do mercado**;  
-- **Melhora a eficiência operacional**;  
-- **Promove cultura ética e de responsabilidade**;  
-- **Facilita certificações e parcerias internacionais**.
-
-
-
-## Conclusão
-
-A **conformidade** é essencial para a sobrevivência e o crescimento sustentável de qualquer organização.  
-Ela integra **relatórios, monitoramento e automação** em um sistema contínuo de **prevenção, controle e aprimoramento**.
-
-- **Relatórios de conformidade** garantem transparência e rastreabilidade.  
-- **Monitoramento** assegura aderência contínua e identifica riscos.  
-- **Automação** traz eficiência, precisão e visão em tempo real.
-
-Ao combinar esses elementos, as organizações constroem um ecossistema de governança **seguro, ético e resiliente** — um verdadeiro “sistema de controle corporativo”, tão vital quanto o sistema supervisório (SCADA) que mantém uma planta industrial estável e segura.
+- NIST Cybersecurity Framework 2.0  
+  https://www.nist.gov/cyberframework
+- NIST Privacy Framework  
+  https://www.nist.gov/privacy-framework
+- LGPD - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- CISA Cybersecurity Performance Goals  
+  https://www.cisa.gov/cybersecurity-performance-goals

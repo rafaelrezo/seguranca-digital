@@ -1,78 +1,95 @@
 # Métodos de Proteção de Dados
 
-Na era digital, a **segurança da informação** é uma prioridade global.  
-Com a evolução constante das ameaças, as organizações precisam adotar estratégias diversificadas para proteger seus dados.  
-Nesta aula, exploramos as principais técnicas utilizadas, cada uma aplicada de acordo com o contexto e a criticidade da informação.
+> **Objetivos de aprendizagem**
+> - Comparar métodos de proteção aplicados a diferentes tipos e estados de dados.
+> - Entender quando usar criptografia, hashing, tokenização, mascaramento e segmentação.
+> - Escolher combinações de controles coerentes com o risco, como pede a Security+.
+>
+> **Tempo estimado:** 22 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. Não existe um único método suficiente
+
+Proteger dados exige combinação de técnicas. Cada método resolve um problema específico:
+
+- confidencialidade;
+- integridade;
+- redução de exposição;
+- limitação de acesso;
+- contenção de impacto.
+
+Quando a pergunta é "qual controle aplicar?", a melhor resposta depende do contexto do dado.
 
 ---
 
-## 1. Restrições Geográficas (Geofencing)
-- Definem **limites virtuais** para restringir acessos de acordo com a localização geográfica.  
-- Auxiliam na conformidade com **leis de soberania de dados** e reduzem riscos de acessos indevidos.  
+## 2. Comparativo rápido
 
-*Exemplo implícito*: restringir acessos aos sistemas de supervisão de uma planta industrial apenas para conexões vindas do território nacional.
-
----
-
-## 2. Criptografia
-- Converte dados legíveis (plaintext) em dados ilegíveis (ciphertext).  
-- Apenas quem possui a **chave de decriptação** pode restaurar o conteúdo.  
-- Aplicável a **dados em repouso** (bancos de dados, discos) e **dados em trânsito** (redes, VPNs).  
-
-*Exemplo implícito*: relatórios de manutenção armazenados em servidores de chão de fábrica criptografados em disco completo.
+| Método | Melhor uso | Entregável | Limitação |
+|---|---|---|---|
+| **Criptografia** | proteger confidencialidade | dado ilegível sem chave | não controla quem exporta dado já aberto |
+| **Hashing** | verificar integridade e proteger segredos específicos | digest ou verificação | não substitui criptografia |
+| **Mascaramento** | ocultar parte do valor em visualização | exposição reduzida | não protege o dado original na origem |
+| **Tokenização** | substituir dado sensível por referência | menor exposição operacional | depende de cofre ou mapeamento seguro |
+| **Segmentação** | limitar alcance e movimentação | contenção lateral | não substitui proteção do dado |
+| **Permissões** | definir quem pode acessar ou alterar | controle de acesso | falha se privilégio estiver excessivo |
+| **Geofencing/localização** | restringir uso por região | limitação contextual | não resolve vazamento por credencial válida |
 
 ---
 
-## 3. Hashing
-- Converte dados em **valores fixos (hashes)**, impossíveis de serem revertidos.  
-- Usado para proteger **senhas** e validar a **integridade de arquivos**.  
+## 3. Combinações úteis
 
-*Exemplo implícito*: verificação de firmware de controladores industriais antes da atualização.
+- dado pessoal em SaaS: classificação + DLP + tokenização + revisão de acesso;
+- backup crítico: criptografia + retenção + imutabilidade + teste de restauração;
+- firmware ou configuração: hash para integridade + assinatura + acesso restrito;
+- base de teste: mascaramento ou tokenização para reduzir exposição.
 
----
-
-## 4. Mascaramento
-- Substitui total ou parcialmente dados originais por caracteres fictícios, mantendo o **formato**.  
-- É um método de **desidentificação** irreversível.  
-
-*Exemplo implícito*: exibir apenas parte do número de registro de funcionários em relatórios de auditoria.
+> Analogia: proteger dados é como proteger um laboratório. Tranca, câmera, identificação e registro resolvem problemas diferentes; usar só um deles é insuficiente.
 
 ---
 
-## 5. Tokenização
-- Substitui dados sensíveis por **tokens não sensíveis**.  
-- O dado real fica armazenado em repositório seguro e separado.  
-- Muito usado em **sistemas de pagamento**.  
+## 4. Como isso aparece na Security+
 
-*Exemplo implícito*: substituição de identificadores de cartões de acesso de operadores por tokens em sistemas de autenticação.
+Na prova, algumas diferenças são recorrentes:
 
----
-
-## 6. Ofuscação
-- Torna dados ou código **difíceis de compreender** para usuários não autorizados.  
-- Pode incluir criptografia, pseudonimização e técnicas de embaralhamento.  
-
-*Exemplo implícito*: ofuscar parâmetros de programação de CLPs exportados para arquivos externos.
+- criptografia protege confidencialidade;
+- hashing protege integridade e verificação;
+- tokenização reduz exposição operacional;
+- mascaramento ajuda visualização segura;
+- segmentação e permissões limitam o dano.
 
 ---
 
-## 7. Segmentação
-- Divide a rede em **múltiplos segmentos**, cada um com controles próprios.  
-- Impede movimentação lateral de atacantes em caso de invasão.  
+## 5. Mini-caso prático
 
-*Exemplo implícito*: separar a rede administrativa (TI) da rede de automação (OT) em uma planta industrial.
+Uma equipe compartilha base real de clientes com desenvolvedores para testar uma nova integração.
+
+Melhor abordagem:
+
+- evitar o dado real quando possível;
+- aplicar mascaramento ou tokenização;
+- restringir acesso por função;
+- registrar exportações e compartilhamentos.
+
+O erro mais comum é usar apenas senha ou compartilhamento restrito e chamar isso de proteção de dados.
 
 ---
 
-## 8. Restrições de Permissão
-- Definem **quem pode acessar** e **o que pode fazer** com os dados.  
-- Usam modelos como **ACL (Access Control List)** ou **RBAC (Role-Based Access Control)**.  
+## 6. Perguntas de revisão rápida
 
-*Exemplo implícito*: permitir que apenas engenheiros de manutenção autorizados alterem parâmetros de equipamentos críticos.
+1. Qual a diferença entre hashing e criptografia?
+2. Quando tokenização costuma ser melhor que mascaramento?
+3. Por que permissões não substituem criptografia?
 
 ---
 
-## 9. Conclusão
-A proteção de dados exige um **conjunto de técnicas complementares**, ajustadas ao perfil da organização e ao tipo de dado tratado.  
-No contexto da **engenharia de controle e automação**, o uso combinado de **geofencing, criptografia, hashing, mascaramento, tokenização, ofuscação, segmentação e controle de permissões** garante a resiliência contra ameaças internas e externas, preservando tanto os ativos digitais quanto a continuidade operacional.
+## 7. Fontes de referência
 
+- NIST SP 800-122  
+  https://csrc.nist.gov/pubs/sp/800/122/final
+- CISA Cybersecurity Performance Goals  
+  https://www.cisa.gov/cybersecurity-performance-goals
+- PCI Security Standards Council  
+  https://www.pcisecuritystandards.org/

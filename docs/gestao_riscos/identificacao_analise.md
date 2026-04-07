@@ -1,192 +1,128 @@
 # Identificação de Riscos e Análise de Impacto nos Negócios (BIA)
 
-A **identificação de riscos** é o **primeiro passo** do processo de gestão de riscos.  
-Ela consiste em **reconhecer ameaças e vulnerabilidades** que possam comprometer os objetivos ou a operação de uma organização.
+> **Objetivos de aprendizagem**
+> - Identificar ativos, ameaças, vulnerabilidades e impactos.
+> - Explicar o papel da BIA na continuidade de negocio.
+> - Relacionar RTO, RPO, MTTR e MTBF com prioridades de resposta.
+>
+> **Tempo estimado:** 22 minutos
 
-Esse processo é **proativo** — busca antecipar o que pode dar errado antes que um evento de fato ocorra, permitindo à organização **planejar ações preventivas e corretivas**.
+## Vídeo de contexto
 
----
-
-## 1. O Que é Identificação de Riscos
-
-Identificar riscos significa **mapear potenciais eventos** que possam causar **impactos negativos** nos objetivos estratégicos, operacionais, financeiros ou reputacionais de uma organização.
-
-Essa atividade não depende apenas da probabilidade do risco, mas também do **potencial impacto** que ele pode gerar, mesmo que seja improvável.
-
-### Exemplos
-
-- **Em TI:** falha de servidor, invasão cibernética, vazamento de dados, erro humano.  
-- **Em Automação Industrial:** falha em sensores críticos, perda de comunicação entre CLPs, interrupção de energia, sabotagem de rede OT.
-
-> Assim como um engenheiro de automação inspeciona preventivamente cabos, fontes e aterramento para garantir a estabilidade do sistema, o profissional de segurança digital mapeia pontos vulneráveis em servidores, aplicações e redes.
+![type:video](https://www.youtube.com/embed/du4ocukIUhQ)
 
 ---
 
-## 2. Técnicas de Identificação de Riscos
+## 1. Identificar antes de analisar
 
-A identificação de riscos pode ser feita de diversas formas, combinando métodos quantitativos e qualitativos.  
-Os mais utilizados incluem:
+A identificacao de riscos e o primeiro filtro da gestao de riscos. Antes de calcular prioridade, a equipe precisa saber:
 
-- **Brainstorming:** discussão colaborativa com especialistas e gestores.  
-- **Checklists:** uso de listas pré-definidas com categorias de risco.  
-- **Entrevistas:** coleta de percepções individuais sobre vulnerabilidades.  
-- **Análise de Cenários:** simulação de eventos para prever efeitos e reações.  
+- quais ativos importam;
+- quais processos dependem deles;
+- quais ameacas podem explorá-los;
+- quais vulnerabilidades tornam o evento mais provavel.
 
-O objetivo é gerar uma **lista abrangente de riscos** que sirva como base para as próximas etapas da gestão.
-
-> Em uma indústria, isso pode incluir riscos físicos (falha de compressor, aquecimento excessivo) e digitais (ataques a sistemas SCADA ou PLCs).  
-> Em TI, pode envolver desde falhas de autenticação até indisponibilidade de APIs críticas.
+> Analogia: e como mapear um circuito eletrico antes de ligar a energia. Se voce nao sabe quais fios alimentam o sistema critico, tambem nao sabe onde a falha vai doer mais.
 
 ---
 
-## 3. Classificação dos Riscos
+## 2. Técnicas de identificacao
 
-Durante a identificação, os riscos podem ser agrupados em categorias, facilitando a priorização e o tratamento posterior.
+As tecnicas mais usadas combinam visao tecnica e visao de negocio:
 
-| Categoria | Descrição | Exemplo |
-|------------|------------|----------|
-| **Operacional** | Falhas em processos e sistemas internos | Pane em servidor, erro de configuração |
-| **Financeiro** | Perdas monetárias diretas ou indiretas | Multas por não conformidade, fraudes |
-| **Estratégico** | Decisões que afetam o posicionamento da organização | Adoção de tecnologia não testada |
-| **Reputacional** | Impacto na imagem e confiança pública | Vazamento de dados de clientes |
+- entrevistas com donos de processo;
+- revisao de incidentes anteriores;
+- checklists e auditorias;
+- analise de arquitetura;
+- brainstorm com times de negocio, TI e seguranca.
 
-Mesmo riscos considerados **improváveis** devem ser documentados, pois o impacto potencial pode ser significativo.
+### 2.1 O que procurar
 
----
-
-## 4. Da Identificação à Análise de Impacto (BIA)
-
-Após a identificação dos riscos, a próxima etapa é a **Análise de Impacto nos Negócios** (BIA – *Business Impact Analysis*).  
-Essa análise determina **quais funções da organização são críticas**, **qual o impacto de uma interrupção** e **quanto tempo e dados podem ser perdidos** sem causar danos irreversíveis.
-
-O BIA orienta as decisões sobre **planos de continuidade de negócios (BCP)** e **planos de recuperação de desastres (DRP)**.
+- dados sensiveis;
+- servicos expostos;
+- dependencias de terceiros;
+- pontos unicos de falha;
+- controles ausentes ou antigos.
 
 ---
 
-## 5. Principais Métricas da Análise de Impacto
+## 3. BIA: o que e critico para o negocio
 
-A análise de impacto se baseia em quatro métricas fundamentais: **RTO**, **RPO**, **MTTR** e **MTBF**.  
-Esses indicadores permitem quantificar a resiliência operacional.
+A **Business Impact Analysis** identifica o que acontece quando um processo fica indisponivel. Ela responde:
 
----
+- qual servico nao pode parar por muito tempo;
+- quanto tempo de parada e aceitavel;
+- quanto dado pode ser perdido;
+- qual setor sofre o maior impacto.
 
-### 5.1 RTO — Recovery Time Objective (Objetivo de Tempo de Recuperação)
+Isso orienta o plano de continuidade, o DRP e a priorizacao de controles.
 
-O **RTO** representa o **tempo máximo aceitável** de indisponibilidade de um serviço ou sistema antes que a operação seja severamente afetada.
+### Principais metricas
 
-> É o **“limite de tolerância ao tempo de parada”**.
+| Metrica | Significado | Pergunta pratica |
+|---|---|---|
+| RTO | Tempo maximo de recuperacao | Em quanto tempo o servico precisa voltar? |
+| RPO | Ponto maximo de perda de dados | Quanto dado podemos perder? |
+| MTTR | Tempo medio para reparar | Quanto tempo a equipe leva para corrigir? |
+| MTBF | Tempo medio entre falhas | Quao confiavel e o componente? |
 
-#### Exemplo em TI:
-Uma loja virtual determina que, se o site ficar fora do ar por mais de **2 horas**, perde vendas e credibilidade.  
-Logo, o **RTO = 2 horas**.
-
-#### Exemplo em Automação:
-Uma linha de envase automatizada pode parar no máximo **30 minutos** antes que a produção sofra atrasos irreversíveis.  
-Logo, o **RTO = 30 minutos**.
-
----
-
-### 5.2 RPO — Recovery Point Objective (Objetivo de Ponto de Recuperação)
-
-O **RPO** mede a **quantidade máxima de dados** que pode ser perdida, expressa em **tempo**.
-
-> É o **“limite de tolerância à perda de dados”**.
-
-#### Exemplo em TI:
-Um banco define que pode perder no máximo **15 minutos de transações**.  
-Isso significa que os backups precisam ocorrer **a cada 15 minutos**.  
-Logo, **RPO = 15 minutos**.
-
-#### Exemplo em Automação:
-Um sistema SCADA coleta dados a cada segundo. Caso o histórico de dados seja perdido por mais de **10 segundos**, a rastreabilidade do processo é comprometida.  
-Logo, **RPO = 10 segundos**.
+> O Security+ costuma cobrar a interpretacao dessas siglas em cenarios de continuidade e backup.
 
 ---
 
-### 5.3 MTTR — Mean Time To Repair (Tempo Médio de Reparo)
+## 4. Como a analise de impacto funciona
 
-O **MTTR** indica o **tempo médio necessário para reparar** um componente ou sistema após uma falha.
+Depois de identificar o risco, a equipe avalia o dano para a operacao:
 
-> Quanto menor o MTTR, mais eficiente é a equipe ou o processo de recuperação.
+1. Para qual processo o sistema e essencial?
+2. Se ele parar, o que quebra primeiro?
+3. A parada gera perda financeira, legal ou reputacional?
+4. O problema e local ou atinge toda a empresa?
 
-#### Exemplo em TI:
-Um servidor apresentou falhas cinco vezes no ano, e cada reparo levou em média **4 horas**.  
-Logo, **MTTR = 4 horas**.
+### Exemplo de priorizacao
 
-#### Exemplo em Automação:
-Um motor de esteira leva em média **2 horas** para ser substituído após uma pane mecânica.  
-Logo, **MTTR = 2 horas**.
-
----
-
-### 5.4 MTBF — Mean Time Between Failures (Tempo Médio Entre Falhas)
-
-O **MTBF** mede a **confiabilidade** de um sistema.  
-É o **tempo médio entre falhas sucessivas** de um mesmo equipamento ou processo.
-
-> Quanto maior o MTBF, mais confiável é o sistema.
-
-#### Exemplo em TI:
-Um roteador corporativo apresenta falhas a cada **180 dias**.  
-Logo, **MTBF = 180 dias**.
-
-#### Exemplo em Automação:
-Um sensor de nível falha cinco vezes por ano, logo o tempo médio entre falhas é **72 dias**.  
-**MTBF = 72 dias.**
+- Servico de autenticacao: impacto alto, porque afeta varios sistemas.
+- Portal interno de comunicados: impacto medio.
+- Area de testes isolada: impacto baixo.
 
 ---
 
-## 6. Relação entre as Métricas
+## 5. Tabela de decisão rapida
 
-Essas métricas estão interligadas e formam a base da estratégia de **continuidade de negócios**:
-
-| Métrica | Objetivo | Foco |
-|----------|-----------|------|
-| **RTO** | Tempo máximo para recuperar operação | Tempo |
-| **RPO** | Quantidade máxima de dados perdidos | Dados |
-| **MTTR** | Tempo médio de reparo | Manutenibilidade |
-| **MTBF** | Tempo médio entre falhas | Confiabilidade |
-
-> Um bom plano de continuidade busca **reduzir o RTO e o RPO**, enquanto **aumenta o MTBF** e **reduz o MTTR**.
+| Cenário | Impacto | Prioridade |
+|---|---|---|
+| Portal de atendimento fora do ar por 4 horas | Alto | Imediata |
+| Arquivo de teste corrompido | Baixo | Baixa |
+| Sistema de folha indisponivel no fechamento do mes | Alto | Imediata |
 
 ---
 
-## 7. Integração com o Processo de Gestão de Riscos
+## 6. Mini-caso prático
 
-Após identificar riscos e medir seus impactos, a organização deve:
+Uma clinica digital usa prontuarios, agenda de exames e acesso por aplicativo. O time descobre que o backup diario nao cobre o banco de dados transacional.
 
-1. **Registrar todos os riscos** identificados (mesmo os de baixa probabilidade);  
-2. **Avaliar impacto e probabilidade** de cada risco;  
-3. **Priorizar** aqueles que representam maior ameaça;  
-4. **Planejar ações preventivas e corretivas**, definindo métricas e limites de tolerância (RTO/RPO/MTTR/MTBF);  
-5. **Monitorar continuamente** o desempenho e revisar periodicamente as métricas.
-
----
-
-## 8. Exemplo Integrado: Caso Prático
-
-Uma indústria alimentícia utiliza um sistema SCADA para controle de temperatura e pressão.  
-Durante uma análise de risco, foram identificados os seguintes pontos:
-
-| Risco | Impacto | Métrica | Valor |
-|--------|----------|----------|-------|
-| Falha de sensor de temperatura | Parada de linha e perda de lote | RTO | 1 hora |
-| Perda de dados de histórico | Compromete rastreabilidade de produção | RPO | 10 segundos |
-| Tempo médio de substituição de sensor |  | MTTR | 45 minutos |
-| Intervalo médio entre falhas de sensor |  | MTBF | 120 dias |
-
-Esses valores guiaram a decisão de:
-- Implementar **redundância de sensores**;
-- Adotar **backup automático a cada 5 segundos**;
-- Manter peças sobressalentes no estoque local.
+- Ativo critico: prontuario e agenda.
+- RTO: 1 hora.
+- RPO: 15 minutos.
+- Ação: reduzir janela de backup, testar restauração e revisar dependencia de autenticação.
 
 ---
 
-## 9. Conclusão
+## 7. Perguntas de revisão rápida
 
-A **identificação de riscos** é o alicerce de todo o processo de segurança e continuidade operacional.  
-Ela permite que organizações, sejam elas de TI ou de automação industrial, **antecipem ameaças, planejem respostas e mantenham a resiliência**.
+1. O que a BIA acrescenta a uma lista simples de riscos?
+2. Qual a diferenca pratica entre RTO e RPO?
+3. Por que MTTR e MTBF ajudam a priorizar investimentos?
 
-Ao integrar o BIA e as métricas (RTO, RPO, MTTR, MTBF), a organização transforma a teoria em prática — criando um ciclo de prevenção e resposta tão eficiente quanto um sistema de controle em malha fechada.
+---
 
-> Em resumo: identificar riscos é como mapear os sensores críticos de um sistema — só é possível reagir rapidamente quando você sabe **onde e como o problema pode surgir**.
+## 8. Fontes de referência
+
+- NIST SP 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems  
+  https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final
+- NIST SP 800-61 Rev. 2, Computer Security Incident Handling Guide  
+  https://csrc.nist.gov/pubs/sp/800/61/r2/final
+- NIST CSF 2.0  
+  https://www.nist.gov/cyberframework

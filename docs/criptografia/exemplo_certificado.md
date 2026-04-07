@@ -1,48 +1,102 @@
-# Demonstração: Explorando Certificados Digitais em Sites Brasileiros
+# Exemplo Prático: Como Ler um Certificado Digital
 
-Nesta demonstração, vamos analisar os **certificados digitais** de alguns sites conhecidos no Brasil e observar as informações contidas nesses certificados públicos.  
-Os exemplos a seguir utilizam conexões HTTPS na **porta 443**, padrão para navegação segura.
+> **Objetivos de aprendizagem**
+> - Identificar os campos mais importantes de um certificado X.509.
+> - Entender o que realmente deve ser validado em um certificado de site ou serviço.
+> - Relacionar leitura de certificado com TLS, PKI e troubleshooting em Security+.
+>
+> **Tempo estimado:** 18 minutos
 
----
+## Vídeo de contexto
 
-## 1) Exemplo: Governo Federal (gov.br)
+![type:video](https://www.youtube.com/embed/qoO84zK3aJY)
 
-- Ao acessar `https://www.gov.br`, é exibido o ícone de cadeado ao lado do endereço.  
-- O certificado digital está **válido** e foi emitido para o domínio `www.gov.br`.  
-- **Emissor**: Autoridade Certificadora **SERPRO** (Serviço Federal de Processamento de Dados), amplamente utilizada em órgãos públicos.  
-- **Algoritmo de assinatura**: SHA-256.  
-- **Chave pública**: RSA com 2.048 bits.  
-- **Validade**: contém informações de início e expiração da confiança.  
+## 1. O que observar primeiro
 
-> Exemplo industrial: em sistemas de controle governamentais (ex.: fiscalização de energia ou saneamento), certificados como os emitidos pela SERPRO podem ser usados para garantir autenticidade das comunicações com portais oficiais.
+Ao inspecionar um certificado, os campos mais úteis são:
 
----
+- **subject**: para quem o certificado foi emitido;
+- **issuer**: quem assinou;
+- **validade**: início e vencimento;
+- **SAN**: nomes de domínio cobertos;
+- **algoritmo**: tipo de assinatura e chave;
+- **cadeia de confiança**: como o certificado chega até a raiz confiável.
 
-
-## 2) Outras Informações Relevantes dos Certificados
-
-- **Identificação**: Razão social, localização (cidade/estado) e domínio.  
-- **Autoridade emissora (CA)**: entidade confiável responsável pela assinatura.  
-- **Período de validade**: início e fim de vigência.  
-- **Fingerprint único**: identificação exclusiva do certificado.  
-- **Cadeia de confiança**: Root CA → CA intermediária → Certificado do site.  
+Se um desses elementos falha, a conexão pode até usar criptografia, mas a confiança fica comprometida.
 
 ---
 
-## 3) Observações Didáticas
+## 2. Leitura prática de um certificado web
 
-- Certificados digitais não se restringem a sites de internet.  
-- Em **sistemas industriais**, certificados são aplicados para:  
-  - **Gateways IoT industriais** que reportam dados de campo.  
-  - **Servidores SCADA** que exigem autenticação forte antes de aceitar conexões.  
-  - **VPNs corporativas** que interligam unidades fabris com a matriz.  
+Em um navegador ou com ferramenta de linha de comando, você normalmente verifica:
+
+1. se o certificado corresponde ao domínio acessado;
+2. se não está vencido;
+3. se a cadeia é válida;
+4. se o algoritmo e o tamanho de chave ainda são aceitáveis;
+5. se há sinais de revogação ou erro de configuração.
+
+Em Security+, esse tipo de raciocínio aparece quando a questão descreve erro de TLS, mTLS ou certificado inválido.
 
 ---
 
-## 4) Conclusão
+## 3. O que um certificado não resolve sozinho
 
-A análise de certificados em sites como **gov.br** e **Banco do Brasil** ilustra como **diferentes algoritmos e tamanhos de chave** são escolhidos conforme o contexto:  
-- RSA (compatibilidade ampla, usado em portais governamentais).  
-- ECC (eficiência em dispositivos móveis, adotado por instituições financeiras).  
+Certificado válido não significa ambiente seguro por completo.
 
-Em ambientes de **Engenharia de Controle e Automação**, compreender essas diferenças é essencial para projetar **redes industriais seguras**, escolhendo certificados digitais de acordo com os requisitos de desempenho e confiabilidade do processo.
+Ainda é preciso observar:
+
+- configuração de TLS;
+- proteção da chave privada;
+- renovação antes do vencimento;
+- revogação quando houver comprometimento;
+- processo de emissão e aprovação.
+
+> Analogia: o crachá pode ser legítimo, mas isso não garante que a porta esteja sendo monitorada nem que o crachá não tenha sido copiado.
+
+---
+
+## 4. Onde isso aparece fora do navegador
+
+Certificados também são usados em:
+
+- VPNs;
+- assinatura de código;
+- autenticação de dispositivos;
+- mTLS entre serviços;
+- gateways e equipamentos industriais.
+
+Por isso, saber ler um certificado ajuda tanto em troubleshooting quanto em análise de arquitetura.
+
+---
+
+## 5. Mini-caso prático
+
+Uma API institucional apresenta erro de conexão segura após troca de domínio.
+
+Ao inspecionar o certificado, a equipe descobre:
+
+- o `subject alternative name` não cobre o novo hostname;
+- o certificado está válido, mas para outro nome;
+- a cadeia é confiável, porém o mapeamento do serviço está incorreto.
+
+Conclusão: o problema não é a CA; é o alinhamento entre certificado e serviço publicado.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Quais campos de um certificado devem ser verificados primeiro?
+2. Por que validade correta não basta para garantir confiança?
+3. O que o `SAN` resolve em um certificado moderno?
+
+---
+
+## 7. Fontes de referência
+
+- RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and CRL Profile  
+  https://datatracker.ietf.org/doc/html/rfc5280
+- NIST SP 800-52 Rev. 2  
+  https://csrc.nist.gov/pubs/sp/800/52/r2/final
+- Let's Encrypt - Certificate Chains  
+  https://letsencrypt.org/certificates/

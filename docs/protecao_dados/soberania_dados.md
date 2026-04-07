@@ -1,74 +1,94 @@
 # Soberania de Dados
 
-No cenário atual, dominado pela **computação em nuvem**, a **soberania de dados** tornou-se um aspecto crítico da governança da informação.  
-O conceito estabelece que as informações digitais estão sujeitas às **leis do país em que são coletadas, armazenadas ou processadas**.
+> **Objetivos de aprendizagem**
+> - Entender a diferença entre soberania, residência e localização de dados.
+> - Relacionar transferência internacional a risco jurídico e contratual.
+> - Aplicar o tema em cenários de nuvem, terceiros e proteção de dados.
+>
+> **Tempo estimado:** 18 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. O que é soberania de dados
+
+Soberania de dados trata da relação entre informação e jurisdição. Em outras palavras: quais leis se aplicam ao dado com base em onde ele é coletado, armazenado, processado ou acessado.
+
+Esse tema costuma se confundir com dois conceitos próximos:
+
+- **localização**: em que país ou região o dado está;
+- **residência**: em que local o provedor promete manter o dado;
+- **soberania**: quais obrigações legais e regulatórias recaem sobre ele.
 
 ---
 
-## 1. Conceito de Soberania de Dados
-- Os dados devem obedecer às normas e legislações do país de origem.  
-- Isso significa que empresas precisam **armazenar, gerenciar e processar dados** de acordo com as regras locais.  
+## 2. Por que a nuvem aumenta a complexidade
 
-*Exemplo implícito*: dados de sensores industriais coletados em uma planta no Brasil precisam respeitar a **LGPD** caso contenham informações de operadores ou de visitantes registrados em sistemas de controle de acesso.
+Com serviços em nuvem, o dado pode:
 
----
+- ser armazenado em uma região;
+- ser replicado em outra;
+- ser administrado por um terceiro;
+- ser acessado por equipe em outro país.
 
-## 2. Impacto da Computação em Nuvem
-Com o crescimento do uso de data centers distribuídos em diferentes países, as organizações precisam garantir que:
-- **A localização física dos dados** seja conhecida.  
-- **Os fluxos transfronteiriços** estejam em conformidade com regulamentações locais e internacionais.  
-
-*Exemplo implícito*: um sistema de supervisão industrial pode armazenar históricos em nuvem nos EUA, mas se incluir dados pessoais de operadores brasileiros, deverá seguir a **LGPD**.
+Por isso, conhecer somente o provedor não basta. É preciso entender fluxo, jurisdição e contrato.
 
 ---
 
-## 3. Considerações Geográficas
-- **União Europeia (GDPR)**:  
-  - Impõe regras rigorosas sobre dados de cidadãos da UE.  
-  - Qualquer empresa que trate dados de cidadãos europeus deve seguir o GDPR, mesmo se não estiver sediada na Europa.  
+## 3. Riscos mais comuns
 
-- **China e Rússia**:  
-  - Exigem que os dados sejam armazenados e processados **dentro do território nacional**.  
-  - Isso impacta multinacionais que utilizam provedores de nuvem globais.  
+- transferência internacional inadequada;
+- acesso remoto sem base legal ou contratual clara;
+- conflito entre exigência local e operação global;
+- dificuldade para responder a auditoria ou incidente envolvendo terceiros.
 
-- **Brasil (LGPD)**:  
-  - Define regras claras sobre coleta, armazenamento e transferência internacional de dados pessoais.  
-  - Transferências só podem ocorrer para países que garantam nível adequado de proteção.  
-
-*Exemplo implícito*: relatórios de manutenção de equipamentos que incluem informações pessoais de técnicos podem não poder ser transferidos livremente para servidores fora do país sem garantias contratuais e legais.
+Em Security+, isso costuma aparecer quando o enunciado mistura nuvem, dados pessoais, fornecedor e conformidade.
 
 ---
 
-## 4. Riscos e Desafios
-- **Transferência ilegal de dados** entre jurisdições de privacidade.  
-- **Restrições de acesso remoto** quando equipes multinacionais precisam consultar dados.  
-- **Multas pesadas** em caso de descumprimento (como as previstas no GDPR e LGPD).  
+## 4. Como reduzir exposição
 
-*Exemplo implícito*: engenheiros de uma planta no Brasil acessando remotamente dados de uma fábrica na Europa precisam estar cientes de restrições regulatórias.
+Boas práticas incluem:
 
----
+- mapear onde os dados ficam e por onde trafegam;
+- classificar dados antes de movê-los para nuvem;
+- revisar cláusulas contratuais e mecanismos de transferência;
+- aplicar criptografia e controle de acesso;
+- limitar exportação e replicação desnecessária.
 
-## 5. Estratégias para Conformidade
-- Mapear onde os dados estão armazenados e processados.  
-- Avaliar legislações locais e internacionais aplicáveis.  
-- Utilizar **contratos e cláusulas de transferência internacional de dados**.  
-- Implementar soluções técnicas como segmentação, criptografia e controle de acesso baseado em localização.  
+> Analogia: saber o que há dentro da caixa é importante, mas saber por onde a caixa viaja e em qual fronteira ela será inspecionada pode ser igualmente crítico.
 
 ---
 
-## 6. Conclusão
-A **soberania de dados** exige que organizações conheçam não apenas **o conteúdo dos dados**, mas também **onde eles residem e para onde circulam**.  
-No contexto da **engenharia de controle e automação**, isso garante que tanto informações pessoais de operadores quanto registros técnicos e industriais estejam protegidos de acordo com a legislação aplicável, evitando riscos legais e preservando a confiabilidade da organização.
+## 5. Mini-caso prático
+
+Uma instituição armazena dados de alunos em plataforma global de nuvem e permite suporte remoto por equipe fora do país.
+
+Perguntas essenciais:
+
+- quais dados pessoais estão envolvidos;
+- em que região eles residem;
+- quais suboperadores participam do tratamento;
+- qual mecanismo contratual sustenta a transferência.
+
+Sem essas respostas, o problema deixa de ser apenas técnico e vira também jurídico e reputacional.
 
 ---
 
-## 7. Tabela Comparativa de Legislações e Exigências
+## 6. Perguntas de revisão rápida
 
-| Região/País        | Legislação Principal | Exigências de Soberania de Dados | Impacto no Contexto Industrial |
-|--------------------|----------------------|----------------------------------|--------------------------------|
-| **Brasil**         | LGPD (Lei 13.709/2018) | Restrições à transferência internacional de dados pessoais; necessidade de bases legais claras | Registros de operadores e visitantes precisam de consentimento e proteção adequada |
-| **União Europeia** | GDPR                 | Direitos fortes ao titular dos dados; regras rígidas para transferência fora da UE | Dados de técnicos europeus em sistemas industriais precisam permanecer em conformidade mesmo em nuvens estrangeiras |
-| **Estados Unidos** | HIPAA / SOX / setoriais | Normas setoriais (saúde, financeiro); não há lei federal única de proteção geral | Dados de saúde ocupacional e registros financeiros industriais sujeitos a regulamentações específicas |
-| **China**          | Cybersecurity Law / PIPL | Exigência de armazenamento e processamento de dados dentro do território nacional | Sistemas industriais devem usar datacenters locais para dados de produção e PII |
-| **Rússia**         | Federal Law on Personal Data | Dados pessoais de cidadãos russos devem ser armazenados em servidores localizados na Rússia | Informações de colaboradores ou contratos industriais não podem ser transferidos livremente para fora do país |
+1. Qual a diferença entre residência e soberania de dados?
+2. Por que a nuvem amplia o risco de jurisdição?
+3. Que controle técnico ajuda, mas não resolve sozinho, o problema de transferência internacional?
 
+---
+
+## 7. Fontes de referência
+
+- LGPD - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- GDPR  
+  https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- NIST Privacy Framework  
+  https://www.nist.gov/privacy-framework

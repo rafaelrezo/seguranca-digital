@@ -1,132 +1,93 @@
-# Padrões (Standards) em Governança e Segurança da Informação
+# Padrões de Governança
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Diferenciar padrão de política e de procedimento.
+> - Reconhecer padrões mínimos em senhas, acesso, criptografia e logging.
+> - Entender por que padrões tornam segurança mensurável e auditável.
+>
+> **Tempo estimado:** 20 minutos
 
-Os **padrões (standards)** são um dos principais pilares da **governança de TI**.  
-Eles transformam as **políticas** em **regras técnicas e práticas obrigatórias**, assegurando que as medidas de segurança sejam aplicadas de forma **uniforme, mensurável e auditável** em toda a organização.
+## Vídeo de contexto
 
-Esses padrões estabelecem **como as políticas devem ser implementadas**, criando consistência nos controles e permitindo que a segurança evolua junto com as tecnologias e regulamentações.
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
-Nesta lição, vamos explorar os principais padrões usados em governança e segurança:
-- Padrões de Senhas  
-- Padrões de Controle de Acesso  
-- Padrões de Segurança Física  
-- Padrões de Criptografia  
+## 1. O que é um padrão
 
----
+Padrão é a tradução técnica e obrigatória de uma política.
 
-## 1. Padrões de Senhas (Password Standards)
+Se a política diz "contas privilegiadas devem ser protegidas", o padrão diz algo como:
 
-As **senhas** continuam sendo um dos mecanismos mais comuns e sensíveis da autenticação digital.  
-Os padrões de senha definem **níveis mínimos de complexidade, validade e armazenamento seguro**, garantindo que sejam **resistentes a ataques de força bruta, dicionário e engenharia social**.
+- MFA obrigatório;
+- senha mínima de 14 caracteres;
+- sessão registrada;
+- revisão trimestral de acesso.
 
-### Diretrizes típicas:
-- **Tamanho mínimo:** entre 8 e 14 caracteres.  
-- **Complexidade:** combinação de letras maiúsculas, minúsculas, números e caracteres especiais.  
-- **Validade:** renovação a cada **60 a 90 dias**.  
-- **Proibição de repetição:** impedir o uso das últimas senhas anteriores.  
-- **Bloqueio temporário:** após tentativas consecutivas de falha.  
-
-### Boas práticas complementares:
-- Uso de **gerenciadores de senhas** seguros (ex.: Bitwarden, KeePass).  
-- **Hashing e salting** de senhas (ex.: Argon2, bcrypt, PBKDF2).  
-- Implementação de **autenticação multifator (MFA)**.  
-
-> **Exemplo prático:**  
-> A política pode exigir que todos os usuários usem senhas com pelo menos 12 caracteres e que os administradores troquem suas credenciais a cada 60 dias.
-
-> **Paralelo industrial:**  
-> Assim como válvulas de segurança têm múltiplos estágios de travamento para evitar falhas catastróficas, senhas devem ter camadas de complexidade e renovação periódica para resistir a tentativas de invasão.
+Padrões existem para reduzir ambiguidade.
 
 ---
 
-## 2. Padrões de Controle de Acesso (Access Control Standards)
+## 2. Exemplos de padrões comuns
 
-Os **padrões de controle de acesso** definem **quem pode acessar o quê**, **quando** e **de que forma**.  
-Eles organizam a relação entre **usuários, funções, recursos e níveis de privilégio**, servindo como base para a **autorização** e a **segregação de responsabilidades**.
-
-### 2.1 Modelos Clássicos de Controle de Acesso
-
-#### a) Discretionary Access Control (DAC)
-O proprietário do recurso decide quem pode acessá-lo.  
-É o modelo mais flexível, mas também o mais suscetível a erros humanos.  
-Exemplo: o criador de um documento concede manualmente permissão de leitura a outro usuário.
-
-#### b) Mandatory Access Control (MAC)
-O acesso é determinado por **níveis de classificação e rótulos de segurança** (ex.: “Confidencial”, “Secreto”, “Top Secret”).  
-Comum em ambientes **militares e governamentais**.  
-Exemplo: um usuário com nível “Confidencial” não pode acessar arquivos “Secretos”.
-
-#### c) Role-Based Access Control (RBAC)
-O acesso é concedido com base em **funções (roles)** desempenhadas dentro da organização.  
-Reduz erros e simplifica a gestão de permissões.  
-Exemplo: todos os usuários com o papel de “Analista Financeiro” têm o mesmo conjunto de permissões.
+| Área | Exemplo de padrão | Objetivo |
+|---|---|---|
+| **Senhas** | comprimento mínimo, bloqueio por tentativa, armazenamento com hash forte | reduzir comprometimento de credenciais |
+| **Acesso** | MFA para admins, menor privilégio, revisão periódica | limitar abuso de identidade |
+| **Criptografia** | TLS moderno, algoritmo aceito, rotação de chaves | proteger dados e comunicações |
+| **Logs** | retenção mínima, sincronismo de horário, integridade | sustentar investigação e auditoria |
+| **Mudanças** | RFC, aprovação, teste, rollback | reduzir falha operacional |
 
 ---
 
-### 2.2 Modelos Avançados de Controle de Acesso
+## 3. Como padrões ajudam a auditoria
 
-#### d) Attribute-Based Access Control (ABAC)
-O acesso é concedido com base em **atributos** de usuários, recursos, ações e contexto.  
-É mais dinâmico e adaptável.  
-Exemplo: um usuário pode acessar um relatório **apenas durante o horário comercial** e **se estiver na rede corporativa**.
+Auditar política isolada é difícil. Auditar padrão é mais direto, porque ele permite verificar:
 
-> **Analogia industrial:**  
-> ABAC é como um sistema SCADA que libera uma válvula apenas se **temperatura**, **pressão** e **nível do tanque** estiverem dentro dos limites seguros.
+- existe MFA ou não;
+- o log é retido pelo prazo mínimo ou não;
+- a criptografia exigida foi aplicada ou não.
 
-#### e) Policy-Based Access Control (PBAC)
-Similar ao ABAC, mas com foco em **políticas declarativas centralizadas** que são avaliadas por um **PDP (Policy Decision Point)**.  
-Essas políticas podem ser escritas em linguagens como **Rego (Open Policy Agent)** ou **FGA (OpenFGA)**.
-
-Exemplo: “Usuários do departamento de Engenharia podem aprovar ordens de serviço apenas se o projeto estiver em fase de testes”.
-
-#### f) Rule-Based Access Control (RuBAC)
-O acesso é controlado por **regras predefinidas**, muitas vezes baseadas em eventos ou condições específicas.  
-Exemplo: bloquear acesso administrativo durante janelas de manutenção programada.
-
-#### g) Context-Based Access Control (CBAC)
-Leva em conta o **contexto de operação** — localização, horário, dispositivo ou tipo de rede.  
-Muito usado em **arquiteturas Zero Trust**, onde cada requisição é autenticada e verificada continuamente.
-
-#### h) Risk-Adaptive Access Control (RAdAC)
-Acesso ajustado **dinamicamente** com base em avaliação de **risco em tempo real**.  
-Exemplo: um login suspeito (localização desconhecida) exige fator adicional de autenticação.
-
-#### i) Relationship-Based Access Control (ReBAC)
-Baseia-se em **relações entre entidades**, como “coordenador”, “orientando” ou “colaborador”.  
-Usado em sistemas modernos como o **Google Zanzibar** e **OpenFGA**.
-
-Exemplo: um pesquisador pode editar apenas projetos em que ele **mantém uma relação ‘coordenador de’**.
+Ou seja: padrão transforma intenção em critério objetivo.
 
 ---
 
-### 2.3 Princípios Complementares de Segurança
+## 4. Erros comuns
 
-- **Menor Privilégio (Least Privilege):** cada usuário tem apenas o acesso necessário.  
-- **Separação de Funções (Separation of Duties):** impede que uma pessoa controle todas as etapas de um processo crítico.  
-- **Auditoria e Rastreamento:** cada ação deve ser registrada para garantir accountability.  
-- **Revisão Periódica de Acessos:** os privilégios devem ser reavaliados regularmente.
+- definir padrão impossível de sustentar;
+- manter padrão antigo só por legado;
+- criar exceção informal sem prazo;
+- confundir recomendação com requisito obrigatório.
 
-> **Paralelo industrial:**  
-> Em uma refinaria, o operador de caldeira não deve ter permissão para alterar parâmetros de controle químico.  
-> Na TI, isso equivale a restringir administradores de banco de dados a não modificarem código de aplicação.
+Em segurança, padrão bom é o que a organização consegue aplicar, revisar e provar.
 
 ---
 
-## 3. Padrões de Segurança Física (Physical Security Standards)
+## 5. Mini-caso prático
 
-A **segurança física** protege os **ativos tangíveis** da organização — pessoas, instalações, equipamentos e mídias de armazenamento.
+Uma política exige "senhas seguras", mas não existe padrão formal. Cada sistema adota um critério diferente.
 
-### Controles comuns:
-- **Perímetro protegido:** cercas, portões, guaritas e iluminação adequada.  
-- **Controle de acesso físico:** catracas, cartões RFID, biometria, PINs ou múltiplos fatores.  
-- **Monitoramento contínuo:** câmeras (CCTV), sensores de movimento e alarmes.  
-- **Ambientes controlados:**  
-  - Salas de servidores com acesso restrito.  
-  - Sistemas de supressão de incêndio (CO₂, FM200).  
-  - Controle de temperatura e umidade (HVAC).  
-  - Redundância elétrica (UPS, geradores).  
+Consequências:
 
-> **Exemplo:**  
-> A norma **ISO 27002** recomenda a segregação de áreas físicas e o registro de entrada de visitantes em áreas sensíveis.
+- contas críticas sem uniformidade;
+- usuário reutiliza credenciais fracas;
+- auditoria não consegue medir aderência.
 
+Quando o padrão é definido, a política deixa de ser genérica e vira controle verificável.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Qual a função principal de um padrão?
+2. Por que padrões ajudam auditoria mais do que políticas genéricas?
+3. Qual a diferença entre requisito obrigatório e guideline?
+
+---
+
+## 7. Fontes de referência
+
+- NIST SP 800-63B, Digital Identity Guidelines  
+  https://pages.nist.gov/800-63-3/sp800-63b.html
+- NIST SP 800-52 Rev. 2, Guidelines for the Selection, Configuration, and Use of TLS Implementations  
+  https://csrc.nist.gov/pubs/sp/800/52/r2/final
+- CIS Critical Security Controls  
+  https://www.cisecurity.org/controls

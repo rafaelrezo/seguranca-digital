@@ -1,71 +1,92 @@
 # Prevenção de Perda de Dados (DLP)
 
-A **Prevenção de Perda de Dados (DLP)** é um conjunto de soluções projetadas para **monitorar e proteger dados em uso, em trânsito e em repouso**.  
-Seu objetivo é **detectar e impedir tentativas de roubo ou vazamento de informações**, garantindo a proteção de ativos valiosos como propriedade intelectual, segredos industriais e dados pessoais.
+> **Objetivos de aprendizagem**
+> - Explicar como DLP detecta e reduz exfiltração de dados.
+> - Diferenciar DLP de endpoint, rede, armazenamento e nuvem.
+> - Relacionar DLP a classificação, contexto e resposta operacional.
+>
+> **Tempo estimado:** 20 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. O que DLP realmente faz
+
+DLP é o conjunto de políticas e mecanismos que monitoram, alertam ou bloqueiam o uso inadequado de dados sensíveis.
+
+Ele não substitui classificação, criptografia ou controle de acesso. Ele atua como camada adicional para responder a perguntas como:
+
+- este arquivo pode sair por e-mail?
+- esta planilha pode ser copiada para um pendrive?
+- este conteúdo pode ser compartilhado com conta pessoal?
 
 ---
 
-## 1. Evolução dos Riscos de Perda de Dados
-- **Armazenamento físico**: dados em papel em armários. Roubo dependia de acesso físico.  
-- **Laptops**: com a mobilidade, perder um dispositivo significava expor grandes volumes de dados.  
-- **Discos externos**: passaram a permitir cópia massiva de informações de forma discreta.  
-- **Pendrives**: pequenos, baratos e capazes de carregar milhões de documentos sem chamar atenção.  
-- **Serviços em nuvem (ex.: Google Drive, Dropbox)**: permitem transferir terabytes de dados para fora da organização em segundos.  
+## 2. Tipos de DLP
 
-*Exemplo implícito*: um operador de manutenção poderia, sem querer, salvar relatórios técnicos de máquinas críticas em uma conta pessoal de nuvem, expondo dados estratégicos da planta.
+| Tipo | Onde atua | Melhor uso |
+|---|---|---|
+| **Endpoint DLP** | estação de trabalho e notebook | cópia, impressão, captura, USB |
+| **Network DLP** | tráfego de rede | e-mail, web, saída de dados |
+| **Storage DLP** | repositório e arquivos em repouso | descoberta e revisão de exposição |
+| **Cloud DLP** | SaaS e serviços em nuvem | compartilhamento externo e regras por serviço |
 
----
-
-## 2. Tipos de Sistemas DLP
-
-### 2.1. Endpoint DLP
-- Instalado em **estações de trabalho ou laptops**.  
-- Monitora dados **em uso** no dispositivo.  
-- Pode bloquear ou alertar transferências não autorizadas.  
-
-*Exemplo implícito*: impedir que relatórios de calibração de sensores sejam copiados para um pendrive pessoal.
+O ponto central é que DLP observa comportamento sobre o dado, e não só o ativo em que ele está.
 
 ---
 
-### 2.2. Network DLP
-- Implantado no **perímetro da rede**.  
-- Monitora **dados em trânsito**, verificando informações que saem da rede corporativa.  
-- Foco em evitar **exfiltração de dados confidenciais**.  
+## 3. Modos de ação
 
-*Exemplo implícito*: detectar se arquivos de configuração de CLPs estão sendo enviados por e-mail sem autorização.
+As soluções de DLP normalmente operam em dois modos:
 
----
+- **detecção**: registra e alerta;
+- **prevenção**: bloqueia, quarentena ou exige justificativa.
 
-### 2.3. Storage DLP
-- Instalado em **servidores ou datacenters**.  
-- Inspeciona **dados em repouso**, verificando acessos fora do padrão.  
-- Usa técnicas como criptografia, marca d’água e monitoramento de horários de acesso.  
-
-*Exemplo implícito*: alertar quando um usuário tenta baixar logs completos de produção às 2h da manhã, fora da política de acesso.
+A maturidade costuma começar com monitoramento para reduzir falso positivo e depois avançar para bloqueio nos casos mais críticos.
 
 ---
 
-### 2.4. Cloud DLP
-- Fornecido como **serviço em nuvem (SaaS)**.  
-- Protege dados armazenados em plataformas de cloud.  
-- Aplica políticas de segurança diretamente nos serviços de armazenamento.  
+## 4. O que faz DLP funcionar bem
 
-*Exemplo implícito*: restringir o upload de relatórios técnicos de equipamentos para contas pessoais de armazenamento em nuvem.
+- classificação e rotulagem minimamente consistentes;
+- políticas claras sobre canais permitidos;
+- ajuste por contexto e exceção controlada;
+- revisão periódica de alertas;
+- integração com treinamento e resposta a incidentes.
 
----
-
-## 3. Resumo das Funcionalidades
-- Monitora dados **em uso, trânsito e repouso**.  
-- Atua em **modo de detecção** (apenas alerta) ou **modo de prevenção** (bloqueia tentativas de vazamento).  
-- Apoia o trabalho do **administrador de segurança** na aplicação das políticas corporativas.  
+> Analogia: DLP é como detector de saída em biblioteca ou laboratório. Ele não define sozinho o valor do item, mas ajuda a impedir que algo classificado como sensível saia sem controle.
 
 ---
 
-## 4. Conclusão
-A **Prevenção de Perda de Dados** é essencial para proteger os ativos informacionais de uma organização.  
-No contexto da **engenharia de controle e automação**, a aplicação de DLP reduz o risco de:  
-- Vazamento de projetos de automação (segredos industriais).  
-- Cópia indevida de configurações de máquinas ou CLPs.  
-- Exposição de informações pessoais de técnicos e operadores.  
+## 5. Mini-caso prático
 
-Com o uso de **endpoint, network, storage e cloud DLP**, a organização garante maior resiliência contra incidentes internos e externos, preservando tanto a **segurança da informação** quanto a **continuidade operacional**.
+Um professor envia por engano planilha com dados de alunos para um e-mail pessoal para "terminar o trabalho em casa".
+
+Com DLP bem ajustado, a organização pode:
+
+- detectar padrão de dado pessoal;
+- bloquear o envio ou exigir justificativa;
+- registrar a tentativa;
+- orientar o usuário sobre canal correto.
+
+Sem DLP, o incidente pode virar vazamento silencioso.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. Por que DLP não substitui classificação de dados?
+2. Qual tipo de DLP ajuda mais a bloquear cópia para USB?
+3. Quando o modo de detecção deve vir antes do bloqueio?
+
+---
+
+## 7. Fontes de referência
+
+- Microsoft Purview Data Loss Prevention  
+  https://learn.microsoft.com/purview/dlp-learn-about-dlp
+- Google Workspace Data Loss Prevention  
+  https://support.google.com/a/topic/7557701
+- NIST SP 800-122  
+  https://csrc.nist.gov/pubs/sp/800/122/final

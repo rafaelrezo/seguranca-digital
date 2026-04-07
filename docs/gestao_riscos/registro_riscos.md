@@ -1,206 +1,117 @@
-# O Registro de Riscos (Risk Register)
+# Registro de Riscos
 
-A **gestão de riscos** é uma atividade essencial em qualquer projeto ou operação organizacional.  
-Ela envolve **identificar, avaliar e priorizar incertezas** que possam afetar os objetivos de negócio.  
+> **Objetivos de aprendizagem**
+> - Explicar a finalidade de um risk register.
+> - Estruturar um registro com campos uteis para decisão.
+> - Usar KRIs e owners para manter riscos rastreaveis.
+>
+> **Tempo estimado:** 18 minutos
 
-Um dos instrumentos mais eficazes para conduzir essa gestão é o **registro de riscos** (*risk register*), também chamado de **log de riscos**.  
-Ele centraliza todas as informações sobre os riscos identificados, seus impactos, probabilidades, responsáveis e estratégias de mitigação.
+## Vídeo de contexto
 
----
-
-## 1. O que é um Registro de Riscos
-
-O **registro de riscos** é um documento vivo, atualizado continuamente ao longo do ciclo de vida do projeto.  
-Ele serve para **documentar, comunicar e acompanhar** riscos de maneira estruturada e transparente.
-
-Ele pode ser comparado a uma **planilha de manutenção preventiva** em uma planta industrial ou a um **dashboard de monitoramento de vulnerabilidades** em TI — ambos permitem visualizar rapidamente onde estão os problemas e o que precisa de atenção.
-
-O registro de riscos geralmente inclui:
-
-- Descrição do risco  
-- Impacto  
-- Probabilidade (ou *likelihood*)  
-- Resultado (*outcome*)  
-- Nível ou limiar do risco  
-- Custo estimado  
-- Dono do risco (*risk owner*)  
-- Indicadores-chave de risco (*KRIs*)  
+![type:video](https://www.youtube.com/embed/pJY3zVhtNJw)
 
 ---
 
-## 2. Estrutura do Registro de Riscos
+## 1. O que é o registro de riscos
 
-| Campo | Descrição | Exemplo em TI | Exemplo em Automação |
-|--------|------------|---------------|----------------------|
-| **Descrição do Risco** | Explica de forma clara o que é o risco e como ele pode afetar a operação | Falha no servidor de banco de dados | Queima de CLP principal da linha de produção |
-| **Impacto** | Consequência caso o risco ocorra (financeiro, tempo, qualidade, reputação) | Perda de dados, indisponibilidade do sistema | Parada da linha, perda de lote |
-| **Probabilidade (Likelihood)** | Chance de o risco acontecer | Alta (hardware antigo) | Média (componentes sujeitos a sobrecarga) |
-| **Resultado (Outcome)** | Efeito final do risco caso ele ocorra | Interrupção do serviço e perda de clientes | Atraso na produção e perda de insumos |
-| **Nível de Risco (Risk Level)** | Combinação de impacto e probabilidade (alto, médio, baixo) | Alto | Alto |
-| **Custo** | Valor financeiro estimado do impacto ou mitigação | R$ 40.000 (reposicionar servidor e dados) | R$ 15.000 (compra de CLP reserva) |
-| **Responsável (Risk Owner)** | Pessoa ou equipe responsável por monitorar e mitigar o risco | Líder de infraestrutura | Engenheiro de manutenção |
-| **Indicadores de Risco (KRI)** | Métricas que alertam sobre aumento do risco | Número de falhas por mês | Temperatura média do painel elétrico |
+O registro de riscos e o documento vivo que centraliza os riscos identificados, seu nivel, seu dono e a resposta planejada.
+
+Ele evita que o risco fique espalhado entre planilhas, e-mails e reunioes informais. Para a gestao, ele funciona como um painel unico de prioridades.
+
+> Analogia: e a lista de manutencao preventiva de uma fabrica. Sem ela, cada falha vira surpresa; com ela, a equipe enxerga o que precisa de acao antes da parada.
 
 ---
 
-## 3. Descrição do Risco
+## 2. Campos que realmente importam
 
-A **descrição** é o primeiro elemento do registro.  
-Ela deve ser **clara, direta e compreensível**, para que qualquer pessoa consiga entender o que está sendo avaliado sem precisar de contexto adicional.
+| Campo | Para que serve | Exemplo |
+|---|---|---|
+| ID | Identificacao unica | R-014 |
+| Descricao | O que pode acontecer | Vazamento de dados por credenciais expostas |
+| Impacto | Gravidade do dano | Alto |
+| Probabilidade | Chance de ocorrer | Media |
+| Nivel | Prioridade final | Alto |
+| Risk owner | Quem responde pelo risco | Gerente de infraestrutura |
+| KRI | Indicador de alerta precoce | Aumento de tentativas falhas de login |
+| Status | Situacao atual | Em mitigacao |
+| Prazo | Quando revisar | 30 dias |
 
-> Em TI: “Falha de autenticação entre microserviços devido a expiração de certificados.”  
->  
-> Em automação: “Oscilação de tensão elétrica provocando reset de controladores lógicos programáveis.”
+### O que um bom registro evita
 
----
-
-## 4. Impacto do Risco
-
-O **impacto** define a **gravidade das consequências** caso o risco se concretize.  
-Ele pode afetar **custos, prazos, qualidade, segurança ou reputação**.  
-
-Escalas comuns:
-- **Baixo:** impacto limitado e facilmente recuperável.  
-- **Médio:** impacto moderado, mas gerenciável.  
-- **Alto:** impacto crítico, com possibilidade de parada ou perda significativa.
-
-> Exemplo: uma falha de servidor que interrompe o site de vendas por 2 horas é impacto **alto**;  
-> uma queda momentânea de um sensor redundante pode ser **baixo**.
+- ambiguidade;
+- duplicidade de trabalho;
+- perda de contexto;
+- tomada de decisao sem evidência.
 
 ---
 
-## 5. Probabilidade (Likelihood)
+## 3. Impacto, probabilidade e risco residual
 
-A **probabilidade** mede **a chance de o risco ocorrer**.  
-Pode ser expressa em escala numérica (1–5, 1–10) ou descritiva (*raro*, *possível*, *provável*, *quase certo*).
+O risco registrado nao termina na primeira classificacao.
 
-> Em automação, a probabilidade de falha de um motor sem manutenção há mais de 2 anos é **alta**.  
->  
-> Em TI, a probabilidade de ataque de phishing em uma empresa sem treinamento é **quase certa**.
+- **Impacto** mostra o tamanho do dano.
+- **Probabilidade** mostra a chance de ocorrer.
+- **Risco residual** mostra o que sobra depois dos controles.
 
----
-
-## 6. Resultado (Outcome)
-
-O **resultado** é o **efeito final** do risco se ele ocorrer.  
-Ele está diretamente relacionado à combinação de impacto e probabilidade.  
-Por exemplo, um risco de alto impacto e alta probabilidade gera um resultado crítico.
-
-> É como em controle industrial: impacto e probabilidade são os “ganhos” que determinam a resposta do sistema — quanto maiores, mais severa a saída (resultado).
+Se o risco caiu, mas nao sumiu, ele continua no registro ate a organizacao aceitar o remanescente.
 
 ---
 
-## 7. Nível ou Limiar de Risco (Risk Level / Threshold)
+## 4. KRIs: sinais de alerta
 
-O **nível de risco** é obtido combinando impacto e probabilidade, normalmente através de uma **matriz de calor (heat map)**:
-
-| Impacto ↓ / Probabilidade → | Baixa | Média | Alta |
-|------------------------------|--------|--------|------|
-| **Baixo** | Baixo | Baixo | Médio |
-| **Médio** | Baixo | Médio | Alto |
-| **Alto** | Médio | Alto | Crítico |
-
-Esse nível define a **prioridade de tratamento**:
-- **Alto / Crítico:** exige ação imediata.  
-- **Médio:** deve ser monitorado e mitigado.  
-- **Baixo:** pode ser aceito conforme a política da organização.
-
----
-
-## 8. Custo do Risco
-
-O **custo** pode representar:
-- O **dano financeiro** causado pela materialização do risco; ou  
-- O **investimento necessário** para mitigá-lo.
-
-> Em TI: custo de reposição de servidores e restauração de backups.  
->  
-> Em automação: custo de substituição de componentes e parada da linha.
-
----
-
-## 9. Tolerância e Apetite ao Risco
-
-Antes de definir se um risco é “alto” ou “baixo”, é essencial entender **quanto risco a organização está disposta a aceitar**.
-
-### 9.1 Tolerância ao Risco (*Risk Tolerance*)
-É o **nível máximo de risco** que uma organização aceita sem adotar contramedidas.  
-Quando o custo de mitigação é superior ao dano potencial, o risco pode ser **tolerado**.
-
-> Exemplo: aceitar o risco de pequenas oscilações na rede elétrica, sem investir em UPS industrial.
-
-### 9.2 Apetite ao Risco (*Risk Appetite*)
-Refere-se à **disposição da organização em assumir riscos** para alcançar seus objetivos.  
-Existem três perfis principais:
-
-| Tipo | Características | Exemplo |
-|------|------------------|----------|
-| **Expansivo (Expansionary)** | Busca oportunidades, assume riscos altos por retornos maiores | Startups de tecnologia ou empresas em rápida expansão |
-| **Conservador (Conservative)** | Prefere estabilidade, assume poucos riscos | Indústria farmacêutica, setor elétrico |
-| **Neutro (Neutral)** | Equilíbrio entre risco e retorno | Empresas de médio porte com foco em crescimento sustentável |
-
-> Na prática, o apetite ao risco define o “limite operacional seguro” — tal como um engenheiro define faixas de operação segura para uma máquina.
-
----
-
-## 10. Indicadores-Chave de Risco (KRIs)
-
-Os **KRIs (Key Risk Indicators)** são métricas que funcionam como **sensores de alerta precoce**.  
-Eles indicam quando um risco está se aproximando de um ponto crítico.
+KRIs funcionam como sensores de risco.
 
 Exemplos:
 
-| Contexto | Indicador | Interpretação |
-|-----------|------------|---------------|
-| **Banco** | Taxa de inadimplência | Aumento pode indicar maior risco de crédito |
-| **TI** | Número de falhas em firewall por hora | Indica crescimento da superfície de ataque |
-| **Automação** | Temperatura média dos inversores | Sinal de sobrecarga elétrica iminente |
+- aumento de incidentes de phishing;
+- crescimento de contas sem MFA;
+- aumento de patch atrasado;
+- fornecedores fora do SLA;
+- desvios recorrentes de backup.
 
-> Assim como sensores industriais monitoram vibração e temperatura para prever falhas, os KRIs monitoram o ambiente corporativo para antecipar riscos organizacionais.
-
-KRIs devem estar **alinhados aos objetivos estratégicos** e **ao apetite de risco da organização**.  
-Eles permitem **ações preventivas** antes que o problema se torne crítico.
+> Se o risco e o fogo, o KRI e a fumaça. Ele nao prova incendio sozinho, mas sinaliza que algo saiu do normal.
 
 ---
 
-## 11. Responsável pelo Risco (Risk Owner)
+## 5. Modelo simples de registro
 
-O **responsável pelo risco** é a pessoa ou equipe **designada para acompanhar e tratar** aquele risco.  
-Suas responsabilidades incluem:
-
-- Monitorar indicadores e mudanças de cenário;  
-- Implementar medidas de mitigação;  
-- Atualizar o registro de riscos;  
-- Reportar status à gestão.
-
-> Em TI: o **líder de DevOps** pode ser o responsável por riscos de disponibilidade do sistema.  
->  
-> Em automação: o **engenheiro de manutenção** pode ser responsável por riscos de falhas de equipamentos.
-
-> O conceito é semelhante ao de um “dono do ativo” — quem conhece melhor o equipamento é quem deve zelar por sua confiabilidade.
+| ID | Descricao | Impacto | Probabilidade | Nivel | KRI | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| R-001 | Credenciais admin sem MFA | Alto | Alta | Critico | Logins fora do padrao | SecOps | Em acao |
+| R-002 | Backup sem teste de restauração | Alto | Media | Alto | Falhas em restore | Infra | Em analise |
+| R-003 | Fornecedor com acesso excessivo | Alto | Media | Alto | Contas sem revisao | GRC | Em mitigacao |
 
 ---
 
-## 12. Exemplo Prático de Registro de Riscos
+## 6. Mini-caso prático
 
-| ID | Descrição do Risco | Impacto | Probabilidade | Nível | Custo Estimado | Dono | KRI |
-|----|--------------------|----------|----------------|--------|----------------|------|-----|
-| 1 | Falha no banco de dados principal | Alto | Média | Alto | R$ 40.000 | Arquiteto de Sistemas | Número de falhas por mês |
-| 2 | Oscilação elétrica em painel SCADA | Alto | Alta | Crítico | R$ 15.000 | Eng. de Manutenção | Temperatura do painel |
-| 3 | Atraso na entrega de fornecedor | Médio | Média | Médio | R$ 5.000 | Gerente de Compras | Percentual de entregas fora do prazo |
+Uma empresa faz migração para cloud e registra tres riscos principais: permissao excessiva, backup nao testado e dependencia de um MSP.
+
+O registro permite:
+
+- atribuir owner por risco;
+- definir prazo de revisão;
+- monitorar KRI;
+- registrar risco residual depois das correcoes.
 
 ---
 
-## 13. Conclusão
+## 7. Perguntas de revisão rápida
 
-O **registro de riscos** é o **instrumento central da gestão de riscos**.  
-Ele conecta informações estratégicas (apetite e tolerância), operacionais (indicadores e responsáveis) e financeiras (custos e impactos).
+1. O que o registro de riscos resolve que uma lista solta de problemas nao resolve?
+2. Qual a diferenca entre impact, probability e risk level?
+3. Por que KRIs precisam ser acompanhados ao longo do tempo?
 
-Com ele, a organização:
+---
 
-- Garante **visibilidade e rastreabilidade** dos riscos;  
-- Prioriza ações com base em **dados objetivos**;  
-- Integra **indicadores preditivos (KRIs)** à tomada de decisão;  
-- Mantém **alinhamento entre gestão de riscos e objetivos estratégicos**.
+## 8. Fontes de referência
 
-> Em suma, o registro de riscos é o “painel de controle” da gestão de incertezas — assim como um SCADA exibe o estado de uma planta industrial, o risk register exibe o estado de resiliência de toda a organização.
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final
+- NIST SP 800-37 Rev. 2, Risk Management Framework for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/37/r2/final
+- NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+- NIST CSF 2.0  
+  https://www.nist.gov/cyberframework

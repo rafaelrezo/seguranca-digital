@@ -1,137 +1,82 @@
-# Certificados Digitais (X.509) — Organização dos Principais Tópicos
+# Certificados Digitais X.509
 
-## 1) Conceito e Finalidade
+> **Objetivos de aprendizagem**
+> - Identificar os campos essenciais de um certificado X.509.
+> - Diferenciar tipos de certificado e cenários de uso.
+> - Interpretar cadeia de confiança, validade e revogação.
+>
+> **Tempo estimado:** 25 minutos
 
-- **Certificado digital**: documento eletrônico **assinado digitalmente** que associa uma **chave pública** à **identidade** de um sujeito (pessoa, servidor, equipamento).
-- **Padrão**: normalmente **X.509** dentro de uma **infraestrutura de chave pública (PKI)**.
-- **Objetivos**: autenticação, confidencialidade (combinado a TLS), integridade e não repúdio.
+## Vídeo de contexto
 
-> Exemplo industrial: um **gateway de dados** apresenta seu certificado X.509 ao **servidor SCADA** para comprovar identidade antes de enviar telemetria.
-
----
-
-## 2) Estrutura de um Certificado X.509 (visão didática)
-
-- **Sujeito (Subject)**: identidade do titular (CN, OU, O, L, C).
-- **Chave pública** do titular (e algoritmo).
-- **Emissor (Issuer)**: **Autoridade Certificadora (CA)** que assinou o certificado.
-- **Validade**: datas de emissão e expiração.
-- **Número de série** e **versão**.
-- **Extensões** relevantes:
-  - **Key Usage / Extended Key Usage** (ex.: TLS Server Auth, Code Signing).
-  - **Subject Alternative Name (SAN)**.
-  - **CRL Distribution Points** / **OCSP responder**.
-
-> Exemplo industrial: certificados de **dispositivos de campo** incluem SAN com nomes DNS internos (ex.: `clp01.planta.local`) e/ou endereços IP estáticos de rede OT.
+![type:video](https://www.youtube.com/embed/qoO84zK3aJY)
 
 ---
 
-## 3) Tipos e Cenários de Uso
+## 1. O que é um certificado digital
 
-### 3.1 Wildcard Certificate (`*.dominio.com`)
-- **Cobre todos os subdomínios** de um domínio.
-- **Prós**: gestão simplificada, menor custo quando há muitos subdomínios.
-- **Contras**: comprometimento do certificado **impacta todos** os subdomínios.
-- **Uso sugerido**: portais de operação e relatórios sob o mesmo domínio.
+Certificado digital é um documento assinado que associa uma identidade a uma chave pública. Em Segurança+ ele aparece como a peça que liga autenticação, TLS e assinatura de código.
 
-> Ex.: `*.planta.empresa.com` atende `scada.planta.empresa.com`, `ihm.planta.empresa.com` e `hist.planta.empresa.com`.
+## 2. Estrutura básica de um X.509
 
-### 3.2 Certificado com **SAN (Subject Alternative Name)**
-- **Abrange múltiplos nomes/domínios** distintos no mesmo certificado.
-- **Uso sugerido**: quando há **domínios diferentes** (ex.: `planta.empresa.com` e `engenharia.parceiro.net`).
+| Campo | O que indica |
+|---|---|
+| Subject | Identidade do titular |
+| Issuer | CA que assinou o certificado |
+| Serial Number | Identificador único |
+| Validity | Data de início e expiração |
+| Public Key | Chave pública do titular |
+| SAN | Nomes alternativos válidos |
+| Key Usage | Para que o certificado pode ser usado |
+| Extended Key Usage | Uso estendido, como TLS server auth ou client auth |
 
-### 3.3 **Single-sided** (autenticação de **uma via**)
-- **Somente o servidor** apresenta certificado ao cliente.
-- **Uso típico**: acesso HTTPS a dashboards/relatórios.
+## 3. Tipos comuns
 
-### 3.4 **Dual-sided / Mutual TLS (mTLS)** (autenticação de **duas vias**)
-- **Servidor e cliente** apresentam certificados.
-- **Pro**: segurança elevada.
-- **Custo**: maior complexidade e processamento.
-- **Uso sugerido**: **links críticos** OT ↔ data center, backhauls entre plantas.
+- **Self-signed**: útil em laboratório e ambientes controlados.
+- **Certificate Authority issued**: recomendado para produção.
+- **Wildcard**: cobre vários subdomínios.
+- **SAN certificate**: cobre múltiplos nomes diferentes.
+- **Client certificate**: autentica usuário, máquina ou serviço.
 
-### 3.5 **Self-signed**
-- Assinados pelo **próprio titular** (sem CA externa).
-- **Pro**: útil em **testes** e **ambientes fechados** com confiança pré-estabelecida.
-- **Contra**: navegadores/clients exibem **alertas**; evitar em exposição pública.
+## 4. O que validar ao inspecionar um certificado
 
-### 3.6 **Third-party** (emitidos por CA confiável)
-- Assinados por **CA reconhecida** (trust stores de SO/navegadores).
-- **Preferência**: aplicações públicas e integrações externas.
+1. Nome do sujeito e SAN.
+2. Emissor confiável.
+3. Período de validade.
+4. Algoritmo de assinatura.
+5. Uso permitido.
+6. Situação de revogação.
 
----
+Se o nome do site não bate com o SAN, o navegador deve alertar. Isso não é detalhe visual; é a verificação da identidade.
 
-## 4) Cadeia de Confiança (Root of Trust)
+## 5. Cadeia e revogação
 
-- **Raiz (Root CA)** → **CA Intermediária** → **Certificado final**.
-- O cliente valida a **cadeia** até uma **Root CA confiável** no trust store.
-- Se a **Root** for comprometida, a **cadeia inteira** perde confiança (revogação e reemissão necessárias).
+Um certificado é confiável porque a CA raiz é confiável. Entre os mecanismos de revogação mais lembrados estão:
 
-> Exemplo industrial: clientes de manutenção remota confiam na **Root CA corporativa** que assina certificados de gateways e aplicações industriais.
+- **CRL**,
+- **OCSP**,
+- **OCSP stapling**.
 
----
+Quando um certificado é comprometido, revogação é tão importante quanto expiração.
 
-## 5) Papéis e Processos na Emissão
+## 6. Mini-caso prático
 
-### 5.1 **CA (Certificate Authority)**
-- Emite/assina certificados; mantém políticas e práticas de certificação.
+Uma equipe publica uma API sensível.
 
-### 5.2 **RA (Registration Authority)**
-- **Valida a identidade** do solicitante e **intermedeia** a requisição para a CA.
+- A API recebe um certificado SAN com o domínio correto.
+- O certificado é emitido por uma CA intermediária.
+- O cliente valida a cadeia até a raiz confiável.
+- O status é checado por OCSP.
 
-### 5.3 **CSR (Certificate Signing Request)**
-- **Bloco codificado** enviado à CA/RA contendo dados do solicitante e **chave pública**.
-- A **chave privada** permanece com o solicitante (nunca sai do host seguro).
+## 7. Perguntas de revisão rápida
 
-> Exemplo industrial: um **servidor de historiador** gera o CSR localmente; a chave privada fica protegida por **TPM/HSM** do servidor.
+1. O que o campo SAN resolve?
+2. Qual a diferença entre CRL e OCSP?
+3. Por que certificado expirado pode causar indisponibilidade?
 
----
+## 8. Fontes de referência
 
-## 6) Revogação e Status de Certificados
-
-### 6.1 **CRL (Certificate Revocation List)**
-- Lista pública de **certificados revogados** pela CA.
-- Consultada para **negar confiança** a certificados comprometidos ou inválidos.
-
-### 6.2 **OCSP (Online Certificate Status Protocol)**
-- Consulta **pontual** ao status de **um certificado**.
-- **Mais ágil** que baixar CRL completa, porém exige disponibilidade do responder.
-
-### 6.3 **OCSP Stapling**
-- O **servidor** “anexa” (staple) uma resposta OCSP **recente** durante o **handshake TLS**.
-- **Benefícios**: menos latência e menor dependência de consulta externa pelo cliente.
-
----
-
-## 7) Public Key Pinning (conceito)
-
-- **Pinning** de chaves públicas para **reduzir risco** de certificados fraudulentos.
-- Cliente armazena “pins” de chaves confiáveis e compara em conexões futuras.
-- **Observação**: requer **gestão cuidadosa** (rotação/errata pode causar indisponibilidade).
-
-> Exemplo industrial: aplicações de engenharia podem realizar **pinning** da CA interna para evitar conexão com serviços falsos em redes remotas.
-
----
-
-## 8) Key Escrow e Key Recovery
-
-### 8.1 **Key Escrow**
-- Cópia segura de **chaves privadas** armazenada sob **controles rigorosos**.
-- **Uso**: recuperação em caso de perda/saída de colaborador, exigências legais.
-- **Risco**: ataque ao escrow compromete grande volume de dados; aplicar **segregação de funções** (dupla custódia) e **auditoria**.
-
-### 8.2 **Key Recovery Agent**
-- Ferramentas/processos para **restaurar** chaves perdidas/corrompidas.
-- **Abrangência**: incluem chaves da **CA interna**, essenciais para continuidade do serviço.
-
-> Exemplo industrial: chaves usadas para **assinar firmware** ficam sob escrow com liberação somente mediante **duas aprovações** (segregação de deveres).
-
----
-
-## 9) Boas Práticas Operacionais (ambiente industrial)
-
-- **Inventário** e ciclo de vida: emitir, renovar **antes da expiração**, revogar quando necessário.
-- **Automação**: integração com CMDB/CI/CD para **provisionar e rotacionar** certificados em servidores/CLPs/IHMs.
-- **Armazenamento de chaves privadas**: **HSM/TPM/KMS**, permissões mínimas, backup seguro.
-- **mTLS** para canais críticos entre **gateways ↔ servidores OT/IT**.
-- **SAN/Wildcard**: escolher conforme **arquitetura de nomes**; avaliar i
+- RFC 5280, Internet X.509 PKI Certificate and CRL Profile: https://datatracker.ietf.org/doc/rfc5280/
+- RFC 6960, Online Certificate Status Protocol (OCSP): https://datatracker.ietf.org/doc/rfc6960/
+- RFC 6818, Updates to RFC 5280: https://datatracker.ietf.org/doc/rfc6818/
+- NIST SP 800-52 Rev. 2, Guidelines for TLS Implementations: https://csrc.nist.gov/pubs/sp/800/52/r2/final

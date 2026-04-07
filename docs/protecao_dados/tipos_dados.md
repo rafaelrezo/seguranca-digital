@@ -1,88 +1,99 @@
 # Tipos de Dados
 
-Na era digital, os **dados são o combustível das organizações**.  
-Eles orientam decisões, impulsionam a inovação e oferecem insights valiosos sobre operações.  
-Entretanto, **nem todos os dados são iguais**: cada tipo exige níveis distintos de proteção e pode estar sujeito a legislações e normas específicas.
+> **Objetivos de aprendizagem**
+> - Diferenciar tipos de dados que exigem proteção específica.
+> - Relacionar cada tipo a obrigação legal, impacto de negócio e controle recomendado.
+> - Aplicar essa classificação em cenários típicos de Security+.
+>
+> **Tempo estimado:** 20 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
+
+## 1. Por que "tipo de dado" importa
+
+Nem todo dado sensível é igual. O controle certo depende do que está sendo protegido e do impacto da exposição.
+
+Em termos práticos, alguns grupos aparecem com frequência:
+
+- dados pessoais;
+- dados de saúde;
+- dados financeiros e de pagamento;
+- propriedade intelectual;
+- segredos comerciais;
+- dados legais e contratuais;
+- dados operacionais gerados por máquinas.
 
 ---
 
-## 1. Dados Regulamentados
-São informações controladas por **leis, regulamentos ou padrões de mercado**.  
-Incluem **PII (Personally Identifiable Information)**, **PHI (Protected Health Information)** e dados de cartão de crédito.
+## 2. Tipos mais cobrados
 
-- **PII (Dados Pessoais Identificáveis)**: informações que permitem identificar um indivíduo.  
-  *Exemplo*: nome, CPF, endereço.  
-  *Contexto industrial*: registros de funcionários que operam máquinas.  
-
-- **PHI (Informações de Saúde Protegidas)**: dados sobre saúde ou histórico médico associados a uma pessoa.  
-  *Exemplo*: atestados ocupacionais em empresas de manufatura.  
-
-- **Cartões de pagamento**: exigem conformidade com o **PCI DSS (Payment Card Industry Data Security Standard)**.  
-  *Exemplo*: sistemas de pagamento em restaurantes industriais.  
-
-### Regulamentações Relacionadas
-- **LGPD (Brasil)** e **GDPR (Europa)** – proteção de dados pessoais.  
-- **HIPAA (EUA)** – proteção de informações de saúde.  
-- **PCI DSS** – padrões para transações financeiras com cartões.  
+| Tipo de dado | Exemplo | Risco principal | Controle esperado |
+|---|---|---|---|
+| **Pessoal (PII)** | nome, CPF, endereço, matrícula | privacidade e fraude | minimização, acesso restrito, DLP |
+| **Saúde (PHI)** | exames, laudos ocupacionais, prontuário | exposição sensível | criptografia e controle rigoroso |
+| **Financeiro** | balanço, conta bancária, folha | fraude e impacto regulatório | segregação, logs e retenção |
+| **Pagamento** | cartão e dados correlatos | fraude e não conformidade | PCI DSS e proteção reforçada |
+| **Propriedade intelectual** | projeto, código, patente | perda de vantagem competitiva | menor privilégio e controle de cópia |
+| **Segredo comercial** | receita, algoritmo, calibração | espionagem e vazamento | classificação alta e monitoramento |
+| **Dados operacionais** | logs de sensores, firmware, arquivos de configuração | sabotagem e indisponibilidade | integridade, versionamento e acesso controlado |
 
 ---
 
-## 2. Segredos Comerciais
-São informações confidenciais que fornecem vantagem competitiva.  
-Incluem processos produtivos, listas de clientes, estratégias de mercado ou softwares proprietários.  
+## 3. Dados legíveis e não legíveis por humanos
 
-*Exemplo implícito*: parâmetros de calibração de equipamentos industriais ou métodos exclusivos de manutenção preventiva.  
+Do ponto de vista da segurança, tanto um PDF quanto um arquivo de firmware podem ser críticos.
 
----
+- **Legíveis por humanos**: contratos, planilhas, e-mails, relatórios.
+- **Não legíveis por humanos**: binários, telemetria, dumps, configurações e logs brutos.
 
-## 3. Propriedade Intelectual (IP)
-Abrange **criações da mente**, como invenções, projetos, obras literárias e marcas.  
-Protegida por leis de **patente, direito autoral e marca registrada**.  
-
-*Exemplo implícito*: diagramas de automação de processos, desenvolvidos internamente, registrados como propriedade intelectual da empresa.  
+O erro comum é proteger muito o que "parece documento" e ignorar o que a máquina consome.
 
 ---
 
-## 4. Informações Legais
-Relacionadas a contratos, processos judiciais e conformidade regulatória.  
-Requerem proteção reforçada para garantir **sigilo e privilégio profissional**.  
+## 4. Relação com legislação e prova
 
-*Exemplo implícito*: contratos de fornecimento de sistemas de controle para plantas industriais.  
+Algumas referências frequentes:
 
----
+- `LGPD` e `GDPR` para dados pessoais;
+- `HIPAA` para dados de saúde nos EUA;
+- `PCI DSS` para dados de pagamento;
+- requisitos contratuais e de auditoria para dados legais e financeiros.
 
-## 5. Informações Financeiras
-Dados ligados a transações econômicas da organização.  
-Incluem notas fiscais, balanços, registros bancários e impostos.  
-São alvos frequentes de cibercriminosos para fraudes ou roubo de identidade.  
-
-*Exemplo implícito*: relatórios de custos de produção e ordens de compra de insumos.  
-
-### Normas e Regulamentações
-- **SOX (Sarbanes-Oxley, EUA)** – controles internos e retenção de informações financeiras.  
-- **LGPD/GDPR** – proteção de dados pessoais presentes em transações.  
-- **PCI DSS** – quando envolve cartões de crédito.  
+Na Security+, a melhor resposta costuma combinar **tipo de dado + obrigação + controle apropriado**.
 
 ---
 
-## 6. Dados Legíveis e Não-Legíveis por Humanos
-- **Legíveis por Humanos**: entendidos diretamente, como documentos de texto ou planilhas.  
-  *Exemplo*: relatórios de inspeção de máquinas.  
+## 5. Mini-caso prático
 
-- **Não-Legíveis por Humanos**: exigem software ou máquinas para interpretação, como binários ou logs de controladores.  
-  *Exemplo*: códigos binários de CLPs ou registros brutos de sensores.  
+Uma empresa guarda no mesmo compartilhamento:
 
-Ambos podem conter informações críticas e exigem proteção equivalente.  
+- folha de pagamento;
+- contrato com fornecedor;
+- código-fonte de integração;
+- firmware de equipamento;
+- laudo médico ocupacional.
+
+Todos exigem proteção, mas por motivos diferentes. Se a organização tratar tudo como "arquivo comum", perde contexto regulatório e de negócio.
 
 ---
 
-## 7. Conclusão
-A correta **classificação dos tipos de dados** permite aplicar medidas de segurança proporcionais, atender legislações e proteger a reputação organizacional.  
-Em ambientes de **engenharia de controle e automação**, isso se traduz na proteção de:
-- Registros de funcionários (dados pessoais).  
-- Configurações de máquinas (segredos comerciais).  
-- Projetos de automação (propriedade intelectual).  
-- Contratos e auditorias (informações legais).  
-- Custos e transações (informações financeiras).  
-- Logs e binários de controladores (dados não-humanos).  
+## 6. Perguntas de revisão rápida
 
+1. Por que dados pessoais e segredos comerciais não devem ser tratados do mesmo jeito?
+2. O que muda quando o dado é não legível por humanos?
+3. Qual tipo de dado remete imediatamente a PCI DSS?
+
+---
+
+## 7. Fontes de referência
+
+- LGPD - Lei 13.709/2018  
+  https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- GDPR  
+  https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- HHS, HIPAA for Professionals  
+  https://www.hhs.gov/hipaa/for-professionals/index.html
+- PCI Security Standards Council  
+  https://www.pcisecuritystandards.org/

@@ -1,77 +1,92 @@
-# Configuração de Data Loss Prevention (DLP)
+# Configuração de DLP
 
-Nesta aula, exploramos como **configurar uma solução de Prevenção de Perda de Dados (DLP)** usando o **Google Workspace (Drive, Chat e Gmail)**.  
-Mais do que aprender o passo a passo da ferramenta, o foco está em **entender os conceitos** de como o DLP é configurado para evitar vazamento de informações críticas.
+> **Objetivos de aprendizagem**
+> - Entender como transformar política de DLP em regra técnica.
+> - Definir escopo, condição, ação e exceção para reduzir falso positivo.
+> - Aplicar configuração de DLP em e-mail, armazenamento e colaboração.
+>
+> **Tempo estimado:** 18 minutos
 
-No contexto da **engenharia de controle e automação**, essa prática é essencial para proteger desde **relatórios técnicos de manutenção** até **documentação de processos industriais**.
+## Vídeo de contexto
 
----
+![type:video](https://www.youtube.com/embed/36Bq7Ejns_o)
 
-## 1. Acesso ao Painel de Administração
-- O DLP no Google Workspace só está disponível em contas **pagas (Enterprise ou Educacional)**.  
-- O acesso é feito pelo [admin.google.com](https://admin.google.com).  
-- O menu de configuração fica em: **Segurança → Acesso e Controle de Dados → Proteção de Dados**.
+## 1. Antes de clicar na ferramenta
 
----
+Configurar DLP começa fora da ferramenta. Antes de criar regra, a organização precisa saber:
 
-## 2. Configuração Inicial
-- O painel exibe estatísticas de arquivos e chats monitorados, identificando dados sensíveis como:
-  - **Endereços de e-mail**
-  - **Números de telefone**
-  - **Identificadores pessoais**
+- quais dados quer proteger;
+- em quais canais o dado circula;
+- o que deve ser bloqueado, alertado ou apenas registrado;
+- quem pode aprovar exceções.
 
-*Exemplo implícito*: um arquivo de configuração de CLP que contém e-mails de engenheiros de suporte pode ser sinalizado como sensível ao ser compartilhado fora da empresa.
-
----
-
-## 3. Criação de Regras de Proteção
-### Etapas principais:
-1. **Adicionar uma nova regra** → Definir nome e descrição.  
-   - Exemplo: *“Bloquear SSNs”* (equivalente a CPF no Brasil).  
-2. **Definir o escopo** → Pode ser para toda a organização ou apenas um grupo (ex.: equipe de manutenção).  
-3. **Escolher aplicativos** → Drive, Chat ou ambos.  
-   - Inclui análise de texto e imagens (OCR).  
-4. **Selecionar condições** → Palavras-chave, expressões regulares ou **dados pré-definidos** (CPF, passaporte, cartões, etc.).  
-5. **Definir ações** → Bloquear, alertar ou apenas registrar (log).  
-6. **Ativar alertas** → Enviar notificações ao painel de segurança ou à equipe de cibersegurança.
+Sem isso, a ferramenta vira fonte de ruído.
 
 ---
 
-## 4. Exemplo Prático
-- **Objetivo**: Bloquear o compartilhamento de números de CPF/SSN em arquivos ou mensagens.  
-- **Ação configurada**:
-  - Bloquear mensagens no **Google Chat** contendo o dado.  
-  - Bloquear o **compartilhamento externo no Google Drive**.  
-  - Registrar evento como nível **médio** no painel de alertas.  
+## 2. Os quatro elementos da regra
 
-*Exemplo implícito*: impedir que relatórios de calibração de sensores industriais contendo dados pessoais de operadores sejam enviados por e-mail a terceiros.
+Uma regra de DLP geralmente tem:
 
----
-
-## 5. Configuração no Gmail
-- Local: **Admin → Apps → Google Workspace → Gmail → Compliance**.  
-- Criar regra de **Content Compliance** para **bloquear ou colocar em quarentena** mensagens com dados sensíveis (ex.: CPF, número de cartão, dados de saúde).  
-- Possibilidade de:  
-  - **Quarentenar e notificar** o remetente.  
-  - **Rejeitar ou criptografar** mensagens automaticamente.
+1. **escopo**: usuários, grupos, aplicativos e locais;
+2. **condição**: padrão, palavra-chave, classificação, regex ou OCR;
+3. **ação**: alertar, bloquear, quarentenar, justificar ou criptografar;
+4. **tratamento de exceção**: casos em que o fluxo legítimo não deve ser quebrado.
 
 ---
 
-## 6. Testes e Ajustes
-- O Google fornece um **modo de demonstração**, onde é possível:
-  - Testar padrões de detecção (e-mail, telefone, CPF, cartão, etc.).  
-  - Validar se o sistema interpreta corretamente **contexto e formato**.  
+## 3. Onde configurar
 
-*Exemplo implícito*: verificar se o termo *“ID Máquina 123-45-6789”* é tratado como número de série industrial ou confundido com identificador pessoal.
+Os pontos mais comuns são:
+
+- **e-mail**: impedir envio indevido de dados sensíveis;
+- **armazenamento**: bloquear compartilhamento externo;
+- **chat e colaboração**: evitar exposição por mensagem;
+- **endpoint**: reduzir cópia, impressão e exportação;
+- **nuvem**: aplicar regras em arquivos e serviços SaaS.
+
+Tanto Google Workspace quanto Microsoft 365 seguem essa lógica, ainda que mudem a interface.
+
+---
+
+## 4. Boas práticas de implementação
+
+- começar por modo de auditoria;
+- validar padrões locais, como CPF ou matrícula;
+- testar falso positivo com dados reais e dados parecidos;
+- aplicar regra mais rígida primeiro em grupo piloto;
+- revisar alertas com quem conhece o processo de negócio.
+
+> Exemplo: uma sequência numérica pode ser CPF ou número de ativo. Sem ajuste fino, o DLP bloqueia trabalho legítimo.
 
 ---
 
-## 7. Conclusão
-A configuração de DLP no **Google Workspace** (ou em equivalentes como Office 365) permite:  
-- **Proteger dados em uso, trânsito e repouso**.  
-- **Aplicar regras específicas por departamento**.  
-- **Atender legislações nacionais e internacionais** de proteção de dados.  
+## 5. Mini-caso prático
 
-Na prática industrial, o DLP ajuda a **blindar documentos críticos** (diagramas elétricos, receitas de processos, relatórios de incidentes) contra **vazamentos internos ou externos**.
+Uma instituição quer impedir compartilhamento externo de planilhas com dados de alunos.
+
+Boa configuração:
+
+- escopo inicial para secretaria e coordenação;
+- detecção de CPF, e-mail e termos de matrícula;
+- alerta primeiro, bloqueio depois de calibrar;
+- exceção formal para comunicação com órgão regulador.
 
 ---
+
+## 6. Perguntas de revisão rápida
+
+1. Quais são os quatro elementos básicos de uma regra de DLP?
+2. Por que começar em modo de auditoria costuma ser útil?
+3. Qual o risco de criar regra sem conhecer o contexto do dado?
+
+---
+
+## 7. Fontes de referência
+
+- Google Workspace Data Loss Prevention  
+  https://support.google.com/a/topic/7557701
+- Microsoft Purview Data Loss Prevention  
+  https://learn.microsoft.com/purview/dlp-learn-about-dlp
+- NIST SP 800-122  
+  https://csrc.nist.gov/pubs/sp/800/122/final

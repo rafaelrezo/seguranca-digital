@@ -1,125 +1,81 @@
-# Algoritmos Simétricos de Criptografia
+# Algoritmos Simétricos
 
-Neste conteúdo, vamos organizar os principais algoritmos simétricos de criptografia estudados na aula, destacando suas características, limitações e aplicações. De forma implícita, alguns exemplos remetem a cenários industriais de controle e automação, onde a proteção da comunicação e do armazenamento de dados é essencial.
+> **Objetivos de aprendizagem**
+> - Explicar como a criptografia simétrica protege dados em massa.
+> - Distinguir algoritmos e modos de operação relevantes para Segurança+.
+> - Reconhecer quando um algoritmo está legado, obsoleto ou recomendado.
+>
+> **Tempo estimado:** 25 minutos
 
----
+## Vídeo de contexto
 
-## Conceito Geral
-
-- **Criptografia simétrica**: utiliza **a mesma chave** para encriptar e decriptar dados.  
-- **Características principais**:
-  - Rápida e eficiente.
-  - Ideal para grandes volumes de dados.
-  - Desafio: **distribuição segura da chave**.  
-- **Classificação adicional**:
-  - **Cifras de bloco**: processam dados em blocos fixos.
-  - **Cifras de fluxo**: processam dados bit a bit ou byte a byte.
+![type:video](https://www.youtube.com/embed/FXle5aD7dXU)
 
 ---
 
-## Principais Algoritmos Simétricos
+## 1. O que é criptografia simétrica
 
-### 1. DES (Data Encryption Standard)
-- Chave: 64 bits (efetivos: 56 bits).  
-- Opera em blocos de 64 bits.  
-- Utiliza 16 rodadas de substituição e transposição.  
-- **Limitação**: atualmente considerado **fraco** diante da capacidade computacional moderna.  
-- **Aplicação histórica**: usado amplamente até os anos 2000.  
+Na criptografia simétrica, a mesma chave cifra e decifra o dado. Isso a torna rápida e adequada para:
 
-> Exemplo industrial: antigos sistemas de supervisão podiam empregar DES para proteger dados de sensores, mas hoje seria inseguro.
+- discos e backups,
+- túneis VPN,
+- tráfego TLS após a troca inicial de chaves,
+- volumes grandes de informação.
 
----
+A limitação central é operacional: se uma chave vazar, todo o tráfego ou dado protegido por ela fica exposto.
 
-### 2. 3DES (Triple DES)
-- Evolução do DES.  
-- Usa três chaves de 56 bits, em sequência: **encripta → decripta → encripta**.  
-- Efetivamente alcança segurança de **112 bits**.  
-- Mais seguro que o DES, mas **obsoleto** diante do AES.  
+## 2. Algoritmos importantes
 
-> Exemplo: empregado em sistemas legados de controle de acesso físico em plantas industriais.
+| Algoritmo | Situação atual | Uso típico | Observação |
+|---|---|---|---|
+| AES | Recomendado | Dados em repouso e trânsito | Padrão moderno |
+| 3DES | Legado | Sistemas antigos | Deve ser evitado em novos projetos |
+| DES | Obsoleto | Muito antigo | Chave pequena, inseguro |
+| ChaCha20-Poly1305 | Recomendado | Software e dispositivos sem aceleração AES | AEAD moderno |
 
----
+AES continua sendo o nome mais cobrado em prova. Para o examinador, o ponto não é decorar siglas de legado, e sim saber que DES e 3DES são escolhas ruins hoje.
 
-### 3. IDEA (International Data Encryption Algorithm)
-- Blocos de 64 bits.  
-- Chave de 128 bits.  
-- Usado historicamente no **PGP (Pretty Good Privacy)**.  
-- Mais forte que o DES, mas pouco adotado em larga escala.  
+## 3. Modos de operação
 
----
+O algoritmo não anda sozinho. O modo muda como os blocos são processados.
 
-### 4. AES (Advanced Encryption Standard)
-- Substituto oficial do DES e 3DES, escolhido pelo **NIST**.  
-- Tamanhos de chave: **128, 192 ou 256 bits**.  
-- Também chamado de **Rijndael Cipher**.  
-- **Mais usado atualmente**: padrão de criptografia simétrica em todo o mundo.  
-- Rápido, seguro e amplamente suportado em hardware e software.  
+- **ECB**: simples, mas expõe padrões. Não é indicado para dados sensíveis.
+- **CBC**: antigo, ainda encontrado em legado.
+- **CTR**: transforma a cifra em algo semelhante a um fluxo.
+- **GCM**: muito importante porque entrega confidencialidade e integridade ao mesmo tempo.
 
-> Exemplo industrial: utilizado em VPNs industriais, protocolos de automação e sistemas SCADA para proteger transmissões de dados.
+Se a questão falar em autenticidade e confidencialidade combinadas, GCM é uma resposta muito forte.
 
----
+## 4. Boas práticas
 
-### 5. Blowfish
-- Cifra de bloco de 64 bits.  
-- Chaves variáveis: de 32 a 448 bits.  
-- Desenvolvido como substituto do DES.  
-- Não patenteado, de uso livre.  
-- Pouco utilizado em comparação ao AES.  
+1. Use **AES-128, AES-192 ou AES-256** conforme a política da organização.
+2. Prefira **AEAD** quando possível, como AES-GCM ou ChaCha20-Poly1305.
+3. Elimine **DES**, **3DES** e outros algoritmos legados em novos sistemas.
+4. Não reutilize vetor de inicialização ou nonce quando o modo exigir unicidade.
 
----
+## 5. Erro clássico de prova
 
-### 6. Twofish
-- Evolução do Blowfish.  
-- Blocos de 128 bits.  
-- Chaves de 128, 192 ou 256 bits.  
-- Também não patenteado, disponível como **open source**.  
-- Foi finalista no concurso que escolheu o AES.  
+Uma cifra forte com configuração ruim continua sendo insegura. O modo de operação, o reuso de nonce, a qualidade da implementação e o gerenciamento de chave importam tanto quanto o algoritmo.
 
-> Exemplo: sistemas de controle embarcados podem adotar algoritmos abertos como o Twofish quando precisam de criptografia leve e eficiente.
+## 6. Mini-caso prático
 
----
+Uma equipe precisa proteger:
 
-### 7. Suíte RC (Rivest Ciphers)
-- Criada por **Ron Rivest**.  
-- **RC1**: nunca publicado.  
-- **RC2**: considerado fraco.  
-- **RC3**: comprometido antes do lançamento.  
-- **RC4**:
-  - **Cifra de fluxo**.
-  - Tamanho variável de chave: 40 a 2048 bits.
-  - Usado em SSL antigo e no protocolo WEP de redes Wi-Fi (ambos hoje inseguros).  
-- **RC5**:
-  - Cifra de bloco.
-  - Chaves até 2048 bits.  
-- **RC6**:
-  - Baseado no RC5, mais avançado.  
-  - Participou do concurso para substituir o DES, mas perdeu para o AES.  
+- o banco de dados de um portal de clientes,
+- o backup noturno,
+- o túnel entre matriz e filial.
 
-> Exemplo: protocolos antigos em redes industriais sem fio utilizavam RC4 (como no WEP), mostrando a importância da atualização constante dos mecanismos de segurança.
+Ela usa AES para o backup, TLS com AEAD no portal e uma VPN com cifras modernas. DES e 3DES ficam fora do desenho.
 
----
+## 7. Perguntas de revisão rápida
 
-## Comparação Resumida
+1. Por que a criptografia simétrica é mais rápida que a assimétrica?
+2. Qual modo é mais seguro para unir confidencialidade e integridade?
+3. Por que DES e 3DES não são boas escolhas hoje?
 
-| Algoritmo | Tipo         | Tamanho de Chave         | Situação Atual       |
-|-----------|--------------|--------------------------|----------------------|
-| DES       | Bloco (64b)  | 56 bits efetivos         | Obsoleto             |
-| 3DES      | Bloco (64b)  | 112 bits efetivos        | Obsoleto             |
-| IDEA      | Bloco (64b)  | 128 bits                 | Pouco utilizado      |
-| AES       | Bloco (128b) | 128, 192, 256 bits       | **Padrão atual**     |
-| Blowfish  | Bloco (64b)  | 32 a 448 bits            | Limitado             |
-| Twofish   | Bloco (128b) | 128, 192, 256 bits       | Alternativa aberta   |
-| RC4       | Fluxo        | 40 a 2048 bits           | Inseguro/obsoleto    |
-| RC5       | Bloco        | Até 2048 bits            | Raramente usado      |
-| RC6       | Bloco        | Até 2048 bits            | Finalista, não adotado |
+## 8. Fontes de referência
 
----
-
-## Conclusão
-
-- **AES** é o algoritmo simétrico mais seguro e mais utilizado atualmente, inclusive em sistemas industriais modernos.  
-- **Algoritmos legados** (DES, 3DES, RC4) são considerados inseguros e não devem ser aplicados em novos projetos.  
-- **Blowfish e Twofish** oferecem alternativas abertas, podendo ser exploradas em cenários específicos.  
-- O conhecimento desses algoritmos permite ao engenheiro de controle e automação selecionar soluções adequadas para **proteger dados críticos em ambientes industriais**, equilibrando segurança, desempenho e compatibilidade.
-
----
+- NIST FIPS 197, Advanced Encryption Standard (AES): https://csrc.nist.gov/pubs/fips/197/final
+- NIST SP 800-131A Rev. 2, Transitioning the Use of Cryptographic Algorithms and Key Lengths: https://csrc.nist.gov/pubs/sp/800/131/a/r2/final
+- RFC 8439, ChaCha20 and Poly1305 for IETF Protocols: https://datatracker.ietf.org/doc/rfc8439/
+- NIST FIPS 140-3, Security Requirements for Cryptographic Modules: https://www.nist.gov/publications/security-requirements-cryptographic-modules-0

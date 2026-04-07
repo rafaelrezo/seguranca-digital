@@ -1,156 +1,119 @@
 # Monitoramento e Relatório de Riscos
 
-Entre os diversos componentes do gerenciamento de riscos, o **monitoramento** e o **relatório** desempenham um papel fundamental.  
-Eles representam a **fase final do ciclo de gestão de riscos**, onde a organização acompanha continuamente os riscos existentes, identifica novos e comunica os resultados aos interessados.
+> **Objetivos de aprendizagem**
+> - Explicar o papel do monitoramento continuo.
+> - Diferenciar risco residual, KRI e risco de controle.
+> - Estruturar um relatorio de risco claro para decisores.
+>
+> **Tempo estimado:** 18 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/du4ocukIUhQ)
 
 ---
 
-## 1. O que é o Monitoramento de Riscos
+## 1. Monitorar não e revisitar por formalidade
 
-O **monitoramento de riscos** é o processo contínuo de **acompanhamento, reavaliação e controle** dos riscos identificados, verificando se as respostas aplicadas permanecem eficazes e se novos riscos surgiram.
+Monitorar e acompanhar se o risco mudou, se os controles continuam validos e se novos sinais de alerta surgiram.
 
-Em termos práticos, envolve:
-- Rastrear riscos existentes e seus indicadores;
-- Identificar **novos riscos** que podem emergir;
-- Acompanhar **riscos residuais** (após tratamento);
-- Avaliar a **efetividade das medidas de resposta**;
-- Atualizar planos e registros conforme o projeto evolui.
+Sem monitoramento, a organizacao fica presa a uma fotografia antiga do ambiente.
 
-### Exemplo 1 – TI
-Uma empresa de desenvolvimento de software monitora continuamente:
-- Riscos de atraso em prazos de entrega;
-- Bugs críticos;
-- Mudanças de requisitos ou mercado.
-
-Ela utiliza **ferramentas de gestão de projetos** (como Jira, Trello ou GitLab) para acompanhar indicadores e realizar **revisões de risco em sprints**.
-
-### Exemplo 2 – Automação Industrial
-Em uma planta industrial, o time de manutenção monitora:
-- Taxas de falha em sensores;
-- Paradas não planejadas;
-- Efetividade das manutenções preventivas.
-
-Esses dados são coletados por sistemas **SCADA** ou **historiadores industriais**, que permitem detectar variações e prever riscos antes que causem paradas de produção.
+> Analogia: e como dirigir olhando apenas o retrovisor. A gestao de riscos precisa olhar o painel, o trafego e o comportamento do motor ao mesmo tempo.
 
 ---
 
-## 2. Riscos Residuais e Riscos de Controle
+## 2. O que monitorar
 
-Durante o monitoramento, dois conceitos tornam-se importantes:
+- riscos existentes;
+- riscos residuais;
+- eficacia dos controles;
+- mudancas de negocio;
+- incidentes e quase-incidentes;
+- KRIs.
 
-### a) Risco Residual
-É o risco **remanescente** após a aplicação de medidas de mitigação, transferência ou aceitação.  
-Mesmo após controles, **parte do risco sempre permanece**.
+### Risco residual e risco de controle
 
-**Exemplo – TI:**  
-Após implementar firewall e autenticação multifator, ainda pode haver risco de vazamento por erro humano — esse é o **risco residual**.
-
-**Exemplo – Automação:**  
-Mesmo após instalar sensores redundantes, pode ocorrer falha simultânea dos sensores — o risco residual de indisponibilidade permanece.
-
-$$
-Risco_{residual} = Risco_{inicial} - Eficácia_{dos\_controles}
-$$
-
-### b) Risco de Controle
-Representa a **perda de eficácia dos controles ao longo do tempo**.  
-Controles técnicos ou administrativos degradam-se se não forem revisados.
-
-**Exemplo – TI:**  
-Um antivírus inicialmente eficiente torna-se menos eficaz à medida que surgem novos tipos de malware e assinaturas não são atualizadas.
-
-**Exemplo – Automação:**  
-Um sistema de proteção elétrica pode perder precisão se não for calibrado periodicamente, elevando o risco de falha.
-
-> O monitoramento contínuo permite **identificar a degradação de controles** e **corrigir antes que ocorram incidentes**.
+- **Risco residual**: risco que continua depois dos controles.
+- **Risco de controle**: risco de um controle falhar, degradar ou ficar obsoleto.
 
 ---
 
-## 3. Relatório de Riscos
+## 3. Indicadores úteis
 
-O **relatório de riscos** é o processo de **comunicação estruturada** das informações relacionadas à gestão de riscos para os **stakeholders** (gestores, equipe técnica, clientes e órgãos reguladores).
+| Indicador | O que mostra | Exemplo |
+|---|---|---|
+| KRI | Tendencia de aumento de risco | Falhas de login fora do horario |
+| KPI | Desempenho do processo | Tempo medio de atendimento |
+| Alerta | Desvio operacional | Backup sem validacao |
+| Evidencia | Comprovacao de controle | Log de auditoria, relatorio de restore |
 
-Ele apresenta:
-- Riscos identificados e classificados;
-- Ações de mitigação em andamento;
-- Mudanças no nível de risco;
-- Planos corretivos e desempenho dos controles.
-
-### Exemplo 1 – Construção Civil
-Uma construtora emite **relatórios mensais de risco** contendo:
-- Riscos de segurança (acidentes, atrasos);
-- Impactos financeiros estimados;
-- Medidas adotadas e status.
-
-Esses relatórios são compartilhados com engenheiros, gestores e clientes, promovendo **transparência e confiança**.
-
-### Exemplo 2 – Automação Industrial
-Uma indústria pode gerar **dashboards de risco operacional** em tempo real,
-exibindo indicadores como **MTBF (tempo médio entre falhas)** e **MTTR (tempo médio de reparo)**.
-Essas informações permitem priorizar manutenção e alinhar decisões com a direção.
+O ponto central e simples: se o indicador sobe, a resposta nao pode esperar o fechamento do ano.
 
 ---
 
-## 4. Importância do Monitoramento e relatório
+## 4. Relatório de risco
 
-O monitoramento e o relatório de riscos são essenciais por quatro motivos principais:
+O relatorio traduz o estado da gestao para executivos, auditores e equipes tecnicas.
 
-### a) Tomada de Decisão Informada
-Ao acompanhar continuamente os riscos, a organização obtém dados atualizados que orientam decisões sobre **recursos, prazos e prioridades**.
+Um relatorio util tem:
 
-> Exemplo: em TI, se o risco de atraso em um módulo crítico aumenta, a gestão pode realocar desenvolvedores; em automação, pode antecipar compras de peças sobressalentes.
+- riscos prioritarios;
+- tendencia de cada risco;
+- status dos planos de acao;
+- riscos aceitos e justificativa;
+- riscos residuais relevantes;
+- recomendacoes objetivas.
 
----
+### Formato prático
 
-### b) Mitigação Contínua
-O monitoramento permite **agir preventivamente**.  
-Ao identificar tendências de aumento na probabilidade ou impacto, a equipe pode reforçar controles antes que o problema se concretize.
-
-> Exemplo: um aumento no número de alertas de segurança pode indicar necessidade de atualização de firewall ou reconfiguração de rede.
-
----
-
-### c) Comunicação com Stakeholders
-O **relatório de riscos** garante que todos os envolvidos compreendam a situação e as ações tomadas.  
-Isso promove **alinhamento, transparência e confiança** entre times técnicos e executivos.
-
-> Em auditorias e conselhos corporativos, os relatórios de risco são evidências de **governança e responsabilidade**.
+| ID | Risco | Nivel | Tendencia | Ação | Dono | Prazo |
+|---|---|---|---|---|---|---|
+| R-01 | Credenciais expostas | Critico | Subindo | MFA e reset | SecOps | 7 dias |
+| R-02 | Backup nao testado | Alto | Estavel | Simulacao de restore | Infra | 30 dias |
+| R-03 | Fornecedor sem revisao | Alto | Subindo | Reevaluacao contratual | GRC | 15 dias |
 
 ---
 
-### d) Conformidade Regulatória
-Em setores regulados (como **energia, finanças, saúde e tecnologia**), o relatório de riscos é **obrigatório por lei ou norma** (ex.: ISO 31000, ISO 27001, IEC 62443).  
-Relatórios periódicos demonstram **aderência às práticas de segurança e continuidade**.
+## 5. Como fazer o ciclo funcionar
+
+1. Medir.
+2. Comparar com o baseline.
+3. Detectar desvio.
+4. Acionar owner.
+5. Atualizar o registro.
+6. Reportar para decisores.
+
+Esse ciclo combina bem com NIST RMF e com monitoramento continuo de controles.
 
 ---
 
-## 5. Boas Práticas de Monitoramento e Relatório
+## 6. Mini-caso prático
 
-- **Estabelecer KPIs e KRIs:** indicadores mensuráveis de risco e desempenho.  
-- **Definir periodicidade:** semanal, mensal ou contínua, conforme criticidade.  
-- **Automatizar coleta de dados:** usando sistemas de logs, SIEM, SCADA ou BI.  
-- **Padronizar relatórios:** formato, escala de impacto, e critérios de priorização.  
-- **Comunicar em diferentes níveis:** relatórios executivos (resumo) e técnicos (detalhes).  
-- **Registrar histórico:** permite análise de tendência e aprendizado organizacional.
+Uma empresa troca o provedor de backup e percebe que as restauracoes falharam em dois testes consecutivos.
 
----
-
-## 6. Exemplo de Estrutura de Relatório de Riscos
-
-| ID | Descrição do Risco | Probabilidade | Impacto | Nível | Ação de Mitigação | Status | Responsável |
-|----|--------------------|---------------|----------|--------|------------------|----------|-------------|
-| R-001 | Falha no servidor de banco de dados | Média | Alta | Alto | Backup diário e redundância | Em andamento | Equipe de Infra |
-| R-002 | Vazamento de dados confidenciais | Baixa | Crítico | Alto | Revisão de acessos e logs | Controlado | Segurança da Informação |
-| R-003 | Parada da linha de envase | Média | Alta | Alto | Troca preventiva de motores | Planejada | Eng. de Manutenção |
+- KRI dispara.
+- Risco residual aumenta.
+- O owner recebe prazo para correcao.
+- O relatorio passa a destacar o risco como alto, mesmo sem incidente real ainda.
 
 ---
 
-## 7. Conclusão
+## 7. Perguntas de revisão rápida
 
-O **monitoramento e o relatório de riscos** são os mecanismos que **mantêm o gerenciamento de riscos vivo e dinâmico**.
+1. Qual a diferenca entre risco residual e risco de controle?
+2. Por que o relatorio precisa falar a linguagem do decisor?
+3. O que um KRI faz melhor do que uma revisao anual isolada?
 
-- O **monitoramento** acompanha riscos e mede a eficácia dos controles, identificando mudanças no cenário.  
-- O **relatório** garante que essas informações cheguem aos **decisores**, promovendo ações coordenadas.
+---
 
-> Seja em TI ou automação industrial, uma boa gestão de riscos é **contínua, comunicativa e baseada em dados**.  
-> O monitoramento constante e relatórios bem estruturados são os pilares que sustentam **a resiliência e a confiabilidade das operações**.
+## 8. Fontes de referência
+
+- NIST SP 800-37 Rev. 2, Risk Management Framework for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/37/r2/final
+- NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+- NIST SP 800-137, Information Security Continuous Monitoring (ISCM)  
+  https://csrc.nist.gov/pubs/sp/800/137/final
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final

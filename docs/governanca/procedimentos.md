@@ -1,151 +1,119 @@
-# Procedimentos em Governança e Segurança da Informação
+# Procedimentos de Governança
 
-## Introdução
+> **Objetivos de aprendizagem**
+> - Entender como procedimentos operacionalizam políticas e padrões.
+> - Identificar procedimentos críticos em onboarding, offboarding, mudanças e incidentes.
+> - Relacionar procedimento, repetibilidade e evidência de auditoria.
+>
+> **Tempo estimado:** 20 minutos
 
-Os **procedimentos** são a espinha dorsal de qualquer organização.  
-Eles representam o **conjunto de etapas padronizadas** que garantem que tarefas críticas sejam executadas de forma **consistente, eficiente e conforme os padrões estabelecidos**.  
-Um procedimento é como um **manual operacional**, que orienta as pessoas sobre **como** agir em situações específicas.
+## Vídeo de contexto
 
----
+![type:video](https://www.youtube.com/embed/P4nNJk76xFo)
 
-## 1. O que são Procedimentos
+## 1. O que é um procedimento
 
-Procedimentos são **sequências sistemáticas de ações** destinadas a alcançar um resultado específico.  
-Eles garantem que as atividades ocorram de maneira **padronizada**, reduzindo erros e promovendo **responsabilidade e rastreabilidade**.
+Procedimento é o passo a passo documentado para executar uma atividade de forma consistente.
 
-### Exemplos práticos:
+Se a política define a obrigação e o padrão define o requisito mínimo, o procedimento define:
 
-- **Procedimento de evacuação de emergência:**  
-  Define como os colaboradores devem agir em caso de incêndio ou desastre natural, indicando **rotas de saída, pontos de encontro e responsáveis pela evacuação**.  
+- quem faz;
+- em que ordem;
+- com qual evidência;
+- com qual critério de sucesso.
 
-- **Procedimento de backup de dados:**  
-  Detalha **quando, como e onde** os backups devem ser feitos.  
-  Pode prever **backups incrementais diários**, **backups completos semanais** e **testes periódicos de restauração** para garantir integridade dos dados.
-
-Em ambos os exemplos, a existência de um procedimento documentado evita improvisações, promove segurança e reduz o tempo de resposta.
-
----
-
-## 2. Procedimentos de Gerenciamento de Mudanças (Change Management)
-
-O **gerenciamento de mudanças** é um dos procedimentos mais críticos em uma organização.  
-Ele garante que **alterações em sistemas, processos ou infraestrutura** sejam realizadas **de forma controlada e segura**, evitando impactos negativos.
-
-### Etapas típicas do processo:
-
-1. **Identificação da necessidade de mudança:**  
-   Avaliar o motivo da alteração e seus impactos técnicos e operacionais.
-
-2. **Planejamento da mudança:**  
-   Elaborar um plano detalhado descrevendo:
-   - Escopo e justificativa da mudança;  
-   - Equipes envolvidas e recursos necessários;  
-   - Riscos associados e medidas de mitigação.
-
-3. **Testes prévios:**  
-   Simular a mudança em um ambiente controlado (sandbox, staging ou laboratório) antes da aplicação em produção.
-
-4. **Implementação controlada:**  
-   Executar a mudança de forma planejada, preferencialmente durante uma **janela de manutenção**, minimizando interrupções.
-
-5. **Plano de rollback:**  
-   Definir uma estratégia de reversão caso algo saia errado.
-
-6. **Revisão pós-implementação:**  
-   Avaliar o sucesso da mudança, registrar lições aprendidas e atualizar a documentação.
-
-
-### Boas práticas:
-- Registrar todas as mudanças em um **sistema de controle (ex.: ITSM)**;  
-- Classificar mudanças como **planejadas, emergenciais ou padrão**;  
-- Aprovar mudanças críticas em um **comitê de controle de mudanças (CAB)**;  
-- Monitorar métricas como **sucesso, falhas e rollback**.
+Sem procedimento, a organização depende de memória, improviso e boa vontade.
 
 ---
 
-## 3. Procedimentos de Onboarding e Offboarding
+## 2. Procedimentos que mais impactam segurança
 
-Os processos de **entrada e saída de colaboradores** são fundamentais para a **segurança e continuidade organizacional**.  
-Eles definem como novos profissionais são integrados e como os desligamentos são conduzidos de forma segura.
+### 2.1 Onboarding e offboarding
 
-### 3.1 Onboarding – Integração de Novos Colaboradores
+- criação e revisão de acesso;
+- entrega e devolução de ativos;
+- assinatura de termos e ciência de políticas;
+- revogação imediata no desligamento.
 
-O objetivo é garantir que o novo colaborador:
-- Receba **acesso adequado** às ferramentas e sistemas;  
-- Seja **capacitado** sobre normas de segurança e cultura organizacional;  
-- Entenda suas **responsabilidades e limitações de acesso**.
+### 2.2 Gerenciamento de mudanças
 
-#### Etapas comuns:
-1. Configuração de conta e credenciais.  
-2. Entrega de equipamentos e permissões de acesso.  
-3. Treinamento em políticas e procedimentos de segurança.  
-4. Acompanhamento inicial por um mentor ou gestor.
+- abertura de solicitação;
+- análise de impacto;
+- aprovação;
+- teste;
+- execução;
+- rollback;
+- revisão pós-implementação.
 
-> **Exemplo prático:**  
-> Um novo analista de redes recebe um notebook corporativo, acesso à VPN e treinamento sobre políticas de uso aceitável (AUP).
+### 2.3 Resposta a incidentes
 
-
----
-
-### 3.2 Offboarding – Desligamento de Colaboradores
-
-O offboarding é o processo inverso e deve ser conduzido com o mesmo rigor.  
-Seu objetivo é **preservar a segurança dos dados** e **garantir a continuidade operacional** após o desligamento.
-
-#### Etapas comuns:
-1. Desativar contas e revogar acessos imediatamente.  
-2. Recolher equipamentos e crachás.  
-3. Fazer **backup de dados corporativos** e transferir responsabilidades.  
-4. Realizar entrevista de desligamento para coletar feedback e identificar riscos.
-
-> **Exemplo prático:**  
-> Ao sair da empresa, o usuário tem sua conta de e-mail desativada e seus tokens de autenticação removidos do sistema de SSO (Single Sign-On).
+- triagem;
+- escalonamento;
+- contenção;
+- erradicação;
+- recuperação;
+- lições aprendidas.
 
 ---
 
-## 4. Playbooks
+## 3. Playbooks e repetibilidade
 
-Os **playbooks** são guias operacionais detalhados que descrevem **como agir em situações específicas**.  
-Eles padronizam respostas, reduzem o tempo de reação e asseguram que ações críticas sejam executadas corretamente — mesmo por equipes diferentes.
+Playbooks são procedimentos especializados para cenários recorrentes:
 
-### Estrutura típica de um playbook:
-- **Objetivo:** contexto e propósito do procedimento.  
-- **Pré-requisitos:** ferramentas, sistemas e permissões necessárias.  
-- **Passo a passo:** sequência clara das ações a serem executadas.  
-- **Critérios de sucesso:** resultados esperados e métricas de validação.  
-- **Pontos de escalonamento:** quando acionar outras equipes.
+- ransomware;
+- phishing reportado;
+- conta comprometida;
+- falha de backup;
+- mudança emergencial.
 
-### Exemplos de playbooks em TI e Segurança:
-- **Resposta a Incidentes de Segurança:** detectar, conter, erradicar e restaurar sistemas após uma invasão.  
-- **Recuperação de Servidores:** restaurar serviços críticos após falhas de hardware.  
-- **Gerenciamento de Vulnerabilidades:** escanear, priorizar e corrigir vulnerabilidades detectadas.  
-- **Gestão de Logs e Alertas:** monitorar e responder a eventos em tempo real.
+Eles reduzem tempo de resposta e variabilidade entre equipes.
 
-
-
-> **Em TI,** um playbook pode definir como reagir a um ataque de ransomware:  
-> desconectar sistemas afetados, comunicar o SOC (Security Operations Center), restaurar backups e revisar vulnerabilidades.
+> Analogia: procedimento é como checklist de cabine. Em situação crítica, a equipe não deveria depender de memória para fazer o básico certo.
 
 ---
 
-## 5. Benefícios dos Procedimentos
+## 4. Como isso aparece na Security+
 
-A implementação de procedimentos bem documentados traz diversos ganhos organizacionais:
+A prova costuma associar procedimento a:
 
-- **Padronização:** todos seguem a mesma prática, reduzindo falhas humanas.  
-- **Confiabilidade:** resultados previsíveis, independentemente de quem executa.  
-- **Rastreabilidade:** registros permitem auditorias e revisões.  
-- **Segurança:** minimizam riscos em operações críticas.  
-- **Eficiência:** otimizam tempo e recursos, evitando retrabalho.
+- consistência operacional;
+- segregação de funções;
+- evidência;
+- controle de mudanças;
+- resposta a incidentes.
 
+Se a questão perguntar "qual documento descreve como executar a tarefa?", o foco tende a ser procedimento ou playbook.
 
-## Conclusão
+---
 
-Os **procedimentos** são a base prática da **governança e da segurança digital**.  
-Eles convertem **políticas e padrões** em **ações repetíveis e auditáveis**, tornando a organização mais previsível e resiliente.
+## 5. Mini-caso prático
 
-- O **gerenciamento de mudanças** garante estabilidade durante transformações.  
-- Os **processos de onboarding e offboarding** preservam a integridade do ambiente corporativo.  
-- Os **playbooks** fornecem instruções detalhadas para resposta rápida e eficaz a eventos críticos.
+Um colaborador sai da organização numa sexta-feira. O desligamento é comunicado, mas não existe procedimento formal de offboarding.
 
-> Assim como em uma linha de produção automatizada, onde cada etapa é documentada e
+Resultado:
+
+- conta de VPN continua ativa;
+- tokens não são revogados;
+- notebook não é recolhido;
+- acesso a dados persiste além da necessidade.
+
+Com procedimento formal, a saída deixa de depender de comunicação informal e passa a ser verificável.
+
+---
+
+## 6. Perguntas de revisão rápida
+
+1. O que diferencia procedimento de padrão?
+2. Por que playbooks reduzem risco operacional?
+3. Qual procedimento tende a falhar mais quando não há checklist formal?
+
+---
+
+## 7. Fontes de referência
+
+- NIST SP 800-61 Rev. 2, Computer Security Incident Handling Guide  
+  https://csrc.nist.gov/pubs/sp/800/61/r2/final
+- CISA Cybersecurity Performance Goals  
+  https://www.cisa.gov/cybersecurity-performance-goals
+- NIST SP 800-53 Rev. 5  
+  https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final

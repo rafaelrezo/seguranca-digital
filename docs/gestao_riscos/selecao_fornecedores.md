@@ -1,176 +1,102 @@
-# Seleção e Monitoramento de Fornecedores (Vendor Selection and Monitoring)
+# Seleção e Monitoramento de Fornecedores
 
-A **seleção e o monitoramento de fornecedores** são etapas críticas na gestão moderna de riscos e na excelência operacional.  
-Escolher o fornecedor certo — e garantir que ele continue alinhado aos objetivos estratégicos da organização — é essencial para manter **segurança, qualidade e conformidade**.
+> **Objetivos de aprendizagem**
+> - Montar criterios objetivos para escolher fornecedores com menor risco e melhor aderencia.
+> - Identificar conflitos de interesse, requisitos de due diligence e pontos de entrada para contrato.
+> - Manter monitoramento continuo para evitar que a postura do fornecedor piore depois da contratacao.
+>
+> **Tempo estimado:** 24 minutos
 
-> Em um mundo cada vez mais interconectado, um único fornecedor pode influenciar a performance e a segurança de dezenas de parceiros.  
-> Por isso, a relação com fornecedores deve ser tratada com o mesmo rigor que a contratação de membros da própria equipe.
+## Vídeo de contexto
 
----
-
-## 1. O Processo de Seleção de Fornecedores
-
-Selecionar um fornecedor é semelhante a contratar um novo colaborador:  
-é preciso avaliar **competência, confiabilidade, valores e aderência à cultura organizacional**.
-
-Esse processo envolve análise técnica, financeira, jurídica e de segurança, formando a base do que chamamos de **due diligence**.
+![type:video](https://www.youtube.com/embed/QQrwJDw2iss)
 
 ---
 
-## 2. Due Diligence (Diligência Prévia)
+## 1. Por que a selecao importa?
 
-A **due diligence** é uma **avaliação profunda e estruturada** do fornecedor antes da contratação.  
-Ela vai além das credenciais superficiais e analisa:
+Selecionar bem um fornecedor reduz retrabalho, incidentes e perda de controle. Em seguranca, isso significa escolher parceiros que consigam provar maturidade, e nao apenas prometer isso.
 
-- **Saúde financeira** e estabilidade da empresa;  
-- **Histórico operacional e reputação**;  
-- **Referências e depoimentos de clientes anteriores**;  
-- **Conformidade regulatória e certificações**;  
-- **Práticas de sustentabilidade e governança (ESG)**;  
-- **Maturidade em segurança da informação**.
-
-**Exemplo:**  
-Ao selecionar um fornecedor de **embalagens sustentáveis**, não basta confirmar a certificação “verde”.  
-É preciso verificar:
-- Como ele descarta resíduos;  
-- A origem das matérias-primas;  
-- A rastreabilidade ambiental do processo.
-
-> Em TI, a due diligence pode incluir análise de vulnerabilidades e validação de práticas de backup e criptografia.  
-> Em automação industrial, pode envolver inspeção de qualidade dos componentes e aderência às normas IEC 62443.
+> Analogia: escolher fornecedor e parecido com escolher uma chave mestra para um edificio. Se a chave for facil de copiar, o edificio inteiro fica exposto.
 
 ---
 
-## 3. Conflitos de Interesse
+## 2. Etapas de selecao
 
-Durante o processo de seleção, deve-se garantir **transparência e imparcialidade**.  
-Um **conflito de interesse** ocorre quando vínculos pessoais ou financeiros afetam o julgamento de quem participa da escolha.
+1. **Definir requisitos** de negocio, seguranca, privacidade e continuidade.
+2. **Conduzir due diligence** com questionarios e evidencias.
+3. **Pontuar candidaturas** em uma matriz comparavel.
+4. **Executar prova de conceito** ou piloto quando o servico for critico.
+5. **Formalizar contrato** com SLA, NDA, direito de auditoria e clausulas de incidente.
+6. **Onboarding controlado** com acessos minimos e logs.
 
-**Exemplo:**  
-Se um gerente responsável pela seleção tem parentesco ou participação societária em um fornecedor avaliado, ele deve ser **impedido de participar da decisão**.
-
-Boas práticas incluem:
-- Exigir **declaração formal de conflitos de interesse**;  
-- Criar **comitês multidisciplinares** para avaliação;  
-- Adotar **políticas de transparência e ética corporativa**.
-
----
-
-## 4. Questionários de Avaliação de Fornecedores
-
-Os **questionários de avaliação** são ferramentas padronizadas que ajudam a comparar fornecedores de forma justa e objetiva.  
-Eles solicitam informações detalhadas sobre:
-
-- **Segurança da informação** (políticas, controles, testes de penetração);  
-- **Garantias de disponibilidade e continuidade (SLA, RTO, RPO)**;  
-- **Plano de recuperação de desastres (DRP)**;  
-- **Conformidade legal e regulatória**;  
-- **Estrutura organizacional e certificações**.
-
-**Exemplo:**  
-Na escolha de um provedor de nuvem, o questionário pode incluir perguntas como:
-- Qual é o tempo médio de uptime garantido (ex.: 99,9%)?  
-- Que tipo de redundância e backup é utilizado?  
-- Quais protocolos de criptografia protegem os dados?  
-- Como é feita a notificação de incidentes de segurança?
-
-Essas respostas permitem comparar fornecedores com base em **critérios técnicos e mensuráveis**.
+| Criterio | O que perguntar | Peso sugerido |
+|---|---|---|
+| Seguranca | MFA, logs, criptografia, resposta a incidente | Alto |
+| Privacidade | Dados tratados, retencao, descarte, subcontratados | Alto |
+| Continuidade | RTO, RPO, BCP, DRP | Alto |
+| Financeiro | Saude financeira e estabilidade | Medio |
+| Operacao | Suporte, escalabilidade, tempo de resposta | Medio |
+| Juridico | NDA, SLA, direito de auditoria, responsabilidade | Alto |
 
 ---
 
-## 5. Regras de Engajamento (Rules of Engagement)
+## 3. Como evitar vieses na escolha
 
-As **regras de engajamento** definem **como a organização e os fornecedores interagem** durante o processo de seleção e negociação.
+- Declarar conflitos de interesse antes da analise.
+- Usar uma matriz com criterios e pesos definidos de antemao.
+- Registrar justificativas para a decisao.
+- Evitar contratar por conveniencia sem validacao minima.
 
-Essas regras cobrem:
-- Protocolos de comunicação e confidencialidade;  
-- Limites para troca de dados sensíveis;  
-- Normas de conduta durante avaliações técnicas;  
-- Critérios e prazos para envio de propostas.
-
-**Exemplo prático:**  
-Ao avaliar uma empresa de desenvolvimento de software:
-- O fornecedor deve assinar um **acordo de confidencialidade (NDA)** antes de receber informações do projeto.  
-- As discussões técnicas não podem envolver **códigos proprietários** sem autorização formal.
-
-> Essa formalização evita vazamento de informações e garante **igualdade de tratamento entre fornecedores**.
-
-**Política comum:**  
-Algumas empresas, como a **Dion Training**, adotam a regra de **não aceitar propostas não solicitadas**.  
-Ou seja, apenas respondem a **chamadas oficiais de proposta (RFP)**, garantindo controle e economia de tempo.
+Se a escolha e baseada apenas em preco, a organizacao pode economizar na compra e pagar caro na resposta ao incidente.
 
 ---
 
-## 6. Monitoramento Contínuo de Fornecedores
+## 4. Monitoramento apos a contratacao
 
-Após a seleção, o trabalho não termina — começa uma nova fase: **monitorar continuamente o desempenho e a conformidade** do fornecedor.
+Selecionar nao basta. O fornecedor precisa ser monitorado durante todo o ciclo de vida do contrato.
 
-O ambiente corporativo e os mercados evoluem, assim como os fornecedores.  
-O monitoramento garante que o parceiro **permaneça aderente às metas e exigências originais**.
+Monitoramento util inclui:
 
----
+- Revisao periodica de desempenho.
+- Verificacao de mudancas relevantes de postura ou controle.
+- Reavaliacao anual ou por evento.
+- Acompanhamento de incidentes publicos e vulnerabilidades.
+- Revisao de subcontratados e de acessos concedidos.
 
-### a) Avaliações de Desempenho (Performance Reviews)
-
-São revisões periódicas que avaliam o fornecedor com base em indicadores definidos no contrato, como:
-
-- **Qualidade das entregas**;  
-- **Pontualidade**;  
-- **Custo e eficiência operacional**;  
-- **Conformidade com requisitos técnicos e ambientais**.
-
-**Exemplo:**  
-Um fornecedor de embalagens sustentáveis pode ser avaliado trimestralmente quanto:
-- À **qualidade do material**;  
-- Ao **cumprimento de prazos**;  
-- Ao **impacto ambiental real** medido em auditorias.
+> Dica de prova: "selecionar" e "monitorar" sao fases diferentes. Um fornecedor bom hoje nao e automaticamente um fornecedor bom amanha.
 
 ---
 
-### b) Ciclos de Feedback (Feedback Loops)
+## 5. Mini-caso prático
 
-Os **feedback loops** estabelecem **comunicação bidirecional** entre a organização e o fornecedor.  
-Eles promovem **ajustes colaborativos** e aprendizado mútuo.
+Uma empresa escolhe um fornecedor de SaaS porque ele oferece o menor preco. Depois da contratacao, descobre que o fornecedor nao possui canal formal de notificacao de incidentes e usa contas compartilhadas na administracao.
 
-**Exemplo:**
-- A empresa informa falhas na qualidade ou prazos.  
-- O fornecedor propõe melhorias no processo logístico.  
-- Ambos revisam juntos os indicadores de desempenho (KPIs).
+O que deveria ter acontecido:
 
-> Esse ciclo fortalece a parceria e reduz o atrito, transformando o fornecedor em um aliado estratégico.
+- Matriz de avaliacao com peso maior para seguranca do que para preco.
+- POC e revisao tecnica.
+- Contrato com obrigacao de notificacao, logs e contas individuais.
 
 ---
 
-## 7. Benefícios do Monitoramento Contínuo
+## 6. Perguntas de revisão rápida
 
-| Benefício | Descrição |
-|------------|------------|
-| **Prevenção de Riscos** | Identifica desvios antes que causem impacto operacional. |
-| **Melhoria Contínua** | Garante evolução constante na entrega de valor. |
-| **Transparência e Confiança** | Estabelece comunicação aberta e confiável. |
-| **Conformidade Sustentada** | Assegura cumprimento de normas e contratos ao longo do tempo. |
+1. Por que uma matriz de selecao e melhor do que uma decisao intuitiva?
+2. Qual a diferenca entre due diligence e monitoramento continuo?
+3. O que deve constar no onboarding de um fornecedor critico?
 
 ---
 
-## 8. Analogias Didáticas
+## 7. Fontes de referência
 
-- **Profissionais de TI:**  
-  Selecionar um fornecedor é como escolher uma API de terceiros — ela pode funcionar bem hoje, mas precisa ser constantemente monitorada quanto a **atualizações, segurança e compatibilidade**.
-
-- **Profissionais de Automação Industrial:**  
-  É como contratar um fornecedor de sensores. Mesmo que os primeiros lotes funcionem perfeitamente, o **controle de qualidade contínuo** é vital para evitar **falhas intermitentes** que parem toda a linha de produção.
-
----
-
-## 9. Conclusão
-
-A **seleção e o monitoramento de fornecedores** não são burocracias — são pilares de **governança, segurança e eficiência operacional**.
-
-Boas práticas incluem:
-- Conduzir **due diligence completa** antes da contratação;  
-- Adotar **questionários padronizados** e **regras claras de engajamento**;  
-- Realizar **avaliações periódicas de desempenho**;  
-- Manter **canais abertos de feedback e melhoria contínua**.
-
-> Em última análise, um fornecedor não é apenas um prestador de serviço, mas uma **extensão da própria organização**.  
-> E como qualquer parceria estratégica, requer **confiança, transparência e acompanhamento constante** para garantir o sucesso mútuo.
+- CISA, *Procuring Safe and Secure ICT Products and Services Fact Sheet*  
+  https://www.cisa.gov/resources-tools/resources/procuring-safe-and-secure-ict-products-and-services-fact-sheet
+- CISA, *Vendor SCRM Template*  
+  https://www.cisa.gov/resources-tools/resources/vendor-scrm-template
+- NIST SP 800-161 Rev. 1, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*  
+  https://csrc.nist.gov/pubs/sp/800/161/r1/final
+- NIST SP 800-218, *Secure Software Development Framework (SSDF)*  
+  https://csrc.nist.gov/pubs/sp/800/218/final
+- NIC.br / Cidadão na Rede, *Nas compras on-line verifique o vendedor*  
+  https://cidadaonarede.nic.br/pt/videos/seguranca/nas-compras-online-verifique-o-vendedor

@@ -1,177 +1,113 @@
 # Gestão de Riscos em Segurança Digital
 
-A gestão de riscos é um dos pilares da segurança da informação — e não apenas na TI tradicional. Em ambientes industriais conectados (como redes de automação ou sistemas SCADA), compreender, identificar e tratar riscos é essencial para garantir tanto a continuidade operacional quanto a segurança física e digital.
+> **Objetivos de aprendizagem**
+> - Explicar o que diferencia ameaça, vulnerabilidade e risco.
+> - Descrever o ciclo de gestão de riscos e seus artefatos principais.
+> - Relacionar gestão de riscos com continuidade, governança e Security+.
+>
+> **Tempo estimado:** 18 minutos
+
+## Vídeo de contexto
+
+![type:video](https://www.youtube.com/embed/nnZVWbmVmG0)
 
 ---
 
-## 1. Conceito de Gestão de Riscos
+## 1. O que é gestão de riscos
 
-Gestão de riscos é o processo sistemático de **identificar, analisar, tratar, monitorar e comunicar riscos**.  
-O objetivo é assegurar que a organização atinja suas metas **de forma consistente com seu apetite de risco** — isto é, o nível de risco que ela está disposta a aceitar.
+Gestao de riscos e o processo de identificar, analisar, tratar, monitorar e comunicar riscos que possam afetar ativos, processos e objetivos de negocio.
 
-Em outras palavras, é como calibrar um sistema de controle industrial: você não elimina totalmente as falhas possíveis, mas ajusta os limites, sensores e alarmes para que as operações permaneçam seguras e eficientes.
+Na pratica, ela responde a quatro perguntas:
 
----
+- O que pode dar errado?
+- Qual e o impacto?
+- O que vamos fazer a respeito?
+- Como vamos provar que o controle funciona?
 
-## 2. Ciclo de Vida da Gestão de Riscos
+> Analogia: e como operar um painel industrial. Nao basta ver o alarme aceso; e preciso entender a causa, agir e acompanhar se a correcao realmente estabilizou o sistema.
 
-O processo de gestão de riscos pode ser comparado a um **ciclo de controle retroalimentado**, semelhante a um **loop de feedback PID** em sistemas industriais. Cada etapa depende das informações geradas pela anterior.
+### Conceitos que o Security+ cobra
 
-### 2.1 Identificação de Riscos
-
-Primeiro, é preciso **identificar** o que pode dar errado.  
-Na TI, isso pode significar falhas de servidor, vulnerabilidades de software ou perda de dados.  
-Na automação, pode envolver a falha de um CLP, uma sobrecarga de energia ou uma falha na comunicação entre sensores e atuadores.
-
-O objetivo é **criar uma lista abrangente de riscos potenciais**, antecipando eventos que possam comprometer os objetivos organizacionais.
-
-> **Analogia:** assim como um engenheiro mapeia os pontos críticos de um sistema elétrico antes de iniciar a operação, o analista de segurança mapeia os pontos críticos de falha digital.
-
----
-
-### 2.2 Análise de Riscos
-
-Depois de identificar, é hora de **analisar** os riscos.  
-Essa análise busca entender a **probabilidade de ocorrência** e o **impacto potencial** de cada risco.
-
-Existem dois métodos principais:
-
-- **Análise Qualitativa:** usa categorias como “baixo”, “médio” e “alto”.  
-  Exemplo: “A falha de um sensor de temperatura é de impacto alto e probabilidade média”.
-- **Análise Quantitativa:** utiliza valores numéricos e modelos matemáticos.  
-  Exemplo: “Probabilidade de 5% de falha com perda estimada de R$ 20.000”.
-
-O resultado dessa fase é a **priorização dos riscos**, indicando quais merecem mais atenção ou recursos para mitigação.
+| Conceito | Pergunta curta | Exemplo |
+|---|---|---|
+| Ameaça | Quem ou o que pode causar dano? | Phishing, ransomware, fornecedor comprometido |
+| Vulnerabilidade | Onde existe fragilidade? | Senha fraca, sistema desatualizado, acesso excessivo |
+| Risco | Qual a chance e o impacto do evento? | Vazamento de dados por credencial comprometida |
+| Controle | O que reduz ou limita o risco? | MFA, backup, segmentacao, DLP |
 
 ---
 
-### 2.3 Tratamento de Riscos
+## 2. Ciclo de gestao de riscos
 
-Uma vez conhecidos os riscos e seus impactos, é necessário **decidir o que fazer com eles**.  
-As principais estratégias são:
+O ciclo mais usado em cursos e em ambientes corporativos segue cinco passos:
 
-1. **Evitar o risco:** eliminar a causa (ex: descontinuar um serviço vulnerável).  
-2. **Reduzir o risco:** aplicar controles ou medidas que diminuam sua probabilidade ou impacto (ex: firewall, redundância, treinamento).  
-3. **Compartilhar o risco:** transferir a responsabilidade parcial a terceiros (ex: contratar seguro cibernético ou provedor de nuvem).  
-4. **Aceitar o risco:** quando o custo do controle é maior que o dano potencial.
+1. Identificar riscos.
+2. Analisar probabilidade e impacto.
+3. Tratar o risco.
+4. Monitorar a eficacia dos controles.
+5. Comunicar o resultado a gestores e partes interessadas.
 
-> **Na indústria**, o conceito é semelhante à manutenção preventiva: você decide se vai **substituir uma bomba antes de falhar (redução)**, **usar redundância (compartilhar)** ou **continuar operando até o limite de desgaste (aceitar)**.
+Esse fluxo aparece em guias do NIST e em praticas de GRC. Para a prova, o ponto principal e entender que risco nao e um evento isolado, mas um processo continuo.
 
----
+### Onde entra a continuidade
 
-### 2.4 Monitoramento de Riscos
-
-Gestão de risco não é um projeto pontual, e sim um **processo contínuo**.  
-É preciso monitorar:
-
-- Riscos conhecidos (para ver se mudaram de status);
-- Novos riscos (que podem surgir com mudanças operacionais ou tecnológicas);
-- A eficácia das medidas adotadas.
-
-Esse acompanhamento garante que o sistema de gestão de riscos seja **dinâmico e responsivo** às mudanças internas e externas — como uma malha de controle que ajusta seus parâmetros conforme as variações de processo.
+- **BIA** define o que e critico para o negocio.
+- **RTO** define em quanto tempo o servico precisa voltar.
+- **RPO** define quanto dado pode ser perdido.
+- **Risco residual** e o que sobra depois dos controles.
 
 ---
 
-### 2.5 Comunicação e Relato de Riscos
+## 3. Governanca, risco e conformidade
 
-A última etapa é **comunicar os resultados**.  
-As informações sobre riscos e sua gestão devem ser apresentadas de forma clara aos responsáveis e interessados.
+Gestao de riscos nao vive sozinha. Ela se conecta com:
 
-Formatos comuns incluem:
+- **Governanca**: quem decide, prioriza e aprova.
+- **Conformidade**: quais leis, normas e politicas precisam ser seguidas.
+- **Controles**: barreiras tecnicas e administrativas que reduzem exposicao.
 
-- Relatórios detalhados;
-- Mapas de calor (heat maps);
-- Dashboards com indicadores de risco.
-
-A comunicação eficaz é vital para **garantir a responsabilidade (accountability)** e **permitir decisões informadas** pela gestão.
-
-> Assim como um painel SCADA fornece visibilidade do estado dos equipamentos, um dashboard de riscos fornece visibilidade sobre a saúde digital da organização.
+Quando a organizacao nao tem governanca clara, o risco vira opiniao. Quando a governanca e madura, a decisao passa a ser rastreavel e defensavel.
 
 ---
 
-## 3. Frequência das Avaliações de Risco
+## 4. Como isso aparece na Security+
 
-A **frequência de avaliação de risco** define com que periodicidade o processo é realizado.  
-Ela depende do tipo de organização, do ambiente de operação e da criticidade dos ativos.
+Para a certificacao, pense em tres usos práticos:
 
-Tipos comuns de avaliação:
+- escolher controles proporcionais ao risco;
+- justificar backup, MFA, segmentacao e monitoramento;
+- reconhecer que alguns riscos sao aceitos, outros mitigados e outros evitados.
 
-- **Ad hoc:** feita sob demanda, após incidentes ou grandes mudanças.
-- **Recorrente:** executada em intervalos regulares (mensal, trimestral, anual).
-- **Única:** feita apenas uma vez, geralmente em projetos ou implantações pontuais.
-- **Contínua:** automatizada, com coleta e análise permanente de indicadores.
-
-> Em automação, isso se assemelha a monitoramentos contínuos de vibração ou temperatura de motores — uma avaliação “contínua” detecta variações antes que se tornem falhas críticas.
+> Exemplo: se uma plataforma de exames precisa ficar disponivel 24x7, a organizacao nao trata backup como luxo; trata como requisito de continuidade.
 
 ---
 
-## 4. Análise de Impacto e Indicadores de Recuperação
+## 5. Mini-caso prático
 
-A **análise de impacto nos negócios (BIA - Business Impact Analysis)** determina o efeito de interrupções sobre as operações.  
-Para isso, são usados indicadores importantes:
+Uma faculdade migra parte dos sistemas para a nuvem. O portal academico passa a expor dados de alunos, e um fornecedor terceirizado administra a infraestrutura.
 
-- **RTO (Recovery Time Objective):** tempo máximo aceitável para restaurar um serviço.  
-  → Exemplo: “O sistema de controle de temperatura deve voltar em até 30 minutos”.
-- **RPO (Recovery Point Objective):** perda máxima de dados aceitável medida em tempo.  
-  → Exemplo: “Podemos perder no máximo 15 minutos de dados de sensores”.
-- **MTTR (Mean Time To Repair):** tempo médio para reparar uma falha.
-- **MTBF (Mean Time Between Failures):** tempo médio entre falhas consecutivas.
-
-Esses parâmetros são fundamentais tanto em **infraestruturas de TI** quanto em **plataformas industriais**.
+- Ameaça: acesso indevido por credencial vazada.
+- Vulnerabilidade: permissao excessiva no ambiente.
+- Impacto: indisponibilidade e vazamento de dados pessoais.
+- Resposta: MFA, revisao de acessos, backup e monitoramento.
 
 ---
 
-## 5. Estratégias de Gestão de Riscos
+## 6. Perguntas de revisão rápida
 
-As principais estratégias se repetem em diferentes contextos:
-
-| Estratégia | Descrição | Exemplo em TI | Exemplo em Automação |
-|-------------|------------|----------------|----------------------|
-| **Transferência** | Transferir o risco para terceiros | Contratar provedor de nuvem com SLA de segurança | Contratar manutenção terceirizada com garantia |
-| **Aceitação** | Assumir o risco e lidar com as consequências | Manter servidor legado isolado | Operar com equipamento antigo até troca planejada |
-| **Evitação** | Eliminar a fonte de risco | Encerrar serviço vulnerável | Retirar do processo um componente obsoleto |
-| **Mitigação** | Reduzir a probabilidade ou impacto | Implementar firewall e backup | Adotar redundância e alarmes preventivos |
+1. Qual a diferenca entre ameaca, vulnerabilidade e risco?
+2. Por que a gestao de riscos precisa ser continua e nao pontual?
+3. Como BIA, RTO e RPO se conectam a uma decisao de seguranca?
 
 ---
 
-## 6. Monitoramento e Relato Contínuo
+## 7. Fontes de referência
 
-Durante o acompanhamento, é importante observar:
-
-- Mudanças de contexto (novos equipamentos, atualizações de software);
-- Eficácia dos controles implementados;
-- Surgimento de novas ameaças.
-
-Esses relatórios podem ser integrados em painéis de **SIEM (Security Information and Event Management)** na TI ou **HMI/SCADA** em automação, permitindo decisões rápidas e embasadas.
-
----
-
-## 7. Síntese Prática
-
-A gestão de riscos não é apenas um requisito normativo, mas uma **disciplina viva** que combina observação, análise e ação contínua.
-
-Em uma analogia simples:
-
-> Assim como um engenheiro de automação ajusta os parâmetros de um controlador PID para manter o processo dentro de limites seguros, o gestor de segurança ajusta suas políticas e controles de risco para manter a organização dentro de um “intervalo operacional seguro”.
-
-Essa mentalidade de melhoria contínua é o que diferencia ambientes resilientes de ambientes vulneráveis.
-
----
-
-## 8. Revisão e Fixação
-
-Ao final desta seção, o estudante deve ser capaz de:
-
-- Explicar as etapas do processo de gestão de riscos;  
-- Diferenciar análise qualitativa e quantitativa;  
-- Reconhecer as estratégias de tratamento de riscos;  
-- Entender a importância da frequência e da comunicação de riscos;  
-- Aplicar analogias de risco em contextos de TI e automação industrial.
-
-
-
-### Conclusão
-
-Gestão de riscos é um ciclo contínuo de aprendizado e adaptação.  
-Em ambientes conectados, onde TI e automação convergem (como na Indústria 4.0), dominar esse processo é garantir tanto a segurança cibernética quanto a estabilidade operacional.
-
+- NIST SP 800-30 Rev. 1, Guide for Conducting Risk Assessments  
+  https://csrc.nist.gov/pubs/sp/800/30/r1/final
+- NIST SP 800-37 Rev. 2, Risk Management Framework for Information Systems and Organizations  
+  https://csrc.nist.gov/pubs/sp/800/37/r2/final
+- NIST Cybersecurity Framework 2.0  
+  https://www.nist.gov/cyberframework
+- NIST SP 800-39, Managing Information Security Risk  
+  https://csrc.nist.gov/pubs/sp/800/39/final
