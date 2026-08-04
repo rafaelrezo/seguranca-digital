@@ -1,0 +1,11 @@
+{
+  "name": "seguranca-digital-materials",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Geradores dos templates editáveis do curso",
+  "dependencies": {
+    "docx": "^9.5.1",
+    "pptxgenjs": "^4.0.1"
+  }
+}
