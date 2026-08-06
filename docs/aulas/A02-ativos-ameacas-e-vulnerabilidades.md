@@ -44,6 +44,39 @@ Antes de prosseguir, registre individualmente:
 
 Uma resposta defensável separa observação de inferência. Um código `200` mostra que o servidor entregou um recurso naquela requisição; sozinho, ele não prova autoria, intenção, alcance total nem impacto de negócio.
 
+### A requisição usada na aula
+
+Os estudantes não precisam descobrir uma rota. Professor e turma acessam juntos:
+
+```text
+http://127.0.0.1:3000/ftp/acquisitions.md
+```
+
+O navegador produz, conceitualmente, esta requisição:
+
+```http
+GET /ftp/acquisitions.md HTTP/1.1
+Host: 127.0.0.1:3000
+```
+
+Na imagem validada para a aula, a resposta é `HTTP 200` com conteúdo `text/markdown`. Se outra versão produzir resultado diferente, o comportamento real deve ser registrado e a turma continua com a evidência alternativa do PDF; não deve procurar formas de contornar a resposta.
+
+### Exemplo construído com a turma
+
+Os conceitos são introduzidos um por vez, sempre sobre a mesma evidência:
+
+| Passo | Construção no cenário | Status da afirmação |
+|---|---|---|
+| observação | uma requisição `GET`, sem login, recebeu `200` e conteúdo Markdown | sustentada pela resposta observada |
+| ativo | a informação de aquisição e o arquivo que a contém têm valor no cenário | interpretação sustentada pela função declarada no documento |
+| ameaça | um usuário sem autorização pode obter a informação | possibilidade, não autoria comprovada |
+| fraqueza | o arquivo pode estar em área servida publicamente ou sem autorização adequada | hipótese que exige arquitetura/configuração para confirmação |
+| vulnerabilidade | esta implantação entrega o arquivo sem a restrição esperada | instância concreta observada no laboratório |
+| exposição/vetor | requisição HTTP `GET` para a rota fornecida | caminho reproduzível dentro do escopo |
+| consequência | divulgação dos planos fictícios de aquisição | impacto do cenário, não dado real |
+
+Essa progressão evita esperar que estudantes iniciantes produzam sozinhos uma análise completa. O professor modela o primeiro encadeamento; as duplas justificam, corrigem limites e aplicam o mesmo raciocínio no registro.
+
 ## Do ativo à consequência
 
 **Ativo** é algo que tem valor para a organização ou sustenta seus objetivos. Um inventário útil não é uma lista de equipamentos: ele conecta cada item à função, ao responsável e ao dano possível.
@@ -149,6 +182,15 @@ O objetivo não é obter uma flag. O produto é um registro técnico que outra e
 O inventário da prática permanece dentro do Juice Shop: recurso observado, aplicação ou rota, dados relacionados e container/plataforma. O exemplo OT aparece somente na reflexão de transferência; ele não integra a evidência nem a entrega principal.
 
 ## Da descoberta à ação defensiva
+
+Um **controle de segurança** é uma medida que modifica o risco. Ele pode:
+
+- **prevenir:** evitar ou dificultar a exposição;
+- **detectar:** tornar acessos e mudanças observáveis;
+- **corrigir:** remover a condição que permitiu o comportamento;
+- **apoiar recuperação:** restabelecer dados, configuração ou serviço após impacto.
+
+Uma ferramenta ou configuração não é automaticamente um controle: é preciso declarar finalidade, responsável e evidência de que funciona. Somente depois dessa conceituação a turma compara as opções abaixo.
 
 | Opção | Melhor uso | Esforço/custo | Evidência ou entregável | Limitação/risco |
 |---|---|---|---|---|
