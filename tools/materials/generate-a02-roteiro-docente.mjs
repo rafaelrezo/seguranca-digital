@@ -15,6 +15,7 @@ await Promise.all([mkdir(resolve(out, "fonte"), { recursive: true }), mkdir(reso
 const C = { navy:"12304A", blue:"0B65C2", cyan:"087F7A", amber:"B75D00", red:"B42318", green:"26734D", paper:"EEF3F7", ink:"172B4D", grey:"4B5E71", white:"FFFFFF", line:"C9D4DF" };
 const H = (text, level=HeadingLevel.HEADING_1) => new Paragraph({ text, heading:level, keepNext:true });
 const P = (text, opts={}) => new Paragraph({ children:[new TextRun({ text, size:23, color:C.ink })], spacing:{ after:110, line:315 }, ...opts });
+const Code = (text) => new Paragraph({ children:[new TextRun({ text, font:"Consolas", size:20, color:"D8F3EA" })], shading:{type:ShadingType.CLEAR,fill:"0D2235"}, spacing:{before:45,after:100,line:275}, indent:{left:180,right:180} });
 const bullet = (text, level=0) => new Paragraph({ children:[new TextRun({ text, size:23, color:C.ink })], bullet:{ level }, spacing:{ after:75, line:305 } });
 const Cell = (text, fill="FFFFFF", bold=false, color=C.ink, width) => new TableCell({
   width: width ? { size:width, type:WidthType.DXA } : undefined,
@@ -44,7 +45,7 @@ const children = [
   P("A aula desloca o foco da obtenção de uma flag para uma tarefa profissional: produzir evidência que outra equipe consiga revisar e retestar. O Juice Shop dá concretude à situação, mas não é o objetivo final. O resultado é a capacidade de conectar evidência, conceito, impacto, ação e validação."),
   box("Pergunta mobilizadora","O servidor entregou um recurso com HTTP 200. O que podemos afirmar, o que ainda é hipótese e qual consequência justifica agir primeiro?",C.blue),
   H("Resultados observáveis"),
-  bullet("Inventariar ativos de TI e OT relacionando função, responsável, dependências e consequência."),
+  bullet("Inventariar os ativos do Juice Shop relacionando função, responsável, dependências e consequência; comparar OT somente na transferência."),
   bullet("Distinguir ameaça, fraqueza, vulnerabilidade, exposição, exploit, CWE e CVE no mesmo caso."),
   bullet("Produzir um registro com evidência interpretada, prioridade, controle condicionado e reteste verificável."),
 
@@ -52,10 +53,19 @@ const children = [
   H("Ambiente e materiais",HeadingLevel.HEADING_2),
   bullet("Abrir a apresentação A02 e testar a legibilidade no projetor."),
   bullet("Disponibilizar o PDF prático no Classroom, mas pedir que a turma não avance antes da transição do slide 8."),
-  bullet("Executar o Juice Shop somente no laboratório local. Anotar no quadro o protocolo, host e porta autorizados."),
+  bullet("Orientar cada estudante a executar seu próprio Juice Shop local. Escrever no quadro: http://127.0.0.1:3000."),
+  bullet("Confirmar previamente Docker Desktop no Windows em modo Linux containers ou Docker Engine no Linux."),
+  bullet("Baixar a imagem antes do encontro quando a rede do laboratório for limitada."),
   bullet("Confirmar que DevTools permite observar a requisição. Burp Community é opcional e não deve ser pré-requisito."),
   bullet("Validar a rota escolhida na versão instalada. Não assumir que telas e desafios permanecem iguais entre versões."),
   bullet("Manter a evidência alternativa do roteiro pronta: requisição fictícia, resposta 200 e tipo de conteúdo."),
+  H("Comandos que devem permanecer visíveis",HeadingLevel.HEADING_2),
+  P("PowerShell do Windows e terminal Linux usam os mesmos comandos Docker:"),
+  Code("docker pull bkimminich/juice-shop"),
+  Code("docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3000:3000 bkimminich/juice-shop"),
+  Code("docker ps --filter name=juice-shop-a02"),
+  P("Acesso no navegador: http://127.0.0.1:3000. Encerramento: docker stop juice-shop-a02."),
+  box("Segurança","O vínculo 127.0.0.1 mantém o laboratório na máquina do estudante. Não orientar 0.0.0.0, encaminhamento de porta ou uso da demonstração pública como alvo.",C.red),
   H("Checklist cinco minutos antes",HeadingLevel.HEADING_2),
   table(["Verificação","Pronto quando...","Se falhar..."],[
     ["Alvo","URL local abre e não está exposta à Internet","usar evidência alternativa"],
@@ -112,11 +122,12 @@ const children = [
 
   page(), H("4. Mediação da prática — 52 a 104 minutos"),
   table(["Tempo","Missão da dupla","Intervenção do professor","Evidência"],[
-    ["52–60","confirmar alvo, papéis e hipótese","verificar endereço antes de qualquer acesso","checklist e previsão"],
-    ["60–72","observar uma requisição sem enumerar","perguntar o que cada campo demonstra","registro sanitizado"],
-    ["72–84","inventariar quatro ativos, incluindo transferência OT","cobrar função, responsável e consequência","inventário priorizado"],
-    ["84–94","produzir registro da vulnerabilidade","perguntar “observado ou inferido?” em cada afirmação","ticket preliminar"],
-    ["94–101","comparar tratamento e definir reteste","exigir premissa, trade-off e resultado esperado","decisão verificável"],
+    ["52–64","subir container local e confirmar 127.0.0.1:3000","verificar Docker, nome, porta e vínculo local","container e URL local"],
+    ["64–69","confirmar alvo, papéis e hipótese","verificar endereço antes da observação","checklist e previsão"],
+    ["69–79","observar uma requisição sem enumerar","perguntar o que cada campo demonstra","registro sanitizado"],
+    ["79–87","inventariar recurso, aplicação/rota, dados e container","cobrar função, responsável e consequência","inventário do Juice Shop priorizado"],
+    ["87–96","produzir registro da vulnerabilidade","perguntar “observado ou inferido?” em cada afirmação","ticket preliminar"],
+    ["96–104","comparar tratamento, definir reteste e parar container","exigir premissa e confirmar docker stop","decisão e ambiente encerrado"],
     ["101–104","revisão cruzada, limpeza e frase final","selecionar uma dúvida para a A03","PDF e ambiente encerrado"],
   ],[1500,3250,3650,1900]),
   H("Pistas progressivas",HeadingLevel.HEADING_2),
@@ -167,7 +178,8 @@ const children = [
   bullet("NIST Cybersecurity Framework 2.0 — categoria Asset Management (ID.AM)."),
   bullet("CWE — linguagem comum para fraquezas de software e hardware."),
   bullet("CVE Program — identificação pública de vulnerabilidades específicas."),
-  bullet("OWASP Juice Shop — aplicação vulnerável intencionalmente criada para treinamento."),
+  bullet("OWASP Juice Shop — guia oficial de execução com Docker."),
+  bullet("Docker — instalação oficial do Docker Desktop para Windows e Docker Engine para Linux."),
 ];
 
 const doc = new Document({

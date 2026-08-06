@@ -8,7 +8,7 @@ Na A01, a equipe aprendeu a separar evento, hipótese e conclusão antes de inte
 
 Ao final do encontro, você será capaz de:
 
-- inventariar ativos de TI e OT relacionando proprietário, função e consequência;
+- inventariar os ativos do ambiente Juice Shop relacionando proprietário, função e consequência, e comparar como a prioridade mudaria em OT;
 - distinguir ameaça, fraqueza, vulnerabilidade, exposição e exploit em uma evidência concreta;
 - registrar e priorizar uma vulnerabilidade, propondo controle e validação compatíveis com o risco.
 
@@ -93,6 +93,46 @@ flowchart LR
 
 Inventariar a superfície não significa varrer a Internet. Nesta aula, o caminho autorizado começa no navegador e termina no único ambiente local fornecido.
 
+## Preparação local do Juice Shop
+
+O laboratório usa a imagem indicada pelo guia oficial do OWASP Juice Shop. No Windows, inicie o Docker Desktop usando containers Linux. No Linux, confirme que o Docker Engine está em execução.
+
+Os comandos seguintes funcionam no **PowerShell do Windows** e no **terminal Linux**:
+
+```bash
+docker version
+docker pull bkimminich/juice-shop
+docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+docker ps --filter name=juice-shop-a02
+```
+
+Depois que o container estiver em execução, abra:
+
+> **Endereço do laboratório: `http://127.0.0.1:3000`**
+
+`127.0.0.1` representa o próprio computador. Cada estudante acessa seu container local; esse endereço não aponta para o computador do professor nem para um serviço público.
+
+!!! warning "Porta ocupada"
+    Se a porta `3000` já estiver em uso, pare e confirme com o professor. Quando autorizado, execute `docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3001:3000 bkimminich/juice-shop` e acesse `http://127.0.0.1:3001`.
+
+!!! danger "Não exponha a aplicação vulnerável"
+    Mantenha o vínculo com `127.0.0.1`. Não substitua por `0.0.0.0`, não encaminhe a porta no roteador e não use a demonstração pública do Juice Shop como alvo da atividade.
+
+Se a página não abrir, consulte os últimos registros do container:
+
+```bash
+docker logs --tail 30 juice-shop-a02
+```
+
+Ao terminar a prática, pare o ambiente e confirme o encerramento:
+
+```bash
+docker stop juice-shop-a02
+docker ps --filter name=juice-shop-a02
+```
+
+Como o container foi iniciado com `--rm`, ele será removido automaticamente após a parada. A imagem permanece disponível para outra aula.
+
 ## Investigação controlada
 
 Na prática, a dupla deverá:
@@ -105,6 +145,8 @@ Na prática, a dupla deverá:
 6. retestar ou definir um teste de validação reproduzível.
 
 O objetivo não é obter uma flag. O produto é um registro técnico que outra equipe consiga revisar.
+
+O inventário da prática permanece dentro do Juice Shop: recurso observado, aplicação ou rota, dados relacionados e container/plataforma. O exemplo OT aparece somente na reflexão de transferência; ele não integra a evidência nem a entrega principal.
 
 ## Da descoberta à ação defensiva
 
@@ -157,4 +199,6 @@ Se um arquivo de configuração semelhante estivesse em uma HMI de uma célula i
 - [CVE Program](https://www.cve.org/) — identificação pública de vulnerabilidades específicas.
 - [CWE — Common Weakness Enumeration](https://cwe.mitre.org/) — linguagem comum para fraquezas de software e hardware.
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) — aplicação vulnerável intencionalmente criada para treinamento.
-- [OWASP Juice Shop — guia oficial](https://help.owasp-juice.shop/) — instalação, uso e desafios; consulte apenas no ambiente autorizado.
+- [OWASP Juice Shop — execução com Docker](https://pwning.owasp-juice.shop/companion-guide/latest/part1/running.html) — imagem e execução local.
+- [Docker Desktop para Windows](https://docs.docker.com/desktop/setup/install/windows-install/) — instalação e requisitos oficiais.
+- [Docker Engine para Linux](https://docs.docker.com/engine/install/) — instalação por distribuição.
