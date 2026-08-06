@@ -31,16 +31,23 @@ secret_patterns = [
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(r"(?i)(?:password|senha|token)\s*[:=]\s*[^<\s]{8,}"),
 ]
-for public_root in (ROOT / "docs", ROOT / "slides", ROOT / "atividades"):
+forbidden_external_hosts = [
+    re.compile(r"(?i)(?:https?:)?//(?:[^/]+\.)?polyfill\.io(?:/|$)"),
+]
+for public_root in (ROOT / "docs", ROOT / "slides", ROOT / "atividades", ROOT / "mkdocs.yml"):
     if not public_root.exists():
         continue
-    for path in public_root.rglob("*"):
+    paths = [public_root] if public_root.is_file() else public_root.rglob("*")
+    for path in paths:
         if not path.is_file() or path.suffix.lower() not in {".md", ".txt", ".yml", ".yaml", ".json", ".html"}:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         for pattern in secret_patterns:
             if pattern.search(text):
                 errors.append(f"possível segredo em {path.relative_to(ROOT)}")
+        for pattern in forbidden_external_hosts:
+            if pattern.search(text):
+                errors.append(f"host externo proibido em {path.relative_to(ROOT)}: polyfill.io")
 
 for folder in list((ROOT / "slides").glob("A[0-9][0-9]-*")) + list((ROOT / "atividades").glob("A[0-9][0-9]-*")):
     if not (folder / "README.md").is_file():
@@ -52,4 +59,4 @@ if errors:
         print(f"- {error}")
     sys.exit(1)
 
-print("Estrutura editorial, separação do MkDocs e verificações de segredos: OK")
+print("Estrutura editorial, separação do MkDocs, hosts externos e verificações de segredos: OK")
