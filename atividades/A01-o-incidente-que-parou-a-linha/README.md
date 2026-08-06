@@ -4,7 +4,8 @@
 - Página MkDocs: `docs/aulas/A01-o-incidente-que-parou-a-linha.md`
 - Fonte versionada: `fonte/A01-o-incidente-que-parou-a-linha.docx`
 - PDF do Google Classroom: `pdf/A01-pratica.pdf`
-- Fonte colaborativa no Google Docs: https://docs.google.com/document/d/11eVNBV-I5YoBKqNWfX84nlTCgHQTcLUZw2lRJy9M9go
+- Fonte colaborativa no Google Docs: https://docs.google.com/document/d/17oFxr4Nfl6YusYm3loRJsSp_6WvMwKuO72odsbNFdv8/edit
+- Pasta do curso no Drive: https://drive.google.com/drive/folders/1FDegmvF7LGJ-FTDowgvqoSxncldsZWmB
 
 ## Geração
 

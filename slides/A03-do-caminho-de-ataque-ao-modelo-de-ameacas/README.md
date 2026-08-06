@@ -3,7 +3,8 @@
 - Página MkDocs: `docs/aulas/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md`
 - Fonte: `fonte/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.pptx`
 - PDF: `exportados/A03-slides.pdf`
-- Google Apresentações: https://docs.google.com/presentation/d/1viMNEx_kvZIaXrcq8_o1YlbccR2-MfrMTp5MQGHI0_U/edit
+- Google Apresentações: https://docs.google.com/presentation/d/1z8AoKoud-z_pjosvgZJDSVWOb3lR4BNeMp2OAbHGd4g/edit
+- Pasta do curso no Drive: https://drive.google.com/drive/folders/1FDegmvF7LGJ-FTDowgvqoSxncldsZWmB
 
 ## Geração
 

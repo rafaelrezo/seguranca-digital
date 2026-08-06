@@ -4,7 +4,8 @@
 - Página MkDocs: `docs/aulas/A02-ativos-ameacas-e-vulnerabilidades.md`
 - Fonte versionada: `fonte/A02-ativos-ameacas-e-vulnerabilidades.pptx`
 - PDF de apresentação: `exportados/A02-slides.pdf`
-- Fonte colaborativa no Google Apresentações: https://docs.google.com/presentation/d/1u9KRxUY6byHFESFaHLg9f85HjhOJc3Kv7v9NUCI3S3E
+- Fonte colaborativa no Google Apresentações: https://docs.google.com/presentation/d/1rlbUynky8B8NqHwwV3p6ZssN4xXlIOvhxiSy7nFKMSA/edit
+- Pasta do curso no Drive: https://drive.google.com/drive/folders/1FDegmvF7LGJ-FTDowgvqoSxncldsZWmB
 
 ## Geração
 

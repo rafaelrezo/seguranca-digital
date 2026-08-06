@@ -1,5 +1,9 @@
 # Notas de facilitação — A01
 
+## Fio narrativo a preservar
+
+Os slides devem permitir retomar esta progressão sem consulta constante ao roteiro: a linha para, os registros oferecem apenas uma sequência, hipóteses concorrentes exigem evidências diferentes, CIA/AAA/safety alteram a consequência e a primeira resposta precisa aumentar a certeza sem tornar o processo inseguro. Em cada transição, retornar à pergunta “o que podemos afirmar agora que não podíamos afirmar antes?”.
+
 ## Antes do encontro
 
 - Conferir PDFs, links e legibilidade no projetor.

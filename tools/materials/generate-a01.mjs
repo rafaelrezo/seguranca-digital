@@ -23,7 +23,7 @@ const notes=(s,t)=>s.addNotes(t);
  const s=pptx.addSlide();s.background={color:C.navy};s.addShape(pptx.ShapeType.rect,{x:0,y:0,w:.22,h:7.5,fill:{color:C.cyan},line:{color:C.cyan}});
  s.addText("A01  •  FUNDAMENTOS E RISCO",{x:.8,y:.72,w:5.5,h:.32,fontSize:14,bold:true,color:"7DE0D8",charSpacing:1.2,margin:0});
  s.addText("O incidente que\nparou a linha",{x:.8,y:1.45,w:7.1,h:1.55,fontSize:40,bold:true,color:C.white,margin:0,breakLine:false});
- s.addText("Às 09:17, produção cai a zero. A rede continua respondendo. O que você pode afirmar?",{x:.82,y:3.35,w:7.3,h:1.05,fontSize:22,color:"E6EEF5",margin:0});
+ s.addText("É o primeiro contato com o caso: às 09:17, a produção cai a zero, mas a rede continua respondendo. Antes de agir, precisamos separar o que foi observado do que apenas parece explicar a parada.",{x:.82,y:3.18,w:7.3,h:1.42,fontSize:19,color:"E6EEF5",margin:0,fit:"shrink"});
  s.addShape(pptx.ShapeType.roundRect,{x:9.1,y:1.4,w:3.1,h:3.15,fill:{color:"1B4666"},line:{color:"7DE0D8",width:2}});s.addText("09:17\n0 un/min",{x:9.45,y:2.18,w:2.4,h:1.15,fontSize:29,bold:true,color:C.white,align:"center",valign:"mid",margin:0});
  s.addText("2 × 52 min  •  investigação em duplas",{x:.82,y:6.55,w:5.2,h:.3,fontSize:14,color:"C7D6E4",margin:0});
  notes(s,"Mostre a evidência por 30 segundos. Peça duas observações sem interpretação. Não confirme a causa.");

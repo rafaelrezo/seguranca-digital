@@ -2,6 +2,8 @@
 
 Uma equipe acaba de publicar uma loja de testes. O catálogo funciona, mas um arquivo que deveria permanecer interno pode ser alcançado pelo navegador. Antes de chamar isso de “ataque”, a equipe precisa responder: **qual ativo foi exposto, qual fraqueza permitiu o acesso e qual consequência justifica agir primeiro?**
 
+Na A01, a equipe aprendeu a separar evento, hipótese e conclusão antes de intervir. Nesta aula, essa disciplina é aplicada a uma evidência de aplicação web: o código `200` confirma a entrega do recurso, mas a prioridade só aparece quando a observação é conectada ao ativo, à função e à consequência.
+
 ## Objetivos de aprendizagem
 
 Ao final do encontro, você será capaz de:

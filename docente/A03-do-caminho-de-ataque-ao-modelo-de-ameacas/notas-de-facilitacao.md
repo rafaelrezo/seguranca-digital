@@ -1,5 +1,9 @@
 # Notas de facilitação — A03
 
+## Fio narrativo a preservar
+
+Retomar o inventário da A02 e manter a tensão entre correlação e caminho demonstrável. Os slides devem recordar a sequência: separar fato de hipótese, reconstruir o fluxo normal, localizar mudanças de confiança, formular uma ameaça testável, ampliar perguntas com taxonomias, escolher um ponto de interrupção com trade-offs e revisar a decisão diante dos cartões do tabletop.
+
 ## Respostas esperadas
 
 - A sequência de logs não comprova ransomware ou acesso OT; sustenta modelagem e coleta.

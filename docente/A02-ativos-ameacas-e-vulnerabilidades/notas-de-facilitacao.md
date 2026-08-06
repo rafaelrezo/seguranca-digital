@@ -1,5 +1,9 @@
 # Notas de facilitação — A02
 
+## Fio narrativo a preservar
+
+Retomar a disciplina de evidência da A01: o código `200` prova entrega, não causa ou impacto. A narrativa avança quando a turma identifica o que tem valor, distingue a condição explorável dos demais termos, escolhe o controle conforme a função do recurso e define um reteste que outra equipe possa repetir. Cada conceito deve responder a uma lacuna aberta pela evidência anterior.
+
 ## Respostas esperadas
 
 - A resposta `200` comprova entrega do recurso naquela requisição; não comprova causa, autoria ou impacto total.
