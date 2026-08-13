@@ -37,6 +37,7 @@ nav:
       - Unidade 1 — Fundamentos e risco:
           - "A01 — O incidente que parou a linha": aulas/A01-o-incidente-que-parou-a-linha.md
           - "A02 — Ativos, ameaças e vulnerabilidades": aulas/A02-ativos-ameacas-e-vulnerabilidades.md
+          - "A04 — Onde a aplicação decide?": aulas/A04-onde-a-aplicacao-decide.md
           - "A03 — Do caminho de ataque ao modelo de ameaças": aulas/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md
   - Referencial de consulta:
       - Fundamentos de Segurança:
