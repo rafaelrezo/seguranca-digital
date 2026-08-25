@@ -1,282 +1,195 @@
-# A05 — Quem é você e pode fazer isto?
+# A05 — Bruno entrou na própria conta: por que ainda precisamos proteger a cesta de Ana?
 
-Esta aula começa no último registro da A04. Ana abriu sua cesta, a turma reconstruiu o caminho `pessoa → navegador → serviço → dado` e marcou o serviço como uma lacuna: a captura mostrou a requisição e a resposta, mas não mostrou **como o serviço relaciona a sessão de Ana à cesta e decide quais dados pode devolver**.
+Ana e Bruno são colegas e usam o mesmo computador do laboratório para montar pedidos no Juice Shop. Ana adiciona dois sucos à cesta A e sai. Bruno entra na própria conta e abre a cesta B.
 
-Na primeira parte da A05, continuaremos exatamente a investigação de Ana até decompor a decisão em identificação, autenticação, autorização e registro. Somente depois que esse modelo estiver preenchido introduziremos Bruno: não como um novo cenário, mas como uma variação controlada do mesmo fluxo para verificar se o modelo explica outra sessão legítima.
+As regras são simples:
+
+- quando Ana sai, uma solicitação antiga em nome dela deve deixar de funcionar;
+- Bruno pode usar a cesta B, mas não pode consultar ou alterar a cesta A.
+
+!!! question "Pergunta mobilizadora"
+    A tela agora mostra Bruno. Isso prova que o acesso de Ana terminou e que a cesta dela está protegida?
 
 ## Objetivos de aprendizagem
 
-Ao final do encontro, você deverá conseguir:
+- Explicar autenticação, sessão e autorização usando as ações de Ana e Bruno.
+- Comparar contexto antigo pós-logout e sessão válida pedindo recurso alheio.
+- Recomendar controle no servidor e validar quatro casos permitido/negado.
 
-- distinguir identificação, autenticação, autorização e registro de auditoria em uma interação observável;
-- comparar duas sessões legítimas e relacionar `sujeito`, `ação`, `recurso` e `resultado` sem expor credenciais ou tokens;
-- especificar o evento de log mínimo necessário para revisar uma decisão de acesso, declarando o que a captura do navegador não comprova.
+**Tempo presencial:** 100 minutos de prática sincronizada em dupla.
 
-**Tempo estimado:** 104 minutos — 52 minutos de construção conceitual e 52 minutos de investigação prática.  
-**Organização:** duplas; alternem os papéis de operador e registrador ao trocar de conta.  
-**Produto:** mapa de evidências AAA com dois casos legítimos e uma especificação de evento auditável.
+**Atividade posterior:** consolidação do mesmo caso, sem ferramenta nova.
 
-## Antes de começar
+**Produto:** ticket integrado de sessão e autorização.
 
-Você precisará de:
+## O elo que chegou da aula anterior
 
-- computador com Docker e navegador com DevTools;
-- diagrama e registro HTTP produzidos na A04;
-- contêiner local do OWASP Juice Shop;
-- roteiro prático da A05.
+A04 ensinou a acompanhar `ação → requisição → decisão → resposta`. A05 reutiliza essa habilidade em um caso novo; nenhuma conta ou captura Web é atribuída à A04.
 
-Use somente o Juice Shop em `http://127.0.0.1:3000`. As contas são fictícias e descartáveis. Não altere URLs, identificadores de recurso, cookies ou tokens; isso será tratado apenas quando houver objetivo, escopo e procedimento próprios.
+## Primeiro compreenda o funcionamento normal
 
-## 1. Recupere a evidência que chegou da A04
-
-O diagrama anterior deve conter pelo menos:
-
-1. Ana executando a ação de abrir a cesta;
-2. o navegador enviando método, caminho e algum contexto de interação;
-3. o serviço como responsável por processar a solicitação;
-4. a resposta contendo status e dados;
-5. a fronteira entre o navegador, controlado pelo usuário, e o serviço.
-
-A captura permite afirmar que determinado contexto acompanhou uma solicitação. Ela **não demonstra, sozinha**, que a senha foi validada corretamente, que a cesta pertence à pessoa autenticada ou que o servidor registrou a decisão.
-
-Essa limitação cria o trabalho da A05: associar cada afirmação à fonte capaz de sustentá-la.
-
-## 2. Aprofunde primeiro o fluxo de Ana
-
-Retome a mesma conta, os mesmos dois produtos e a mesma ação da A04. A diferença é a pergunta feita à evidência: antes queríamos localizar componentes e fronteiras; agora queremos explicar quais decisões de identidade e acesso precisam ocorrer dentro daquele caminho.
-
-Preencha, ainda sem Bruno:
+Ana entra, adiciona dois sucos e abre a própria cesta. A aplicação recebe uma solicitação equivalente a:
 
 ```text
-Ana declarou ser quem? → que prova apresentou? → como passou a ser reconhecida?
-→ qual ação solicitou? → sobre qual cesta? → qual resultado recebeu?
+contexto que representa Ana → GET /rest/basket/A → cesta de Ana
 ```
 
-Só depois dessa cadeia estar sustentada por registros, adicione Bruno como comparação.
+Aqui existem duas informações diferentes:
 
-## 3. Introduza uma variação controlada no mesmo fluxo
+1. o contexto de sessão representa temporariamente Ana sem reenviar a senha a cada ação;
+2. o identificador `A` informa qual recurso foi pedido.
 
-As duas contas executarão ações equivalentes, mas cada uma terá seu próprio estado:
+Quando falamos em uma “solicitação antiga de Ana”, falamos dessa requisição preservada com o contexto anterior — nunca de copiar ou mostrar sua senha.
 
-| Caso | Identidade declarada | Ação legítima | Recurso esperado | Resultado esperado |
-|---|---|---|---|---|
-| Ana | `ana@a04.test` | entrar e abrir a cesta | cesta criada na sessão de Ana | apenas os itens adicionados por Ana |
-| Bruno | `bruno@a05.test` | entrar e abrir a cesta | cesta criada na sessão de Bruno | apenas os itens adicionados por Bruno |
+## Preparação, ação e rastro
 
-Antes de abrir o painel de rede, crie um estado conhecido: entre com Ana, confirme seus itens e saia; depois cadastre ou entre com Bruno, adicione um produto diferente e confirme sua cesta. Essa preparação permite interpretar a resposta sem adivinhar a quem os dados deveriam pertencer.
+- **Ferramenta:** Juice Shop local e Firefox DevTools, usados pela dupla após cada demonstração do professor.
+- **Estado:** contas Ana/Bruno e cestas A/B previamente validadas.
+- **Ação:** comparar quatro solicitações usando somente os dois recursos criados pela dupla.
+- **Rastro:** pessoa representada, cesta pedida, status e resposta, com segredo oculto.
+- **Parada:** somente `127.0.0.1`; não enumerar cestas, não copiar contexto e não editar cabeçalhos.
 
-## 4. Quatro perguntas diferentes no mesmo fluxo
+## Preparação no Firefox
 
-### Identificação: quem a conta declara representar?
+1. Inicie o laboratório com o comando único fornecido pelo professor e abra `http://127.0.0.1:3000`.
+2. Pressione `Ctrl+Shift+E` (`Cmd+Opt+E` no macOS) para abrir **Network**.
+3. Clique na engrenagem do Network e marque **Persistir registros** (*Enable persistent logs*).
+4. No filtro de Network, escreva `basket`.
+5. Mantenha o DevTools aberto até terminar os dois testes.
+6. Pare e confirme: persistência marcada, filtro visível e painel Network aberto.
 
-Identificação associa um nome ou identificador a uma entidade no contexto do sistema. O e-mail digitado no formulário indica qual conta a pessoa pretende usar. Isso ainda é uma **declaração**, não uma prova.
+Guardar uma requisição não cria um arquivo e não exige um botão **Salvar**. Significa deixar a linha da requisição na lista do Network com **Persistir registros** ativado.
 
-Termos próximos não são equivalentes:
+O Firefox permite editar e reenviar uma requisição diretamente no painel Network. Assim, Postman não é necessário e a dupla não precisa transportar token ou cabeçalho entre ferramentas.
 
-- **identidade:** conjunto de atributos usados para representar uma entidade em um contexto;
-- **conta:** registro local que permite ao sistema administrar essa identidade;
-- **identificador:** valor que distingue a conta, como um e-mail;
-- **credencial:** objeto ou dado associado à autenticação, como uma senha ou chave;
-- **conta de serviço:** identidade usada por software, que também precisa de proprietário, finalidade e ciclo de vida.
+## Prepare Ana e preserve a primeira solicitação
 
-### Autenticação: que prova foi aceita?
+1. Cadastre `anaNN@a05.invalid`, substituindo `NN` pelo número da dupla.
+2. Entre como Ana e adicione **2 Apple Juice**.
+3. Abra a cesta.
+4. Em Network, selecione `GET .../rest/basket/N` com status `200`.
+5. Anote somente o último número como **cesta A**.
+6. Em **Response**, confirme os dois itens. Não copie cabeçalhos.
 
-Autenticação é o processo de verificar uma alegação de identidade. No laboratório, a aplicação compara a prova apresentada no login com o verificador associado à conta. A senha é um fator do tipo **algo que você sabe**. Outros fatores podem usar algo que você possui ou uma característica inerente, mas quantidade de etapas não garante independência entre fatores.
+## Duas perguntas diferentes
 
-O resultado observável no navegador — a aplicação passou a reconhecer Ana — sustenta que um fluxo de autenticação ocorreu. A captura não revela necessariamente como a senha foi armazenada, quais controles contra tentativas foram aplicados ou qual garantia de identidade foi alcançada.
+1. Depois que Ana sai, a solicitação antiga que ainda leva seu contexto continua aceita?
+2. Com sua própria sessão válida, Bruno consegue pedir a cesta identificada como sendo de Ana?
 
-Nunca registre a senha ou o valor de um token na entrega. Para a investigação, basta indicar `prova apresentada: senha` e `resultado observado: sessão reconhecida`.
+A primeira pergunta avalia **sessão**. A segunda avalia **autorização**. Uma pode falhar mesmo quando a outra funciona.
 
-### Autorização: esta identidade pode executar esta ação sobre este recurso?
+## Quatro casos para não confundir as decisões
 
-Autorização avalia uma solicitação depois que existe um contexto de identidade. Uma decisão completa pode ser representada por:
-
-```text
-sujeito + ação + recurso + contexto → decisão permitida ou negada
-```
-
-No caso de Ana:
-
-```text
-Ana + consultar + cesta de Ana + sessão vigente → permitir
-```
-
-A interface pode sugerir essa associação, mas a decisão de segurança deve ser aplicada no lado confiável da fronteira — normalmente o serviço — e não apenas por ocultação de botões no navegador. A regra precisa continuar válida quando a requisição chega diretamente ao serviço.
-
-Princípios importantes:
-
-- **negação por padrão:** ausência de uma permissão explícita resulta em negação;
-- **menor privilégio:** conceder somente as ações e recursos necessários;
-- **verificação por requisição:** não presumir que uma decisão anterior autoriza automaticamente outra ação;
-- **controle no servidor:** dados enviados pelo cliente são entradas a verificar, não autoridade sobre a decisão;
-- **separação entre autenticação e autorização:** uma conta válida ainda pode tentar uma ação não permitida.
-
-Papéis (RBAC) e atributos (ABAC) são formas de expressar políticas. Eles não substituem a pergunta concreta sobre sujeito, ação, recurso e contexto, nem corrigem uma aplicação que deixa de executar a verificação.
-
-### Accounting e auditoria: qual decisão ficou registrada?
-
-No modelo AAA, *accounting* é a produção de registros que permitem revisar o uso do sistema. Um log de acesso útil deve responder, dentro dos limites do sistema:
-
-- **quando** ocorreu, com horário e fuso normalizados;
-- **quem** foi reconhecido, por identificador interno estável;
-- **qual ação** foi solicitada;
-- **sobre qual recurso**, evitando conteúdo sensível desnecessário;
-- **qual decisão** ocorreu e por qual regra ou motivo;
-- **qual foi o resultado** técnico da operação;
-- **como correlacionar** o evento com a requisição e outros componentes.
-
-Um esquema mínimo para o caso poderia ser:
-
-```json
-{
-  "timestamp": "2026-08-13T14:05:22-03:00",
-  "request_id": "req-ficticio-1042",
-  "subject_id": "user-ficticio-ana",
-  "action": "basket.read",
-  "resource_type": "basket",
-  "decision": "allow",
-  "reason": "subject_owns_basket",
-  "status": 200
-}
-```
-
-Esse exemplo descreve um requisito, não um resultado que você deve encontrar no Juice Shop. Senha, cookie, token de sessão e conteúdo integral da cesta não devem ser colocados no log. Registros excessivos aumentam exposição e custo; registros insuficientes impedem investigação e prestação de contas.
-
-## 5. Onde obter cada evidência
-
-| Afirmação a avaliar | Ação anterior necessária | Fonte adequada | O que registrar | O que não concluir ainda |
-|---|---|---|---|---|
-| a conta declarou ser Ana | preencher o identificador no login | formulário e registro do operador | identificador fictício | que a prova foi validada |
-| a aplicação reconheceu Ana | concluir o login e observar a interface | interface + requisição posterior | conta reconhecida e presença de contexto, sem valor secreto | como a senha foi verificada |
-| Ana consultou uma cesta | limpar o Network e abrir a cesta | método, caminho, status e resposta | ação, alvo declarado e resultado | que a regra de propriedade está correta |
-| a cesta observada corresponde ao estado de Ana | anotar antes os itens de Ana | comparação entre linha de base e resposta | correspondência ou divergência | que outros recursos seriam negados |
-| a decisão ficou auditável | definir os campos necessários e procurar uma fonte de log autorizada | log de aplicação ou especificação de evento | campos presentes e ausentes | que ausência na interface significa ausência de log |
-
-Essa tabela impõe uma disciplina: **a pergunta vem depois da preparação e da coleta**.
-
-## 6. Investigação guiada
-
-### Reentrada no caso de Ana
-
-1. Confirme que `http://127.0.0.1:3000` abre no navegador.
-2. Se necessário, inicie o ambiente com o mesmo comando da A04:
-
-```powershell
-docker run --rm -d --name juice-shop-a04 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
-```
-
-```bash
-docker run --rm -d --name juice-shop-a04 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
-```
-
-3. Abra o diagrama A04 e destaque a pergunta anotada sobre a decisão do serviço.
-4. Confirme o estado de Ana e anote seus produtos.
-5. Não use dados pessoais e não reutilize essas senhas fora do laboratório.
-
-### Coleta do caso de Ana
-
-1. Entre como Ana.
-2. Abra DevTools → **Network/Rede** e selecione **Fetch/XHR**.
-3. Limpe a lista de requisições.
-4. Abra a cesta.
-5. Selecione a requisição correlacionada à ação e registre método, caminho, presença ou ausência de contexto, status e descrição da resposta.
-6. Oculte valores de `Cookie` ou `Authorization` em qualquer captura.
-7. Saia pela interface e confirme que a aplicação deixou de exibir Ana como conta ativa.
-
-### Construa o primeiro mapa com Ana
-
-Antes de criar outra conta, associe os registros de Ana a `identificação → autenticação → solicitação → autorização → resposta`. Marque decisão interna e evento de auditoria como requisitos quando não houver observação direta.
-
-### Introduza Bruno e repita a coleta
-
-Cadastre Bruno com `bruno@a05.test`, senha descartável `Bruno-A05!2026` e resposta fictícia `verde`; adicione um produto diferente. Depois, repita exatamente o procedimento usado com Ana. A repetição controlada é importante: se ferramenta, ação e registro mudarem ao mesmo tempo, a comparação perde força.
-
-### Leitura orientada
-
-Para cada caso, preencha:
-
-| Campo | Ana | Bruno | Fonte |
+| Contexto | Cesta pedida | Resultado esperado | Propriedade avaliada |
 |---|---|---|---|
-| identificador declarado |  |  | formulário/registro |
-| prova apresentada | senha, sem registrar valor | senha, sem registrar valor | ação de login |
-| identidade reconhecida |  |  | interface após login |
-| ação |  |  | clique + método |
-| recurso declarado |  |  | caminho + resposta |
-| resultado |  |  | status + conteúdo esperado |
-| decisão inferida |  |  | conjunto das evidências |
-| limite da conclusão |  |  | análise da dupla |
+| Ana, sessão ativa | A | permitir | fluxo legítimo de Ana |
+| Ana, contexto antigo pós-logout | A | negar | término da sessão |
+| Bruno, sessão ativa | B | permitir | fluxo legítimo de Bruno |
+| Bruno, sessão ativa | A | negar | propriedade/autorização |
 
-Não haverá teste de acesso à cesta de outra conta nesta aula. Os dois casos comprovam linhas de base legítimas; não comprovam o comportamento do sistema diante de uma solicitação indevida.
+Os casos positivos são necessários: uma negação isolada pode ser apenas aplicação indisponível.
 
-## 7. Atualize o mapa AAA com a variação
+## Caso 1 — Ana acessa a própria cesta
 
-Use diagrams.net, Mermaid, apresentação ou papel legível. O mapa deve mostrar:
+O professor registra a resposta permitida. Isso comprova que a função legítima opera, mas ainda não prova logout ou isolamento entre pessoas.
 
-```mermaid
-flowchart LR
-    D[Identificador declarado] --> P[Prova apresentada]
-    P --> R[Identidade reconhecida]
-    R --> Q[Solicitação: ação + recurso]
-    Q --> A{Decisão de autorização}
-    A -->|permitir| E[Executar e responder]
-    A -->|negar| N[Negar sem expor detalhes]
-    A --> L[Registrar decisão]
-    E --> L
-    N --> L
+## Caso 2 — o contexto antigo de Ana
+
+Depois que Ana sai e Bruno entra, a dupla repete a requisição preservada de Ana:
+
+1. faça logout de Ana sem fechar DevTools;
+2. cadastre `brunoNN@a05.invalid`, entre e adicione **1 Banana Juice**;
+3. abra a cesta e anote seu identificador como **B**;
+4. selecione a linha antiga `/rest/basket/A`;
+5. abra **Headers** e escolha **Resend → Resend**;
+6. localize a nova linha `/rest/basket/A` criada no Network;
+7. abra a nova linha e registre status e resposta.
+
+- se for aceita, aquele contexto continuou aceito após o logout observado;
+- se for recusada, o servidor recusou aquele contexto naquele momento;
+- se não for possível testar, o término permanece não comprovado.
+
+O desaparecimento do nome de Ana na tela prova uma mudança de interface, não necessariamente a invalidação no servidor.
+
+## Caso 3 — Bruno acessa a própria cesta
+
+Bruno pede a cesta B e recebe a resposta esperada. Agora existem duas linhas de base legítimas: `Ana → A` e `Bruno → B`.
+
+## Caso 4 — Bruno pede a cesta de Ana
+
+Na solicitação legítima de Bruno, a dupla mantém sua sessão e altera somente o identificador da cesta:
+
+1. selecione a linha `/rest/basket/B` que mostrou o Banana Juice;
+2. use **Resend → Edit and Resend**;
+3. na URL, troque apenas o último número: `B` por `A`;
+4. não altere método, cabeçalhos ou corpo;
+5. clique **Send** e abra status e resposta;
+6. registre o conteúdo observado e o limite da conclusão.
+
+Pare se A ou B não forem exatamente os números anotados pela sua dupla.
+
+```text
+Bruno → GET /rest/basket/B → permitir
+Bruno → GET /rest/basket/A → negar esperado
 ```
 
-Diferencie no desenho:
+Se a segunda for aceita, a sessão de Bruno é válida, mas a aplicação não aplicou corretamente a regra de propriedade naquele caso. Essa é uma falha de **autorização horizontal**: uma pessoa alcança recurso de outra pessoa com o mesmo nível de privilégio.
 
-- evidência observada no navegador;
-- funcionamento necessário inferido;
-- requisito de auditoria proposto;
-- informação ainda não comprovada.
+## A correção pertence ao servidor
 
-## 8. Especifique o evento de auditoria
+A interface não é uma fronteira de autorização. Para cada solicitação, o componente que controla a cesta deve comparar a identidade reconhecida com o proprietário real:
 
-Crie dois exemplos sem segredos: um evento `allow` sustentado pelo caso observado e um evento `deny` tratado explicitamente como **especificação para um futuro teste**, não como fato observado.
-
-Justifique cada campo usando três critérios:
-
-1. ele ajuda a reconstruir a decisão;
-2. ele não coleta segredo ou dado desnecessário;
-3. existe um componente responsável por produzi-lo e protegê-lo.
-
-## Evidências e critérios de conclusão
-
-Entregue um PDF com:
-
-- tabela comparativa preenchida para Ana e Bruno;
-- mapa AAA que associe cada etapa à evidência ou ao requisito correspondente;
-- especificação dos eventos `allow` e `deny`, sem credenciais ou tokens;
-- uma conclusão no formato: `observamos ___; isso sustenta ___; ainda não comprova ___; a próxima evidência necessária é ___`.
-
-A atividade estará concluída quando outra dupla conseguir identificar onde cada afirmação surgiu, distinguir observação de inferência e revisar a especificação sem depender de explicação oral.
-
-## Encerramento do ambiente
-
-Ao terminar, saia da conta e encerre o contêiner:
-
-```powershell
-docker stop juice-shop-a04
+```text
+identidade autenticada = proprietário da cesta?
+    sim → permitir a ação
+    não → negar por padrão e registrar o evento
 ```
 
-```bash
-docker stop juice-shop-a04
+Buscar a cesta a partir da identidade autenticada, em vez de confiar apenas no identificador recebido, reduz a confiança no cliente.
+
+## Validação e accounting
+
+A correção deve preservar os quatro resultados da tabela. Para a tentativa `Bruno → cesta A`, um evento mínimo contém:
+
+```text
+time • subject_id=bruno • action=view • basket_id=A
+decision=deny • reason=owner_mismatch • request_id
 ```
 
-Como o contêiner foi iniciado com `--rm`, ele será removido após a parada. Confirme com `docker ps --filter name=juice-shop-a04`.
+Não registrar senha, Cookie, Authorization ou token. Logging explica a decisão; não implementa o controle.
+
+## Atividade domiciliar em dupla
+
+Repita os quatro casos ou use o pacote de evidências. Entregue:
+
+1. regra de negócio em uma frase;
+2. tabela com resultado, evidência e limite;
+3. diagnóstico separado para sessão e autorização;
+4. correção no servidor;
+5. quatro testes de aceitação;
+6. evento auditável para uma negação.
+
+## Critérios de conclusão
+
+- Ana, Bruno, contexto e cesta permanecem explícitos em toda conclusão;
+- contexto antigo e sessão atual não são confundidos;
+- sessão válida não é tratada como autorização universal;
+- o controle atua no servidor e possui testes positivos e negativos;
+- nenhum segredo aparece.
+
+## Ponte para a próxima aula
+
+A requisição legítima de Bruno torna-se a linha de base da A08. Depois de decidir **quem pode agir sobre qual cesta**, investigaremos quando um dado de entrada passa a ser interpretado como instrução.
 
 ## Revisão rápida
 
-1. Por que uma autenticação bem-sucedida não prova que toda ação posterior está autorizada?
-2. Qual evidência observada sustenta que a aplicação reconheceu Ana, e qual detalhe interno permanece desconhecido?
-3. Quais campos permitem auditar uma decisão sem registrar senha, cookie ou token?
+1. O que exatamente é repetido no caso 2?
+2. Por que o caso `Bruno → B` é necessário antes de `Bruno → A`?
+3. Por que esconder a cesta A na interface não implementa autorização?
 
 ## Fontes oficiais
 
-- [NIST SP 800-63-4 — Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) — identidade e autenticação. Acesso em 13 ago. 2026.
-- [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) — controles de autenticação. Acesso em 13 ago. 2026.
-- [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) — decisões de autorização no servidor. Acesso em 13 ago. 2026.
-- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html) — conteúdo e proteção de registros. Acesso em 13 ago. 2026.
-- [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) — requisitos verificáveis de autenticação, sessão, controle de acesso e logging. Acesso em 13 ago. 2026.
+- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html). Acesso em 25 ago. 2026.
+- [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html). Acesso em 25 ago. 2026.
+- [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/). Acesso em 25 ago. 2026.
+- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html). Acesso em 25 ago. 2026.
