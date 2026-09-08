@@ -55,7 +55,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Finalidade:** Governar a decisão: fechar uma ameaça, avaliar até dois riscos e definir tratamento, controles, responsabilidades e evidência.
 
-**Uma atividade principal — P1:** 3–4 páginas; um fluxo, até dois riscos e uma decisão de tratamento detalhada; aproximadamente 2h externas por dupla. Introdução em A08; consolidação após A12. Sem submissão a cada aula.
+**Uma atividade principal — P1:** 3–4 páginas; um fluxo, até dois riscos e uma decisão de tratamento detalhada; aproximadamente 2h externas por dupla. Preparação em A08; enunciado integral e fechamento em A09#atividade, sem rótulo público P1. A10–A12 retomam o registro em checkpoints, sem ampliar a entrega.
 
 <a id="a08"></a>
 
@@ -67,23 +67,23 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Objetivos observáveis:**
 
-- Delimitar escopo organizacional e dependências de um SGSI.
-- Atribuir autoridade, execução e recursos a papéis distintos.
-- Definir objetivo e rotina de acompanhamento que sobrevivam à correção pontual.
+- Relacionar as seções da ISO/IEC 27001 às decisões de criação de um SGSI.
+- Construir esboço com contexto, escopo, política proposta, papéis e objetivo.
+- Planejar operação, avaliação e melhoria, distinguindo proposta de execução.
 
 **Conteúdos, na ordem de construção:**
 
 1. Ponte de 15 minutos: explicar a passagem de mapeamento ATT&CK a responsabilidade pela proteção; apresentar o caso novo, os arquivos e o chamado G02 antes de qualquer pergunta sobre eles. Distinguir retirada da planilha de agosto de autorização para novas publicações. Formular a regra de leitura e consultar duas orientações da Authorization Cheat Sheet; retornar à autoridade para aprovar divulgação pública. Não reconstruir DFD, testes de cestas ou catálogo de referenciais.
-2. Problema novo: a correção foi proposta, mas a empresa não definiu quem mantém a regra, acompanha fornecedor e revisa a decisão. Introduzir Sistema de Gestão de Segurança da Informação (SGSI) e função da ISO/IEC 27001 pela necessidade de continuidade organizacional.
+2. Estrutura ISO/IEC 27001:2022 e emenda 2024: seções 1–3, 4–10 e função do Anexo A/SoA. Construção em oito passos autorais, com registro e validação por etapa. Problema novo: a correção foi proposta, mas a empresa não definiu quem mantém a regra, acompanha fornecedor e revisa a decisão. Introduzir Sistema de Gestão de Segurança da Informação (SGSI) e função da ISO/IEC 27001 pela necessidade de continuidade organizacional.
 3. Contexto, partes interessadas, processos, informação e dependências externas: diferenciar escopo do sistema analisado em A06 e escopo do SGSI. Uma fronteira contratual não elimina dependência do negócio.
 4. Liderança, política de alto nível, autoridade e recursos: distinguir proprietário do risco, executor do controle, aprovador de exceção e responsável operacional. Planejar comunicação e informação documentada suficiente.
 5. Objetivos verificáveis, acompanhamento, análise crítica e melhoria: definir o que será revisto, por quem e diante de qual evidência. A gestão tem ciclo contínuo, não termina com um teste positivo.
 
 **Investigação e participação conduzidas:** professor apresenta o registro técnico pronto e uma falha de gestão fornecida. A turma compara dois escopos, identifica uma dependência omitida e acompanha o preenchimento de papéis, autoridade, recurso, objetivo e revisão. Não se exige nova investigação técnica.
 
-**Distribuição dos 100 minutos:** 15 ponte; 20 escopo/partes interessadas; 20 liderança/papéis/recursos; 25 objetivos/documentação/acompanhamento; 20 aplicação e revisão do registro. A proporção T/P classifica construção conceitual e análise guiada dentro desses blocos.
+**Distribuição dos 100 minutos:** 15 ponte; 15 mapa da norma; 20 contexto/escopo/política; 15 risco/objetivo/apoio; 20 operação/medida; 15 auditoria/melhoria e revisão do esboço. A proporção T/P classifica construção conceitual e análise guiada dentro desses blocos.
 
-**Registro e critério de conclusão:** escopo do SGSI, papéis e rotina de acompanhamento no mesmo P1. O registro deve identificar uma dependência externa, quem autoriza a decisão, quem executa e qual evidência aciona revisão. Repetir a regra Ana/Bruno não cumpre este objetivo.
+**Registro e critério de conclusão:** esboço de SGSI com contexto/escopo, política curta, papéis, objetivo/rotina e pendências de implantação; integra a atividade encerrada em A09. O registro deve identificar uma dependência externa, quem autoriza a decisão, quem executa e qual evidência aciona revisão. Repetir a regra Ana/Bruno não cumpre este objetivo.
 
 **Limite e cuidado de preparação:** fornecer o caso técnico resumido e insumos de gestão. Não prometer implantação ou certificação integral do SGSI. Dificuldades na ponte recebem apoio focal, sem transformar os 85 minutos seguintes em revisão de fundamentos.
 
@@ -147,7 +147,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Distribuição dos 100 minutos:** 10 decisão herdada; 20 aplicabilidade; 20 regra/implementação; 30 avaliação das evidências; 20 desvio/melhoria/ponte OT.
 
-**Registro e critério de conclusão:** recorte de aplicabilidade e avaliação no mesmo P1, ligando risco, controle, justificativa, responsável, evidência e revisão. O estudante deve identificar pelo menos um caso em que documento ou configuração não sustenta alegação de eficácia operacional.
+**Registro e critério de conclusão:** recorte de aplicabilidade e avaliação em checkpoint, usando a decisão de A09 como insumo, ligando risco, controle, justificativa, responsável, evidência e revisão. O estudante deve identificar pelo menos um caso em que documento ou configuração não sustenta alegação de eficácia operacional.
 
 **Limite e cuidado de preparação:** um recorte didático não é declaração de aplicabilidade completa nem prova de conformidade. Preparar registros com procedência, datas e limitações explícitas; não chamar análise documental de reteste executado. A implantação técnica aprofundada vem em M2–M5.
 
@@ -177,7 +177,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Investigação e participação conduzidas:** Professor percorre o processo normal e compara tela atualizada com captura congelada, explicitamente identificada. A turma prevê a consequência de uma perda de visibilidade e diferencia essa hipótese de perda efetiva de controle.
 
-**Registro e critério de conclusão:** Função normal, consequência física e responsável operacional. O estudante justifica a decisão com uma evidência ou premissa identificada e explicita uma conclusão que o caso ainda não autoriza. Esse registro alimenta P1, sem entrega separada.
+**Registro e critério de conclusão:** Função normal, consequência física e responsável operacional. O estudante justifica a decisão com uma evidência ou premissa identificada e explicita uma conclusão que o caso ainda não autoriza. Esse registro é um checkpoint de aplicação da decisão de A09, sem ampliar a entrega concluída.
 
 **Limite e cuidado de preparação:** Definir unidade, intervalo operacional e condições de parada na preparação do cenário; não inventar resultados. Disponibilidade não é prioridade absoluta em todo contexto e desligamento abrupto não é resposta universalmente segura.
 
@@ -203,11 +203,11 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 2. Distinguir NIST SP 800-82 de ISA/IEC 62443: referências complementares, sem equivalência automática. O overlay OT do apêndice F do NIST usa controles SP 800-53r5.
 3. Situar partes da 62443: programa do proprietário (2-1), avaliação de risco/projeto do sistema (3-2), requisitos do sistema (3-3) e desenvolvimento/componentes do fornecedor (4-1/4-2). Não estudar os catálogos integralmente.
 4. Introduzir zonas e conduítes como agrupamento por necessidades de segurança e comunicação controlada; distinguir nível de segurança de maturidade de gestão.
-5. Consolidar matriz fonte/edição, finalidade, decisão, responsável, efeito operacional, validação e residual; revisar a coerência do P1.
+5. Consolidar matriz fonte/edição, finalidade, decisão, responsável, efeito operacional, validação e residual; revisar a coerência da decisão de A09 em checkpoint.
 
 **Investigação e participação conduzidas:** Professor trabalha uma decisão de manutenção remota desde a restrição do processo até uma recomendação NIST e uma referência ISA/IEC pertinente. A turma rejeita uma correspondência indevida e verifica se o controle admite operação legítima e tem responsável.
 
-**Registro e critério de conclusão:** Matriz fonte→decisão→responsável→evidência; fechamento P1. O estudante justifica a decisão com uma evidência ou premissa identificada e explicita uma conclusão que o caso ainda não autoriza. Esse registro alimenta P1, sem entrega separada.
+**Registro e critério de conclusão:** Matriz fonte→decisão→responsável→evidência; fechamento conceitual de M1. O estudante justifica a decisão com uma evidência ou premissa identificada e explicita uma conclusão que o caso ainda não autoriza. Esse registro é um checkpoint de aplicação da decisão de A09, sem ampliar a entrega concluída.
 
 **Limite e cuidado de preparação:** Não chamar ISA/IEC 62443 de “ISO 62443”, nem afirmar que o NIST a engloba. Usar textos licenciados quando disponíveis e fontes oficiais públicas para a visão geral; não inventar cláusulas nem declarar conformidade por associação temática.
 
@@ -227,7 +227,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Carga:** 100 min (55 T / 45 P). **Vínculo:** M2/P2.
 
-**Herança concreta:** A12 — Matriz fonte→decisão→responsável→evidência; fechamento P1.
+**Herança concreta:** A12 — Matriz fonte→decisão→responsável→evidência; fechamento conceitual de M1.
 
 **Objetivos observáveis:**
 

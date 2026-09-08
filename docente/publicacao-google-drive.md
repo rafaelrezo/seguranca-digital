@@ -2,6 +2,14 @@
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
+## Revisão da A08 — 8 set. 2026
+
+`c3e987cc` acrescenta a ilustração ValeVerde após G01–G04, com original preservado e adaptação registrada fora do site. `df58d856` remove metainstruções docentes da página e registra a diretriz no AGENTS.md. Build, validação e deploy 34272556912 aprovados; imagem pública conferida por hash e texto público verificado.
+
+Atualizações posteriores verificadas: `02d5a9ff` amplia a ilustração à largura do conteúdo; `9ef07ea2` explicita a ponte ATT&CK → gestão e apresenta o chamado G02, arquivos e caminhos fictícios antes das perguntas. Validação 34269429532 e deploy 34269429576 aprovados. Página pública, nomes dos documentos, chamado, imagem ampliada e âncoras A08/P1 conferidos.
+
+Publicado o commit `499a44ed` na main: continuidade cenário → regra → consulta Authorization → gestão, com ilustração de abertura fornecida pelo docente, legenda e texto alternativo. Build estrito e deploy 34267892338 aprovados; página pública, âncora de atividade e imagem conferidas, com bytes da imagem idênticos ao arquivo local. Drive e Classroom não foram alterados.
+
 ## A08/A09 — publicação integral no Pages verificada
 
 Publicação verificada em 8 de setembro de 2026, commit `8950d7f8`, com build estrito, CI e deploy aprovados. Conteúdo público das duas aulas, P1, âncoras e modelo conferidos.

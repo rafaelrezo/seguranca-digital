@@ -57,7 +57,7 @@
       "activity": "atividade",
       "title": "A08 — Quem governa a segurança depois que a falha é conhecida?",
       "status": "publicado_realizacao_nao_declarada",
-      "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
+      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade"
     },
     {
       "id": "A09",
@@ -65,7 +65,7 @@
       "activity": "atividade",
       "title": "A09 — Quais riscos a organização aceita e quais precisa tratar?",
       "status": "publicado_realizacao_nao_declarada",
-      "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
+      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade"
     }
   ]
 }

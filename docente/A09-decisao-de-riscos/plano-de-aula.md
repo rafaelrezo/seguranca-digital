@@ -2,14 +2,14 @@
 
 **Estado:** página integral publicada e verificada; aula não declarada ministrada.
 **Ementa:** gestão de riscos, tratamento, responsabilidades, acompanhamento e relação TI/OT.
-**Página:** `docs/aulas/A09-decisao-de-riscos.md`. **Atividade:** mesmo P1 de A08–A12.
+**Página:** `docs/aulas/A09-decisao-de-riscos.md`. **Atividade:** enunciado ao final desta página, fechando A08–A09; P1 é somente identificador interno.
 **Carga:** 100 min, 60 T/40 P conduzida. **Recursos:** página, editor/caderno; fichas R01/R02, matriz e C1–C5 disponíveis na página.
 
 ## Ficha-base e continuidade
 
-Objetivos: avaliar com critérios comuns/incerteza; justificar alternativas sob restrição; registrar autoridade e residual/revisão. Receber escopo e autoridade A08; base alternativa explícita na página. Não reabrir triagem, DFD ou laboratório para redescobrir ameaças.
+Objetivos: avaliar com critérios comuns/incerteza; justificar alternativas sob restrição; registrar autoridade e residual/revisão. Receber esboço A08 com contexto/escopo, política, papéis, objetivo e rotina; base alternativa explícita na página. Não reabrir triagem, DFD ou laboratório para redescobrir ameaças.
 
-Cadeia: governança A08 → riscos fornecidos → aplicar critérios/comparar → classificação justificada → ler limite → risco/aceitação/tratamento → escolher sob restrição → mudar premissa e revisar → seção P1 → decisão/critério para A10.
+Cadeia: governança A08 → riscos fornecidos → aplicar critérios/comparar → classificação justificada → ler limite → risco/aceitação/tratamento → escolher sob restrição → mudar premissa e revisar → atividade concluída de A08–A09 → decisão/critério para A10.
 
 ## Condução dos 100 minutos
 
@@ -19,7 +19,7 @@ Cadeia: governança A08 → riscos fornecidos → aplicar critérios/comparar �
 | 10–30 | 15/5 | Explicar consequência/plausibilidade/incerteza; ler critérios e regra de aceitação sem multiplicação ordinal. |
 | 30–55 | 15/10 | R01 trabalhado e R02 conduzido. Comparar justificativas e premissas, não exigir rótulo sem evidência. |
 | 55–80 | 15/10 | C1–C5 e 8h disponíveis. R01 C1 usa 2h; alternativas para R02 dependem de função/autoridade. Mudar premissa do supervisor. |
-| 80–100 | 10/10 | Residual estimado, autoridade, gatilho e revisão do registro; aplicar V1 de P1. Guardar decisão para A10. |
+| 80–100 | 10/10 | Residual estimado, autoridade, gatilho e revisão do registro; aplicar V1 da atividade no final da A09. Guardar decisão para A10. |
 
 ## Gabarito de raciocínio e critérios — não publicar no site
 
@@ -31,8 +31,10 @@ Cadeia: governança A08 → riscos fornecidos → aplicar critérios/comparar �
 
 ## Apoio e encerramento
 
-Se não houver P1 iniciado, usar base da abertura e modelo copiável. Se a matriz gerar empate, comparar urgência, dependência e reversibilidade. Se houver incerteza, registrar coleta e medida provisória proporcional; não preencher a lacuna com narrativa de ataque. Não há sistema remoto, gasto de nuvem ou ambiente a encerrar.
+Se não houver registro de governança iniciado, usar base da abertura e modelo copiável. Se a matriz gerar empate, comparar urgência, dependência e reversibilidade. Se houver incerteza, registrar coleta e medida provisória proporcional; não preencher a lacuna com narrativa de ataque. Não há sistema remoto, gasto de nuvem ou ambiente a encerrar.
 
-O registro deve conter dois riscos e uma decisão detalhada, com alternativa comparada, recurso, autoridade, residual e revisão. P1 é único e será consolidado após A12; não enviar atividade ao Classroom nesta publicação. A10 recebe decisão e critério para examinar aplicabilidade/eficácia dos controles.
+O registro deve conter dois riscos e uma decisão detalhada, com alternativa comparada, recurso, autoridade, residual e revisão. O enunciado integral fecha no final da A09, com PDF de 3–4 páginas e decisão para R02; não exigir seção futura de controles/OT nem enviar atividade ao Classroom nesta publicação. A10 recebe decisão e critério para examinar aplicabilidade/eficácia dos controles.
 
 **Fontes:** NIST SP 800-30r1, ISO/IEC 27001:2022 e NIST SP 800-82r3, conforme links na página. A matriz e os esforços são convenções didáticas originais, não prescrições normativas.
+
+**Encaminhamento vigente:** A08 aponta para A09#atividade; o menu não apresenta P1 como destino separado. A URL antiga conserva somente o link para o novo enunciado. Modelo: `docs/assets/m1/A09-modelo-governanca-riscos.txt`; a cópia no caminho antigo foi alinhada para compatibilidade. A10–A12 usam o registro como insumo, sem ampliar esta entrega.

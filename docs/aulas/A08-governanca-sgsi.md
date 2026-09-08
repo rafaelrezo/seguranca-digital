@@ -17,11 +17,11 @@ O exercício permite examinar por que resolver uma ocorrência não define, por 
 
 Ao concluir esta aula, você deverá conseguir:
 
-1. Delimitar o escopo de um Sistema de Gestão de Segurança da Informação e identificar suas dependências externas.
-2. Distinguir quem responde pelo risco, quem executa o controle e quem autoriza uma exceção.
-3. Formular um objetivo verificável e uma rotina de acompanhamento que permitam corrigir desvios.
+1. Relacionar as seções da ISO/IEC 27001 às decisões necessárias para criar um SGSI.
+2. Construir um esboço de SGSI com contexto, escopo, política proposta, papéis e objetivo verificável.
+3. Planejar operação, avaliação e melhoria, distinguindo registro proposto de evidência de execução.
 
-**Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. Compare os documentos, preveja resultados e registre suas decisões com justificativa. Nenhuma instalação é necessária.
+**Duração:** 100 minutos de aula; vídeo complementar de 14 min 12 s para estudo. **Recursos:** navegador, esta página e um editor de texto ou caderno. Compare os documentos, preveja resultados e registre suas decisões com justificativa. Nenhuma instalação é necessária.
 
 Se precisar retomar um conceito, consulte [controles de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) e [governança](../governanca/introducao.md).
 
@@ -137,20 +137,49 @@ A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito incl
   <figcaption><strong>A correção entra em um ciclo de gestão.</strong> Siga as setas: uma nova mudança reabre responsabilidades, execução e acompanhamento. Por que a retirada da planilha de agosto não definiu quem aprovaria a publicação de setembro? <a href="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-### Uma estrutura que acompanha a decisão
+### Como ler a ISO/IEC 27001 para construir o SGSI {#estrutura-iso27001}
 
-| Parte da gestão | Pergunta no caso | Registro útil |
+A ValeVerde já identificou uma lacuna: o fornecedor recebe pedidos de mudança sem uma autoridade de aprovação claramente definida. Precisamos conferir quais outras decisões devem acompanhar essa responsabilidade para formar um sistema de gestão.
+
+Uma **norma de requisitos** estabelece condições pelas quais um sistema pode ser avaliado. A ISO/IEC 27001 fornece essa referência para o SGSI. Ela não entrega uma política pronta para a ValeVerde nem determina quais cargos a empresa deve criar. A organização precisa traduzir os requisitos em processos adequados ao seu contexto. Para declarar conformidade, não pode excluir requisitos das seções 4 a 10. [Catálogo oficial da IEC](https://webstore.iec.ch/en/publication/79694).
+
+Use a **edição de 2022**, junto da **Emenda 1:2024**. No [catálogo da ISO](https://www.iso.org/standard/27001), confira o ano e a emenda antes de consultar o sumário. A numeração identifica onde procurar um requisito; não é uma ordem rígida de implantação.
+
+As seções **1 — Escopo**, **2 — Referências normativas** e **3 — Termos e definições** delimitam a aplicação da norma e seu vocabulário. O escopo da seção 1 descreve a própria norma; o escopo que a ValeVerde deve definir para seu SGSI é tratado em **4.3**. A introdução explica a finalidade e a integração do sistema à organização.
+
+| Seção da norma | Pergunta para construir o SGSI da ValeVerde | Registro que usaremos no exemplo |
 |---|---|---|
-| Contexto e escopo | Que processo e informação queremos proteger? De quem dependemos? | Declaração de escopo e interfaces. |
-| Liderança | Quem estabelece direção, assume decisões e disponibiliza recursos? | Papéis e autoridade. |
-| Planejamento | Que riscos e objetivos orientam o trabalho? | Critérios, prioridades e plano. |
-| Apoio e operação | Quem sabe executar? Qual procedimento e informação estão disponíveis? | Orientação vigente, execução e registros. |
-| Avaliação | Que evidência permite julgar o resultado? | Medição, auditoria e análise crítica. |
-| Melhoria | O que muda quando a evidência mostra um desvio? | Correção, responsável e verificação posterior. |
+| **4 — Contexto da organização** | Que processos, informações e dependências precisam de proteção? | Contexto, partes interessadas e escopo. |
+| **5 — Liderança** | Quem assume as decisões e estabelece a direção? | Política e papéis com autoridade. |
+| **6 — Planejamento** | Que riscos tratar, que objetivos perseguir e que mudanças planejar? | Avaliação, tratamento, objetivos e plano de mudanças. |
+| **7 — Apoio** | Quem tem conhecimento, tempo e informação para executar? | Recursos, competências, comunicação e documentos controlados. |
+| **8 — Operação** | Como executar o que foi planejado e lidar com mudanças? | Aprovações e registros de execução. |
+| **9 — Avaliação de desempenho** | Que evidência mostra o resultado e quem o examina? | Medidas, auditoria interna e análise crítica da direção. |
+| **10 — Melhoria** | Como resolver o desvio e evitar sua repetição? | Correção, análise da causa e verificação da ação corretiva. |
 
-Leia essa estrutura como um percurso. O escopo determina quais interfaces importam; os papéis atribuem as decisões; os objetivos orientam o acompanhamento; a evidência permite revisar o que foi decidido.
+Os nomes e a organização das seções podem ser conferidos na [prévia da norma disponibilizada pelo SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf). As perguntas e os registros da tabela são nossa aplicação ao caso, não transcrição de requisitos ou formulários obrigatórios.
 
-Uma organização pode ter muitos documentos e ainda manter um acordo de suporte, como G03, sem definir quem pode aprovar o acesso do fornecedor. O valor do SGSI depende de conectar o que está escrito ao que as pessoas conseguem executar e demonstrar.
+**Localize uma necessidade:** a ausência de quem aprova o suporte remete à seção 5.3, sobre papéis e autoridades. Depois da atribuição, ainda será preciso disponibilizar recurso e orientação (seção 7), executar a aprovação (seção 8) e conferir o resultado (seção 9). Registre essas relações em uma frase, usando o pedido de suporte como exemplo.
+
+### O Anexo A entra quando é preciso conferir os controles
+
+O **Anexo A** é uma referência de controles de segurança. Durante o tratamento de riscos, a organização confronta os controles que considera necessários com essa referência para identificar omissões. A **Declaração de Aplicabilidade**, também chamada **SoA** (*Statement of Applicability*), registra controles necessários, justificativas de inclusão, situação de implementação e razões para exclusões de controles do Anexo A. Controles necessários podem vir também de outras fontes. [Nota educacional do grupo de práticas de auditoria da ISO/IEC 27001](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf).
+
+Na ValeVerde, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção será aprofundada depois da decisão de risco da A09.
+
+**Confira a diferença:** “quem aprova a política?” é uma pergunta de liderança; “qual medida encerra o acesso no prazo?” é uma pergunta sobre controle. Ambas precisam de resposta para o mesmo serviço.
+
+### Vídeo — como a ISO 27001 organiza a gestão {#video-sgsi}
+
+Assista a **“ISO 27001 - ENTENDA DE VEZ!”**, do canal **Guru De Risco** (**14 min 12 s**, em português). Observe como a gestão de riscos se relaciona aos processos de um Sistema de Gestão de Segurança da Informação.
+
+![type:video](https://www.youtube.com/embed/V6N6luxhnd0)
+
+[Abrir o vídeo no YouTube](https://www.youtube.com/watch?v=V6N6luxhnd0). Publicado em 29 de março de 2022, o vídeo apresenta o conceito de SGSI. Para a numeração e a estrutura dos requisitos, use o mapa da edição de outubro de 2022 apresentado nesta página.
+
+**Aplique à ValeVerde:** o acordo de suporte exige aprovação, mas não define quem pode concedê-la. Explique qual responsabilidade precisa ser estabelecida e como a empresa poderia acompanhar seu cumprimento. Relacione sua resposta a uma das seções da norma apresentadas na tabela: liderança, planejamento, operação, avaliação ou melhoria.
+
+Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. Na ValeVerde, isso significa identificar quem pode aprovar o suporte, registrar a execução e verificar o encerramento do acesso. Use esse vínculo para justificar a responsabilidade proposta para o acesso do fornecedor.
 
 ## 4. Delimitar o escopo sem esconder uma dependência
 
@@ -239,32 +268,151 @@ A regra vigente precisa ser identificável: título, responsável, aprovação, 
 
 Se a revisão encontrar um acesso sem comprovação, a correção resolve aquela situação. A ação sobre a causa pode modificar o procedimento de encerramento e sua responsabilidade. Depois será necessário verificar se a mudança evitou a recorrência. “Escrever uma nova política” é uma ação possível; seu efeito ainda precisa de evidência.
 
-## 7. Construa e confira o registro de governança
+## 7. Passo a passo: construir o SGSI da ValeVerde {#passo-a-passo-sgsi}
 
-Use o [modelo editável de P1](../assets/m1/P1-modelo.txt). Você também pode copiar os campos abaixo para seu editor; não depende de conta em outro serviço.
+Abra o [modelo do registro de governança e riscos](../assets/m1/A09-modelo-governanca-riscos.txt) ou use um editor de texto. Identifique o registro como **“SGSI ValeVerde — esboço”**, com responsável pela redação, versão e data. Use os oito passos abaixo para ligar cada decisão ao que precisará existir na empresa.
 
-1. **Escopo:** processo, informação, pessoas e interfaces incluídas; limite que não elimina a dependência externa.
-2. **Papéis:** proprietário do risco, executor e autoridade de exceção, com recurso ou condição de escalonamento.
-3. **Objetivo:** resultado que será acompanhado, conjunto observado e critério.
-4. **Rotina:** fonte de evidência, responsável, momento de revisão e resposta a desvio.
+Em cada registro, distinga **proposto**, **aprovado**, **executado** e **verificado**. Os exemplos são propostas para o exercício. Uma aprovação simulada não comprova implantação na empresa, e um plano de auditoria não é auditoria realizada.
 
-Comece pelo exemplo de publicação trabalhado. Depois adapte o raciocínio à solicitação do fornecedor na atividade compartilhada. A alteração de contexto exige decidir, não apenas trocar nomes.
+### Passo 1 — Definir contexto, necessidades e escopo
 
-| Se seu registro contém… | Verifique… |
-|---|---|
-| “Toda a empresa” | É possível identificar processo, interface e responsabilidade? |
-| “Responsável: TI” | Qual decisão pode tomar e quando precisa escalar? |
-| “Meta: mais segurança” | Qual evidência distingue cumprimento de desvio? |
-| “Sem registro, houve invasão” | A ausência não deveria gerar uma verificação antes dessa conclusão? |
-| “Fornecedor fora do escopo” | Como será governada a interface da qual a operação depende? |
+**Onde procurar na norma:** seção 4, especialmente 4.1, 4.2 e 4.3.
 
-Ao terminar, outra pessoa deve conseguir localizar quem decide, quem executa e o que acontece se o objetivo não for atendido.
+**Faça:** descreva o processo a proteger e identifique quem depende dele. Registre a necessidade de cada parte interessada, sua origem e o que ainda precisa confirmar. Depois delimite o escopo, incluindo as interfaces com fornecedores.
+
+**Exemplo para começar:** o comercial precisa consultar margens sem divulgá-las ao público; clientes precisam acessar o catálogo e registrar pedidos; o Suporte Norte precisa de acesso autorizado para manutenção; a operação precisa avaliar intervenções que possam afetar a embalagem. O acordo G03 é a fonte para examinar a aprovação do suporte. Obrigações legais e contratuais específicas da empresa devem ser identificadas e verificadas, não inventadas.
+
+Use a proposta B da seção 4 desta aula como ponto de partida para o escopo. Acrescente uma dependência e a informação que falta confirmar. A fronteira do contrato não elimina a necessidade de controlar a interface de suporte.
+
+**Registre:** `processo → parte interessada → necessidade/fonte → limite ou dependência`.
+
+**Confira:** é possível decidir se uma publicação de planilha e uma solicitação de manutenção pertencem ao escopo? Se a resposta depender apenas de uma lista de servidores, revise o texto.
+
+A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto dos sistemas de gestão. Na ValeVerde, cabe verificar sua relevância, por exemplo, para a continuidade de energia e conectividade; o caso não fornece dados para concluir que esse risco existe ou foi tratado. [Emenda oficial](https://www.iso.org/standard/88435.html).
+
+!!! example "Exemplo público — como a UCL delimita seu SGSI"
+    A **University College London (UCL)** publica o escopo do SGSI de seus dados de pesquisa. O documento delimita ambientes de pesquisa confiáveis que processam dados altamente confidenciais; identifica pessoas e serviços envolvidos e explicita elementos fora do escopo. Isso torna a fronteira verificável, em vez de declarar apenas “proteger a universidade”. Consulte **1. Scope Statement** (declaração de escopo), **4. Scope Overview** (visão do escopo) e **8. Out of scope** (fora do escopo) no [RISM01, versão 10.4, revisão de 31/03/2025](https://isms.arc.ucl.ac.uk/rism01-scope/).
+
+    **Aplique à ValeVerde:** escreva uma frase que inclua o portal, a publicação de documentos e a interface com o suporte. Depois indique uma exclusão e explique por que ela não elimina uma dependência relevante. A fronteira escolhida pela UCL atende ao contexto de pesquisa; a ValeVerde precisa justificar a sua.
+
+### Passo 2 — Estabelecer política e autoridade
+
+**Onde procurar:** seção 5, com política em 5.2 e papéis em 5.3.
+
+**Faça:** escreva uma orientação de alto nível para o escopo e indique quem poderá aprová-la. Diferencie essa orientação do procedimento que detalhará como executá-la.
+
+**Exemplo de trecho de política proposto:** “A ValeVerde protege as informações dos pedidos e da manutenção, preservando confidencialidade, integridade e disponibilidade. Publicações e acessos dependem de autoridade definida. A empresa se compromete com os requisitos aplicáveis e com a melhoria contínua da gestão da segurança.”
+
+A direção precisa assumir essa orientação e viabilizar sua execução. No quadro de papéis, proponha quem aprova o uso público de informação comercial, quem executa a mudança e quem acompanha exceções. Para suporte, explicite quem pode autorizar e quem decide quando o aprovador estiver ausente.
+
+**Registre:** política proposta, aprovador, papéis, limites de autoridade e encaminhamento de exceções.
+
+**Confira:** um pedido urgente do fornecedor encontra uma pessoa autorizada a decidir e uma forma de escalonamento? “TI resolve” ainda deixa a decisão indefinida.
+
+!!! example "Exemplo público brasileiro — política e aprovação no LNCC"
+    O **Laboratório Nacional de Computação Científica (LNCC)** publica sua Política de Segurança da Informação, versão 3.1, de 21/10/2025. Na **seção 1**, a política registra compromisso da administração, atendimento a requisitos e melhoria contínua. A **seção 15** separa elaboração, verificação e aprovação. Localize essas seções nas páginas **1–2 e 18** do [PDF oficial do LNCC](https://www.gov.br/lncc/pt-br/acesso-a-informacao/institucional/politica-de-seguranca-1/politicas-de-seguranca-da-informacao/02-psi-v3-1.pdf).
+
+    **Aplique à ValeVerde:** acrescente ao seu trecho de política quem redige, quem verifica a viabilidade e quem aprova. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
+
+    Esse documento permite observar compromissos e responsabilidades formalizados. A execução do SGSI precisaria ser examinada por outros registros. Obrigações próprias de um órgão público brasileiro não são automaticamente requisitos da empresa fictícia.
+
+### Passo 3 — Preparar avaliação e tratamento dos riscos
+
+**Onde procurar:** avaliação em 6.1.2, tratamento em 6.1.3 e objetivos em 6.2. As avaliações e o tratamento também precisam ser realizados e atualizados na operação, tratada na seção 8.
+
+**Faça:** defina como comparar riscos e quem pode aceitar a condição que permanecer. Para cada risco, registre informação protegida, condição, consequência, evidência, incerteza e proprietário. Só então compare alternativas de tratamento.
+
+**Exemplo:** a autorização de suporte sem comprovação de encerramento permite formular um risco de uso fora do prazo, mas não afirmar que o acesso foi usado indevidamente. Uma medida candidata é exigir aprovação com prazo, atribuir o encerramento e guardar sua comprovação. A manutenção precisa continuar possível sob condições autorizadas.
+
+Na [A09](A09-decisao-de-riscos.md), as fichas R01/R02 e os critérios fornecidos permitem completar essa avaliação. Agora registre o risco candidato e a pergunta pendente. Não antecipe uma classificação sem examinar os critérios.
+
+**Registro de tratamento a construir:** `risco → alternativa → controle necessário → responsável/recurso → residual estimado → aprovação`.
+
+**Como isso chega à SoA:** para a medida candidata de encerramento, escreva a justificativa ligada ao risco e marque “proposta; implementação não demonstrada”. A correspondência com o Anexo A e as justificativas de exclusão ainda precisam ser examinadas. Essa linha de trabalho não é uma Declaração de Aplicabilidade completa.
+
+**Confira:** cada controle candidato responde a uma condição identificada? A pessoa indicada pode aprovar o tratamento e aceitar o residual dentro de seus limites?
+
+### Passo 4 — Definir objetivos e preparar a execução
+
+**Onde procurar:** objetivo em 6.2, mudanças planejadas em 6.3 e apoio na seção 7.
+
+**Faça:** transforme a intenção em resultado verificável e identifique recurso, competência, comunicação e documento necessários. O quadro de responsabilidades só poderá funcionar se as pessoas souberem o que fazer e tiverem condições de agir.
+
+**Exemplo:** adote como proposta o objetivo de verificar todas as autorizações vencidas na revisão semanal. TI precisa de acesso aos registros e tempo para a conferência; o aprovador precisa compreender os limites da decisão; o fornecedor precisa receber o procedimento vigente. A troca de fornecedor exige planejar a atualização desses papéis e comunicações.
+
+Um procedimento simples pode orientar: receber pedido com finalidade e prazo, obter aprovação, executar acesso delimitado, conferir encerramento e registrar desvio. Dê ao documento título, versão, responsável e aprovação. Identifique onde a versão vigente ficará disponível e quem pode alterá-la.
+
+**Registre:** `objetivo → ação → recurso/competência → comunicação → prazo → critério de avaliação`.
+
+**Confira:** uma pessoa recém-designada conseguiria executar a tarefa usando a orientação vigente? Se depender de “alguém explica depois”, falta apoio para a operação.
+
+### Passo 5 — Colocar o processo em operação e guardar o rastro
+
+**Onde procurar:** seção 8, incluindo controle operacional e execução da avaliação e do tratamento.
+
+**Faça:** aplique o procedimento a uma solicitação, conservando a aprovação e o resultado. Mudanças e serviços externos relevantes ao SGSI também precisam de controle.
+
+**Simulação em papel:** o Suporte Norte solicita manutenção. Antes de marcar o acesso como autorizado, procure finalidade, identidade, aprovador, início, fim e responsável pelo encerramento. O acordo G03 não informa quem pode aprovar; portanto, o registro permanece “pendente de autoridade”, mesmo que os demais campos tenham sido preenchidos.
+
+**Registre:** `pedido → decisão/autoridade → execução → conferência → evidência`, com o estado de cada etapa. Uma simulação testa a clareza do procedimento; a operação real ainda precisará produzir registros.
+
+**Confira:** seria possível reconstruir quem autorizou e quem encerrou o acesso? Sem evidência, mantenha o resultado como desconhecido.
+
+### Passo 6 — Medir o resultado sem exagerar a conclusão
+
+**Onde procurar:** seção 9.1.
+
+**Faça:** defina o que medir, com qual fonte, quem analisa e quando. Use o resultado para localizar um desvio e encaminhá-lo.
+
+**Exemplo:** no conjunto G04, quatro das cinco autorizações vencidas têm encerramento comprovado. A medida é 80% para essa amostra e esse critério. A autorização ainda vigente fica fora do denominador. O desvio é uma falta de comprovação, que exige verificação de TI.
+
+**Registre:** `medida → conjunto observado → resultado → limite → responsável pela verificação`.
+
+**Confira:** sua conclusão permanece restrita às autorizações examinadas? “A empresa está 80% segura” não é uma interpretação sustentada.
+
+### Passo 7 — Auditar o processo e levar decisões à direção
+
+**Onde procurar:** auditoria interna em 9.2 e análise crítica da direção em 9.3.
+
+**Faça:** planeje uma verificação do processo em relação a critérios definidos, com escopo, responsabilidade e imparcialidade. Separe o exame das evidências da decisão da direção sobre adequação, mudanças e recursos.
+
+**Exemplo:** uma revisão semanal pode contar encerramentos. Uma auditoria interna pode examinar se o procedimento aprovado foi seguido: quem autorizou, se tinha autoridade, se o prazo foi respeitado e se o registro é rastreável. No plano de auditoria, evite que o responsável avalie sozinho seu próprio trabalho. Identifique uma pessoa competente e sem conflito com o objeto examinado.
+
+Na análise crítica, a direção pode receber a lacuna de G04, mudanças no fornecedor, resultados de auditoria e dificuldades de recurso; a saída precisa registrar decisões, responsáveis e acompanhamento. Essa avaliação tem entradas mais amplas que uma única porcentagem.
+
+**Registre:** critério e escopo da auditoria, responsável, evidências a examinar, achados quando houver execução e decisões a levar à direção.
+
+**Confira:** o documento diferencia auditoria planejada de realizada? A direção recebeu uma decisão necessária, além do indicador?
+
+!!! example "Exemplo público — o que acontece depois de uma auditoria na UCL"
+    No procedimento público de auditoria da UCL, as seções **4. Responsibilities** (responsabilidades) e **6. Audit Findings** (achados de auditoria) tratam da imparcialidade e do encaminhamento dos achados. As ações recebem identificador, responsável, prazo e estado para acompanhamento. Consulte o [RISM05, versão 4.1, revisão de 11/04/2025](https://isms.arc.ucl.ac.uk/rism05-audit_procedure/).
+
+    **Aplique à ValeVerde:** se uma auditoria confirmar que a comprovação de encerramento exigida pelo procedimento está ausente, registre o achado e atribua a ação de investigar a causa, com responsável, prazo e estado. A ausência de comprovação, por si só, ainda não demonstra uso indevido do acesso. Esse encaminhamento prepara a melhoria do passo 8.
+
+    O procedimento publicado descreve como auditar. Ele não fornece, sozinho, o resultado de uma auditoria executada.
+
+### Passo 8 — Corrigir o desvio e verificar a melhoria
+
+**Onde procurar:** seção 10, com melhoria contínua em 10.1 e não conformidade/ação corretiva em 10.2.
+
+**Faça:** diante de um requisito não atendido, trate a situação, investigue sua causa, decida a ação necessária e verifique o resultado. Não presuma que toda falta de registro tem a mesma causa.
+
+**Exemplo:** para a autorização vencida sem comprovação, primeiro verifique a situação efetiva e encaminhe o encerramento ou a regularização à autoridade competente. Depois examine por que a comprovação faltou: responsabilidade indefinida, procedimento insuficiente ou falha de execução são hipóteses diferentes. Se a causa confirmada for a ausência de responsável pelo encerramento, atribuir esse papel e testar o fluxo pode ser a ação corretiva. Uma nova amostra deverá mostrar se a mudança funcionou.
+
+**Registre:** `desvio → correção → causa verificada → ação corretiva → responsável/prazo → evidência de eficácia`.
+
+**Confira:** você está propondo a coleta ou já dispõe do resultado? Mantenha essa diferença explícita. O ciclo reabre contexto, riscos e planos quando as condições mudam.
+
+### O que foi construído e o que ainda precisa acontecer
+
+Você tem um esboço com escopo, política proposta, papéis, objetivo e acompanhamento, além do caminho para avaliar riscos, operar e melhorar. Um SGSI implantado exige que essas decisões sejam aprovadas, executadas e avaliadas com evidências suficientes. A ordem dos oito passos é uma organização deste exercício; a norma não impõe um roteiro único de implantação.
+
+Guarde o esboço. Na atividade ao final da A09, consolide o recorte de governança e a decisão de risco; não apresente o roteiro de implantação como comprovação de conformidade nem como certificação.
 
 ## Atividade {#atividade}
 
-Esta aula inicia **P1 — Governança e decisão de tratamento**, a atividade compartilhada de A08–A12. Abra o [enunciado único de P1](../atividades/P1-governanca-e-riscos.md#atividade) e preencha apenas a seção de governança do mesmo documento. Não há uma entrega separada de A08.
+Guarde o contexto, o escopo, a política proposta, os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
 
-Use os documentos G01–G04 para fundamentar o registro de governança. Preencha o modelo ou reproduza seus campos em um editor de texto ou caderno. Guarde esse registro para a avaliação dos riscos na A09.
 
 ## Síntese e próxima decisão
 
@@ -272,15 +420,23 @@ A falha conhecida passou a integrar um processo com escopo, autoridade, recursos
 
 **Revisão rápida:**
 
-1. Por que testar uma correção não substitui estabelecer sua gestão?
+1. Como as seções 5, 8 e 9 conectam autoridade, operação e evidência no acesso do fornecedor?
 2. Em G04, por que o denominador é cinco e que conclusão os 80% não permitem?
-3. Que informação diferencia um executor de controle de uma autoridade de aceitação de risco?
+3. Por que preencher o esboço e selecionar um controle não comprova a implantação de um SGSI?
 
 **Transferência:** em um hospital ou outra organização, identifique uma decisão que um técnico consegue executar, mas que precisa ser autorizada por quem responde pela operação.
 
 ## Referências
 
-- [ISO/IEC 27001:2022 — requisitos do SGSI](https://www.iso.org/standard/27001). O catálogo também identifica a emenda de 2024; não reproduzimos o texto normativo integral.
+- [UCL — documentação pública do SGSI de dados de pesquisa](https://isms.arc.ucl.ac.uk/), com [escopo RISM01](https://isms.arc.ucl.ac.uk/rism01-scope/) e [procedimento de auditoria RISM05](https://isms.arc.ucl.ac.uk/rism05-audit_procedure/).
+- [LNCC — Política de Segurança da Informação, versão 3.1](https://www.gov.br/lncc/pt-br/acesso-a-informacao/institucional/politica-de-seguranca-1/politicas-de-seguranca-da-informacao/02-psi-v3-1.pdf) — exemplo brasileiro de documento integrante do SGSI.
+
+- [Guru De Risco — ISO 27001 - ENTENDA DE VEZ!](https://www.youtube.com/watch?v=V6N6luxhnd0) — vídeo complementar, 14 min 12 s, em português.
+
+- [ISO/IEC 27001:2022 — requisitos do SGSI](https://www.iso.org/standard/27001) e [catálogo da IEC](https://webstore.iec.ch/en/publication/79694).
+- [Prévia ISO/IEC 27001:2022 — SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf) — estrutura e numeração; o exemplo de implantação é autoral.
+- [ISO/IEC 27001:2022/Amd 1:2024](https://www.iso.org/standard/88435.html) — atualização sobre mudança climática.
+- [ISO/IEC 27001 Auditing Practices Group — nota sobre SoA](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf) — material educacional de interpretação, não substitui a norma nem constitui requisito adicional.
 - [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) — negar por padrão e verificar permissão por requisição.
 
-Fontes consultadas em 8 de setembro de 2026. Empresa, documentos, metas e registros numéricos desta página são fictícios.
+Fontes consultadas em 8 de setembro de 2026. A ValeVerde, seus documentos, metas e registros numéricos são fictícios. Os documentos da UCL e do LNCC são fontes institucionais reais, resumidas para comparação.

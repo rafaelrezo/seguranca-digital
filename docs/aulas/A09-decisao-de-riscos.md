@@ -12,7 +12,7 @@ Ao concluir esta aula, você deverá conseguir:
 2. Justificar prioridade e tratamento diante de restrições de recurso e operação.
 3. Registrar proprietário, autoridade de aceitação, residual estimado e condição de revisão.
 
-**Duração:** 100 minutos. **Recursos:** navegador, esta página e o mesmo documento de P1 iniciado na [A08](A08-governanca-sgsi.md). Professor e turma avaliarão os mesmos insumos; não haverá varredura ou exploração técnica.
+**Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. Use as anotações de governança da [A08](A08-governanca-sgsi.md) para avaliar os riscos do caso.
 
 Se você não tiver o registro anterior, use esta base fornecida: o escopo cobre pedidos digitais, publicação, identidades e suporte ao portal; comercial responde pela informação de pedidos; TI executa mudanças; operação autoriza intervenções que afetem produção; direção decide exceções acima dos limites dos gestores. Essa base é suficiente para acompanhar a aula, mas pode ser criticada e ajustada com justificativa.
 
@@ -215,7 +215,7 @@ Um registro de aceitação não pode se resumir a “aceito”. Ele deve permiti
 
 ## 6. Construa um registro que outra equipe consiga usar
 
-No [modelo de P1](../assets/m1/P1-modelo.txt), preencha o quadro de riscos. Para cada um, registre ID, evidências, consequência, plausibilidade, incerteza, prioridade e proprietário. Detalhe uma decisão de tratamento, comparando a alternativa escolhida com outra considerada.
+No [modelo do registro de governança e riscos](../assets/m1/A09-modelo-governanca-riscos.txt), preencha o quadro de riscos. Para cada um, registre ID, evidências, consequência, plausibilidade, incerteza, prioridade e proprietário. Detalhe uma decisão de tratamento, comparando a alternativa escolhida com outra considerada.
 
 O exemplo R01 permite conferir a forma. Para R02, a qualidade está na justificativa e no tratamento das lacunas. Não há necessidade de inventar um resultado de teste para completar a tabela.
 
@@ -234,12 +234,6 @@ O exemplo R01 permite conferir a forma. Para R02, a qualidade está na justifica
 | “O fornecedor aceitou, então a empresa não responde.” | Verifique que responsabilidade foi compartilhada e qual permanece com a organização. |
 | “A medida foi aprovada; o residual já é baixo.” | Declare a previsão e a evidência ainda necessária. |
 | “A matriz deu empate.” | Compare urgência, dependência, reversibilidade e efeito operacional. |
-
-## Atividade {#atividade}
-
-Continue **o mesmo P1** iniciado na A08. O [enunciado único](../atividades/P1-governanca-e-riscos.md#atividade) apresenta a variação de manutenção para a dupla. Acrescente avaliação dos dois riscos e uma decisão detalhada; não crie uma entrega separada de A09.
-
-Se não conseguir usar o modelo, copie os campos em um editor local ou caderno. Os insumos necessários estão nesta página e no enunciado. Não se acessam sistemas de terceiros, não se criam contas e não há infraestrutura a desligar. Guarde seu registro com as premissas para a próxima revisão.
 
 ## Síntese e continuidade
 
@@ -261,3 +255,63 @@ A organização recebeu riscos formulados, definiu critérios comuns, comparou a
 - Consulta do curso: [análise qualitativa](../gestao_riscos/analise_qualitativa.md) e [estratégias de gerenciamento](../gestao_riscos/estrategias_gerenciamento.md).
 
 Fontes consultadas em 8 de setembro de 2026. Categorias, matriz, fichas, estimativas de esforço e condições operacionais são convenções fictícias do exercício, não prescrições universais dos referenciais.
+
+## Atividade {#atividade}
+
+### Governança e decisão de tratamento — fechamento de A08 e A09
+
+A ValeVerde precisa manter o suporte do fornecedor sem deixar decisões de acesso sem responsável. Em dupla, produza um registro que permita à empresa decidir **quem pode aprovar a manutenção, qual risco precisa de tratamento e em que condições a decisão deve ser revista**.
+
+**Escopo:** governança da A08 e avaliação/decisão de risco da A09. Avalie R01 e R02 e detalhe uma decisão para R02. O trabalho termina com essa decisão fundamentada e seu plano de acompanhamento; não exige implementação de controles nem conteúdo das aulas seguintes.
+
+**Entrega:** um PDF de 3–4 páginas, `A09-governanca-riscos-nome1-nome2.pdf`, com os nomes da dupla e uma justificativa individual de cada integrante. **Tempo estimado:** até duas horas fora da aula. **Prazo e envio:** conforme a data indicada na tarefa do Google Classroom.
+
+### 1. Reúna as informações do caso
+
+Use o [modelo editável do registro](../assets/m1/A09-modelo-governanca-riscos.txt) ou copie seus campos para um editor de texto. Os documentos descrevem uma empresa fictícia; a atividade é de análise, sem acesso a contas ou sistemas reais.
+
+- **Governança:** nos [registros G01–G04 da A08](A08-governanca-sgsi.md#2-o-caso-valeverde-documentos-para-examinar), o acordo exige aprovação para suporte, mas não define quem pode concedê-la; uma das cinco autorizações vencidas não tem comprovação de encerramento.
+- **Riscos:** nas [fichas R01 e R02 desta aula](#1-receber-riscos-formulados-sem-reiniciar-a-investigacao), compare publicação indevida de informação interna e acesso de manutenção além do prazo. Separe evidência fornecida de condição desconhecida.
+- **Recursos e alternativas:** use os critérios e a tabela C1–C5 desta página. Considere C1 para R01, com consumo de duas das oito horas disponíveis; restam seis horas para encaminhar R02. A operação precisa preservar o recebimento de pedidos e avaliar o efeito de qualquer suspensão da manutenção.
+
+### 2. Defina quem pode decidir e acompanhar
+
+Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Acrescente uma orientação curta de política de segurança e indique quem pode aprová-la. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
+
+Formule um objetivo verificável e uma rotina de acompanhamento: resultado esperado, conjunto observado, critério, fonte de evidência, responsável e momento de revisão. Se já tiver essas anotações da A08, revise-as para o acesso de manutenção.
+
+**Confira:** outra pessoa consegue identificar a decisão, a autoridade necessária, o executor e a evidência de acompanhamento?
+
+### 3. Avalie os dois riscos com os mesmos critérios
+
+Para R01 e R02, registre evidência, consequência e justificativa, plausibilidade e justificativa, incerteza, prioridade e proprietário. Use os critérios qualitativos apresentados nesta aula. A amostra de publicações não permite calcular uma probabilidade de ataque; a ausência de registro de encerramento não prova acesso ativo.
+
+### 4. Revise a decisão quando o fornecedor pedir mais tempo
+
+**Variação V1:** o Suporte Norte pede que a mesma identidade de manutenção permaneça disponível por mais **48 horas**, pois outro técnico assumirá o atendimento. O supervisor original estará ausente. Existe um substituto possível, mas sua disponibilidade e autoridade ainda não foram confirmadas. O pedido não contém nova aprovação nem descreve como o acesso será encerrado.
+
+Escolha um encaminhamento para R02 e compare-o com outra alternativa. Explique:
+
+- que premissa mudou com as 48 horas adicionais, a troca de técnico e a ausência de supervisor;
+- qual alternativa cabe nas seis horas restantes e de quais condições ela depende;
+- como preservar a função operacional e quem precisa aprovar a decisão;
+- o que permanece desconhecido, qual risco residual é estimado e que evidência ainda precisa ser obtida;
+- quando ou diante de qual mudança a decisão será reaberta.
+
+Uma solicitação do fornecedor não equivale a aprovação. Se a alternativa depender de uma confirmação ainda ausente, registre a pendência e o encaminhamento possível enquanto ela não chega. Não invente revogação, teste executado ou redução de risco comprovada.
+
+### 5. Confira a entrega
+
+| Critério de avaliação | Evidência esperada no PDF |
+|---|---|
+| Governança | Contexto, escopo, política proposta e papéis permitem decidir e escalar; objetivo e rotina são verificáveis. |
+| Avaliação | R01 e R02 usam critérios comuns, evidências identificadas e incertezas explícitas. |
+| Tratamento | A decisão para R02 compara duas alternativas, considera V1, seis horas restantes e preservação da operação. |
+| Acompanhamento | Autoridade, residual estimado, evidência necessária e gatilho de revisão estão registrados. |
+| Comunicação e participação | Texto de 3–4 páginas, com fontes e uma justificativa individual de cada integrante sobre uma decisão e seu limite. |
+
+Revise o texto com seu colega, retire instruções e campos vazios do modelo e salve o PDF com o nome indicado. A atividade está concluída quando outra pessoa consegue compreender a decisão, suas condições e quem deve acompanhá-la. Guarde uma cópia do registro para consulta.
+
+Use somente dados fictícios, sem credenciais ou informações pessoais de terceiros. Se usar IA, registre o pedido, as decisões aceitas ou rejeitadas e sua justificativa; explique com suas palavras o resultado utilizado.
+
+**Extensão opcional, dentro do mesmo PDF:** escolha uma confirmação pendente de V1 e explique como sua resposta mudaria caso ela fosse obtida. Mantenha o limite de páginas.
