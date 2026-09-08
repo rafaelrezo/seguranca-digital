@@ -76,7 +76,7 @@ A01–A07 foram reconciliadas nas páginas canônicas do manifesto. As propostas
 - [A03 — roteiro do professor](https://docs.google.com/document/d/1nPL0MF5n9B-kukeWUPqwqA_RnCii5FCLDgirvhg9qRM): divergente da apresentação; usar apenas como memória de planejamento, sem reconstruir a aula por ele.
 - [Parecer Microsoft TMT/OT](https://docs.google.com/document/d/1IKJ0G_mtcVnFc0u46Quqvske3uW9z0QKTCYKG__Wlmk): análise condicional de ferramenta, não atividade executada. Não incorporar como pré-requisito nem publicar no site do estudante.
 
-Nenhum arquivo remoto foi excluído, substituído ou compartilhado nesta reconciliação. A presença dos documentos docentes na pasta de distribuição foi registrada; sua remoção não faz parte desta mudança de formato.
+Nenhum arquivo do Google Drive foi excluído, substituído ou compartilhado nesta reconciliação. A presença dos documentos docentes na pasta de distribuição foi registrada; sua remoção não faz parte desta mudança de formato.
 
 ## Preservação e limites
 
