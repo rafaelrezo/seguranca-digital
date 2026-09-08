@@ -45,11 +45,16 @@ Os nomes e os registros abaixo são dados fictícios para leitura em sala. Você
 
 Um **chamado de suporte** é um registro de atendimento: descreve o problema comunicado à equipe, a ação realizada e o motivo do encerramento. Leia o chamado G02 fornecido para esta aula:
 
-> **Solicitante:** setor comercial da ValeVerde.  
-> **Problema informado:** a planilha interna `margens-agosto.xlsx` pode ser baixada sem entrar em uma conta pelo endereço do portal cujo caminho é `/publicacoes/margens-agosto.xlsx`.  
-> **Ação registrada pela TI:** retirada dessa cópia da área pública.  
-> **Verificação registrada:** depois da retirada, a TI abriu o mesmo endereço sem entrar em uma conta; o portal deixou de entregar a planilha. O catálogo público continuou disponível em `/publicacoes/catalogo-produtos.pdf`.  
-> **Encerramento:** chamado encerrado porque a cópia indicada deixou de estar disponível naquele endereço.  
+> **Solicitante:** setor comercial da ValeVerde.
+
+> **Problema informado:** a planilha interna `margens-agosto.xlsx` pode ser baixada sem entrar em uma conta pelo endereço do portal cujo caminho é `/publicacoes/margens-agosto.xlsx`.
+
+> **Ação registrada pela TI:** retirada dessa cópia da área pública.
+
+> **Verificação registrada:** depois da retirada, a TI abriu o mesmo endereço sem entrar em uma conta; o portal deixou de entregar a planilha. O catálogo público continuou disponível em `/publicacoes/catalogo-produtos.pdf`.
+
+> **Encerramento:** chamado encerrado porque a cópia indicada deixou de estar disponível naquele endereço.
+
 > **Informação ausente:** o registro não define quem aprova a publicação de novos documentos nem registra uma mudança na regra de acesso para os próximos arquivos.
 
 O **caminho** é a parte do endereço que identifica o recurso solicitado ao portal. Aqui, `/publicacoes/margens-agosto.xlsx` identifica a cópia da planilha e `/publicacoes/catalogo-produtos.pdf` identifica o catálogo. São caminhos ilustrativos, não endereços de um laboratório disponível. Verificar o acesso a um arquivo significa, neste exemplo, solicitar seu endereço e observar se o portal entrega o conteúdo.
@@ -126,7 +131,7 @@ O Suporte Norte também apoia a engenharia em períodos de manutenção previame
 
 Um **Sistema de Gestão de Segurança da Informação (SGSI)** é a organização contínua de políticas, responsabilidades, processos e recursos para tratar a segurança da informação. Ele permite que decisões sejam repetidas, avaliadas e corrigidas quando pessoas, sistemas e condições mudam.
 
-Retirar a cópia pública de `margens-agosto.xlsx` foi uma intervenção técnica no caso fornecido. Definir quem pode publicar, como a aprovação é registrada, quem acompanha exceções e quando a regra será revista pertence à gestão dessa proteção. As duas dimensões dependem uma da outra: uma política sem execução não protege o arquivo; uma correção sem gestão pode desaparecer na próxima mudança.
+Retirar a cópia pública de `margens-agosto.xlsx` foi uma intervenção técnica no caso fornecido. Definir quem pode publicar, como a aprovação é registrada, quem acompanha exceções e quando a regra será revista pertence à gestão dessa proteção. O episódio ilustra uma parte da gestão. O SGSI também precisa tratar continuidade, integridade dos pedidos, preparo das pessoas, fornecedores e incidentes. A política de referência apresentada após o escopo reunirá essas orientações.
 
 A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito inclui estabelecer, implementar, manter e melhorar esse sistema, considerando os riscos da organização. A implantação pode ser útil mesmo sem buscar certificação. Nesta aula, usaremos sua estrutura para organizar o caso; produzir um documento didático não demonstra conformidade ou certificação. [Referência oficial da ISO/IEC 27001](https://www.iso.org/standard/27001).
 
@@ -219,7 +224,100 @@ A proposta B identifica o conjunto para o qual a empresa vai estabelecer políti
 !!! question "Confira seu escopo"
     A manutenção do portal faz parte da proposta B mesmo sendo executada por outra empresa? Localize o trecho que sustenta sua resposta e explique por que a ValeVerde depende desse serviço. Você está verificando o que o escopo abrange; as regras de acesso ainda serão definidas.
 
-O escopo responde **“o que será abrangido?”**. A política estabelecerá **“quais compromissos e orientações de segurança serão adotados?”**. Para que essa política possa ser aprovada e colocada em prática, precisamos definir os responsáveis pelas decisões. Essa é a próxima etapa.
+O escopo responde **“o que será abrangido?”**. A política a seguir responde **“quais compromissos e orientações de segurança serão adotados para esse conjunto?”**.
+
+## 4.1. Uma política de segurança para orientar o SGSI {#politica-valeverde}
+
+Definido o conjunto de atividades abrangidas, a direção precisa estabelecer como a organização se compromete a proteger suas informações. **A política de segurança da informação expressa essa orientação e sustenta os objetivos do SGSI.** Seu alcance inclui pessoas, processos, instalações, tecnologia e serviços contratados relacionados ao escopo.
+
+A regra sobre publicação de arquivos é uma aplicação dessa orientação. A política também precisa orientar decisões sobre disponibilidade do serviço, integridade dos pedidos, competências das equipes, fornecedores e resposta a incidentes.
+
+### Política, procedimento e registro têm funções diferentes
+
+| Documento | Pergunta que responde | Exemplo breve |
+|---|---|---|
+| **Política** | Com o que a organização se compromete? | Manter a continuidade dos serviços e recuperar informações conforme as necessidades do negócio. |
+| **Plano ou procedimento** | Como cumprir esse compromisso? | Definir responsáveis, sequência de recuperação e critérios para testar a restauração. |
+| **Registro** | O que foi executado e qual foi o resultado? | Relatório do teste com duração, dados restaurados e falhas encontradas. |
+
+A ISO/IEC 27001 trata da política em **5.2**. Os requisitos das seções **4–10** se aplicam ao SGSI como um todo: precisam aparecer em decisões, processos e evidências, além da política. Os exemplos públicos também apresentam documentos complementares; a [política da UCL](https://isms.arc.ucl.ac.uk/rism07-research_data_isms_information_security_policy/), por exemplo, remete a orientações específicas de acesso e responsabilidades.
+
+### Política de Segurança da Informação da ValeVerde — exemplo {#politica-exemplo}
+
+**Identificação:** PSI-VV-01 · **Versão:** 0.1 · **Data:** 08/09/2026.
+
+**Estado:** proposta didática, ainda sem aprovação.
+
+**Responsável pela manutenção:** responsável pelo SGSI a ser designado pela direção.
+
+**Aprovação prevista:** direção da ValeVerde. **Vigência:** após aprovação formal e comunicação.
+
+**Revisão proposta:** anual ou diante de mudança relevante; esta periodicidade é uma escolha do exemplo.
+
+#### 1. Finalidade e abrangência
+
+Esta política orienta a proteção das informações necessárias ao recebimento e à manutenção dos pedidos digitais e à publicação de documentos no portal. Aplica-se às pessoas, processos, instalações e recursos que sustentam esses serviços, incluindo o trabalho contratado do Suporte Norte. Abrange informações digitais, impressas ou comunicadas verbalmente nesse contexto. A relação com a operação de embalagem deverá ser esclarecida antes de ampliar o escopo do SGSI.
+
+#### 2. Compromissos de segurança
+
+A ValeVerde se compromete a preservar a **confidencialidade**, permitindo conhecimento por pessoas autorizadas; a **integridade**, protegendo a exatidão e as alterações legítimas; e a **disponibilidade**, mantendo informações e serviços acessíveis quando necessários. Compromete-se a satisfazer os requisitos de segurança aplicáveis, inclusive legais e contratuais, e a melhorar continuamente o SGSI. Esses requisitos serão identificados e mantidos atualizados.
+
+#### 3. Liderança e responsabilidades
+
+A direção aprova esta política, define autoridades e disponibiliza recursos. Os gestores respondem pelos riscos e pelas necessidades de informação de seus processos. O responsável pelo SGSI coordena o acompanhamento e comunica pendências à direção. TI e prestadores executam as medidas sob sua responsabilidade. Todas as pessoas abrangidas devem conhecer as orientações pertinentes, proteger as informações utilizadas e comunicar situações suspeitas. Delegações e substituições deverão ter limites explícitos.
+
+#### 4. Riscos e seleção de controles
+
+A organização avaliará os riscos com critérios definidos e comparáveis, identificará seus proprietários e decidirá o tratamento necessário. A aceitação do risco que permanecer dependerá de autoridade competente e justificativa registrada. Os controles serão selecionados conforme riscos e requisitos aplicáveis, confrontados com o Anexo A e registrados na Declaração de Aplicabilidade. Mudanças relevantes exigirão reavaliação.
+
+#### 5. Objetivos e planejamento
+
+A organização estabelecerá objetivos de segurança coerentes com esta política e suas necessidades de negócio, mensuráveis quando praticável. Cada objetivo terá responsável, ações, recursos, prazo e forma de avaliar resultados. Alterações no SGSI serão planejadas para preservar sua finalidade e seu funcionamento.
+
+#### 6. Pessoas, comunicação e documentos
+
+As pessoas receberão orientação e preparação compatíveis com suas responsabilidades. A organização verificará as competências necessárias e a eficácia das ações de capacitação. A política será comunicada internamente e disponibilizada às partes interessadas conforme pertinente. Documentos e registros terão identificação, versão, aprovação quando cabível, proteção, acesso e conservação definidos, com prevenção do uso de versões obsoletas.
+
+#### 7. Proteção das informações e operação
+
+As informações e os recursos terão responsáveis e proteção proporcional à sua importância e aos riscos. As medidas deverão considerar todo o ciclo de uso, incluindo criação, acesso, compartilhamento, armazenamento e descarte. A organização estabelecerá orientações específicas para acesso, uso de dispositivos, proteção física, configuração, mudanças, cópias de segurança e recuperação, conforme sua necessidade. A continuidade dos serviços será planejada e verificada de acordo com as prioridades do negócio.
+
+#### 8. Serviços contratados e mudanças
+
+A contratação e a alteração de serviços deverão considerar os riscos à informação, as responsabilidades e os requisitos de segurança. O acesso de fornecedores será autorizado para finalidade e período definidos, acompanhado e encerrado quando deixar de ser necessário. Mudanças relevantes terão avaliação de impacto, aprovação e verificação do resultado.
+
+#### 9. Incidentes e exceções
+
+A organização manterá um processo para comunicar, avaliar e responder a incidentes, preservar evidências pertinentes, recuperar o serviço e registrar lições aprendidas. Exceções às orientações de segurança dependerão de análise, justificativa, autoridade, prazo e acompanhamento. Uma exceção interna não dispensa o atendimento a obrigações aplicáveis.
+
+#### 10. Avaliação e melhoria
+
+A organização acompanhará objetivos e controles, realizará auditorias internas com objetividade e imparcialidade e promoverá análises críticas pela direção em intervalos planejados. Desvios serão tratados, suas causas examinadas e a eficácia das ações corretivas verificada. Decisões sobre mudanças, recursos e oportunidades de melhoria serão registradas e acompanhadas.
+
+**Fim da política de exemplo.** [Baixar a versão editável em texto](../assets/m1/A08-politica-seguranca-valeverde.txt).
+
+### Como essa política se relaciona à ISO/IEC 27001
+
+A tabela relaciona os principais blocos do SGSI à proposta. **Não é uma lista completa de conformidade:** os documentos e as evidências deverão ser definidos conforme os requisitos e o contexto. A numeração dos itens da política é própria deste exemplo.
+
+| Seção da ISO/IEC 27001 | Orientação na política | O que precisa ser desenvolvido além dela |
+|---|---|---|
+| **4 — Contexto** | Itens 1 e 2: abrangência e requisitos. | Análise do contexto e das partes interessadas; escopo documentado e processos do SGSI. Considerar a relevância da mudança climática, conforme a Emenda 1:2024. |
+| **5 — Liderança** | Itens 2, 3 e 6: compromissos, autoridade e comunicação. | Aprovação, comunicação e demonstração do envolvimento da direção. |
+| **6 — Planejamento** | Itens 4 e 5: riscos, objetivos e mudanças. | Critérios, avaliação de riscos, plano de tratamento, Declaração de Aplicabilidade e plano dos objetivos. |
+| **7 — Apoio** | Itens 3 e 6: recursos, competências e documentos. | Recursos disponíveis, registros de competência e documentos controlados. |
+| **8 — Operação** | Itens 4, 7, 8 e 9: execução e mudanças. | Procedimentos aplicados, avaliações de risco atualizadas e registros da execução do tratamento. |
+| **9 — Avaliação** | Item 10: medição, auditoria e análise crítica. | Resultados das medidas, auditorias e decisões da direção. |
+| **10 — Melhoria** | Itens 2, 9 e 10: compromisso, lições e correção. | Registro dos desvios, causas, ações e verificação de eficácia. |
+
+A política proposta oferece orientação para o conjunto. Ela não torna obrigatório todo controle do Anexo A, nem substitui a seleção justificada, a execução e a avaliação. Estrutura normativa: [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) e [prévia do SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf).
+
+### Dois casos para aplicar a orientação
+
+- **Documento interno publicado:** o item 7 orienta a proteção da informação durante seu uso. Um procedimento deverá detalhar como decidir o que pode ser divulgado e como aplicar essa decisão no portal.
+- **Pedido indisponível após uma mudança:** os itens 7 e 8 orientam continuidade e avaliação de mudanças. Um plano deverá definir como recuperar o serviço e verificar se os pedidos permanecem íntegros.
+
+**Confira:** qual item orientaria a preparação de um novo integrante da equipe? Indique também um registro que permitiria verificar se a preparação aconteceu. Localizar a orientação e demonstrar sua execução são duas partes do mesmo trabalho.
 
 ## 5. Responsabilidade precisa de autoridade e recurso
 
@@ -234,18 +332,16 @@ O escopo responde **“o que será abrangido?”**. A política estabelecerá **
   <figcaption><strong>Decidir, executar e acompanhar são responsabilidades distintas.</strong> Localize o ponto em que a solicitação precisa de autoridade. Se faltar recurso ou surgir um desvio, a decisão precisa ser reaberta. <a href="../../assets/m1/esquemas/A08-papeis-decisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-### Exemplo trabalhado: mudança no portal
+### Exemplo trabalhado: colocar a política em prática
 
-| Decisão ou ação | Papel proposto | Autoridade e recurso necessários | Evidência esperada |
+| Decisão ou ação | Papel proposto | Condição para agir | Evidência esperada |
 |---|---|---|---|
-| Definir quem pode publicar informação de pedidos | Gestor comercial, apoiado por TI | Conhecer finalidade e restrição da informação; aprovar regra do processo | Regra aprovada e acessível. |
-| Aplicar a regra no portal | TI e fornecedor contratado | Permissão de mudança, tempo e ambiente de verificação | Registro de mudança e resultado do teste. |
-| Autorizar exceção que ultrapassa o limite do gestor | Direção | Avaliar consequência e assumir decisão dentro das obrigações aplicáveis | Justificativa, duração e condição de revisão. |
-| Acompanhar publicações e exceções | Responsável designado pelo gestor | Acesso aos registros e tempo para revisão | Revisão com desvio e encaminhamento. |
+| Aprovar a política e disponibilizar recursos | Direção | Conhecer necessidades e prioridades do negócio | Aprovação e decisões de recurso. |
+| Definir prioridades de recuperação dos pedidos | Gestor do processo, apoiado por TI | Avaliar o efeito da interrupção | Prioridades e critérios registrados. |
+| Preparar equipes e comunicar orientações | Gestores e responsável pelo SGSI | Tempo, material vigente e competência | Preparação e avaliação de compreensão. |
+| Executar e verificar medidas técnicas | TI e prestadores responsáveis | Autoridade, recursos e procedimento | Execução e resultado da verificação. |
 
-Essa é uma proposta para o caso fictício, não uma distribuição obrigatória de cargos determinada pela norma. Ela deve ser testada contra as condições da empresa.
-
-**Aplique ao acordo de suporte G03:** ele exige solicitação aprovada, mas não define quem pode aprovar. Suponha que a ValeVerde designe um aprovador e que essa pessoa esteja ausente quando o fornecedor pedir acesso. A regra pode prever um substituto com autoridade delimitada. Criar uma conta porque “o chamado era urgente” não resolve a ausência de aprovação. A urgência precisa de um caminho de decisão definido, com registro e comunicação.
+Os papéis são uma proposta para o exercício, não cargos prescritos pela ISO. Uma solicitação urgente do fornecedor ainda precisa encontrar uma autoridade definida; a política prevê delegações, e o procedimento deverá identificar quem pode substituir o aprovador.
 
 **Confira as responsabilidades:** para cada linha do seu quadro, tente responder: a pessoa sabe que recebeu a responsabilidade? Pode tomar a decisão? Tem recurso para executá-la? Quem recebe a informação se ela não puder agir? Uma lacuna em qualquer resposta impede considerar o arranjo concluído.
 
@@ -320,9 +416,9 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto d
 
 **Onde procurar:** seção 5, com política em 5.2 e papéis em 5.3.
 
-**Faça:** escreva uma orientação de alto nível para o escopo e indique quem poderá aprová-la. Diferencie essa orientação do procedimento que detalhará como executá-la.
+**Faça:** use a [política de referência da ValeVerde](#politica-valeverde). Escolha uma diretriz que precise de adaptação ao escopo registrado e justifique a mudança. Indique quem poderá aprová-la e que procedimento precisará detalhá-la.
 
-**Exemplo de trecho de política proposto:** “A ValeVerde protege as informações dos pedidos e da manutenção, preservando confidencialidade, integridade e disponibilidade. Publicações e acessos dependem de autoridade definida. A empresa se compromete com os requisitos aplicáveis e com a melhoria contínua da gestão da segurança.”
+**Exemplo breve:** o compromisso de continuidade do item 7 precisa ser convertido em prioridades e procedimentos de recuperação adequados aos pedidos digitais. A política fornece a orientação; os responsáveis devem definir como cumpri-la e verificar o resultado.
 
 <figure class="didactic-figure">
   <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
@@ -333,14 +429,14 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto d
 
 **Leia o esquema como proposta de papéis.** Aprovar a política e autorizar um acesso são decisões diferentes. Indique quem poderá assumir cada uma e como encaminhar pedidos na ausência do aprovador.
 
-**Registre:** política proposta, aprovador, papéis, limites de autoridade e encaminhamento de exceções.
+**Registre:** identificação da política de referência, diretriz adaptada, justificativa, aprovador e papéis. Não copie a política inteira.
 
 **Confira:** um pedido urgente do fornecedor encontra uma pessoa autorizada a decidir e uma forma de escalonamento? “TI resolve” ainda deixa a decisão indefinida.
 
 !!! example "Exemplo público brasileiro — política e aprovação no LNCC"
     O **Laboratório Nacional de Computação Científica (LNCC)** publica sua Política de Segurança da Informação, versão 3.1, de 21/10/2025. Na **seção 1**, a política registra compromisso da administração, atendimento a requisitos e melhoria contínua. A **seção 15** separa elaboração, verificação e aprovação. Localize essas seções nas páginas **1–2 e 18** do [PDF oficial do LNCC](https://www.gov.br/lncc/pt-br/acesso-a-informacao/institucional/politica-de-seguranca-1/politicas-de-seguranca-da-informacao/02-psi-v3-1.pdf).
 
-    **Aplique à ValeVerde:** acrescente ao seu trecho de política quem redige, quem verifica a viabilidade e quem aprova. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
+    **Aplique à ValeVerde:** confira na identificação da política quem mantém o documento e quem aprova; indique quem verificará a viabilidade da adaptação. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
 
     Esse documento permite observar compromissos e responsabilidades formalizados. A execução do SGSI precisaria ser examinada por outros registros. Obrigações próprias de um órgão público brasileiro não são automaticamente requisitos da empresa fictícia.
 
@@ -483,7 +579,7 @@ Guarde o esboço. Na atividade ao final da A09, consolide o recorte de governan�
 
 ## Atividade {#atividade}
 
-Guarde o contexto, o escopo, a política proposta, os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
+Guarde o contexto, o escopo, a adaptação justificada da política de referência, os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
 
 
 ## Síntese e próxima decisão

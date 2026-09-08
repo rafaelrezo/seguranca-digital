@@ -276,7 +276,7 @@ Use o [modelo editável do registro](../assets/m1/A09-modelo-governanca-riscos.t
 
 ### 2. Defina quem pode decidir e acompanhar
 
-Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Acrescente uma orientação curta de política de segurança e indique quem pode aprová-la. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
+Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Use a [política de referência da ValeVerde](A08-governanca-sgsi.md#politica-valeverde): adapte uma diretriz ao acesso de manutenção, justifique a alteração e indique quem pode aprová-la. Identifique a referência usada; não reproduza a política inteira. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
 
 Formule um objetivo verificável e uma rotina de acompanhamento: resultado esperado, conjunto observado, critério, fonte de evidência, responsável e momento de revisão. Se já tiver essas anotações da A08, revise-as para o acesso de manutenção.
 
@@ -304,7 +304,7 @@ Uma solicitação do fornecedor não equivale a aprovação. Se a alternativa de
 
 | Critério de avaliação | Evidência esperada no PDF |
 |---|---|
-| Governança | Contexto, escopo, política proposta e papéis permitem decidir e escalar; objetivo e rotina são verificáveis. |
+| Governança | Contexto, escopo, adaptação justificada da política e papéis permitem decidir e escalar; objetivo e rotina são verificáveis. |
 | Avaliação | R01 e R02 usam critérios comuns, evidências identificadas e incertezas explícitas. |
 | Tratamento | A decisão para R02 compara duas alternativas, considera V1, seis horas restantes e preservação da operação. |
 | Acompanhamento | Autoridade, residual estimado, evidência necessária e gatilho de revisão estão registrados. |

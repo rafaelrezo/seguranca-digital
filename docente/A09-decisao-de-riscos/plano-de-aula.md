@@ -38,3 +38,5 @@ O registro deve conter dois riscos e uma decisão detalhada, com alternativa com
 **Fontes:** NIST SP 800-30r1, ISO/IEC 27001:2022 e NIST SP 800-82r3, conforme links na página. A matriz e os esforços são convenções didáticas originais, não prescrições normativas.
 
 **Encaminhamento vigente:** A08 aponta para A09#atividade; o menu não apresenta P1 como destino separado. A URL antiga conserva somente o link para o novo enunciado. Modelo: `docs/assets/m1/A09-modelo-governanca-riscos.txt`; a cópia no caminho antigo foi alinhada para compatibilidade. A10–A12 usam o registro como insumo, sem ampliar esta entrega.
+
+**Alinhamento à política PSI-VV-01 da A08:** na entrega, adaptar uma diretriz ao acesso de manutenção e justificar; citar a política de referência, sem copiar seu texto integral. Preservar carga, rubrica e limite de 3–4 páginas.

@@ -5,7 +5,8 @@ Dupla: [nomes]  |  Versão: [identificação]  |  Data de revisão: [preencher]
 ## 1. Governança
 
 Contexto, partes interessadas, necessidades, escopo e dependência externa: [um parágrafo]
-Política de segurança proposta e aprovador: [orientação curta]
+Política de referência: PSI-VV-01, versão 0.1, Aula 08.
+Diretriz adaptada, justificativa e aprovador: [orientação curta; não copiar a política inteira]
 
 | Decisão/ação | Papel responsável | Autoridade/recurso | Evidência e revisão |
 |---|---|---|---|
