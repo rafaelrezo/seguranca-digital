@@ -21,9 +21,9 @@ Ao concluir esta aula, você deverá conseguir:
 2. Distinguir quem responde pelo risco, quem executa o controle e quem autoriza uma exceção.
 3. Formular um objetivo verificável e uma rotina de acompanhamento que permitam corrigir desvios.
 
-**Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. A investigação será conduzida pelo professor; você participa prevendo resultados, comparando documentos e justificando decisões. Nenhuma instalação é necessária.
+**Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. Compare os documentos, preveja resultados e registre suas decisões com justificativa. Nenhuma instalação é necessária.
 
-Se precisar retomar um conceito, consulte [controles de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) e [governança](../governanca/introducao.md). A leitura a seguir contém o percurso necessário mesmo sem abrir essas referências.
+Se precisar retomar um conceito, consulte [controles de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) e [governança](../governanca/introducao.md).
 
 ## 1. O que precisa mudar antes da próxima publicação?
 
@@ -85,9 +85,12 @@ A dúvida técnica agora é precisa: **o que fazer quando não há permissão e 
 
 A **OWASP** mantém recursos abertos sobre segurança de aplicações. A **Authorization Cheat Sheet** é seu guia prático de autorização: reúne recomendações para decidir quais ações sobre quais recursos a aplicação permite.
 
-**Consulta conduzida pelo professor:** abra a [seção “Deny by Default”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#deny-by-default), que recomenda negar acesso por padrão. Depois, localize [“Validate the Permissions on Every Request”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request), que orienta verificar permissões em cada requisição. Se o site não abrir, estes dois resumos permitem realizar a mesma comparação.
+Leia [“Deny by Default”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#deny-by-default) e [“Validate the Permissions on Every Request”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request). Compare as duas orientações com a regra de acesso à planilha `margens-setembro.xlsx`:
 
-**Aplicação:** para `margens-setembro.xlsx`, negar por padrão sustenta recusar uma leitura sem permissão aplicável. Verificar a cada requisição significa aplicar a decisão sempre que a planilha for solicitada, não apenas quando for cadastrada. Explique qual parte da regra cada orientação sustenta e encerre a consulta.
+- **Negar por padrão:** quando nenhuma permissão se aplica à solicitação, o portal recusa a leitura da planilha.
+- **Verificar permissões em cada requisição:** o portal confere a permissão sempre que a planilha é solicitada, não apenas quando ela é cadastrada.
+
+Registre qual parte da regra cada orientação sustenta. Explique por que conferir a permissão apenas no cadastro do arquivo seria insuficiente.
 
 ### Quem pode conceder a permissão que o portal vai aplicar?
 
@@ -168,7 +171,7 @@ A proposta A identifica um equipamento, mas deixa obscuros os processos que publ
   <figcaption><strong>A dependência externa cruza uma interface governada.</strong> O contorno delimita os pedidos digitais; a relação com o fornecedor permanece explícita. A conexão com a operação exige uma decisão própria. <a href="../../assets/m1/esquemas/A08-escopo-interface.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-**Aplicação conduzida:** o chamado G02 encerrou a retirada da planilha sem definir quem aprova novas publicações; o acordo G03 exige aprovação para suporte sem nomear quem pode concedê-la. Para cada lacuna, sublinhe uma expressão da proposta B que inclui esse processo ou dependência na gestão. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
+**Examine o escopo:** o chamado G02 encerrou a retirada da planilha sem definir quem aprova novas publicações; o acordo G03 exige aprovação para suporte sem nomear quem pode concedê-la. Para cada lacuna, sublinhe uma expressão da proposta B que inclui esse processo ou dependência na gestão. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
 
 Não ter controle direto sobre a infraestrutura interna do fornecedor não elimina a dependência. A ValeVerde pode estabelecer requisitos contratuais, limitar a interface de acesso, pedir evidências e acompanhar o serviço, dentro do que efetivamente consegue exigir e verificar.
 
@@ -201,7 +204,7 @@ Essa é uma proposta para o caso fictício, não uma distribuição obrigatória
 
 **Aplique ao acordo de suporte G03:** ele exige solicitação aprovada, mas não define quem pode aprovar. Suponha que a ValeVerde designe um aprovador e que essa pessoa esteja ausente quando o fornecedor pedir acesso. A regra pode prever um substituto com autoridade delimitada. Criar uma conta porque “o chamado era urgente” não resolve a ausência de aprovação. A urgência precisa de um caminho de decisão definido, com registro e comunicação.
 
-**Verificação coletiva:** para cada linha do seu quadro, tente responder: a pessoa sabe que recebeu a responsabilidade? Pode tomar a decisão? Tem recurso para executá-la? Quem recebe a informação se ela não puder agir? Uma lacuna em qualquer resposta impede considerar o arranjo concluído.
+**Confira as responsabilidades:** para cada linha do seu quadro, tente responder: a pessoa sabe que recebeu a responsabilidade? Pode tomar a decisão? Tem recurso para executá-la? Quem recebe a informação se ela não puder agir? Uma lacuna em qualquer resposta impede considerar o arranjo concluído.
 
 ## 6. Objetivos que permitem descobrir se a gestão funciona
 
@@ -261,7 +264,7 @@ Ao terminar, outra pessoa deve conseguir localizar quem decide, quem executa e o
 
 Esta aula inicia **P1 — Governança e decisão de tratamento**, a atividade compartilhada de A08–A12. Abra o [enunciado único de P1](../atividades/P1-governanca-e-riscos.md#atividade) e preencha apenas a seção de governança do mesmo documento. Não há uma entrega separada de A08.
 
-Os documentos G01–G04 e o exemplo desta página são suficientes para acompanhar a aula. Se um link externo não abrir, use as explicações aqui e registre a referência pendente; se não puder editar o modelo, use caderno ou editor local. Não há recursos de laboratório a desligar. Guarde o registro para continuar a análise.
+Use os documentos G01–G04 para fundamentar o registro de governança. Preencha o modelo ou reproduza seus campos em um editor de texto ou caderno. Guarde esse registro para a avaliação dos riscos na A09.
 
 ## Síntese e próxima decisão
 

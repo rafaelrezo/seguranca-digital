@@ -28,6 +28,7 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 - Manter três camadas conectadas: **conceito** (propriedade e motivo), **operação** (ação ou análise segura) e **validação** (evidência, limite e revisão).
 - Trocar o programa cumulativo de POO por um artefato cumulativo de segurança: registro, requisição, diagrama, matriz, configuração, relatório ou runbook. Programação entra somente quando beneficia a pergunta.
 - Trocar compilação/CI por verificação adequada ao domínio: resultado real comparado à previsão, casos permitido/negado, função preservada, revisão cruzada ou validação em pacote de evidências. Não chamar proposta de teste de teste executado.
+- Escrever instruções públicas diretamente ao estudante: o que ler, comparar, fazer e registrar. Manter orientações de mediação, condução e contingência do professor no plano docente, sem rótulos como “consulta conduzida pelo professor”. Incorporar o conteúdo necessário às alternativas na própria página, sem comentários sobre a estratégia de ensino.
 - Explicar ferramenta, painel, campo, comando e saída antes de exigir interpretação. Incluir erros comuns, diagnóstico, checkpoints e alternativa efetivamente disponível na página.
 - Fornecer um exemplo trabalhado; pedir uma extensão que exija decisão, sem entregar todas as respostas. Conservar explicações completas, não apenas listas ou resumos de slides.
 - Reutilizar as páginas conceituais existentes por links contextuais. O percurso principal deve ser autocontido; aprofundamento pode ficar em páginas de consulta.

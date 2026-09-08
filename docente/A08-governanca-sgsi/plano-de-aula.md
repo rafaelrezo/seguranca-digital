@@ -43,3 +43,5 @@ Registro deve identificar processo e interface, decisão e autoridade, executor/
 **Fontes:** ISO/IEC 27001:2022, catálogo e emenda identificados na fonte oficial; OWASP Authorization. Links na página. Não reproduzir cláusulas integrais. Datas acadêmicas e nota final não foram inferidas.
 
 **Mediação da síntese visual:** após a tabela G01–G04, percorrer G03 → autoridade ausente → registro de aprovação. A figura resume os insumos já apresentados; não exige memorizar IDs. G04 representa autorizações de suporte, não planilhas. Fonte original e registro da adaptação preservados em `ilustracoes/`.
+
+**Separação entre condução e instrução pública:** apresentar a comparação das orientações Authorization durante a aula; se o site externo estiver indisponível, usar as definições já incorporadas ao texto. A página dirige ações ao estudante, sem rótulos como “consulta conduzida pelo professor” ou comentários sobre a estratégia de condução. Essas orientações ficam neste plano.
