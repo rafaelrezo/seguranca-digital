@@ -294,9 +294,16 @@ Em cada registro, distinga **proposto**, **aprovado**, **executado** e **verific
 
 **Faça:** descreva o processo a proteger e identifique quem depende dele. Registre a necessidade de cada parte interessada, sua origem e o que ainda precisa confirmar. Depois delimite o escopo, incluindo as interfaces com fornecedores.
 
-**Exemplo para começar:** o comercial precisa consultar margens sem divulgá-las ao público; clientes precisam acessar o catálogo e registrar pedidos; o Suporte Norte precisa de acesso autorizado para manutenção; a operação precisa avaliar intervenções que possam afetar a embalagem. O acordo G03 é a fonte para examinar a aprovação do suporte. Obrigações legais e contratuais específicas da empresa devem ser identificadas e verificadas, não inventadas.
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo1-escopo.svg" alt="Comercial, TI, pedidos e portal dentro do escopo proposto; Suporte Norte fornece manutenção externa." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo1-escopo.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
 
-Use a proposta B da seção 4 desta aula como ponto de partida para o escopo. Acrescente uma dependência e a informação que falta confirmar. A fronteira do contrato não elimina a necessidade de controlar a interface de suporte.
+**Leia o esquema:** o suporte está fora da equipe da ValeVerde, mas seu serviço atende ao portal. Por isso, a manutenção contratada precisa ser considerada no escopo. A relação com a embalagem ainda precisa ser esclarecida.
+
+Use a proposta B da seção 4 para escrever o escopo. Acrescente uma necessidade de quem utiliza o serviço e sua fonte. Obrigações legais e contratuais devem ser verificadas, não inventadas.
 
 **Registre:** `processo → parte interessada → necessidade/fonte → limite ou dependência`.
 
@@ -317,7 +324,14 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto d
 
 **Exemplo de trecho de política proposto:** “A ValeVerde protege as informações dos pedidos e da manutenção, preservando confidencialidade, integridade e disponibilidade. Publicações e acessos dependem de autoridade definida. A empresa se compromete com os requisitos aplicáveis e com a melhoria contínua da gestão da segurança.”
 
-A direção precisa assumir essa orientação e viabilizar sua execução. No quadro de papéis, proponha quem aprova o uso público de informação comercial, quem executa a mudança e quem acompanha exceções. Para suporte, explicite quem pode autorizar e quem decide quando o aprovador estiver ausente.
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo2-autoridade.svg" alt="Direção aprova política, autoridade decide sobre acesso e TI executa; ausência exige substituto autorizado." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo2-autoridade.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
+**Leia o esquema como proposta de papéis.** Aprovar a política e autorizar um acesso são decisões diferentes. Indique quem poderá assumir cada uma e como encaminhar pedidos na ausência do aprovador.
 
 **Registre:** política proposta, aprovador, papéis, limites de autoridade e encaminhamento de exceções.
 
@@ -336,7 +350,14 @@ A direção precisa assumir essa orientação e viabilizar sua execução. No qu
 
 **Faça:** defina como comparar riscos e quem pode aceitar a condição que permanecer. Para cada risco, registre informação protegida, condição, consequência, evidência, incerteza e proprietário. Só então compare alternativas de tratamento.
 
-**Exemplo:** a autorização de suporte sem comprovação de encerramento permite formular um risco de uso fora do prazo, mas não afirmar que o acesso foi usado indevidamente. Uma medida candidata é exigir aprovação com prazo, atribuir o encerramento e guardar sua comprovação. A manutenção precisa continuar possível sob condições autorizadas.
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo3-risco.svg" alt="Falta de comprovação é evidência; acesso disponível é pergunta; uso fora do prazo é risco candidato; encerramento é medida proposta." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo3-risco.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
+**Limite da leitura:** falta de comprovação não confirma acesso disponível nem uso indevido. Compare a medida candidata com outras alternativas e preserve a manutenção autorizada.
 
 Na [A09](A09-decisao-de-riscos.md), as fichas R01/R02 e os critérios fornecidos permitem completar essa avaliação. Agora registre o risco candidato e a pergunta pendente. Não antecipe uma classificação sem examinar os critérios.
 
@@ -352,7 +373,14 @@ Na [A09](A09-decisao-de-riscos.md), as fichas R01/R02 e os critérios fornecidos
 
 **Faça:** transforme a intenção em resultado verificável e identifique recurso, competência, comunicação e documento necessários. O quadro de responsabilidades só poderá funcionar se as pessoas souberem o que fazer e tiverem condições de agir.
 
-**Exemplo:** adote como proposta o objetivo de verificar todas as autorizações vencidas na revisão semanal. TI precisa de acesso aos registros e tempo para a conferência; o aprovador precisa compreender os limites da decisão; o fornecedor precisa receber o procedimento vigente. A troca de fornecedor exige planejar a atualização desses papéis e comunicações.
+**Objetivo proposto:** verificar todas as autorizações vencidas na revisão semanal.
+
+| Para executar o objetivo | Preparação necessária |
+|---|---|
+| TI reúne e confere os registros | Acesso à fonte e tempo reservado. |
+| Aprovador decide sobre exceções | Conhecimento dos limites de sua autoridade. |
+| Fornecedor segue o procedimento | Comunicação da versão vigente. |
+| Empresa troca o fornecedor | Atualização planejada dos papéis e das orientações. |
 
 Um procedimento simples pode orientar: receber pedido com finalidade e prazo, obter aprovação, executar acesso delimitado, conferir encerramento e registrar desvio. Dê ao documento título, versão, responsável e aprovação. Identifique onde a versão vigente ficará disponível e quem pode alterá-la.
 
@@ -366,7 +394,16 @@ Um procedimento simples pode orientar: receber pedido com finalidade e prazo, ob
 
 **Faça:** aplique o procedimento a uma solicitação, conservando a aprovação e o resultado. Mudanças e serviços externos relevantes ao SGSI também precisam de controle.
 
-**Simulação em papel:** o Suporte Norte solicita manutenção. Antes de marcar o acesso como autorizado, procure finalidade, identidade, aprovador, início, fim e responsável pelo encerramento. O acordo G03 não informa quem pode aprovar; portanto, o registro permanece “pendente de autoridade”, mesmo que os demais campos tenham sido preenchidos.
+**Simulação em papel:** examine um pedido do Suporte Norte com finalidade, identidade, início, fim e responsável pelo encerramento. Confira também quem pode aprová-lo.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" alt="Sem autoridade confirmada, parar e encaminhar. Com autoridade, registrar decisão e executar somente se aprovado; conferir encerramento." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
+**Ponto de parada:** o acordo fornecido não identifica o aprovador. A simulação permanece pendente, mesmo com os outros campos preenchidos.
 
 **Registre:** `pedido → decisão/autoridade → execução → conferência → evidência`, com o estado de cada etapa. Uma simulação testa a clareza do procedimento; a operação real ainda precisará produzir registros.
 
@@ -378,7 +415,17 @@ Um procedimento simples pode orientar: receber pedido com finalidade e prazo, ob
 
 **Faça:** defina o que medir, com qual fonte, quem analisa e quando. Use o resultado para localizar um desvio e encaminhá-lo.
 
-**Exemplo:** no conjunto G04, quatro das cinco autorizações vencidas têm encerramento comprovado. A medida é 80% para essa amostra e esse critério. A autorização ainda vigente fica fora do denominador. O desvio é uma falta de comprovação, que exige verificação de TI.
+**Leia a amostra de seis autorizações do registro G04:**
+
+| Situação observada | Quantidade | Entra no cálculo? |
+|---|---:|---|
+| Vencida, com encerramento comprovado | **4** | Sim: atende ao critério. |
+| Vencida, sem comprovação | **1** | Sim: precisa de verificação. |
+| Ainda vigente | **1** | Não: o prazo ainda não venceu. |
+
+> **4 com comprovação ÷ 5 vencidas = 80%.**
+>
+> A medida descreve essa amostra. A falta de comprovação exige verificação de TI.
 
 **Registre:** `medida → conjunto observado → resultado → limite → responsável pela verificação`.
 
@@ -390,9 +437,13 @@ Um procedimento simples pode orientar: receber pedido com finalidade e prazo, ob
 
 **Faça:** planeje uma verificação do processo em relação a critérios definidos, com escopo, responsabilidade e imparcialidade. Separe o exame das evidências da decisão da direção sobre adequação, mudanças e recursos.
 
-**Exemplo:** uma revisão semanal pode contar encerramentos. Uma auditoria interna pode examinar se o procedimento aprovado foi seguido: quem autorizou, se tinha autoridade, se o prazo foi respeitado e se o registro é rastreável. No plano de auditoria, evite que o responsável avalie sozinho seu próprio trabalho. Identifique uma pessoa competente e sem conflito com o objeto examinado.
+| Quem examina | Pergunta que orienta o trabalho | Saída esperada |
+|---|---|---|
+| Responsável pela revisão semanal | Quantos encerramentos têm comprovação? | Medida e pendências. |
+| Auditor competente e imparcial | O procedimento aprovado foi seguido? | Achados sustentados por evidências. |
+| Direção | O SGSI continua adequado? Que mudanças e recursos são necessários? | Decisões, responsáveis e acompanhamento. |
 
-Na análise crítica, a direção pode receber a lacuna de G04, mudanças no fornecedor, resultados de auditoria e dificuldades de recurso; a saída precisa registrar decisões, responsáveis e acompanhamento. Essa avaliação tem entradas mais amplas que uma única porcentagem.
+**Prepare a auditoria:** inclua autoridade, prazo e rastreabilidade nos critérios. Evite que uma pessoa avalie sozinha seu próprio trabalho. A direção também precisa considerar mudanças no fornecedor e dificuldades de recurso, além do indicador.
 
 **Registre:** critério e escopo da auditoria, responsável, evidências a examinar, achados quando houver execução e decisões a levar à direção.
 
@@ -411,7 +462,14 @@ Na análise crítica, a direção pode receber a lacuna de G04, mudanças no for
 
 **Faça:** diante de um requisito não atendido, trate a situação, investigue sua causa, decida a ação necessária e verifique o resultado. Não presuma que toda falta de registro tem a mesma causa.
 
-**Exemplo:** para a autorização vencida sem comprovação, primeiro verifique a situação efetiva e encaminhe o encerramento ou a regularização à autoridade competente. Depois examine por que a comprovação faltou: responsabilidade indefinida, procedimento insuficiente ou falha de execução são hipóteses diferentes. Se a causa confirmada for a ausência de responsável pelo encerramento, atribuir esse papel e testar o fluxo pode ser a ação corretiva. Uma nova amostra deverá mostrar se a mudança funcionou.
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo8-melhoria.svg" alt="Correção da situação, investigação da causa, ação corretiva e nova amostra; recorrência reabre investigação." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo8-melhoria.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
+**Exemplo condicionado:** se a causa confirmada for falta de responsável pelo encerramento, atribua esse papel e teste o fluxo. Se a causa for outra, a ação precisa mudar. A nova amostra permitirá avaliar o resultado; ainda não temos essa evidência.
 
 **Registre:** `desvio → correção → causa verificada → ação corretiva → responsável/prazo → evidência de eficácia`.
 

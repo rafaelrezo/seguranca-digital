@@ -88,3 +88,5 @@ Aplicado: começar pelo funcionamento normal dos pedidos digitais, definir escop
 Apoio adequado à introdução do SGSI. Quem já conhece o conceito pode avançar diretamente à comparação A/B e à justificativa. Não exigir copiar definições.
 
 **Ajuste após retorno docente:** a comparação de escopos delimita atividades, sem avaliar eventos como descumprimento de política inexistente. Explicitar escopo → política a construir → responsabilidades/procedimentos; a pergunta final verifica inclusão do serviço, sem antecipar regra de aprovação.
+
+**Revisão visual da seção 7:** cinco esquemas SVG (escopo, autoridade, risco candidato, aprovação e melhoria) e três quadros de leitura (preparação, medida e avaliação) substituem parte dos parágrafos. Diagramas com título e descrição acessíveis; disposição vertical para telas estreitas. Manter leitura de estados proposta/pendência/execução/verificação e os mesmos checkpoints. Tarefa executada; arquivo da fila excluído por solicitação docente.
