@@ -60,6 +60,13 @@ No caso, remover o arquivo é uma intervenção técnica. Definir quem pode publ
 
 A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito inclui estabelecer, implementar, manter e melhorar esse sistema, considerando os riscos da organização. A implantação pode ser útil mesmo sem buscar certificação. Nesta aula, usaremos sua estrutura para organizar o caso; produzir um documento didático não demonstra conformidade ou certificação. [Referência oficial da ISO/IEC 27001](https://www.iso.org/standard/27001).
 
+<figure class="didactic-figure" id="primeiro-esquema">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A correção entra em um ciclo de gestão.">
+    <img src="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" alt="A correção entra em um ciclo de gestão." loading="lazy" />
+  </div>
+  <figcaption><strong>A correção entra em um ciclo de gestão.</strong> Siga as setas: uma nova mudança reabre responsabilidades, execução e acompanhamento. Onde a publicação de G02 perdeu continuidade? <a href="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
 ### Uma estrutura que acompanha a decisão
 
 | Parte da gestão | Pergunta no caso | Registro útil |
@@ -87,6 +94,13 @@ Compare duas propostas:
 
 A proposta A identifica um equipamento, mas deixa obscuros os processos que publicam informação e autorizam terceiros. A proposta B permite perguntar quem decide sobre publicação e suporte. Isso não significa que ela já seja suficiente para toda a empresa: localizações, outras unidades, obrigações e interfaces ainda podem exigir detalhamento.
 
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A dependência externa cruza uma interface governada.">
+    <img src="../../assets/m1/esquemas/A08-escopo-interface.svg" alt="A dependência externa cruza uma interface governada." loading="lazy" />
+  </div>
+  <figcaption><strong>A dependência externa cruza uma interface governada.</strong> O contorno delimita os pedidos digitais; a relação com o fornecedor permanece explícita. A conexão com a operação exige uma decisão própria. <a href="../../assets/m1/esquemas/A08-escopo-interface.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
 **Aplicação conduzida:** localize G02 e G03. Para cada documento, sublinhe uma expressão da proposta B que permite atribuir sua gestão a alguém. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
 
 Não ter controle direto sobre a infraestrutura interna do fornecedor não elimina a dependência. A ValeVerde pode estabelecer requisitos contratuais, limitar a interface de acesso, pedir evidências e acompanhar o serviço, dentro do que efetivamente consegue exigir e verificar.
@@ -99,6 +113,13 @@ Não ter controle direto sobre a infraestrutura interna do fornecedor não elimi
 “TI é responsável pela segurança” concentra decisões diferentes numa frase que não explica quem pode agir. O analista pode configurar uma conta, mas talvez não possa aceitar uma interrupção de produção ou aprovar a contratação de pessoal.
 
 **Proprietário do risco** é o papel com responsabilidade e autoridade para gerir aquele risco no contexto definido. **Executor do controle** realiza a medida. **Aprovador de exceção** pode autorizar uma condição diferente da regra, dentro de limites estabelecidos. **Responsável operacional** avalia o efeito da intervenção sobre o funcionamento do processo. Em uma organização pequena, uma pessoa pode acumular funções; as decisões e os limites ainda precisam ficar claros.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Decidir, executar e acompanhar são responsabilidades distintas.">
+    <img src="../../assets/m1/esquemas/A08-papeis-decisao.svg" alt="Decidir, executar e acompanhar são responsabilidades distintas." loading="lazy" />
+  </div>
+  <figcaption><strong>Decidir, executar e acompanhar são responsabilidades distintas.</strong> Localize o ponto em que a solicitação precisa de autoridade. Se faltar recurso ou surgir um desvio, a decisão precisa ser reaberta. <a href="../../assets/m1/esquemas/A08-papeis-decisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
 
 ### Exemplo trabalhado: mudança no portal
 
@@ -128,6 +149,13 @@ O objetivo nomeia o universo observado: autorizações vencidas. Não mistura co
 ### Ler uma medida antes de tirar uma conclusão
 
 Abra G04. Há seis autorizações no conjunto, mas somente cinco venceram. Quatro têm comprovação de encerramento. Portanto, a proporção com encerramento comprovado entre as vencidas é **4 ÷ 5 = 80%**. A sexta não entra nesse denominador porque sua prorrogação válida ainda não venceu.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Quatro encerramentos comprovados entre cinco autorizações vencidas.">
+    <img src="../../assets/m1/esquemas/A08-medida-evidencia.svg" alt="Quatro encerramentos comprovados entre cinco autorizações vencidas." loading="lazy" />
+  </div>
+  <figcaption><strong>Quatro encerramentos comprovados entre cinco autorizações vencidas.</strong> O ponto de interrogação significa falta de comprovação, não abuso demonstrado. A autorização ainda vigente fica fora do denominador. <a href="../../assets/m1/esquemas/A08-medida-evidencia.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
 
 O resultado indica uma lacuna de comprovação em uma autorização vencida. Não demonstra que 20% da rede está insegura, nem que houve uso indevido. A próxima ação é verificar a autorização sem comprovação, decidir a resposta e corrigir o processo que permitiu a lacuna.
 

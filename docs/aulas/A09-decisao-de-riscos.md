@@ -47,6 +47,13 @@ Os documentos desta página continuam o caso fictício da ValeVerde. Os fatos de
 
 **Primeira leitura:** localize, em cada ficha, uma evidência e uma incerteza. Complete oralmente: “posso usar esta informação para avaliar…, mas ainda não posso afirmar…”. Não crie novos ativos ou uma narrativa de invasão para tornar o risco mais convincente.
 
+<figure class="didactic-figure" id="primeiro-esquema">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A evidência sustenta uma condição; o risco descreve um cenário.">
+    <img src="../../assets/m1/esquemas/A09-cadeia-risco.svg" alt="A evidência sustenta uma condição; o risco descreve um cenário." loading="lazy" />
+  </div>
+  <figcaption><strong>A evidência sustenta uma condição; o risco descreve um cenário.</strong> Acompanhe R01 sem preencher as lacunas: a amostra informa ocorrências, mas não revela destinatários nem probabilidade de ataque. <a href="../../assets/m1/esquemas/A09-cadeia-risco.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
 ## 2. Avaliar risco é relacionar cenário, consequência e plausibilidade
 
 Uma vulnerabilidade descreve uma condição que pode ser explorada ou contribuir para um evento indesejável. A avaliação de risco considera o evento e sua consequência no contexto da organização. Dois sistemas com a mesma condição técnica podem exigir prioridades diferentes porque sustentam funções e expõem informações diferentes.
@@ -96,6 +103,13 @@ Use a matriz apenas depois de justificar as categorias. Não transforme as palav
 - Exceções acima do limite do gestor são encaminhadas à direção, com participação da operação quando a produção puder ser afetada.
 
 Essas regras constituem **critérios de aceitação e encaminhamento** para a simulação. A disposição geral de uma organização para assumir riscos precisa ser traduzida em limites utilizáveis nas decisões concretas. Nenhuma matriz autoriza descumprir uma obrigação aplicável.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Cruze categorias justificadas para orientar o encaminhamento.">
+    <img src="../../assets/m1/esquemas/A09-matriz-decisao.svg" alt="Cruze categorias justificadas para orientar o encaminhamento." loading="lazy" />
+  </div>
+  <figcaption><strong>Cruze categorias justificadas para orientar o encaminhamento.</strong> No exemplo R01, consequência relevante e plausibilidade alta levam a tratamento prioritário. Uma classificação sem justificativa continua frágil. <a href="../../assets/m1/esquemas/A09-matriz-decisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
 
 ### Exemplo trabalhado — avaliar R01
 
@@ -156,6 +170,13 @@ C1 é uma escolha defensável para R01 porque existe canal interno que preserva 
 
 A decisão fica **planejada**, não “risco eliminado”. Antes de alegar redução, será necessário verificar que o conteúdo interno não é entregue pela área pública e que as funções autorizadas continuam disponíveis. O responsável também precisa rever outros caminhos de publicação.
 
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Caber no orçamento de horas é somente uma condição.">
+    <img src="../../assets/m1/esquemas/A09-recurso-premissa.svg" alt="Caber no orçamento de horas é somente uma condição." loading="lazy" />
+  </div>
+  <figcaption><strong>Caber no orçamento de horas é somente uma condição.</strong> Compare o comprimento das barras. Depois confira a premissa de C3: sem supervisão e aprovação, a soma não torna a alternativa pronta. <a href="../../assets/m1/esquemas/A09-recurso-premissa.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
 ### Decisão da turma — combinar prioridades
 
 Restam seis horas após C1. Compare C3, C4 e C5 para R02. A soma das horas informa viabilidade de esforço, mas não prova que a opção atende às restrições. Escreva uma alternativa escolhida e uma rejeitada, com premissa, efeito operacional e autoridade necessária.
@@ -170,6 +191,13 @@ Essa mudança mostra por que uma decisão precisa guardar suas condições. A re
 **Risco residual** é o risco que permanece após considerar o tratamento. Enquanto a medida não foi implementada e avaliada, o residual descrito é uma **estimativa condicionada**. Depois da execução, a avaliação deve incorporar evidências reais e ainda declarar limitações.
 
 Para R01, retirar um documento não comprova que outro não poderá ser publicado novamente. A aprovação de conteúdo precisa funcionar no processo, e sua revisão deve produzir evidência. Essa distinção será importante na A10: controle definido, implantado e eficaz não são estados equivalentes.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A evidência muda o estado da decisão.">
+    <img src="../../assets/m1/esquemas/A09-residual-revisao.svg" alt="A evidência muda o estado da decisão." loading="lazy" />
+  </div>
+  <figcaption><strong>A evidência muda o estado da decisão.</strong> Percorra proposta, implantação e avaliação. O retorno à decisão representa revisão por mudança de premissa ou desvio, não prova de risco eliminado. <a href="../../assets/m1/esquemas/A09-residual-revisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
 
 Um registro de aceitação não pode se resumir a “aceito”. Ele deve permitir que outra pessoa saiba qual risco, em qual condição e até quando pode permanecer.
 
