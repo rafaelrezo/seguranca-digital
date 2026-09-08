@@ -1,6 +1,6 @@
 # A08 — Quem governa a segurança depois que a falha é conhecida?
 
-**Estado:** página integral preparada para publicação; aula não declarada ministrada.
+**Estado:** página integral publicada e verificada; aula não declarada ministrada.
 **Ementa:** políticas, governança, riscos, controles e responsabilidades.
 **Página:** `docs/aulas/A08-governanca-sgsi.md`. **Atividade:** P1 compartilhada A08–A12.
 **Carga:** 100 min, 50 T/50 P conduzida. **Formato:** página projetada, análise coletiva e editor/caderno; execução individual de ferramentas não obrigatória.

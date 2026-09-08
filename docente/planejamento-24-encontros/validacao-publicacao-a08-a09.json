@@ -15,5 +15,12 @@
   "limits": [
     "P1 será consolidada após A12, sem prazo inventado",
     "Verificação do HTML gerado; não foi realizada inspeção gráfica em navegador"
-  ]
+  ],
+  "published_commit": "8950d7f85f897cd8242ae7a35328c42b10eb1784",
+  "deploy": "https://github.com/rafaelrezo/seguranca-digital/actions/runs/34257712084",
+  "ci": "https://github.com/rafaelrezo/seguranca-digital/actions/runs/34257712077",
+  "deploy_result": "success",
+  "ci_result": "success",
+  "public_pages_content_matches_build": true,
+  "public_model_matches_source": true
 }

@@ -1,6 +1,6 @@
 # A09 — Quais riscos a organização aceita e quais precisa tratar?
 
-**Estado:** página integral preparada para publicação; aula não declarada ministrada.
+**Estado:** página integral publicada e verificada; aula não declarada ministrada.
 **Ementa:** gestão de riscos, tratamento, responsabilidades, acompanhamento e relação TI/OT.
 **Página:** `docs/aulas/A09-decisao-de-riscos.md`. **Atividade:** mesmo P1 de A08–A12.
 **Carga:** 100 min, 60 T/40 P conduzida. **Recursos:** página, editor/caderno; fichas R01/R02, matriz e C1–C5 disponíveis na página.

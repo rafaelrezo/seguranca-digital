@@ -2,7 +2,9 @@
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
-## A08/A09 — publicação integral no Pages autorizada
+## A08/A09 — publicação integral no Pages verificada
+
+Publicação verificada em 8 de setembro de 2026, commit `8950d7f8`, com build estrito, CI e deploy aprovados. Conteúdo público das duas aulas, P1, âncoras e modelo conferidos.
 
 Após aprovação do confronto histórico, foram preparadas A08 (SGSI) e A09 (decisão de risco), com atividade P1 compartilhada, modelo editável e planos fora de docs/. Novas páginas: `aulas/A08-governanca-sgsi.md` e `aulas/A09-decisao-de-riscos.md`. A publicação está autorizada nesta solicitação; nenhum arquivo do Drive será alterado e nenhuma atividade será enviada ao Classroom. O manifesto do percurso distingue aulas históricas de páginas preparadas. A última aula ministrada confirmada é A07.
 

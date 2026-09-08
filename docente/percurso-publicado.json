@@ -56,7 +56,7 @@
       "page": "aulas/A08-governanca-sgsi.md",
       "activity": "atividade",
       "title": "A08 — Quem governa a segurança depois que a falha é conhecida?",
-      "status": "preparado_validado_publicacao_autorizada",
+      "status": "publicado_realizacao_nao_declarada",
       "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
     },
     {
@@ -64,7 +64,7 @@
       "page": "aulas/A09-decisao-de-riscos.md",
       "activity": "atividade",
       "title": "A09 — Quais riscos a organização aceita e quais precisa tratar?",
-      "status": "preparado_validado_publicacao_autorizada",
+      "status": "publicado_realizacao_nao_declarada",
       "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
     }
   ]
