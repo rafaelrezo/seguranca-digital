@@ -1,5 +1,12 @@
 # A08 — Quem governa a segurança depois que a falha é conhecida?
 
+<figure class="didactic-figure">
+  <a href="../../assets/m1/A08-contexto-governanca.jpeg" target="_blank" rel="noopener">
+    <img src="../../assets/m1/A08-contexto-governanca.jpeg" alt="Equipe corrige uma falha no portal e o teste passa. A falha se repete e expõe dúvidas sobre quem define a regra, executa a proteção e acompanha seu cumprimento." />
+  </a>
+  <figcaption><strong>O teste passou. Quem mantém a proteção na próxima mudança?</strong> A repetição da exposição no portal abre a investigação sobre regras, autoridade e acompanhamento. Ilustração fornecida pelo docente para o caso fictício; não representa evidência de incidente real. Clique para ampliar.</figcaption>
+</figure>
+
 A equipe corrigiu uma exposição no portal. O teste passou e o chamado foi encerrado. Na semana seguinte, outro arquivo interno apareceu na área pública. O fornecedor afirma que publicou o material a pedido do negócio; o negócio afirma que a TI deveria ter impedido a publicação.
 
 **Quem tinha autoridade para definir a regra, quem deveria executá-la e quem precisava acompanhar seu cumprimento?** Um teste técnico responde se determinada condição funcionou naquele momento. Para manter a proteção ao longo das mudanças, precisamos organizar decisões, responsabilidades e acompanhamento.
@@ -16,26 +23,42 @@ Ao concluir esta aula, você deverá conseguir:
 
 Se precisar retomar um conceito, consulte [controles de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) e [governança](../governanca/introducao.md). A leitura a seguir contém o percurso necessário mesmo sem abrir essas referências.
 
-## 1. Da correção conhecida à pergunta de gestão
+## 1. O que precisa mudar antes da próxima publicação?
 
-No caso das cestas, a regra era relacionar a identidade reconhecida à ação e ao recurso. O servidor precisava aplicar a autorização; a verificação deveria incluir tanto o acesso legítimo quanto a tentativa indevida. Essa cadeia continua útil, mas não resolve sozinha a responsabilidade pelas mudanças futuras.
+Retome o chamado da abertura: a equipe retirou um arquivo interno da área pública e verificou aquela rota. Isso sustenta uma conclusão limitada sobre a correção naquele momento. O reaparecimento de outro arquivo exige examinar também como novas publicações são decididas. Ainda não sabemos se houve erro de configuração, aprovação inadequada ou descumprimento de uma regra.
 
-| Parte da decisão | Exemplo já resolvido |
+!!! question "Antes de buscar uma orientação"
+    Um novo documento chega ao portal sem indicação de quem pode consultá-lo. O serviço deve liberá-lo ao público ou aguardar uma permissão definida? Justifique pensando no documento interno da abertura.
+
+### Da decisão a uma regra verificável
+
+Para este caso, propomos que a ausência de uma permissão definida não torne o documento público. Quando alguém solicitar o arquivo, o serviço deve verificar se aquela leitura é permitida. Um material destinado ao público pode ter acesso público explicitamente autorizado; o documento interno precisa conservar sua restrição.
+
+| Parte da decisão | Aplicação ao mesmo arquivo |
 |---|---|
-| Ameaça | Uma pessoa obtém dados de um recurso ao qual não deveria ter acesso. |
-| Requisito | O serviço verifica a autorização em cada operação sobre o recurso. |
-| Controle | A verificação ocorre no servidor antes de devolver o dado. |
-| Verificação | Comparar um caso permitido e um negado, preservando o funcionamento legítimo. |
-| Pergunta que permanece | Quem mantém essa regra, autoriza mudanças e verifica se ela continua atendida? |
+| Ameaça considerada | Uma pessoa sem permissão obtém o documento interno. É uma possibilidade a prevenir; o chamado não comprova quem o leu. |
+| Requisito proposto | Cada solicitação de leitura respeita a permissão definida para o documento. Sem permissão aplicável, negar acesso. |
+| Controle proposto | O serviço que entrega o arquivo aplica a regra antes de devolver seu conteúdo. |
+| Verificação prevista | Comparar leitura autorizada e leitura sem permissão, incluindo o novo documento. São casos previstos, ainda não executados nesta análise. |
 
-A **OWASP** é uma comunidade que produz recursos abertos de segurança de aplicações. Suas referências desempenham funções diferentes: uma *Cheat Sheet* reúne orientação prática; o ASVS organiza requisitos de verificação; o WSTG orienta testes. Uma referência não decide automaticamente qual medida atende às necessidades da organização.
+### Como conferir se a regra proposta tem fundamento técnico?
 
-**Consulta conduzida:** abra a [Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) e procure as seções “Deny by Default” e “Validate the Permissions on Every Request”. A primeira orienta negar quando não houver permissão definida; a segunda orienta verificar autorização em cada requisição. Relacione uma delas à linha “requisito” da tabela. Se a página não abrir, use essas duas orientações resumidas para a mesma comparação.
+Já temos uma pergunta para consultar: **como tratar uma solicitação sem permissão e onde repetir essa decisão?** Podemos confrontar a proposta com uma orientação de segurança de aplicações antes de adotá-la.
 
-O ganho agora é perguntar quem transforma a orientação em uma regra mantida pela organização. Copiar uma recomendação para um documento não cria responsabilidade, recurso ou acompanhamento.
+A **OWASP** mantém recursos abertos sobre segurança de aplicações. Entre eles, a **Authorization Cheat Sheet** é um guia prático de autorização: reúne recomendações para decidir quais ações sobre quais recursos a aplicação permite. Sua utilidade aqui é conferir a regra de acesso ao arquivo que acabamos de formular.
+
+**Consulta conduzida pelo professor:** abra a [seção “Deny by Default”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#deny-by-default). Ela recomenda negar acesso por padrão. Em seguida, localize [“Validate the Permissions on Every Request”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request), que orienta verificar permissões em cada requisição. Esses dois resumos permitem acompanhar a comparação se o site não abrir.
+
+**Volte ao arquivo:** a primeira orientação sustenta negar sua leitura quando nenhuma permissão se aplica; a segunda exige aplicar a decisão a cada solicitação, inclusive para novos documentos. Registre qual parte do requisito da tabela cada orientação sustenta. Encerre a consulta quando conseguir explicar essa relação; não é necessário percorrer o restante do guia.
+
+### A regra técnica ainda deixa uma decisão em aberto
+
+Agora o fornecedor pergunta: “Quem pode autorizar que este documento seja público?” A orientação ajuda a implementar a decisão, mas não nomeia quem tem autoridade na ValeVerde, quem aprova mudanças ou quem acompanha seu cumprimento. Mesmo uma verificação tecnicamente correta pode aplicar uma permissão concedida indevidamente.
 
 !!! question "Pare e decida"
-    O teste passou ontem. Isso permite afirmar que todas as futuras alterações do portal respeitarão a mesma regra? Identifique qual processo ainda precisa existir para sustentar essa afirmação.
+    O fornecedor afirma que recebeu aprovação do negócio; o negócio afirma que a TI deveria ter impedido a publicação. Que definição falta para distinguir uma publicação autorizada de uma solicitação sem autoridade?
+
+Precisamos examinar como a empresa distribui essas decisões. Os documentos a seguir permitem localizar as lacunas e construir a gestão que manterá a regra nas próximas mudanças.
 
 ## 2. O caso ValeVerde: documentos para examinar
 
@@ -212,6 +235,5 @@ A falha conhecida passou a integrar um processo com escopo, autoridade, recursos
 
 - [ISO/IEC 27001:2022 — requisitos do SGSI](https://www.iso.org/standard/27001). O catálogo também identifica a emenda de 2024; não reproduzimos o texto normativo integral.
 - [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) — negar por padrão e verificar permissão por requisição.
-- [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) e [WSTG](https://owasp.org/www-project-web-security-testing-guide/) — requisitos e testes, respectivamente.
 
 Fontes consultadas em 8 de setembro de 2026. Empresa, documentos, metas e registros numéricos desta página são fictícios.

@@ -73,7 +73,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Conteúdos, na ordem de construção:**
 
-1. Ponte de 15 minutos: recuperar controle/teste já conhecido e situar Cheat Sheet, requisito e verificação. A OWASP não é novidade absoluta: A05 já citava Authorization, Session Management e Logging; ASVS aparece em A04. Não redesenhar DFD nem refazer os testes de cesta.
+1. Ponte de 15 minutos: partir da publicação de arquivo interno, formular a regra de leitura e só então consultar duas orientações da Authorization Cheat Sheet para conferir o requisito. Voltar à pergunta sobre quem pode aprovar a publicação; evitar catálogo de referenciais e mudança de cenário para cestas. A OWASP não é novidade absoluta: A05 já citava Authorization, Session Management e Logging; ASVS aparece em A04. Não redesenhar DFD nem refazer os testes de cesta.
 2. Problema novo: a correção foi proposta, mas a empresa não definiu quem mantém a regra, acompanha fornecedor e revisa a decisão. Introduzir Sistema de Gestão de Segurança da Informação (SGSI) e função da ISO/IEC 27001 pela necessidade de continuidade organizacional.
 3. Contexto, partes interessadas, processos, informação e dependências externas: diferenciar escopo do sistema analisado em A06 e escopo do SGSI. Uma fronteira contratual não elimina dependência do negócio.
 4. Liderança, política de alto nível, autoridade e recursos: distinguir proprietário do risco, executor do controle, aprovador de exceção e responsável operacional. Planejar comunicação e informação documentada suficiente.

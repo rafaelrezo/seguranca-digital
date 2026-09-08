@@ -4,6 +4,8 @@
 
 ## Produção e publicação autorizadas — A08 e A09
 
+**Revisão narrativa da A08 — 8 set. 2026:** manter a publicação de documento interno como fio da abertura, sem desvio para cestas ou catálogo de referenciais. A ponte de até 15 minutos passa por ocorrência → regra para a próxima publicação → consulta pontual à Authorization Cheat Sheet → limite da orientação técnica → autoridade e acompanhamento → SGSI. OWASP entra como origem da orientação que responde à pergunta já formulada. ASVS/WSTG não integram essa abertura. Preservar objetivos, carga, P1 e ponte para A09. Ilustração fornecida pelo docente acompanha a abertura como representação do caso fictício.
+
 O docente aprovou a confrontação e solicitou A08/A09 inteiramente no GitHub Pages. Está autorizada a produção e publicação dessas duas páginas, seus insumos e atividade compartilhada P1; esta decisão supera a restrição anterior de planejamento sem site. Não há autorização de envio ao Classroom ou alteração dos slides históricos. A08 inicia SGSI após ponte de 15 min; A09 avalia riscos já formulados. O caso prospectivo será uma empresa fictícia com portal de pedidos e manutenção de fornecedor: documentos fornecidos, sem alegar que registros novos foram produzidos em A01–A07. P1 tem um documento cumulativo; A08/A09 iniciam suas seções e a consolidação ocorrerá após A12. A10–A12 não são publicadas nesta etapa.
 
 ## Detalhamento autorizado — A08–A31, 8 set. 2026

@@ -1,6 +1,6 @@
 # A08 — Quem governa a segurança depois que a falha é conhecida?
 
-**Estado:** página integral publicada e verificada; aula não declarada ministrada.
+**Estado:** página publicada anteriormente; revisão narrativa local de 8 set. 2026 com publicação pendente. Aula não declarada ministrada.
 **Ementa:** políticas, governança, riscos, controles e responsabilidades.
 **Página:** `docs/aulas/A08-governanca-sgsi.md`. **Atividade:** P1 compartilhada A08–A12.
 **Carga:** 100 min, 50 T/50 P conduzida. **Formato:** página projetada, análise coletiva e editor/caderno; execução individual de ferramentas não obrigatória.
@@ -11,13 +11,13 @@ Objetivos: delimitar SGSI/dependências; distinguir autoridade/propriedade/execu
 
 Caso novo e explicitamente fictício: ValeVerde, portal de pedidos e suporte contratado. G01–G04 são documentos integralmente disponíveis na página. A análise de gestão não depende de sistema em execução ou de acesso ao texto pago da ISO. A consulta oficial OWASP tem resumo alternativo na página.
 
-Cadeia: exemplo técnico resolvido → G01–G04 → comparar escopos e responsabilidades → registro de governança → ler lacunas → SGSI → atribuir autoridade/objetivo → confrontar com documentos e medida → seção de P1 → escopo/autoridade reabertos em A09.
+Cadeia: exposição de arquivo → regra de leitura → consulta Authorization → lacuna de autoridade → G01–G04 → comparar escopos e responsabilidades → registro de governança → ler lacunas → SGSI → atribuir autoridade/objetivo → confrontar com documentos e medida → seção de P1 → escopo/autoridade reabertos em A09.
 
 ## Condução dos 100 minutos
 
 | Minutos | T/P | Condução e resposta esperada |
 |---|---|---|
-| 0–15 | 5/10 | Exemplo técnico e consulta Authorization. Esperado: teste isolado não governa futuras mudanças. Encerrar a retomada em 15 min. |
+| 0–15 | 5/10 | 0–5: chamado e previsão sobre documento sem permissão. 5–10: requisito pronto e consulta às duas orientações Authorization, relacionando-as ao arquivo. 10–15: quem pode aprovar sua publicação? Esperado: orientação técnica não atribui autoridade na empresa. Encerrar em 15 min. |
 | 15–35 | 10/10 | G01–G03, SGSI e escopos A/B. Localizar dependência externa e informação ainda faltante sobre interface OT. |
 | 35–55 | 10/10 | Papéis, autoridade, recurso e substituição. Uma atribuição genérica a TI não resolve aceitação operacional. |
 | 55–80 | 15/10 | Objetivo, documentação, monitoramento/auditoria/análise crítica. G04: 4/5 = 80%; sexta autorização não venceu. Falta de comprovação não prova acesso ativo. |
@@ -27,7 +27,7 @@ Prática contabilizada inclui leitura conduzida, comparação, cálculo contextu
 
 ## Critério e apoio
 
-Registro deve identificar processo e interface, decisão e autoridade, executor/recurso, objetivo e fonte/momento de revisão. Se a turma voltar à cesta, mostrar a linha pronta e redirecionar a quem mantém a regra. Se faltar editor, registrar no caderno. Se OWASP não abrir, usar a síntese fiel da própria página. Não é necessário abrir Drive ou criar conta.
+Registro deve identificar processo e interface, decisão e autoridade, executor/recurso, objetivo e fonte/momento de revisão. Manter o arquivo da abertura em toda a ponte; não abrir outro caso nem apresentar catálogo ASVS/WSTG. A ilustração de topo representa o problema e a direção de solução; não comprova causa técnica. Se faltar editor, registrar no caderno. Se OWASP não abrir, usar a síntese fiel da própria página. Não é necessário abrir Drive ou criar conta.
 
 ## Respostas de facilitação — não publicar no site
 
@@ -36,4 +36,4 @@ Registro deve identificar processo e interface, decisão e autoridade, executor/
 - Meta de 100% é regra fictícia do exercício; a amostra não mede segurança global.
 - Se houver discussão de certificação, distinguir requisitos, implantação e avaliação formal sem prometer conformidade.
 
-**Fontes:** ISO/IEC 27001:2022, catálogo e emenda identificados na fonte oficial; OWASP Authorization/ASVS/WSTG. Links na página. Não reproduzir cláusulas integrais. Datas acadêmicas e nota final não foram inferidas.
+**Fontes:** ISO/IEC 27001:2022, catálogo e emenda identificados na fonte oficial; OWASP Authorization. Links na página. Não reproduzir cláusulas integrais. Datas acadêmicas e nota final não foram inferidas.
