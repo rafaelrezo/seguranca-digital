@@ -27,6 +27,12 @@ Se precisar retomar um conceito, consulte [controles de segurança](../fundament
 
 ## 1. O que precisa mudar antes da próxima publicação?
 
+!!! abstract "Ideias-chave"
+    - **Ocorrência:** retirar a planilha de agosto não impediu a exposição da planilha seguinte.
+    - **Proteção:** distinguir atualização de documento, autorização de publicação e permissão de leitura.
+    - **Gestão:** definir quem decide, quem executa e quem acompanha a proteção.
+
+
 ### Como o portal da ValeVerde deveria funcionar
 
 A **ValeVerde** é a empresa fictícia deste exercício. Ela recebe pedidos pela web e mantém uma operação de embalagem. O **setor comercial** cuida dos pedidos e das informações oferecidas aos clientes. A **equipe de TI** administra o portal e os acessos. A empresa contratada **Suporte Norte** executa mudanças no portal quando recebe uma solicitação aprovada.
@@ -105,6 +111,12 @@ O fornecedor ainda precisa saber quem pode autorizar uma publicação pública. 
 
 ## 2. O caso ValeVerde: documentos para examinar
 
+!!! abstract "Ideias-chave"
+    - **G01 e G02:** responsabilidades incompletas e correção restrita a uma cópia.
+    - **G03:** o suporte exige aprovação, mas a autoridade não está definida.
+    - **G04:** uma autorização vencida não tem encerramento comprovado; isso não prova uso indevido.
+
+
 A publicação das planilhas depende de pessoas e de um serviço contratado. Para definir quem decide, precisamos conhecer as atribuições e os acordos da empresa. Os registros G01–G04 abaixo são os insumos de gestão deste exercício; cada identificação permite citar a evidência usada na decisão.
 
 O Suporte Norte também apoia a engenharia em períodos de manutenção previamente aprovados. Esse acesso precisa de autorização própria: receber permissão para atualizar documentos no portal não autoriza intervir no processo de embalagem. A aplicação de pedidos não precisa enviar comandos ao processo industrial.
@@ -128,6 +140,12 @@ O Suporte Norte também apoia a engenharia em períodos de manutenção previame
 **Leitura da síntese:** acompanhe o caminho de G03 até a decisão central. O acordo exige aprovação, mas não define quem pode concedê-la. Explique que autoridade precisa ser atribuída e qual registro permitiria conferir a aprovação. Essa ligação entre regra, pessoa e acompanhamento prepara o Sistema de Gestão de Segurança da Informação.
 
 ## 3. O que um SGSI organiza
+
+!!! abstract "Ideias-chave"
+    - **SGSI:** conecta política, pessoas, processos, recursos e revisão dos resultados.
+    - **ISO/IEC 27001:** estabelece requisitos do sistema de gestão; seu Anexo A oferece referência de controles.
+    - **Aplicação:** transformar uma necessidade de proteção em decisão, execução e evidência.
+
 
 Um **Sistema de Gestão de Segurança da Informação (SGSI)** é a organização contínua de políticas, responsabilidades, processos e recursos para tratar a segurança da informação. Ele permite que decisões sejam repetidas, avaliadas e corrigidas quando pessoas, sistemas e condições mudam.
 
@@ -192,6 +210,12 @@ Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. 
 
 ## 4. Definir o que o SGSI vai proteger {#4-delimitar-o-escopo-sem-esconder-uma-dependencia}
 
+!!! abstract "Ideias-chave"
+    - **Escopo:** atividades, informações, pessoas e recursos abrangidos pelo SGSI.
+    - **ValeVerde:** pedidos, documentos, portal e manutenção contratada.
+    - **Dependência externa:** o fornecedor é outra empresa, mas seu serviço participa do escopo.
+
+
 A ValeVerde usa um portal para receber pedidos e disponibilizar documentos. A equipe comercial trabalha com essas informações, TI mantém o portal e o Suporte Norte presta manutenção contratada. Antes de escrever a política de segurança, a empresa precisa responder: **quais dessas atividades serão abrangidas pelo SGSI?**
 
 **Escopo do SGSI é a definição dos limites dessa gestão:** quais atividades, informações, pessoas e recursos serão abrangidos. Neste momento, estamos escolhendo o que será abrangido. A política será elaborada para orientar a proteção desse conjunto; ainda não estamos avaliando o cumprimento de uma política existente.
@@ -247,6 +271,12 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto. 
 O escopo responde **“o que será abrangido?”**. A política a seguir responde **“quais compromissos e orientações de segurança serão adotados para esse conjunto?”**.
 
 ## 4.1. Uma política de segurança para orientar o SGSI {#politica-valeverde}
+
+!!! abstract "Ideias-chave"
+    - **Política:** compromissos e orientações para proteger o conjunto definido no escopo.
+    - **Desdobramento:** procedimentos explicam como agir; registros mostram o que foi realizado.
+    - **Referência:** PSI-VV-01 cobre liderança, riscos, pessoas, operação, avaliação e melhoria; permanece uma proposta.
+
 
 Definido o conjunto de atividades abrangidas, a direção precisa estabelecer como a organização se compromete a proteger suas informações. **A política de segurança da informação expressa essa orientação e sustenta os objetivos do SGSI.** Seu alcance inclui pessoas, processos, instalações, tecnologia e serviços contratados relacionados ao escopo.
 
@@ -314,7 +344,7 @@ A organização manterá um processo para comunicar, avaliar e responder a incid
 
 A organização acompanhará objetivos e controles, realizará auditorias internas com objetividade e imparcialidade e promoverá análises críticas pela direção em intervalos planejados. Desvios serão tratados, suas causas examinadas e a eficácia das ações corretivas verificada. Decisões sobre mudanças, recursos e oportunidades de melhoria serão registradas e acompanhadas.
 
-**Fim da política de exemplo.** [Baixar a versão editável em texto](../assets/m1/A08-politica-seguranca-valeverde.txt).
+**Fim da política de exemplo.** [Baixar a política em PDF — 2 páginas](../assets/m1/A08-politica-seguranca-valeverde.pdf).
 
 ### Como essa política se relaciona à ISO/IEC 27001
 
@@ -340,6 +370,12 @@ A política proposta oferece orientação para o conjunto. Ela não torna obriga
 **Confira:** qual item orientaria a preparação de um novo integrante da equipe? Indique também um registro que permitiria verificar se a preparação aconteceu. Localizar a orientação e demonstrar sua execução são duas partes do mesmo trabalho.
 
 ## 5. Transformar a orientação em responsabilidades {#5-responsabilidade-precisa-de-autoridade-e-recurso}
+
+!!! abstract "Ideias-chave"
+    - **Diretriz:** avaliar sua adequação; manter ou adaptar com justificativa.
+    - **Papéis:** distinguir autoridade para decidir, execução e conferência.
+    - **Condição de trabalho:** atribuir responsabilidade exige recursos, competência e limites explícitos.
+
 
 O item 8 da política propõe que o acesso de fornecedores tenha **finalidade e período definidos, autorização, acompanhamento e encerramento**. Para colocar essa orientação em prática, precisamos identificar quem decide, quem executa e quem confere o resultado.
 
@@ -382,6 +418,12 @@ O item 3 da política atribui à direção a definição de autoridades. **Supon
 
 ## 5.1. Registrar o risco que ainda será avaliado
 
+!!! abstract "Ideias-chave"
+    - **Agora:** registrar evidência, risco candidato e pergunta pendente.
+    - **Limite:** falta de comprovação não confirma acesso ativo nem abuso.
+    - **A09:** comparar consequências, plausibilidade e alternativas com critérios comuns.
+
+
 <a id="passo-3-preparar-avaliacao-e-tratamento-dos-riscos"></a>
 
 O item 4 da política orienta avaliar riscos com critérios e decidir seu tratamento. **Nesta aula, registre apenas o risco candidato, a evidência e a pergunta pendente.** A comparação de consequências, plausibilidade e alternativas ocorrerá na A09, com os critérios fornecidos lá.
@@ -400,6 +442,12 @@ No registro G04, falta comprovação de encerramento de uma autorização de man
 **Confira:** sua anotação distingue a falta de comprovação da hipótese de uso indevido? A futura escolha de controles será confrontada com o Anexo A da ISO/IEC 27001 e documentada na Declaração de Aplicabilidade; não é preciso produzir essa declaração agora.
 
 ## 6. Definir o resultado esperado e preparar o trabalho {#6-objetivos-que-permitem-descobrir-se-a-gestao-funciona}
+
+!!! abstract "Ideias-chave"
+    - **Objetivo:** comprovar o encerramento das autorizações cujo prazo vigente venceu.
+    - **Medição:** fixar o instante de corte e manter a mesma regra para contar autorizações.
+    - **Preparação:** responsáveis, recursos e procedimento identificado antes da operação.
+
 
 <a id="passo-4-definir-objetivos-e-preparar-a-execucao"></a>
 
@@ -424,9 +472,21 @@ A data e a hora da revisão são o **corte da medição**: comparamos o prazo vi
 
 ## 7. Aplicar o procedimento e verificar o resultado {#passo-a-passo-sgsi}
 
+!!! abstract "Ideias-chave"
+    - **S01:** comparar o pedido sob o acordo original e sob o arranjo proposto.
+    - **G04:** usar a amostra anterior como linha de base, sem atribuir seu resultado à proposta.
+    - **Avaliação:** acompanhar, auditar e melhorar com evidências; aprovação não comprova execução.
+
+
 Os quatro primeiros passos produziram escopo, avaliação da diretriz e papéis, risco candidato e objetivo. Agora usaremos esses registros em uma **simulação em papel**. A política continua proposta; a designação e a aprovação abaixo são condições fictícias para testar o raciocínio. Elas não modificam os documentos originais G01–G04 nem comprovam execução.
 
 ### Passo 5 — Colocar o procedimento à prova
+
+!!! abstract "Ideias-chave"
+    - **Dois estados:** acordo original sem aprovador; proposta com papéis e decisão simulada.
+    - **Condições:** verificar permissões e acompanhamento antes de iniciar a manutenção.
+    - **Registro:** separar decisão, execução e encerramento.
+
 
 <a id="passo-5-colocar-o-processo-em-operacao-e-guardar-o-rastro"></a>
 
@@ -467,6 +527,12 @@ Os quatro primeiros passos produziram escopo, avaliação da diretriz e papéis,
 
 ### Passo 6 — Medir o resultado sem exagerar a conclusão
 
+!!! abstract "Ideias-chave"
+    - **Conjunto:** cinco autorizações vencidas; a sexta tem prorrogação ainda válida.
+    - **Resultado:** quatro encerramentos comprovados em cinco — 80% nessa amostra.
+    - **Limite:** linha de base anterior à proposta, não medida de segurança global.
+
+
 **Orientação aplicada:** itens 5 e 10 da política — definir objetivos e acompanhar resultados. A seção 9.1 da ISO trata da medição e avaliação.
 
 A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha de base para o objetivo de encerramento; não demonstra o efeito de PR-VV-01 ou da simulação S01. Use como corte o instante da revisão descrita em G04.
@@ -489,6 +555,12 @@ A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha 
 **Confira:** por que a prorrogação ainda vigente fica fora, mas a autorização vencida sem comprovação precisa permanecer no denominador?
 
 ### Passo 7 — Auditar o processo e levar decisões à direção
+
+!!! abstract "Ideias-chave"
+    - **Monitoramento:** acompanha a medida e identifica pendências.
+    - **Auditoria:** examina evidências frente a critérios, com imparcialidade.
+    - **Direção:** decide mudanças e recursos e acompanha seus resultados.
+
 
 **Orientação aplicada:** item 10 da política — realizar auditorias e análises críticas em intervalos planejados. Na ISO, auditoria interna está em 9.2 e análise crítica da direção em 9.3.
 
@@ -514,6 +586,12 @@ A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha 
     O procedimento publicado descreve como auditar. Ele não fornece, sozinho, o resultado de uma auditoria executada.
 
 ### Passo 8 — Corrigir o desvio e verificar a melhoria
+
+!!! abstract "Ideias-chave"
+    - **Correção:** tratar a situação identificada.
+    - **Ação corretiva:** agir sobre a causa confirmada do desvio.
+    - **Eficácia:** examinar nova evidência e reabrir a investigação se necessário.
+
 
 **Orientação aplicada:** item 10 da política — tratar desvios, examinar causas e verificar ações. Na ISO, melhoria contínua está em 10.1 e não conformidade/ação corretiva em 10.2.
 

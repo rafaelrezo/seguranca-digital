@@ -53,3 +53,9 @@ ISO/IEC 27001:2022, Emenda 1:2024, catálogo IEC, prévia SIST e nota educaciona
 UCL RISM01 v10.4 (31/03/2025), RISM05 v4.1 (11/04/2025) e LNCC PSI v3.1 (21/10/2025): documentos institucionais consultados em 8 set. 2026, sem auditoria de implantação ou certificados. Vídeo Guru De Risco, “ISO 27001 - ENTENDA DE VEZ!”, 29/03/2022: metadados e incorporação conferidos; não houve revisão integral da fala. Para numeração normativa usar edição2022+emenda2024, pois vídeo é anterior à publicação dessa edição.
 
 Revisões independentes técnica e didática motivaram a integração: coerência de escopo, diretriz aplicada continuamente, insumo concreto, estados explícitos, objetivo/indicador alinhados e percurso sem duplicação. Fontes, arquivos históricos e notas anteriores estão preservados.
+
+## Apoio à condução e PDF da política
+
+As seções principais e os passos 5–8 começam com três ideias-chave para orientar a explicação. O texto seguinte permanece como apoio de estudo e detalhamento. Não é necessário ler o corpo integral em voz alta; os itens não acrescentam uma etapa nem alteram os 100 minutos.
+
+O download público da política usa `docs/assets/m1/A08-politica-seguranca-valeverde.pdf`, duas páginas A4 com texto selecionável. Fonte em `.txt` preservada; `scripts/render_a08_policy.py` produz HTML de impressão a partir dela. Para regenerar: executar o script com caminho de saída HTML, imprimir pelo Chrome headless com `--no-pdf-header-footer` e `--print-to-pdf`, conferir os dez itens por extração de texto e revisar as duas páginas. Esta exportação é a política de exemplo solicitada, sem criar roteiro de atividade em PDF.
