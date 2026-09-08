@@ -1,6 +1,6 @@
 # A08 — Quem governa a segurança depois que a falha é conhecida?
 
-**Estado:** revisão de contexto explícito preparada para publicação em 8 set. 2026. A07 reconsultada integralmente no Drive; A08 não declarada ministrada.
+**Estado:** revisão de contexto explícito publicada e verificada em 8 set. 2026, commit `9ef07ea2`, validação e deploy aprovados. A07 reconsultada integralmente no Drive; A08 não declarada ministrada.
 **Ementa:** políticas, governança, riscos, controles e responsabilidades.
 **Página:** `docs/aulas/A08-governanca-sgsi.md`. **Atividade:** P1 compartilhada A08–A12.
 **Carga:** 100 min, 50 T/50 P conduzida. **Formato:** página projetada, análise coletiva e editor/caderno; execução individual de ferramentas não obrigatória.
@@ -18,7 +18,7 @@ Cadeia: limite do mapa ATT&CK → pergunta sobre quem mantém a proteção → c
 | Minutos | T/P | Condução e resposta esperada |
 |---|---|---|
 | 0–15 | 5/10 | 0–2: limite do mapa ATT&CK e mudança explícita para um exercício de gestão. 2–7: ler o funcionamento do portal e G02; distinguir retirada de agosto e publicação de setembro, prevendo o limite do teste. 7–11: apresentar requisito e conferir duas orientações Authorization. 11–15: distinguir pedido de atualização de aprovação pública; identificar autoridade ausente. Leitura seletiva conduzida; descrição completa fica disponível para estudo. Encerrar a ponte em 15 min. |
-| 15–35 | 10/10 | G01–G03, SGSI e escopos A/B. Localizar dependência externa e informação ainda faltante sobre interface OT. |
+| 15–35 | 10/10 | G01–G03, síntese visual ValeVerde, SGSI e escopos A/B. Localizar dependência externa e informação ainda faltante sobre interface OT. |
 | 35–55 | 10/10 | Papéis, autoridade, recurso e substituição. Uma atribuição genérica a TI não resolve aceitação operacional. |
 | 55–80 | 15/10 | Objetivo, documentação, monitoramento/auditoria/análise crítica. G04: 4/5 = 80%; sexta autorização não venceu. Falta de comprovação não prova acesso ativo. |
 | 80–100 | 10/10 | Construir/revisar registro. Introduzir P1/V1 e guardar escopo/autoridade para A09. Sem submissão extra. |
@@ -41,3 +41,5 @@ Registro deve identificar processo e interface, decisão e autoridade, executor/
 - Se houver discussão de certificação, distinguir requisitos, implantação e avaliação formal sem prometer conformidade.
 
 **Fontes:** ISO/IEC 27001:2022, catálogo e emenda identificados na fonte oficial; OWASP Authorization. Links na página. Não reproduzir cláusulas integrais. Datas acadêmicas e nota final não foram inferidas.
+
+**Mediação da síntese visual:** após a tabela G01–G04, percorrer G03 → autoridade ausente → registro de aprovação. A figura resume os insumos já apresentados; não exige memorizar IDs. G04 representa autorizações de suporte, não planilhas. Fonte original e registro da adaptação preservados em `ilustracoes/`.

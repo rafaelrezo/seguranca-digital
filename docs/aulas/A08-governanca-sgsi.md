@@ -110,6 +110,15 @@ O Suporte Norte também apoia a engenharia em períodos de manutenção previame
 
 **Como analisar:** o acordo G03 exige uma aprovação, mas não identifica o papel que pode concedê-la. Registre “autoridade de aprovação não definida no acordo” e indique que definição precisa ser obtida. Depois encontre outra lacuna de responsabilidade nos registros. A ausência de aprovação documentada exige confirmação; sozinha, não demonstra invasão ou intenção maliciosa.
 
+<figure class="didactic-figure didactic-figure-wide" id="sintese-visual-valeverde">
+  <a href="../../assets/m1/A08-valeverde-responsabilidades.png" target="_blank" rel="noopener">
+    <img src="../../assets/m1/A08-valeverde-responsabilidades.png" alt="Síntese dos registros ValeVerde: G01 deixa a autoridade de publicação indefinida; G02 distingue retirada da planilha de agosto de nova exposição em setembro; G03 exige aprovação de suporte sem definir responsabilidades; G04 contém cinco autorizações vencidas, quatro com encerramento comprovado e uma sem comprovação, além de uma ainda vigente. A análise liga cada lacuna a quem pode decidir e acompanhar." loading="lazy" />
+  </a>
+  <figcaption><strong>Da lacuna no registro à responsabilidade pela decisão.</strong> Na publicação de planilhas, falta definir quem autoriza sua divulgação; no suporte, quem aprova, limita e acompanha o acesso. Em G04, contamos autorizações de suporte, e a falta de comprovação de encerramento exige verificação. Ilustração fornecida pelo docente, adaptada ao caso fictício desta aula. Clique para ampliar.</figcaption>
+</figure>
+
+**Leitura da síntese:** acompanhe o caminho de G03 até a decisão central. O acordo exige aprovação, mas não define quem pode concedê-la. Explique que autoridade precisa ser atribuída e qual registro permitiria conferir a aprovação. Essa ligação entre regra, pessoa e acompanhamento prepara o Sistema de Gestão de Segurança da Informação.
+
 ## 3. O que um SGSI organiza
 
 Um **Sistema de Gestão de Segurança da Informação (SGSI)** é a organização contínua de políticas, responsabilidades, processos e recursos para tratar a segurança da informação. Ele permite que decisões sejam repetidas, avaliadas e corrigidas quando pessoas, sistemas e condições mudam.
