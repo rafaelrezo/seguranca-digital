@@ -82,3 +82,10 @@ Ao alterar objetivos, comandos, arquitetura, evidências ou critérios de entreg
 7. atualizar este registro quando a pasta, o escopo ou os links imediatos mudarem.
 
 Materiais docentes, gabaritos e notas sensíveis permanecem no diretório local `docente/` e não devem ser colocados na pasta de distribuição aos estudantes.
+
+
+## Verificação da publicação — SGSI e atividade A09, 8 set. 2026
+
+Commit `98ce218fec8165b7d61a2fe2f5794f8bf63847c2`: mapa ISO/IEC 27001:2022 com Emenda 1:2024, oito passos, exemplos institucionais UCL/LNCC e vídeo na A08; enunciado integral ao final da A09, com modelo alinhado e antiga URL P1 preservada como encaminhamento.
+
+Validação editorial e build estrito aprovados localmente. GitHub Actions: validação `34274398096` e deploy `34274398042`, ambos concluídos com sucesso. Páginas públicas A08/A09 verificadas por HTTP após deploy: exemplos, roteiro, vídeo e atividade presentes. Nenhuma alteração no Drive ou envio ao Classroom nesta publicação.

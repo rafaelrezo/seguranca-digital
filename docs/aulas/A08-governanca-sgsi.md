@@ -181,31 +181,45 @@ Assista a **“ISO 27001 - ENTENDA DE VEZ!”**, do canal **Guru De Risco** (**1
 
 Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. Na ValeVerde, isso significa identificar quem pode aprovar o suporte, registrar a execução e verificar o encerramento do acesso. Use esse vínculo para justificar a responsabilidade proposta para o acesso do fornecedor.
 
-## 4. Delimitar o escopo sem esconder uma dependência
+## 4. Definir o que o SGSI vai proteger {#4-delimitar-o-escopo-sem-esconder-uma-dependencia}
 
-O escopo do modelo técnico respondia qual parte do sistema seria analisada. O **escopo do SGSI** também precisa considerar processos, pessoas, informação, unidades e interfaces organizacionais. Não se limita a listar servidores.
+A ValeVerde usa um portal para receber pedidos e disponibilizar documentos. A equipe comercial trabalha com essas informações, TI mantém o portal e o Suporte Norte presta manutenção contratada. Antes de escrever a política de segurança, a empresa precisa responder: **quais dessas atividades serão abrangidas pelo SGSI?**
 
-Compare duas propostas:
+**Escopo do SGSI é a definição dos limites dessa gestão:** quais atividades, informações, pessoas e recursos serão abrangidos. Neste momento, estamos escolhendo o que será abrangido. A política será elaborada para orientar a proteção desse conjunto; ainda não estamos avaliando o cumprimento de uma política existente.
+
+### Comece pela atividade e pelas pessoas envolvidas
+
+Comece pelo serviço de pedidos digitais e identifique o que permite seu funcionamento:
+
+| O que precisa entrar na gestão | Por que isso importa no caso |
+|---|---|
+| Documentos e informações dos pedidos | São informações utilizadas ou disponibilizadas pelo serviço. |
+| Trabalho da equipe comercial | A equipe utiliza informações dos pedidos e seleciona documentos para publicação. |
+| Trabalho de TI e funcionamento do portal | A equipe mantém os recursos que recebem pedidos e disponibilizam documentos. |
+| Serviço de manutenção do Suporte Norte | A empresa conta com esse fornecedor para realizar manutenção no portal. |
+
+### O que significa “dependência” aqui?
+
+A ValeVerde contrata o Suporte Norte para realizar manutenção no portal. Para executar esse serviço, conta com o trabalho de outra empresa. **Essa necessidade de contar com um serviço, uma pessoa ou um recurso é uma dependência.** Como o Suporte Norte pertence a outra empresa, temos uma **dependência externa**.
+
+Por isso, o escopo precisa considerar a manutenção contratada e o acesso do fornecedor ao portal. Isso delimita o serviço que será acompanhado. As regras sobre quem autoriza o acesso, por quanto tempo e como verificar seu encerramento serão estabelecidas na construção da política e dos procedimentos. A ValeVerde não passa a administrar toda a empresa fornecedora; considera a parte do serviço que atende ao seu portal.
+
+### Compare duas formas de escrever o escopo
 
 > **Proposta A:** “O SGSI cobre o servidor do portal.”
->
-> **Proposta B:** “O SGSI cobre o recebimento e a manutenção dos pedidos digitais da ValeVerde, incluindo informação de clientes e pedidos, equipe comercial e de TI, administração de identidades e mudanças no portal. O suporte contratado é uma dependência externa sujeita às regras de aprovação e acompanhamento. Intervenções no processo de embalagem exigem autorização da operação e análise específica.”
 
-A proposta A identifica um equipamento, mas deixa obscuros os processos que publicam informação e autorizam terceiros. A proposta B permite perguntar quem decide sobre publicação e suporte. Isso não significa que ela já seja suficiente para toda a empresa: localizações, outras unidades, obrigações e interfaces ainda podem exigir detalhamento.
+Esse texto identifica um equipamento, mas deixa uma dúvida: o SGSI também abrange o trabalho com os pedidos, a publicação de documentos e a manutenção contratada?
 
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A dependência externa cruza uma interface governada.">
-    <img src="../../assets/m1/esquemas/A08-escopo-interface.svg" alt="A dependência externa cruza uma interface governada." loading="lazy" />
-  </div>
-  <figcaption><strong>A dependência externa cruza uma interface governada.</strong> O contorno delimita os pedidos digitais; a relação com o fornecedor permanece explícita. A conexão com a operação exige uma decisão própria. <a href="../../assets/m1/esquemas/A08-escopo-interface.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
+> **Proposta B:** “O SGSI abrange o recebimento e a manutenção dos pedidos digitais e a publicação de documentos no portal da ValeVerde. Inclui as informações de clientes e pedidos, os documentos publicados, o portal e as atividades das equipes comercial e de TI relacionadas a esses serviços. Abrange também a manutenção do portal realizada pelo Suporte Norte e o acesso utilizado pelo fornecedor nesse serviço.”
 
-**Examine o escopo:** o chamado G02 encerrou a retirada da planilha sem definir quem aprova novas publicações; o acordo G03 exige aprovação para suporte sem nomear quem pode concedê-la. Para cada lacuna, sublinhe uma expressão da proposta B que inclui esse processo ou dependência na gestão. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
+A proposta B identifica o conjunto para o qual a empresa vai estabelecer política, responsabilidades e procedimentos. Ela é um ponto de partida para o exercício; a empresa ainda precisaria identificar os locais e recursos envolvidos e confirmar os requisitos aplicáveis.
 
-Não ter controle direto sobre a infraestrutura interna do fornecedor não elimina a dependência. A ValeVerde pode estabelecer requisitos contratuais, limitar a interface de acesso, pedir evidências e acompanhar o serviço, dentro do que efetivamente consegue exigir e verificar.
+**Limite a confirmar:** o caso menciona a operação de embalagem, mas não detalha como a manutenção do portal poderia afetá-la. Antes de incluir essa operação no escopo, é preciso esclarecer essa relação. Se uma intervenção puder afetar a embalagem, será necessário avaliar seu efeito e obter autorização de quem responde pela operação.
 
-!!! question "Teste o escopo"
-    O fornecedor troca a pessoa que presta suporte. Qual parte da proposta B precisa continuar funcionando para que a troca não produza acesso sem aprovação? Uma resposta que cite somente o servidor está completa?
+!!! question "Confira seu escopo"
+    A manutenção do portal faz parte da proposta B mesmo sendo executada por outra empresa? Localize o trecho que sustenta sua resposta e explique por que a ValeVerde depende desse serviço. Você está verificando o que o escopo abrange; as regras de acesso ainda serão definidas.
+
+O escopo responde **“o que será abrangido?”**. A política estabelecerá **“quais compromissos e orientações de segurança serão adotados?”**. Para que essa política possa ser aprovada e colocada em prática, precisamos definir os responsáveis pelas decisões. Essa é a próxima etapa.
 
 ## 5. Responsabilidade precisa de autoridade e recurso
 

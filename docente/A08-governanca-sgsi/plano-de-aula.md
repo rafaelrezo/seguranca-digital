@@ -64,3 +64,27 @@ Comparações inseridas nos passos 1, 2 e 7, dentro dos blocos de condução já
 - UCL RISM05, versão 4.1, revisão 11/04/2025: seções 4 e 6, imparcialidade e rastreabilidade das ações. Fonte: https://isms.arc.ucl.ac.uk/rism05-audit_procedure/
 
 Documentos consultados diretamente nas fontes institucionais. Resumos autorais, sem reprodução integral. Não foram auditados resultados, implantação ou certificados das instituições. Não confundir numeração das seções dos documentos com cláusulas ISO. Não transportar exclusões da UCL nem obrigações do LNCC para ValeVerde sem examinar contexto e requisitos.
+
+## Cognitive Load Analysis
+
+### Task Summary
+Revisão da seção 4 para estudantes iniciantes em SGSI: delimitar a gestão do portal e compreender por que o suporte contratado precisa ser considerado.
+
+### Load Breakdown
+**Intrinsic Load: Medium** — quatro elementos relacionados: atividade, informação, pessoas e serviço externo.
+**Extraneous Load: High (antes da revisão)** — referência não explicada ao modelo técnico, termos “interface governada” e “dependência” sem definição, salto para operação industrial.
+**Germane Load: Medium** — comparar escopos e justificar a inclusão da aprovação do acesso.
+
+### Overall Assessment
+Diagnóstico textual, sem observação da turma: a versão anterior exigia reconstruir pré-requisitos antes de analisar o caso. A revisão apresenta uma relação por vez e mantém o contexto junto da pergunta.
+
+### Problem Areas
+Abertura abstrata; definição ausente; figura com termos adicionais; pergunta que exigia recuperar G02/G03 e inferir relação industrial.
+
+### Modification Suggestions
+Aplicado: começar pelo funcionamento normal dos pedidos digitais, definir escopo, mostrar os participantes, explicar dependência pelo serviço contratado e só então comparar A/B. Substituir a figura nessa seção por tabela de elementos e motivos; preservar o SVG no acervo. Explicitar a relação com embalagem como informação a confirmar. Na condução dos passos 1–2, usar a nova proposta B e perguntar por que a manutenção contratada pertence ao escopo. Permanecem os 100 minutos e os mesmos critérios de entrega.
+
+### Expertise Reversal Check
+Apoio adequado à introdução do SGSI. Quem já conhece o conceito pode avançar diretamente à comparação A/B e à justificativa. Não exigir copiar definições.
+
+**Ajuste após retorno docente:** a comparação de escopos delimita atividades, sem avaliar eventos como descumprimento de política inexistente. Explicitar escopo → política a construir → responsabilidades/procedimentos; a pergunta final verifica inclusão do serviço, sem antecipar regra de aprovação.
