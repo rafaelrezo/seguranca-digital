@@ -48,3 +48,16 @@
   .didactic-scroll { overflow: visible; }
   .didactic-figure img { min-width: 0; }
 }
+
+/* Ilustração de abertura: ocupa toda a largura disponível sem distorção. */
+.didactic-figure-wide {
+  padding: .35rem;
+}
+.didactic-figure-wide img {
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+}
+.didactic-figure-wide figcaption {
+  padding-inline: .5rem;
+}

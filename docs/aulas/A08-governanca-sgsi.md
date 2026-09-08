@@ -1,6 +1,6 @@
 # A08 — Quem governa a segurança depois que a falha é conhecida?
 
-<figure class="didactic-figure">
+<figure class="didactic-figure didactic-figure-wide">
   <a href="../../assets/m1/A08-contexto-governanca.jpeg" target="_blank" rel="noopener">
     <img src="../../assets/m1/A08-contexto-governanca.jpeg" alt="Equipe corrige uma falha no portal e o teste passa. A falha se repete e expõe dúvidas sobre quem define a regra, executa a proteção e acompanha seu cumprimento." />
   </a>
