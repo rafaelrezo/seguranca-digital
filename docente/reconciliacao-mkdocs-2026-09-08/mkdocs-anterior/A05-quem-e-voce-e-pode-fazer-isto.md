@@ -24,7 +24,7 @@ As regras são simples:
 
 ## O elo que chegou da aula anterior
 
-A04 acompanhou Ana abrindo uma cesta no Juice Shop e registrou `ação → requisição → decisão → resposta`. Aqui retomamos esse fluxo e acrescentamos Bruno e duas perguntas independentes: validade do contexto antigo e propriedade do recurso. Contas e identificadores precisam ser preparados novamente se o contêiner foi recriado.
+A04 ensinou a acompanhar `ação → requisição → decisão → resposta`. A05 reutiliza essa habilidade em um caso novo; nenhuma conta ou captura Web é atribuída à A04.
 
 ## Primeiro compreenda o funcionamento normal
 
@@ -51,7 +51,7 @@ Quando falamos em uma “solicitação antiga de Ana”, falamos dessa requisiç
 
 ## Preparação no Firefox
 
-1. Confirme que o Docker está iniciado. No PowerShell ou terminal Linux, execute em uma linha `docker run --rm -d --name juice-shop-a05 -p 127.0.0.1:3000:3000 bkimminich/juice-shop` e abra `http://127.0.0.1:3000`. Se houver conflito de nome/porta, confira `docker ps --filter name=juice-shop-a05` e peça apoio; não remova outro ambiente.
+1. Inicie o laboratório com o comando único fornecido pelo professor e abra `http://127.0.0.1:3000`.
 2. Pressione `Ctrl+Shift+E` (`Cmd+Opt+E` no macOS) para abrir **Network**.
 3. Clique na engrenagem do Network e marque **Persistir registros** (*Enable persistent logs*).
 4. No filtro de Network, escreva `basket`.
@@ -64,12 +64,12 @@ O Firefox permite editar e reenviar uma requisição diretamente no painel Netwo
 
 ## Prepare Ana e preserve a primeira solicitação
 
-1. No menu da conta, abra **Login → Not yet a customer? / Ainda não é cliente?**. Cadastre `anaNN@a05.invalid`, substituindo `NN` pelo número da dupla; escolha senha descartável e resposta de segurança fictícia, sem registrá-las na entrega.
+1. Cadastre `anaNN@a05.invalid`, substituindo `NN` pelo número da dupla.
 2. Entre como Ana e adicione **2 Apple Juice**.
 3. Abra a cesta.
 4. Em Network, selecione `GET .../rest/basket/N` com status `200`.
 5. Anote somente o último número como **cesta A**.
-6. Em **Response**, confirme o produto Apple Juice e a quantidade 2. Não copie cabeçalhos.
+6. Em **Response**, confirme os dois itens. Não copie cabeçalhos.
 
 ## Duas perguntas diferentes
 
@@ -135,11 +135,6 @@ Bruno → GET /rest/basket/A → negar esperado
 
 Se a segunda for aceita, a sessão de Bruno é válida, mas a aplicação não aplicou corretamente a regra de propriedade naquele caso. Essa é uma falha de **autorização horizontal**: uma pessoa alcança recurso de outra pessoa com o mesmo nível de privilégio.
 
-!!! question "Checkpoint — compare apenas o que realmente variou"
-    Preencha uma linha por caso com contexto representado, recurso, status, conteúdo, decisão e limite. Confira no painel, sem copiar segredos, se a requisição reenviada preservou o contexto esperado. Se não conseguir determinar isso, registre o teste como inconclusivo. Nome exibido na interface não identifica sozinho o contexto efetivamente enviado.
-
-O status HTTP deve ser lido junto com o corpo. Uma resposta `200` contendo mensagem de erro ou nenhum dado da cesta não demonstra acesso aos itens de Ana. A conclusão de falha de propriedade depende da resposta efetivamente revelar o recurso alheio dentro das condições controladas.
-
 ## A correção pertence ao servidor
 
 A interface não é uma fronteira de autorização. Para cada solicitação, o componente que controla a cesta deve comparar a identidade reconhecida com o proprietário real:
@@ -198,49 +193,16 @@ Uma implementação robusta tende a carregar o recurso já limitado pelo sujeito
 
 Os casos permitidos demonstram preservação da função; os negados demonstram a regra de segurança. Por isso, a validação não termina quando `Bruno → A` é bloqueado. Também é necessário confirmar que `Ana → A` e `Bruno → B` continuam disponíveis e que o contexto antigo de Ana é recusado.
 
-## Atividade {#atividade}
+## Atividade domiciliar em dupla
 
-**Missão:** reconstruir o caso Ana/Bruno e entregar um diagnóstico separado para sessão e autorização. **Tempo domiciliar de referência:** 60–80 minutos. **Trabalho:** dupla. **Recursos:** esta página, Firefox, Juice Shop local ou o exercício alternativo abaixo.
+Repita os quatro casos ou use o pacote de evidências. Entregue:
 
-Repita os quatro casos guiados nesta página; não procure novas cestas. Troque os papéis depois de registrar Bruno usando a própria cesta. Preencha:
-
-| Caso | Contexto e recurso | Resultado real | Evidência e limite | Atende à regra? |
-|---|---|---|---|---|
-| 1 | Ana ativa → A | preencher | preencher | justificar |
-| 2 | Ana pós-logout → A | preencher | preencher | justificar |
-| 3 | Bruno ativo → B | preencher | preencher | justificar |
-| 4 | Bruno ativo → A | preencher | preencher | justificar |
-
-### Alternativa de análise sem execução
-
-Se o ambiente não funcionar em dez minutos, analise as duas situações **hipotéticas para revisão** abaixo. Elas não são capturas de uma execução da turma nem resultados medidos no Juice Shop nesta revisão.
-
-| Caso | Situação X | Situação Y |
-|---|---|---|
-| Ana ativa → A | itens de Ana devolvidos | itens de Ana devolvidos |
-| contexto antigo de Ana → A | itens de Ana devolvidos | contexto recusado |
-| Bruno ativo → B | itens de Bruno devolvidos | itens de Bruno devolvidos |
-| Bruno ativo → A | acesso recusado, sem itens de Ana | itens de Ana devolvidos |
-
-Em cada situação, identifique separadamente a propriedade preservada e a que precisa de tratamento. Compare as duas: uma regra correta não garante a outra. Proponha a correção e os quatro testes; marque os resultados como **fornecidos pelo exercício**, sem inventar status ou log.
-
-### Entrega e rubrica
-
-Quando solicitada no Classroom, envie `A05-sobrenome1-sobrenome2.pdf`, com regra de negócio, tabela dos quatro casos, diagnóstico separado, controle no servidor, testes de aceitação e proposta de evento de negação. Se usou a alternativa, entregue a análise de X e Y e identifique a modalidade.
-
-| Critério | Concluído | Precisa revisar |
-|---|---|---|
-| Estado | identidade, contexto e cesta identificados | usa só o nome visível na tela |
-| Diagnóstico | sessão e propriedade avaliadas separadamente | uma falha usada para concluir a outra |
-| Controle | regra no servidor e efeito esperado explícitos | esconder botão ou identificador |
-| Validação | dois casos positivos e dois negativos | somente o bloqueio |
-| Accounting | sujeito, ação, recurso, decisão e correlação sem segredo | token ou senha no registro |
-
-**Diagnóstico operacional:** se a linha A sumiu, refaça a linha de base com persistência ativada antes do logout. Se B não mostrar o produto de Bruno, não edite o identificador: restaure primeiro o caso legítimo. Se o comando de reenvio ou o contexto não puder ser confirmado, registre a limitação e use a alternativa.
-
-**Encerramento:** saia da conta, salve somente o documento sanitizado, feche DevTools, execute `docker stop juice-shop-a05` e confira `docker ps --filter name=juice-shop-a05`. Isso remove o contêiner criado com `--rm`; as contas são descartáveis. Na modalidade de análise, apenas feche os documentos.
-
-**Extensão:** proponha um teste para outra condição de término, como expiração, sem executá-lo nem presumir o resultado. **Revisão:** o colega deve apontar quais resultados foram observados, fornecidos e apenas esperados.
+1. regra de negócio em uma frase;
+2. tabela com resultado, evidência e limite;
+3. diagnóstico separado para sessão e autorização;
+4. correção no servidor;
+5. quatro testes de aceitação;
+6. evento auditável para uma negação.
 
 ## Critérios de conclusão
 
@@ -267,7 +229,6 @@ Os quatro casos respondem duas perguntas conhecidas, mas não enumeram todos os 
 - [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html). Acesso em 25 ago. 2026.
 - [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html). Acesso em 25 ago. 2026.
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/). Acesso em 25 ago. 2026.
+- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html). Acesso em 25 ago. 2026.
 - [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) — requisitos verificáveis de autenticação, sessão, controle de acesso e logging.
-- [OWASP API Security Top 10 — Broken Object Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/) — referência complementar sobre autorização em APIs.
-
-- [Firefox — detalhes da requisição e reenvio](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_details/index.html). Consulta em 8 set. 2026.
+- [OWASP API Security Top 10 — Broken Object Property Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa3-broken-object-property-level-authorization/) — referência complementar sobre autorização em APIs.

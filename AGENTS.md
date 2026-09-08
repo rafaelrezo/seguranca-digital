@@ -2,7 +2,50 @@
 
 Estas instruções orientam todo conteúdo criado ou revisado neste repositório. O curso deve ser desenvolvido a partir de problemas observáveis, experimentação segura e situações profissionais verossímeis. A teoria entra quando ajuda o estudante a explicar uma evidência, tomar uma decisão ou melhorar uma solução.
 
+## Referência obrigatória de arquitetura curricular
+
+Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, o caso condutor, as dependências entre encontros, os produtos integradores e os portões contra *drift*.
+
+Consultar também [`docente/publicacao-google-drive.md`](docente/publicacao-google-drive.md) antes de publicar ou substituir materiais. O arquivo registra a pasta oficial, o inventário vigente e o procedimento de sincronização entre repositório e Google Drive.
+
+- O `AGENTS.md` define as diretrizes gerais de produção e qualidade.
+- A arquitetura geral define **por que cada aula existe, o que recebe da anterior e o que prepara para a seguinte**.
+- O arquivo [`docente/conteudo-programatico-por-encontro.md`](docente/conteudo-programatico-por-encontro.md) define objetivos, tópicos, conhecimentos, habilidades e evidências de conclusão que devem alimentar a ficha-base de cada pacote.
+- O plano docente de cada aula detalha a execução do encontro.
+- Se uma alteração mudar cenário, progressão, objetivo, evidência, produto ou ponte entre aulas, atualizar primeiro a arquitetura geral ou registrar nela a decisão pendente; depois alinhar os artefatos afetados.
+- Não considerar uma sequência aprovada apenas porque seus arquivos já existem. Prevalecem os estados e decisões registrados na arquitetura geral.
+
+## Formato vigente — decisão docente de 8 de setembro de 2026
+
+O MkDocs publicado no GitHub Pages passa a ser o material integral de condução, estudo e prática. A atividade fica na própria página, com âncora estável para distribuição no Google Classroom. Slides e roteiros em PDF deixam de ser requisitos para aulas novas. As regras de apresentações e PDFs abaixo aplicam-se apenas quando esses artefatos forem explicitamente solicitados.
+
+A reconciliação do MkDocs com as apresentações e práticas publicadas está autorizada, inclusive para aulas realizadas. Preservar todos os slides, fontes, exportações e roteiros históricos; não apagar nem substituir arquivos no Drive durante essa reconciliação. Uma explicação acrescentada ao site é apoio de estudo, não prova de que foi ministrada. Material publicado não comprova entrega ou execução pela turma.
+
+### Transposição do padrão de POO
+
+- Partir do estado que o estudante vê e explicar uma ideia por vez, alternando teoria detalhada e ação imediata na mesma página.
+- Cada bloco responde: de onde partimos; qual problema apareceu; qual conceito ajuda; como aplicar; como confirmar; o que isso prepara.
+- Manter três camadas conectadas: **conceito** (propriedade e motivo), **operação** (ação ou análise segura) e **validação** (evidência, limite e revisão).
+- Trocar o programa cumulativo de POO por um artefato cumulativo de segurança: registro, requisição, diagrama, matriz, configuração, relatório ou runbook. Programação entra somente quando beneficia a pergunta.
+- Trocar compilação/CI por verificação adequada ao domínio: resultado real comparado à previsão, casos permitido/negado, função preservada, revisão cruzada ou validação em pacote de evidências. Não chamar proposta de teste de teste executado.
+- Explicar ferramenta, painel, campo, comando e saída antes de exigir interpretação. Incluir erros comuns, diagnóstico, checkpoints e alternativa efetivamente disponível na página.
+- Fornecer um exemplo trabalhado; pedir uma extensão que exija decisão, sem entregar todas as respostas. Conservar explicações completas, não apenas listas ou resumos de slides.
+- Reutilizar as páginas conceituais existentes por links contextuais. O percurso principal deve ser autocontido; aprofundamento pode ficar em páginas de consulta.
+- Classroom recebe link para `#atividade`, entregável, prazo definido pelo docente e rubrica. Não exigir fork, PR, CI, vídeo ou código em toda atividade.
+- Quando houver uso permitido de IA, exigir registro do pedido, decisões aceitas/rejeitadas e justificativa do estudante; proibir envio de dados sensíveis e exigir compreensão do resultado.
+
 ## 1. Princípio pedagógico central
+
+### 1.0 Continuidade histórica e aulas ministradas
+
+- Preservar os artefatos históricos A01–A05 e quaisquer outros encontros confirmados como ministrados. A reconciliação autorizada pode revisar as páginas MkDocs; slides, roteiros, planos, notas e exportações originais permanecem intactos. Registrar diferenças entre material publicado, apoio de estudo e produção comprovada da turma.
+- Antes de descrever, reconciliar ou usar como pré-requisito uma aula já ministrada, abrir e ler integralmente a apresentação vigente dessa aula na pasta oficial do Google Drive. Para determinar o que foi efetivamente apresentado, observado ou produzido em sala, a apresentação publicada no Drive prevalece sobre fontes, PDFs, páginas MkDocs, planos docentes, inventários e documentos de arquitetura locais, que podem estar desatualizados.
+- Registrar no diagnóstico qualquer divergência entre a apresentação vigente no Drive e os documentos locais. Não propagar para uma aula futura uma herança, cenário, ferramenta, evidência ou produto atribuído apenas pelos arquivos locais sem confirmação no material publicado.
+- Quando uma lacuna for percebida depois da realização, registrá-la na arquitetura e retomá-la prospectivamente na aula seguinte; nunca reescrever o que os estudantes supostamente observaram ou produziram.
+- Conforme as apresentações vigentes consultadas em 1º de setembro de 2026, a A04 trabalhou no Juice Shop o fluxo `pessoa → navegador → serviço → dado`, uma requisição de cesta, a pergunta `identidade → ação → recurso`, a fronteira navegador–servidor e um diagrama de uma página; a A05 aprofundou o mesmo caso com Ana, Bruno, sessão, propriedade da cesta, quatro testes de acesso e accounting. Revalidar essa descrição no Drive antes de futuras reconciliações, pois o material vigente publicado continua sendo a autoridade histórica.
+- Geradores em lote devem excluir explicitamente aulas ministradas. Antes de executar, conferir o intervalo de identificadores que será escrito.
+- Todo pacote futuro deve declarar a cadeia `herança concreta → preparação → ação → rastro → leitura → conceito → decisão → validação → produto → ponte`. Um tema correto sem esses elos não constitui aula pronta.
+- A ponte nomeia o campo, estado ou evidência que será reaberto no encontro seguinte. Não usar “na próxima aula veremos...” como único vínculo.
 
 - Começar cada unidade por uma situação concreta: comportamento inesperado, incidente, evidência, decisão de negócio ou desafio técnico.
 - Usar prioritariamente o **OWASP Juice Shop** como aplicação vulnerável condutora da trilha web.
@@ -10,6 +53,16 @@ Estas instruções orientam todo conteúdo criado ou revisado neste repositório
 - Encerrar cada ciclo com um produto verificável: evidência, configuração, código corrigido, diagrama, registro de risco, alerta, relatório ou apresentação curta.
 - Conectar cada atividade a funções reais, como desenvolvimento, operações, defesa, auditoria, resposta a incidentes, gestão de riscos e segurança industrial.
 - Evitar longos blocos expositivos antes do primeiro contato do estudante com o problema.
+
+### 1.1 Demonstração com ferramentas reais como padrão
+
+- Todo conceito técnico deve ser ligado a uma demonstração, observação ou investigação com ferramenta real antes de sua sistematização teórica, sempre que houver uma forma segura e pedagogicamente útil de torná-lo observável.
+- Usar prioritariamente o OWASP Juice Shop, executado localmente em Docker, como continuidade da trilha web. Reutilizar contas, fluxos, rastros e produtos das aulas anteriores em vez de reiniciar o cenário.
+- Usar DevTools do navegador para tornar visíveis requisições, respostas, cabeçalhos, estado e comportamento da aplicação; introduzir proxy, scanner, ferramentas de sistema ou código somente depois de instrumentar seu uso e explicar qual rastro será obtido.
+- Quando o Juice Shop não representar adequadamente o conceito, selecionar uma ferramenta real coerente com o domínio: AWS Academy para nuvem; OpenPLC/FUXA e telemetria isolada para OT; utilitários de sistema, logs e configurações reais ou pacotes de evidência para endpoint, rede, criptografia e resposta.
+- A demonstração não pode ser ornamental. Ela deve responder a uma pergunta de aprendizagem, produzir um registro identificável e sustentar uma interpretação, decisão, intervenção ou validação.
+- Antes de formular perguntas analíticas, informar ao estudante: qual ferramenta abrir, qual estado preparar, qual ação executar, onde localizar o rastro, o que registrar e qual conclusão o rastro ainda não autoriza.
+- Prever alternativa por capturas, exportação de tráfego, logs ou pacote de evidências quando a ferramenta não funcionar, preservando a mesma decisão cognitiva.
 
 O ciclo didático preferencial é:
 
@@ -23,6 +76,17 @@ O ciclo didático preferencial é:
 8. **Transferência:** relacionar o aprendizado a outro cenário profissional.
 
 ## 2. Organização da carga horária
+
+### 2.0 Densidade do encontro e lugar da prática
+
+- Planejar cada encontro para preencher o tempo efetivo registrado para o encontro na arquitetura vigente (90 ou 100 minutos, conforme confirmação docente), de conteúdo teórico e prático guiado pelo professor, com progressão contínua de evidências, conceitos, decisões e validações.
+- A prática guiada deve ocupar e conduzir todo o encontro, preferencialmente com execução sincronizada pelos estudantes em suas próprias máquinas quando o ambiente for simples e uniforme. O professor demonstra cada passo, pausa para a turma reproduzir, confirma o rastro e só então avança para interpretação e conceito.
+- Evitar sustentar um encontro inteiro em uma única verificação trivial. Para 100 minutos, encadear um conjunto coerente de propriedades, casos ou testes que produza ganho conceitual e técnico claramente superior ao encontro anterior.
+- Manter uma verificação em dupla como **atividade de casa**, mas não reservar para casa o primeiro contato operacional com comandos, menus ou procedimentos indispensáveis. O percurso mínimo deve ser executado ou acompanhado passo a passo durante a aula.
+- Nos minutos presenciais, combinar previsão, execução sincronizada, comparação de evidências, formulação de hipótese e decisão. Prever pontos de espera explícitos para que ninguém avance com estado diferente do professor.
+- Os blocos de prática na página devem mostrar, no momento da ação, `estado inicial → onde clicar ou o que digitar → resultado visual esperado → o que registrar → critério de parada`. Não depender de instruções orais ocultas nem presumir familiaridade com DevTools, proxy, terminal ou cliente de API.
+- Preferir uma única ferramenta já disponível no ambiente. Introduzir Postman, proxy ou terminal somente quando o navegador não permitir obter o rastro necessário e depois de demonstrar sua função.
+- Explicitar no plano docente qual é o ganho novo do encontro em relação ao anterior. Repetições só são aceitáveis como linha de base breve para uma investigação mais profunda.
 
 - Planejar o curso completo com **30 horas teóricas e 30 horas práticas**.
 - Considerar dois encontros semanais, cada encontro composto por duas aulas de 52 minutos.
@@ -41,35 +105,24 @@ Cada encontro deve, preferencialmente, conter:
 | Aplicação | Correção, controle, análise, decisão ou novo desafio |
 | Fechamento | Evidência de aprendizagem e registro do que permanece em aberto |
 
-### 2.1 Pacote obrigatório de cada aula
+### 2.1 Unidade de aprendizagem obrigatória
 
-Cada aula ou encontro planejado deve formar um pacote coerente com três artefatos complementares:
+Cada encontro novo possui:
 
-1. **Apresentação em slides:** apoio visual para mediação do professor, demonstrações, perguntas e sínteses.
-2. **Página no MkDocs:** âncora permanente do estudante, com fundamentos, exemplos, referências e materiais para consulta posterior.
-3. **Roteiro prático em PDF:** atividade autocontida para distribuição no Google Classroom, com desafio, execução, evidências e entrega.
+1. **Página integral MkDocs:** cenário, três objetivos observáveis, teoria explicada, exemplos, prática guiada intercalada, checkpoints, diagnóstico, alternativa, atividade e referências.
+2. **Atividade vinculável ao Classroom:** seção `## Atividade {#atividade}` na mesma página ou página específica quando extensa; define missão, escopo, preparação, passos, evidências, formato/nome da entrega, rubrica, encerramento e extensão.
+3. **Plano docente fora do site:** ficha-base, tempo teórico/prático, herança confirmada, condução por blocos, respostas e ponte para o próximo encontro.
 
-Os três artefatos devem compartilhar título, identificador, objetivos e cenário, mas não repetir integralmente o mesmo texto. Antes de criar qualquer um deles, definir uma ficha-base com:
+A ficha-base declara identificador/título, ementa, objetivos, carga, cenário/pergunta, pré-requisitos, infraestrutura, evidência, critérios e fontes. Mudanças devem alinhar página, atividade e plano. Um PDF de entrega do estudante continua possível; isso não exige um roteiro docente em PDF.
 
-- identificador e título da aula;
-- conteúdo programático atendido;
-- objetivos observáveis;
-- carga teórica e prática;
-- cenário e pergunta mobilizadora;
-- pré-requisitos e infraestrutura;
-- evidência de aprendizagem;
-- critérios de conclusão;
-- referências essenciais.
+### 2.2 Função dos materiais
 
-Alterações relevantes em objetivos, comandos, arquitetura ou critérios de entrega devem ser refletidas nos três artefatos do pacote.
-
-### 2.2 Função de cada artefato
-
-| Artefato | Função principal | Deve privilegiar | Deve evitar |
-|---|---|---|---|
-| Slides | Conduzir a experiência síncrona | Narrativa, imagens, diagramas, perguntas, demonstrações e sínteses | Parágrafos longos e conteúdo suficiente para substituir a aula |
-| MkDocs | Sustentar estudo e consulta | Explicações, glossário contextual, exemplos, aprofundamentos e fontes oficiais | Ser mera transcrição dos slides |
-| PDF prático | Orientar ação e entrega | Contexto, regras, etapas, decisões, evidências, critérios e encerramento | Revelar respostas, depender da fala do professor ou conter teoria extensa |
+| Material | Função | Critério |
+|---|---|---|
+| MkDocs/GitHub Pages | condução presencial, estudo e prática | estudante consegue executar e interpretar sem instruções orais ocultas |
+| Google Classroom | distribuição, prazo, submissão e devolutiva | link direto à atividade e critérios coincidentes |
+| Plano docente | tempo, respostas, mediação e continuidade | fora do site e separado da versão do estudante |
+| Slides/PDFs existentes | memória das aulas e consulta complementar | preservados; não são pré-requisito para as próximas páginas |
 
 ## 3. Cenários condutores
 
@@ -139,7 +192,7 @@ Para roteiros práticos, explicitar também:
 
 ### 5.1 Apresentações de aula
 
-- Criar uma apresentação para cada aula ou encontro, alinhada à ficha-base do pacote.
+- Criar apresentação somente quando solicitada; nesse caso, alinhá-la à página integral e à ficha-base.
 - Abrir com uma situação, imagem, evidência, pergunta ou demonstração que gere uma decisão; não abrir com sumário conceitual extenso.
 - Construir uma narrativa visual: contexto, tensão ou problema, investigação, conceitos necessários, decisão, aplicação e síntese.
 - Manter uma ideia principal por slide e reduzir texto ao necessário para orientar atenção e discussão.
@@ -162,6 +215,42 @@ Para roteiros práticos, explicitar também:
 - Antes de exportar, percorrer somente os slides, sem o roteiro, e verificar se um professor familiarizado com o tema consegue explicar: cenário, tensão, atividade de participação, conceito mobilizado, decisão esperada e ponte para o slide seguinte.
 - Manter correspondência verificável entre a ordem dos slides e a seção de condução do roteiro docente. Se a narrativa, o exemplo, a arquitetura ou a decisão mudar em um artefato, revisar os demais materiais do pacote.
 
+#### Atualização de apresentações no Google Drive
+
+- Manter somente uma apresentação vigente de cada aula na pasta oficial do curso no Google Drive.
+- Ao atualizar slides, importar ou publicar primeiro a nova apresentação, confirmar título, quantidade de slides, ordem, conteúdo e abertura do novo link, e atualizar todas as referências locais que apontavam para a apresentação anterior.
+- Depois dessas verificações, excluir do Google Drive a apresentação anterior. Não conservar cópias com nomes como `versão anterior`, `antiga`, `backup`, `final` ou equivalentes na pasta do curso.
+- Usar o repositório Git, a fonte editável e o histórico de versões do Drive como mecanismos de recuperação, em vez de acumular apresentações obsoletas na pasta publicada.
+- Nunca excluir a apresentação vigente antes de a substituta estar importada, verificada e referenciada. Se a nova publicação falhar, preservar a apresentação atual e relatar a falha.
+- Ao concluir a atualização, listar a pasta do curso e confirmar que existe somente uma apresentação vigente com o identificador e o título esperados.
+
+#### Progressão narrativa e introdução sob demanda
+
+- Tratar cada apresentação como uma cadeia de raciocínio, não como uma coleção de tópicos. Cada slide deve recuperar o estado atual do caso, resolver ou aprofundar uma pergunta e criar a necessidade do próximo passo.
+- Planejar explicitamente as pontes entre slides. Para cada transição, registrar no roteiro docente: o que a turma já pode afirmar, qual lacuna permanece e por que o próximo conceito, evidência ou decisão entra naquele momento.
+- Não antecipar taxonomias, frameworks, controles ou classificações antes de o cenário produzir uma pergunta que eles ajudem a responder. Primeiro fazer a necessidade aparecer; depois nomear e sistematizar o conceito.
+- Preservar um mesmo caso, evidência ou arquitetura ao longo da explicação. Evoluir o exemplo progressivamente, acrescentando condições, fronteiras, consequências e decisões, em vez de trocar de exemplo a cada conceito.
+- Separar visualmente e verbalmente observação, hipótese, condição a verificar, consequência plausível e fato confirmado. Não permitir que a narrativa transforme correlação em causalidade sem evidência.
+- Reconstruir o funcionamento normal antes de representar abuso, falha ou ataque. Explicitar função, fluxo legítimo, autoridade e dependências para que controles não sejam propostos sem considerar a operação preservada.
+- Alternar blocos curtos de construção com checkpoints de participação. Antes de apresentar a solução conceitual, pedir previsão, escolha de evidência, formulação de hipótese, diagnóstico ou decisão condicionada.
+- Construir conceitos com exemplos completos do cenário. Uma categoria isolada não basta: mostrar como ela modifica a interpretação da evidência, sustenta uma ameaça testável, orienta uma coleta ou fundamenta uma decisão.
+- Introduzir referências diferentes somente pela função que exercem na investigação. Explicitar qual pergunta cada uma responde e quais conclusões ela não autoriza; evitar catálogos e equivalências forçadas.
+- Adiar a escolha de controle até que ativo, condição, caminho e consequência estejam explícitos. Toda recomendação deve declarar premissa, benefício, efeito operacional, responsável, validação e risco residual.
+- Encerrar retomando a evidência inicial e mostrando como ela foi reinterpretada. A síntese deve preservar a cadeia `evidência → hipótese → funcionamento normal → condição → consequência → ação → validação`.
+- Usar como referência de qualidade o padrão narrativo consolidado nas aulas A02 e A03: contexto acumulativo, exemplo progressivo, checkpoints, títulos orientados a decisões, subtítulos como pontes e notas do apresentador com perguntas, respostas esperadas e transições.
+- Na revisão, percorrer os slides sem consultar notas e responder para cada par consecutivo: “por que este slide vem agora?” e “o que torna o próximo necessário?”. Se a resposta depender apenas da ordem do conteúdo programático, reescrever a transição.
+
+#### Gramática visual orientada a relações
+
+- Tratar cards como recurso de comparação entre unidades realmente independentes, não como composição padrão. Evitar três ou mais slides consecutivos baseados em grades de cards, sobretudo quando o estudante precisa compreender sequência, causalidade, fronteira, fluxo ou transformação.
+- Quando o conteúdo responder a “quem se relaciona com quem?”, “o que atravessa?”, “onde muda?”, “o que causa?” ou “como evolui?”, representar a relação diretamente por diagrama, fluxo anotado, cadeia causal, mapa de escopo, antes/depois, sobreposição progressiva ou evidência visual.
+- Preservar o mesmo caso e fazê-lo evoluir visualmente. Retomar os mesmos atores, dados, decisões e rastros, acrescentando uma variável por vez; não reiniciar o raciocínio com novos exemplos apenas para variar o layout.
+- Integrar explicação curta ao ponto correspondente do diagrama para evitar atenção dividida. Não colocar a figura em um lado e uma legenda extensa, distante, que precise ser mentalmente reconstruída pelo estudante.
+- Introduzir toda sigla ou técnica pela sequência `lacuna observável → finalidade → nome por extenso → origem ou contexto → componentes → exemplo trabalhado → uso guiado → limite`. Nunca apresentar somente o acrônimo, a taxonomia ou a interface da ferramenta.
+- Para métodos operacionais, mostrar um exemplo completo antes da prática independente: `estado inicial → elemento selecionado → pergunta aplicada → hipótese formulada → evidência necessária → decisão`. Depois, reduzir gradualmente o apoio.
+- Preferir arte original construída para o caso da aula. Imagens externas servem como referência, evidência ou captura de ferramenta quando a origem, o licenciamento e a legibilidade forem adequados; sempre citar a fonte no slide e registrar o link completo no MkDocs.
+- Ao revisar visualmente, percorrer blocos de oito slides e contar a gramática dominante. Se mais da metade usar cards ou listas sem representar relações, redesenhar o bloco antes da publicação.
+
 Uma sequência típica, adaptável ao encontro, é:
 
 1. provocação ou evidência inicial;
@@ -174,7 +263,7 @@ Uma sequência típica, adaptável ao encontro, é:
 
 ### 5.2 Roteiros práticos em PDF
 
-- Produzir uma fonte editável versionada e sua versão PDF para cada prática distribuída no Google Classroom.
+- Quando houver solicitação de roteiro em PDF, produzir fonte editável e exportação; normalmente o Classroom aponta para a atividade no MkDocs.
 - O PDF deve ser compreensível sem depender de instruções orais omitidas.
 - Na primeira página, informar título, missão, objetivos, duração, forma de trabalho, pré-requisitos, recursos e entregável.
 - Organizar o roteiro por etapas com estimativas de tempo e pontos explícitos de decisão, sem prescrever todos os cliques quando a descoberta fizer parte da aprendizagem.
@@ -203,7 +292,7 @@ Uma sequência típica, adaptável ao encontro, é:
 - Verificar, conforme o caso: reprodução, explicação da causa, impacto, escolha do controle, validação, comunicação e conduta ética.
 - Combinar avaliação formativa frequente com entregas integradoras.
 - Exigir que capturas de tela sejam acompanhadas de interpretação; uma imagem isolada não comprova compreensão.
-- Definir no PDF exatamente o que será enviado pelo Google Classroom, em qual formato e com qual convenção de nome.
+- Definir na seção de atividade exatamente o que será enviado pelo Google Classroom, em qual formato e com qual convenção de nome.
 - Manter a rubrica breve o suficiente para orientar a execução e específica o suficiente para permitir devolutiva consistente.
 
 ## 8. Estilo de escrita
@@ -257,7 +346,7 @@ Finalizar com recomendação condicionada ao cenário, evitando declarar uma fer
 ## 13. Organização do repositório
 
 - Manter em `docs/` exclusivamente o conteúdo que deve integrar o site MkDocs.
-- Manter apresentações e atividades sempre fora de `docs/`, em árvores próprias na raiz do repositório. Não criar cópias desses arquivos em subdiretórios publicáveis do MkDocs.
+- Manter apresentações, roteiros históricos em PDF e fontes Office fora de `docs/`. As atividades em Markdown e seus insumos públicos e sanitizados ficam em `docs/`, junto do percurso.
 - Organizar slides e atividades por aula, usando o mesmo identificador estável adotado na página teórica correspondente.
 - Manter fontes editáveis de apresentações e práticas sob controle de versão; não tratar PDF exportado como única fonte.
 - Armazenar os PDFs destinados ao Google Classroom somente na árvore de atividades, sem incluí-los na navegação ou no artefato do MkDocs.
@@ -267,9 +356,9 @@ Finalizar com recomendação condicionada ao cenário, evitando declarar uma fer
 - Atualizar `mkdocs.yml` quando páginas forem incluídas, removidas ou reorganizadas.
 - Verificar links internos, imagens, vídeos, comandos e arquivos citados.
 
-### 13.1 Estrutura obrigatória por aula
+### 13.1 Estrutura de arquivos
 
-Usar a seguinte organização como padrão:
+Para novas aulas, são obrigatórios a página em `docs/aulas/` e o plano em `docente/`. A atividade pode integrar a página; insumos públicos ficam em `docs/assets/`. A árvore abaixo documenta também os artefatos históricos opcionais:
 
 ```text
 docs/
@@ -298,7 +387,7 @@ docente/
 ```
 
 - Usar identificadores sequenciais como `A01`, `A02` e `A03`, sempre acompanhados de um nome curto e descritivo.
-- Usar o mesmo identificador nos três artefatos para permitir associação imediata entre MkDocs, slides e atividade.
+- Usar o mesmo identificador na página, atividade e plano; conservar identificadores dos artefatos históricos.
 - Colocar em `slides/.../fonte/` o arquivo editável da apresentação e em `slides/.../exportados/` apenas versões derivadas para apresentação ou distribuição.
 - Colocar em `atividades/.../fonte/` o documento editável e em `atividades/.../pdf/` o PDF final destinado ao Google Classroom.
 - Manter imagens e outros recursos específicos em `assets/` dentro da pasta da respectiva aula. Compartilhar um recurso global somente quando houver reutilização real.
@@ -312,12 +401,12 @@ docente/
 - [ ] A teoria aparece conectada à investigação ou à intervenção.
 - [ ] Há participação ativa do estudante e pelo menos um ponto de decisão.
 - [ ] A atividade produz evidência verificável de aprendizagem.
-- [ ] O pacote possui slides, página MkDocs e PDF prático coerentes entre si.
-- [ ] Os slides são visuais, legíveis e incluem participação dos estudantes.
+- [ ] A página integra explicação, exemplo trabalhado, ação, evidência e atividade vinculável ao Classroom.
+- [ ] Os checkpoints são cumulativos e permitem confirmar o estado antes de avançar.
 - [ ] O MkDocs contém a base teórica e as referências necessárias para consulta.
-- [ ] O PDF é autocontido, instigante e define evidências, entrega e critérios de sucesso.
+- [ ] A atividade é autocontida e define evidências, entrega, rubrica e encerramento.
 - [ ] Fontes editáveis e artefatos exportados estão identificados corretamente.
-- [ ] Slides e atividades estão fora de `docs/` e organizados na pasta da aula correspondente.
+- [ ] Slides e roteiros históricos permanecem preservados fora de `docs/`; os insumos públicos da atividade estão acessíveis no site.
 - [ ] Nenhum gabarito, nota docente ou arquivo interno entra no build do MkDocs.
 - [ ] Há ação defensiva, mitigação, detecção ou reflexão de risco quando aplicável.
 - [ ] Escopo, ética, segurança e limpeza do laboratório estão claros.

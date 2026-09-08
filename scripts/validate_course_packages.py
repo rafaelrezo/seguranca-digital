@@ -1,30 +1,41 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import json
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
 
-required_template_paths = [
-    "slides/_template/README.md",
-    "slides/_template/fonte/template-seguranca-digital.pptx",
-    "slides/_template/exportados/template-seguranca-digital.pdf",
-    "atividades/_template/README.md",
-    "atividades/_template/fonte/template-atividade-pratica.docx",
-    "atividades/_template/pdf/template-atividade-pratica.pdf",
-    "docente/_template/plano-de-aula.md",
-    "docente/_template/notas-de-facilitacao.md",
-    "docente/_template/gabarito/README.md",
-]
-
-for rel in required_template_paths:
-    if not (ROOT / rel).is_file():
-        errors.append(f"arquivo obrigatório ausente: {rel}")
-
-for base in ("slides", "atividades", "docente"):
+# A apresentação e o PDF são complementares; o manifesto define o percurso ativo.
+manifest_path = ROOT / "docente/percurso-publicado.json"
+manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+nav_text = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+active_pages = set()
+seen_ids = set()
+for lesson in manifest["lessons"]:
+    code, rel = lesson["id"], lesson["page"]
+    if code in seen_ids:
+        errors.append(f"identificador duplicado no percurso: {code}")
+    seen_ids.add(code)
+    page = ROOT / "docs" / rel
+    active_pages.add(page)
+    if not page.is_file():
+        errors.append(f"página vigente ausente: {rel}")
+        continue
+    body = page.read_text(encoding="utf-8")
+    if body.count("{#" + lesson["activity"] + "}") != 1:
+        errors.append(f"âncora de atividade ausente ou ambígua: {rel}")
+    if not re.search(r":\s*" + re.escape(rel) + r"\s*$", nav_text, re.M):
+        errors.append(f"página vigente fora da navegação: {rel}")
+if not (ROOT / manifest["conducao"]).is_file():
+    errors.append("adendo de condução ausente")
+for base in ("slides", "docente"):
     if (ROOT / "docs" / base).exists():
-        errors.append(f"árvore não publicável encontrada dentro de docs/: docs/{base}")
+        errors.append(f"árvore não publicável dentro de docs/: {base}")
+for path in (ROOT / "docs").rglob("*"):
+    if path.suffix.lower() in {".pptx", ".docx"}:
+        errors.append(f"fonte Office dentro do site: {path.relative_to(ROOT)}")
 
 secret_patterns = [
     re.compile(r"AKIA[0-9A-Z]{16}"),

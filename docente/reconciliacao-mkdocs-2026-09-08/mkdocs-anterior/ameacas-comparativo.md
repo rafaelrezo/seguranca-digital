@@ -1,7 +1,5 @@
 # Comparativo de Metodologias de Análise de Ameaças
 
-> **Uso no percurso:** a [A06](../aulas/A06-do-ticket-ao-modelo.md) aplica STRIDE ao fluxo de cestas; a [A07](../aulas/A07-do-modelo-a-decisao.md) mapeia um relato com ATT&CK. Os demais métodos abaixo são referências de aprofundamento, sem obrigação de executá-los nessas atividades.
-
 > **Objetivos de aprendizagem**
 > - Comparar metodologias por esforço, profundidade e resultado esperado.
 > - Selecionar combinações adequadas ao contexto da organização.
@@ -21,7 +19,7 @@
 | **DREAD** | Ranqueamento de riscos técnicos | Baixo | Score de risco por ameaça | Subjetividade alta |
 | **PASTA** | Sistemas críticos e análise aprofundada | Alto | Cenários de ataque + plano de mitigação | Exige maturidade e tempo |
 | **OCTAVE** | Governança e risco institucional | Médio | Matriz de risco por ativo crítico | Pouco detalhamento de baixo nível |
-| **MITRE ATT&CK** | SOC, hunting, resposta e purple team | Médio | Mapa de comportamentos por técnica; cobertura exige evidência de detecção | Não substitui modelagem no design |
+| **MITRE ATT&CK** | SOC, hunting, resposta e purple team | Médio | Mapa de cobertura por TTP | Não substitui modelagem no design |
 | **Kill Chain** | Comunicação e interrupção do ataque por fase | Baixo a médio | Estratégia de detecção por etapa | Menos granular que ATT&CK |
 
 ---
@@ -31,8 +29,8 @@
 ### 2.1 Cenário acadêmico (disciplina/laboratório)
 
 - Comece com **STRIDE** para treinar modelagem.
-- Registre critérios e incertezas antes de priorizar; DREAD é uma opção de estudo, não uma exigência do percurso.
-- Use **ATT&CK** para relacionar comportamentos descritos a técnicas. Só avalie detecção quando existirem telemetria e testes específicos.
+- Use **DREAD** para priorizar correções.
+- Introduza **ATT&CK** para conectar com detecção real.
 
 ### 2.2 Cenário corporativo com SOC
 

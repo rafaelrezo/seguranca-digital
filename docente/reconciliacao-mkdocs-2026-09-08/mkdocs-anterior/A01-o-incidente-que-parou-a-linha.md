@@ -17,13 +17,7 @@ Ao final do encontro, você será capaz de:
 
 **Pré-requisitos:** leitura de horários, navegação em arquivos e noções básicas de redes.
 
-**Recursos:** esta página e um editor de texto ou papel. Todos os registros necessários estão abaixo; não é preciso executar um sistema industrial.
-
-## Antes de interpretar: prepare seu registro
-
-Abra um documento chamado `A01-dupla-NN`. Uma pessoa lê os registros e outra anota; troquem os papéis depois do primeiro checkpoint. Registre uma previsão sobre a parada e uma informação que faria você mudar de ideia.
-
-O exercício usa exclusivamente dados fictícios. HMI é a interface usada pelo operador para acompanhar o processo; PLC/CLP é o controlador lógico programável; LINE identifica a linha de produção. Os nomes identificam fontes, não pessoas responsáveis pela causa. Nenhum comando será enviado a equipamentos.
+**Recursos:** página da aula, roteiro prático, pacote fictício de logs e editor de texto. O Juice Shop local é opcional neste primeiro encontro.
 
 ## O que a evidência permite afirmar?
 
@@ -47,12 +41,9 @@ O registro mostra uma sequência temporal. Ele não prova que a autenticação c
 
 Correlação é a ocorrência conjunta ou ordenada de fatos. Causalidade exige demonstrar um mecanismo e excluir explicações concorrentes. Em resposta a incidentes, declarar limites aumenta a qualidade da decisão.
 
-!!! question "Checkpoint 1 — a frase cabe no registro?"
-    Copie uma linha da evidência para seu documento. Escreva ao lado o que ela mostra e o que não demonstra. Compare com a frase “o operador parou a linha”. Qual campo seria necessário para sustentar essa atribuição? Pare até que cada pessoa consiga distinguir registro e interpretação.
-
 ## Do evento ao risco
 
-- **Ameaça** é um evento indesejável possível, malicioso ou acidental, capaz de prejudicar um ativo. A condição que o facilita deve ser descrita separadamente.
+- **Ameaça** é uma condição ou agente capaz de produzir dano.
 - **Vulnerabilidade** é uma fragilidade que pode ser explorada ou acionada.
 - **Evento** é uma ocorrência observável em um sistema ou processo.
 - **Incidente** é um ou mais eventos que comprometem objetivos de segurança ou operação.
@@ -96,9 +87,6 @@ Em OT (*Operational Technology*, tecnologia operacional), software observa ou al
 | AAA | Quem acessou, o que podia fazer e o que ficou registrado? | Uso indevido sem rastreabilidade. |
 | Safety | A resposta mantém o processo em estado seguro? | Dano físico, ambiental ou humano. |
 
-!!! question "Checkpoint 2 — uma intervenção pode criar outro problema?"
-    Retome sua hipótese inicial. Se a HMI for isolada, qual função pode desaparecer? Registre uma condição operacional que precisaria ser confirmada antes dessa ação. Use a disponibilidade e a safety para justificar, sem presumir que o PLC foi comprometido.
-
 ## Como agir sem destruir a evidência
 
 Uma resposta inicial proporcional segue cinco movimentos:
@@ -137,55 +125,9 @@ Misturar essas camadas produz certeza artificial. A ordem `login → timeout →
 
 Neste cenário, preserve primeiro os registros voláteis e correlacione as fontes. Isole a HMI somente após confirmar estado seguro, impacto operacional, autorização e alternativa de supervisão.
 
-## Atividade {#atividade}
+## Ponte para a prática
 
-**Missão:** entregar à equipe de operação uma linha do tempo preliminar e uma próxima coleta defensável. **Tempo de referência do roteiro publicado:** 52 minutos. **Trabalho:** dupla. O exercício abaixo também é a alternativa sem ferramenta; não exige Docker.
-
-### 1. Ordenar sem explicar a causa — 10 min
-
-Os relógios foram sincronizados **como premissa deste exercício**. Ordene os cinco eventos do roteiro publicado:
-
-| Horário | Fonte | Registro |
-|---|---|---|
-| 09:17:08 | HMI-01 | `alarm_ack ALM-204` |
-| 09:16:52 | HMI-01 | `login_success operador_turno` |
-| 09:17:05 | LINE-01 | `state_change RUN → STOP` |
-| 09:17:03 | PLC-01 | `comm_timeout 3200 ms` |
-| 09:18:11 | NET-SENSOR | fluxo HMI-01 → PLC-01 restabelecido |
-
-Acrescente a cada linha uma classificação: autenticação, comunicação, processo ou resposta. O restabelecimento da comunicação permite concluir que a produção voltou? Registre o limite.
-
-### 2. Comparar duas explicações — 15 min
-
-Use a mesma tabela para uma falha de comunicação e uma ação indevida ou credencial comprometida:
-
-| Hipótese | Evento que ela explica | Lacuna ou contradição | Dado que a enfraqueceria |
-|---|---|---|---|
-| explicação 1 | preencher | preencher | preencher |
-| explicação 2 | preencher | preencher | preencher |
-
-### 3. Decidir a próxima coleta — 15 min
-
-Compare preservar logs da HMI, capturar tráfego autorizado, consultar alarmes e isolar a HMI. Escolha uma ação e registre benefício, risco operacional, autorização necessária, critério de parada e validação. Trata-se de uma recomendação escrita; não execute contenção.
-
-### 4. Revisar e comunicar — 12 min
-
-Outra dupla deve marcar uma conclusão que exceda a evidência ou confirmar a rastreabilidade de cada conclusão. Corrija o texto e mantenha uma hipótese alternativa. Se houver divergência, retorne à linha original; não acrescente eventos para completar a história.
-
-### Entrega e rubrica
-
-Quando esta atividade for atribuída no Classroom, envie `A01-dupla-NN.pdf`: previsão inicial, linha do tempo, comparação das hipóteses, decisão e reflexão de até cinco linhas. Prazo e eventual reentrega são os definidos no Classroom.
-
-| Critério | Concluído | Precisa revisar |
-|---|---|---|
-| Evidência | eventos ordenados e interpretação separada | hipótese apresentada como registro |
-| Hipóteses | duas explicações e dado discriminante | apenas nome de uma causa |
-| Decisão | considera autorização, reversibilidade e processo | contenção sem avaliar função |
-| Comunicação | limita conclusão e propõe validação | atribui autoria sem apoio |
-
-**Encerramento:** preserve somente o documento sanitizado e feche as cópias de trabalho. **Extensão opcional:** proponha um evento fictício adicional que diferenciaria as hipóteses e peça a outra dupla que explique o efeito dele. Identifique esse evento como criação da dupla.
-
-**Ponte:** leve a distinção `observado / hipótese / consequência` para o [arquivo exposto da A02](A02-ativos-ameacas-e-vulnerabilidades.md). O cenário muda; o critério de evidência permanece.
+No roteiro distribuído no Google Classroom, sua dupla ordenará evidências, comparará duas hipóteses e recomendará a próxima coleta. A entrega não é uma “resposta certa”: é uma linha do tempo defensável, com limites explícitos e decisão compatível com o processo.
 
 ## Evidências e critérios de conclusão
 

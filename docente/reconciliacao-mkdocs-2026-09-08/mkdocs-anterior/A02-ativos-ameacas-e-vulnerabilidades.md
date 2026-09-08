@@ -17,48 +17,11 @@ Ao final do encontro, você será capaz de:
 - **Tempo presencial:** 104 minutos — 52 minutos de conceituação ativa e 52 minutos de prática.
 - **Organização:** duplas, com os papéis de investigador e revisor trocados na metade da prática.
 - **Pré-requisitos:** A01; navegador com ferramentas de desenvolvedor; ambiente local da disciplina.
-- **Recurso principal:** OWASP Juice Shop local e navegador com DevTools.
-- **Alternativa:** registro didático fornecido nesta página, sem exploração ao vivo.
+- **Recurso principal:** OWASP Juice Shop local. Burp Suite Community é opcional.
+- **Alternativa:** pacote de evidências do roteiro prático, sem exploração ao vivo.
 
 !!! danger "Escopo autorizado"
     Investigue somente o Juice Shop fornecido para a disciplina. Não teste a demonstração pública, sistemas institucionais ou terceiros. Use contas e dados fictícios. Pare e avise o professor se o endereço não for o alvo indicado, se houver dados reais ou se o comportamento alcançar outro sistema.
-
-## Preparação local do Juice Shop
-
-O laboratório usa a imagem indicada pelo guia oficial do OWASP Juice Shop. No Windows, inicie o Docker Desktop usando containers Linux. No Linux, confirme que o Docker Engine está em execução.
-
-Os comandos seguintes funcionam no **PowerShell do Windows** e no **terminal Linux**:
-
-```bash
-docker version
-docker pull bkimminich/juice-shop
-docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
-docker ps --filter name=juice-shop-a02
-```
-
-Depois que o container estiver em execução, abra:
-
-> **Endereço do laboratório: `http://127.0.0.1:3000`**
-
-`127.0.0.1` representa o próprio computador. Cada estudante acessa seu container local; esse endereço não aponta para o computador do professor nem para um serviço público.
-
-!!! warning "Porta ocupada"
-    Se a porta `3000` já estiver em uso, pare e confirme com o professor. Quando autorizado, execute `docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3001:3000 bkimminich/juice-shop` e acesse `http://127.0.0.1:3001`.
-
-!!! danger "Não exponha a aplicação vulnerável"
-    Mantenha o vínculo com `127.0.0.1`. Não substitua por `0.0.0.0`, não encaminhe a porta no roteador e não use a demonstração pública do Juice Shop como alvo da atividade.
-
-Se a página não abrir, consulte os últimos registros do container:
-
-```bash
-docker logs --tail 30 juice-shop-a02
-```
-
-
-!!! note "Checkpoint do ambiente"
-    `docker version` precisa mostrar cliente e servidor; `docker ps` precisa mostrar o contêiner em execução e o vínculo local. Se o Docker não responder, confirme que seu mecanismo está iniciado. Se o nome ou porta estiver ocupado, não remova contêineres de outras atividades. Peça apoio e use o registro didático abaixo.
-
-Antes de abrir a rota, pressione F12, selecione **Network/Rede** e mantenha esse painel aberto. Preveja se o recurso será entregue sem login. Depois abra a URL indicada, selecione sua requisição e leia **Headers/Cabeçalhos** e **Response/Resposta**. Registre método, caminho, status, tipo de conteúdo e descrição do arquivo, sem cookies ou tokens.
 
 ## Evidência inicial
 
@@ -66,7 +29,7 @@ Considere esta observação fictícia, preparada para a aula:
 
 ```text
 GET /ftp/acquisitions.md HTTP/1.1
-Host: 127.0.0.1:3000
+Host: juice-shop.local
 
 HTTP/1.1 200 OK
 Content-Type: text/markdown
@@ -96,7 +59,7 @@ GET /ftp/acquisitions.md HTTP/1.1
 Host: 127.0.0.1:3000
 ```
 
-Na imagem validada para a aula, a resposta é `HTTP 200` com conteúdo `text/markdown`. Se outra versão produzir resultado diferente, o comportamento real deve ser registrado e a turma continua com a evidência didática desta página; não deve procurar formas de contornar a resposta.
+Na imagem validada para a aula, a resposta é `HTTP 200` com conteúdo `text/markdown`. Se outra versão produzir resultado diferente, o comportamento real deve ser registrado e a turma continua com a evidência alternativa do PDF; não deve procurar formas de contornar a resposta.
 
 ### Exemplo construído com a turma
 
@@ -112,7 +75,7 @@ Os conceitos são introduzidos um por vez, sempre sobre a mesma evidência:
 | exposição/vetor | requisição HTTP `GET` para a rota fornecida | caminho reproduzível dentro do escopo |
 | consequência | divulgação dos planos fictícios de aquisição | impacto do cenário, não dado real |
 
-Compare seu registro com a cadeia acima. Marque a hipótese que ainda exigiria acesso à configuração do servidor. Preserve o resultado real se ele divergir do exemplo.
+Essa progressão evita esperar que estudantes iniciantes produzam sozinhos uma análise completa. O professor modela o primeiro encadeamento; as duplas justificam, corrigem limites e aplicam o mesmo raciocínio no registro.
 
 ## Do ativo à consequência
 
@@ -130,9 +93,6 @@ O NIST CSF 2.0 reúne em **ID.AM — Asset Management** resultados como manter i
 ### TI e OT pedem consequências diferentes
 
 Em TI, um servidor pode ser priorizado por confidencialidade, integridade e disponibilidade. Em OT, essas dimensões continuam válidas, mas a análise também deve considerar continuidade do processo, qualidade, meio ambiente e **safety** — proteção de pessoas e do processo físico. A mesma exposição técnica pode receber prioridades distintas conforme a consequência.
-
-!!! question "Checkpoint — o ativo é o arquivo ou a informação?"
-    Acrescente ao inventário quatro linhas: informação de aquisição, arquivo, rota e contêiner. Para cada uma, indique função, responsável provável e consequência. Marque o responsável como proposta quando ele não estiver documentado. Não inventarie um controlador industrial que não existe neste laboratório.
 
 ## Termos que não são sinônimos
 
@@ -177,6 +137,46 @@ flowchart LR
 
 Inventariar a superfície não significa varrer a Internet. Nesta aula, o caminho autorizado começa no navegador e termina no único ambiente local fornecido.
 
+## Preparação local do Juice Shop
+
+O laboratório usa a imagem indicada pelo guia oficial do OWASP Juice Shop. No Windows, inicie o Docker Desktop usando containers Linux. No Linux, confirme que o Docker Engine está em execução.
+
+Os comandos seguintes funcionam no **PowerShell do Windows** e no **terminal Linux**:
+
+```bash
+docker version
+docker pull bkimminich/juice-shop
+docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+docker ps --filter name=juice-shop-a02
+```
+
+Depois que o container estiver em execução, abra:
+
+> **Endereço do laboratório: `http://127.0.0.1:3000`**
+
+`127.0.0.1` representa o próprio computador. Cada estudante acessa seu container local; esse endereço não aponta para o computador do professor nem para um serviço público.
+
+!!! warning "Porta ocupada"
+    Se a porta `3000` já estiver em uso, pare e confirme com o professor. Quando autorizado, execute `docker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3001:3000 bkimminich/juice-shop` e acesse `http://127.0.0.1:3001`.
+
+!!! danger "Não exponha a aplicação vulnerável"
+    Mantenha o vínculo com `127.0.0.1`. Não substitua por `0.0.0.0`, não encaminhe a porta no roteador e não use a demonstração pública do Juice Shop como alvo da atividade.
+
+Se a página não abrir, consulte os últimos registros do container:
+
+```bash
+docker logs --tail 30 juice-shop-a02
+```
+
+Ao terminar a prática, pare o ambiente e confirme o encerramento:
+
+```bash
+docker stop juice-shop-a02
+docker ps --filter name=juice-shop-a02
+```
+
+Como o container foi iniciado com `--rm`, ele será removido automaticamente após a parada. A imagem permanece disponível para outra aula.
+
 ## Investigação controlada
 
 Na prática, a dupla deverá:
@@ -212,9 +212,6 @@ Uma ferramenta ou configuração não é automaticamente um controle: é preciso
 
 **Recomendação condicionada:** se o recurso não faz parte da função pública da aplicação, retire-o da área servida e reteste. Se o acesso é funcionalmente necessário, aplique autorização no servidor e valide casos permitido e negado. Monitoramento complementa a correção; não a substitui.
 
-!!! question "Checkpoint — como distinguir proteção de indisponibilidade?"
-    Escolha um controle da tabela e escreva um caso que deve ser negado e uma função que precisa continuar disponível. Explique qual resultado mostraria proteção e qual indicaria apenas serviço quebrado. Nesta retomada, o controle é proposto; só registre reteste executado se houver uma implementação corrigida e resultado real.
-
 ## Registro mínimo de vulnerabilidade
 
 Um registro verificável inclui:
@@ -227,43 +224,6 @@ Um registro verificável inclui:
 - consequência e prioridade justificadas;
 - controle escolhido, responsável e teste de validação;
 - limites da análise e próximo passo.
-
-## Atividade {#atividade}
-
-**Missão:** produzir um registro revisável da exposição do arquivo. **Referência do roteiro:** 52 minutos declarados; execute a investigação acima com pausas nos checkpoints. **Trabalho:** dupla, com troca de operador e revisor.
-
-Consolide no mesmo documento: previsão inicial; inventário dos quatro ativos; requisição/resposta interpretada; comportamento esperado versus observado; hipótese de fraqueza; consequência e prioridade; controle, responsável proposto e reteste especificado. A pessoa revisora deve apontar uma afirmação que dependa de evidência ainda ausente.
-
-### Alternativa sem Docker
-
-Use o registro HTTP da seção “Evidência inicial”, junto destas premissas do material publicado: a requisição não usa login e o conteúdo corresponde a planos fictícios de aquisição destinados a acesso restrito. Identifique a origem como **registro didático fornecido**, e não captura realizada pela dupla. Analise os mesmos quatro ativos e compare os mesmos controles. A resposta fornecida permite discutir entrega indevida, mas não comprova a configuração interna que a causou.
-
-### Entrega e rubrica
-
-Se atribuída no Classroom, envie `A02-dupla-NN.pdf`, incluindo uma reflexão de até cinco linhas. O PDF é sua entrega; todas as instruções estão nesta página.
-
-| Critério | Concluído | Precisa revisar |
-|---|---|---|
-| Inventário | função, consequência e fonte dos quatro ativos | lista de nomes |
-| Precisão | separa observação e hipótese de fraqueza | causa não demonstrada |
-| Evidência | real ou fornecida, identificada e interpretada | captura sem legenda |
-| Tratamento | premissa, responsável e reteste verificável | controle genérico |
-
-### Encerramento
-
-Ao terminar a prática, pare o ambiente e confirme o encerramento:
-
-```bash
-docker stop juice-shop-a02
-docker ps --filter name=juice-shop-a02
-```
-
-Como o container foi iniciado com `--rm`, ele será removido automaticamente após a parada. A imagem permanece disponível para outra aula.
-
-
-Feche DevTools e descarte cópias com segredos. Se analisou somente a alternativa, registre que não iniciou contêiner. Como o estado do contêiner é descartável, conserve o registro sanitizado para reutilizar o raciocínio na próxima etapa.
-
-**Extensão:** indique como um inventário de publicação poderia localizar arquivos indevidos sem varrer redes. **Ponte:** reabra o campo “hipótese de fraqueza” na [triagem da A03](A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md): uma condição possível ainda não confirma quem a utilizou.
 
 ## Critérios de conclusão
 

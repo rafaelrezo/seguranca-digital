@@ -15,12 +15,9 @@ Ana entra na loja com uma conta fictícia e abre sua cesta. A interface mostra o
 - Coletar e interpretar rastros de uma troca HTTP, relacionando método, caminho, contexto, status e conteúdo.
 - Separar observação de inferência e formular uma pergunta verificável sobre a decisão de acesso.
 
-**Tempo de referência do material original:** 104 minutos — 52 minutos de construção conceitual e 52 minutos de investigação.  
+**Tempo estimado:** 104 minutos — 52 minutos de construção conceitual e 52 minutos de investigação.  
 **Organização:** duplas; uma pessoa opera e a outra registra, com troca de papéis.  
 **Entrega:** diagrama de uma página e uma captura interpretada.
-
-!!! warning "Escopo e parada"
-    Use somente `http://127.0.0.1:3000`, sua conta fictícia e sua própria cesta. Nesta etapa não altere identificadores nem teste outra conta. Se o alvo divergir, surgirem dados reais ou a página falhar, pare e avise o professor. Use a alternativa desta página para continuar a análise.
 
 ## O comportamento que precisamos explicar
 
@@ -32,7 +29,9 @@ Cada estudante executa uma instância isolada em seu próprio computador:
 Nos dois sistemas, inicie ou confirme o contêiner:
 
 ```bash
-docker run --rm -d --name juice-shop-a04 -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+docker run --rm -d --name juice-shop-a04 \
+  -p 127.0.0.1:3000:3000 \
+  bkimminich/juice-shop
 ```
 
 Se o nome já estiver em uso, confirme com `docker ps --filter name=juice-shop-a04` e reutilize o contêiner em execução. Não publique a porta em `0.0.0.0`.
@@ -42,8 +41,8 @@ Acesse `http://127.0.0.1:3000` e crie a identidade fictícia:
 | Campo | Valor local descartável |
 |---|---|
 | E-mail | `ana@a04.test` |
-| Senha | escolha uma senha descartável exclusiva deste laboratório |
-| Confirmação | repita a senha escolhida, sem registrá-la na entrega |
+| Senha | `Ana-A04!2026` |
+| Confirmação | `Ana-A04!2026` |
 | Pergunta de segurança | qualquer pergunta disponível |
 | Resposta fictícia padronizada | `azul` |
 
@@ -78,10 +77,10 @@ Para localizar a evidência:
 
 1. abra somente o Juice Shop fornecido para a disciplina;
 2. autentique-se com a conta fictícia indicada;
-3. no Firefox, pressione `Ctrl+Shift+E` para abrir **Network** (no macOS, `Cmd+Opt+E`);
+3. abra as ferramentas do desenvolvedor e selecione **Network**;
 4. limpe a lista de requisições;
 5. abra a cesta;
-6. filtre por `basket`, selecione a requisição `/rest/basket/…` e examine **Headers** e **Response**; confirme que o corpo corresponde aos produtos da sua cesta.
+6. selecione a requisição relacionada e examine seus detalhes.
 
 Se a interface, o idioma ou os nomes diferirem, procure os mesmos elementos conceituais:
 
@@ -93,9 +92,6 @@ Se a interface, o idioma ou os nomes diferirem, procure os mesmos elementos conc
 | Qual foi o resultado? | status e corpo da resposta | resposta entregue pelo serviço naquele teste |
 
 Registre sempre **valor observado** e **interpretação** separadamente. Um método `GET`, por exemplo, é uma observação; dizer que ele solicita uma leitura é interpretação baseada na semântica HTTP.
-
-!!! question "Checkpoint — da mensagem para o modelo"
-    No mesmo documento da linha de base, registre método, caminho, presença de contexto, status e síntese do corpo. Aponte onde cada campo foi encontrado. Qual desses campos mostra a condição interna usada para autorizar? Se nenhum a mostra, escreva “não observado”; não transforme a caixa do servidor em certeza.
 
 ## Por que precisamos de um modelo de arquitetura
 
@@ -132,7 +128,7 @@ Valores vindos do navegador podem estar ausentes, alterados ou fora da sequênci
 
 A passagem do navegador para o serviço é uma **fronteira de confiança**: ao cruzá-la, o servidor precisa validar novamente as condições relevantes. Fronteira não é necessariamente uma parede ou equipamento; é o ponto em que a confiança anterior deixa de ser suficiente.
 
-## Investigação e diagrama {#diagrama}
+## Investigação e diagrama
 
 Escolha uma ferramenta antes de iniciar:
 
@@ -167,9 +163,6 @@ Construa a entrega nesta ordem:
 
 !!! danger "Escopo autorizado"
     Use somente o Juice Shop e as contas fornecidas. Não altere identificadores para acessar dados de terceiros, não automatize tentativas e pare diante de alvo divergente, dado real ou comportamento inesperado. Nesta aula, a investigação termina na reconstrução do fluxo legítimo.
-
-!!! question "Checkpoint — uma seta precisa dizer o que circula"
-    Entregue o desenho ao colega sem explicá-lo. Ele deve seguir o clique até a resposta e distinguir observação de modelo. Se uma seta não tiver conteúdo ou se a regra interna aparecer como comprovada, corrija antes de acrescentar detalhes.
 
 ## HTTP como rastro, não como explicação completa
 
@@ -212,57 +205,6 @@ Fronteira não é sinônimo de firewall nem exige uma máquina separada. Ela é 
 ## Do diagrama à próxima evidência
 
 O diagrama é útil quando torna lacunas explícitas. Se a captura mostra `navegador → serviço → resposta`, o processamento interno deve permanecer como hipótese. Para reduzir a incerteza, pode-se consultar código da rota, regra de autorização, log de decisão ou um teste diferencial autorizado. A A05 escolhe este último: mantém o sistema e a ação, mas varia sessão e propriedade com Ana e Bruno.
-
-## Atividade {#atividade}
-
-**Missão:** comunicar à equipe de desenvolvimento o fluxo da cesta e uma dúvida sobre autorização. **Referência:** roteiro de 52 minutos. **Trabalho:** dupla com troca de operador e relator. **Recursos:** página, navegador, Juice Shop local e editor de diagramas ou papel.
-
-### Percurso e registro
-
-1. **5 min — estado:** confirme Ana autenticada e dois produtos; registre estado, clique e resultado.
-2. **12 min — rastro:** abra Network antes da ação, selecione a requisição da cesta e complete os campos abaixo.
-3. **15 min — modelo:** siga a seção [Investigação e diagrama](#diagrama); nomeie os fluxos e marque a fronteira.
-4. **10 min — limite:** escreva uma pergunta que o navegador não responde e escolha entre código da rota, log ou teste futuro com duas contas. Não execute esse teste aqui.
-5. **7 min — revisão:** outra dupla percorre o desenho e aponta uma falha de rastreabilidade.
-6. **3 min — correção:** ajuste o ponto indicado e registre a mudança.
-
-| Campo | Valor observado | Interpretação e limite |
-|---|---|---|
-| método | preencher | preencher |
-| caminho | preencher | preencher |
-| contexto de sessão | presente / ausente / não observado | sem copiar valor |
-| status | preencher | preencher |
-| conteúdo | síntese dos itens | preencher |
-
-### Alternativa sem laboratório
-
-Use este **recorte didático do percurso publicado**, sem atribuí-lo à sua execução: Ana está autenticada; adicionou dois produtos; ao abrir a cesta, o navegador solicita `GET /rest/basket/A`; existe contexto de sessão, cujo valor foi omitido; a resposta contém os dois produtos. `A` é um rótulo, não um identificador para digitar. O status numérico não foi fornecido neste recorte: marque-o como “não informado”.
-
-Construa o mesmo diagrama, substituindo a captura pela identificação do recorte fornecido. As responsabilidades internas de serviço e armazenamento continuam sendo modelo. Essa alternativa permite avaliar a interpretação e o desenho; não comprova domínio operacional do DevTools.
-
-### Diagnóstico rápido
-
-| Dificuldade | Próxima ação segura |
-|---|---|
-| a cesta não aparece em Network | mantenha o painel aberto, limpe a lista e repita o clique legítimo |
-| a resposta é a página HTML da loja | procure a requisição de dados da cesta, correlacionando ação e conteúdo |
-| conta não existe após recriar contêiner | recrie somente a conta fictícia e a linha de base |
-| modelo parece revelar código interno | marque serviço/dado como inferência e indique a coleta necessária |
-
-### Entrega e rubrica
-
-Quando atribuída no Classroom, envie `A04-dupla-N-diagrama.pdf`: diagrama de uma página, captura interpretada ou recorte fornecido, pergunta aberta, fonte de coleta e correção da revisão.
-
-| Critério | Concluído | Precisa revisar |
-|---|---|---|
-| Evidência | campos rastreáveis e limite declarado | captura sem interpretação |
-| Fluxo | ação, mensagens, serviço e dado relacionados | caixas sem função |
-| Decisão | identidade, ação, recurso e autoridade localizados | autenticação tomada por autorização |
-| Revisão | alteração concreta após leitura do colega | acabamento visual sem ganho de clareza |
-
-**Encerramento:** saia da conta e feche DevTools. Se iniciou o contêiner desta retomada, execute `docker stop juice-shop-a04` e confirme com `docker ps --filter name=juice-shop-a04`. O uso de `--rm` descarta o estado do contêiner; preserve somente o registro sanitizado. Se usou a alternativa, não há contêiner a encerrar.
-
-**Extensão:** explique qual resultado de um teste com duas contas reduziria sua dúvida, sem executá-lo. **Ponte:** reabra a pergunta `identidade → ação → recurso` nos quatro casos da [A05](A05-quem-e-voce-e-pode-fazer-isto.md).
 
 ## Critérios de conclusão
 

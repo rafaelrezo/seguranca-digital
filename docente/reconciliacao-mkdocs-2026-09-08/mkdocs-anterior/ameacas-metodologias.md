@@ -1,7 +1,5 @@
 # Metodologias de Análise de Ameaças
 
-> **Uso no percurso:** a [A06](../aulas/A06-do-ticket-ao-modelo.md) aplica STRIDE ao fluxo de cestas; a [A07](../aulas/A07-do-modelo-a-decisao.md) mapeia um relato com ATT&CK. Os demais métodos abaixo são referências de aprofundamento, sem obrigação de executá-los nessas atividades.
-
 > **Objetivos de aprendizagem**
 > - Entender o propósito de cada metodologia de análise de ameaças.
 > - Escolher a metodologia adequada por contexto (projeto, operação ou governança).

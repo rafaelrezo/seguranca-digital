@@ -29,14 +29,20 @@ Em termos simples, a disciplina não trata segurança como uma coleção de ferr
 
 ## 2. Como estudar este material
 
-Comece pelo [percurso de aulas e atividades](percurso.md). Em cada encontro, a página reúne o caso, a preparação do ambiente, a investigação guiada, a explicação dos conceitos e a atividade de entrega. Siga os pontos de conferência antes de avançar.
+Uma sequência eficiente é:
 
-1. Leia a situação e registre uma previsão.
-2. Execute a observação indicada ou use a alternativa de evidências da página.
-3. Compare o rastro com sua previsão e leia os conceitos necessários para explicá-lo.
-4. Produza a entrega indicada em **Atividade**, revise pelos critérios e envie no Google Classroom quando solicitada pelo professor.
+1. **Fundamentos de Segurança** para consolidar CIA, AAA, controles e Zero Trust.
+2. **Ameaças, engenharia social, malwares e segurança física** para enxergar como ataques realmente acontecem.
+3. **Proteção de dados e criptografia** para entender como proteger informação em repouso, trânsito e uso.
+4. **Gestão de riscos, riscos de terceiros e governança** para transformar segurança em processo decisório.
+5. **Pentests** para compreender como validações controladas geram evidência e melhoria.
 
-Não é necessário abrir uma apresentação ou baixar um roteiro para acompanhar essas aulas. A biblioteca temática oferece aprofundamento: volte à página do encontro para aplicar o conceito ao caso. O mapa abaixo serve para consulta por assunto, sem estabelecer a ordem dos encontros.
+Se o objetivo for prova, estude em ciclos curtos:
+
+- leitura da página;
+- revisão do mini-caso;
+- resposta às perguntas rápidas sem consultar;
+- retorno aos pontos em que houve dúvida.
 
 ---
 

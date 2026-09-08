@@ -1,0 +1,55 @@
+{
+  "format": "mkdocs_integral",
+  "conducao": "docente/reconciliacao-mkdocs-2026-09-08/conducao.md",
+  "lessons": [
+    {
+      "id": "A01",
+      "page": "aulas/A01-o-incidente-que-parou-a-linha.md",
+      "title": "A01 — O incidente que parou a linha",
+      "activity": "atividade",
+      "status": "historico_reconciliado"
+    },
+    {
+      "id": "A02",
+      "page": "aulas/A02-ativos-ameacas-e-vulnerabilidades.md",
+      "title": "A02 — O que realmente está exposto?",
+      "activity": "atividade",
+      "status": "historico_reconciliado"
+    },
+    {
+      "id": "A03",
+      "page": "aulas/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md",
+      "title": "A03 — Do registro à ameaça candidata",
+      "activity": "atividade",
+      "status": "historico_reconciliado"
+    },
+    {
+      "id": "A04",
+      "page": "aulas/A04-onde-a-aplicacao-decide.md",
+      "title": "A04 — Onde a aplicação decide?",
+      "activity": "atividade",
+      "status": "historico_reconciliado"
+    },
+    {
+      "id": "A05",
+      "page": "aulas/A05-quem-e-voce-e-pode-fazer-isto.md",
+      "title": "A05 — Quem é você e pode fazer isto?",
+      "activity": "atividade",
+      "status": "historico_reconciliado"
+    },
+    {
+      "id": "A06",
+      "page": "aulas/A06-do-ticket-ao-modelo.md",
+      "title": "A06 — Como antecipar o que pode dar errado?",
+      "activity": "atividade",
+      "status": "publicado_realizacao_a_confirmar"
+    },
+    {
+      "id": "A07",
+      "page": "aulas/A07-do-modelo-a-decisao.md",
+      "title": "A07 — Da aplicação web ao processo industrial: como o adversário avança?",
+      "activity": "atividade",
+      "status": "publicado_realizacao_a_confirmar"
+    }
+  ]
+}

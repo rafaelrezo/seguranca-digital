@@ -12,14 +12,6 @@ Quatro registros aparecem em sequência: autenticação na VPN, acesso ao servid
 **Pré-requisito:** ativos e consequências discutidos na A02.  
 **Produto:** nota de triagem de uma página.
 
-## Reconstrua a operação antes de ler os eventos
-
-A empresa fictícia produz embalagens. Um fornecedor presta suporte em janelas autorizadas; a engenharia mantém versões de projetos; a operação precisa preservar disponibilidade e safety. A VPN permite a entrada autenticada, mas cada destino depende de autorização própria.
-
-`FILE-01` armazena projetos, `ENG-WS-01` é a estação de engenharia e `OT-JUMP-01` identifica o ponto de acesso controlado ao ambiente operacional. Uma relação de troca de arquivos não demonstra que a mesma sessão atravessou todos os componentes.
-
-Abra um documento de triagem com quatro colunas: registro, leitura literal, explicação possível e dado faltante. Os registros abaixo são fictícios; nenhuma conexão ou execução é necessária. Uma pessoa lê e a outra verifica se a interpretação acrescentou algo ausente da fonte.
-
 ## O que os registros realmente dizem?
 
 ```text
@@ -30,9 +22,6 @@ Abra um documento de triagem com quatro colunas: registro, leitura literal, expl
 ```
 
 Eles demonstram eventos, horários, conta e componentes. Não demonstram que a mesma pessoa manteve uma sessão contínua, que houve malware, que o renomeio foi indevido ou que ocorreu impacto no processo OT.
-
-!!! question "Checkpoint 1 — quatro eventos são uma única sessão?"
-    Copie o evento `bulk_rename`. Escreva o que a linha informa sobre a ação e o que não informa sobre o programa responsável. Escolha uma coleta que poderia distinguir manutenção de uso indevido. Só avance quando a pergunta citar um dado específico.
 
 ## Ameaça não é ataque confirmado
 
@@ -82,9 +71,6 @@ Ausência de um desses elementos não prova inocência nem comprometimento. Ela 
 
 Antes de usar um registro para decidir, pergunte sobre sua proveniência: quem o produziu, em qual relógio, com qual nível de detalhe, por quanto tempo foi retido e se poderia ter sido alterado. Um log é uma representação do evento segundo a instrumentação daquele componente; não é o evento completo.
 
-!!! question "Checkpoint 2 — sua hipótese poderia ser refutada?"
-    Escolha duas explicações para a renomeação. Para cada uma, escreva um resultado que a enfraqueceria. Se o mesmo dado confirmar qualquer explicação, reformule a coleta. A tarefa é reduzir incerteza, não defender a primeira impressão.
-
 ## Decisão profissional
 
 | Encaminhamento | Quando faz sentido | O que registrar |
@@ -92,58 +78,6 @@ Antes de usar um registro para decidir, pergunte sobre sua proveniência: quem o
 | Escalar | consequência plausível e indícios suficientes | responsável, urgência e evidências |
 | Coletar | explicações continuam concorrentes | dado solicitado e decisão que ele altera |
 | Encerrar | explicação legítima foi sustentada | justificativa e condições para reabrir |
-
-## Atividade {#atividade}
-
-**Missão:** aplicar a triagem a uma compra contestada. **Tempo:** 52 minutos, conforme o roteiro publicado. **Equipe:** dupla ou trio, com leitura e revisão alternadas. **Recursos:** esta página e editor de texto ou papel.
-
-O caso corporativo acima vem da apresentação da A03. A prática publicada usa **outro cenário**, a loja fictícia Fruta Fresca. Transfira o método de triagem; não misture horários, identidades ou ativos dos dois casos.
-
-### Relato e regras da loja
-
-Clientes podem redefinir a própria senha e alterar o endereço antes da expedição. O suporte só pode corrigir dados após validar a identidade. Vale-presentes são formas legítimas de pagamento.
-
-| Horário | Registro ou relato fornecido |
-|---|---|
-| 14:02 | solicitação de redefinição de senha para `ana.silva` |
-| 14:05 | redefinição concluída em dispositivo ainda não reconhecido |
-| 14:11 | endereço de entrega alterado |
-| 14:14 | pedido de alto valor pago com vale-presente válido |
-| 14:18 | cliente informa ao suporte que não solicitou a alteração |
-
-Esses dados não demonstram sozinhos autoria, acesso indevido ou falha no atendimento. Analise somente o relato: não acesse contas, não teste senhas, não contate pessoas.
-
-### Percurso de trabalho
-
-1. **6 min — leitura:** escreva três fatos literais e três informações que o relato não comprova.
-2. **8 min — candidatas:** cada pessoa propõe três eventos indesejáveis. Consolidem até quatro, incluindo ao menos uma possibilidade incidental.
-3. **10 min — comparação:** escolham duas explicações para a alteração de endereço e um dado capaz de diferenciá-las.
-4. **12 min — formulação:** preencham a tabela abaixo para duas candidatas de naturezas diferentes.
-5. **10 min — decisão:** escolham escalar, coletar ou encerrar para cada ameaça; incluam o dado que mudaria o encaminhamento.
-6. **6 min — revisão:** outra equipe marca fato, hipótese e conclusão no texto. Corrijam uma ambiguidade e preservem a versão revisada.
-
-| Campo | Ameaça 1 | Ameaça 2 |
-|---|---|---|
-| evento ou agente | preencher | preencher |
-| condição necessária | preencher | preencher |
-| ativo e consequência | preencher | preencher |
-| evidência discriminante | preencher | preencher |
-| encaminhamento e justificativa | preencher | preencher |
-
-### Entrega e rubrica
-
-Quando solicitada no Classroom, entregue uma página em PDF, `A03-grupo-NN-nota-triagem.pdf`, com três fatos, duas ameaças, decisões e a frase “Ainda não podemos concluir que...”.
-
-| Critério | Concluído | Precisa revisar |
-|---|---|---|
-| Leitura | separa fatos e lacunas | preenche a história por suposição |
-| Formulação | duas candidatas com condição, ativo e consequência | nomes genéricos de ataques |
-| Decisão | justificada e revisável | escalonamento sem indício ou coleta vaga |
-| Comunicação | outra equipe refaz o raciocínio | depende de explicação oral |
-
-**Se houver dificuldade:** sublinhe primeiro os verbos do relato e volte à tabela de encaminhamentos; não acrescente ferramenta nova. A própria tabela de eventos é a alternativa sem rede.
-
-**Encerramento:** preserve a nota sanitizada e feche as cópias de trabalho. **Extensão:** proponha uma nova evidência fictícia e explique qual encaminhamento ela mudaria. **Ponte:** a [A04](A04-onde-a-aplicacao-decide.md) retoma o Juice Shop para localizar no funcionamento normal uma decisão que precisará ser investigada; o caso corporativo não vira evidência da loja.
 
 ## Evidência de conclusão
 

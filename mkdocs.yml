@@ -15,7 +15,6 @@ markdown_extensions:
   - attr_list
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.superfences
   - pymdownx.details
   - pymdownx.mark
   - pymdownx.superfences:
@@ -29,17 +28,48 @@ extra_javascript:
 
 extra_css:
   - stylesheets/extra.css
-  
+
+# Fontes de versões anteriores e propostas futuras permanecem no repositório.
+exclude_docs: |
+  aulas/A04-fluxos-e-fronteiras-de-confianca.md
+  aulas/A05-stride-priorizacao-controles-e-validacao.md
+  aulas/A06-o-que-mantem-a-sessao.md
+  aulas/A07-o-recurso-pertence-a-quem.md
+  aulas/A08-quando-a-entrada-vira-instrucao.md
+  aulas/A09-o-que-estamos-autorizados-a-testar.md
+  aulas/A10-o-teste-encontrou-o-que.md
+  aulas/A11-por-que-esta-mensagem-parece-legitima.md
+  aulas/A12-como-medir-aprendizagem-sem-vigiar.md
+  aulas/A13-o-que-mudou-no-endpoint.md
+  aulas/A14-quem-fez-o-que.md
+  aulas/A15-onde-o-perimetro-realmente-termina.md
+  aulas/A16-por-que-guardamos-este-dado.md
+  aulas/A17-o-que-precisa-permanecer-secreto.md
+  aulas/A18-em-quem-podemos-confiar.md
+  aulas/A19-senha-hash-e-segredo.md
+  aulas/A20-o-canal-e-seguro.md
+  aulas/A21-o-que-mudou-do-esperado.md
+  aulas/A22-quando-um-evento-vira-alerta.md
+  aulas/A23-conter-recuperar-ou-escalar.md
+  aulas/A24-arquitetura-segura-na-nuvem.md
+  aulas/A25-perimetro-em-nuvem.md
+  aulas/A26-o-que-tratar-primeiro.md
+  aulas/A27-qual-regra-torna-o-tratamento-repetivel.md
+  aulas/A28-referencias-industriais-e-decisao.md
+  aulas/A29-processo-seguro-apos-intervencao.md
+  aulas/A30-defender-a-decisao-do-inicio-ao-fim.md
 
 nav:
   - Início: index.md
-  - Aulas — percurso guiado:
-      - Unidade 1 — Fundamentos e risco:
-          - "A01 — O incidente que parou a linha": aulas/A01-o-incidente-que-parou-a-linha.md
-          - "A02 — Ativos, ameaças e vulnerabilidades": aulas/A02-ativos-ameacas-e-vulnerabilidades.md
-          - "A03 — Do caminho de ataque ao modelo de ameaças": aulas/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md
-          - "A04 — Onde a aplicação decide?": aulas/A04-onde-a-aplicacao-decide.md
-          - "A05 — A cesta de Ana": aulas/A05-quem-e-voce-e-pode-fazer-isto.md
+  - Percurso e atividades: percurso.md
+  - Aulas — teoria e prática:
+      - "A01 — O incidente que parou a linha": aulas/A01-o-incidente-que-parou-a-linha.md
+      - "A02 — O que realmente está exposto?": aulas/A02-ativos-ameacas-e-vulnerabilidades.md
+      - "A03 — Do registro à ameaça candidata": aulas/A03-do-caminho-de-ataque-ao-modelo-de-ameacas.md
+      - "A04 — Onde a aplicação decide?": aulas/A04-onde-a-aplicacao-decide.md
+      - "A05 — Quem é você e pode fazer isto?": aulas/A05-quem-e-voce-e-pode-fazer-isto.md
+      - "A06 — Como antecipar o que pode dar errado?": aulas/A06-do-ticket-ao-modelo.md
+      - "A07 — Da aplicação web ao processo industrial: como o adversário avança?": aulas/A07-do-modelo-a-decisao.md
   - Referencial de consulta:
       - Fundamentos de Segurança:
           - Visão geral: fundamentos_de_seguranca_digital/index.md
@@ -58,7 +88,7 @@ nav:
           - Visão geral: ameacas/index.md
           - Metodologias de análise de ameaças: ameacas/metodologias.md
           - Comparativo de metodologias: ameacas/comparativo.md
-          - Prática guiada em sala: ameacas/pratica_guiada_ameacas.md
+          - Orientação para as práticas: ameacas/pratica_guiada_ameacas.md
       - Segurança Física:
           - Visão geral: seguranca_fisica/introducao.md
           - Controles de Segurança Física: seguranca_fisica/controles_fisicos.md
