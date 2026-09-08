@@ -1,0 +1,18 @@
+{
+  "encontros": 24,
+  "intervalo": "A08–A31",
+  "minutos": 2400,
+  "teoria_min": 1200,
+  "pratica_conduzida_min": 1200,
+  "macrocomponentes": {
+    "M1": 5,
+    "M2": 3,
+    "M3": 6,
+    "M4": 3,
+    "M5": 7
+  },
+  "entregas_principais": 5,
+  "arquivos_publicos_e_historicos_preservados": 529,
+  "alterados": [],
+  "publicacao": "não realizada; etapa exclusivamente docente"
+}

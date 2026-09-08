@@ -1,0 +1,49 @@
+{
+  "status": "detalhamento_curricular_verificado_sem_publicacao",
+  "lessons": [
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19",
+    "A20",
+    "A21",
+    "A22",
+    "A23",
+    "A24",
+    "A25",
+    "A26",
+    "A27",
+    "A28",
+    "A29",
+    "A30",
+    "A31"
+  ],
+  "meeting_minutes": 100,
+  "total_minutes": 2400,
+  "theory_minutes": 1200,
+  "guided_practice_minutes": 1200,
+  "macro_counts": {
+    "M1": 5,
+    "M2": 3,
+    "M3": 6,
+    "M4": 3,
+    "M5": 7
+  },
+  "main_submissions": 5,
+  "protected_files_unchanged": 529,
+  "lesson_fields_checked": 6,
+  "local_links_valid": true,
+  "limitations": [
+    "Validação documental; não ensaio dos laboratórios",
+    "Sem build/deploy ou envio ao Classroom",
+    "Carga institucional total e calendário não inferidos"
+  ]
+}

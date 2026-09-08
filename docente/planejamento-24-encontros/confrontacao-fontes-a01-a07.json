@@ -1,0 +1,794 @@
+{
+  "consulted_on": "2026-09-08",
+  "source": "apresentações vigentes na pasta oficial; leitura integral do texto extraído de todos os slides",
+  "files": [
+    {
+      "id": "1zc-hHDZS9wITKi0_2e2gLooJ79KK2270fsYIo-MxMBE",
+      "title": "A01 — O incidente que parou a linha",
+      "url": "https://docs.google.com/presentation/d/1zc-hHDZS9wITKi0_2e2gLooJ79KK2270fsYIo-MxMBE/edit?usp=drivesdk",
+      "modified_time": "2026-08-06T19:51:10.131Z",
+      "revision": "MypJjuyb-eMeoA",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A01  •  FUNDAMENTOS E RISCO\nO incidente que\nparou a linha\nÉ o primeiro contato com o caso: às 09:17, a produção cai a zero, mas a rede continua respondendo. Antes de agir, precisamos separar o que foi observado do que apenas parece explicar a parada.\n09:17\n0 un/min\n2 × 52 min  •  investigação em duplas\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "MISSÃO\nSeparar fato, hipótese e consequência\nVocê integra uma equipe chamada para apoiar a sala de controle.\nFATO\nA esteira parou às 09:17.\nRESTRIÇÃO\nNão interromper o controlador.\nENTREGA\nLinha do tempo + hipótese justificada.\nA01  •  Segurança Digital\nNIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "PREVISÃO\nQual hipótese você testaria primeiro?\nEscolha antes de ver o conjunto completo de evidências.\nA\nFalha mecânica local\nB\nAção indevida no supervisório\nC\nPerda de comunicação OT\nREGISTRE\n1 hipótese\n1 justificativa\n1 evidência necessária\nA01  •  Segurança Digital\nNIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "EVIDÊNCIA 1\nO que o registro mostra — e o que não mostra?\n09:16:52  HMI-01  login_success  operador_turno\n09:17:03  PLC-01  comm_timeout   3200 ms\n09:17:05  LINE-01 state_change RUN → STOP\n09:17:08  HMI-01  alarm_ack      ALM-204\nOBSERVE\nOrdem temporal\nOrigem do evento\nLacunas do registro\nCorrelação não prova causa.\nA01  •  Segurança Digital\nEvidência fictícia preparada para a disciplina\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "CONCEITOS\nDo evento ao risco\nUse os termos para explicar a evidência, não para decorar definições.\nAMEAÇA\nCondição capaz de causar dano\nEVENTO\nOcorrência observável\nINCIDENTE\nEvento que compromete objetivos\nCONSEQUÊNCIA\nEfeito sobre processo e pessoas\nRISCO\nIncerteza sobre probabilidade e impacto\nA01  •  Segurança Digital\nNIST CSF 2.0; NIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "IMPACTO\nCIA e AAA mudam quando o software move o mundo\nEm OT, disponibilidade e safety condicionam a resposta.\nCIA\nConfidencialidade\nIntegridade\nDisponibilidade\nAAA\nAutenticação\nAutorização\nAccounting (registro)\nPROCESSO\nQualidade\nProdução\nSafety\nPergunta de engenharia: o controle reduz o risco sem criar uma condição insegura?\nA01  •  Segurança Digital\nNIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "CHECKPOINT 2\nVocê isolaria a HMI agora?\nSIM\nreduz possível propagação\nNÃO\npode comprometer operação\nCONDICIONAL\ndepende de evidência e estado seguro\nJustifique com risco, continuidade e safety.\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "RESPOSTA INICIAL\nPreservar o processo e aumentar a certeza\nA primeira intervenção deve ser reversível e observável.\n1\nESTABILIZAR\nConfirmar estado seguro\n2\nPRESERVAR\nSalvar logs e horário\n3\nCORRELACIONAR\nHMI, PLC e rede\n4\nDECIDIR\nConter com autorização\n5\nVALIDAR\nProcesso + telemetria\nA01  •  Segurança Digital\nNIST CSF 2.0; NIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "PRÁTICA\nConstrua uma linha do tempo defensável\nO roteiro contém o pacote de evidências, regras e critérios.\nMISSÃO\nOrdene eventos, compare hipóteses e recomende a próxima coleta segura.\nENTREGA\nLinha do tempo\nHipótese principal\nHipótese alternativa\nPróxima evidência\nSomente dados fictícios e sanitizados\nA01  •  Segurança Digital\nNIST SP 800-82 Rev. 3\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "SÍNTESE\nEvidência antes da certeza\nUma decisão profissional explica limites, impacto e como será validada.\nOBSERVAR\nFORMULAR\nCORRELACIONAR\nINTERVIR\nVALIDAR\nTransferência: em um hospital ou edifício inteligente, qual consequência mudaria sua prioridade?\nA01  •  Segurança Digital\nNIST CSF 2.0; NIST SP 800-82 Rev. 3; NICE Framework\n"
+        }
+      ]
+    },
+    {
+      "id": "1dt8iqbcGoMV3XBDGQ0g1v0KhHxreZn1SblCIp9wcBEE",
+      "title": "A02 — Ativos, ameaças e vulnerabilidades",
+      "url": "https://docs.google.com/presentation/d/1dt8iqbcGoMV3XBDGQ0g1v0KhHxreZn1SblCIp9wcBEE/edit?usp=drivesdk",
+      "modified_time": "2026-08-06T22:42:13.016Z",
+      "revision": "l4y8FhDsPAVKOg",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A02  •  FUNDAMENTOS E RISCO\nO que realmente\nestá exposto?\nNa A01, aprendemos a não confundir correlação com causa. Agora o servidor entrega um arquivo interno: precisamos ligar a evidência ao ativo, à fraqueza e à consequência antes de priorizar a resposta.\nO código 200 prova entrega; ainda não explica alcance, intenção ou impacto.\nHTTP/1.1\n200 OK\n2 × 52 min  •  investigação em duplas\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "OBJETIVO DA AULA\nAprender a explicar uma exposição observada\nNão vamos procurar falhas: vamos analisar juntos uma evidência conhecida.\n1\nOBSERVAR\no servidor entregou o quê?\n2\nNOMEAR\nqual ativo e quais conceitos?\n3\nDECIDIR\nqual controle faz sentido?\n4\nVALIDAR\ncomo provar que melhorou?\nAo final, você conseguirá escrever: evidência → ativo → hipótese de fraqueza → vulnerabilidade → consequência → controle → reteste.\nA02  •  Segurança Digital\nNIST CSF 2.0 • CWE • CVE\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "AMBIENTE\nCada estudante abre o Juice Shop no próprio computador\n127.0.0.1 significa esta máquina; não é um servidor fornecido pelo professor.\nPOWERSHELL OU TERMINAL LINUX\n\ndocker pull bkimminich/juice-shop\n\ndocker run --rm -d --name juice-shop-a02\n-p 127.0.0.1:3000:3000 bkimminich/juice-shop\nABRA\nhttp://127.0.0.1:3000\nPOR QUE LOCAL?\nA aplicação é vulnerável de propósito. Mantê-la em 127.0.0.1 limita o acesso à própria máquina.\nA02  •  Segurança Digital\nOWASP Juice Shop — guia oficial de execução com Docker\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "OBSERVAÇÃO GUIADA\nUma URL, uma requisição e limites claros\nProfessor e turma executam juntos; ninguém precisa descobrir uma rota.\nABRA NO NAVEGADOR\nhttp://127.0.0.1:3000/ftp/acquisitions.md\n\nREQUISIÇÃO OBSERVADA\nGET /ftp/acquisitions.md HTTP/1.1\nHost: 127.0.0.1:3000\n\nRESPOSTA ESPERADA\nHTTP/1.1 200 OK • text/markdown\nANTES DE EXPLICAR\n1. O que foi observado?\n2. Qual informação tem valor?\n3. O que ainda é hipótese?\n200 prova entrega naquela requisição — não prova causa, intenção ou alcance.\nA02  •  Segurança Digital\nRota validada na imagem oficial do OWASP Juice Shop\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "ATIVO\nO que tem valor nesta evidência?\nComece pelo que perderia valor — não pela técnica nem pelo equipamento.\nCANDIDATO\nPOR QUE PODE SER ATIVO?\nEVIDÊNCIA NO CASO\ninformação de aquisição\napoia decisões e deveria permanecer restrita\nconteúdo declara confidencialidade\narquivo acquisitions.md\narmazena e transporta a informação\nnome, caminho e tipo markdown\nrota/serviço web\ntorna o recurso acessível\nGET recebeu resposta 200\ncontainer Juice Shop\nexecuta a aplicação do laboratório\ndocker ps + endereço local\nAtivo não é sinônimo de servidor: informação, arquivo, serviço e plataforma sustentam funções diferentes.\nA02  •  Segurança Digital\nNIST Cybersecurity Framework 2.0 — ID.AM\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "EXEMPLO CONSTRUÍDO\nDa evidência aos conceitos necessários\nPrimeiro modele a frase; depois peça que as duplas a critiquem e completem.\n1 • ATIVO\ninformação do arquivo acquisitions.md\n2 • OBSERVAÇÃO\nGET sem login recebeu 200 + markdown\n3 • FRAQUEZA — HIPÓTESE\narquivo em área servida ou autorização ausente\n4 • VULNERABILIDADE\nesta implantação permite acesso não autenticado\n5 • AMEAÇA\nusuário não autorizado obtém a informação\n6 • CONSEQUÊNCIA\ndivulgação de planos fictícios de aquisição\nA02  •  Segurança Digital\nCWE — classes de fraqueza; não atribuir CVE sem fonte\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "CONTROLE\nUma medida que modifica o risco\nO controle entra depois que entendemos ativo, exposição e consequência.\nPREVENTIVO\nevita ou dificulta\nretirar o arquivo da área pública\nDETECTIVO\ntorna o evento observável\nregistrar e alertar acesso à rota\nCORRETIVO\nremove a causa ou restaura condição esperada\ncorrigir publicação ou autorização\nRECUPERAÇÃO\nrestabelece serviço/dados após impacto\nrestaurar versão íntegra e configuração\nControles podem atuar em camadas. Detectar não substitui prevenir ou corrigir quando a exposição permanece.\nA02  •  Segurança Digital\nNIST CSF 2.0 — Protect, Detect, Respond e Recover\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "CHECKPOINT 2\nQual controle você defenderia?\nREMOVER\nrecurso não deveria ser servido\nAUTORIZAR\npapel específico precisa acessar\nMONITORAR\ncorreção imediata é inviável\nDeclare a premissa e a evidência de reteste.\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "REGISTRO\nUma frase profissional liga os conceitos\nA dupla receberá pontos de partida e deverá justificar limites e evidências.\nNesta implantação, uma requisição GET sem autenticação recebeu 200 e entregou o arquivo acquisitions.md. Isso expõe informação fictícia de aquisição a um usuário não autorizado. A condição provável ainda precisa ser confirmada na arquitetura.\nA dupla deve marcar na frase:\nevidência observada  •  ativo  •  vulnerabilidade concreta  •  ameaça  •  consequência  •  hipótese de fraqueza\nA02  •  Segurança Digital\nNIST CSF 2.0 • CWE • CVE\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "PRÁTICA\nSuba localmente, investigue e encerre com segurança\nCada estudante acessa seu próprio container em http://127.0.0.1:3000.\nPREPARAÇÃO — POWERSHELL OU TERMINAL LINUX\ndocker pull bkimminich/juice-shop\ndocker run --rm -d --name juice-shop-a02 -p 127.0.0.1:3000:3000 bkimminich/juice-shop\nABRA  http://127.0.0.1:3000\nENCERRE  docker stop juice-shop-a02\nENTREGA\nInventário do Juice Shop\nEvidência interpretada\nControle justificado\nReteste definido\nSem credenciais ou dados reais\nA02  •  Segurança Digital\nNIST CSF 2.0 • CWE • CVE\n"
+        },
+        {
+          "n": 11,
+          "id": "p11",
+          "text": "SÍNTESE\nInventário orienta a prioridade\nA terminologia conecta evidência, causa, consequência, ação e validação.\nINVENTARIAR\nOBSERVAR\nEXPLICAR\nTRATAR\nRETESTAR\nTransferência: qual consequência física mudaria sua prioridade em uma HMI?\nA02  •  Segurança Digital\nNIST CSF 2.0; CWE; CVE; OWASP Juice Shop\n"
+        }
+      ]
+    },
+    {
+      "id": "1Sx9AiL86JwqqFTHXFY2vLmGm4D8lczOBPExWr3F9GA8",
+      "title": "A03 — Do registro à ameaça candidata",
+      "url": "https://docs.google.com/presentation/d/1Sx9AiL86JwqqFTHXFY2vLmGm4D8lczOBPExWr3F9GA8/edit?usp=drivesdk",
+      "modified_time": "2026-08-11T23:32:21.525Z",
+      "revision": "aCW5ZPoKnCoTbA",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A03  •  MODELAGEM DE AMEAÇAS\nDo registro à\nameaça candidata\nNa A02, uma exposição localizada nos ensinou a separar evidência, hipótese e consequência. Agora surgem quatro registros em componentes diferentes.\nA missão é identificar ameaças candidatas e decidir o encaminhamento sem afirmar que o ataque já ocorreu.\nREGISTRO\n≠\nINCIDENTE\n2 × 52 min\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "MISSÃO\nO que os registros permitem encaminhar?\nA equipe de triagem precisa transformar sinais incompletos em uma decisão justificável e revisável.\n1 • OBSERVAR\no que ocorreu?\n2 • COMPARAR\nque explicações cabem?\n3 • FORMULAR\nqual ameaça é plausível?\n4 • DECIDIR\nescalar, coletar ou encerrar?\nHoje termina com uma nota de triagem; arquitetura detalhada e frameworks entram depois.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "CONTEXTO OPERACIONAL\nPor que existe acesso remoto à engenharia?\nA empresa fictícia produz embalagens; o fornecedor presta suporte em janelas autorizadas e precisa consultar projetos.\nSUPORTE REMOTO\ndiagnostica falhas e orienta manutenção\nnão opera a produção livremente\nENGENHARIA\nmantém versões de projetos e aprova mudanças\nprecisa preservar integridade\nOPERAÇÃO OT\nexecuta o processo com disponibilidade e safety\nmudanças exigem coordenação\nAcesso necessário não significa acesso irrestrito.\nA03  •  Segurança Digital\nCenário fictício preparado para a disciplina\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "ARQUITETURA CONHECIDA\nA VPN é uma porta de entrada, não um destino final\nDepois de autenticar, cada destino ainda depende de uma regra de autorização própria.\nFORNECEDOR\nVPN\nFILE-01\nconsulta projetos\nENG-WS-01\nsuporte interativo?\nOT-JUMP-01\nacesso OT controlado\nprojetos/arquivos\nAinda não sabemos se a VPN autoriza acesso direto à estação. A regra é uma evidência a coletar, não um fato do desenho.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "EVIDÊNCIA\nOs registros são pontos; a arquitetura informa como investigá-los\nLeia cada linha sem preencher as lacunas com uma narrativa de ataque.\n08:42  VPN         login_success   svc_support\n08:51  FILE-01     auth_success    svc_support\n09:03  FILE-01     bulk_rename     287 arquivos\n09:07  ENG-WS-01   session_open   OT-JUMP-01\nOBSERVADO\neventos, horários, conta e destinos\nNÃO OBSERVADO\nmesma sessão, autoria, malware ou impacto OT\nA03  •  Segurança Digital\nEvidência fictícia; horários não provam causalidade\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "CHECKPOINT 1\nQual lacuna investigamos primeiro?\nSESSÃO\no login da VPN originou os demais eventos?\nAUTORIZAÇÃO\na conta podia acessar FILE e ENG?\nPROCESSO\nqual programa renomeou os arquivos?\nEscolha uma pergunta e diga qual dado permitiria respondê-la.\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "EXPLICAÇÕES CONCORRENTES\nO mesmo evento pode ter naturezas diferentes\nAntes de nomear uma ameaça, preserve alternativas que os dados ainda não distinguem.\nMALICIOSA\nuso indevido deliberado\nINCIDENTAL\nerro humano ou falha de software\nINDETERMINADA\nmanutenção ou dado insuficiente\nA triagem registra o que falta para separar as explicações.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "DECISÃO DE TRIAGEM\nIdentificar ameaça não significa confirmar ataque\nO produto da análise é um encaminhamento proporcional à evidência disponível.\nESCALAR\nconsequência plausível e indícios suficientes\nCOLETAR\nhipóteses continuam concorrentes\nENCERRAR\nexplicação legítima sustentada\nToda decisão registra justificativa, evidência e limite da conclusão.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "CONCEITO NECESSÁRIO\nAfinal, o que é uma ameaça?\nAgora temos algo de valor, um sistema descrito e condições que podem falhar.\nAmeaça é um evento indesejável, potencial ou real, malicioso ou acidental, capaz de prejudicar algo de valor.\nNÃO É EVIDÊNCIA\no log não prova que ocorreu\nNÃO É VULNERABILIDADE\na condição explorável é outra coisa\nNÃO É ATAQUE CONFIRMADO\ndescreve o que pode dar errado\nA03  •  Segurança Digital\nOWASP Threat Modeling — Objectives\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "CONSTRUÇÃO GUIADA\nDe uma preocupação vaga a uma ameaça verificável\nCada bloco limita a afirmação e aponta a próxima evidência.\nQUEM / EVENTO\numa pessoa usando svc_support\nCONDIÇÃO\nse a conta não permitir atribuição individual\nELEMENTO\npode acessar FILE-01\nCONSEQUÊNCIA\ne alterar projetos necessários à engenharia\nVERIFICAÇÃO\nconfirmar dono, sessão, política e autoria\nA formulação é uma hipótese de segurança: pode ser confirmada, limitada ou descartada.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 11,
+          "id": "p11",
+          "text": "PRÁTICA\nProduza uma nota de triagem\nOutra equipe deve compreender por que o caso foi escalado, mantido em coleta ou encerrado.\nOBSERVAÇÕES\nfatos literais e lacunas\nAMEAÇAS CANDIDATAS\nnatureza, condição e consequência\nENCAMINHAMENTO\ndecisão, evidência e limite\nSem fronteiras, STRIDE ou controles nesta entrega.\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        },
+        {
+          "n": 12,
+          "id": "p12",
+          "text": "SÍNTESE\nA03 ensina a identificar e encaminhar ameaças candidatas\nO estudante separa observação, hipótese e ameaça sem inventar causalidade.\nOBSERVAR\no que ocorreu\nEXPLICAR\nalternativas\nFORMULAR\ncondição + consequência\nDECIDIR\nescalar, coletar ou encerrar\nPonte para A04: onde, no funcionamento do sistema, essas condições podem surgir?\nA03  •  Segurança Digital\nOWASP Threat Modeling\n"
+        }
+      ]
+    },
+    {
+      "id": "13u_GTiFUcrJ94M4TzzhUeKynbRAjPB5qdftzm7FlxxY",
+      "title": "A04 — Onde a aplicação decide?",
+      "url": "https://docs.google.com/presentation/d/13u_GTiFUcrJ94M4TzzhUeKynbRAjPB5qdftzm7FlxxY/edit?usp=drivesdk",
+      "modified_time": "2026-08-13T22:04:19.683Z",
+      "revision": "BNoK2ouYWeaSNw",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A04 • SEGURANÇA DIGITAL\nOnde a aplicação decide?\nOBJETIVOS DE APRENDIZAGEM\nAo final, você conseguirá:\n1. reconstruir um fluxo legítimo da ação do usuário até o dado;\n2. coletar e interpretar rastros de uma troca HTTP;\n3. separar o que foi observado do que foi inferido e formular uma pergunta verificável sobre a decisão de acesso.\nAÇÃO\n→ RASTRO\n→ MODELO\n→ DECISÃO\n→ LIMITE\nCenário de investigação: abertura de uma cesta no Juice Shop local.\n2 × 52 min\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "RETOMADA\nO caminho até aqui teve uma interrupção\nA02 trouxe o Juice Shop; A03 treinou a análise de ameaças sem continuar o mesmo caso.\nA01 • IMPACTO\nUm incidente pode parar a operação e exige evidência para decidir.\nA02 • JUICE SHOP\nVimos ativos, ameaças e vulnerabilidades em uma aplicação concreta.\nA03 • RACIOCÍNIO\nAprendemos a separar evidência, hipótese e ameaça candidata.\nHoje recuperamos a aplicação e usamos o raciocínio da A03 para explicar como ela funciona.\nA04 • Segurança Digital\nOWASP Juice Shop • material do curso\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "PREPARAÇÃO LOCAL\nInicie o Juice Shop antes de criar a conta\nUse o terminal do seu sistema. Os dois comandos iniciam o mesmo contêiner ligado somente ao computador local.\nWINDOWS • POWERSHELL\n1. Abra o Docker Desktop e espere “Engine running”.\n2. Abra o PowerShell.\n3. Execute:\ndocker run --rm -d --name juice-shop-a04 -p 127.0.0.1:3000:3000 bkimminich/juice-shop\nLINUX • TERMINAL\n1. Confirme que o Docker está ativo.\n2. Abra o terminal.\n3. Execute:\ndocker run --rm -d --name juice-shop-a04 -p 127.0.0.1:3000:3000 bkimminich/juice-shop\nValidação: abra http://127.0.0.1:3000. Se a página não carregar, não avance para o cadastro.\nA04 • Segurança Digital\nImagem oficial do OWASP Juice Shop • porta restrita ao localhost\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "PREPARAÇÃO DO CASO\nCrie Ana e produza um estado conhecido\nSó poderemos interpretar a cesta se soubermos qual conta entrou e quais itens foram adicionados.\n1 • CADASTRE\nLogin: ana@a04.test\nSenha: Ana-A04!2026\nResposta de segurança: azul\n2 • ENTRE\nUse Login e confirme que a interface reconheceu a conta de Ana.\n3 • ADICIONE\nNa loja, adicione exatamente dois produtos à cesta.\n4 • CONFIRME\nAbra a cesta e anote os nomes dos dois produtos exibidos.\nRegistro inicial: conta usada + dois produtos + resultado sem erro. Ainda não abra o painel Network.\nA04 • Segurança Digital\nCredenciais descartáveis • somente no contêiner local\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "LINHA DE BASE\nRegistre o comportamento normal antes de observar a rede\nEste registro define o que deveria acontecer. Depois compararemos o rastro HTTP com esse resultado.\n1 • ESTADO INICIAL\nAna está autenticada e a cesta contém os dois produtos anotados.\n2 • AÇÃO EXECUTADA\nNa interface, Ana seleciona a opção da cesta.\n3 • RESULTADO ESPERADO\nA página abre sem erro e mostra os mesmos dois produtos.\nCopie esses três elementos no roteiro. Eles serão a referência para interpretar a requisição e a resposta.\nA04 • Segurança Digital\nLinha de base funcional • ainda sem inferência sobre a arquitetura\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "PREPARE A OBSERVAÇÃO\nAbra o painel Network antes de repetir a ação\nA pergunta sobre HTTP só pode ser respondida depois que o navegador registrar a nova abertura da cesta.\n1 • ABRA\nChrome/Edge: F12 ou Ctrl+Shift+I\nFirefox: F12\n2 • SELECIONE\nClique na aba Network ou Rede.\n3 • LIMPE\nUse o ícone de limpar e deixe a lista vazia.\n4 • REPITA\nVolte à loja e abra novamente a cesta.\nSomente agora escolha, na lista, a requisição que apareceu quando a cesta foi aberta.\nA04 • Segurança Digital\nDevTools do navegador • nenhuma extensão necessária\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "LEIA AÇÃO E ALVO\nLocalize primeiro os campos que identificam a solicitação\nSelecione a requisição da cesta e abra Headers/Cabeçalhos → General/Geral.\nMÉTODO\nProcure Request Method.\nCopie o valor exatamente como aparece.\nCAMINHO\nProcure Request URL.\nCopie apenas o caminho após host e porta.\nSÓ DEPOIS INTERPRETE\nMétodo aproxima a ação; caminho indica o recurso solicitado.\nRegistro: valor observado → onde foi encontrado → interpretação. Não use ainda esses campos para afirmar autorização.\nA04 • Segurança Digital\nPainel Network → requisição da cesta → Headers\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "LEIA CONTEXTO E RESULTADO\nAgora procure como a interação foi reconhecida e respondida\nPermaneça na mesma requisição; não copie o valor de cookies ou tokens para a entrega.\nCONTEXTO DE SESSÃO\nEm Request Headers, procure Cookie ou Authorization. Registre somente: presente, ausente ou não observado.\nSTATUS\nEm General/Geral, localize Status Code e copie o número.\nCONTEÚDO\nAbra Response/Resposta ou Preview/Visualização e descreva os dados sem copiar informação sensível.\nConclusão permitida: esta requisição levou este contexto e recebeu esta resposta. Ainda não sabemos onde a permissão foi verificada.\nA04 • Segurança Digital\nNão inclua valores de sessão em capturas ou entregas\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "ORGANIZE O OBSERVADO\nMonte o caminho que a captura realmente sustenta\nUse somente ação executada e campos registrados; mantenha o funcionamento interno como desconhecido.\n1 • PESSOA\nAna abre a cesta\n2 • NAVEGADOR\nenvia método + caminho + contexto\n3 • SERVIDOR\nprocessamento interno ainda não observado\n4 • RESPOSTA\nstatus + dados dos dois produtos\nA caixa amarela é a lacuna empírica: sabemos que houve processamento, mas a captura não revela todas as decisões internas.\nA04 • Segurança Digital\nModelo inicial derivado da evidência do navegador\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "AMPLIE SOMENTE O NECESSÁRIO\nSepare o processamento interno em duas responsabilidades\nFaça isso porque precisamos distinguir quem aplica regras de quem guarda o recurso.\nNAVEGADOR\nevidência: enviou a requisição e apresentou a resposta\nAPI / SERVIÇO\nhipótese funcional: interpreta o pedido e aplica regras\nDADO DA CESTA\nhipótese funcional: fornece os itens associados\nMarque API e dado como modelo, não como observação direta. Arquitetura é aqui o mapa mínimo que permite localizar responsabilidades.\nA04 • Segurança Digital\nNomes internos podem variar conforme a versão\n"
+        },
+        {
+          "n": 11,
+          "id": "p11",
+          "text": "PREPARE A DECISÃO\nPreencha identidade, ação e recurso antes de nomear controles\nRetorne ao cadastro, ao clique e à URL registrada; cada fonte responde uma parte.\nIDENTIDADE\nFonte: login concluído.\nRegistro: Ana / ana@a04.test.\nAÇÃO\nFonte: clique + método.\nRegistro: abrir/consultar.\nRECURSO\nFonte: caminho + resposta.\nRegistro: cesta e seus dois itens.\nAgora formule: “Ana pode consultar esta cesta?”. Essa é a pergunta de autorização produzida pelos três registros.\nA04 • Segurança Digital\nIdentidade + ação + recurso → pergunta de autorização\n"
+        },
+        {
+          "n": 12,
+          "id": "p12",
+          "text": "LOCALIZE A FRONTEIRA\nClassifique quem controla cada informação\nAntes de confiar em um valor, determine se ele veio do computador do usuário ou de uma verificação do servidor.\nNO NAVEGADOR\nInspecione URL, cabeçalhos e estado visível. Marque: valores enviados pelo cliente.\nAO CRUZAR\nDesenhe uma linha entre navegador e serviço: a requisição atravessa essa linha.\nNO SERVIDOR\nAnote a verificação necessária: relacionar sessão, ação e cesta antes de responder.\nFronteira de confiança é o ponto em que o valor recebido deixa de ser aceito sozinho e precisa ser verificado.\nA04 • Segurança Digital\nOWASP ASVS • controle de acesso no servidor\n"
+        },
+        {
+          "n": 13,
+          "id": "p13",
+          "text": "O QUE AINDA FALTA\nAssocie cada dúvida a um rastro capaz de respondê-la\nO Network mostrou entrada e saída, mas não mostrou a regra executada dentro do servidor.\n1 • ESCREVA A DÚVIDA\nOnde o servidor relaciona a sessão de Ana com a cesta solicitada?\n2 • ESCOLHA O RASTRO\nCódigo da rota: mostra a condição.\nLog: mostra uma decisão ocorrida.\nTeste com duas contas: compara resultados.\n3 • REGISTRE O QUE BUSCAR\nExemplo: no código, procurar uma verificação que compare identidade autenticada e proprietário da cesta.\nNesta aula, apenas planeje a coleta. Não altere identificadores nem execute o teste com outra conta.\nA04 • Segurança Digital\nDúvida específica → fonte adequada → resultado procurado\n"
+        },
+        {
+          "n": 14,
+          "id": "p14",
+          "text": "ESCOLHA A FERRAMENTA\nO diagrama pode ser produzido de três formas\nA ferramenta muda; os elementos obrigatórios e a qualidade da evidência permanecem iguais.\nDIAGRAMS.NET • RECOMENDADO\nMelhor para arrastar caixas e setas.\nUse app.diagrams.net ou a versão Desktop.\nExporte em PDF.\nMERMAID\nMelhor para quem prefere texto versionável.\nUse flowchart LR e setas rotuladas.\nExporte em PDF ou SVG.\nPAPEL OU SLIDE\nAlternativa quando a ferramenta principal impedir o trabalho.\nFotografe ou exporte com boa legibilidade e entregue em PDF.\nEscolha uma opção agora. Não será avaliado o acabamento visual; será avaliada a rastreabilidade entre evidência, modelo e dúvida.\nA04 • Segurança Digital\ndiagrams.net • Mermaid Flowchart • alternativa manual\n"
+        },
+        {
+          "n": 15,
+          "id": "p15",
+          "text": "PRÁTICA GUIADA\nProduza o diagrama usando os registros já obtidos\nNenhum campo começa do zero: cada passo aponta para uma evidência criada nos slides anteriores.\n1\nCopie ação e resultado do registro inicial.\n2\nCopie método, caminho, contexto e status do Network.\n3\nDesenhe navegador → serviço → dado; diferencie fato de modelo.\n4\nPreencha identidade, ação e recurso; marque a fronteira.\n5\nAnote a dúvida restante e a próxima evidência.\nEntrega: diagrama de uma página + captura interpretada e sem token/cookie visível.\nA04 • Segurança Digital\nOWASP Juice Shop • material do curso\n"
+        },
+        {
+          "n": 16,
+          "id": "p16",
+          "text": "SÍNTESE\nCada pergunta foi precedida por uma forma de obter evidência\nO curso não exige adivinhação: executamos, observamos, registramos, modelamos e declaramos o limite.\n1 • EXECUTAR\ncriar Ana e abrir a cesta\n2 • OBSERVAR\ncapturar requisição e resposta\n3 • MODELAR\nseparar observado e inferido\n4 • DECIDIR\nescolher a próxima evidência\nPróxima aula: usar evidências para distinguir identificação, autenticação, autorização e accounting.\nA04 • Segurança Digital\nOWASP Juice Shop • material do curso\n"
+        }
+      ]
+    },
+    {
+      "id": "1Ubk8Y9okEehajiJ52OztcCsjE0pA99RQqJ_GGT7dOes",
+      "title": "A05 — Quem é você e pode fazer isto?",
+      "url": "https://docs.google.com/presentation/d/1Ubk8Y9okEehajiJ52OztcCsjE0pA99RQqJ_GGT7dOes/edit?usp=drivesdk",
+      "modified_time": "2026-08-25T23:52:24.109Z",
+      "revision": "klIZEJ-NfmAP-w",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A05 • SESSÃO E AUTORIZAÇÃO\nA05 — Quem é você e pode fazer isto?\nANA\nBRUNO\n100 min • demonstração curta + reprodução no Firefox\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "CONEXÃO COTIDIANA\nO problema já aconteceu fora do laboratório\nComputador compartilhado, celular emprestado ou compra iniciada por outra pessoa.\nANA\nJUICE SHOP\ncesta #A\nBRUNO\nA tela pode trocar de usuário; os dados não podem trocar de dono.\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "PREPARAÇÃO 1 DE 3\nAbra o laboratório local\nTodos param no mesmo checkpoint antes de criar as contas.\n1\nTerminal\nCole o comando fornecido pelo professor: docker run --rm -d --name juice-shop-a05 -p 127.0.0.1:3000:3000 bkimminich/juice-shop\n2\nFirefox\nAbra http://127.0.0.1:3000\n3\nCheckpoint\nA página inicial do Juice Shop aparece; se não aparecer, levante a mão e use o par preparado.\nNão procure outro endereço e não altere a porta.\nA05 • Segurança Digital\nAmbiente local autorizado\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "PREPARAÇÃO 2 DE 3\nConfigure o Firefox para não perder as requisições\nUsaremos apenas o navegador; Postman não é necessário.\n1\nAbrir Network\nPressione Ctrl+Shift+E (macOS: Cmd+Opt+E).\n2\nPersistir\nClique na engrenagem do Network e marque “Persistir registros” / “Enable persistent logs”.\n3\nFiltrar\nNa caixa de filtro, digite basket. Não feche o DevTools até terminar os dois testes.\n4\nCheckpoint\nConfirme: Persistir registros está marcado, basket está no filtro e o Network continua aberto.\nA05 • Segurança Digital\nFirefox Source Docs — Network Monitor\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "PREPARAÇÃO 3 DE 3\nCrie duas pessoas e duas cestas diferentes\nUse o número da dupla para evitar contas iguais.\n1\nAna\nCadastre anaNN@a05.invalid; entre e adicione 2 Apple Juice.\n2\nAnotar A\nAbra a cesta; em Network, clique na linha que termina em /rest/basket/N e anote somente N como cesta A.\n3\nBruno depois\nNão crie Bruno ainda: primeiro vamos preservar a requisição de Ana.\n4\nSegredo\nVerifique o Cookie, Authorization, token ou senha.\nA05 • Segurança Digital\nDados fictícios\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "FUNCIONAMENTO NORMAL\nPrimeiro, acompanhe Ana sem procurar falhas\nEla entra, adiciona dois sucos e abre a própria cesta.\nANA\nentra\n2 × Apple Juice\ncesta #A\nRegra conhecida: Ana pode consultar e alterar a cesta #A.\nAna entra\ncesta de Ana\nAna sai\nBruno entra\ncesta de Bruno\nA05 • Segurança Digital\nOWASP Juice Shop local\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "AÇÃO GUIADA 1\nGuarde a solicitação de Ana no próprio Network\nNão existe botão Salvar: guardar significa manter a linha visível com Persistir registros ativado.\n1\nLocalizar\nCom Ana ainda logada, abra a cesta e selecione GET .../rest/basket/A com status 200.\n2\nConfirmar\nAbra Response: aparecem os 2 Apple Juice de Ana.\n3\nGuardar\nVolte à lista sem apagar o Network. A linha /rest/basket/A deve continuar visível.\n4\nCheckpoint\nAntes do logout: Ana ativa + linha A visível + Persistir registros marcado + DevTools aberto.\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "CHECKPOINT — ANA AINDA ESTÁ LOGADA\nEsta é a requisição observada com Ana ativa\nAna ainda NÃO fez logout; apenas preservamos sua linha no Network.\nANA • sessão ativa\nGET\n/rest/basket/A\n200 • 2 Apple Juice\numa referência temporária à sessão de Ana\n(valor oculto)\no identificador do recurso pedido:\na cesta pertencente a Ana\nO que ficou guardado? A linha da requisição de Ana no Network — não a senha.\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "O QUE FAREMOS DEPOIS DO LOGOUT\nDois testes, sempre no mesmo Firefox\nIsto é uma previsão do percurso; Bruno ainda não entrou.\n1\nDepois que Ana sai, uma solicitação antiga que ainda leva seu contexto continua aceita?\n2\nCom a própria sessão válida, Bruno consegue pedir a cesta identificada como sendo de Ana?\nsessão\n≠\nautorização\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "ROTEIRO DOS TESTES — AINDA NÃO EXECUTADOS\nCada linha mostra um estado que construiremos passo a passo\nTodos usarão o próprio Firefox; não usaremos Postman.\nQUEM A SESSÃO REPRESENTA\nCESTA PEDIDA\nRESULTADO ESPERADO\nAna — ativa\nAna\npermitir\nAna — após logout\nAna\nnegar\nBruno — ativa\nBruno\npermitir\nBruno — ativa\nAna\nnegar\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 11,
+          "id": "p11",
+          "text": "CASO 1 — LINHA DE BASE\nAna ativa pede a cesta de Ana\nSem um caso permitido, uma negação posterior pode ser apenas ambiente quebrado.\nANA • sessão ativa\nGET\n/rest/basket/A\n200 • permitir\n2 sucos\nFATO\na função legítima funciona\nAINDA NÃO PROVA\nlogout ou isolamento entre usuários\nAna entra\ncesta de Ana\nAna sai\nBruno entra\ncesta de Bruno\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 12,
+          "id": "p12",
+          "text": "AGORA O ESTADO MUDA\nPrimeiro Ana faz logout; somente depois Bruno entra\nNão feche a aba nem o DevTools: a linha antiga de Ana precisa permanecer visível.\nANA\nSAIR\nmesmo\nFirefox\nBRUNO\nPREDIGA: qual das duas perguntas a troca visual de nome realmente responde?\nAna entra\ncesta de Ana\nAna sai\nBruno entra\ncesta de Bruno\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 13,
+          "id": "p13",
+          "text": "AÇÃO GUIADA 2\nFaça a troca completa e confirme os dois estados\nAo final, Bruno estará ativo e a requisição antiga de Ana continuará na lista.\n1\nAna sai\nNo menu da conta, clique Logout. Não feche a aba nem o DevTools.\n2\nBruno\nCadastre brunoNN@a05.invalid, entre e adicione 1 Banana Juice.\n3\nAnotar B\nAbra o carrinho de Bruno; isso solicita /rest/basket/N. Anote o N final como cesta B.\n4\nCheckpoint\nNetwork contém uma linha antiga da cesta A e uma linha nova da cesta B.\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 14,
+          "id": "p14",
+          "text": "CASO 2 — TÉRMINO DA SESSÃO\nCom Bruno visível, teste a linha antiga de Ana\nBruno está ativo; reenviaremos a requisição A guardada no Network.\ncontexto antigo de ANA\nGET\n/rest/basket/A\n?\nSe permitir\no contexto antigo continuou aceito neste teste\nSe negar\no servidor recusou aquele contexto naquele momento\nConceito que entra agora: logout visual ≠ invalidação comprovada no servidor.\nA05 • Segurança Digital\nOWASP Session Management Cheat Sheet\n"
+        },
+        {
+          "n": 15,
+          "id": "p15",
+          "text": "AÇÃO GUIADA 3\nReenvie exatamente a solicitação antiga de Ana\nUse o botão Resend do painel Headers; não altere nem copie campos.\n1\nSelecionar A\nCom Bruno ativo, clique na linha antiga /rest/basket/A — não na linha B.\n2\nAbrir o comando\nNo painel à direita, abra Headers; na barra superior, clique Resend → Resend.\n3\nEnviar\nUma nova linha A aparecerá. Clique nela e abra Status e Response.\n4\nRegistrar\nAna pós-logout | cesta A | status real | permitir ou negar | limite.\nA05 • Segurança Digital\nFirefox Source Docs — Resend\n"
+        },
+        {
+          "n": 16,
+          "id": "p16",
+          "text": "CASO 3 — BRUNO LEGÍTIMO\nBruno ativo pede a cesta de Bruno\nEsta linha prova que a troca de usuário preservou o fluxo normal.\nBRUNO • sessão ativa\nGET\n/rest/basket/B\n200 • permitir\ncesta #B\nAgora temos duas linhas de base: Ana→Ana e Bruno→Bruno.\nAna entra\ncesta de Ana\nAna sai\nBruno entra\ncesta de Bruno\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 17,
+          "id": "p17",
+          "text": "CASO 4 — PROPRIEDADE\nBruno continua sendo Bruno; muda apenas a cesta pedida\nNa requisição legítima de Bruno, altere somente B → A.\nBRUNO • sessão ativa\nGET\n/rest/basket/B\n200 • cesta de Bruno\nBRUNO • sessão ativa\nGET\n/rest/basket/A\n?\nA sessão pode ser perfeitamente válida e a ação continuar proibida.\nA05 • Segurança Digital\nTeste autorizado no Juice Shop local\n"
+        },
+        {
+          "n": 18,
+          "id": "p18",
+          "text": "AÇÃO GUIADA 4\nPeça a cesta A usando a sessão de Bruno\nAltere uma única parte da URL; nenhum cabeçalho é tocado.\n1\nSelecionar B\nClique na linha nova /rest/basket/B que mostrou o Banana Juice de Bruno.\n2\nEditar\nResend → Edit and Resend. Na URL, troque somente o último número: B por A.\n3\nEnviar\nClique Send; na nova linha, abra Status e Response.\n4\nRegistrar\nBruno ativo | cesta A | status real | conteúdo observado | limite.\nPare se A ou B não forem os identificadores anotados pela sua dupla.\nA05 • Segurança Digital\nSomente dois recursos conhecidos\n"
+        },
+        {
+          "n": 19,
+          "id": "p19",
+          "text": "AGORA OS CONCEITOS TÊM FUNÇÃO\nDuas decisões independentes acontecem no servidor\nUse as pessoas e cestas já vistas; não troque de exemplo.\nA sessão ainda representa Ana?\nSESSÃO\nBruno pode agir sobre a cesta de Ana?\nAUTORIZAÇÃO\nvalidar contexto\nverificar propriedade\nUma resposta não substitui a outra.\n"
+        },
+        {
+          "n": 20,
+          "id": "p20",
+          "text": "CORREÇÃO NO SERVIDOR\nNão confie no identificador apenas porque veio da interface\nA identidade reconhecida deve ser comparada ao proprietário real da cesta.\nBRUNO\ncesta A\nproprietário\n= Bruno?\nSIM\nPERMITIR\nNÃO\nNEGAR\nBuscar cesta pelo usuário autenticado reduz a confiança no ID fornecido pelo cliente.\nA05 • Segurança Digital\nOWASP Authorization Cheat Sheet\n"
+        },
+        {
+          "n": 21,
+          "id": "p21",
+          "text": "VALIDAÇÃO\nA correção só existe se os quatro casos continuarem previsíveis\nCONTEXTO\nRECURSO\nESPERADO\nPROPRIEDADE TESTADA\nAna ativa\ncesta A\nPERMITIR\nfluxo de Ana\nAna pós-logout\ncesta A\nNEGAR\ntérmino\nBruno ativo\ncesta B\nPERMITIR\nfluxo de Bruno\nBruno ativo\ncesta A\nNEGAR\npropriedade\nTeste positivo evita chamar indisponibilidade de segurança.\nA05 • Segurança Digital\nMaterial do curso\n"
+        },
+        {
+          "n": 22,
+          "id": "p22",
+          "text": "ACCOUNTING\nO registro precisa contar a história sem guardar o segredo\nQUEM\nsubject_id=bruno\nFEZ O QUÊ\naction=view\nSOBRE O QUÊ\nbasket_id=A\nDECISÃO\ndeny\ntime • request_id • reason=owner_mismatch\nNão registrar senha, Cookie, Authorization ou token.\nA05 • Segurança Digital\nOWASP Logging Cheat Sheet\n"
+        },
+        {
+          "n": 23,
+          "id": "p23",
+          "text": "SÍNTESE\nA tela troca de usuário; o servidor precisa proteger identidade e propriedade\nRetome Ana, Bruno e as duas cestas.\ncontexto válido?\nGET\nquem está sendo representado?\nsessão\nação permitida?\nGET\na cesta pertence a essa pessoa?\nautorização\nA04 localizou a decisão  →  A05 testa sessão + propriedade  →  A08 variará a entrada\n"
+        },
+        {
+          "n": 24,
+          "id": "p24",
+          "text": "ATIVIDADE DE CASA\nEm dupla, reconstrua o caso Ana e Bruno\nRepita o percurso demonstrado ou use o pacote de quatro evidências.\n1\nnarre a regra e os quatro casos\n2\nanexe evidências sanitizadas e limites\n3\nproponha controle no servidor\n4\nescreva testes e evento de negação\nNenhuma ferramenta, personagem ou decisão indispensável é nova.\nA05 • Segurança Digital\nMaterial do curso\n"
+        }
+      ]
+    },
+    {
+      "id": "1VsG_67MbHLXXCY2oWdMA4pTKH8BFJVjR9GqxM39Zbqs",
+      "title": "A06 — Como antecipar o que pode dar errado?",
+      "url": "https://docs.google.com/presentation/d/1VsG_67MbHLXXCY2oWdMA4pTKH8BFJVjR9GqxM39Zbqs/edit?usp=drivesdk",
+      "modified_time": "2026-09-01T23:34:21.414Z",
+      "revision": "icq3N181PJeSpA",
+      "slides": [
+        {
+          "n": 1,
+          "id": "p1",
+          "text": "A06 • SEGURANÇA DIGITAL\nComo antecipar o que pode dar errado?\nPartindo das cestas de Ana e Bruno\n90 min • teoria aplicada + oficina em dupla\n"
+        },
+        {
+          "n": 2,
+          "id": "p2",
+          "text": "RETOMADA\nOntem acompanhamos uma cesta de ponta a ponta\nUma pessoa age no navegador; o servidor decide; dados e registros permanecem\nPESSOA AGE\nNAVEGADOR ENVIA\nSERVIDOR DECIDE\nDADO + REGISTRO\n\n"
+        },
+        {
+          "n": 3,
+          "id": "p3",
+          "text": "O QUE FOI TESTADO\nQuatro comparações responderam duas perguntas\nQuem a sessão representa? A cesta pertence a essa pessoa?\nANA → cesta A\nPERMITIR\nANA após sair → A\nNEGAR\nBRUNO → cesta B\nPERMITIR\nBRUNO → cesta A\nNEGAR\nEsses testes examinam sessão e propriedade. Eles não procuram todas as outras formas de falha.\n\n"
+        },
+        {
+          "n": 4,
+          "id": "p4",
+          "text": "A LACUNA\nTestar quatro casos não responde a uma pergunta maior\nQue outros modos de falha ainda não pensamos em testar?\n4\ncasos observados\n?\npossibilidades ainda não examinadas\nNão queremos adivinhar nem testar tudo ao acaso.\nPrecisamos de uma forma organizada de fazer perguntas sobre o mesmo sistema.\n\n"
+        },
+        {
+          "n": 5,
+          "id": "p5",
+          "text": "AGORA O CONCEITO\nModelagem de ameaças organiza o que ainda pode dar errado\nEla transforma um sistema conhecido em perguntas que podem ser investigadas\n1\ndelimitar o que será analisado\n2\nidentificar o que precisa ser preservado\n3\nformular o que pode dar errado\n4\ndecidir que evidência procurar\nPrimeiro compreendemos o sistema. Depois procuramos ameaças. Só então escolhemos testes e controles.\n\n"
+        },
+        {
+          "n": 6,
+          "id": "p6",
+          "text": "PRIMEIRA FERRAMENTA\nDFD significa Diagrama de Fluxo de Dados\nÉ um mapa simplificado de quem troca quais dados com quem\nANA\nENTIDADE EXTERNA\nquem interage\nAPI\nPROCESSO\ntransforma ou decide\nCESTAS\nARMAZENAMENTO\nmantém o estado\nrequisição\nFLUXO DE DADOS\no que circula\nZONA DO\nSERVIÇO\nFRONTEIRA\nonde muda a confiança\nA forma comunica a função; o nome informa o contexto.\nReferências visuais: OWASP Threat Dragon e DFD3\n\n"
+        },
+        {
+          "n": 7,
+          "id": "p7",
+          "text": "EXEMPLO\nReconstrua primeiro o uso legítimo\nAna pede a própria cesta; nenhuma ameaça entra ainda\nFRONTEIRA DE CONFIANÇA — SERVIÇO\nANA\nNAVEGADOR\nAPI\nCESTAS\nGET /basket/A + sessão\nconsulta por proprietário\ncesta ou negação\nO DFD não prova que a API verifica o proprietário: ele mostra onde essa decisão precisa ocorrer e que dados participam dela.\n\n"
+        },
+        {
+          "n": 8,
+          "id": "p8",
+          "text": "LEITURA VISUAL\nA fronteira separa quem envia de quem decide\nAcompanhe a imagem da esquerda para a direita\nUSUÁRIO + NAVEGADOR\nFRONTEIRA\nSERVIÇO → DADO → LOG\n\n"
+        },
+        {
+          "n": 9,
+          "id": "p9",
+          "text": "CHECKPOINT\nQual símbolo falta?\nA interface mostra Bruno; o servidor recebe uma requisição para a cesta A\nBRUNO\nnavegador\nGET /basket/A\nrequisição observada\n?\ndecisão interna\nRESPOSTA\nstatus + conteúdo\nO rastro mostra pedido e resposta. O ponto de interrogação marca o que o diagrama precisa representar — não uma causa já provada.\n\n"
+        },
+        {
+          "n": 10,
+          "id": "p10",
+          "text": "FRONTEIRA\nFronteira não significa firewall\nEla marca mudança de autoridade, controle ou responsabilidade\nNAVEGADOR\nBruno controla o pedido\nFRONTEIRA DE\nAUTORIDADE\nAPI\no serviço decide\nCESTAS + LOG\no estado permanece\nA fronteira é uma pergunta sobre confiança: quais dados vindos do lado de Bruno podem orientar a decisão do serviço?\n\n"
+        },
+        {
+          "n": 11,
+          "id": "p11",
+          "text": "NECESSIDADE\nO fluxo normal não mostra sozinho o que pode falhar\nA05 comprovou quatro casos; agora precisamos procurar possibilidades ainda não testadas\nBRUNO\nAPI\nCESTA\nfluxo normal conhecido\nidentidade?\nconteúdo alterado?\nserviço indisponível?\nModelar é desenhar perguntas possíveis sobre o fluxo — sem tratá-las como fatos.\n\n"
+        },
+        {
+          "n": 12,
+          "id": "p12",
+          "text": "CONCEITO\nModelar ameaças é fazer quatro perguntas em ordem\nCada resposta depende da anterior\n1\nESCOPO\nqual parte do sistema?\n2\nATIVOS\no que preservar?\n3\nAMEAÇAS\no que pode dar errado?\n4\nEVIDÊNCIA\ncomo testar?\nHoje chegaremos até ameaças candidatas; tratamento e validação aprofundam-se na A07.\n\n"
+        },
+        {
+          "n": 13,
+          "id": "p13",
+          "text": "ESCOPO\nEscopo é a borda da pergunta\nSem escopo, qualquer ameaça parece possível\nInternet pública  •  outros usuários  •  infraestrutura interna não observada  •  sistemas externos\nA06\nANA / BRUNO  →  NAVEGADOR  →  REQUISIÇÃO DA CESTA  →  SERVIÇO  →  DADOS + EVENTO\nA borda não diz que o exterior é seguro; diz apenas quais perguntas serão respondidas agora.\n\n"
+        },
+        {
+          "n": 14,
+          "id": "p14",
+          "text": "ATIVO\nAtivo é aquilo que precisa continuar protegido ou funcionando\nNão confunda ativo com a caixa desenhada\nA CESTA CONTINUA\nÚTIL E PROTEGIDA\nDADO\nconteúdo e propriedade\nFUNÇÃO\ncada pessoa usa a sua\nDECISÃO\nidentidade corresponde ao proprietário?\n\n"
+        },
+        {
+          "n": 15,
+          "id": "p15",
+          "text": "VOCABULÁRIO\nTrês termos que não são sinônimos\nLeia da condição para a consequência\nCONDIÇÃO\nconfiar no ID\nenviado pelo cliente\nCAMINHO POSSÍVEL\nBruno pede\na cesta A\nCONSEQUÊNCIA\ndados de Ana são\ndivulgados ou alterados\nVULNERABILIDADE\nAMEAÇA\nIMPACTO\nO teste A05 fornece evidência sobre esse caminho; não transforma todo caminho possível em fato.\n\n"
+        },
+        {
+          "n": 16,
+          "id": "p16",
+          "text": "EXEMPLO TRABALHADO\nConstrua uma ameaça, uma peça por vez\nNão memorize a frase; acompanhe o raciocínio\nBRUNO\nsessão B\nGET /basket/A\ncaminho\nB é dono\nde A?\ncondição a verificar\nCESTA A\nativo de Ana\nEXPOSIÇÃO\nconsequência\nHIPÓTESE\nSe o serviço aceitar o identificador sem verificar o proprietário, Bruno pode receber dados de Ana.\nTESTE\nComparar B→B com B→A; registrar requisição, status e resposta.\n\n"
+        },
+        {
+          "n": 17,
+          "id": "p17",
+          "text": "DA EVIDÊNCIA À HIPÓTESE\nSólido é observado; pontilhado ainda precisa de teste\nA ameaça organiza um caminho possível sem fingir que ele já ocorreu\nEVIDÊNCIA OBSERVADA\nCONDIÇÃO A VERIFICAR\nCAMINHOS POSSÍVEIS\n\n"
+        },
+        {
+          "n": 18,
+          "id": "p18",
+          "text": "POR QUE OUTRO MÉTODO?\nUm bom exemplo ainda pode deixar ameaças fora do campo de visão\nPrecisamos variar a pergunta sem trocar de sistema\nNOSSO PRIMEIRO CAMINHO\nBruno pede A  →  dados de Ana aparecem\nMAS O MESMO FLUXO TAMBÉM PODE...\nrepresentar outra pessoa   •   alterar dados   •   apagar o rastro\nexpor informação   •   parar a função   •   ampliar autoridade\nSTRIDE entra para reduzir esse ponto cego: ele oferece seis famílias de perguntas, não seis respostas prontas.\n\n"
+        },
+        {
+          "n": 19,
+          "id": "p19",
+          "text": "DE ONDE VEM O NOME?\nSTRIDE é um acrônimo criado para lembrar seis categorias de ameaça\nCada letra conserva o termo original em inglês; a tradução orienta a pergunta\nS\nSpoofing\nfalsificação de identidade\nT\nTampering\nalteração indevida\nR\nRepudiation\nnegação de autoria\nI\nInformation Disclosure\ndivulgação de informação\nD\nDenial of Service\nnegação de serviço\nE\nElevation of Privilege\nelevação de privilégio\nOrigem e uso no Microsoft Security Development Lifecycle (SDL)\n\n"
+        },
+        {
+          "n": 20,
+          "id": "p20",
+          "text": "COMO USAR?\nO sistema não muda; a pergunta muda\nEscolha um elemento ou fluxo do DFD e passe pelas seis lentes\n1  selecione: fluxo navegador → API\n2  pergunte: identidade? alteração? prova? divulgação? interrupção? autoridade?\n3  registre apenas o que consegue escrever como condição + caminho + consequência\nSTRIDE ajuda a procurar; o DFD localiza; a evidência confirma ou refuta.\n\n"
+        },
+        {
+          "n": 21,
+          "id": "p21",
+          "text": "EXEMPLO GUIADO\nAplique uma letra a um ponto concreto\nComece pelo fluxo de resposta API → navegador\nAPI\nconteúdo da cesta\nNAVEGADOR\nI — INFORMATION DISCLOSURE\nPergunta: a resposta pode chegar a quem não deveria?\nCenário: se a API não comparar sessão B com proprietário A, Bruno pode receber dados de Ana.\nEvidência: comparar B→B e B→A.\nA letra não é a ameaça. Ela produz a pergunta que ajuda a escrever uma ameaça testável.\n\n"
+        },
+        {
+          "n": 22,
+          "id": "p22",
+          "text": "FERRAMENTA ONLINE\nOWASP Threat Dragon une DFD, STRIDE e registro de ameaças\nÉ gratuito, aberto e pode ser usado diretamente no navegador\nwww.threatdragon.com\nDESENHE\natores, processos, armazenamentos, fluxos e fronteiras\nPERGUNTE\ncicle ameaças STRIDE por elemento ou contexto\nREGISTRE\ndescrição, estado, severidade, tratamento e justificativa\nEXPORTE\ndiagrama em PNG/SVG e relatório em PDF\nFonte: documentação oficial do OWASP Threat Dragon\n\n"
+        },
+        {
+          "n": 23,
+          "id": "p23",
+          "text": "PRIMEIRO ACESSO\nComece por um modelo pronto antes de criar o seu\nO exemplo permite reconhecer a interface sem dividir atenção com o desenho\n1\nAbra threatdragon.com\n2\nEscolha Login to Local Session\n3\nExplore a Sample Threat Model\nLocal Session mantém o arquivo no computador do laboratório. Não publique dados reais nem segredos.\nFonte da captura: OWASP Threat Dragon Docs\n\n"
+        },
+        {
+          "n": 24,
+          "id": "p24",
+          "text": "DESENHE O DFD\nArraste a forma conforme a função do elemento\nAtor é caixa; processo é círculo; dado usa linhas paralelas; setas carregam nomes\nBRUNO\nAPI\nCESTAS\nGET /basket/A\nconsulta\nPonto de parada: cada seta tem nome e cada componente tem função no caso.\nFonte da captura da paleta: OWASP Threat Dragon Docs\n\n"
+        },
+        {
+          "n": 25,
+          "id": "p25",
+          "text": "APLIQUE STRIDE\nSelecione um elemento e percorra sugestões sem aceitá-las automaticamente\nThreat Dragon apresenta categorias; a dupla decide o que pertence ao caso\n1  selecione o fluxo ou elemento\n2  abra New Threat by Type\n3  leia a pergunta e escreva o cenário no caso Ana/Bruno\n4  Apply somente se houver condição + caminho + consequência\nPrevious / Next muda a lente; não muda a evidência disponível.\nFonte da captura: OWASP Threat Dragon Docs\n\n"
+        },
+        {
+          "n": 26,
+          "id": "p26",
+          "text": "GANHO NOVO\nModelo não é modelagem de ameaças\nO DFD localiza; a ameaça explica condição, caminho e consequência\nDFD\nonde?\nSTRIDE\nqual pergunta?\nCENÁRIO\ncomo poderia ocorrer?\nEVIDÊNCIA\ncomo verificar?\nFerramenta nenhuma substitui a passagem do rótulo genérico para um cenário verificável.\n\n"
+        },
+        {
+          "n": 27,
+          "id": "p27",
+          "text": "RIGOR\nFato, premissa, desconhecido e refutado\nUse rótulos visíveis no modelo\n1\nOBSERVADO\nrastro sustenta\n2\nPREMISSA\nadotado para modelar\n3\nDESCONHECIDO\nexige coleta\n4\nREFUTADO\nevidência contradiz\nO estado muda quando surge nova evidência; o diagrama e a lista de ameaças devem ser atualizados.\n\n"
+        },
+        {
+          "n": 28,
+          "id": "p28",
+          "text": "AGORA É COM A DUPLA\nFeche o exemplo e abra o OWASP Threat Dragon\nA partir daqui, cada ação produz uma parte do entregável\nPROFESSOR\nencerra a\ndemonstração\nDUPLA\nabre\nthreatdragon.com\nLocal Session\nMODELO\ncria diagrama STRIDE\n“A06 — Cestas”\nREGISTRO\nabre o roteiro prático\ne identifica a tabela\nSe Threat Dragon não abrir: use a folha de DFD fornecida. Não espere para começar.\n\n"
+        },
+        {
+          "n": 29,
+          "id": "p29",
+          "text": "CHECKPOINT 0\nNão comece a desenhar antes de preparar o mesmo estado\nMostre a tela ao professor quando os cinco itens estiverem prontos\n1\nThreat Dragon\nLocal Session aberta\n2\nModelo\ndiagrama STRIDE criado\n3\nEvidência A05\nquatro testes disponíveis\n4\nRoteiro\ntabela de três ameaças\n5\nPapéis\ncondutor + revisor\nCRITÉRIO DE PARADA\ntodos mostram o modelo vazio e apontam onde registrarão elemento/lente, condição/caminho, consequência/ativo e evidência/estado\n\n"
+        },
+        {
+          "n": 30,
+          "id": "p30",
+          "text": "AÇÃO 1\nNormalize o fluxo conhecido\nPare após 15 minutos: o mapa não é o objetivo final\nUse somente o recorte da cesta observado em A04/A05.\nPosicione ator, navegador, serviço, dado e log.\nNomeie requisição, contexto, resposta e evento.\nMarque sessão e propriedade como decisões distintas.\nRegistre premissas sem inventar arquitetura interna.\n\n"
+        },
+        {
+          "n": 31,
+          "id": "p31",
+          "text": "AÇÃO 2\nAplique STRIDE seletivamente\nA lente serve para perguntar, não para preencher tabela\nELEMENTO\nfluxo API → navegador\nPERGUNTA\npode divulgar dado a quem não deve?\nCENÁRIO\nB recebe a cesta A\nEVIDÊNCIA\ncomparar B→B e B→A\nESTADO\naberta ou N/A justificado\nRepita em apenas dois pontos do DFD. Profundidade vale mais que preencher as seis letras.\n\n"
+        },
+        {
+          "n": 32,
+          "id": "p32",
+          "text": "AÇÃO 3\nEscreva três ameaças candidatas\nNenhuma categoria solta conta como ameaça\nSE\n[condição]\nENTÃO\n[ator] segue [caminho]\nCAUSANDO\n[consequência] no [ativo]\nEVIDÊNCIA DISCRIMINANTE\no que observaríamos se a hipótese fosse verdadeira — e o que a enfraqueceria?\nNo Threat Dragon: Title nomeia o cenário; Type registra a lente; Description contém a formulação; Status começa Open.\n\n"
+        },
+        {
+          "n": 33,
+          "id": "p33",
+          "text": "PARADA\nNão transforme desenho em decoração\nO modelo está pronto quando sustenta uma explicação\nNão acrescente componentes sem função na decisão.\nNão use uma fronteira porque “fica bonito”.\nNão converta hipótese em fato.\nNão abra ferramenta nova para melhorar estética.\nPare após uma pergunta ainda não respondida.\n\n"
+        },
+        {
+          "n": 34,
+          "id": "p34",
+          "text": "REVISÃO CRUZADA\nTroque o artefato — não faça apresentação oral\nA dupla revisora tem 6 minutos e devolve uma correção verificável\n1  EXPORTE\nsalve o DFD em PNG\ne o modelo local\n2  TROQUE\nenvie PNG + tabela\nà dupla ao lado\n3  RECONSTRUA\nnarre em silêncio: ator → fluxo → decisão → ameaça\n4  DEVOLVA\nmarque uma falha\ne proponha uma correção\nREGISTRE NO RODAPÉ DA TABELA\n“Não conseguimos localizar ______ porque ______. Corrijam ______.”\nParada: a dupla autora recebe uma observação que consegue transformar em mudança no diagrama ou na ameaça.\n\n"
+        },
+        {
+          "n": 35,
+          "id": "p35",
+          "text": "VALIDAÇÃO\nO modelo passou?\nCorrija somente o que impediu a leitura\nOUTRA DUPLA CONSEGUE NARRAR SEM AJUDA?\nSIM\nlocaliza quem inicia, o que circula, quem decide e qual ameaça será testada\nAINDA NÃO\ncorrija seta sem nome, elemento sem função, fronteira sem razão ou hipótese sem evidência\n\n"
+        },
+        {
+          "n": 36,
+          "id": "p36",
+          "text": "SÍNTESE\nO fluxo virou um conjunto de hipóteses testáveis\nEvidência → mapa mínimo → lente → condição → caminho → consequência\nDFD localiza. STRIDE abre perguntas. A formulação torna a ameaça verificável.\n\n"
+        },
+        {
+          "n": 37,
+          "id": "p37",
+          "text": "PONTE\nA07 começa com três ameaças — não com o DFD\nQual caminho merece tratamento e como a decisão será validada?\nLeve as três ameaças candidatas.\nPreserve evidências e limites.\nNão escolha apenas pela categoria STRIDE.\nA07 aprofundará uma ameaça até requisito, controle e teste.\n\n"
+        }
+      ]
+    },
+    {
+      "id": "187O4GeB7Xz62l6ij-is0U7La_26eCO4308GKGYArjqk",
+      "title": "A07 — Da aplicação web ao processo industrial: como o adversário avança?",
+      "url": "https://docs.google.com/presentation/d/187O4GeB7Xz62l6ij-is0U7La_26eCO4308GKGYArjqk/edit?usp=drivesdk",
+      "modified_time": "2026-09-03T21:45:31.642Z",
+      "revision": "SHr3t6_u-e8ezg",
+      "slides": [
+        {
+          "n": 1,
+          "id": "a07r01",
+          "text": "A07 • MITRE ATT&CK\nComo representar um caminho adversário pelo seu comportamento?\nUm relatório técnico descreve cinco comportamentos confirmados em ambientes Enterprise e ICS.\nNossa missão: localizar, justificar e comunicar esses comportamentos no ATT&CK.\n"
+        },
+        {
+          "n": 2,
+          "id": "a07r02",
+          "text": "RELATO CONSOLIDADO\nO caso já chega com os acontecimentos confirmados\nNão investigaremos o incidente: trabalharemos sobre uma narrativa técnica pronta.\nTRECHO ENTERPRISE\nportal explorado\ncomandos executados\nTRECHO INDUSTRIAL\nparâmetro do CLP\nalterado\nA pergunta da aula não é “isso aconteceu?”, mas “como o ATT&CK representa o que aconteceu?”.\n"
+        },
+        {
+          "n": 3,
+          "id": "a07r03",
+          "text": "FUNCIONAMENTO ESPERADO\nPrimeiro, localize os comportamentos na arquitetura\nO relato atravessa ativos de TI e de controle; isso orientará a escolha do domínio ATT&CK.\nREDE DE TI\nREDE INDUSTRIAL\ntécnico\nsolicita serviço\nportal\nregistra ordem\nfronteira: sem comando direto\noperador\nusa HMI\nCLP\nA arquitetura mostra onde a ação ocorre; o ATT&CK acrescentará um vocabulário para descrevê-la.\nBOMBA\n"
+        },
+        {
+          "n": 4,
+          "id": "a07r04",
+          "text": "NARRATIVA DO CASO\nO relatório descreve um caminho completo\nCada trecho abaixo já foi validado pela equipe responsável pelo relatório.\n14:03:01\naplicação pública\nexplorada\n14:03:03\ncomandos\nexecutados\n14:03:12\nconta válida e\nacesso remoto\n14:03:48\nparâmetro do\nCLP alterado\nAgora precisamos transformar cada trecho em um comportamento localizável no ATT&CK.\n"
+        },
+        {
+          "n": 5,
+          "id": "a07r05",
+          "text": "LEITURA ORIENTADA\nOs verbos revelam as ações que serão mapeadas\nTRECHO DO RELATÓRIO\nO ator explorou o portal e executou comandos no servidor.\nAÇÕES DESCRITAS\nexplorar aplicação  ·  executar comandos\nPERGUNTA QUE MOVE A AULA\nEm qual domínio, tática e técnica cada ação aparece?\n"
+        },
+        {
+          "n": 6,
+          "id": "a07r06",
+          "text": "PONTE COM A06\nO modelo mostra onde; o ATT&CK ajuda a nomear como\nNa A06, ativos, fluxos e fronteiras tornaram o caminho representável.\nMODELO DA A06\n\nportal → servidor\nDMZ → estação\nCLP → processo\nacrescentar\nATT&CK\n\ndomínio\nobjetivo do ator\ncomportamento conhecido\nA07 acrescenta vocabulário e referência; não substitui o modelo de arquitetura.\n"
+        },
+        {
+          "n": 7,
+          "id": "a07r07",
+          "text": "ORIGEM E FINALIDADE\nQuem é a MITRE — e por que ela criou o ATT&CK?\nA MITRE é uma organização privada sem fins lucrativos que opera centros de pesquisa financiados pelo governo dos EUA.\n2013\nprojeto de pesquisa\nFMX na MITRE\n2015\nbase publicada\nà comunidade\nHOJE\nlinguagem comum\npara comportamentos\nFontes: MITRE — Who We Are; MITRE ATT&CK — FAQ e Design and Philosophy\nConheça a MITRE: mitre.org/who-we-are\n"
+        },
+        {
+          "n": 8,
+          "id": "a07r08",
+          "text": "CADEIA DE MAPEAMENTO\nDo trecho do relatório ao registro no ATT&CK\nA técnica é escolhida por correspondência com a descrição oficial — não por adivinhação.\n1  NARRATIVA\nO trecho consolidado do relatório.\n2  COMPORTAMENTO\nA ação expressa por verbo e objeto.\n3  ATT&CK\nDomínio, tática e técnica compatíveis.\n4  JUSTIFICATIVA\nPor que a definição corresponde ao trecho.\nO resultado é um mapeamento rastreável — não uma investigação ou resposta ao incidente.\n"
+        },
+        {
+          "n": 9,
+          "id": "a07v09",
+          "text": "ORIENTAÇÃO\nO site responde a perguntas diferentes\nAntes de buscar uma técnica, escolha a porta de entrada adequada.\nDOMÍNIO\nOnde ocorreu?\nEnterprise, Mobile ou ICS.\nMATRIZ\nQue objetivo organiza as técnicas?\nBUSCA\nQue ação observável quero localizar?\nA pergunta vem antes do clique. Fonte: attack.mitre.org\n"
+        },
+        {
+          "n": 10,
+          "id": "a07v10",
+          "text": "Encontre na matriz aquilo que estamos nomeando\nAs táticas aparecem como colunas; abaixo de cada uma ficam as técnicas associadas.\n1 PREPARAR\n2 ENTRAR / EXECUTAR\n3 MANTER / AMPLIAR / OCULTAR\n4 CONHECER / MOVER\n5 OBJETIVO\nA ordem ajuda a localizar; não obriga o adversário a seguir uma sequência. Fonte visual: MITRE ATT&CK Enterprise Matrix.\n"
+        },
+        {
+          "n": 11,
+          "id": "a07v11",
+          "text": "MAPA DAS TÁTICAS\nAntes do contato: preparar a operação\nAs duas primeiras táticas descrevem trabalho anterior à entrada no ambiente.\nRECONNAISSANCE · Reconhecimento\nColetar informações para planejar: pessoas, serviços expostos, tecnologias e relações.\nRESOURCE DEVELOPMENT · Preparação de recursos\nEstabelecer infraestrutura, contas, domínios ou capacidades para apoiar a operação.\nNo caso: descobrir o portal público ≠ já ter entrado nele.\n"
+        },
+        {
+          "n": 12,
+          "id": "a07v12",
+          "text": "MAPA DAS TÁTICAS\nEntrar e fazer algo acontecer\nAgora o percurso cruza a fronteira externa e produz atividade controlada pelo adversário.\nINITIAL ACCESS · Acesso inicial\nConseguir o primeiro ponto de entrada na rede ou serviço.\nEXECUTION · Execução\nFazer código ou comandos controlados pelo adversário rodarem local ou remotamente.\nNo caso: explorar o portal pode explicar a entrada; o processo filho sugere execução.\n"
+        },
+        {
+          "n": 13,
+          "id": "a07v13",
+          "text": "MAPA DAS TÁTICAS\nManter, ampliar e esconder a presença\nDepois da entrada, objetivos distintos podem coexistir no mesmo host.\nPERSISTENCE · Persistência\nManter o ponto de apoio mesmo após reinício, troca de sessão ou outra interrupção.\nPRIVILEGE ESCALATION · Elevação\nObter permissões mais altas para alcançar ações antes bloqueadas.\nSTEALTH · Furtividade\nOcultar ações e fazê-las parecer comportamento normal.\nUma mesma técnica pode servir a mais de uma tática; a intenção depende do contexto.\n"
+        },
+        {
+          "n": 14,
+          "id": "a07v14",
+          "text": "MAPA DAS TÁTICAS\nEnfraquecer a defesa não é apenas esconder-se\nA matriz atual separa a aparência normal da quebra dos mecanismos defensivos.\nSTEALTH · Furtividade\nReduzir sinais visíveis ou misturar-se à atividade legítima.\nDEFENSE IMPAIRMENT · Prejuízo às defesas\nQuebrar sensores, registros, pipelines ou ferramentas para que a defesa não veja ou não confie no que ocorreu.\nPergunta prática: o ator ocultou o rastro ou tornou o rastro indisponível/não confiável?\n"
+        },
+        {
+          "n": 15,
+          "id": "a07v15",
+          "text": "MAPA DAS TÁTICAS\nConhecer o ambiente e atravessá-lo\nEstas táticas transformam um acesso local em capacidade de alcançar outros recursos.\nCREDENTIAL ACCESS · Acesso a credenciais\nObter nomes de contas, senhas, tokens ou outros meios de autenticação.\nDISCOVERY · Descoberta\nCompreender hosts, usuários, serviços, rede e configuração do ambiente.\nLATERAL MOVEMENT · Movimento lateral\nUsar conexões e acessos para avançar entre sistemas.\nNo caso: login no servidor web → descoberta do host corporativo → sessão remota, se os rastros confirmarem.\n"
+        },
+        {
+          "n": 16,
+          "id": "a07v16",
+          "text": "MAPA DAS TÁTICAS\nReunir, controlar, retirar ou causar efeito\nO objetivo final pode ser informação, controle contínuo ou impacto — e nem sempre envolve exfiltração.\nCOLLECTION · Coleta\nReunir dados de interesse antes de usá-los ou retirá-los.\nCOMMAND AND CONTROL · Comando e controle\nComunicar-se com sistemas comprometidos para controlá-los.\nEXFILTRATION · Exfiltração\nRetirar dados do ambiente.\nIMPACT · Impacto\nManipular, interromper ou destruir sistemas e dados.\n"
+        },
+        {
+          "n": 17,
+          "id": "a07v17",
+          "text": "SÍNTESE\nAs 15 táticas são objetivos possíveis\nElas ajudam a perguntar o que o adversário busca em cada ação — não a preencher uma história sem evidências.\nPREPARAR → ENTRAR → EXECUTAR → MANTER/AMPLIAR → OCULTAR/ENFRAQUECER → CONHECER/MOVER → ATINGIR O OBJETIVO\nCheckpoint: em qual objetivo caberia o processo filho observado? E o que ainda falta para nomear a técnica?\nFonte das definições: MITRE ATT&CK — Enterprise Tactics, versão vigente.\n"
+        },
+        {
+          "n": 18,
+          "id": "a07v18",
+          "text": "HIERARQUIA\nDo domínio ao procedimento: cada nível estreita a pergunta\nNem toda técnica possui subtécnicas; o procedimento é um exemplo observado no mundo real.\n1\nDOMÍNIO\nEm qual ecossistema?\nEnterprise ou ICS.\n2\nTÁTICA\nPor que a ação é realizada?\n3\nTÉCNICA\nComo o objetivo pode ser alcançado?\n4\nSUBTÉCNICA\nQual variação específica, se houver?\n5\nPROCEDIMENTO\nComo um ator ou software realizou a técnica?\n"
+        },
+        {
+          "n": 19,
+          "id": "a07v19",
+          "text": "CASO EM MOVIMENTO\nVamos mapear o primeiro trecho do relatório\nO acontecimento já foi validado; nossa tarefa é representá-lo corretamente no ATT&CK.\n“O ator explorou o portal público e executou comandos no servidor.”\nLeia a frase uma vez. Depois, sublinhe somente as ações realizadas pelo ator.\nResultado esperado: duas ações diferentes — explorar a aplicação e executar comandos.\n"
+        },
+        {
+          "n": 20,
+          "id": "a07v20",
+          "text": "ANTES DE PESQUISAR\nUma frase pode conter mais de um comportamento\nSeparar as ações evita procurar uma única técnica para representar todo o trecho.\nTRECHO ORIGINAL\n“O ator explorou o portal público e executou comandos no servidor.”\nCOMPORTAMENTO 1\nexplorar uma aplicação pública\nCOMPORTAMENTO 2\nexecutar comandos no servidor\n"
+        },
+        {
+          "n": 21,
+          "id": "a07v21",
+          "text": "PROCESSO OFICIAL · 1\nO comportamento vem da narrativa — não do MITRE\nPrimeiro reescrevemos a ação de forma curta, mantendo verbo, objeto e contexto.\n1\nPASSO\nNARRATIVA\n“explorou o portal público”\n\nCOMPORTAMENTO PARA PESQUISAR\n“explorar aplicação pública”\nAgora temos palavras que podem ser procuradas no site sem conhecer previamente o código.\n"
+        },
+        {
+          "n": 22,
+          "id": "a07v22",
+          "text": "PROCESSO OFICIAL · 2\nEntenda o significado antes de escolher uma tática\nPesquisar o comportamento significa ler o contexto fornecido pelo relatório, não investigar novamente o incidente.\n2\nPASSO\nO que “explorar o portal” significa neste relato?\no portal estava exposto à Internet\n→ uma vulnerabilidade foi explorada\n→ o ator obteve seu primeiro acesso\n→ depois executou comandos\nNão acrescente ferramentas, credenciais ou mecanismos que o relato não descreve.\n"
+        },
+        {
+          "n": 23,
+          "id": "a07v23",
+          "text": "A PISTA QUE FALTAVA\nEscolha primeiro o domínio que contém o ativo\nDomínio e tática reduzem o espaço de busca antes de examinarmos técnicas.\nPORTAL PÚBLICO  →  SERVIDOR DA APLICAÇÃO\n\nambos pertencem ao ambiente corporativo de TI\nDOMÍNIO ESCOLHIDO: ENTERPRISE\nA passagem para ICS acontecerá somente quando a narrativa alcançar estação de engenharia, CLP e processo.\n"
+        },
+        {
+          "n": 24,
+          "id": "a07v24",
+          "text": "PROCESSO OFICIAL · 3\nTraduza o comportamento em um objetivo do adversário\nPergunte qual objetivo imediato a ação descrita permitiu alcançar.\n3\nPASSO\n“explorar a aplicação pública”\n→ objetivo: conseguir entrar\n→ INITIAL ACCESS\n“executar comandos no servidor”\n→ objetivo: fazer código rodar\n→ EXECUTION\nCada comportamento será localizado separadamente na tática correspondente.\n"
+        },
+        {
+          "n": 25,
+          "id": "a07v25",
+          "text": "PROCESSO OFICIAL · 4\nHá dois caminhos para localizar técnicas candidatas\nUse a busca do site ou percorra a matriz pela tática. Nos dois casos, a página encontrada ainda precisa ser comparada com a evidência.\n4\nPASSO\nPELA BUSCA\n1  clique em Search, no canto superior direito\n2  pesquise termos em inglês: public-facing application\n3  abra os resultados compatíveis\n\nPELA MATRIZ\nEnterprise → Initial Access → percorra as técnicas\nOs dois caminhos levam a uma candidata para comparação:\nT1190 — Exploit Public-Facing Application\nNão pesquise “T1190” quando ainda não souber o código: pesquise o comportamento.\n"
+        },
+        {
+          "n": 26,
+          "id": "a07v26",
+          "text": "ABRA A PÁGINA DA TÉCNICA\nLeia a descrição como um teste de correspondência\nCompare o comportamento, o domínio e o ativo descritos no relatório com a definição oficial.\nLEIA NESTA ORDEM\n\n1  descrição: o comportamento coincide?\n\n2  domínio e tática: o enquadramento é o mesmo?\n\n3  plataformas ou ativos: aplica-se ao elemento citado?\n\n4  procedure examples: como essa técnica aparece em relatos reais?\nFonte visual: MITRE ATT&CK — T1190.\n"
+        },
+        {
+          "n": 27,
+          "id": "a07v27",
+          "text": "PROCESSO OFICIAL · 5\nCompare as justificativas antes de fechar o mapa\nDois mapeamentos podem parecer plausíveis porque o trecho contém dois comportamentos distintos.\n5\nPASSO\nMapeamento A\n“explorar portal” → T1190\n\nMapeamento B\n“executar comandos” → técnica de Execution\nA pergunta não é “qual dos dois está certo?”.\nPergunte: qual trecho específico cada técnica representa?\nREGISTRO: trecho da narrativa → comportamento → domínio → tática → técnica → justificativa\n"
+        },
+        {
+          "n": 28,
+          "id": "a07v28",
+          "text": "Repita o mesmo percurso quando a narrativa alcançar o ambiente industrial\nTrecho consolidado: a estação de engenharia foi usada para alterar um parâmetro do CLP. Separe a ação → escolha ICS → localize a tática → procure a técnica.\n"
+        },
+        {
+          "n": 29,
+          "id": "a07v29",
+          "text": "A definição de T0836 corresponde ao trecho industrial?\nO relatório afirma que um parâmetro usado pelo CLP foi modificado para produzir um resultado diferente do pretendido. Isso corresponde à descrição de Modify Parameter.\n"
+        },
+        {
+          "n": 30,
+          "id": "a07v30",
+          "text": "VALIDAÇÃO\nAgora podemos justificar o mapeamento industrial\nNão estamos provando o incidente nem avaliando controles: apenas relacionando narrativa e definição.\nTRECHO  →  “alterou um parâmetro usado pelo CLP”\nDOMÍNIO →  ICS\nTÁTICA  →  Impair Process Control\nTÉCNICA →  T0836 · Modify Parameter\nJUSTIFICATIVA\nA definição oficial descreve a modificação de parâmetros que instruem dispositivos de controle e podem produzir resultado diferente do pretendido.\n"
+        },
+        {
+          "n": 31,
+          "id": "a07v31",
+          "text": "MAPA INTEGRADO\nO relatório completo gera um mapa que atravessa dois domínios\nCada técnica permanece ligada ao trecho específico que justificou sua seleção.\nENTERPRISE\nexplorar portal → T1190\nexecutar comandos → técnica de Execution\nusar conta/acesso remoto → técnicas a localizar\nICS\nalterar parâmetro do CLP → T0836\n\nA mudança de domínio ocorre quando o comportamento passa a envolver o sistema de controle.\nO mapa descreve comportamentos relatados; não representa causalidade investigada nem uma resposta ao incidente.\n"
+        },
+        {
+          "n": 32,
+          "id": "a07v32",
+          "text": "No Navigator, registre o mapeamento já justificado\n1  Crie uma layer do domínio\n\n2  Selecione as técnicas mapeadas\n\n3  Anote o trecho e a justificativa\n\n4  Use uma legenda consistente\nA layer organiza e comunica o resultado; ela não investiga o incidente nem escolhe técnicas automaticamente. Fonte visual: ATT&CK Navigator.\n"
+        },
+        {
+          "n": 33,
+          "id": "a07v33",
+          "text": "DECISÃO\nO produto da aula é um mapa explicável\nOutra pessoa deve conseguir refazer o caminho entre o texto original e a técnica selecionada.\nTRECHO\nQual frase do relatório descreve a ação?\nENQUADRAMENTO\nQual domínio e tática organizam o comportamento?\nCORRESPONDÊNCIA\nQue parte da definição sustenta a técnica escolhida?\nProduto: tabela de mapeamento + layer no Navigator + justificativa curta.\n"
+        },
+        {
+          "n": 34,
+          "id": "a07v34",
+          "text": "LIMITES\nUm mapa colorido não significa ambiente protegido\nATT&CK organiza comportamentos conhecidos; não reconstrói sozinho um incidente nem determina o risco.\nATT&CK AJUDA\n• padronizar vocabulário\n• comparar narrativas\n• visualizar técnicas mapeadas\nATT&CK NÃO SUBSTITUI\n• investigação de incidente\n• análise de causalidade\n• avaliação de risco\n• decisão de tratamento\n"
+        },
+        {
+          "n": 35,
+          "id": "a07v35",
+          "text": "PONTE PARA A PRÁTICA\nAgora a dupla mapeia uma narrativa já consolidada\nO exercício não exige investigar, detectar ou responder: somente localizar, comparar e justificar.\nLER O TRECHO → DESTACAR A AÇÃO → ESCOLHER DOMÍNIO/TÁTICA → BUSCAR → COMPARAR A DEFINIÇÃO → REGISTRAR\nENTREGA\nTabela com trecho, comportamento, domínio, tática, técnica e justificativa; mais uma layer simples no Navigator.\nAcesse: attack.mitre.org  ·  navigator.attack.mitre.org\n"
+        }
+      ]
+    }
+  ]
+}

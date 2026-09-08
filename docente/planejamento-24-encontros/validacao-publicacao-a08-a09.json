@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-08",
+  "pages": [
+    "aulas/A08-governanca-sgsi.md",
+    "aulas/A09-decisao-de-riscos.md"
+  ],
+  "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade",
+  "mkdocs_strict_build": "passed_local_and_publication_checkout",
+  "course_validator": "passed",
+  "rendered_links_and_anchors": 517,
+  "historical_files_unchanged": 235,
+  "teacher_plans_excluded_from_site": true,
+  "classroom_messages_sent": false,
+  "drive_files_changed": false,
+  "limits": [
+    "P1 será consolidada após A12, sem prazo inventado",
+    "Verificação do HTML gerado; não foi realizada inspeção gráfica em navegador"
+  ]
+}

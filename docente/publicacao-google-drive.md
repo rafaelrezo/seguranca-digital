@@ -2,6 +2,10 @@
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
+## A08/A09 — publicação integral no Pages autorizada
+
+Após aprovação do confronto histórico, foram preparadas A08 (SGSI) e A09 (decisão de risco), com atividade P1 compartilhada, modelo editável e planos fora de docs/. Novas páginas: `aulas/A08-governanca-sgsi.md` e `aulas/A09-decisao-de-riscos.md`. A publicação está autorizada nesta solicitação; nenhum arquivo do Drive será alterado e nenhuma atividade será enviada ao Classroom. O manifesto do percurso distingue aulas históricas de páginas preparadas. A última aula ministrada confirmada é A07.
+
 ## Estado vigente — 8 de setembro de 2026
 
 MkDocs é o material principal para teoria, prática e entrega vinculada ao Classroom. A sincronização normal consiste em revisar a página, validar navegação e `#atividade`, executar o build estrito e conferir a publicação no Pages. Não regenerar apresentações ou PDFs como requisito de uma mudança no site.

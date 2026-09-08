@@ -1,5 +1,7 @@
 # Conteúdo programático por encontro — memória A01 a A30
 
+> **Referência prospectiva vigente:** o [detalhamento temático A08–A31](planejamento-24-encontros/detalhamento-conteudos-por-aula.md), solicitado pelo docente com revisão de especialista IT/OT, define os próximos 24 encontros de 100 minutos e cinco atividades por macrocomponente. Após confronto com A01–A07, M1 passa a ter SGSI em A08, avaliação/decisão de risco em A09 e aplicabilidade/avaliação de controles em A10. Esta matriz anterior permanece como memória; seus estados, cargas e próximos passos abaixo não definem a sequência futura. Não houve alteração do GitHub Pages.
+
 > **Estado em 8 set. 2026:** este documento permanece como referência curricular/proposta. Para formato, sequência reconciliada e heranças confirmadas, prevalecem a decisão vigente na [arquitetura](arquitetura-geral-da-experiencia.md) e o [diagnóstico](reconciliacao-mkdocs-2026-09-08/diagnostico.md). A07 publicada trabalha ATT&CK; a proposta antiga de tratamento não descreve essa aula. A próxima aula e o calendário ainda serão planejados após confirmar o último encontro ministrado.
 
 > **Precedência prospectiva:** para A06–A25 em encontros de 90 minutos, usar [`reconciliacao-curricular-25-encontros.md`](reconciliacao-curricular-25-encontros.md). As fichas A06–A30 deste arquivo registram a distribuição anterior e não devem alimentar novos pacotes até serem reescritas. A01–A05 permanecem históricas.

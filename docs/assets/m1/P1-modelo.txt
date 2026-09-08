@@ -1,0 +1,45 @@
+# P1 — Governança e decisão de tratamento
+
+Dupla: [nomes]  |  Versão: [identificação]  |  Data de revisão: [preencher]
+
+## 1. Governança — iniciar em A08
+
+Escopo e dependência externa: [um parágrafo]
+
+| Decisão/ação | Papel responsável | Autoridade/recurso | Evidência e revisão |
+|---|---|---|---|
+| [preencher] | | | |
+
+Objetivo e critério: [resultado, universo observado e condição de cumprimento]
+Rotina de acompanhamento: [quem, fonte, momento e resposta a desvio]
+
+## 2. Avaliação — continuar em A09
+
+| Risco | Evidência | Consequência e razão | Plausibilidade e razão | Incerteza | Prioridade | Proprietário |
+|---|---|---|---|---|---|---|
+| R01 | | | | | | |
+| R02 | | | | | | |
+
+## 3. Uma decisão de tratamento — iniciar em A09
+
+Risco escolhido: [preencher]
+Alternativa escolhida e comparação com outra: [justificar]
+Restrição de esforço e função preservada: [explicar]
+Premissa e resposta à variação V1: [explicar]
+Autoridade necessária e estado da decisão: [proposta/aprovação simulada/pendência]
+Residual estimado: [o que permanece possível]
+Evidência necessária e gatilho de revisão: [preencher]
+
+## 4. Controles e adaptação OT — completar após A10–A12
+
+[Reservar dentro do mesmo documento; aguardar os exemplos conduzidos.]
+
+## 5. Justificativas individuais e referências
+
+Estudante 1: [uma decisão que consegue justificar e seu limite]
+Estudante 2: [uma decisão que consegue justificar e seu limite]
+Fontes e IDs de documentos utilizados: [listar]
+Uso de IA, se houver: [pedido, decisão aceita/rejeitada e justificativa própria]
+
+Consolidar o documento final em 3–4 páginas. Remover instruções entre colchetes.
+Não entregar seções vazias como se estivessem concluídas; a submissão única ocorrerá após A12, no prazo informado pelo professor.

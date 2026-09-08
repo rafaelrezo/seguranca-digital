@@ -13,6 +13,10 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A05 — Quem é você e pode fazer isto?](aulas/A05-quem-e-voce-e-pode-fazer-isto.md) | Sessão e propriedade: comparar quatro testes de acesso | [Atividade](aulas/A05-quem-e-voce-e-pode-fazer-isto.md#atividade) |
 | [A06 — Como antecipar o que pode dar errado?](aulas/A06-do-ticket-ao-modelo.md) | Diagrama de fluxo de dados e ameaças testáveis com STRIDE | [Atividade](aulas/A06-do-ticket-ao-modelo.md#atividade) |
 | [A07 — Da aplicação web ao processo industrial: como o adversário avança?](aulas/A07-do-modelo-a-decisao.md) | Comportamentos de um relato e técnicas ATT&CK Enterprise/ICS | [Atividade](aulas/A07-do-modelo-a-decisao.md#atividade) |
+| [A08 — Quem governa a segurança depois que a falha é conhecida?](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Iniciar P1](aulas/A08-governanca-sgsi.md#atividade) |
+| [A09 — Quais riscos a organização aceita e quais precisa tratar?](aulas/A09-decisao-de-riscos.md) | Critérios, prioridade, tratamento e risco residual | [Continuar P1](aulas/A09-decisao-de-riscos.md#atividade) |
+
+A08 e A09 integram **P1**, uma atividade compartilhada com os próximos encontros do bloco de governança. As páginas iniciam partes do mesmo documento; a submissão única ocorrerá após A12, no prazo informado pelo professor. [Abrir P1](atividades/P1-governanca-e-riscos.md#atividade).
 
 ## Como preparar sua evidência
 
@@ -30,7 +34,7 @@ Uma captura deve vir acompanhada da ação executada, da interpretação e de um
 | Que comportamento o relato sustenta? | [Comparação de métodos](ameacas/comparativo.md) | A07 |
 | Como proteger dados, segredos e canais? | [Proteção de dados](protecao_dados/introducao.md) e [criptografia](criptografia/index.md) | Consulta para aprofundamento |
 | Como reconhecer manipulação e comprometimento? | [Engenharia social](engenharia_social/introducao.md) e [malwares](malwares/introducao.md) | Consulta para aprofundamento |
-| Como justificar uma decisão organizacional? | [Riscos](gestao_riscos/introducao.md), [terceiros](gestao_riscos/riscos_terceiros.md) e [governança](governanca/introducao.md) | Consulta para aprofundamento |
+| Como justificar uma decisão organizacional? | [Riscos](gestao_riscos/introducao.md), [terceiros](gestao_riscos/riscos_terceiros.md) e [governança](governanca/introducao.md) | A08–A09 |
 | Como delimitar e comunicar um teste? | [Planejamento de pentest](pentest/planejamento.md) | Consulta para aprofundamento |
 | Como o acesso físico interfere na proteção? | [Segurança física](seguranca_fisica/introducao.md) | Consulta para aprofundamento |
 

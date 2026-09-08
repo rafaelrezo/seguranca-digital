@@ -2,6 +2,24 @@
 
 > **Documento de governança curricular.** Esta é a referência local para planejar, criar e revisar aulas da disciplina. Ela define a espinha dorsal da experiência; não é material destinado aos estudantes nem substitui o plano de ensino institucional.
 
+## Produção e publicação autorizadas — A08 e A09
+
+O docente aprovou a confrontação e solicitou A08/A09 inteiramente no GitHub Pages. Está autorizada a produção e publicação dessas duas páginas, seus insumos e atividade compartilhada P1; esta decisão supera a restrição anterior de planejamento sem site. Não há autorização de envio ao Classroom ou alteração dos slides históricos. A08 inicia SGSI após ponte de 15 min; A09 avalia riscos já formulados. O caso prospectivo será uma empresa fictícia com portal de pedidos e manutenção de fornecedor: documentos fornecidos, sem alegar que registros novos foram produzidos em A01–A07. P1 tem um documento cumulativo; A08/A09 iniciam suas seções e a consolidação ocorrerá após A12. A10–A12 não são publicadas nesta etapa.
+
+## Detalhamento autorizado — A08–A31, 8 set. 2026
+
+**Condições confirmadas pelo docente:** A07 foi a última aula ministrada; restam **24 encontros de 100 minutos**, de A08 a A31. Aulas futuras serão conduzidas pelo professor usando MkDocs, com demonstrações e interpretação coletiva; execução independente simultânea não é condição de participação. A prática principal será organizada por macrocomponente, evitando uma nova entrega por encontro. Nenhuma alteração no GitHub Pages está autorizada nesta etapa.
+
+**Prioridades confirmadas:** concluir modelagem com OWASP/Cheat Sheets e passagem a tratamento/verificação; iniciar governança cedo, com ISO/IEC 27001 e ênfase no NIST SP 800-82 Rev. 3; aprofundar criptografia e assinaturas; reservar parte significativa para segurança ofensiva/defensiva, Red Team, Blue Team e pentest. O NIST SP 800-82 complementa a série ISA/IEC 62443; não a incorpora nem a substitui.
+
+**Base para o detalhamento solicitado:** [macroorganização dos 24 encontros](planejamento-24-encontros/proposta-macroorganizacao.md), preservando M1 (5), M2 (3), M3 (6), M4 (3) e M5 (7). O docente autorizou detalhar os conteúdos com revisão de especialista IT/OT e manter títulos temáticos numerados A08–A31. A referência prospectiva é o [detalhamento por aula](planejamento-24-encontros/detalhamento-conteudos-por-aula.md). Gestão de riscos e definição de controles ficam explicitamente em M1, com avaliação/tratamento em A09 e seleção/aplicabilidade/avaliação de controles em A10, com adaptação OT em A11–A12; os demais blocos aplicam e verificam essas decisões. Trata-se de planejamento curricular, não de pacotes prontos, publicação ou convocação de entregas.
+
+**Histórico:** A01–A07 foram reconsultadas no Drive. A realização de A07 foi confirmada pelo docente; essa informação supera a pendência anterior. Entregas individuais e resultados de laboratório não foram auditados. A02 já ensinou escolha de controles e definição de reteste; A05 trabalhou regra de autorização no servidor, quatro testes e accounting. A06 deixou ameaças candidatas e A07 trabalhou mapeamento ATT&CK. O diagnóstico anterior subestimou A02/A05 ao justificar uma nova aula inteira de ameaça→controle→teste. Não há comprovação de implementação/entrega individual, mas isso não permite tratar o conteúdo apresentado como inédito.
+
+**Correção após confronto de repetição:** a [análise A01–A07 × A08–A10](planejamento-24-encontros/confrontacao-a01-a07-a08-a10.md) fundamenta A08 como início efetivo de SGSI, com ponte de modelagem/OWASP limitada a 15 minutos; A09 como avaliação e decisão de risco; A10 como aplicabilidade, implantação e avaliação de controles. Cada aula tem produto distinto dentro de P1. Preservar 24 encontros, cinco macrocomponentes e cinco entregas.
+
+**Precedência:** a nova carga substitui as hipóteses anteriores de 20 × 90 e de 30 encontros. O formato conduzido e as entregas por macrocomponente prevalecem sobre exigências de reprodução obrigatória e atividade domiciliar por aula. O detalhamento curricular está autorizado; calendário, instrumentos de avaliação e preparação/ensaio dos materiais permanecem por fechar. As páginas e os artefatos históricos permanecem intactos nesta etapa.
+
 ## Decisão vigente — reconciliação de 8 de setembro de 2026
 
 **Formato autorizado:** MkDocs/GitHub Pages integral, com teoria e prática intercaladas e atividade vinculada ao Google Classroom; sem exigência de novos slides ou roteiros PDF. Esta decisão prevalece sobre contratos de três artefatos e tabelas de slides presentes na memória abaixo.

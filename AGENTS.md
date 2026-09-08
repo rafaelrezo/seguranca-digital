@@ -10,7 +10,7 @@ Consultar também [`docente/publicacao-google-drive.md`](docente/publicacao-goog
 
 - O `AGENTS.md` define as diretrizes gerais de produção e qualidade.
 - A arquitetura geral define **por que cada aula existe, o que recebe da anterior e o que prepara para a seguinte**.
-- O arquivo [`docente/conteudo-programatico-por-encontro.md`](docente/conteudo-programatico-por-encontro.md) define objetivos, tópicos, conhecimentos, habilidades e evidências de conclusão que devem alimentar a ficha-base de cada pacote.
+- O arquivo [`docente/conteudo-programatico-por-encontro.md`](docente/conteudo-programatico-por-encontro.md) conserva a matriz curricular anterior. Para A08–A31, consultar primeiro o [detalhamento aprovado](docente/planejamento-24-encontros/detalhamento-conteudos-por-aula.md) e a [confrontação histórica](docente/planejamento-24-encontros/confrontacao-a01-a07-a08-a10.md) antes de definir fichas-base. A08/A09 têm produção e publicação expressamente autorizadas.
 - O plano docente de cada aula detalha a execução do encontro.
 - Se uma alteração mudar cenário, progressão, objetivo, evidência, produto ou ponte entre aulas, atualizar primeiro a arquitetura geral ou registrar nela a decisão pendente; depois alinhar os artefatos afetados.
 - Não considerar uma sequência aprovada apenas porque seus arquivos já existem. Prevalecem os estados e decisões registrados na arquitetura geral.
@@ -33,6 +33,16 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 - Reutilizar as páginas conceituais existentes por links contextuais. O percurso principal deve ser autocontido; aprofundamento pode ficar em páginas de consulta.
 - Classroom recebe link para `#atividade`, entregável, prazo definido pelo docente e rubrica. Não exigir fork, PR, CI, vídeo ou código em toda atividade.
 - Quando houver uso permitido de IA, exigir registro do pedido, decisões aceitas/rejeitadas e justificativa do estudante; proibir envio de dados sensíveis e exigir compreensão do resultado.
+
+## Condução e avaliação — repactuação após A07
+
+- Para A08–A31, considerar 24 encontros restantes de **100 minutos efetivos**. O histórico A01–A07 permanece preservado.
+- A prática presencial é conduzida pelo professor: prever, acompanhar demonstração, interpretar o rastro, comparar hipóteses e decidir. Não exigir execução independente simultânea nem reservar longos blocos para as duplas descobrirem a ferramenta sozinhas.
+- Preservar participação cognitiva com respostas curtas, escolhas justificadas e leitura de evidências; acompanhar não significa somente assistir.
+- Definir **uma atividade principal por macrocomponente**, acumulativa ao longo de seus encontros. Checkpoints presenciais não geram novas tarefas no Classroom. Cada página aponta para a atividade compartilhada quando não houver entrega própria.
+- A operação indispensável à atividade principal deve ter sido demonstrada antes da realização fora da aula. Fornecer insumos sanitizados e alternativa sem ferramenta; não transferir instalação ou descoberta essencial para casa.
+- A distribuição proposta está em `docente/planejamento-24-encontros/proposta-macroorganizacao.md`. Enquanto a solicitação for de planejamento, alterar somente diretrizes e documentos docentes; não editar páginas, publicar no Pages ou enviar atividades.
+- Estas decisões substituem preferências anteriores por reprodução obrigatória em cada máquina e atividade domiciliar por encontro. Os demais requisitos de rigor, segurança, continuidade e evidência permanecem.
 
 ## 1. Princípio pedagógico central
 
@@ -79,11 +89,11 @@ O ciclo didático preferencial é:
 
 ### 2.0 Densidade do encontro e lugar da prática
 
-- Planejar cada encontro para preencher o tempo efetivo registrado para o encontro na arquitetura vigente (90 ou 100 minutos, conforme confirmação docente), de conteúdo teórico e prático guiado pelo professor, com progressão contínua de evidências, conceitos, decisões e validações.
-- A prática guiada deve ocupar e conduzir todo o encontro, preferencialmente com execução sincronizada pelos estudantes em suas próprias máquinas quando o ambiente for simples e uniforme. O professor demonstra cada passo, pausa para a turma reproduzir, confirma o rastro e só então avança para interpretação e conceito.
+- Planejar cada encontro para preencher o tempo efetivo registrado para o encontro na arquitetura vigente (100 minutos para A08–A31), de conteúdo teórico e prático guiado pelo professor, com progressão contínua de evidências, conceitos, decisões e validações.
+- A prática conduzida integra todo o encontro. O professor demonstra cada passo e pausa para a turma prever, localizar e interpretar o rastro antes de avançar. A reprodução nas máquinas é opcional e não condiciona a participação.
 - Evitar sustentar um encontro inteiro em uma única verificação trivial. Para 100 minutos, encadear um conjunto coerente de propriedades, casos ou testes que produza ganho conceitual e técnico claramente superior ao encontro anterior.
-- Manter uma verificação em dupla como **atividade de casa**, mas não reservar para casa o primeiro contato operacional com comandos, menus ou procedimentos indispensáveis. O percurso mínimo deve ser executado ou acompanhado passo a passo durante a aula.
-- Nos minutos presenciais, combinar previsão, execução sincronizada, comparação de evidências, formulação de hipótese e decisão. Prever pontos de espera explícitos para que ninguém avance com estado diferente do professor.
+- Manter uma atividade principal em dupla por **macrocomponente**, mas não reservar para casa o primeiro contato operacional com comandos, menus ou procedimentos indispensáveis. O percurso mínimo deve ser executado ou acompanhado passo a passo durante a aula.
+- Nos minutos presenciais, combinar previsão, demonstração conduzida, comparação de evidências, formulação de hipótese e decisão. Prever pontos de espera explícitos para que ninguém avance com estado diferente do professor.
 - Os blocos de prática na página devem mostrar, no momento da ação, `estado inicial → onde clicar ou o que digitar → resultado visual esperado → o que registrar → critério de parada`. Não depender de instruções orais ocultas nem presumir familiaridade com DevTools, proxy, terminal ou cliente de API.
 - Preferir uma única ferramenta já disponível no ambiente. Introduzir Postman, proxy ou terminal somente quando o navegador não permitir obter o rastro necessário e depois de demonstrar sua função.
 - Explicitar no plano docente qual é o ganho novo do encontro em relação ao anterior. Repetições só são aceitáveis como linha de base breve para uma investigação mais profunda.
@@ -110,7 +120,7 @@ Cada encontro deve, preferencialmente, conter:
 Cada encontro novo possui:
 
 1. **Página integral MkDocs:** cenário, três objetivos observáveis, teoria explicada, exemplos, prática guiada intercalada, checkpoints, diagnóstico, alternativa, atividade e referências.
-2. **Atividade vinculável ao Classroom:** seção `## Atividade {#atividade}` na mesma página ou página específica quando extensa; define missão, escopo, preparação, passos, evidências, formato/nome da entrega, rubrica, encerramento e extensão.
+2. **Atividade vinculável ao Classroom:** compartilhada pelo macrocomponente, com seção `## Atividade {#atividade}` na mesma página ou página específica quando extensa; define missão, escopo, preparação, passos, evidências, formato/nome da entrega, rubrica, encerramento e extensão.
 3. **Plano docente fora do site:** ficha-base, tempo teórico/prático, herança confirmada, condução por blocos, respostas e ponte para o próximo encontro.
 
 A ficha-base declara identificador/título, ementa, objetivos, carga, cenário/pergunta, pré-requisitos, infraestrutura, evidência, critérios e fontes. Mudanças devem alinhar página, atividade e plano. Um PDF de entrega do estudante continua possível; isso não exige um roteiro docente em PDF.

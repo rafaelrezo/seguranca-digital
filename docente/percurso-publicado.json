@@ -42,14 +42,30 @@
       "page": "aulas/A06-do-ticket-ao-modelo.md",
       "title": "A06 — Como antecipar o que pode dar errado?",
       "activity": "atividade",
-      "status": "publicado_realizacao_a_confirmar"
+      "status": "historico_reconciliado_realizacao_confirmada"
     },
     {
       "id": "A07",
       "page": "aulas/A07-do-modelo-a-decisao.md",
       "title": "A07 — Da aplicação web ao processo industrial: como o adversário avança?",
       "activity": "atividade",
-      "status": "publicado_realizacao_a_confirmar"
+      "status": "historico_reconciliado_realizacao_confirmada"
+    },
+    {
+      "id": "A08",
+      "page": "aulas/A08-governanca-sgsi.md",
+      "activity": "atividade",
+      "title": "A08 — Quem governa a segurança depois que a falha é conhecida?",
+      "status": "preparado_validado_publicacao_autorizada",
+      "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
+    },
+    {
+      "id": "A09",
+      "page": "aulas/A09-decisao-de-riscos.md",
+      "activity": "atividade",
+      "title": "A09 — Quais riscos a organização aceita e quais precisa tratar?",
+      "status": "preparado_validado_publicacao_autorizada",
+      "shared_activity": "atividades/P1-governanca-e-riscos.md#atividade"
     }
   ]
 }
