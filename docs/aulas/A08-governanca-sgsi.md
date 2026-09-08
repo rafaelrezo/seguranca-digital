@@ -7,9 +7,11 @@
   <figcaption><strong>O teste passou. Quem mantém a proteção na próxima mudança?</strong> A repetição da exposição no portal abre a investigação sobre regras, autoridade e acompanhamento. Ilustração fornecida pelo docente para o caso fictício; não representa evidência de incidente real. Clique para ampliar.</figcaption>
 </figure>
 
-A equipe corrigiu uma exposição no portal. O teste passou e o chamado foi encerrado. Na semana seguinte, outro arquivo interno apareceu na área pública. O fornecedor afirma que publicou o material a pedido do negócio; o negócio afirma que a TI deveria ter impedido a publicação.
+Na A07, o relatório fornecido descrevia a exploração de um portal, a execução de comandos e a alteração de um parâmetro industrial. O trabalho com o **MITRE ATT&CK** consistiu em relacionar esses comportamentos às técnicas e justificar o mapeamento. Esse mapa ajuda a descrever o comportamento adversário. Ao recebê-lo, a organização ainda precisa decidir **quem cuida da proteção, quem autoriza mudanças e como acompanha os resultados**.
 
-**Quem tinha autoridade para definir a regra, quem deveria executá-la e quem precisava acompanhar seu cumprimento?** Um teste técnico responde se determinada condição funcionou naquele momento. Para manter a proteção ao longo das mudanças, precisamos organizar decisões, responsabilidades e acompanhamento.
+A A08 desenvolve essa pergunta de gestão com um **novo caso fictício, apresentado por completo abaixo**: a ValeVerde publicou uma planilha interna de margens em seu portal. A TI retirou a cópia pública e verificou que ela deixou de estar disponível. Na atualização do mês seguinte, outra planilha interna foi publicada para qualquer visitante. O fornecedor e o comercial discordam sobre quem deveria aprovar essa divulgação.
+
+O exercício permite examinar por que resolver uma ocorrência não define, por si só, as responsabilidades pelas próximas mudanças. Os arquivos e o atendimento deste caso são insumos novos da A08; não são fatos do relatório analisado na A07 nem resultados de testes realizados pela turma.
 
 ## Objetivos e preparação
 
@@ -25,61 +27,94 @@ Se precisar retomar um conceito, consulte [controles de segurança](../fundament
 
 ## 1. O que precisa mudar antes da próxima publicação?
 
-Retome o chamado da abertura: a equipe retirou um arquivo interno da área pública e verificou aquela rota. Isso sustenta uma conclusão limitada sobre a correção naquele momento. O reaparecimento de outro arquivo exige examinar também como novas publicações são decididas. Ainda não sabemos se houve erro de configuração, aprovação inadequada ou descumprimento de uma regra.
+### Como o portal da ValeVerde deveria funcionar
 
-!!! question "Antes de buscar uma orientação"
-    Um novo documento chega ao portal sem indicação de quem pode consultá-lo. O serviço deve liberá-lo ao público ou aguardar uma permissão definida? Justifique pensando no documento interno da abertura.
+A **ValeVerde** é a empresa fictícia deste exercício. Ela recebe pedidos pela web e mantém uma operação de embalagem. O **setor comercial** cuida dos pedidos e das informações oferecidas aos clientes. A **equipe de TI** administra o portal e os acessos. A empresa contratada **Suporte Norte** executa mudanças no portal quando recebe uma solicitação aprovada.
+
+O portal oferece um catálogo público de produtos. Também há documentos de trabalho do comercial, como planilhas de custos e margens de venda, que devem permanecer disponíveis somente à equipe autorizada. **Publicar um documento**, neste caso, significa colocá-lo à disposição para leitura pelo portal. Poder enviar um arquivo ao sistema não significa ter autoridade para torná-lo público.
+
+| Documento do exercício | Conteúdo e uso | Quem deveria poder ler |
+|---|---|---|
+| `catalogo-produtos.pdf` | Produtos oferecidos aos clientes. | Qualquer visitante, inclusive sem entrar em uma conta. |
+| `margens-agosto.xlsx` | Custos e margens usados pelo comercial para negociar pedidos. | Pessoas do comercial com permissão para esse trabalho. |
+| `margens-setembro.xlsx` | Atualização mensal das mesmas informações internas. | Pessoas do comercial com permissão para esse trabalho. |
+
+Os nomes e os registros abaixo são dados fictícios para leitura em sala. Você não precisa baixar essas planilhas, abrir um portal ou reproduzir um teste.
+
+### G02 — o atendimento que retirou a primeira planilha
+
+Um **chamado de suporte** é um registro de atendimento: descreve o problema comunicado à equipe, a ação realizada e o motivo do encerramento. Leia o chamado G02 fornecido para esta aula:
+
+> **Solicitante:** setor comercial da ValeVerde.  
+> **Problema informado:** a planilha interna `margens-agosto.xlsx` pode ser baixada sem entrar em uma conta pelo endereço do portal cujo caminho é `/publicacoes/margens-agosto.xlsx`.  
+> **Ação registrada pela TI:** retirada dessa cópia da área pública.  
+> **Verificação registrada:** depois da retirada, a TI abriu o mesmo endereço sem entrar em uma conta; o portal deixou de entregar a planilha. O catálogo público continuou disponível em `/publicacoes/catalogo-produtos.pdf`.  
+> **Encerramento:** chamado encerrado porque a cópia indicada deixou de estar disponível naquele endereço.  
+> **Informação ausente:** o registro não define quem aprova a publicação de novos documentos nem registra uma mudança na regra de acesso para os próximos arquivos.
+
+O **caminho** é a parte do endereço que identifica o recurso solicitado ao portal. Aqui, `/publicacoes/margens-agosto.xlsx` identifica a cópia da planilha e `/publicacoes/catalogo-produtos.pdf` identifica o catálogo. São caminhos ilustrativos, não endereços de um laboratório disponível. Verificar o acesso a um arquivo significa, neste exemplo, solicitar seu endereço e observar se o portal entrega o conteúdo.
+
+A verificação registrada em G02 permite afirmar que **a cópia de agosto deixou de ser entregue pelo endereço examinado**. Ela não demonstra que o portal passou a verificar permissão em cada leitura: retirar um arquivo também impede sua entrega, mesmo sem corrigir a autorização. Também não informa se alguém de fora baixou a planilha antes da retirada.
+
+!!! question "Confira o alcance do teste"
+    Depois que a TI retirou `margens-agosto.xlsx`, seu endereço deixou de entregar a planilha. Esse resultado prova que o portal impedirá a publicação pública de `margens-setembro.xlsx`? Explique qual condição o teste não examinou.
+
+### A segunda publicação expõe a decisão que faltava
+
+Uma semana depois, o Suporte Norte colocou `margens-setembro.xlsx` em `/publicacoes/margens-setembro.xlsx`. O registro fornecido para o exercício informa que essa nova planilha também pôde ser baixada sem entrar em uma conta. O fornecedor afirma que atendeu a um pedido do comercial; o comercial afirma que pediu a atualização para uso interno. Não há aprovação registrada para disponibilizá-la ao público.
+
+Temos duas ocorrências diferentes: a cópia de agosto foi retirada; a de setembro foi publicada depois. Não se trata do mesmo arquivo reaparecendo. A exposição de setembro mostra que a retirada de agosto não bastou para manter a restrição nas publicações seguintes. Ainda precisamos confirmar como o portal foi configurado e quem recebeu autoridade para decidir sobre a publicação.
+
+!!! question "Decida sobre a próxima publicação"
+    O fornecedor recebe outra planilha de margens, sem aprovação de acesso público. O portal deve liberá-la a qualquer visitante? Justifique distinguindo a necessidade de atualizar o documento da autorização para divulgá-lo.
 
 ### Da decisão a uma regra verificável
 
-Para este caso, propomos que a ausência de uma permissão definida não torne o documento público. Quando alguém solicitar o arquivo, o serviço deve verificar se aquela leitura é permitida. Um material destinado ao público pode ter acesso público explicitamente autorizado; o documento interno precisa conservar sua restrição.
+Para a próxima planilha de margens, propomos uma regra: **sem permissão definida, o portal não libera a leitura; com permissão, confere se o solicitante pode ler aquele documento**. O catálogo continua público porque essa finalidade foi explicitamente aprovada. A proteção deve preservar tanto o acesso do comercial às planilhas quanto o acesso dos clientes ao catálogo.
 
-| Parte da decisão | Aplicação ao mesmo arquivo |
+| Parte da decisão | Aplicação à publicação das planilhas |
 |---|---|
-| Ameaça considerada | Uma pessoa sem permissão obtém o documento interno. É uma possibilidade a prevenir; o chamado não comprova quem o leu. |
-| Requisito proposto | Cada solicitação de leitura respeita a permissão definida para o documento. Sem permissão aplicável, negar acesso. |
-| Controle proposto | O serviço que entrega o arquivo aplica a regra antes de devolver seu conteúdo. |
-| Verificação prevista | Comparar leitura autorizada e leitura sem permissão, incluindo o novo documento. São casos previstos, ainda não executados nesta análise. |
+| Ameaça considerada | Uma pessoa sem permissão obtém custos e margens internos. O exercício informa disponibilidade pública, mas não identifica leitores externos. |
+| Requisito proposto | Conferir a permissão em cada solicitação de leitura e negar quando nenhuma permissão se aplica. |
+| Controle proposto | O serviço que entrega os documentos aplica a regra antes de devolver o conteúdo. |
+| Verificação prevista | Confirmar que um visitante não recebe a planilha, que uma pessoa autorizada do comercial consegue lê-la e que o catálogo continua público. Repetir a comparação após uma nova publicação. Estes testes são propostos, não executados nesta aula. |
 
 ### Como conferir se a regra proposta tem fundamento técnico?
 
-Já temos uma pergunta para consultar: **como tratar uma solicitação sem permissão e onde repetir essa decisão?** Podemos confrontar a proposta com uma orientação de segurança de aplicações antes de adotá-la.
+A dúvida técnica agora é precisa: **o que fazer quando não há permissão e com que frequência verificá-la?** Vamos confrontar a regra da planilha com uma orientação de segurança de aplicações.
 
-A **OWASP** mantém recursos abertos sobre segurança de aplicações. Entre eles, a **Authorization Cheat Sheet** é um guia prático de autorização: reúne recomendações para decidir quais ações sobre quais recursos a aplicação permite. Sua utilidade aqui é conferir a regra de acesso ao arquivo que acabamos de formular.
+A **OWASP** mantém recursos abertos sobre segurança de aplicações. A **Authorization Cheat Sheet** é seu guia prático de autorização: reúne recomendações para decidir quais ações sobre quais recursos a aplicação permite.
 
-**Consulta conduzida pelo professor:** abra a [seção “Deny by Default”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#deny-by-default). Ela recomenda negar acesso por padrão. Em seguida, localize [“Validate the Permissions on Every Request”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request), que orienta verificar permissões em cada requisição. Esses dois resumos permitem acompanhar a comparação se o site não abrir.
+**Consulta conduzida pelo professor:** abra a [seção “Deny by Default”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#deny-by-default), que recomenda negar acesso por padrão. Depois, localize [“Validate the Permissions on Every Request”](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request), que orienta verificar permissões em cada requisição. Se o site não abrir, estes dois resumos permitem realizar a mesma comparação.
 
-**Volte ao arquivo:** a primeira orientação sustenta negar sua leitura quando nenhuma permissão se aplica; a segunda exige aplicar a decisão a cada solicitação, inclusive para novos documentos. Registre qual parte do requisito da tabela cada orientação sustenta. Encerre a consulta quando conseguir explicar essa relação; não é necessário percorrer o restante do guia.
+**Aplicação:** para `margens-setembro.xlsx`, negar por padrão sustenta recusar uma leitura sem permissão aplicável. Verificar a cada requisição significa aplicar a decisão sempre que a planilha for solicitada, não apenas quando for cadastrada. Explique qual parte da regra cada orientação sustenta e encerre a consulta.
 
-### A regra técnica ainda deixa uma decisão em aberto
+### Quem pode conceder a permissão que o portal vai aplicar?
 
-Agora o fornecedor pergunta: “Quem pode autorizar que este documento seja público?” A orientação ajuda a implementar a decisão, mas não nomeia quem tem autoridade na ValeVerde, quem aprova mudanças ou quem acompanha seu cumprimento. Mesmo uma verificação tecnicamente correta pode aplicar uma permissão concedida indevidamente.
+O fornecedor ainda precisa saber quem pode autorizar uma publicação pública. A orientação técnica ajuda a aplicar permissões; a ValeVerde precisa definir quem tem autoridade para concedê-las, quem executa a mudança e quem acompanha o resultado. Se alguém conceder indevidamente acesso público à planilha, o portal pode cumprir exatamente essa permissão e ainda expor informação interna.
 
-!!! question "Pare e decida"
-    O fornecedor afirma que recebeu aprovação do negócio; o negócio afirma que a TI deveria ter impedido a publicação. Que definição falta para distinguir uma publicação autorizada de uma solicitação sem autoridade?
-
-Precisamos examinar como a empresa distribui essas decisões. Os documentos a seguir permitem localizar as lacunas e construir a gestão que manterá a regra nas próximas mudanças.
+**Decisão em sala:** no caso de `margens-setembro.xlsx`, explique por que “o comercial pediu uma atualização” não basta para autorizar acesso público. Em seguida, identifique a responsabilidade que a ValeVerde precisa atribuir antes de aceitar uma nova publicação.
 
 ## 2. O caso ValeVerde: documentos para examinar
 
-A **ValeVerde** é uma empresa fictícia que recebe pedidos pela web e depende de uma operação de embalagem. O portal pode ser representado pelo Juice Shop no laboratório; os documentos abaixo são insumos novos deste caso, não resultados obtidos na aplicação ou nas aulas anteriores.
+A publicação das planilhas depende de pessoas e de um serviço contratado. Para definir quem decide, precisamos conhecer as atribuições e os acordos da empresa. Os registros G01–G04 abaixo são os insumos de gestão deste exercício; cada identificação permite citar a evidência usada na decisão.
 
-O fornecedor **Suporte Norte** mantém o portal e apoia a engenharia em janelas aprovadas. A aplicação de pedidos não precisa enviar comandos ao processo industrial. Uma eventual permissão para manutenção é uma decisão separada.
+O Suporte Norte também apoia a engenharia em períodos de manutenção previamente aprovados. Esse acesso precisa de autorização própria: receber permissão para atualizar documentos no portal não autoriza intervir no processo de embalagem. A aplicação de pedidos não precisa enviar comandos ao processo industrial.
 
 | Documento | Conteúdo fornecido | O que ele não comprova |
 |---|---|---|
-| **G01 — Organização** | Direção aprova recursos; comercial responde pelo processo de pedidos; TI administra portal e identidades; operação aprova intervenções que afetem produção; fornecedor executa o suporte contratado. | Que essas responsabilidades já estejam formalizadas ou funcionando. |
-| **G02 — Chamado de publicação** | A equipe retirou um documento interno de uma área pública, registrou a verificação daquela rota e encerrou o chamado. Não indicou quem aprova futuras publicações. | Que outras rotas foram verificadas ou que a causa não voltará a ocorrer. |
-| **G03 — Acordo de suporte** | O fornecedor executa mudanças mediante solicitação aprovada. O texto não define quem pode aprovar, por quanto tempo vale o acesso ou como confirmar seu encerramento. | Que qualquer solicitante tenha autoridade para liberar manutenção. |
-| **G04 — Revisão de acessos** | De seis autorizações examinadas, cinco já venceram. Quatro das cinco têm registro de encerramento; uma não tem comprovação. A sexta tem prorrogação aprovada e ainda está vigente. | Que a autorização sem comprovação permaneça tecnicamente ativa. É necessário verificar. |
+| **G01 — Organização** | Direção aprova recursos; comercial responde pelos pedidos e pela finalidade das informações comerciais; TI administra portal e identidades; operação aprova intervenções que afetem produção; fornecedor executa o suporte contratado. | Que já esteja definido quem pode aprovar a divulgação pública das planilhas de margens ou substituir um aprovador ausente. |
+| **G02 — Chamado de publicação** | A TI retirou a cópia pública de `margens-agosto.xlsx` e confirmou que seu endereço deixou de entregá-la, mantendo o catálogo acessível. Encerrou o atendimento sem definir quem aprova novas publicações. Na semana seguinte, `margens-setembro.xlsx` ficou pública após pedido de atualização interna ao fornecedor. | Que houve correção da regra de autorização para novos arquivos ou que terceiros baixaram as planilhas. |
+| **G03 — Acordo de suporte** | O fornecedor executa mudanças mediante solicitação aprovada. O texto não define quem pode aprovar, por quanto tempo vale o acesso ou como confirmar seu encerramento. | Que um pedido de atualização autorize divulgação pública ou que qualquer solicitante possa liberar manutenção. |
+| **G04 — Revisão de acessos** | De seis autorizações de suporte examinadas, cinco já venceram. Quatro das cinco têm registro de encerramento; uma não tem comprovação. A sexta tem prorrogação aprovada e ainda está vigente. | Que a autorização sem comprovação permaneça tecnicamente ativa. É necessário verificar. |
 
-**Como analisar:** leia primeiro o identificador e o conteúdo literal. Em seu registro, separe “o documento informa” de “precisamos confirmar”. Escolha uma decisão que ficou sem responsável definido. Não deduza invasão, vazamento ou atividade maliciosa a partir da ausência de um registro.
+**Como analisar:** o acordo G03 exige uma aprovação, mas não identifica o papel que pode concedê-la. Registre “autoridade de aprovação não definida no acordo” e indique que definição precisa ser obtida. Depois encontre outra lacuna de responsabilidade nos registros. A ausência de aprovação documentada exige confirmação; sozinha, não demonstra invasão ou intenção maliciosa.
 
 ## 3. O que um SGSI organiza
 
 Um **Sistema de Gestão de Segurança da Informação (SGSI)** é a organização contínua de políticas, responsabilidades, processos e recursos para tratar a segurança da informação. Ele permite que decisões sejam repetidas, avaliadas e corrigidas quando pessoas, sistemas e condições mudam.
 
-No caso, remover o arquivo é uma intervenção técnica. Definir quem pode publicar, como a aprovação é registrada, quem acompanha exceções e quando a regra será revista pertence à gestão dessa proteção. As duas dimensões dependem uma da outra: uma política sem execução não protege o arquivo; uma correção sem gestão pode desaparecer na próxima mudança.
+Retirar a cópia pública de `margens-agosto.xlsx` foi uma intervenção técnica no caso fornecido. Definir quem pode publicar, como a aprovação é registrada, quem acompanha exceções e quando a regra será revista pertence à gestão dessa proteção. As duas dimensões dependem uma da outra: uma política sem execução não protege o arquivo; uma correção sem gestão pode desaparecer na próxima mudança.
 
 A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito inclui estabelecer, implementar, manter e melhorar esse sistema, considerando os riscos da organização. A implantação pode ser útil mesmo sem buscar certificação. Nesta aula, usaremos sua estrutura para organizar o caso; produzir um documento didático não demonstra conformidade ou certificação. [Referência oficial da ISO/IEC 27001](https://www.iso.org/standard/27001).
 
@@ -87,7 +122,7 @@ A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito incl
   <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A correção entra em um ciclo de gestão.">
     <img src="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" alt="A correção entra em um ciclo de gestão." loading="lazy" />
   </div>
-  <figcaption><strong>A correção entra em um ciclo de gestão.</strong> Siga as setas: uma nova mudança reabre responsabilidades, execução e acompanhamento. Onde a publicação de G02 perdeu continuidade? <a href="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+  <figcaption><strong>A correção entra em um ciclo de gestão.</strong> Siga as setas: uma nova mudança reabre responsabilidades, execução e acompanhamento. Por que a retirada da planilha de agosto não definiu quem aprovaria a publicação de setembro? <a href="../../assets/m1/esquemas/A08-ciclo-sgsi.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
 ### Uma estrutura que acompanha a decisão
@@ -103,7 +138,7 @@ A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito incl
 
 Leia essa estrutura como um percurso. O escopo determina quais interfaces importam; os papéis atribuem as decisões; os objetivos orientam o acompanhamento; a evidência permite revisar o que foi decidido.
 
-Uma organização pode ter muitos documentos e ainda deixar G03 sem uma autoridade de aprovação. O valor do SGSI depende de conectar o que está escrito ao que as pessoas conseguem executar e demonstrar.
+Uma organização pode ter muitos documentos e ainda manter um acordo de suporte, como G03, sem definir quem pode aprovar o acesso do fornecedor. O valor do SGSI depende de conectar o que está escrito ao que as pessoas conseguem executar e demonstrar.
 
 ## 4. Delimitar o escopo sem esconder uma dependência
 
@@ -124,7 +159,7 @@ A proposta A identifica um equipamento, mas deixa obscuros os processos que publ
   <figcaption><strong>A dependência externa cruza uma interface governada.</strong> O contorno delimita os pedidos digitais; a relação com o fornecedor permanece explícita. A conexão com a operação exige uma decisão própria. <a href="../../assets/m1/esquemas/A08-escopo-interface.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-**Aplicação conduzida:** localize G02 e G03. Para cada documento, sublinhe uma expressão da proposta B que permite atribuir sua gestão a alguém. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
+**Aplicação conduzida:** o chamado G02 encerrou a retirada da planilha sem definir quem aprova novas publicações; o acordo G03 exige aprovação para suporte sem nomear quem pode concedê-la. Para cada lacuna, sublinhe uma expressão da proposta B que inclui esse processo ou dependência na gestão. Depois indique uma informação que falta confirmar antes de ampliar o escopo à operação industrial.
 
 Não ter controle direto sobre a infraestrutura interna do fornecedor não elimina a dependência. A ValeVerde pode estabelecer requisitos contratuais, limitar a interface de acesso, pedir evidências e acompanhar o serviço, dentro do que efetivamente consegue exigir e verificar.
 
@@ -155,7 +190,7 @@ Não ter controle direto sobre a infraestrutura interna do fornecedor não elimi
 
 Essa é uma proposta para o caso fictício, não uma distribuição obrigatória de cargos determinada pela norma. Ela deve ser testada contra as condições da empresa.
 
-**Agora examine G03:** a solicitação de suporte chegou, mas o aprovador está ausente. A regra pode prever um substituto com autoridade delimitada. Criar uma conta porque “o chamado era urgente” não resolve a ausência de aprovação. A urgência precisa de um caminho de decisão definido, com registro e comunicação.
+**Aplique ao acordo de suporte G03:** ele exige solicitação aprovada, mas não define quem pode aprovar. Suponha que a ValeVerde designe um aprovador e que essa pessoa esteja ausente quando o fornecedor pedir acesso. A regra pode prever um substituto com autoridade delimitada. Criar uma conta porque “o chamado era urgente” não resolve a ausência de aprovação. A urgência precisa de um caminho de decisão definido, com registro e comunicação.
 
 **Verificação coletiva:** para cada linha do seu quadro, tente responder: a pessoa sabe que recebeu a responsabilidade? Pode tomar a decisão? Tem recurso para executá-la? Quem recebe a informação se ela não puder agir? Uma lacuna em qualquer resposta impede considerar o arranjo concluído.
 
@@ -171,7 +206,7 @@ O objetivo nomeia o universo observado: autorizações vencidas. Não mistura co
 
 ### Ler uma medida antes de tirar uma conclusão
 
-Abra G04. Há seis autorizações no conjunto, mas somente cinco venceram. Quatro têm comprovação de encerramento. Portanto, a proporção com encerramento comprovado entre as vencidas é **4 ÷ 5 = 80%**. A sexta não entra nesse denominador porque sua prorrogação válida ainda não venceu.
+O registro G04 reúne seis autorizações de suporte do fornecedor. Cinco já venceram. Quatro têm comprovação de encerramento. Portanto, a proporção com encerramento comprovado entre as vencidas é **4 ÷ 5 = 80%**. A sexta não entra nesse denominador porque sua prorrogação válida ainda não venceu.
 
 <figure class="didactic-figure">
   <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Quatro encerramentos comprovados entre cinco autorizações vencidas.">
