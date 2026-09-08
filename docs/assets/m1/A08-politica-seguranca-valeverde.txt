@@ -25,7 +25,7 @@ A direção aprova esta política, define autoridades e disponibiliza recursos. 
 
 4. Riscos e seleção de controles
 
-A organização avaliará os riscos com critérios definidos e comparáveis, identificará seus proprietários e decidirá o tratamento necessário. A aceitação do risco que permanecer dependerá de autoridade competente e justificativa registrada. Os controles serão selecionados conforme riscos e requisitos aplicáveis, confrontados com o Anexo A e registrados na Declaração de Aplicabilidade. Mudanças relevantes exigirão reavaliação.
+A organização avaliará os riscos com critérios definidos e comparáveis, identificará seus proprietários e decidirá o tratamento necessário. A aceitação do risco que permanecer dependerá de autoridade competente e justificativa registrada. Os controles serão selecionados conforme riscos e requisitos aplicáveis, confrontados com o Anexo A da ISO/IEC 27001:2022 e registrados na Declaração de Aplicabilidade. Mudanças relevantes exigirão reavaliação.
 
 5. Objetivos e planejamento
 

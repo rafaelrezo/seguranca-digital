@@ -166,9 +166,13 @@ Os nomes e a organização das seções podem ser conferidos na [prévia da norm
 
 **Localize uma necessidade:** a ausência de quem aprova o suporte remete à seção 5.3, sobre papéis e autoridades. Depois da atribuição, ainda será preciso disponibilizar recurso e orientação (seção 7), executar a aprovação (seção 8) e conferir o resultado (seção 9). Registre essas relações em uma frase, usando o pedido de suporte como exemplo.
 
-### O Anexo A entra quando é preciso conferir os controles
+### Onde fica o Anexo A da ISO/IEC 27001 e para que serve {#o-anexo-a-entra-quando-e-preciso-conferir-os-controles}
 
-O **Anexo A** é uma referência de controles de segurança. Durante o tratamento de riscos, a organização confronta os controles que considera necessários com essa referência para identificar omissões. A **Declaração de Aplicabilidade**, também chamada **SoA** (*Statement of Applicability*), registra controles necessários, justificativas de inclusão, situação de implementação e razões para exclusões de controles do Anexo A. Controles necessários podem vir também de outras fontes. [Nota educacional do grupo de práticas de auditoria da ISO/IEC 27001](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf).
+O **Anexo A pertence à norma ISO/IEC 27001:2022**. Ele fica após a seção **10 — Melhoria**, antes da bibliografia. No sumário da edição em inglês, localize **“Annex A (normative) — Information security controls reference”**, isto é, referência de controles de segurança da informação. Essa localização pode ser conferida no [sumário da prévia da norma disponibilizada pelo SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf).
+
+Quando esta aula ou a política da ValeVerde mencionar **“Anexo A”**, a referência será a esse anexo da norma. A política de exemplo não possui um anexo com esse nome.
+
+**Como usar essa parte da norma:** o Anexo A oferece uma referência de controles de segurança. Durante o tratamento de riscos, a organização confronta os controles que considera necessários com essa referência para identificar omissões. A **Declaração de Aplicabilidade**, também chamada **SoA** (*Statement of Applicability*), registra controles necessários, justificativas de inclusão, situação de implementação e razões para exclusões de controles do Anexo A. Controles necessários podem vir também de outras fontes. [Nota educacional do grupo de práticas de auditoria da ISO/IEC 27001](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf).
 
 Na ValeVerde, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção será aprofundada depois da decisão de risco da A09.
 
@@ -268,7 +272,7 @@ A direção aprova esta política, define autoridades e disponibiliza recursos. 
 
 #### 4. Riscos e seleção de controles
 
-A organização avaliará os riscos com critérios definidos e comparáveis, identificará seus proprietários e decidirá o tratamento necessário. A aceitação do risco que permanecer dependerá de autoridade competente e justificativa registrada. Os controles serão selecionados conforme riscos e requisitos aplicáveis, confrontados com o Anexo A e registrados na Declaração de Aplicabilidade. Mudanças relevantes exigirão reavaliação.
+A organização avaliará os riscos com critérios definidos e comparáveis, identificará seus proprietários e decidirá o tratamento necessário. A aceitação do risco que permanecer dependerá de autoridade competente e justificativa registrada. Os controles serão selecionados conforme riscos e requisitos aplicáveis, confrontados com o Anexo A da ISO/IEC 27001:2022 e registrados na Declaração de Aplicabilidade. Mudanças relevantes exigirão reavaliação.
 
 #### 5. Objetivos e planejamento
 
@@ -310,7 +314,7 @@ A tabela relaciona os principais blocos do SGSI à proposta. **Não é uma lista
 | **9 — Avaliação** | Item 10: medição, auditoria e análise crítica. | Resultados das medidas, auditorias e decisões da direção. |
 | **10 — Melhoria** | Itens 2, 9 e 10: compromisso, lições e correção. | Registro dos desvios, causas, ações e verificação de eficácia. |
 
-A política proposta oferece orientação para o conjunto. Ela não torna obrigatório todo controle do Anexo A, nem substitui a seleção justificada, a execução e a avaliação. Estrutura normativa: [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) e [prévia do SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf).
+A política proposta oferece orientação para o conjunto. Ela não torna obrigatório todo controle do Anexo A da ISO/IEC 27001:2022, nem substitui a seleção justificada, a execução e a avaliação. Estrutura normativa: [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) e [prévia do SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf).
 
 ### Dois casos para aplicar a orientação
 
@@ -459,7 +463,7 @@ Na [A09](A09-decisao-de-riscos.md), as fichas R01/R02 e os critérios fornecidos
 
 **Registro de tratamento a construir:** `risco → alternativa → controle necessário → responsável/recurso → residual estimado → aprovação`.
 
-**Como isso chega à SoA:** para a medida candidata de encerramento, escreva a justificativa ligada ao risco e marque “proposta; implementação não demonstrada”. A correspondência com o Anexo A e as justificativas de exclusão ainda precisam ser examinadas. Essa linha de trabalho não é uma Declaração de Aplicabilidade completa.
+**Como isso chega à SoA:** para a medida candidata de encerramento, escreva a justificativa ligada ao risco e marque “proposta; implementação não demonstrada”. A correspondência com o Anexo A da ISO/IEC 27001:2022 e as justificativas de exclusão ainda precisam ser examinadas. Essa linha de trabalho não é uma Declaração de Aplicabilidade completa.
 
 **Confira:** cada controle candidato responde a uma condição identificada? A pessoa indicada pode aprovar o tratamento e aceitar o residual dentro de seus limites?
 
