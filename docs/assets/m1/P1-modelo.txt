@@ -4,9 +4,11 @@ Dupla: [nomes]  |  Versão: [identificação]  |  Data de revisão: [preencher]
 
 ## 1. Governança
 
-Contexto, partes interessadas, necessidades, escopo e dependência externa: [um parágrafo]
+Contexto, partes interessadas, necessidades, escopo dos pedidos/portal e dependência do suporte: [um parágrafo]
 Política de referência: PSI-VV-01, versão 0.1, Aula 08.
-Diretriz adaptada, justificativa e aprovador: [orientação curta; não copiar a política inteira]
+Diretriz avaliada: item 8 — Serviços contratados e mudanças.
+Decisão de manter ou adaptar, justificativa e aprovador: [se adaptar, registrar a orientação curta]
+Procedimento necessário e registro de execução: [separar o detalhe operacional da diretriz]
 
 | Decisão/ação | Papel responsável | Autoridade/recurso | Evidência e revisão |
 |---|---|---|---|
@@ -17,6 +19,8 @@ Rotina de acompanhamento: [quem, fonte, momento e resposta a desvio]
 
 ## 2. Avaliação dos riscos
 
+Base: situação original anterior às propostas da A08; não presumir controles implantados.
+
 | Risco | Evidência | Consequência e razão | Plausibilidade e razão | Incerteza | Prioridade | Proprietário |
 |---|---|---|---|---|---|---|
 | R01 | | | | | | |
@@ -24,7 +28,7 @@ Rotina de acompanhamento: [quem, fonte, momento e resposta a desvio]
 
 ## 3. Decisão de tratamento para R02
 
-Risco: R02 — acesso de manutenção além do prazo
+Risco: R02 — acesso de manutenção do portal além do prazo
 Alternativa escolhida e comparação com outra: [justificar]
 Restrição de esforço e função preservada: [considerar C1 para R01, 2h usadas e 6h restantes para R02]
 Premissa e resposta à variação V1: [explicar]

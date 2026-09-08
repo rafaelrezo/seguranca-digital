@@ -1,6 +1,6 @@
 # A09 — Quais riscos a organização aceita e quais precisa tratar?
 
-A ValeVerde tem dois problemas conhecidos e apenas oito horas de trabalho técnico disponíveis antes da próxima janela de manutenção. Uma informação interna pode voltar a ser publicada no portal. Um acesso de fornecedor pode permanecer disponível além da janela autorizada.
+A ValeVerde tem dois problemas conhecidos e apenas oito horas de trabalho técnico disponíveis antes da próxima janela de manutenção do portal. Uma informação interna pode voltar a ser publicada no portal. Um acesso de fornecedor pode permanecer disponível além da janela autorizada.
 
 **Qual risco deve receber atenção primeiro?** A escolha não pode depender de qual ferramenta parece mais interessante ou de qual ameaça tem o nome mais assustador. Precisamos comparar consequências, plausibilidade, incerteza e alternativas que caibam nas condições da operação.
 
@@ -14,11 +14,11 @@ Ao concluir esta aula, você deverá conseguir:
 
 **Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. Use as anotações de governança da [A08](A08-governanca-sgsi.md) para avaliar os riscos do caso.
 
-Se você não tiver o registro anterior, use esta base fornecida: o escopo cobre pedidos digitais, publicação, identidades e suporte ao portal; comercial responde pela informação de pedidos; TI executa mudanças; operação autoriza intervenções que afetem produção; direção decide exceções acima dos limites dos gestores. Essa base é suficiente para acompanhar a aula, mas pode ser criticada e ajustada com justificativa.
+Se você não tiver o registro anterior, use esta base fornecida: o escopo cobre pedidos digitais, publicação, identidades e suporte ao portal; o gestor comercial responde pelo serviço de pedidos e autoriza a manutenção e as exceções dentro de seus limites; TI executa mudanças e designa um supervisor para acompanhar o suporte; direção decide exceções acima dos limites do gestor. Essa base é suficiente para acompanhar a aula, mas pode ser criticada e ajustada com justificativa.
 
 ## 1. Receber riscos formulados, sem reiniciar a investigação
 
-Os documentos desta página continuam o caso fictício da ValeVerde. Os fatos de cada ficha valem **dentro do exercício**. Eles não são observações do Juice Shop ou evidências de incidentes reais.
+Os documentos desta página continuam o caso fictício da ValeVerde. **R01 e R02 descrevem a situação original, anterior às propostas de política e procedimento da A08.** Use essas propostas para planejar o tratamento; sua redação ou aprovação simulada não demonstra que a condição original foi corrigida. Os fatos de cada ficha valem dentro do exercício e não são observações de sistemas reais.
 
 ### R01 — Publicação de informação interna
 
@@ -36,13 +36,13 @@ Os documentos desta página continuam o caso fictício da ValeVerde. Os fatos de
 
 | Campo | Informação fornecida |
 |---|---|
-| Processo e ativo | Suporte contratado; identidade de manutenção e projetos de engenharia. |
+| Processo e ativo | Manutenção contratada do portal; identidade de suporte, configurações e dados dos pedidos digitais. |
 | Condição | A identidade usada pelo fornecedor não tem expiração automática demonstrada e não permite atribuir individualmente todas as ações. |
-| Evento de risco | O acesso é usado fora da janela aprovada para consultar ou alterar projetos sem a autorização correspondente. |
-| Consequência | Alteração indevida de projetos e atraso na manutenção. A possibilidade de efeito sobre produção precisa de avaliação da operação; não há demonstração de caminho direto até o CLP. |
-| Evidência **R02-E1** | Das cinco autorizações vencidas examinadas na A08, uma não tem comprovação de encerramento. Não há demonstração de uso indevido. |
+| Evento de risco | O acesso é usado fora da janela aprovada para consultar dados dos pedidos ou alterar configurações do portal sem a autorização correspondente. |
+| Consequência | Divulgação ou alteração indevida de dados dos pedidos e indisponibilidade do portal. A extensão do impacto depende das permissões efetivas da identidade e das condições de recuperação, ainda não verificadas. |
+| Evidência **R02-E1** | Das cinco autorizações vencidas de suporte ao portal examinadas na A08, uma não tem comprovação de encerramento. Não há demonstração de uso indevido. |
 | Evidência **R02-E2** | O acordo exige solicitação aprovada, mas não define atribuição individual, expiração ou verificação de encerramento. |
-| Controle existente | A manutenção deve ocorrer em janela acompanhada pela operação; a amostra não prova que isso ocorreu em todos os casos. |
+| Controle existente | Para este exercício, o agendamento prevê uma janela de manutenção acompanhada por TI. O acordo ainda não identifica quem pode aprovar o acesso, e a amostra não prova que o acompanhamento ocorreu em todos os casos. |
 | Incerteza | Não sabemos se a autorização sem registro ainda está ativa nem quais permissões efetivas alcança. Isso exige verificação autorizada. |
 
 **Primeira leitura:** localize, em cada ficha, uma evidência e uma incerteza. Complete oralmente: “posso usar esta informação para avaliar…, mas ainda não posso afirmar…”. Não crie novos ativos ou uma narrativa de invasão para tornar o risco mais convincente.
@@ -70,9 +70,9 @@ As categorias abaixo são uma **convenção didática da ValeVerde**, não uma e
 |---|---|
 | **Limitada** | Retrabalho localizado, sem divulgação relevante de informação interna e sem interrupção significativa do processo considerado. |
 | **Relevante** | Divulgação de informação comercial interna ou interrupção que exige coordenação de mais de uma equipe para recuperar a função. |
-| **Grave** | Comprometimento de projetos essenciais ou interrupção que a operação avalia como capaz de impedir a manutenção/produção na janela necessária. |
+| **Grave** | Perda de integridade dos pedidos que impeça seu processamento confiável, ou indisponibilidade que impeça receber pedidos no período necessário ao negócio. |
 
-Se houver possibilidade sustentada de dano a pessoas ou condição física insegura, a decisão exige participação imediata da operação e da autoridade competente. Não se aceita esse cenário apenas porque uma célula da matriz parece favorável. Em R02, o caminho e a consequência física permanecem desconhecidos; a ficha não permite inventá-los.
+Para classificar R02 como grave, explicite que permissão permitiria afetar os pedidos, por quanto tempo o serviço poderia ficar indisponível e que recuperação seria possível. A ficha não fornece todas essas respostas: registre a premissa e a confirmação necessária com TI e o gestor comercial.
 
 ### Critérios de plausibilidade
 
@@ -100,7 +100,7 @@ Use a matriz apenas depois de justificar as categorias. Não transforme as palav
 - “Planejar tratamento” exige ação, responsável e condição de acompanhamento.
 - “Tratar prioritariamente” exige ação antes da próxima janela ou decisão formal sobre uma alternativa temporária, com limites e revisão.
 - O gestor compara alternativas considerando dependências, reversibilidade, recurso e efeito operacional. Empate na matriz não significa equivalência dos riscos.
-- Exceções acima do limite do gestor são encaminhadas à direção, com participação da operação quando a produção puder ser afetada.
+- Exceções acima do limite do gestor comercial são encaminhadas à direção. TI informa o efeito técnico e o gestor avalia o impacto no recebimento e processamento dos pedidos.
 
 Essas regras constituem **critérios de aceitação e encaminhamento** para a simulação. A disposição geral de uma organização para assumir riscos precisa ser traduzida em limites utilizáveis nas decisões concretas. Nenhuma matriz autoriza descumprir uma obrigação aplicável.
 
@@ -132,7 +132,7 @@ Agora percorra o mesmo caminho, sem copiar as categorias de R01:
 3. Use a matriz para encaminhar. A próxima ação deve incluir tratamento, coleta adicional ou ambos?
 4. Indique qual papel precisa participar antes de alterar a condição de suporte.
 
-O professor registra as alternativas e compara suas premissas. O critério de qualidade é a rastreabilidade da escolha. Dizer “é industrial, então sempre é o mais grave” não substitui a análise da função e da consequência.
+Compare as alternativas e suas premissas. O critério de qualidade é a rastreabilidade da escolha. Dizer “é acesso de fornecedor, então sempre é o mais grave” não substitui a análise das permissões, dos dados e do serviço afetados.
 
 ## 4. Escolher um tratamento exige preservar o que precisa funcionar
 
@@ -153,14 +153,14 @@ As estimativas abaixo foram fornecidas para a simulação; não são preços ou 
 
 - Há **oito horas técnicas** disponíveis antes da próxima janela.
 - A consulta interna aos documentos pode continuar por um canal já disponível.
-- A manutenção agendada é necessária; suspendê-la exige que a operação avalie a consequência e aprove uma alternativa.
-- Nenhuma mudança no processo físico será executada nesta aula.
+- A manutenção agendada do portal é necessária; suspendê-la exige que o gestor comercial avalie o efeito sobre os pedidos, com apoio de TI, e aprove uma alternativa.
+- Os registros serão analisados em papel ou editor; nenhuma mudança será executada no portal.
 
 | Opção | Medida candidata | Esforço estimado | Função preservada e condição | Limitação a avaliar |
 |---|---|---:|---|---|
 | **C1 — R01** | Retirar da publicação pública os documentos internos e adicionar aprovação de conteúdo | 2h | Consulta permanece pelo canal interno; verificar que a publicação pública necessária continua funcionando | Outros caminhos de publicação precisam de revisão. |
 | **C2 — R01** | Criar acesso restrito no portal para esses documentos | 8h | Pode manter consulta no portal se implementação e testes forem adequados | Consome toda a disponibilidade; a autorização ainda precisa de validação. |
-| **C3 — R02** | Preparar acesso temporário acompanhado, com aprovação, registro e conferência de encerramento | 6h | Depende de supervisor disponível e aprovação da operação | Solução temporária; atribuição individual e eficácia precisam de confirmação. |
+| **C3 — R02** | Preparar acesso temporário acompanhado, com aprovação, registro e conferência de encerramento | 6h | Depende de supervisor de TI disponível e aprovação do gestor comercial para o serviço de pedidos | Solução temporária; atribuição individual e eficácia precisam de confirmação. |
 | **C4 — R02** | Substituir o mecanismo por identidades individuais e expiração verificada | 12h | Requer preparação e janela acordada | Não cabe integralmente antes da janela atual. |
 | **C5 — R02** | Suspender o acesso remoto até resolver a condição | 1h | Depende de alternativa de manutenção aprovada | Pode atrasar manutenção; não decidir apenas pelo baixo esforço. |
 
@@ -182,7 +182,7 @@ A decisão fica **planejada**, não “risco eliminado”. Antes de alegar redu�
 Restam seis horas após C1. Compare C3, C4 e C5 para R02. A soma das horas informa viabilidade de esforço, mas não prova que a opção atende às restrições. Escreva uma alternativa escolhida e uma rejeitada, com premissa, efeito operacional e autoridade necessária.
 
 !!! question "A condição mudou"
-    A operação informa que o supervisor previsto para acompanhar a manutenção não estará disponível. A opção C3 ainda está pronta para uso? Reabra a premissa, proponha o encaminhamento e identifique quem pode aprová-lo. Não suponha que alguém ocupará o papel sem autorização e recurso.
+    TI informa que o supervisor previsto para acompanhar a manutenção do portal não estará disponível. A opção C3 ainda está pronta para uso? Reabra a premissa, proponha o encaminhamento e identifique quem pode aprová-lo. Não suponha que alguém ocupará o papel sem autorização e recurso.
 
 Essa mudança mostra por que uma decisão precisa guardar suas condições. A recomendação pode ter sido adequada no momento anterior e deixar de ser executável diante da nova informação.
 
@@ -251,7 +251,6 @@ A organização recebeu riscos formulados, definiu critérios comuns, comparou a
 
 - [NIST SP 800-30 Rev. 1 — Guide for Conducting Risk Assessments](https://csrc.nist.gov/pubs/sp/800/30/r1/final) — preparação, avaliação e manutenção dos resultados.
 - [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) — gestão da segurança no contexto da organização.
-- [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) — considerações de segurança e operação OT, aprofundadas nos encontros seguintes.
 - Consulta do curso: [análise qualitativa](../gestao_riscos/analise_qualitativa.md) e [estratégias de gerenciamento](../gestao_riscos/estrategias_gerenciamento.md).
 
 Fontes consultadas em 8 de setembro de 2026. Categorias, matriz, fichas, estimativas de esforço e condições operacionais são convenções fictícias do exercício, não prescrições universais dos referenciais.
@@ -272,13 +271,13 @@ Use o [modelo editável do registro](../assets/m1/A09-modelo-governanca-riscos.t
 
 - **Governança:** nos [registros G01–G04 da A08](A08-governanca-sgsi.md#2-o-caso-valeverde-documentos-para-examinar), o acordo exige aprovação para suporte, mas não define quem pode concedê-la; uma das cinco autorizações vencidas não tem comprovação de encerramento.
 - **Riscos:** nas [fichas R01 e R02 desta aula](#1-receber-riscos-formulados-sem-reiniciar-a-investigacao), compare publicação indevida de informação interna e acesso de manutenção além do prazo. Separe evidência fornecida de condição desconhecida.
-- **Recursos e alternativas:** use os critérios e a tabela C1–C5 desta página. Considere C1 para R01, com consumo de duas das oito horas disponíveis; restam seis horas para encaminhar R02. A operação precisa preservar o recebimento de pedidos e avaliar o efeito de qualquer suspensão da manutenção.
+- **Recursos e alternativas:** use os critérios e a tabela C1–C5 desta página. Considere C1 para R01, com consumo de duas das oito horas disponíveis; restam seis horas para encaminhar R02. O gestor comercial e TI precisam preservar o recebimento de pedidos e avaliar o efeito de qualquer suspensão da manutenção do portal.
 
 ### 2. Defina quem pode decidir e acompanhar
 
-Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Use a [política de referência da ValeVerde](A08-governanca-sgsi.md#politica-valeverde): adapte uma diretriz ao acesso de manutenção, justifique a alteração e indique quem pode aprová-la. Identifique a referência usada; não reproduza a política inteira. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
+Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Use o **item 8 — Serviços contratados e mudanças** da [política de referência da ValeVerde](A08-governanca-sgsi.md#politica-valeverde). Avalie se a diretriz atende ao suporte do portal: mantenha-a ou adapte-a se necessário, justificando sua decisão e indicando quem pode aprová-la. Explique que detalhe deverá constar do procedimento e que registro permitirá verificar sua execução. Identifique a referência usada; não reproduza a política inteira. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
 
-Formule um objetivo verificável e uma rotina de acompanhamento: resultado esperado, conjunto observado, critério, fonte de evidência, responsável e momento de revisão. Se já tiver essas anotações da A08, revise-as para o acesso de manutenção.
+Formule um objetivo verificável e uma rotina de acompanhamento: resultado esperado, conjunto observado, critério, fonte de evidência, responsável e momento de revisão. Se já tiver essas anotações da A08, revise-as para o acesso de manutenção do portal.
 
 **Confira:** outra pessoa consegue identificar a decisão, a autoridade necessária, o executor e a evidência de acompanhamento?
 
@@ -288,7 +287,7 @@ Para R01 e R02, registre evidência, consequência e justificativa, plausibilida
 
 ### 4. Revise a decisão quando o fornecedor pedir mais tempo
 
-**Variação V1:** o Suporte Norte pede que a mesma identidade de manutenção permaneça disponível por mais **48 horas**, pois outro técnico assumirá o atendimento. O supervisor original estará ausente. Existe um substituto possível, mas sua disponibilidade e autoridade ainda não foram confirmadas. O pedido não contém nova aprovação nem descreve como o acesso será encerrado.
+**Variação V1:** o Suporte Norte pede que a mesma identidade de manutenção do portal permaneça disponível por mais **48 horas**, pois outro técnico assumirá o atendimento. O supervisor de TI originalmente previsto estará ausente. Existe um substituto possível, mas sua disponibilidade e autoridade ainda não foram confirmadas. O pedido não contém nova aprovação nem descreve como o acesso será encerrado.
 
 Escolha um encaminhamento para R02 e compare-o com outra alternativa. Explique:
 
@@ -304,7 +303,7 @@ Uma solicitação do fornecedor não equivale a aprovação. Se a alternativa de
 
 | Critério de avaliação | Evidência esperada no PDF |
 |---|---|
-| Governança | Contexto, escopo, adaptação justificada da política e papéis permitem decidir e escalar; objetivo e rotina são verificáveis. |
+| Governança | Contexto e escopo do portal, avaliação justificada da diretriz, desdobramento em procedimento/registro e papéis permitem decidir e escalar; objetivo e rotina são verificáveis. |
 | Avaliação | R01 e R02 usam critérios comuns, evidências identificadas e incertezas explícitas. |
 | Tratamento | A decisão para R02 compara duas alternativas, considera V1, seis horas restantes e preservação da operação. |
 | Acompanhamento | Autoridade, residual estimado, evidência necessária e gatilho de revisão estão registrados. |

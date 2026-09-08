@@ -114,7 +114,7 @@ O Suporte Norte também apoia a engenharia em períodos de manutenção previame
 | **G01 — Organização** | Direção aprova recursos; comercial responde pelos pedidos e pela finalidade das informações comerciais; TI administra portal e identidades; operação aprova intervenções que afetem produção; fornecedor executa o suporte contratado. | Que já esteja definido quem pode aprovar a divulgação pública das planilhas de margens ou substituir um aprovador ausente. |
 | **G02 — Chamado de publicação** | A TI retirou a cópia pública de `margens-agosto.xlsx` e confirmou que seu endereço deixou de entregá-la, mantendo o catálogo acessível. Encerrou o atendimento sem definir quem aprova novas publicações. Na semana seguinte, `margens-setembro.xlsx` ficou pública após pedido de atualização interna ao fornecedor. | Que houve correção da regra de autorização para novos arquivos ou que terceiros baixaram as planilhas. |
 | **G03 — Acordo de suporte** | O fornecedor executa mudanças mediante solicitação aprovada. O texto não define quem pode aprovar, por quanto tempo vale o acesso ou como confirmar seu encerramento. | Que um pedido de atualização autorize divulgação pública ou que qualquer solicitante possa liberar manutenção. |
-| **G04 — Revisão de acessos** | De seis autorizações de suporte examinadas, cinco já venceram. Quatro das cinco têm registro de encerramento; uma não tem comprovação. A sexta tem prorrogação aprovada e ainda está vigente. | Que a autorização sem comprovação permaneça tecnicamente ativa. É necessário verificar. |
+| **G04 — Revisão de acessos** | De seis autorizações de manutenção do portal examinadas, cinco já venceram. Quatro das cinco têm registro de encerramento; uma não tem comprovação. A sexta tem prorrogação aprovada e ainda está vigente. | Que a autorização sem comprovação permaneça tecnicamente ativa. É necessário verificar. |
 
 **Como analisar:** o acordo G03 exige uma aprovação, mas não identifica o papel que pode concedê-la. Registre “autoridade de aprovação não definida no acordo” e indique que definição precisa ser obtida. Depois encontre outra lacuna de responsabilidade nos registros. A ausência de aprovação documentada exige confirmação; sozinha, não demonstra invasão ou intenção maliciosa.
 
@@ -207,11 +207,7 @@ Comece pelo serviço de pedidos digitais e identifique o que permite seu funcion
 | Trabalho de TI e funcionamento do portal | A equipe mantém os recursos que recebem pedidos e disponibilizam documentos. |
 | Serviço de manutenção do Suporte Norte | A empresa conta com esse fornecedor para realizar manutenção no portal. |
 
-### O que significa “dependência” aqui?
-
-A ValeVerde contrata o Suporte Norte para realizar manutenção no portal. Para executar esse serviço, conta com o trabalho de outra empresa. **Essa necessidade de contar com um serviço, uma pessoa ou um recurso é uma dependência.** Como o Suporte Norte pertence a outra empresa, temos uma **dependência externa**.
-
-Por isso, o escopo precisa considerar a manutenção contratada e o acesso do fornecedor ao portal. Isso delimita o serviço que será acompanhado. As regras sobre quem autoriza o acesso, por quanto tempo e como verificar seu encerramento serão estabelecidas na construção da política e dos procedimentos. A ValeVerde não passa a administrar toda a empresa fornecedora; considera a parte do serviço que atende ao seu portal.
+A manutenção do portal depende do serviço prestado pelo Suporte Norte. Essa relação é uma **dependência externa**: uma atividade da ValeVerde precisa do trabalho de outra organização. Por isso, o escopo deve considerar o serviço contratado e o acesso necessário para realizá-lo.
 
 ### Compare duas formas de escrever o escopo
 
@@ -227,6 +223,26 @@ A proposta B identifica o conjunto para o qual a empresa vai estabelecer políti
 
 !!! question "Confira seu escopo"
     A manutenção do portal faz parte da proposta B mesmo sendo executada por outra empresa? Localize o trecho que sustenta sua resposta e explique por que a ValeVerde depende desse serviço. Você está verificando o que o escopo abrange; as regras de acesso ainda serão definidas.
+
+<a id="passo-1-definir-contexto-necessidades-e-escopo"></a>
+
+**Registro 1 — contexto e escopo:** use a proposta B e identifique uma necessidade de quem depende do portal, sua fonte e uma informação ainda a confirmar. O item 1 da política a seguir deverá abranger esse mesmo conjunto.
+
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
+  <img src="../../assets/m1/esquemas/A08-passo1-escopo.svg" alt="O escopo inclui portal, pedidos, documentos e a manutenção contratada; Suporte Norte é a empresa externa que presta esse serviço." loading="lazy" />
+  </div>
+  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo1-escopo.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</figure>
+
+**Leia os limites:** a manutenção contratada está dentro do escopo do SGSI; a empresa Suporte Norte é quem presta esse serviço. Incluir o serviço não significa administrar toda a empresa fornecedora.
+
+A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto. Registre sua relevância como “a confirmar” enquanto faltarem dados e indique a informação necessária; o caso não permite concluir seu efeito sobre energia ou conectividade. [Emenda oficial](https://www.iso.org/standard/88435.html).
+
+!!! example "Exemplo público — como a UCL delimita seu SGSI"
+    A **University College London (UCL)** publica o escopo do SGSI de seus dados de pesquisa. O documento delimita ambientes de pesquisa confiáveis que processam dados altamente confidenciais; identifica pessoas e serviços envolvidos e explicita elementos fora do escopo. Isso torna a fronteira verificável, em vez de declarar apenas “proteger a universidade”. Consulte **1. Scope Statement** (declaração de escopo), **4. Scope Overview** (visão do escopo) e **8. Out of scope** (fora do escopo) no [RISM01, versão 10.4, revisão de 31/03/2025](https://isms.arc.ucl.ac.uk/rism01-scope/).
+
+    **Aplique à ValeVerde:** escreva uma frase que inclua o portal, a publicação de documentos e a interface com o suporte. Depois indique uma exclusão e explique por que ela não elimina uma dependência relevante. A fronteira escolhida pela UCL atende ao contexto de pesquisa; a ValeVerde precisa justificar a sua.
 
 O escopo responde **“o que será abrangido?”**. A política a seguir responde **“quais compromissos e orientações de segurança serão adotados para esse conjunto?”**.
 
@@ -323,132 +339,52 @@ A política proposta oferece orientação para o conjunto. Ela não torna obriga
 
 **Confira:** qual item orientaria a preparação de um novo integrante da equipe? Indique também um registro que permitiria verificar se a preparação aconteceu. Localizar a orientação e demonstrar sua execução são duas partes do mesmo trabalho.
 
-## 5. Responsabilidade precisa de autoridade e recurso
+## 5. Transformar a orientação em responsabilidades {#5-responsabilidade-precisa-de-autoridade-e-recurso}
 
-“TI é responsável pela segurança” concentra decisões diferentes numa frase que não explica quem pode agir. O analista pode configurar uma conta, mas talvez não possa aceitar uma interrupção de produção ou aprovar a contratação de pessoal.
+O item 8 da política propõe que o acesso de fornecedores tenha **finalidade e período definidos, autorização, acompanhamento e encerramento**. Para colocar essa orientação em prática, precisamos identificar quem decide, quem executa e quem confere o resultado.
 
-**Proprietário do risco** é o papel com responsabilidade e autoridade para gerir aquele risco no contexto definido. **Executor do controle** realiza a medida. **Aprovador de exceção** pode autorizar uma condição diferente da regra, dentro de limites estabelecidos. **Responsável operacional** avalia o efeito da intervenção sobre o funcionamento do processo. Em uma organização pequena, uma pessoa pode acumular funções; as decisões e os limites ainda precisam ficar claros.
+**Proprietário do risco** é o papel com responsabilidade e autoridade para gerir o risco. **Executor** realiza a medida; **aprovador de exceção** decide condições diferentes da regra dentro de seus limites. Uma pessoa pode acumular funções, mas precisa conhecer sua responsabilidade e ter autoridade, tempo e recursos.
 
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Decidir, executar e acompanhar são responsabilidades distintas.">
-    <img src="../../assets/m1/esquemas/A08-papeis-decisao.svg" alt="Decidir, executar e acompanhar são responsabilidades distintas." loading="lazy" />
-  </div>
-  <figcaption><strong>Decidir, executar e acompanhar são responsabilidades distintas.</strong> Localize o ponto em que a solicitação precisa de autoridade. Se faltar recurso ou surgir um desvio, a decisão precisa ser reaberta. <a href="../../assets/m1/esquemas/A08-papeis-decisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
+<a id="passo-2-estabelecer-politica-e-autoridade"></a>
 
-### Exemplo trabalhado: colocar a política em prática
+### Avaliar a diretriz antes de decidir alterá-la
 
-| Decisão ou ação | Papel proposto | Condição para agir | Evidência esperada |
-|---|---|---|---|
-| Aprovar a política e disponibilizar recursos | Direção | Conhecer necessidades e prioridades do negócio | Aprovação e decisões de recurso. |
-| Definir prioridades de recuperação dos pedidos | Gestor do processo, apoiado por TI | Avaliar o efeito da interrupção | Prioridades e critérios registrados. |
-| Preparar equipes e comunicar orientações | Gestores e responsável pelo SGSI | Tempo, material vigente e competência | Preparação e avaliação de compreensão. |
-| Executar e verificar medidas técnicas | TI e prestadores responsáveis | Autoridade, recursos e procedimento | Execução e resultado da verificação. |
+**Exemplo trabalhado — manter uma diretriz adequada:** o item 8 já exige aprovação e prazo para o suporte ao portal. Vamos mantê-lo, pois atende à necessidade do caso. O que falta é o procedimento definir aprovador, pedido, prazo e conferência. Escrever nomes e horários nesse procedimento não exige alterar a política.
 
-Os papéis são uma proposta para o exercício, não cargos prescritos pela ISO. Uma solicitação urgente do fornecedor ainda precisa encontrar uma autoridade definida; a política prevê delegações, e o procedimento deverá identificar quem pode substituir o aprovador.
+| Avaliação da diretriz | Decisão | Desdobramento operacional |
+|---|---|---|
+| O acesso do Suporte Norte precisa ter finalidade, autorização e prazo. O item 8 já orienta esses pontos. | **Manter**, com essa justificativa. | Definir quem aprova, como registrar o período e quem comprova o encerramento. |
 
-**Confira as responsabilidades:** para cada linha do seu quadro, tente responder: a pessoa sabe que recebeu a responsabilidade? Pode tomar a decisão? Tem recurso para executá-la? Quem recebe a informação se ela não puder agir? Uma lacuna em qualquer resposta impede considerar o arranjo concluído.
+**Quando adaptar?** Considere uma condição adicional hipotética: a empresa decide exigir avaliação conjunta de negócio e TI para mudanças que possam interromper pedidos. Uma redação proposta seria: “Mudanças que possam interromper o recebimento de pedidos dependerão de avaliação conjunta do responsável pelo serviço e de TI.” A justificativa é preservar a continuidade; nomes, horários e formulário continuam no procedimento. Essa condição ilustra uma adaptação possível, não um novo requisito obrigatório da atividade.
 
-## 6. Objetivos que permitem descobrir se a gestão funciona
+### Arranjo proposto para o exercício
 
-“Melhorar a segurança” expressa intenção, mas não informa como reconhecer melhora. Um objetivo útil relaciona resultado, objeto acompanhado, responsável, horizonte e critério de avaliação.
+O item 3 da política atribui à direção a definição de autoridades. **Suponha, somente para a simulação em papel, que a direção tenha designado os papéis abaixo.** Essa designação fictícia não demonstra implantação do SGSI.
 
-Considere o objetivo didático:
+| Papel no exemplo | Pessoa fictícia | Autoridade e recurso necessários |
+|---|---|---|
+| Responsável pelo serviço de pedidos | Marina, gestora comercial | Aprovar a finalidade e o período da manutenção do portal; avaliar impacto no atendimento. |
+| Coordenação de TI | Paulo | Examinar viabilidade técnica, acompanhar a manutenção e encaminhar impedimentos. |
+| Execução contratada | Lia, do Suporte Norte | Executar somente a manutenção autorizada, com os meios de acesso que forem verificados. |
+| Conferência do encerramento | Rui, de TI | Examinar os registros e comprovar o encerramento; encaminhar ausência de evidência. |
+| Exceções acima desses limites | Direção | Decidir e registrar o tratamento das exceções; designar substituto quando necessário. |
 
-> “Na próxima revisão semanal, toda autorização de suporte cujo prazo tenha vencido terá uma verificação registrada de encerramento ou uma exceção válida identificada. TI reúne as evidências; o gestor do processo analisa os desvios; casos sem responsável são escalados à direção.”
+**Registro 2 — diretriz e papéis:** identifique PSI-VV-01, item 8; registre “manter” ou uma adaptação necessária, com justificativa. Relacione aprovador, executor, responsável pela conferência e encaminhamento na ausência de autoridade. Não copie a política inteira.
 
-O objetivo nomeia o universo observado: autorizações vencidas. Não mistura contas ainda válidas com as que deveriam ter terminado. Também distingue ausência de comprovação de acesso efetivamente ativo.
-
-### Ler uma medida antes de tirar uma conclusão
-
-O registro G04 reúne seis autorizações de suporte do fornecedor. Cinco já venceram. Quatro têm comprovação de encerramento. Portanto, a proporção com encerramento comprovado entre as vencidas é **4 ÷ 5 = 80%**. A sexta não entra nesse denominador porque sua prorrogação válida ainda não venceu.
-
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Quatro encerramentos comprovados entre cinco autorizações vencidas.">
-    <img src="../../assets/m1/esquemas/A08-medida-evidencia.svg" alt="Quatro encerramentos comprovados entre cinco autorizações vencidas." loading="lazy" />
-  </div>
-  <figcaption><strong>Quatro encerramentos comprovados entre cinco autorizações vencidas.</strong> O ponto de interrogação significa falta de comprovação, não abuso demonstrado. A autorização ainda vigente fica fora do denominador. <a href="../../assets/m1/esquemas/A08-medida-evidencia.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
-
-O resultado indica uma lacuna de comprovação em uma autorização vencida. Não demonstra que 20% da rede está insegura, nem que houve uso indevido. A próxima ação é verificar a autorização sem comprovação, decidir a resposta e corrigir o processo que permitiu a lacuna.
-
-Uma meta de 100% nesse exemplo é uma escolha didática da organização, não um percentual universal imposto pela ISO. Mesmo atingida, ela mede o cumprimento desse critério; não prova segurança absoluta.
-
-### Informação documentada e melhoria
-
-A regra vigente precisa ser identificável: título, responsável, aprovação, versão e local de consulta. O registro de execução precisa permitir reconstruir o que foi feito. Manter acesso adequado e controlar alterações evita que duas equipes sigam instruções incompatíveis.
-
-**Monitoramento** acompanha uma condição ou resultado. **Auditoria** examina evidências em relação a critérios definidos, com objetividade e imparcialidade. **Análise crítica da direção** usa resultados e mudanças para decidir adequação, prioridade e recursos. As três atividades podem se alimentar, mas não são o mesmo trabalho.
-
-Se a revisão encontrar um acesso sem comprovação, a correção resolve aquela situação. A ação sobre a causa pode modificar o procedimento de encerramento e sua responsabilidade. Depois será necessário verificar se a mudança evitou a recorrência. “Escrever uma nova política” é uma ação possível; seu efeito ainda precisa de evidência.
-
-## 7. Passo a passo: construir o SGSI da ValeVerde {#passo-a-passo-sgsi}
-
-Abra o [modelo do registro de governança e riscos](../assets/m1/A09-modelo-governanca-riscos.txt) ou use um editor de texto. Identifique o registro como **“SGSI ValeVerde — esboço”**, com responsável pela redação, versão e data. Use os oito passos abaixo para ligar cada decisão ao que precisará existir na empresa.
-
-Em cada registro, distinga **proposto**, **aprovado**, **executado** e **verificado**. Os exemplos são propostas para o exercício. Uma aprovação simulada não comprova implantação na empresa, e um plano de auditoria não é auditoria realizada.
-
-### Passo 1 — Definir contexto, necessidades e escopo
-
-**Onde procurar na norma:** seção 4, especialmente 4.1, 4.2 e 4.3.
-
-**Faça:** descreva o processo a proteger e identifique quem depende dele. Registre a necessidade de cada parte interessada, sua origem e o que ainda precisa confirmar. Depois delimite o escopo, incluindo as interfaces com fornecedores.
-
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
-  <img src="../../assets/m1/esquemas/A08-passo1-escopo.svg" alt="Comercial, TI, pedidos e portal dentro do escopo proposto; Suporte Norte fornece manutenção externa." loading="lazy" />
-  </div>
-  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo1-escopo.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
-
-**Leia o esquema:** o suporte está fora da equipe da ValeVerde, mas seu serviço atende ao portal. Por isso, a manutenção contratada precisa ser considerada no escopo. A relação com a embalagem ainda precisa ser esclarecida.
-
-Use a proposta B da seção 4 para escrever o escopo. Acrescente uma necessidade de quem utiliza o serviço e sua fonte. Obrigações legais e contratuais devem ser verificadas, não inventadas.
-
-**Registre:** `processo → parte interessada → necessidade/fonte → limite ou dependência`.
-
-**Confira:** é possível decidir se uma publicação de planilha e uma solicitação de manutenção pertencem ao escopo? Se a resposta depender apenas de uma lista de servidores, revise o texto.
-
-A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto dos sistemas de gestão. Na ValeVerde, cabe verificar sua relevância, por exemplo, para a continuidade de energia e conectividade; o caso não fornece dados para concluir que esse risco existe ou foi tratado. [Emenda oficial](https://www.iso.org/standard/88435.html).
-
-!!! example "Exemplo público — como a UCL delimita seu SGSI"
-    A **University College London (UCL)** publica o escopo do SGSI de seus dados de pesquisa. O documento delimita ambientes de pesquisa confiáveis que processam dados altamente confidenciais; identifica pessoas e serviços envolvidos e explicita elementos fora do escopo. Isso torna a fronteira verificável, em vez de declarar apenas “proteger a universidade”. Consulte **1. Scope Statement** (declaração de escopo), **4. Scope Overview** (visão do escopo) e **8. Out of scope** (fora do escopo) no [RISM01, versão 10.4, revisão de 31/03/2025](https://isms.arc.ucl.ac.uk/rism01-scope/).
-
-    **Aplique à ValeVerde:** escreva uma frase que inclua o portal, a publicação de documentos e a interface com o suporte. Depois indique uma exclusão e explique por que ela não elimina uma dependência relevante. A fronteira escolhida pela UCL atende ao contexto de pesquisa; a ValeVerde precisa justificar a sua.
-
-### Passo 2 — Estabelecer política e autoridade
-
-**Onde procurar:** seção 5, com política em 5.2 e papéis em 5.3.
-
-**Faça:** use a [política de referência da ValeVerde](#politica-valeverde). Escolha uma diretriz que precise de adaptação ao escopo registrado e justifique a mudança. Indique quem poderá aprová-la e que procedimento precisará detalhá-la.
-
-**Exemplo breve:** o compromisso de continuidade do item 7 precisa ser convertido em prioridades e procedimentos de recuperação adequados aos pedidos digitais. A política fornece a orientação; os responsáveis devem definir como cumpri-la e verificar o resultado.
-
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
-  <img src="../../assets/m1/esquemas/A08-passo2-autoridade.svg" alt="Direção aprova política, autoridade decide sobre acesso e TI executa; ausência exige substituto autorizado." loading="lazy" />
-  </div>
-  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo2-autoridade.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
-
-**Leia o esquema como proposta de papéis.** Aprovar a política e autorizar um acesso são decisões diferentes. Indique quem poderá assumir cada uma e como encaminhar pedidos na ausência do aprovador.
-
-**Registre:** identificação da política de referência, diretriz adaptada, justificativa, aprovador e papéis. Não copie a política inteira.
-
-**Confira:** um pedido urgente do fornecedor encontra uma pessoa autorizada a decidir e uma forma de escalonamento? “TI resolve” ainda deixa a decisão indefinida.
+**Confira:** o item 7 da política também orienta recuperação e proteção dos pedidos. Qual papel precisaria decidir a prioridade de recuperação e qual precisaria verificar sua viabilidade técnica? Isso mostra como os mesmos papéis atendem a outra necessidade do serviço.
 
 !!! example "Exemplo público brasileiro — política e aprovação no LNCC"
     O **Laboratório Nacional de Computação Científica (LNCC)** publica sua Política de Segurança da Informação, versão 3.1, de 21/10/2025. Na **seção 1**, a política registra compromisso da administração, atendimento a requisitos e melhoria contínua. A **seção 15** separa elaboração, verificação e aprovação. Localize essas seções nas páginas **1–2 e 18** do [PDF oficial do LNCC](https://www.gov.br/lncc/pt-br/acesso-a-informacao/institucional/politica-de-seguranca-1/politicas-de-seguranca-da-informacao/02-psi-v3-1.pdf).
 
-    **Aplique à ValeVerde:** confira na identificação da política quem mantém o documento e quem aprova; indique quem verificará a viabilidade da adaptação. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
+    **Aplique à ValeVerde:** confira na identificação da política quem mantém o documento e quem aprova; indique quem verificará a viabilidade do procedimento proposto. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
 
     Esse documento permite observar compromissos e responsabilidades formalizados. A execução do SGSI precisaria ser examinada por outros registros. Obrigações próprias de um órgão público brasileiro não são automaticamente requisitos da empresa fictícia.
 
-### Passo 3 — Preparar avaliação e tratamento dos riscos
+## 5.1. Registrar o risco que ainda será avaliado
 
-**Onde procurar:** avaliação em 6.1.2, tratamento em 6.1.3 e objetivos em 6.2. As avaliações e o tratamento também precisam ser realizados e atualizados na operação, tratada na seção 8.
+<a id="passo-3-preparar-avaliacao-e-tratamento-dos-riscos"></a>
 
-**Faça:** defina como comparar riscos e quem pode aceitar a condição que permanecer. Para cada risco, registre informação protegida, condição, consequência, evidência, incerteza e proprietário. Só então compare alternativas de tratamento.
+O item 4 da política orienta avaliar riscos com critérios e decidir seu tratamento. **Nesta aula, registre apenas o risco candidato, a evidência e a pergunta pendente.** A comparação de consequências, plausibilidade e alternativas ocorrerá na A09, com os critérios fornecidos lá.
 
 <figure class="didactic-figure">
   <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
@@ -457,83 +393,104 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto d
   <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo3-risco.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-**Limite da leitura:** falta de comprovação não confirma acesso disponível nem uso indevido. Compare a medida candidata com outras alternativas e preserve a manutenção autorizada.
+No registro G04, falta comprovação de encerramento de uma autorização de manutenção do portal. Isso sustenta a pergunta “o acesso ainda está disponível?” e um risco candidato de uso fora do prazo. Não confirma acesso ativo nem uso indevido.
 
-Na [A09](A09-decisao-de-riscos.md), as fichas R01/R02 e os critérios fornecidos permitem completar essa avaliação. Agora registre o risco candidato e a pergunta pendente. Não antecipe uma classificação sem examinar os critérios.
+**Registro 3 — pendência:** `evidência fornecida → risco candidato → informação a verificar`. A medida mostrada no esquema é uma candidata para análise posterior; não a registre como tratamento escolhido ou eficácia demonstrada.
 
-**Registro de tratamento a construir:** `risco → alternativa → controle necessário → responsável/recurso → residual estimado → aprovação`.
+**Confira:** sua anotação distingue a falta de comprovação da hipótese de uso indevido? A futura escolha de controles será confrontada com o Anexo A da ISO/IEC 27001 e documentada na Declaração de Aplicabilidade; não é preciso produzir essa declaração agora.
 
-**Como isso chega à SoA:** para a medida candidata de encerramento, escreva a justificativa ligada ao risco e marque “proposta; implementação não demonstrada”. A correspondência com o Anexo A da ISO/IEC 27001:2022 e as justificativas de exclusão ainda precisam ser examinadas. Essa linha de trabalho não é uma Declaração de Aplicabilidade completa.
+## 6. Definir o resultado esperado e preparar o trabalho {#6-objetivos-que-permitem-descobrir-se-a-gestao-funciona}
 
-**Confira:** cada controle candidato responde a uma condição identificada? A pessoa indicada pode aprovar o tratamento e aceitar o residual dentro de seus limites?
+<a id="passo-4-definir-objetivos-e-preparar-a-execucao"></a>
 
-### Passo 4 — Definir objetivos e preparar a execução
+O item 5 da política pede objetivos com responsável, prazo e forma de avaliação; o item 6 pede pessoas preparadas e documentos disponíveis. Vamos aplicar essas orientações ao encerramento do acesso previsto no item 8.
 
-**Onde procurar:** objetivo em 6.2, mudanças planejadas em 6.3 e apoio na seção 7.
+> **Objetivo proposto:** na próxima revisão semanal, 100% das autorizações de manutenção do portal cujo prazo vigente já tenha vencido devem ter encerramento comprovado. Rui reúne as evidências; Marina examina as pendências e encaminha as decisões necessárias.
 
-**Faça:** transforme a intenção em resultado verificável e identifique recurso, competência, comunicação e documento necessários. O quadro de responsabilidades só poderá funcionar se as pessoas souberem o que fazer e tiverem condições de agir.
+A data e a hora da revisão são o **corte da medição**: comparamos o prazo vigente de cada autorização com esse instante. Uma prorrogação aprovada e ainda válida fica fora do conjunto de vencidas. Uma autorização já vencida sem comprovação continua sendo pendência; não deve ser retirada do cálculo para melhorar o resultado. A meta de 100% é uma proposta do exercício, não um percentual imposto pela ISO.
 
-**Objetivo proposto:** verificar todas as autorizações vencidas na revisão semanal.
-
-| Para executar o objetivo | Preparação necessária |
+| Preparação | Como viabiliza o objetivo |
 |---|---|
-| TI reúne e confere os registros | Acesso à fonte e tempo reservado. |
-| Aprovador decide sobre exceções | Conhecimento dos limites de sua autoridade. |
-| Fornecedor segue o procedimento | Comunicação da versão vigente. |
-| Empresa troca o fornecedor | Atualização planejada dos papéis e das orientações. |
+| Rui tem acesso aos registros e tempo reservado | Permite conferir cada autorização vencida. |
+| Marina conhece seus limites de decisão | Permite encaminhar pendências sem aprovar condições além de sua autoridade. |
+| Paulo e Lia recebem o procedimento vigente | Permite executar e registrar as etapas previstas. |
+| O procedimento identifica versão, responsável e aprovação | Permite reconhecer a orientação que deve ser seguida. |
 
-Um procedimento simples pode orientar: receber pedido com finalidade e prazo, obter aprovação, executar acesso delimitado, conferir encerramento e registrar desvio. Dê ao documento título, versão, responsável e aprovação. Identifique onde a versão vigente ficará disponível e quem pode alterá-la.
+**Procedimento proposto PR-VV-01, versão 0.1:** receber pedido com finalidade, identidade e período; encaminhar a Marina após exame técnico de Paulo; registrar a decisão; executar somente se houver aprovação e condições verificadas; Rui confere o encerramento e registra qualquer pendência. O procedimento depende de aprovação antes do uso real.
 
-**Registre:** `objetivo → ação → recurso/competência → comunicação → prazo → critério de avaliação`.
+**Registro 4 — objetivo e preparação:** guarde a meta, o conjunto observado, a data de corte a usar, responsáveis e recursos. Na próxima seção, testaremos a clareza desse procedimento com um pedido concreto e depois calcularemos a medida com a amostra G04.
 
-**Confira:** uma pessoa recém-designada conseguiria executar a tarefa usando a orientação vigente? Se depender de “alguém explica depois”, falta apoio para a operação.
+**Confira:** outro integrante conseguiria localizar a versão vigente, identificar quem decide e saber qual evidência precisa guardar?
 
-### Passo 5 — Colocar o processo em operação e guardar o rastro
+## 7. Aplicar o procedimento e verificar o resultado {#passo-a-passo-sgsi}
 
-**Onde procurar:** seção 8, incluindo controle operacional e execução da avaliação e do tratamento.
+Os quatro primeiros passos produziram escopo, avaliação da diretriz e papéis, risco candidato e objetivo. Agora usaremos esses registros em uma **simulação em papel**. A política continua proposta; a designação e a aprovação abaixo são condições fictícias para testar o raciocínio. Elas não modificam os documentos originais G01–G04 nem comprovam execução.
 
-**Faça:** aplique o procedimento a uma solicitação, conservando a aprovação e o resultado. Mudanças e serviços externos relevantes ao SGSI também precisam de controle.
+### Passo 5 — Colocar o procedimento à prova
 
-**Simulação em papel:** examine um pedido do Suporte Norte com finalidade, identidade, início, fim e responsável pelo encerramento. Confira também quem pode aprová-lo.
+<a id="passo-5-colocar-o-processo-em-operacao-e-guardar-o-rastro"></a>
+
+**Orientação aplicada:** item 8 da política — acesso com finalidade e período, autorização, acompanhamento e encerramento. A seção 8 da ISO/IEC 27001 trata da operação do que foi planejado.
+
+#### Solicitação S01 — manutenção do portal
+
+| Campo | Dado fictício fornecido |
+|---|---|
+| Finalidade | Corrigir a apresentação do catálogo no portal, preservando pedidos e documentos internos. |
+| Solicitante | Setor comercial da ValeVerde. |
+| Técnica indicada | Lia, do Suporte Norte. |
+| Identidade informada | `suporte-portal`; a atribuição individual e as permissões efetivas ainda precisam de verificação. |
+| Período solicitado | 10/09/2026, das 14h às 15h; datas fictícias do caso. |
+| Acompanhamento proposto | Paulo, da coordenação de TI. |
+| Conferência proposta | Rui, de TI, ao término do período. |
+| Aprovação no pedido original | Ausente. |
+
+#### Compare o mesmo pedido em dois estados
+
+| Estado examinado | Decisão sustentada | O que ainda não aconteceu |
+|---|---|---|
+| **Acordo original G03:** exige aprovação, mas não define o aprovador. | Manter S01 pendente e encaminhar a definição da autoridade. | Não há aprovação nem execução demonstrada. |
+| **Arranjo proposto:** Marina tem a autoridade descrita na seção 5 e PR-VV-01 identifica as etapas. | Encaminhar S01 a Marina após exame técnico; registrar sua decisão simulada. | Ter definido papéis não autoriza automaticamente o pedido. |
+
+**Decisão simulada fornecida:** Marina aprova somente a correção do catálogo no período solicitado, condicionada à verificação das permissões da identidade e ao acompanhamento de Paulo. Não autoriza alteração de dados dos pedidos nem divulgação de documentos internos. Se as condições não puderem ser verificadas antes do início, a manutenção não deve começar e o pedido volta à responsável pelo serviço.
 
 <figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema do passo: role lateralmente para ver todos os elementos.">
-  <img src="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" alt="Sem autoridade confirmada, parar e encaminhar. Com autoridade, registrar decisão e executar somente se aprovado; conferir encerramento." loading="lazy" />
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Fluxo do pedido de manutenção, com dois estados de autoridade.">
+    <img src="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" alt="No acordo original, o pedido para por falta de autoridade. No arranjo proposto, registrar a decisão e executar somente se aprovado e com condições verificadas; depois conferir encerramento." loading="lazy" />
   </div>
-  <figcaption>Esquema do caso fictício ValeVerde. <a href="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+  <figcaption>A aprovação simulada permite avaliar a decisão; execução e encerramento ainda precisam de evidência. <a href="../../assets/m1/esquemas/A08-passo5-aprovacao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
 </figure>
 
-**Ponto de parada:** o acordo fornecido não identifica o aprovador. A simulação permanece pendente, mesmo com os outros campos preenchidos.
+**Registro 5 — resultado da simulação:** `S01 → estado examinado → autoridade → decisão e condições → evidência ainda necessária`. Não preencha “executado” ou “encerrado” com base apenas na aprovação.
 
-**Registre:** `pedido → decisão/autoridade → execução → conferência → evidência`, com o estado de cada etapa. Uma simulação testa a clareza do procedimento; a operação real ainda precisará produzir registros.
-
-**Confira:** seria possível reconstruir quem autorizou e quem encerrou o acesso? Sem evidência, mantenha o resultado como desconhecido.
+**Confira:** qual impedimento foi resolvido pela definição dos papéis e qual verificação continua necessária antes de iniciar o acesso?
 
 ### Passo 6 — Medir o resultado sem exagerar a conclusão
 
-**Onde procurar:** seção 9.1.
+**Orientação aplicada:** itens 5 e 10 da política — definir objetivos e acompanhar resultados. A seção 9.1 da ISO trata da medição e avaliação.
 
-**Faça:** defina o que medir, com qual fonte, quem analisa e quando. Use o resultado para localizar um desvio e encaminhá-lo.
+A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha de base para o objetivo de encerramento; não demonstra o efeito de PR-VV-01 ou da simulação S01. Use como corte o instante da revisão descrita em G04.
 
-**Leia a amostra de seis autorizações do registro G04:**
-
-| Situação observada | Quantidade | Entra no cálculo? |
+| Situação no corte da revisão G04 | Quantidade | Tratamento no cálculo |
 |---|---:|---|
-| Vencida, com encerramento comprovado | **4** | Sim: atende ao critério. |
-| Vencida, sem comprovação | **1** | Sim: precisa de verificação. |
-| Ainda vigente | **1** | Não: o prazo ainda não venceu. |
+| Prazo vigente vencido, encerramento comprovado | **4** | Numerador e denominador. |
+| Prazo vigente vencido, sem comprovação | **1** | Somente denominador; pendência. |
+| Prorrogação aprovada e ainda vigente | **1** | Fora do conjunto de vencidas. |
 
-> **4 com comprovação ÷ 5 vencidas = 80%.**
->
-> A medida descreve essa amostra. A falta de comprovação exige verificação de TI.
+<figure class="didactic-figure">
+  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Quatro encerramentos comprovados entre cinco autorizações vencidas.">
+    <img src="../../assets/m1/esquemas/A08-medida-evidencia.svg" alt="Quatro autorizações vencidas têm encerramento comprovado; uma não tem comprovação; a sexta permanece vigente e não entra no denominador." loading="lazy" />
+  </div>
+  <figcaption><strong>4 ÷ 5 = 80%.</strong> A medida descreve encerramentos comprovados nessa amostra, não a segurança global da empresa.</figcaption>
+</figure>
 
-**Registre:** `medida → conjunto observado → resultado → limite → responsável pela verificação`.
+**Registro 6 — medição:** `fonte G04 → corte da revisão → 4/5 → pendência a verificar por TI`. Numa nova revisão, registrar data/hora do corte, prazos vigentes e evidências para recalcular com a mesma regra.
 
-**Confira:** sua conclusão permanece restrita às autorizações examinadas? “A empresa está 80% segura” não é uma interpretação sustentada.
+**Confira:** por que a prorrogação ainda vigente fica fora, mas a autorização vencida sem comprovação precisa permanecer no denominador?
 
 ### Passo 7 — Auditar o processo e levar decisões à direção
 
-**Onde procurar:** auditoria interna em 9.2 e análise crítica da direção em 9.3.
+**Orientação aplicada:** item 10 da política — realizar auditorias e análises críticas em intervalos planejados. Na ISO, auditoria interna está em 9.2 e análise crítica da direção em 9.3.
 
 **Faça:** planeje uma verificação do processo em relação a critérios definidos, com escopo, responsabilidade e imparcialidade. Separe o exame das evidências da decisão da direção sobre adequação, mudanças e recursos.
 
@@ -558,7 +515,7 @@ Um procedimento simples pode orientar: receber pedido com finalidade e prazo, ob
 
 ### Passo 8 — Corrigir o desvio e verificar a melhoria
 
-**Onde procurar:** seção 10, com melhoria contínua em 10.1 e não conformidade/ação corretiva em 10.2.
+**Orientação aplicada:** item 10 da política — tratar desvios, examinar causas e verificar ações. Na ISO, melhoria contínua está em 10.1 e não conformidade/ação corretiva em 10.2.
 
 **Faça:** diante de um requisito não atendido, trate a situação, investigue sua causa, decida a ação necessária e verifique o resultado. Não presuma que toda falta de registro tem a mesma causa.
 
@@ -575,24 +532,33 @@ Um procedimento simples pode orientar: receber pedido com finalidade e prazo, ob
 
 **Confira:** você está propondo a coleta ou já dispõe do resultado? Mantenha essa diferença explícita. O ciclo reabre contexto, riscos e planos quando as condições mudam.
 
-### O que foi construído e o que ainda precisa acontecer
+### Síntese dos oito passos: o que cada registro acrescentou
 
-Você tem um esboço com escopo, política proposta, papéis, objetivo e acompanhamento, além do caminho para avaliar riscos, operar e melhorar. Um SGSI implantado exige que essas decisões sejam aprovadas, executadas e avaliadas com evidências suficientes. A ordem dos oito passos é uma organização deste exercício; a norma não impõe um roteiro único de implantação.
+| Passo | Orientação aplicada | Registro ou estado alcançado nesta aula |
+|---|---|---|
+| 1. Contexto e escopo | Política, item 1: serviços abrangidos. | Portal, pedidos, documentos e manutenção contratada delimitados. |
+| 2. Política e autoridade | Itens 3 e 8: papéis e acesso autorizado. | Diretriz avaliada e arranjo proposto; manutenção ou adaptação justificada. |
+| 3. Riscos | Item 4: critérios e tratamento. | Risco candidato e pergunta; comparação fica para A09. |
+| 4. Objetivo e apoio | Itens 5 e 6: resultado e condições de trabalho. | Meta, responsáveis e procedimento proposto. |
+| 5. Operação | Item 8: acesso delimitado e acompanhado. | S01 com decisão simulada; execução não demonstrada. |
+| 6. Medição | Item 10: acompanhamento. | Linha de base G04: 4/5; efeito da proposta ainda desconhecido. |
+| 7. Auditoria e análise crítica | Item 10: examinar e decidir. | Plano de exame e decisões a encaminhar. |
+| 8. Melhoria | Item 10: tratar causas e verificar eficácia. | Ação condicionada à causa e coleta futura. |
 
-Guarde o esboço. Na atividade ao final da A09, consolide o recorte de governança e a decisão de risco; não apresente o roteiro de implantação como comprovação de conformidade nem como certificação.
+Você tem um **esboço com decisões e pendências**, não um SGSI implantado. A ordem apresentada organiza o exercício; a norma não impõe um roteiro único de implantação. Guarde os registros para a atividade da A09, que completará a avaliação e a decisão de risco.
 
 ## Atividade {#atividade}
 
-Guarde o contexto, o escopo, a adaptação justificada da política de referência, os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
+Guarde o contexto, o escopo, a avaliação da diretriz da política (mantida ou adaptada com justificativa), os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
 
 
 ## Síntese e próxima decisão
 
-A falha conhecida passou a integrar um processo com escopo, autoridade, recursos e acompanhamento. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), reabriremos precisamente o **escopo e a autoridade de decisão** do registro, usando dois riscos já formulados.
+A falha conhecida orientou uma proposta de processo com escopo, autoridade, recursos e acompanhamento. Sua implantação e seu resultado ainda precisam de evidência. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), reabriremos precisamente o **escopo e a autoridade de decisão** do registro, usando dois riscos já formulados.
 
 **Revisão rápida:**
 
-1. Como as seções 5, 8 e 9 conectam autoridade, operação e evidência no acesso do fornecedor?
+1. Como as seções 5, 8 e 9 da ISO/IEC 27001 conectam autoridade, operação e evidência no acesso do fornecedor?
 2. Em G04, por que o denominador é cinco e que conclusão os 80% não permitem?
 3. Por que preencher o esboço e selecionar um controle não comprova a implantação de um SGSI?
 

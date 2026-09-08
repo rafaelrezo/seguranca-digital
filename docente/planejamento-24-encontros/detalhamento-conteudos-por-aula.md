@@ -75,15 +75,15 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 1. Ponte de 15 minutos: explicar a passagem de mapeamento ATT&CK a responsabilidade pela proteção; apresentar o caso novo, os arquivos e o chamado G02 antes de qualquer pergunta sobre eles. Distinguir retirada da planilha de agosto de autorização para novas publicações. Formular a regra de leitura e consultar duas orientações da Authorization Cheat Sheet; retornar à autoridade para aprovar divulgação pública. Não reconstruir DFD, testes de cestas ou catálogo de referenciais.
 2. Estrutura ISO/IEC 27001:2022 e emenda 2024: seções 1–3, 4–10 e função do Anexo A/SoA. Construção em oito passos autorais, com registro e validação por etapa. Problema novo: a correção foi proposta, mas a empresa não definiu quem mantém a regra, acompanha fornecedor e revisa a decisão. Introduzir Sistema de Gestão de Segurança da Informação (SGSI) e função da ISO/IEC 27001 pela necessidade de continuidade organizacional.
-3. Contexto, partes interessadas, processos, informação e dependências externas: diferenciar escopo do sistema analisado em A06 e escopo do SGSI. Uma fronteira contratual não elimina dependência do negócio.
-4. Liderança, política de alto nível, autoridade e recursos: distinguir proprietário do risco, executor do controle, aprovador de exceção e responsável operacional. Planejar comunicação e informação documentada suficiente.
-5. Objetivos verificáveis, acompanhamento, análise crítica e melhoria: definir o que será revisto, por quem e diante de qual evidência. A gestão tem ciclo contínuo, não termina com um teste positivo.
+3. Contexto, partes interessadas, processos, informação e dependências externas: definir o que o SGSI abrange a partir de pedidos e manutenção do portal. A atividade contratada integra o escopo, embora a empresa fornecedora seja externa; não depender de referência ao modelo de A06.
+4. Política PSI-VV-01 como referência: selecionar e avaliar diretriz; manter quando adequada ou adaptar com justificativa. Desdobrar em papéis e procedimento, distinguindo orientação de detalhe operacional. Fornecer arranjo hipotético com autoridade e recursos.
+5. Risco candidato/pergunta para A09; objetivo e preparação do procedimento. Aplicar S01 ao acordo original e ao arranjo proposto, distinguindo aprovação simulada de execução. G04 é linha de base: encerramentos comprovados entre autorizações cujo prazo vigente venceu no corte. Planejar auditoria e melhoria; sintetizar os oito passos sem reconstruir os registros das seções 4–6.
 
 **Investigação e participação conduzidas:** professor apresenta o registro técnico pronto e uma falha de gestão fornecida. A turma compara dois escopos, identifica uma dependência omitida e acompanha o preenchimento de papéis, autoridade, recurso, objetivo e revisão. Não se exige nova investigação técnica.
 
 **Distribuição dos 100 minutos:** 15 ponte; 15 mapa da norma; 20 contexto/escopo/política; 15 risco/objetivo/apoio; 20 operação/medida; 15 auditoria/melhoria e revisão do esboço. A proporção T/P classifica construção conceitual e análise guiada dentro desses blocos.
 
-**Registro e critério de conclusão:** esboço de SGSI com contexto/escopo, política curta, papéis, objetivo/rotina e pendências de implantação; integra a atividade encerrada em A09. O registro deve identificar uma dependência externa, quem autoriza a decisão, quem executa e qual evidência aciona revisão. Repetir a regra Ana/Bruno não cumpre este objetivo.
+**Registro e critério de conclusão:** esboço de SGSI com contexto/escopo, diretriz mantida ou adaptada com justificativa, papéis, objetivo/rotina e pendências de implantação; integra a atividade encerrada em A09. O registro deve identificar uma dependência externa, quem autoriza a decisão, quem executa e qual evidência aciona revisão. Repetir a regra Ana/Bruno não cumpre este objetivo.
 
 **Limite e cuidado de preparação:** fornecer o caso técnico resumido e insumos de gestão. Não prometer implantação ou certificação integral do SGSI. Dificuldades na ponte recebem apoio focal, sem transformar os 85 minutos seguintes em revisão de fundamentos.
 
@@ -95,7 +95,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1.
 
-**Herança concreta:** escopo, papéis e objetivos definidos na A08; até dois riscos já formulados fornecidos pelo professor, coerentes com as exposições/cenários conhecidos. Não refazer triagem ou inventário.
+**Herança concreta:** escopo, diretriz avaliada, papéis e objetivos propostos na A08. R01 e R02 pertencem ao portal: publicação indevida e acesso de manutenção a configurações/dados dos pedidos. As fichas são linha de base anterior às propostas; não pressupor implantação. Engenharia e processo industrial exigirão ampliação explícita posterior. Não refazer triagem ou inventário.
 
 **Objetivos observáveis:**
 
@@ -833,4 +833,4 @@ O especialista revisou os 24 encontros sem modificar arquivos. Foram incorporado
 
 **Preservação:** este detalhamento não altera aulas ministradas, slides, PDFs, páginas MkDocs ou configuração de publicação. Não autoriza deploy nem envio ao Classroom. A arquitetura e os índices docentes apontam para esta sequência prospectiva; tabelas antigas permanecem como memória e não definem novos encontros.
 
-**Ajuste A08/A09 — 8 set. 2026:** A08 oferece política de referência PSI-VV-01 com orientação ampla para o SGSI e correspondência aos blocos 4–10, distinguindo política de procedimentos e evidências. A09 adapta uma diretriz com justificativa; não exige cópia integral. Cenário, 100 minutos por encontro e entrega de 3–4 páginas permanecem.
+**Ajuste A08/A09 — 8 set. 2026:** A08 oferece política de referência PSI-VV-01 com orientação ampla para o SGSI e correspondência aos blocos 4–10, distinguindo política de procedimentos e evidências. A09 avalia uma diretriz, mantendo-a ou adaptando-a com justificativa; não exige cópia integral. Cenário, 100 minutos por encontro e entrega de 3–4 páginas permanecem.
