@@ -1,6 +1,6 @@
 # Arquitetura geral da experiência — Segurança Digital
 
-**Ordem da abertura A09 — 10 set. 2026:** a pedido docente, apresentar ambiente ilustrado e linha de base E1–E8 antes dos seis riscos. A matriz recebe a análise dessas condições já conhecidas. Ajuste de exposição, sem alterar cenário, dados, objetivos, produto ou carga.
+**Ordem da abertura A09 — 10 set. 2026:** a pedido docente, apresentar ambiente ilustrado e linha de base E1–E8 antes dos seis riscos. Antes da matriz, um guia breve explica suas colunas e etapas de preenchimento. A matriz recebe a análise dessas condições já conhecidas. Ajuste de exposição, sem alterar cenário, dados, objetivos, produto ou carga.
 
 ## Ajuste vigente — seis riscos e matriz progressiva (10 set. 2026)
 

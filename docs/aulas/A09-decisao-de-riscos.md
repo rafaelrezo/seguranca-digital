@@ -102,6 +102,28 @@ Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça*
 
 *Ransomware* é uma forma de malware associada à extorsão; neste exercício, analisamos a indisponibilidade causada pela cifragem. A possibilidade de vazamento exigiria evidências e tratamento próprios.
 
+### Como construir a matriz {#guia-colunas}
+
+**Cada linha acompanha um risco; cada nova coluna acrescenta uma parte da decisão.** Você começa pelo que sabe sobre o ambiente e termina registrando o que fazer e acompanhar. Os seis riscos permanecem na mesma ordem.
+
+| Etapa | Coluna | O que registrar |
+|---|---|---|
+| **1. Evidências** | **Risco** | O cenário de dano analisado. As seis linhas já estão identificadas. |
+| 1 | **Evidência** | A informação disponível que sustenta a análise, com seu registro de origem. |
+| 1 | **Incerteza** | O que falta saber ou está sendo assumido. |
+| **2. Avaliação** | **Consequência** | A perda caso o cenário ocorra e sua gravidade. |
+| 2 | **Plausibilidade** | O quanto as condições e barreiras conhecidas sustentam a ocorrência do cenário. |
+| 2 | **Classe inicial** | A classificação obtida ao combinar consequência e plausibilidade; acrescente a prioridade justificada. |
+| **3. Tratamento** | **Tratamento / controle** | A resposta escolhida e a medida que a coloca em prática. |
+| 3 | **Recurso / cobertura** | O esforço, as dependências e onde a medida será aplicada; indique se foi incluída ou adiada. |
+| **4. Resultados** | **Critério / resultado** | O que deveria acontecer, o que o registro informa e se atende ao critério, com seus limites. |
+| **5. Residual e decisão** | **Risco residual** | A exposição que permanece, considerando as medidas e os resultados disponíveis. |
+| 5 | **Decisão / acompanhamento** | O encaminhamento, quem executa e aprova, o prazo e o que exige revisão. |
+
+**Exemplo de início:** “R01 — conta comprometida” identifica o risco; “E2 permite entrada só com senha” registra uma evidência; “não sabemos se houve roubo de senha” explicita uma incerteza. Essas informações ocupam células diferentes porque cumprem funções diferentes.
+
+Comece pela etapa 1. Para classificar, use os [critérios de avaliação](#tema-2) e o [quadro de classificação](#tema-3); os temas seguintes orientam as outras colunas. Assim, você preenche a matriz por partes, conforme desenvolve a análise.
+
 ### Matriz da aula {#matriz-riscos}
 
 Comece lendo as três primeiras colunas. Nas próximas etapas, acrescente as novas análises **às mesmas seis linhas**. R01 traz um exemplo; as células de R02–R06 ficam disponíveis para sua decisão. Clique numa célula para escrever e use Tab para avançar.
