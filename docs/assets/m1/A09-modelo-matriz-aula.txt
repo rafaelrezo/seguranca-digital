@@ -1,0 +1,18 @@
+A09 — MATRIZ DE ESTUDO: NUVORA
+Acompanha os exemplos da aula; não é o modelo de entrega do novo cenário.
+Use E1–E8, R01–R06 e, quando apresentados, C1–C8, T1–T7 e V1.
+
+Acrescente campos depois da explicação de cada tema:
+1. Risco | Evidência | Incerteza
+2. Consequência | Plausibilidade
+3. Classe inicial
+4. Tratamento
+5. Controle | Recurso/cobertura | Critério de verificação
+6. Resultado/limite
+7. Risco residual
+8. Decisão/acompanhamento
+
+Mantenha as mesmas seis linhas. R01 é exemplo; R02–R06 pedem justificativas.
+Conserve a avaliação inicial e registre a revisão após V1 nas novas colunas.
+A matriz do site sincroniza as edições entre os temas; exporte antes de sair.
+Para a atividade, use A09-atividade-cenario.txt e A09-atividade-matriz.csv.

@@ -1,63 +1,51 @@
-A08–A09 — MATRIZ DE ANÁLISE E DECISÃO
-Dupla:                              Data:
-Um PDF de 3–4 páginas. Dados fornecidos são simulações didáticas.
-CSV inicial: A09-matriz-riscos.csv. O preenchimento no site deve ser exportado antes de sair.
+A08–A09 — ATIVIDADE: CENTRAL DE EQUIPAMENTOS TECNOLÓGICOS
+Dupla:                               Data:
+Cenário fictício. PDF de 3–4 páginas. Seis riscos identificados pela dupla.
+Use A09-atividade-cenario.txt e A09-atividade-matriz.csv.
+O caso Nuvora é referência de método; seus riscos e resultados não são dados desta central.
 
 1. GOVERNANÇA (síntese)
-Use a retomada de contexto da própria A09. Registros anteriores são opcionais.
-Escopo e princípio da retomada “Da A08 à A09” aplicado à equipe técnica:
-Diretriz e justificativa:
-Coordenação/proprietário, TI/executor e direção/autoridade de exceção:
-Objetivo (função em até 4 h; perda até 24 h) e acompanhamento:
+Escopo e função legítima a preservar:
+Diretriz proposta e justificativa:
+Coordenação/proprietário; TI/executor; direção/autoridade:
+Objetivo de recuperação e acompanhamento:
 
-2. UMA MATRIZ, CONSTRUÍDA POR ETAPAS
-Mantenha R01–R06 na mesma ordem em todas as faixas de colunas.
-R01 Conta comprometida; R02 Ransomware; R03 Fraude por e-mail;
-R04 Suporte remoto; R05 Notebook perdido; R06 Cópias destruídas.
-Use o CSV ou copie os cabeçalhos abaixo em seu editor. Frases curtas.
+2. MATRIZ COMPLETA — SEIS RISCOS, TREZE COLUNAS
+Nomeie e formule N01–N06. Não há riscos previamente definidos.
+Cada risco relaciona evento de ameaça, condição, ativo/função e consequência.
+Use os fatos F01–F08 e identifique hipóteses; não presumir ataque ocorrido.
 
-Depois de cada explicação, acrescente os campos na mesma matriz:
-Tema 1 — Risco | Evidência | Incerteza
-Tema 2 — Consequência | Plausibilidade
-Tema 3 — Classe inicial (com prioridade justificada)
-Tema 4 — Tratamento
-Tema 5 — Controle | Recurso/cobertura | Critério de verificação
-Tema 6 — Resultado/limite
-Tema 7 — Risco residual (revisar R02 após V1)
-Tema 8 — Decisão/acompanhamento
-
-Treze colunas, seis linhas. No site, preencher uma célula atualiza as demais
-visualizações dessa célula. Exportar até aqui inclui somente as colunas já abertas.
-Exporte a matriz final no tema 8 antes de fechar/recarregar a página.
-
-No PDF, dividir por faixas com os mesmos seis riscos é permitido:
+Preencha e conserve a mesma ordem em três faixas no PDF:
 A) Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial
 B) Risco | Tratamento | Controle | Recurso/cobertura | Critério de verificação
 C) Risco | Resultado/limite | Risco residual | Decisão/acompanhamento
-São partes da mesma matriz, não três entregas. Não reduzir a fonte para encaixar tudo.
 
-3. JUSTIFICATIVAS ESSENCIAIS (priorize R02)
-Plano de até 12 h: medidas incluídas/adiadas, soma sem contar controle compartilhado duas vezes:
-Prioridade entre os seis riscos; alternativa rejeitada e exposição dos adiados:
-R02: mecanismo, benefício, dependência e função legítima preservada:
-Resultados pertinentes T1–T7 e seus limites (não supor implantação de todas as opções):
-V1: premissa invalidada em R02; correção, critério de nova verificação e recurso necessário:
-R02: decisão provisória, autoridade, responsável, prazo e gatilho:
-R06: relação com recuperação, sem inventar destruição de cópias a partir de V1:
+Resultado/limite: não verificado; limite atual e verificação necessária.
+Residual: estimativa condicionada à implantação e ao atendimento do critério.
+Decisão: executor, autoridade, prazo e gatilho; aprovações não presumidas.
+Um controle pode cobrir mais de um risco se a relação for justificada.
+
+3. PRIORIDADE E PLANO (justificativa breve)
+Qual risco deve ser tratado primeiro e por quê:
+Plano das primeiras 12 h; estimativas e premissas; dependências:
+Medidas incluídas e adiadas, sem contar esforço compartilhado duas vezes:
+Alternativa de controle rejeitada/adiada e efeito operacional:
+Informação que poderia mudar a decisão e como obtê-la:
 
 4. AUTORIA E FONTES
-Integrante 1 — decisão e evidência que a sustenta:
-Integrante 2 — decisão e evidência que a sustenta:
-Fontes e origem simulada dos registros:
+Integrante 1 — decisão e fato que a sustenta:
+Integrante 2 — decisão e fato que a sustenta:
+Fontes:
 IA: não utilizada OU pedido, decisões aceitas/rejeitadas e justificativa:
 
 CONFERÊNCIA
-[ ] Seis linhas com critérios comuns, sem seis relatórios separados.
-[ ] R01 exemplo compreendido; R02 aprofundado; demais justificativas breves.
-[ ] Recurso/dependências e função legítima conferidos.
-[ ] Piloto não generalizado; resultados comparativos identificados.
-[ ] Avaliação inicial preservada; residual atualizado e V1 incorporada.
-[ ] Responsável, autoridade, prazo e gatilho em decisão/acompanhamento.
-[ ] Recomendação separada de aprovação, implantação e resultado fornecido.
-[ ] Nenhum teste executado pela turma alegado sem evidência.
-[ ] Entrega encerrada na A09, sem etapa na A10.
+[ ] Seis riscos digitais distintos, formulados pela dupla e ligados ao novo caso.
+[ ] Treze colunas preenchidas; não é preciso produzir seis relatórios separados.
+[ ] Critérios comuns e incertezas explícitas.
+[ ] Controle atua sobre condição ou consequência; função legítima preservada.
+[ ] Esforço, dependências, alcance e adiamentos justificados.
+[ ] Verificação descreve ação e resultado esperado, sem afirmar execução.
+[ ] Nenhum T1–T7/V1 da Nuvora foi apresentado como dado da central.
+[ ] Residual condicionado e decisão com responsável, autoridade, prazo e gatilho.
+[ ] Justificativas individuais, fontes e IA declaradas.
+[ ] Um PDF de 3–4 páginas, encerrado na A09.

@@ -16,7 +16,7 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A08 — Governança e SGSI](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
 | [A09 — Decidir e avaliar controles de segurança digital](aulas/A09-decisao-de-riscos.md) | Matriz progressiva de seis riscos: avaliação, controles, resultados e residual | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
 
-A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com modelo, critérios e formato da entrega.
+A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
 ## Como preparar sua evidência
 

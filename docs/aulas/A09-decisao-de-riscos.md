@@ -8,18 +8,22 @@ Uma equipe técnica precisa proteger contas, projetos e estações de trabalho. 
 
 Ao concluir, você deverá conseguir:
 
-1. Comparar seis riscos digitais com critérios comuns, evidências e incertezas explícitas.
+1. Formular riscos digitais a partir de fatos e compará-los com critérios comuns e incertezas explícitas.
 2. Justificar controles viáveis, indicando benefício, limite e função legítima preservada.
 3. Avaliar resultados fornecidos e registrar risco residual, autoridade e condição de revisão.
 
 **Tempo:** 100 minutos. **Base conceitual:** a retomada abaixo reúne o contexto de governança; os conceitos necessários à análise são explicados ao longo desta página. **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
 
-**O registro da aula será uma matriz com seis riscos.** Comece pelas evidências e acrescente as colunas à medida que tomar as decisões. R01 mostra um preenchimento possível; R02 será revisto com mais detalhe. Nos demais riscos, registre conclusões curtas e justificadas. A análise e a avaliação de controles terminam nesta aula. A [atividade](#atividade) reúne A08–A09.
+**O registro da aula será uma matriz com seis riscos.** Comece pelas evidências e acrescente as colunas à medida que tomar as decisões. R01 mostra um preenchimento possível; R02 será revisto com mais detalhe. Nos demais riscos, registre conclusões curtas e justificadas. A análise e a avaliação de controles terminam nesta aula. Na [atividade](#atividade), você aplicará o método a outro cenário e formulará os próprios riscos.
 
 !!! note "Origem e limite dos registros"
     A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Abra o [pacote em texto](../assets/m1/A09-pacote-evidencias.txt) para consulta ou uso sem conexão; seu conteúdo essencial também está nesta página. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
 
 ## Da A08 à A09: o contexto necessário {#contexto-a08}
+
+- **Escopo:** delimita o que será protegido e quais atividades dependem disso.
+- **Governança:** define quem decide, quem executa e como acompanhar.
+- **SGSI:** organiza objetivos, riscos, medidas e revisão dos resultados.
 
 A A08 apresentou uma questão de gestão: **quem decide como proteger um serviço, quem executa essa decisão e como a organização acompanha o resultado?** O exemplo era o portal de pedidos da Nuvora, com equipe comercial, TI e manutenção contratada. Uma correção técnica isolada não definia responsabilidades nem garantia que o problema deixaria de se repetir.
 
@@ -48,9 +52,9 @@ O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamo
 
 **O que está em jogo**
 
-- A conta identifica quem pode agir; o risco aparece quando outra pessoa consegue usá-la.
-- Estações, projetos e cópias sustentam o trabalho e precisam de proteções diferentes.
-- Antes de classificar, separe o que o registro mostra daquilo que você está supondo.
+- O escopo reúne o trabalho, as pessoas, os dados e os recursos que serão protegidos.
+- As mesmas atividades podem depender de contas, estações, serviços externos e cópias.
+- Separe informação disponível de hipótese antes de formular ou classificar riscos.
 
 </div>
 <div class="study-explanation" markdown="1">
@@ -105,6 +109,14 @@ Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça*
 
 
 
+### Dos fatos à formulação de um risco
+
+- **Condição conhecida:** E1/E2 mostram que só a senha basta para entrar numa conta com poder de aprovação.
+- **Evento de ameaça:** um terceiro obtém e usa essa senha; isso é uma hipótese do cenário, não um incidente comprovado.
+- **Consequência:** alterações ou mensagens passam a ser emitidas em nome de outra pessoa, comprometendo autoria e integridade.
+
+A combinação desses elementos forma R01. Ao levantar outros riscos, mantenha essa ligação entre fato, hipótese e consequência; apenas escrever “senha fraca” ou “ransomware” não descreve um cenário completo.
+
 <a id="guia-colunas"></a>
 <a id="matriz-riscos"></a>
 
@@ -116,7 +128,7 @@ A matriz reaparece ao final de cada tema com as novas colunas. As edições feit
 
 <noscript>Para preencher um registro único, use o modelo CSV ou papel. As tabelas abaixo permitem acompanhar cada etapa.</noscript>
 
-**Exporte antes de sair:** o preenchimento não fica salvo ao fechar ou recarregar a página. O [modelo CSV](../assets/m1/A09-matriz-riscos.csv), o [modelo em texto](../assets/m1/A09-modelo-governanca-riscos.txt) e papel são alternativas para acompanhar o registro.
+**Exporte antes de sair:** o preenchimento não fica salvo ao fechar ou recarregar a página. O [modelo CSV](../assets/m1/A09-matriz-riscos.csv), o [modelo em texto](../assets/m1/A09-modelo-matriz-aula.txt) e papel são alternativas para acompanhar o registro.
 
 <div class="risk-matrix" id="matriz-etapa-1" data-matrix-stage="1">
 <div class="risk-matrix-controls" hidden><label><input type="checkbox" class="matrix-focus"> Mostrar só as colunas novas</label><button type="button" class="matrix-export">Exportar até aqui — CSV</button></div>
@@ -130,7 +142,16 @@ A matriz reaparece ao final de cada tema com as novas colunas. As edições feit
 
 ## 2. Critérios: comparar consequência e plausibilidade {#tema-2}
 
-Para comparar os riscos, precisamos usar a mesma régua. “Grave” deve significar a mesma coisa numa aprovação indevida, numa perda de notebook ou numa interrupção do trabalho. Use os critérios abaixo e registre a hipótese que sustenta sua escolha.
+<div class="theme-summary" markdown="1">
+
+**Para comparar com a mesma régua**
+
+- Consequência é a perda caso o cenário ocorra.
+- Plausibilidade depende das condições e barreiras conhecidas.
+- Use os mesmos critérios em todas as linhas e explicite as hipóteses.
+- Informação ausente exige verificação; não autoriza classificar o risco como baixo.
+
+</div>
 <div class="study-explanation" markdown="1">
 
 Avaliar não é apenas chamar um problema de grave. É explicar **o que pode acontecer, em quais condições e com que consequência**. A relação entre impacto e possibilidade de ocorrência orienta a avaliação; a escala abaixo é uma convenção do exercício, não uma fórmula prescrita pelo NIST. [Referência: NIST SP 800-30 Rev. 1](https://www.nist.gov/publications/guide-conducting-risk-assessments).
@@ -174,9 +195,9 @@ Acrescente **consequência** e **plausibilidade** às mesmas seis linhas. Na pri
 
 **A classe ainda não decide a ordem do trabalho**
 
-- Compare os riscos usando os mesmos critérios.
-- Considere prazo, dependências e o que ainda falta saber.
-- Justifique o que pode esperar e quem tem autoridade para aceitar essa espera.
+- Combine consequência e plausibilidade para obter a classe inicial.
+- Considere prazo, dependências e incerteza para justificar a prioridade.
+- Defina quem pode aceitar a exposição enquanto uma medida aguarda execução.
 
 </div>
 <div class="study-explanation" markdown="1">
@@ -213,7 +234,16 @@ Agora acrescente **classe inicial**, combinando consequência e plausibilidade n
 
 ## 4. Tratamento: escolher a resposta ao risco {#tema-4}
 
-Agora escolha a resposta para cada risco. Suspender uma atividade pode interromper o caminho de ataque e também o trabalho da equipe. Compare esse efeito com as outras opções antes de preencher a coluna de tratamento.
+<div class="theme-summary" markdown="1">
+
+**Antes de escolher a resposta**
+
+- Reduzir atua na possibilidade ou na consequência; evitar retira a atividade ou condição.
+- Compartilhar distribui responsabilidades ou perdas, sem eliminar todo o risco.
+- Reter exige justificativa, autoridade e acompanhamento.
+- Compare o benefício da resposta com seu efeito sobre o trabalho legítimo.
+
+</div>
 <div class="study-explanation" markdown="1">
 
 O tratamento é a resposta escolhida para lidar com o risco. O controle é uma medida que ajuda a executar essa resposta. “Reduzir R02” ainda não diz o que será feito nem o que precisa continuar funcionando.
@@ -301,7 +331,16 @@ Proponha uma medida por risco, mas marque quais cabem nas **12 h** e quais ficam
 
 ## 6. Evidências: distinguir proposta, implantação e resultado {#tema-6}
 
-Compare o resultado esperado com o fornecido. Na matriz, registre **atende**, **não atende** ou **inconclusivo**, acompanhado de uma razão. Quando o teste cobre apenas uma estação, a conclusão também precisa ficar limitada a ela.
+<div class="theme-summary" markdown="1">
+
+**O que a evidência permite afirmar**
+
+- Desenho, implantação e resultado respondem a perguntas diferentes.
+- Compare o resultado informado com o critério definido antes do teste.
+- Registre atende, não atende ou inconclusivo, com uma razão.
+- Limite a conclusão aos casos, ao alcance e às condições examinadas.
+
+</div>
 <div class="study-explanation" markdown="1">
 
 Abra o pacote de evidências no navegador ou leia os registros abaixo. Os campos são: **medida** (o que foi aplicado), **alcance** (onde), **ação/caso** (o que foi verificado), **resultado** (o que ocorreu no teste fictício) e **limite** (o que ficou de fora).
@@ -354,7 +393,16 @@ Acrescente **resultado/limite**. Compare cada registro pertinente com o critéri
 
 ## 7. Risco residual: revisar quando a evidência muda {#tema-7}
 
-A aplicação abriu, mas isso basta para dizer que a equipe voltou a trabalhar? Reabra a linha de R02 quando chegar ao novo registro: uma conclusão pode precisar mudar enquanto outros resultados continuam válidos.
+<div class="theme-summary" markdown="1">
+
+**O que precisa ser revisto**
+
+- Risco residual é a exposição que permanece após as medidas consideradas.
+- Uma redução planejada depende de implantação e verificação; ainda é uma estimativa.
+- Nova evidência pode mudar a conclusão sem invalidar todos os resultados anteriores.
+- Preserve a avaliação inicial e justifique a revisão nas novas colunas.
+
+</div>
 <div class="study-explanation" markdown="1">
 
 <a id="5-o-que-permanece-depois-da-decisao"></a>
@@ -402,7 +450,16 @@ Acrescente **risco residual**: o que permanece exposto após as medidas consider
 
 ## 8. Registro: tornar a decisão verificável {#tema-8}
 
-Leia a matriz como alguém que terá de executar a decisão amanhã. É possível identificar a medida, o responsável, o resultado esperado e a exposição que permanece? Complete esses campos antes de entregar.
+<div class="theme-summary" markdown="1">
+
+**Antes de encerrar o registro**
+
+- Ligue cada decisão ao risco, ao controle e à evidência ou verificação necessária.
+- Nomeie executor, autoridade, prazo e gatilho de revisão.
+- Diferencie proposta, aprovação, implantação e resultado.
+- Confira os riscos adiados e o que ainda permanece exposto.
+
+</div>
 <div class="study-explanation" markdown="1">
 
 O produto é um registro que outra pessoa consegue revisar sem reconstruir uma história. Um ID ajuda a localizar a fonte, mas não substitui a explicação: escreva “T3 verificou abertura e consulta, não a tarefa completa”, em vez de apenas “conforme T3”.
@@ -442,33 +499,101 @@ O ciclo de análise e avaliação de controles está concluído nesta aula quand
 
 ## Atividade {#atividade}
 
-### Governança, riscos e controles — fechamento de A08 e A09
+### Uma central de equipamentos precisa proteger seu serviço
 
-**Missão:** recomendar como proteger a equipe técnica da Nuvora, comparar os seis riscos digitais e revisar o tratamento de ransomware à luz de V1. **Em dupla, um PDF de 3–4 páginas**, chamado `A08-A09-sobrenome1-sobrenome2.pdf`. Estimativa de até duas horas de consolidação fora da aula; prazo definido pelo docente no Classroom. Não há nova etapa dependente da A10.
+- **Investigue:** leia o cenário e formule **seis riscos digitais distintos**, com base nos fatos fornecidos.
+- **Decida:** construa a matriz completa, proponha controles e justifique prioridades e limites.
+- **Entregue:** um PDF de **3–4 páginas por dupla**, com matriz, síntese de governança e justificativas individuais.
 
-**Preparação:** use esta página, o [pacote de evidências](../assets/m1/A09-pacote-evidencias.txt) e o [modelo editável](../assets/m1/A09-modelo-governanca-riscos.txt). Use a [retomada de contexto](#contexto-a08) e sua base de governança, identificando-as como fornecidas. Um registro próprio da A08 pode complementar a análise, mas não é necessário. A atividade não exige recriar uma política integral nem comprovar execução técnica.
+Você já acompanhou o método na Nuvora. Agora vai aplicá-lo a uma **central fictícia de empréstimo de equipamentos tecnológicos**. Os riscos e controles desta atividade serão definidos por sua dupla. Use o [cenário para consulta sem conexão](../assets/m1/A09-atividade-cenario.txt), a [matriz em branco — CSV](../assets/m1/A09-atividade-matriz.csv) e o [modelo da entrega — texto](../assets/m1/A09-modelo-governanca-riscos.txt).
 
-1. **Delimite a governança:** escreva o novo escopo em 3–4 linhas, uma diretriz justificada e os papéis de coordenação, TI e direção. Escolha um princípio explicado na retomada e mostre como ele se aplica à equipe técnica; explique por que o escopo do portal não basta. Indique o objetivo de recuperação e seu acompanhamento.
-2. **Preencha a matriz de R01 a R06:** registre evidência/incerteza e acrescente consequência, plausibilidade e classe. Justifique a prioridade pelos mesmos critérios. R01 é exemplo; detalhe R02 e use frases curtas nas outras quatro linhas.
-3. **Escolha o plano e o critério:** respeite as 12 h e as dependências. Use as colunas tratamento, controle e recurso/cobertura nas seis linhas, distinguindo medidas incluídas e adiadas. Para R02, detalhe mecanismo, alcance, responsável, critério, benefício, efeito operacional e alternativa adiada/rejeitada. Declare a exposição que o recurso não cobre e o critério para verificar proteção e função legítima.
-4. **Acrescente resultados e revise na mesma matriz:** examine T1–T7 conforme a medida de cada risco, distinguindo desenho, implantação e resultado. Aplique V1 à decisão de R02: revise residual, encaminhamento de recurso, medida provisória, autoridade, prazo e gatilho. Se sua escolha diferiu do plano demonstrado, não atribua a ela os resultados de outro plano.
-5. **Conclua:** acrescente uma justificativa individual curta de cada integrante, identificando uma decisão e a evidência que a sustenta. Confira fontes e origem dos registros.
+### Conheça o serviço e seus limites
+
+A central empresta notebooks, kits de sensores e instrumentos de medição a estudantes e equipes de projetos. O solicitante reserva pelo site; um atendente aprova o pedido; o sistema emite um comprovante em **QR Code**, uma imagem que representa o número da reserva. Na retirada e na devolução, o atendente atualiza o inventário digital.
+
+O serviço depende do portal, do banco de reservas, dos computadores do balcão e de uma integração que envia notificações. Essa integração usa uma **API**, interface pela qual um sistema troca dados com outro; sua chave funciona como credencial. Um fornecedor presta manutenção no portal.
+
+| Acordo do cenário | Informação para sua decisão |
+|---|---|
+| **Escopo** | Reservas, aprovações, retirada/devolução e inventário, incluindo dados, contas, computadores, integração, cópias e manutenção associadas. |
+| **Função a preservar** | Emprestar ao solicitante autorizado e manter registro confiável de quem está com cada equipamento. |
+| **Dados protegidos** | Nome, contato e histórico individual de empréstimos são de uso interno; o catálogo de equipamentos pode ser público. |
+| **Responsabilidades** | Coordenação da central responde pelo serviço e prioriza; TI do campus executa medidas; direção decide exceções para risco alto. |
+| **Objetivo de recuperação** | Retomar o serviço em até 4 h, com perda de registros de até 24 h. |
+| **Recurso inicial** | 12 horas de trabalho de TI na primeira semana. Proponha estimativas de esforço, declare premissas e indique o que ficará adiado. Não são orçamentos reais. |
+
+### Examine os fatos antes de nomear os riscos
+
+Todos os registros abaixo são **fictícios**. Eles descrevem condições do serviço, sem afirmar que houve ataque. Não há credenciais, endereços ou sistemas reais para testar.
+
+| Registro | Informação disponível |
+|---|---|
+| **F01 — Atendimento** | Estudantes usam contas pessoais. Quatro atendentes compartilham uma conta que aprova reservas e altera o inventário. Os registros de alteração mostram apenas o nome dessa conta. |
+| **F02 — Comprovante** | Na demonstração fictícia, uma cópia encaminhada do QR Code abre o mesmo comprovante em outro celular sem pedir login. O atendente libera a retirada ao ler o código; o procedimento exige retirada pelo titular, mas não prevê conferir sua identidade. |
+| **F03 — Atualização** | Atendentes recebem por e-mail links para utilitários e atualizações do fornecedor. Instalam esses programas no computador do balcão sem confirmar a origem por um contato já conhecido. Não há registro de programa malicioso encontrado. |
+| **F04 — Integração** | A chave usada para enviar notificações também permite alterar reservas. Ela aparece no registro de diagnóstico de uma página consultável pelos monitores de atendimento. Não foi fornecida nenhuma chave real. |
+| **F05 — Catálogo** | Uma consulta fictícia ao catálogo público mostra, junto ao equipamento, o nome e o e-mail de quem o retirou. Não é necessário entrar no sistema para essa consulta. |
+| **F06 — Recuperação** | A base é copiada diariamente para outra pasta do mesmo servidor. A conta que administra a base consegue apagar também as cópias. Há registro de cópia concluída, mas não de restauração completa. |
+| **F07 — Manutenção** | A conta remota de um técnico do fornecedor continua habilitada após o término do contrato e permite alterar configurações do portal. Não há comprovação de conexão posterior ao encerramento. |
+| **F08 — Barreiras existentes** | As contas pessoais de administração usam MFA. A interface do catálogo público não oferece aprovação de reservas. Essas condições não demonstram a proteção de todas as contas ou da API. |
+
+### Formule os seis riscos
+
+- Identifique **ativo ou função afetada, evento de ameaça, condição que o permite e consequência**.
+- Use identificadores **N01–N06** e dê a cada risco um nome descritivo. Não há correspondência obrigatória entre número do risco e número do fato.
+- Relacione cada risco a um ou mais registros F01–F08 e indique a incerteza. Um fato pode sustentar mais de uma análise; dois nomes para o mesmo caminho não contam como riscos distintos.
+- Mantenha o foco em segurança digital. Atraso de entrega ou perda física de equipamento, isoladamente, não descrevem um risco digital: explique a ação sobre conta, sistema, informação ou serviço que leva à consequência.
+
+Uma forma de escrever a linha é: **“Se [evento de ameaça] ocorrer, a condição [fato ou hipótese] poderá afetar [ativo/função], causando [consequência]”.** Complete com sua análise do caso.
+
+### Avalie e priorize com critérios comuns
+
+Use as escalas de [plausibilidade](#tema-2) e o [quadro de classificação](#tema-3) da aula. Para consequência, aplique a régua ao serviço da central:
+
+| Consequência | Critério deste cenário |
+|---|---|
+| **Limitada** | Correção local e reversível em até 1 h, sem retirada indevida nem exposição de dados internos. |
+| **Relevante** | Retrabalho ou interrupção acima de 1 h e até 4 h, com registros recuperáveis e sem exposição de dados internos ou empréstimo indevido confirmado. |
+| **Grave** | Interrupção acima de 4 h, perda de registros superior a 24 h, exposição de dados internos ou retirada indevida que comprometa a responsabilização pelo equipamento. |
+
+Explique a condição que sustenta a consequência e a plausibilidade; não classifique todos os riscos automaticamente como altos. Risco alto exige encaminhamento à direção; moderado pode ter aceitação temporária pela coordenação por até sete dias, com justificativa e acompanhamento; baixo permanece acompanhado. Não presuma que uma exceção já foi aprovada.
+
+### Construa a matriz completa com controles
+
+Preencha as **treze colunas** no mesmo percurso demonstrado em aula:
+
+1. **Risco, evidência e incerteza:** formule os seis cenários e cite os fatos usados.
+2. **Consequência, plausibilidade e classe inicial:** avalie e justifique a prioridade.
+3. **Tratamento:** escolha reduzir, evitar, compartilhar ou reter e explique por quê.
+4. **Controle:** proponha uma medida específica por risco, ligada à condição ou consequência. Um controle compartilhado pode atender a vários riscos, com cobertura justificada.
+5. **Recurso/cobertura:** estime esforço, dependências e alcance; indique medidas incluídas nas 12 h e adiadas. Não conte duas vezes o esforço de um controle compartilhado.
+6. **Critério de verificação:** diga qual ação verificaria o controle e qual resultado mostraria proteção e função legítima preservada. Para recuperação, verificar apenas abertura da aplicação não basta.
+7. **Resultado/limite:** como os controles são propostas, registre **“não verificado”**, o limite atual e a verificação necessária. Resultados da Nuvora não são evidência desta central.
+8. **Risco residual:** estime a exposição que permaneceria **se o controle fosse implantado e atendesse ao critério**. A exposição atual continua sem redução comprovada.
+9. **Decisão/acompanhamento:** nomeie executor, autoridade, prazo e gatilho de revisão, inclusive para os riscos adiados.
+
+A matriz está completa quando todos os campos têm informação justificada. **“Não verificado” é um estado válido; resultado inventado não é.** A atividade termina na análise e no plano de verificação, sem instalação, exploração ou teste em sistemas reais.
+
+### Organize e confira a entrega
+
+- **Governança:** em poucas linhas, delimite o escopo, proponha uma diretriz coerente com o serviço e registre papéis e objetivo. A [retomada da própria A09](#contexto-a08) oferece os conceitos necessários.
+- **Matriz:** mantenha N01–N06 na mesma ordem; divida as colunas em três faixas, como no modelo, para preservar a leitura em 3–4 páginas.
+- **Justificativa:** destaque o risco priorizado, uma alternativa de controle rejeitada/adiada e uma informação que poderia mudar a decisão. Inclua uma justificativa individual curta de cada integrante.
+- **Revisão cruzada:** confira se a ameaça, a condição e a consequência estão ligadas; se o controle atua nesse caminho; e se a verificação preserva o uso legítimo. Cite fontes e declare o uso de IA.
+
+**Entrega:** `A08-A09-sobrenome1-sobrenome2.pdf`, pelo Classroom conforme orientação docente. Prazo definido pelo professor; estimativa de até duas horas fora da aula. Um único envio, encerrado na A09.
 
 | Critério | Peso | Evidência esperada |
 |---|---:|---|
-| Governança e escopo | 20% | Transferência explícita, diretriz justificada, papéis e objetivo coerentes |
-| Avaliação e prioridade | 20% | Seis riscos comparados, critérios comuns, evidência e incerteza |
-| Tratamento e controles | 25% | Plano viável, dependências, alternativa, mecanismo e função preservada |
-| Evidência e revisão | 25% | Resultados pertinentes, seus limites e efeito de V1, residual, autoridade, prazo e gatilho |
-| Clareza e autoria | 10% | Registro rastreável, justificativas individuais e fontes/uso de IA declarados |
-
-Para o PDF, divida a matriz em faixas de colunas com **R01–R06 na mesma ordem**: avaliação; tratamento/resultados; residual/decisão. Mantenha fonte legível. São partes do mesmo registro, não três atividades. Reserve espaço para a governança e as justificativas; não escreva seis relatórios separados.
-
-**Critério de encerramento:** o leitor consegue saber o que foi recomendado, o que os registros simulados sustentam, o que permanece exposto e quem deve decidir o próximo passo. Entregue somente o PDF pelo canal indicado pelo docente. Não há recurso de nuvem, sistema de laboratório ou serviço a desligar.
+| Contexto e identificação dos riscos | 25% | Escopo, diretriz e papéis coerentes; seis riscos digitais distintos ligados a F01–F08, com incertezas |
+| Avaliação e prioridade | 20% | Critérios comuns, classes justificadas e prioridade explicada |
+| Tratamento e controles | 25% | Medidas específicas, recurso, dependências, cobertura e função legítima |
+| Verificação, residual e decisão | 20% | Critérios observáveis, estado não verificado, residual condicionado, responsável, autoridade e revisão |
+| Clareza e autoria | 10% | Matriz completa e legível, justificativas individuais e fontes/uso de IA declarados |
 
 **Uso de IA:** se utilizada, registre o pedido, as decisões aceitas/rejeitadas e sua justificativa. Não envie dados sensíveis. Cada integrante deve compreender e defender o resultado. Se não utilizada, declare isso.
 
-**Extensão opcional, sem nova entrega:** qual informação permitiria expandir a conclusão do piloto às outras estações? Proponha uma verificação com ação e critério, sem executá-la em sistemas reais.
+**Extensão opcional, sem nova entrega:** escolha uma medida adiada e explique qual mudança de condição faria sua prioridade aumentar.
 
 ## Referências
 

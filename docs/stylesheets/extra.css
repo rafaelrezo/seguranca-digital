@@ -139,3 +139,7 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
   .md-content__inner .risk-matrix[data-focus="true"] table { min-width: 0; }
   .risk-matrix[data-focus="true"] tr > :first-child { width: auto; min-width: 0; }
 }
+
+/* A09: parágrafos de estudo são texto, e cabeçalhos mantêm palavras inteiras. */
+.md-content__inner:has(#a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar) .study-explanation > p:first-child { color: var(--md-default-fg-color); }
+.md-content__inner:has(#a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar) .study-explanation > .md-typeset__scrollwrap th { overflow-wrap: normal; }

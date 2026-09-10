@@ -620,7 +620,7 @@ Você tem um **esboço com decisões e pendências**, não um SGSI implantado. A
 
 ## Atividade {#atividade}
 
-Guarde os registros disponíveis de contexto, escopo, diretriz, papéis, objetivo e acompanhamento. Na [atividade de governança, riscos e controles da A09](A09-decisao-de-riscos.md#atividade), você aplicará esses conceitos a **outro recorte fornecido: o ambiente digital de uma equipe técnica**, com comprometimento de conta e ransomware. Explique a mudança de escopo; a política do portal não cobre automaticamente o novo ambiente. A entrega reúne A08–A09 e inclui análise e avaliação de controles, sem envio separado na A08. Se não houver registro próprio, a A09 fornece a base necessária e pede que sua origem seja identificada.
+Guarde os registros disponíveis de contexto, escopo, diretriz, papéis, objetivo e acompanhamento. Na [atividade de governança, riscos e controles da A09](A09-decisao-de-riscos.md#atividade), você aplicará esses conceitos a **uma central fictícia de empréstimo de equipamentos tecnológicos**, levantando seis riscos e propondo controles. Explique a mudança de escopo; a política do portal não cobre automaticamente o novo ambiente. A entrega reúne A08–A09 e inclui análise e avaliação de controles, sem envio separado na A08. Se não houver registro próprio, a A09 fornece a base necessária e pede que sua origem seja identificada.
 
 
 ## Síntese e próxima decisão

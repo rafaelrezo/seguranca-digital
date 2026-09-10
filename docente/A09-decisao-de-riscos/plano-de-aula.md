@@ -6,7 +6,7 @@
 
 **Ementa:** avaliação qualitativa, prioridade, tratamento, controles, desenho/implantação/resultado, residual e autoridade. **Pergunta:** como decidir e verificar proteção contra comprometimento de conta e ransomware sem deixar a equipe técnica sem trabalhar?
 
-**Três objetivos:** comparar os seis riscos com critérios e incertezas; justificar controles viáveis e função preservada; avaliar evidências e revisar residual, autoridade e condição de acompanhamento. O ganho sobre A08 é transformar governança em decisão sustentada por resultados, concluindo avaliação de controles nesta A09.
+**Três objetivos:** formular riscos a partir de fatos e compará-los com critérios e incertezas; justificar controles viáveis e função preservada; avaliar evidências e revisar residual, autoridade e condição de acompanhamento. O ganho sobre A08 é transformar governança em decisão sustentada por resultados, concluindo avaliação de controles nesta A09.
 
 **Herança confirmada:** o docente confirmou A08 ministrada; a versão exata usada e a produção individual não estão confirmadas. Reutilizar conceitos de escopo, diretriz, autoridade e acompanhamento. O ambiente técnico é um novo recorte fornecido; a política do portal não se estende automaticamente. Não dizer que estes riscos ou testes já foram trabalhados na A08.
 
@@ -32,7 +32,7 @@ Separar a escolha de tratamento da medida concreta e escrever critério antes de
 | 15–35 | 15/5 | Temas 2–3: consequência/plausibilidade e, depois do quadro de classificação, classe inicial. Preencher R01, aprofundar R02 e comparar R03–R06. | Cerca de 5 min exemplo, 5 min R02, 8 min demais e 2 min prioridade. Justificativas curtas; não impor seis riscos altos. |
 | 35–60 | 15/10 | Temas 4–5: tratamento; depois controle, recurso/cobertura e critério de verificação. Examinar C1–C8; decidir quais cabem em 12 h. | Nomear medida candidata por linha, distinguir incluída/adiada e explicar função preservada. R02 recebe alternativa detalhada. |
 | 60–85 | 15/10 | Temas 6–7: resultado/limite e, após V1, risco residual. Avaliar T1–T3, comparar T4–T7 e aplicar V1. | 4 min desenho/implantação/resultado; 7 min T1–T3; 6 min T4–T7; 8 min V1/residual. Hipótese de implementação não reduz risco atual. |
-| 85–100 | 10/5 | Tema 8: acrescentar decisão/acompanhamento, conferir a matriz inteira e explicar entrega. | Revisão cruzada e exportação. Consolidar fora da aula sem operação nova. |
+| 85–100 | 10/5 | Tema 8: fechar o exemplo; apresentar o novo cenário da central e demonstrar como transferir o método para a entrega. | 5 min fechamento/exportação; 5 min fatos da central e formulação; 5 min matriz em branco, critérios e dúvidas. Sem operação nova em casa. |
 | **Total** | **60/40** | **100 minutos** | **Registro único concluído na A09** |
 
 Se atrasar, reduza rodadas de falas e peça uma razão por célula; preserve V1 e a revisão do residual. Não adie controles para A10. As tabelas do site são insumos; a matriz é o registro cumulativo, não uma atividade extra. O modelo aceita três faixas de colunas com os mesmos seis IDs em 3–4 páginas.
@@ -79,11 +79,25 @@ V1 acrescenta falha da tarefa crítica e indisponibilidade às 6 h: o limite de 
 
 Correção candidata: completar dependências, repetir restauração integral e executar entrega técnica de referência. Exigir tempo contado do início ao retorno efetivo e idade da cópia. O esforço adicional não foi fornecido: estimar/solicitar antes de prometer prazo. Possíveis medidas provisórias incluem restringir uso não aprovado ou disponibilizar ambiente alternativo **sob verificação de disponibilidade e autorização**, sem inventá-las como implantadas. Registrar exposição até a decisão, responsável e revisão em até 7 dias ou antes por gatilho; isso não concede tolerância automática para adiar ação urgente.
 
-## Encerramento, atividade e contingência
+## Encerramento, nova atividade e contingência
 
-Produto: um PDF de 3–4 páginas por dupla, com governança transferida, matriz progressiva de seis riscos, plano, resultados pertinentes T1–T7 e decisão detalhada de R02 após V1; justificativas individuais curtas e declaração de IA. Modelo e pacote estão vinculados à atividade. Carga externa estimada de até 2 h. Checkpoints não geram tarefas adicionais. A08 aponta para a mesma entrega, sem exigir reescrever sua aula ou implantar SGSI.
+A Nuvora permanece exemplo de condução; a entrega passa para uma central fictícia de empréstimo de equipamentos tecnológicos. Os estudantes recebem funcionamento, escopo, F01–F08, responsabilidades, critérios e restrição de recurso, **sem riscos nomeados ou controles prontos**. Formular seis riscos e completar as treze colunas no modelo em branco. A matriz Nuvora exportada é registro de estudo, não entrega substituta.
 
-Sem internet: abrir pacote salvo ou projetar/circular seu texto; todos os dados estão no corpo da página. Sem editor: preencher quadro em papel. Sem registro A08: usar base fornecida, com origem explícita. Sem tempo para todas as falas: colher duas justificativas e sistematizar critérios; não transferir primeiro contato com T1–T7/V1 para casa. Não enviar mensagens ao Classroom nem alterar slides ou Drive nesta revisão.
+Nos últimos 15 min: concluir o exemplo (5); apresentar o novo serviço e mostrar como decompor um fato em condição/ameaça/consequência (5); abrir o CSV em branco e esclarecer entrega/rubrica (5). Usar o exemplo R01 da Nuvora, já trabalhado publicamente, para demonstrar a formulação. No novo caso, pedir que a turma identifique um ativo e uma informação faltante em F01–F08, sem fornecer seis respostas. Leitura dos fatos e preenchimento foram demonstrados antes do trabalho domiciliar.
+
+### Apoio à correção — não publicar na versão estudantil
+
+Caminhos possíveis, não lista obrigatória: F01, ação indevida sem atribuição individual ou uso de conta compartilhada fora da função; F02, uso de comprovante encaminhado para retirada por outra pessoa; F03, execução de programa de origem não confirmada; F04, abuso de chave com permissões além da notificação; F05, divulgação de histórico/identificação em consulta pública; F06, destruição/cifragem da base e cópias no mesmo domínio de administração, comprometendo recuperação; F07, uso de manutenção após encerramento do contrato. F08 fornece barreiras e impede generalizações como “nenhuma conta tem MFA”.
+
+Aceitar outros seis riscos fundamentados nos fatos e em hipóteses explícitas. Não exigir correspondência um fato/um risco. Rejeitar nomes diferentes para o mesmo caminho sem diferença de condição, consequência ou tratamento. Risco de negócio puro deve ser reformulado com ação sobre conta, informação, sistema ou serviço. Consequência não deve ser inventada como fato consumado.
+
+Controles devem responder ao caminho identificado: atribuição individual e permissões; validação de titularidade na retirada; origem e execução de software; segredo/escopo de integração; dados do catálogo; independência e recuperação das cópias; ciclo de autorização do suporte. Não exigir produtos ou comandos específicos. Cobrar critério observável e função preservada. Estimativas de esforço são didáticas: avaliar premissa, dependência e soma de 12 h, sem presumir orçamento técnico real.
+
+**Verificação:** nenhum controle da atividade foi implantado ou testado. Resultado/limite deve declarar “não verificado” e a verificação necessária; residual é estimativa condicionada. Não transportar T1–T7/V1 da Nuvora como resultado do novo serviço. Matriz completa significa campos justificados, não inventar sucesso. Revisão cruzada confronta mecanismo, teste proposto e exposição restante.
+
+**Entrega:** PDF único de 3–4 páginas, seis riscos N01–N06, treze campos divididos em faixas, síntese de governança, plano/prioridade e justificativas individuais. Rubrica: identificação/contexto 25%, avaliação 20%, controles 25%, verificação/residual/decisão 20%, clareza/autoria 10%. Até 2 h externas; prazo docente. Enunciado em A09#atividade, modelo CSV `A09-atividade-matriz.csv`, caso `A09-atividade-cenario.txt`, modelo textual `A09-modelo-governanca-riscos.txt`. Nenhuma dependência da A10 nem nova tarefa do macrocomponente.
+
+**Alternativas:** sem conexão, pacote da aula para estudo e pacote próprio da atividade para o novo caso; sem planilha, editor/papel com os mesmos campos. Se faltar tempo para falas, pedir uma razão por decisão; preservar explicação do novo enunciado. Não pedir execução em sistemas do campus, instalações ou envio de dados reais. Slides/Drive/Classroom não são alterados nesta revisão.
 
 **Fontes conferidas em 10 set. 2026:** [NIST SP 800-30r1](https://www.nist.gov/publications/guide-conducting-risk-assessments), para avaliação; [CISA #StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide), para mecanismos de proteção e recuperação. Matriz, esforço, critérios de aceitação e registros são construções didáticas originais. Não afirmar conformidade com ISO/IEC 27001 nem exigir declaração completa de aplicabilidade. A seleção justificada e a distinção desenho/implantação/resultado fecham neste encontro.
 
@@ -92,3 +106,5 @@ Sem internet: abrir pacote salvo ou projetar/circular seu texto; todos os dados 
 Revisão por agente independente registrada em [revisao-editorial-matriz.md](revisao-editorial-matriz.md). Removidos da página os oito fluxos iguais, preservando os arquivos. Aberturas variadas, perguntas ligadas à célula atual e comparação T3/V1 substituem o molde repetitivo. Sínteses permanecem onde ajudam; tabelas também cumprem essa função. A revisão não acrescenta enredo.
 
 **Revisão da interação — 10 set. 2026:** treze colunas distribuídas pelos oito temas. A orientação anterior de guia geral antes da matriz foi superada. A consistência está nos dados e critérios compartilhados, sem antecipar os campos nem separar explicação de aplicação.
+
+**Leitura dinâmica — 10 set. 2026:** cada um dos oito temas abre com 3–4 ideias-chave itemizadas, mantendo explicação integral e matriz local. Retomada e atividade também têm sínteses. A revisão não restaura fluxos visuais idênticos nem acrescenta enredo.
