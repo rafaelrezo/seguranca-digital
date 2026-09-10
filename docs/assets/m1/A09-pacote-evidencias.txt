@@ -55,9 +55,11 @@ O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamo
 
 
 
-### Ambiente fornecido: equipe de projetos e suporte técnico
+### O ambiente da equipe técnica
 
-Seis profissionais elaboram projetos de software ou automação, registram alterações numa plataforma web e atendem clientes por e-mail. Cada pessoa usa uma estação de trabalho. Uma das estações é um notebook usado em visitas técnicas; um fornecedor presta suporte remoto. **Não há CLP, supervisório ou controle de processo físico neste recorte.** A plataforma é um serviço externo; sua administração não se confunde com a administração das estações.
+A equipe técnica da Nuvora tem seis profissionais que elaboram projetos de software ou automação, registram e aprovam alterações numa plataforma web e atendem clientes por e-mail. O trabalho acontece nas estações da equipe e num notebook usado em visitas técnicas, com apoio de um fornecedor de suporte remoto.
+
+A equipe dispõe de cópias para recuperação. A plataforma web é mantida por um provedor externo; TI cuida das estações e acompanha o suporte contratado.
 
 | Componente | Uso autorizado | Proteção necessária |
 |---|---|---|

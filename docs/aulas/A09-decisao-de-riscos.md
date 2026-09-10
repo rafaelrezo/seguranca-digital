@@ -55,16 +55,18 @@ O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamo
 </div>
 <div class="study-explanation" markdown="1">
 
-### Ambiente fornecido: equipe de projetos e suporte técnico
+### O ambiente da equipe técnica
 
-Seis profissionais elaboram projetos de software ou automação, registram alterações numa plataforma web e atendem clientes por e-mail. Cada pessoa usa uma estação de trabalho. Uma das estações é um notebook usado em visitas técnicas; um fornecedor presta suporte remoto. **Não há CLP, supervisório ou controle de processo físico neste recorte.** A plataforma é um serviço externo; sua administração não se confunde com a administração das estações.
+A equipe técnica da Nuvora tem seis profissionais que elaboram projetos de software ou automação, registram e aprovam alterações numa plataforma web e atendem clientes por e-mail. O trabalho acontece nas estações da equipe e num notebook usado em visitas técnicas, com apoio de um fornecedor de suporte remoto.
 
-| Componente | Uso autorizado | Proteção necessária |
-|---|---|---|
-| Identidade corporativa | Entrar no e-mail e na plataforma com a conta pessoal | Impedir uso por outra pessoa e permitir rastrear ações |
-| Plataforma de projetos | Registrar e aprovar alterações técnicas | Preservar autoria e integridade das decisões |
-| Estações e aplicações técnicas | Elaborar, conferir e continuar trabalhos | Preservar disponibilidade e integridade do ambiente |
-| Cópia de recuperação | Restabelecer ambiente e trabalho após perda | Continuar disponível quando a estação falhar |
+A figura reúne os recursos usados nesse trabalho, as cópias para recuperação e os responsáveis pelas decisões de segurança. A plataforma web é mantida por um provedor externo; TI cuida das estações e acompanha o suporte contratado.
+
+<figure class="didactic-figure didactic-figure-wide" style="display: block; width: 100%; max-width: 100%;">
+<a href="../../assets/m1/A09-ambiente-equipe-tecnica.jpeg" target="_blank" rel="noopener" aria-label="Abrir ilustração do ambiente em tamanho original" style="display: block; width: 100%;">
+<img src="../../assets/m1/A09-ambiente-equipe-tecnica.jpeg" alt="Equipe técnica com contas pessoais para registrar e aprovar alterações na plataforma web; estações e notebook para projetos e visitas; suporte remoto e cópias de recuperação. A coordenação prioriza riscos, TI executa e documenta medidas, e a direção decide exceções." />
+</a>
+<figcaption>Ambiente de trabalho e responsabilidades de segurança da equipe técnica. Clique para ampliar.</figcaption>
+</figure>
 
 O ambiente acima é o escopo desta análise. Use a [base de governança da retomada](#contexto-a08) para identificar a diretriz, os responsáveis e o objetivo de recuperação.
 
