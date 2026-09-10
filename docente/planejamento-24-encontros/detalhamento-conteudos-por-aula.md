@@ -24,10 +24,12 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Em toda demonstração:** declarar estado inicial, ferramenta, ação, local do rastro, interpretação possível e critério de parada. O pacote alternativo de evidências deve permitir a mesma decisão; quando substituir execução por análise, registrar esse limite. Objetivos indicam desempenhos esperados com apoio, não competências já comprovadas.
 
+**Padrão aprovado em 10 set. 2026:** as páginas A08/A09 passam a dez/oito temas com síntese, esquema e aplicação, mantendo explicação integral. Os planos vigentes registram a condução: na A08 a medição acompanha objetivo/apoio; na A09 estratégias, viabilidade e revisão têm blocos distintos. Política e documentos completos são consulta na mesma página. Os oito passos de SGSI são checklist. Esta organização supera a ordem editorial descrita nos registros de 8 set. abaixo, sem mudar objetivos, cargas ou atividade.
+
 ## Índice temático
 
-- [A08 — Quem governa a segurança depois que a falha é conhecida?](#a08)
-- [A09 — Quais riscos a organização aceita e quais precisa tratar?](#a09)
+- [A08 — Governança e SGSI](#a08)
+- [A09 — Avaliação e tratamento de riscos](#a09)
 - [A10 — Como demonstrar que os controles atendem ao risco?](#a10)
 - [A11 — O que muda no programa de segurança quando há processo físico?](#a11)
 - [A12 — Como usar NIST SP 800-82 e ISA/IEC 62443 na mesma decisão?](#a12)
@@ -59,7 +61,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 <a id="a08"></a>
 
-### A08 — Quem governa a segurança depois que a falha é conhecida?
+### A08 — Governança e SGSI
 
 **Carga:** 100 min (50 T / 50 P). **Vínculo:** M1/P1.
 
@@ -91,7 +93,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 <a id="a09"></a>
 
-### A09 — Quais riscos a organização aceita e quais precisa tratar?
+### A09 — Avaliação e tratamento de riscos
 
 **Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1.
 

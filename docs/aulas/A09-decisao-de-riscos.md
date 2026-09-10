@@ -1,8 +1,10 @@
-# A09 — Quais riscos a organização aceita e quais precisa tratar?
+# A09 — Avaliação e tratamento de riscos
 
-A ValeVerde tem dois problemas conhecidos e apenas oito horas de trabalho técnico disponíveis antes da próxima janela de manutenção do portal. Uma informação interna pode voltar a ser publicada no portal. Um acesso de fornecedor pode permanecer disponível além da janela autorizada.
+<a id="a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar"></a>
 
-**Qual risco deve receber atenção primeiro?** A escolha não pode depender de qual ferramenta parece mais interessante ou de qual ameaça tem o nome mais assustador. Precisamos comparar consequências, plausibilidade, incerteza e alternativas que caibam nas condições da operação.
+**Como comparar riscos e escolher um tratamento viável?**
+
+Dois riscos afetam o portal de pedidos: publicação de informação interna e acesso de manutenção fora do prazo. Há oito horas técnicas disponíveis antes da próxima janela. A decisão precisa considerar evidência, consequência, plausibilidade e continuidade do serviço.
 
 ## Objetivos e preparação
 
@@ -15,8 +17,36 @@ Ao concluir esta aula, você deverá conseguir:
 **Duração:** 100 minutos. **Recursos:** navegador, esta página e um editor de texto ou caderno. Use as anotações de governança da [A08](A08-governanca-sgsi.md) para avaliar os riscos do caso.
 
 Se você não tiver o registro anterior, use esta base fornecida: o escopo cobre pedidos digitais, publicação, identidades e suporte ao portal; o gestor comercial responde pelo serviço de pedidos e autoriza a manutenção e as exceções dentro de seus limites; TI executa mudanças e designa um supervisor para acompanhar o suporte; direção decide exceções acima dos limites do gestor. Essa base é suficiente para acompanhar a aula, mas pode ser criticada e ajustada com justificativa.
+**Temas:** [Risco](#tema-1) · [Critérios](#tema-2) · [Prioridade](#tema-3) · [Tratamento](#tema-4) · [Recursos](#tema-5) · [Residual](#tema-6) · [Revisão](#tema-7) · [Registro](#tema-8)
 
-## 1. Receber riscos formulados, sem reiniciar a investigação
+**Consulta:** [Atividade](#atividade)
+
+<a id="1-receber-riscos-formulados-sem-reiniciar-a-investigacao"></a>
+
+<a id="primeiro-esquema"></a>
+
+## 1. Componentes de um risco {#tema-1}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- Identificar processo, informação e condição.
+- Descrever evento e consequência no contexto.
+- Separar evidência fornecida de informação desconhecida.
+- Manter visíveis os controles existentes e seus limites.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-01.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-01.svg" alt="Condição → Evento possível → Consequência. Evidência sustenta a análise; incerteza limita a conclusão." /></a>
+</figure>
+
+**Aplicação:** localizar uma evidência e uma incerteza em R01/R02.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 Os documentos desta página continuam o caso fictício da ValeVerde. **R01 e R02 descrevem a situação original, anterior às propostas de política e procedimento da A08.** Use essas propostas para planejar o tratamento; sua redação ou aprovação simulada não demonstra que a condição original foi corrigida. Os fatos de cada ficha valem dentro do exercício e não são observações de sistemas reais.
 
@@ -47,14 +77,32 @@ Os documentos desta página continuam o caso fictício da ValeVerde. **R01 e R02
 
 **Primeira leitura:** localize, em cada ficha, uma evidência e uma incerteza. Complete oralmente: “posso usar esta informação para avaliar…, mas ainda não posso afirmar…”. Não crie novos ativos ou uma narrativa de invasão para tornar o risco mais convincente.
 
-<figure class="didactic-figure" id="primeiro-esquema">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A evidência sustenta uma condição; o risco descreve um cenário.">
-    <img src="../../assets/m1/esquemas/A09-cadeia-risco.svg" alt="A evidência sustenta uma condição; o risco descreve um cenário." loading="lazy" />
-  </div>
-  <figcaption><strong>A evidência sustenta uma condição; o risco descreve um cenário.</strong> Acompanhe R01 sem preencher as lacunas: a amostra informa ocorrências, mas não revela destinatários nem probabilidade de ataque. <a href="../../assets/m1/esquemas/A09-cadeia-risco.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
+</div>
+
+<a id="2-avaliar-risco-e-relacionar-cenario-consequencia-e-plausibilidade"></a>
+
+## 2. Consequência, plausibilidade e incerteza {#tema-2}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- **Consequência:** o que muda se o evento ocorrer?
+- **Plausibilidade:** que evidência sustenta considerar sua ocorrência?
+- **Incerteza:** o que falta saber e pode mudar a avaliação?
+- Aplicar os mesmos critérios aos dois riscos.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-02.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-02.svg" alt="Consequência → Plausibilidade → Avaliação justificada. Declare a incerteza que pode mudar a avaliação." /></a>
 </figure>
 
-## 2. Avaliar risco é relacionar cenário, consequência e plausibilidade
+**Aplicação:** identificar a informação necessária para sustentar uma consequência grave em R02.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 Uma vulnerabilidade descreve uma condição que pode ser explorada ou contribuir para um evento indesejável. A avaliação de risco considera o evento e sua consequência no contexto da organização. Dois sistemas com a mesma condição técnica podem exigir prioridades diferentes porque sustentam funções e expõem informações diferentes.
 
@@ -84,7 +132,32 @@ Para classificar R02 como grave, explicite que permissão permitiria afetar os p
 
 Não confunda desconhecimento com baixa plausibilidade. Se a classificação depender de uma premissa, escreva-a junto do resultado. A confiança na avaliação pode ser reduzida mesmo quando uma consequência potencial é grave.
 
-## 3. Uma matriz ajuda a conversar; não decide sozinha
+</div>
+
+<a id="3-uma-matriz-ajuda-a-conversar-nao-decide-sozinha"></a>
+
+## 3. Prioridade e critérios de decisão {#tema-3}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- Justificar as categorias antes de consultar a matriz.
+- Usar a matriz para encaminhar a decisão.
+- Comparar urgência, dependências e efeito operacional em empates.
+- A decisão continua exigindo autoridade e acompanhamento.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-03.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-03.svg" alt="Categorias justificadas → Matriz → Encaminhamento. Prioridade exige justificativa, responsável e revisão." /></a>
+</figure>
+
+**Aplicação:** acompanhe a avaliação de R01 e justifique a de R02 com as evidências e premissas fornecidas.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 Use a matriz apenas depois de justificar as categorias. Não transforme as palavras em números e multiplique como se fossem grandezas físicas.
 
@@ -103,13 +176,6 @@ Use a matriz apenas depois de justificar as categorias. Não transforme as palav
 - Exceções acima do limite do gestor comercial são encaminhadas à direção. TI informa o efeito técnico e o gestor avalia o impacto no recebimento e processamento dos pedidos.
 
 Essas regras constituem **critérios de aceitação e encaminhamento** para a simulação. A disposição geral de uma organização para assumir riscos precisa ser traduzida em limites utilizáveis nas decisões concretas. Nenhuma matriz autoriza descumprir uma obrigação aplicável.
-
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Cruze categorias justificadas para orientar o encaminhamento.">
-    <img src="../../assets/m1/esquemas/A09-matriz-decisao.svg" alt="Cruze categorias justificadas para orientar o encaminhamento." loading="lazy" />
-  </div>
-  <figcaption><strong>Cruze categorias justificadas para orientar o encaminhamento.</strong> No exemplo R01, consequência relevante e plausibilidade alta levam a tratamento prioritário. Uma classificação sem justificativa continua frágil. <a href="../../assets/m1/esquemas/A09-matriz-decisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
 
 ### Exemplo trabalhado — avaliar R01
 
@@ -134,7 +200,32 @@ Agora percorra o mesmo caminho, sem copiar as categorias de R01:
 
 Compare as alternativas e suas premissas. O critério de qualidade é a rastreabilidade da escolha. Dizer “é acesso de fornecedor, então sempre é o mais grave” não substitui a análise das permissões, dos dados e do serviço afetados.
 
-## 4. Escolher um tratamento exige preservar o que precisa funcionar
+</div>
+
+<a id="4-escolher-um-tratamento-exige-preservar-o-que-precisa-funcionar"></a>
+
+## 4. Estratégias de tratamento {#tema-4}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- **Evitar:** descontinuar ou substituir a atividade que cria o risco.
+- **Reduzir:** atuar na plausibilidade ou na consequência.
+- **Compartilhar:** distribuir parte das consequências ou responsabilidades.
+- **Reter/aceitar:** manter o risco por decisão informada e autorizada.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-04.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-04.svg" alt="Evitar → Reduzir → Compartilhar → Reter / aceitar. Comparar função preservada, condições e acompanhamento." /></a>
+</figure>
+
+**Aplicação:** explicar por que contratar um terceiro não elimina automaticamente a condição técnica.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 Avaliar aponta relevância e prioridade. **Tratar** é decidir o que fazer para modificar a exposição ou suas consequências. **Aceitar** é uma decisão informada da autoridade competente de manter um risco sob condições explícitas. **Monitorar** permite reconhecer quando essas condições deixam de valer.
 
@@ -146,6 +237,32 @@ Avaliar aponta relevância e prioridade. **Tratar** é decidir o que fazer para 
 | **Reter/aceitar** o risco | Está dentro dos critérios ou há exceção autorizada | Monitoramento e capacidade de resposta | Decisão com proprietário, justificativa, limite e revisão | Não pode ser confundido com falta de ação ou de autoridade. |
 
 Uma mesma decisão pode combinar medidas. Acompanhar sessões pode apoiar um tratamento temporário, mas não equivale a corrigir a identidade compartilhada. Contratar um serviço pode melhorar capacidade de resposta, mas o cliente ainda precisa governar suas dependências.
+
+</div>
+
+
+## 5. Viabilidade e restrição de recursos {#tema-5}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- Comparar esforço, prazo e dependências.
+- Verificar a função que precisa continuar disponível.
+- Declarar a premissa que torna cada opção viável.
+- Caber nas horas disponíveis não comprova prontidão operacional.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-05.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-05.svg" alt="C1: 2h → C3: 6h → Supervisão e aprovação. Oito horas disponíveis não bastam para autorizar a opção." /></a>
+</figure>
+
+**Aplicação:** comparar C3, C4 e C5 nas seis horas restantes após C1.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 ### Condições de recurso da ValeVerde
 
@@ -170,34 +287,40 @@ C1 é uma escolha defensável para R01 porque existe canal interno que preserva 
 
 A decisão fica **planejada**, não “risco eliminado”. Antes de alegar redução, será necessário verificar que o conteúdo interno não é entregue pela área pública e que as funções autorizadas continuam disponíveis. O responsável também precisa rever outros caminhos de publicação.
 
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: Caber no orçamento de horas é somente uma condição.">
-    <img src="../../assets/m1/esquemas/A09-recurso-premissa.svg" alt="Caber no orçamento de horas é somente uma condição." loading="lazy" />
-  </div>
-  <figcaption><strong>Caber no orçamento de horas é somente uma condição.</strong> Compare o comprimento das barras. Depois confira a premissa de C3: sem supervisão e aprovação, a soma não torna a alternativa pronta. <a href="../../assets/m1/esquemas/A09-recurso-premissa.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
-
 ### Decisão da turma — combinar prioridades
 
 Restam seis horas após C1. Compare C3, C4 e C5 para R02. A soma das horas informa viabilidade de esforço, mas não prova que a opção atende às restrições. Escreva uma alternativa escolhida e uma rejeitada, com premissa, efeito operacional e autoridade necessária.
 
-!!! question "A condição mudou"
-    TI informa que o supervisor previsto para acompanhar a manutenção do portal não estará disponível. A opção C3 ainda está pronta para uso? Reabra a premissa, proponha o encaminhamento e identifique quem pode aprová-lo. Não suponha que alguém ocupará o papel sem autorização e recurso.
+</div>
 
-Essa mudança mostra por que uma decisão precisa guardar suas condições. A recomendação pode ter sido adequada no momento anterior e deixar de ser executável diante da nova informação.
+<a id="5-o-que-permanece-depois-da-decisao"></a>
 
-## 5. O que permanece depois da decisão
+## 6. Aceitação e risco residual {#tema-6}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- O tratamento pode deixar risco remanescente.
+- Antes da implementação e avaliação, o residual é estimado.
+- Aceitar exige autoridade, justificativa e limites.
+- A conclusão deve declarar a evidência ainda necessária.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-06.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-06.svg" alt="Tratamento planejado → Implementação → Avaliação → Residual revisto. Antes da implementação e avaliação, o residual é estimado." /></a>
+</figure>
+
+**Aplicação:** distinguir aprovação da medida de redução demonstrada.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 **Risco residual** é o risco que permanece após considerar o tratamento. Enquanto a medida não foi implementada e avaliada, o residual descrito é uma **estimativa condicionada**. Depois da execução, a avaliação deve incorporar evidências reais e ainda declarar limitações.
 
 Para R01, retirar um documento não comprova que outro não poderá ser publicado novamente. A aprovação de conteúdo precisa funcionar no processo, e sua revisão deve produzir evidência. Essa distinção será importante na A10: controle definido, implantado e eficaz não são estados equivalentes.
-
-<figure class="didactic-figure">
-  <div class="didactic-scroll" tabindex="0" role="region" aria-label="Esquema: A evidência muda o estado da decisão.">
-    <img src="../../assets/m1/esquemas/A09-residual-revisao.svg" alt="A evidência muda o estado da decisão." loading="lazy" />
-  </div>
-  <figcaption><strong>A evidência muda o estado da decisão.</strong> Percorra proposta, implantação e avaliação. O retorno à decisão representa revisão por mudança de premissa ou desvio, não prova de risco eliminado. <a href="../../assets/m1/esquemas/A09-residual-revisao.svg" target="_blank" rel="noopener">Abrir esquema ampliado</a>.</figcaption>
-</figure>
 
 Um registro de aceitação não pode se resumir a “aceito”. Ele deve permitir que outra pessoa saiba qual risco, em qual condição e até quando pode permanecer.
 
@@ -213,7 +336,70 @@ Um registro de aceitação não pode se resumir a “aceito”. Ele deve permiti
 
 **Gatilhos de revisão** podem incluir nova exposição, mudança de fornecedor, falha no encerramento, alteração de permissão ou impossibilidade de cumprir a supervisão. Um prazo periódico ajuda, mas não deve impedir revisão antecipada quando a condição muda.
 
-## 6. Construa um registro que outra equipe consiga usar
+</div>
+
+
+## 7. Mudança de premissa e revisão {#tema-7}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- Identificar a condição que sustentava a escolha.
+- Reabrir a decisão quando essa condição mudar.
+- Confirmar autoridade, disponibilidade e limites da alternativa.
+- Registrar pendência e encaminhamento enquanto faltar confirmação.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-07.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-07.svg" alt="Supervisão prevista → Supervisor ausente → Reavaliar alternativa. Confirmar substituição ou outro encaminhamento." /></a>
+</figure>
+
+**Aplicação:** em V1, identifique as premissas alteradas e compare dois encaminhamentos, justificando suas condições.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
+
+Uma decisão de risco depende das premissas registradas: prazo, capacidade técnica, pessoas disponíveis e autoridade. Quando uma delas deixa de valer, confirme o efeito sobre a alternativa antes de manter a decisão. A solicitação de uma mudança não a autoriza.
+
+### Exemplo: disponibilidade da supervisão
+
+!!! question "A condição mudou"TI informa que o supervisor previsto para acompanhar a manutenção do portal não estará disponível. A opção C3 ainda está pronta para uso? Reabra a premissa, proponha o encaminhamento e identifique quem pode aprová-lo. Não suponha que alguém ocupará o papel sem autorização e recurso.
+
+Essa mudança mostra por que uma decisão precisa guardar suas condições. A recomendação pode ter sido adequada no momento anterior e deixar de ser executável diante da nova informação.
+
+### Extensão: prazo e troca de técnico
+
+Na [variação V1 da atividade](#4-revise-a-decisao-quando-o-fornecedor-pedir-mais-tempo), o fornecedor também solicita mais 48 horas e indica outro técnico. Use as condições fornecidas para comparar um encaminhamento com outra alternativa. Registre a confirmação necessária; não presuma disponibilidade ou autoridade do substituto.
+
+</div>
+
+<a id="6-construa-um-registro-que-outra-equipe-consiga-usar"></a>
+
+## 8. Registro de decisão e entrega {#tema-8}
+
+<div class="theme-summary" markdown="1">
+
+**Síntese**
+
+- **Avaliação:** risco, evidências, categorias, incerteza e prioridade.
+- **Escolha:** alternativa selecionada e outra comparada.
+- **Governança:** proprietário, autoridade e condições.
+- **Acompanhamento:** residual estimado, evidência necessária e revisão.
+
+<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
+<a href="../../assets/m1/sinteses/A09-08.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-08.svg" alt="Avaliação → Escolha justificada → Autoridade → Acompanhamento. Outra equipe precisa conseguir reabrir a decisão." /></a>
+</figure>
+
+**Aplicação:** conferir se outra equipe consegue entender e reabrir a decisão.
+
+</div>
+
+<div class="study-explanation" markdown="1">
+
+**Explicação e exemplo**
 
 No [modelo do registro de governança e riscos](../assets/m1/A09-modelo-governanca-riscos.txt), preencha o quadro de riscos. Para cada um, registre ID, evidências, consequência, plausibilidade, incerteza, prioridade e proprietário. Detalhe uma decisão de tratamento, comparando a alternativa escolhida com outra considerada.
 
@@ -234,6 +420,8 @@ O exemplo R01 permite conferir a forma. Para R02, a qualidade está na justifica
 | “O fornecedor aceitou, então a empresa não responde.” | Verifique que responsabilidade foi compartilhada e qual permanece com a organização. |
 | “A medida foi aprovada; o residual já é baixo.” | Declare a previsão e a evidência ainda necessária. |
 | “A matriz deu empate.” | Compare urgência, dependência, reversibilidade e efeito operacional. |
+
+</div>
 
 ## Síntese e continuidade
 

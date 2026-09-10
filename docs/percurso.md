@@ -13,8 +13,8 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A05 — Quem é você e pode fazer isto?](aulas/A05-quem-e-voce-e-pode-fazer-isto.md) | Sessão e propriedade: comparar quatro testes de acesso | [Atividade](aulas/A05-quem-e-voce-e-pode-fazer-isto.md#atividade) |
 | [A06 — Como antecipar o que pode dar errado?](aulas/A06-do-ticket-ao-modelo.md) | Diagrama de fluxo de dados e ameaças testáveis com STRIDE | [Atividade](aulas/A06-do-ticket-ao-modelo.md#atividade) |
 | [A07 — Da aplicação web ao processo industrial: como o adversário avança?](aulas/A07-do-modelo-a-decisao.md) | Comportamentos de um relato e técnicas ATT&CK Enterprise/ICS | [Atividade](aulas/A07-do-modelo-a-decisao.md#atividade) |
-| [A08 — Quem governa a segurança depois que a falha é conhecida?](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
-| [A09 — Quais riscos a organização aceita e quais precisa tratar?](aulas/A09-decisao-de-riscos.md) | Critérios, prioridade, tratamento e risco residual | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
+| [A08 — Governança e SGSI](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
+| [A09 — Avaliação e tratamento de riscos](aulas/A09-decisao-de-riscos.md) | Critérios, prioridade, tratamento e risco residual | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
 
 A atividade de **governança e decisão de tratamento** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com modelo, critérios e formato da entrega.
 

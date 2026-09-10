@@ -61,3 +61,41 @@
 .didactic-figure-wide figcaption {
   padding-inline: .5rem;
 }
+
+/* Síntese temática: leitura de projeção e texto de estudo na mesma página. */
+.theme-summary {
+  border-left: .25rem solid #006b68;
+  padding: .3rem 1rem;
+  margin-block: 1rem 1.5rem;
+  background: var(--md-code-bg-color);
+}
+.theme-summary > ul { font-size: 1.05em; }
+.theme-summary .thematic-figure {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 1rem 0;
+  border: 0;
+  background: transparent;
+}
+.thematic-figure > a { display: block; width: 100%; }
+.thematic-figure:focus-visible { outline: 3px solid #165da6; outline-offset: 3px; }
+.thematic-figure img { min-width: 0; max-width: none; width: 100%; max-height: 14rem; object-fit: contain; }
+.study-explanation { margin-bottom: 2.5rem; min-width: 0; overflow-wrap: anywhere; }
+.study-explanation table { display: block; overflow-x: auto; max-width: 100%; }
+.md-content__inner:has(.theme-summary) { min-width: 0; overflow-wrap: anywhere; padding-inline: .8rem; }
+.md-content__inner:has(.theme-summary) table { display: block; overflow-x: auto; max-width: 100%; }
+.md-content__inner:has(.theme-summary) h2 { scroll-margin-top: 4rem; }
+/* O índice destas páginas lista os temas; subtópicos continuam no texto. */
+body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
+.study-explanation > p:first-child { color: var(--md-typeset-a-color); }
+@media (max-width: 600px) {
+  .theme-summary { padding-inline: .65rem; }
+  .thematic-figure { overflow-x: auto; }
+  .thematic-figure img { min-width: 650px; }
+}
+@media print {
+  .theme-summary { break-inside: avoid; background: transparent; }
+  .thematic-figure img { min-width: 0; }
+}

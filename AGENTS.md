@@ -24,7 +24,7 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 ### Transposição do padrão de POO
 
 - Partir do estado que o estudante vê e explicar uma ideia por vez, alternando teoria detalhada e ação imediata na mesma página.
-- Cada bloco responde: de onde partimos; qual problema apareceu; qual conceito ajuda; como aplicar; como confirmar; o que isso prepara.
+- O percurso do encontro explicita problema, conceito, aplicação, validação e continuidade. Cada bloco desenvolve a parte necessária, sem recontar a cadeia inteira.
 - Manter três camadas conectadas: **conceito** (propriedade e motivo), **operação** (ação ou análise segura) e **validação** (evidência, limite e revisão).
 - Trocar o programa cumulativo de POO por um artefato cumulativo de segurança: registro, requisição, diagrama, matriz, configuração, relatório ou runbook. Programação entra somente quando beneficia a pergunta.
 - Trocar compilação/CI por verificação adequada ao domínio: resultado real comparado à previsão, casos permitido/negado, função preservada, revisão cruzada ou validação em pacote de evidências. Não chamar proposta de teste de teste executado.
@@ -34,6 +34,20 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 - Reutilizar as páginas conceituais existentes por links contextuais. O percurso principal deve ser autocontido; aprofundamento pode ficar em páginas de consulta.
 - Classroom recebe link para `#atividade`, entregável, prazo definido pelo docente e rubrica. Não exigir fork, PR, CI, vídeo ou código em toda atividade.
 - Quando houver uso permitido de IA, exigir registro do pedido, decisões aceitas/rejeitadas e justificativa do estudante; proibir envio de dados sensíveis e exigir compreensão do resultado.
+
+### Síntese temática para condução e estudo — decisão de 10 de setembro de 2026
+
+- Organizar cada aula por conceitos e decisões identificáveis no índice. Preferir títulos que nomeiem o tema e indiquem a ação, como “Escopo: delimitar o que será protegido”.
+- Abrir cada ponto temático central com uma síntese itemizada de 3–5 ideias, acompanhada de esquema, comparação ou evidência anotada quando isso esclarecer a relação. Ajustar a quantidade à complexidade; não transformar parágrafos longos em marcadores.
+- Escrever itens conceituais que possam ser compreendidos sem recordar personagens ou IDs. Usar o caso em um exemplo curto e identificado; manter seus dados completos acessíveis.
+- Aproximar síntese, esquema e aplicação. Evitar repetir a mesma explicação integralmente em lista, figura, legenda e texto. Cada representação deve cumprir uma função.
+- Manter explicações completas, definições, limites, exemplos trabalhados, instruções e referências para estudo. A síntese apoia a condução; não substitui o material referencial.
+- Usar situações concretas breves para motivar uma pergunta. Continuidade significa reutilizar dados, artefatos e decisões relevantes; não exige enredo contínuo, suspense ou recapitulação a cada seção.
+- Apresentar o conceito diretamente quando a pergunta já estiver clara. Não criar um novo episódio apenas para justificar a introdução de uma definição.
+- Aplicar as cadeias didáticas ao planejamento e à coerência do encontro. Não exigir sua reprodução completa em cada bloco público.
+- Manter uma única organização temática principal. Numeração de normas, itens de políticas, IDs e passos operacionais são referências locais, sem competir com o índice da aula.
+- Conferir a página em projeção: título, ideias centrais e relação visual devem ser legíveis juntos quando viável. Dividir o bloco antes de reduzir fonte. Garantir leitura em tela pequena, texto alternativo e acesso por teclado.
+- Usar rótulos públicos como “Síntese”, “Exemplo” e “Explicação”. Mediação, respostas e decisões editoriais permanecem no plano docente.
 
 ## Condução e avaliação — repactuação após A07
 
@@ -50,12 +64,13 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 ### 1.0 Continuidade histórica e aulas ministradas
 
 - Preservar os artefatos históricos A01–A05 e quaisquer outros encontros confirmados como ministrados. A reconciliação autorizada pode revisar as páginas MkDocs; slides, roteiros, planos, notas e exportações originais permanecem intactos. Registrar diferenças entre material publicado, apoio de estudo e produção comprovada da turma.
+- Quando a aula tiver sido conduzida pelo MkDocs, consultar a versão publicada usada no encontro, se identificável, e o relato docente. Slides de sequência curricular superada não prevalecem sobre esse material. Registrar incerteza sobre a versão utilizada; publicação continua sem comprovar execução ou entrega. A regra de consulta aos slides abaixo se aplica a encontros conduzidos por apresentação.
 - Antes de descrever, reconciliar ou usar como pré-requisito uma aula já ministrada, abrir e ler integralmente a apresentação vigente dessa aula na pasta oficial do Google Drive. Para determinar o que foi efetivamente apresentado, observado ou produzido em sala, a apresentação publicada no Drive prevalece sobre fontes, PDFs, páginas MkDocs, planos docentes, inventários e documentos de arquitetura locais, que podem estar desatualizados.
 - Registrar no diagnóstico qualquer divergência entre a apresentação vigente no Drive e os documentos locais. Não propagar para uma aula futura uma herança, cenário, ferramenta, evidência ou produto atribuído apenas pelos arquivos locais sem confirmação no material publicado.
 - Quando uma lacuna for percebida depois da realização, registrá-la na arquitetura e retomá-la prospectivamente na aula seguinte; nunca reescrever o que os estudantes supostamente observaram ou produziram.
 - Conforme as apresentações vigentes consultadas em 1º de setembro de 2026, a A04 trabalhou no Juice Shop o fluxo `pessoa → navegador → serviço → dado`, uma requisição de cesta, a pergunta `identidade → ação → recurso`, a fronteira navegador–servidor e um diagrama de uma página; a A05 aprofundou o mesmo caso com Ana, Bruno, sessão, propriedade da cesta, quatro testes de acesso e accounting. Revalidar essa descrição no Drive antes de futuras reconciliações, pois o material vigente publicado continua sendo a autoridade histórica.
 - Geradores em lote devem excluir explicitamente aulas ministradas. Antes de executar, conferir o intervalo de identificadores que será escrito.
-- Todo pacote futuro deve declarar a cadeia `herança concreta → preparação → ação → rastro → leitura → conceito → decisão → validação → produto → ponte`. Um tema correto sem esses elos não constitui aula pronta.
+- Todo pacote futuro deve declarar a cadeia `herança concreta → preparação → ação → rastro → leitura → conceito → decisão → validação → produto → ponte`. Um tema correto sem esses elos não constitui aula pronta. Declarar a cadeia no plano docente; na página pública, explicitar somente os elos necessários à compreensão e à execução.
 - A ponte nomeia o campo, estado ou evidência que será reaberto no encontro seguinte. Não usar “na próxima aula veremos...” como único vínculo.
 
 - Começar cada unidade por uma situação concreta: comportamento inesperado, incidente, evidência, decisão de negócio ou desafio técnico.
@@ -203,6 +218,8 @@ Para roteiros práticos, explicitar também:
 
 ### 5.1 Apresentações de aula
 
+Estas regras se aplicam a apresentações solicitadas. Sua transposição ao MkDocs preserva relações e progressão conceitual, sem exigir narrativa de personagens ou suspense.
+
 - Criar apresentação somente quando solicitada; nesse caso, alinhá-la à página integral e à ficha-base.
 - Abrir com uma situação, imagem, evidência, pergunta ou demonstração que gere uma decisão; não abrir com sumário conceitual extenso.
 - Construir uma narrativa visual: contexto, tensão ou problema, investigação, conceitos necessários, decisão, aplicação e síntese.
@@ -310,7 +327,7 @@ Uma sequência típica, adaptável ao encontro, é:
 
 - Escrever em português claro, objetivo e tecnicamente preciso.
 - Adotar tom de professor especialista próximo da prática profissional.
-- Explicar na ordem **evidência → conceito → impacto → ação → validação**.
+- Conectar evidência, conceito, impacto, ação e validação. Escolher a ordem local pela necessidade de compreensão, sem repetir etapas já estabelecidas.
 - Definir jargões no primeiro uso e evitar enumerações enciclopédicas sem aplicação.
 - Usar parágrafos curtos, tabelas, diagramas e listas quando facilitarem uma decisão ou comparação.
 - Usar separadores `---` apenas entre blocos maiores; evitar fragmentação visual excessiva.
@@ -406,6 +423,14 @@ docente/
 - Não criar links, entradas de navegação ou processos de cópia que levem `slides/`, `atividades/` ou `docente/` para o diretório de saída do MkDocs.
 
 ## 14. Checklist antes de publicar
+
+- [ ] Cada tema central tem uma síntese útil para explicar o conceito, sem depender do enredo.
+- [ ] A relação principal está visível em esquema, comparação ou evidência legível quando pertinente.
+- [ ] O estudante continua encontrando explicação completa e instruções suficientes.
+- [ ] O índice permite localizar conceitos sem lembrar nomes, IDs ou episódios.
+- [ ] Não há repetição extensa entre síntese, legenda, explicação e retomada do caso.
+- [ ] Figuras e texto foram conferidos em projeção, zoom, tela estreita e impressão.
+- [ ] Âncoras existentes, documentos de referência e atividade continuam acessíveis.
 
 - [ ] A página começa por um problema, evidência, caso ou decisão significativa.
 - [ ] Os objetivos são observáveis e estão ligados ao conteúdo programático.

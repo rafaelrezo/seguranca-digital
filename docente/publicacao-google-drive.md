@@ -2,6 +2,10 @@
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
+## Revisão temática A08/A09 — 10 set. 2026
+
+Padrão aprovado pelo docente: dez/oito temas, sínteses e esquemas, texto integral de estudo e atividade preservados. [Registro de implementação e validação local](planejamento-24-encontros/revisao-tematica-a08-a09-2026-09-10.md). Atualização destinada ao Pages; Drive, slides e PDFs históricos preservados. A realização da A08 foi confirmada pelo docente; sua revisão é apoio posterior. A conferência do deploy sucede esta preparação.
+
 ## Revisão da A08 — 8 set. 2026
 
 `c3e987cc` acrescenta a ilustração ValeVerde após G01–G04, com original preservado e adaptação registrada fora do site. `df58d856` remove metainstruções docentes da página e registra a diretriz no AGENTS.md. Build, validação e deploy 34272556912 aprovados; imagem pública conferida por hash e texto público verificado.
@@ -89,3 +93,10 @@ Materiais docentes, gabaritos e notas sensíveis permanecem no diretório local 
 Commit `98ce218fec8165b7d61a2fe2f5794f8bf63847c2`: mapa ISO/IEC 27001:2022 com Emenda 1:2024, oito passos, exemplos institucionais UCL/LNCC e vídeo na A08; enunciado integral ao final da A09, com modelo alinhado e antiga URL P1 preservada como encaminhamento.
 
 Validação editorial e build estrito aprovados localmente. GitHub Actions: validação `34274398096` e deploy `34274398042`, ambos concluídos com sucesso. Páginas públicas A08/A09 verificadas por HTTP após deploy: exemplos, roteiro, vídeo e atividade presentes. Nenhuma alteração no Drive ou envio ao Classroom nesta publicação.
+
+
+## Revisão integrada A08–A09 — 8 set. 2026
+
+Commit `02c42e917ca22187bddb896225392aadbf9c6e76`: correções aprovadas das revisões técnica e didática, política aplicada ao percurso, escopo do portal mantido em R02, S01 e estados explícitos, objetivo/medição alinhados, atividade de manter/adaptar diretriz, diagramas e planos consolidados. Plano A08 anterior preservado em histórico separado.
+
+Validação local, links, modelos, âncoras e XML SVG aprovados; três esquemas conferidos em captura de navegador. Revisão documental independente sem bloqueios técnicos/didáticos relevantes. Actions: validação `34281346825` e deploy `34281347014`, ambos sucesso. Páginas A08/A09 e modelo público conferidos após deploy. Sem alterações no Drive ou envio ao Classroom.

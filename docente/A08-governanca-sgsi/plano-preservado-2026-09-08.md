@@ -1,6 +1,6 @@
 # A08 — Plano de condução vigente
 
-**Estado:** revisão temática aprovada em 10 set. 2026. A08 realizada conforme relato docente; esta organização é apoio posterior, sem comprovar a execução de cada etapa. [Plano anterior preservado](plano-preservado-2026-09-08.md).
+**Estado:** revisão integrada aprovada em 8 set. 2026; A08 não declarada ministrada. Instruções anteriores preservadas em [histórico de revisões](historico-revisoes-plano.md).
 **Página:** `docs/aulas/A08-governanca-sgsi.md`. **Atividade:** enunciado integral em A09#atividade; uma entrega A08–A09, identificador interno P1.
 **Carga:** 100 minutos, 50 T/50 P conduzida. **Recursos:** página projetada, navegador e editor/caderno; não requer portal real, conta ou instalação.
 **Ementa:** governança, política, riscos, responsabilidades, operação e avaliação do SGSI.
@@ -13,22 +13,20 @@ Herança: o registro de consulta integral da apresentação A07 em 8 set. 2026 c
 
 Caso: ValeVerde, pedidos digitais, publicação de documentos e manutenção do portal pelo Suporte Norte. A relação com embalagem é pendência para ampliação posterior. A08 e A09 não incluem projetos de engenharia ou alteração de processo industrial em seu escopo de decisão. G01–G04 descrevem a linha de base; PSI-VV-01 e PR-VV-01 são propostas. S01 acrescenta solicitação concreta e condições simuladas, sem modificar a linha de base.
 
-Cadeia vigente de planejamento: problema de recorrência → distinção decisão/execução/acompanhamento → SGSI → escopo → política/procedimento/registro → papéis → risco candidato → objetivo e linha de base → simulação de operação → auditoria/melhoria → esboço para avaliar riscos na A09. O caso fornece exemplos e registros, sem exigir recapitulação narrativa a cada tema.
+Cadeia vigente: limite do mapa ATT&CK → caso novo e funcionamento legítimo → G02 e segunda publicação → orientação técnica e lacuna de autoridade → G01–G04 → SGSI e função da norma → contexto/escopo → política de referência → avaliar diretriz e definir papéis → registrar risco candidato → objetivo/procedimento → S01 diante do acordo original e do arranjo proposto → G04 como linha de base → auditoria/melhoria planejadas → esboço para avaliação de riscos na A09.
 
 ## Condução dos 100 minutos
 
 | Minutos | T/P | Conteúdo e ação |
 |---|---|---|
-| 0–15 | 5/10 | Tema 1: síntese de governança, distinção entre retirada e regra para novas publicações; consulta pontual à orientação de autorização. G02 completo fica na consulta do caso. |
-| 15–30 | 10/5 | Tema 2: conceito de SGSI e mapa funcional ISO, Anexo A e aplicabilidade. Localizar autoridade e acompanhamento. |
-| 30–50 | 10/10 | Temas 3–5: comparar escopos; distinguir política, procedimento e registro; ler item 8, avaliar diretriz e atribuir papéis. A política integral é consulta, sem leitura linear dos dez itens. |
-| 50–65 | 10/5 | Temas 6–7: separar evidência e risco candidato; definir objetivo/apoio; calcular a linha de base G04, com corte e denominador. |
-| 65–85 | 10/10 | Tema 8: simular S01 no acordo original e no arranjo proposto. Distinguir aprovação, condições, execução e encerramento. Relacionar o registro necessário ao indicador anterior. |
-| 85–100 | 5/10 | Temas 9–10: diferenciar monitoramento, auditoria e direção; planejar melhoria. Conferir registros e ponte para A09. |
+| 0–15 | 5/10 | Abertura e seção 1: distinguir retirada da cópia de agosto e autorização nas publicações seguintes; conferir duas orientações Authorization; localizar autoridade ausente. Leitura seletiva, sem transformar a ponte em nova investigação técnica. |
+| 15–30 | 10/5 | Seções 2–3: interpretar G01–G04 e apresentar SGSI, mapa ISO e localização/função do Anexo A. Distinguir política, requisito técnico e decisão de negócio. |
+| 30–50 | 10/10 | Seções 4–5: construir registro de escopo; ler seletivamente finalidade/compromissos/item 8 da política; avaliar a diretriz e definir papéis. Usar exemplo de manutenção da diretriz; adaptação exige necessidade justificada. |
+| 50–65 | 10/5 | Seções 5.1–6: registrar risco candidato e pergunta, sem comparar alternativas; construir objetivo, corte da medição e preparação do procedimento. |
+| 65–85 | 10/10 | Seção 7, passos 5–6: examinar S01 em dois estados; interpretar aprovação simulada condicionada; calcular G04 4/5 como linha de base, não resultado da proposta. |
+| 85–100 | 5/10 | Passos 7–8 e síntese: planejar auditoria, decisões da direção e verificação de melhoria. Conferir o esboço e levar avaliação da diretriz, escopo e autoridade para A09. |
 
-**Uso da página:** cada tema abre com itens conceituais, esquema compacto e aplicação. A explicação completa permanece aberta logo abaixo. Usar âncoras temáticas para mudar de assunto; documentos integrais ficam no fim da página. Os oito passos autorais são checklist do esboço, não segunda rodada de apresentação. Vídeo e exemplos públicos são consultas complementares.
-
-**Limite histórico:** a distribuição acima orienta uso futuro da página revista. Não descreve o tempo efetivamente utilizado na A08 já realizada.
+A sequência pública é a sequência de condução. Os passos 1–4 são construídos nas seções 4–6 e retomados somente na síntese; não repetir o percurso. A política integral e as fontes públicas permanecem disponíveis para consulta. O vídeo de 14:12 é complementar e não soma tempo aos 100 minutos.
 
 ## Respostas e critérios para mediação
 
@@ -58,6 +56,6 @@ Revisões independentes técnica e didática motivaram a integração: coerênci
 
 ## Apoio à condução e PDF da política
 
-A página tem dez sínteses temáticas, cada uma com esquema e aplicação curta. Elas apresentam propriedades e decisões; nomes e IDs permanecem no exemplo e na consulta. A medição G04 acompanha o tema de objetivo, antes da simulação S01, para separar linha de base e resultado da proposta.
+As seções principais e os passos 5–8 começam com três ideias-chave para orientar a explicação. O texto seguinte permanece como apoio de estudo e detalhamento. Não é necessário ler o corpo integral em voz alta; os itens não acrescentam uma etapa nem alteram os 100 minutos.
 
-O PDF da política, sua fonte e seu gerador permanecem preservados. O texto integral continua em `#politica-exemplo`; a atividade compartilhada mantém `#atividade`. A mudança editorial não acrescenta entregas ou requisitos de implementação.
+O download público da política usa `docs/assets/m1/A08-politica-seguranca-valeverde.pdf`, duas páginas A4 com texto selecionável. Fonte em `.txt` preservada; `scripts/render_a08_policy.py` produz HTML de impressão a partir dela. Para regenerar: executar o script com caminho de saída HTML, imprimir pelo Chrome headless com `--no-pdf-header-footer` e `--print-to-pdf`, conferir os dez itens por extração de texto e revisar as duas páginas. Esta exportação é a política de exemplo solicitada, sem criar roteiro de atividade em PDF.
