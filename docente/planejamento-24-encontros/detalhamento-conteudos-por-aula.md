@@ -65,7 +65,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Carga:** 100 min (50 T / 50 P). **Vínculo:** M1/P1.
 
-**Herança concreta:** A07 descreve comportamentos com ATT&CK, sem definir resposta ou responsabilidade pela proteção. A A08 explicita essa lacuna e apresenta um novo caso de gestão completo: portal ValeVerde, catálogo público, planilhas internas, atendimento G02 com retirada e verificação limitada, seguido de nova publicação. Não herdar chamado ou correção como produto da A07. Controle/teste entram como exemplo fornecido, sem exigir arquivo de entrega anterior.
+**Herança concreta:** A07 descreve comportamentos com ATT&CK, sem definir resposta ou responsabilidade pela proteção. A A08 explicita essa lacuna e apresenta um novo caso de gestão completo: portal Nuvora, catálogo público, planilhas internas, atendimento G02 com retirada e verificação limitada, seguido de nova publicação. Não herdar chamado ou correção como produto da A07. Controle/teste entram como exemplo fornecido, sem exigir arquivo de entrega anterior.
 
 **Objetivos observáveis:**
 
@@ -78,7 +78,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 1. Ponte de 15 minutos: explicar a passagem de mapeamento ATT&CK a responsabilidade pela proteção; apresentar o caso novo, os arquivos e o chamado G02 antes de qualquer pergunta sobre eles. Distinguir retirada da planilha de agosto de autorização para novas publicações. Formular a regra de leitura e consultar duas orientações da Authorization Cheat Sheet; retornar à autoridade para aprovar divulgação pública. Não reconstruir DFD, testes de cestas ou catálogo de referenciais.
 2. Estrutura ISO/IEC 27001:2022 e emenda 2024: seções 1–3, 4–10 e função do Anexo A/SoA. Construção em oito passos autorais, com registro e validação por etapa. Problema novo: a correção foi proposta, mas a empresa não definiu quem mantém a regra, acompanha fornecedor e revisa a decisão. Introduzir Sistema de Gestão de Segurança da Informação (SGSI) e função da ISO/IEC 27001 pela necessidade de continuidade organizacional.
 3. Contexto, partes interessadas, processos, informação e dependências externas: definir o que o SGSI abrange a partir de pedidos e manutenção do portal. A atividade contratada integra o escopo, embora a empresa fornecedora seja externa; não depender de referência ao modelo de A06.
-4. Política PSI-VV-01 como referência: selecionar e avaliar diretriz; manter quando adequada ou adaptar com justificativa. Desdobrar em papéis e procedimento, distinguindo orientação de detalhe operacional. Fornecer arranjo hipotético com autoridade e recursos.
+4. Política PSI-NU-01 como referência: selecionar e avaliar diretriz; manter quando adequada ou adaptar com justificativa. Desdobrar em papéis e procedimento, distinguindo orientação de detalhe operacional. Fornecer arranjo hipotético com autoridade e recursos.
 5. Risco candidato/pergunta para A09; objetivo e preparação do procedimento. Aplicar S01 ao acordo original e ao arranjo proposto, distinguindo aprovação simulada de execução. G04 é linha de base: encerramentos comprovados entre autorizações cujo prazo vigente venceu no corte. Planejar auditoria e melhoria; sintetizar os oito passos sem reconstruir os registros das seções 4–6.
 
 **Investigação e participação conduzidas:** professor apresenta o registro técnico pronto e uma falha de gestão fornecida. A turma compara dois escopos, identifica uma dependência omitida e acompanha o preenchimento de papéis, autoridade, recurso, objetivo e revisão. Não se exige nova investigação técnica.
@@ -835,4 +835,4 @@ O especialista revisou os 24 encontros sem modificar arquivos. Foram incorporado
 
 **Preservação:** este detalhamento não altera aulas ministradas, slides, PDFs, páginas MkDocs ou configuração de publicação. Não autoriza deploy nem envio ao Classroom. A arquitetura e os índices docentes apontam para esta sequência prospectiva; tabelas antigas permanecem como memória e não definem novos encontros.
 
-**Ajuste A08/A09 — 8 set. 2026:** A08 oferece política de referência PSI-VV-01 com orientação ampla para o SGSI e correspondência aos blocos 4–10, distinguindo política de procedimentos e evidências. A09 avalia uma diretriz, mantendo-a ou adaptando-a com justificativa; não exige cópia integral. Cenário, 100 minutos por encontro e entrega de 3–4 páginas permanecem.
+**Ajuste A08/A09 — 8 set. 2026:** A08 oferece política de referência PSI-NU-01 com orientação ampla para o SGSI e correspondência aos blocos 4–10, distinguindo política de procedimentos e evidências. A09 avalia uma diretriz, mantendo-a ou adaptando-a com justificativa; não exige cópia integral. Cenário, 100 minutos por encontro e entrega de 3–4 páginas permanecem.

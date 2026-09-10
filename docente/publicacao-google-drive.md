@@ -2,9 +2,13 @@
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
+## Nome fictício Nuvora — 10 set. 2026
+
+Renomeação solicitada pelo docente em A08/A09, modelos, política e ilustração. Política vigente: PSI-NU-01; procedimento: PR-NU-01. PDF e fonte novos usam `A08-politica-seguranca-nuvora`; a URL antiga do PDF recebe o mesmo conteúdo atualizado para compatibilidade. Originais da política preservados fora do site. Slides e Drive permanecem históricos. Verificação da publicação sucede esta preparação.
+
 ## Revisão temática A08/A09 — 10 set. 2026
 
-Padrão aprovado pelo docente: dez/oito temas, sínteses e esquemas, texto integral de estudo e atividade preservados. [Registro de implementação e validação local](planejamento-24-encontros/revisao-tematica-a08-a09-2026-09-10.md). Atualização destinada ao Pages; Drive, slides e PDFs históricos preservados. A realização da A08 foi confirmada pelo docente; sua revisão é apoio posterior. A conferência do deploy sucede esta preparação.
+Padrão aprovado pelo docente: dez/oito temas, sínteses e esquemas, texto integral de estudo e atividade preservados. [Registro de implementação e validação local](planejamento-24-encontros/revisao-tematica-a08-a09-2026-09-10.md). Atualização destinada ao Pages; Drive, slides e PDFs históricos preservados. A realização da A08 foi confirmada pelo docente; sua revisão é apoio posterior. Publicação confirmada pelo commit `5af1dbe7c294477fc8e46f0697dc017a08c17801`: validação `34513451775` e deploy `34513451752` concluídos com sucesso; páginas A08/A09, atividade, CSS e esquema conferidos no endereço público.
 
 ## Revisão da A08 — 8 set. 2026
 

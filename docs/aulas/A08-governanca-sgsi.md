@@ -6,7 +6,7 @@
 
 Uma planilha interna foi publicada num portal. A equipe retirou a cópia, mas uma publicação posterior repetiu a exposição. Corrigir o arquivo resolveu uma ocorrência; faltaram regras e responsabilidades para as próximas mudanças.
 
-O caso fictício **ValeVerde** envolve um portal de pedidos, a equipe comercial, TI e um fornecedor de manutenção. Os documentos são insumos para análise em papel; não exigem acesso a um sistema real.
+O caso fictício **Nuvora** envolve um portal de pedidos, a equipe comercial, TI e um fornecedor de manutenção. Os documentos são insumos para análise em papel; não exigem acesso a um sistema real.
 
 ## Objetivos e preparação
 
@@ -82,9 +82,9 @@ Registre qual parte da regra cada orientação sustenta. Explique por que confer
 
 ### Quem pode conceder a permissão que o portal vai aplicar?
 
-O fornecedor ainda precisa saber quem pode autorizar uma publicação pública. A orientação técnica ajuda a aplicar permissões; a ValeVerde precisa definir quem tem autoridade para concedê-las, quem executa a mudança e quem acompanha o resultado. Se alguém conceder indevidamente acesso público à planilha, o portal pode cumprir exatamente essa permissão e ainda expor informação interna.
+O fornecedor ainda precisa saber quem pode autorizar uma publicação pública. A orientação técnica ajuda a aplicar permissões; a Nuvora precisa definir quem tem autoridade para concedê-las, quem executa a mudança e quem acompanha o resultado. Se alguém conceder indevidamente acesso público à planilha, o portal pode cumprir exatamente essa permissão e ainda expor informação interna.
 
-**Decisão em sala:** no caso de `margens-setembro.xlsx`, explique por que “o comercial pediu uma atualização” não basta para autorizar acesso público. Em seguida, identifique a responsabilidade que a ValeVerde precisa atribuir antes de aceitar uma nova publicação.
+**Decisão em sala:** no caso de `margens-setembro.xlsx`, explique por que “o comercial pediu uma atualização” não basta para autorizar acesso público. Em seguida, identifique a responsabilidade que a Nuvora precisa atribuir antes de aceitar uma nova publicação.
 
 </div>
 
@@ -123,13 +123,13 @@ A **ISO/IEC 27001:2022** estabelece requisitos para um SGSI. Seu propósito incl
 
 O mapa a seguir relaciona os requisitos às decisões de gestão. Use a tabela para localizar uma necessidade, como autoridade para aprovar ou evidência para acompanhar.
 
-Uma **norma de requisitos** estabelece condições pelas quais um sistema pode ser avaliado. A ISO/IEC 27001 fornece essa referência para o SGSI. Ela não entrega uma política pronta para a ValeVerde nem determina quais cargos a empresa deve criar. A organização precisa traduzir os requisitos em processos adequados ao seu contexto. Para declarar conformidade, não pode excluir requisitos das seções 4 a 10. [Catálogo oficial da IEC](https://webstore.iec.ch/en/publication/79694).
+Uma **norma de requisitos** estabelece condições pelas quais um sistema pode ser avaliado. A ISO/IEC 27001 fornece essa referência para o SGSI. Ela não entrega uma política pronta para a Nuvora nem determina quais cargos a empresa deve criar. A organização precisa traduzir os requisitos em processos adequados ao seu contexto. Para declarar conformidade, não pode excluir requisitos das seções 4 a 10. [Catálogo oficial da IEC](https://webstore.iec.ch/en/publication/79694).
 
 Use a **edição de 2022**, junto da **Emenda 1:2024**. No [catálogo da ISO](https://www.iso.org/standard/27001), confira o ano e a emenda antes de consultar o sumário. A numeração identifica onde procurar um requisito; não é uma ordem rígida de implantação.
 
-As seções **1 — Escopo**, **2 — Referências normativas** e **3 — Termos e definições** delimitam a aplicação da norma e seu vocabulário. O escopo da seção 1 descreve a própria norma; o escopo que a ValeVerde deve definir para seu SGSI é tratado em **4.3**. A introdução explica a finalidade e a integração do sistema à organização.
+As seções **1 — Escopo**, **2 — Referências normativas** e **3 — Termos e definições** delimitam a aplicação da norma e seu vocabulário. O escopo da seção 1 descreve a própria norma; o escopo que a Nuvora deve definir para seu SGSI é tratado em **4.3**. A introdução explica a finalidade e a integração do sistema à organização.
 
-| Seção da norma | Pergunta para construir o SGSI da ValeVerde | Registro que usaremos no exemplo |
+| Seção da norma | Pergunta para construir o SGSI da Nuvora | Registro que usaremos no exemplo |
 |---|---|---|
 | **4 — Contexto da organização** | Que processos, informações e dependências precisam de proteção? | Contexto, partes interessadas e escopo. |
 | **5 — Liderança** | Quem assume as decisões e estabelece a direção? | Política e papéis com autoridade. |
@@ -147,11 +147,11 @@ Os nomes e a organização das seções podem ser conferidos na [prévia da norm
 
 O **Anexo A pertence à norma ISO/IEC 27001:2022**. Ele fica após a seção **10 — Melhoria**, antes da bibliografia. No sumário da edição em inglês, localize **“Annex A (normative) — Information security controls reference”**, isto é, referência de controles de segurança da informação. Essa localização pode ser conferida no [sumário da prévia da norma disponibilizada pelo SIST](https://preview.sist.si/sist-preview/82875/4d4c8d99950c4b39aaa39cf5cb9a0bf3/ISO-IEC-27001-2022.pdf).
 
-Quando esta aula ou a política da ValeVerde mencionar **“Anexo A”**, a referência será a esse anexo da norma. A política de exemplo não possui um anexo com esse nome.
+Quando esta aula ou a política da Nuvora mencionar **“Anexo A”**, a referência será a esse anexo da norma. A política de exemplo não possui um anexo com esse nome.
 
 **Como usar essa parte da norma:** o Anexo A oferece uma referência de controles de segurança. Durante o tratamento de riscos, a organização confronta os controles que considera necessários com essa referência para identificar omissões. A **Declaração de Aplicabilidade**, também chamada **SoA** (*Statement of Applicability*), registra controles necessários, justificativas de inclusão, situação de implementação e razões para exclusões de controles do Anexo A. Controles necessários podem vir também de outras fontes. [Nota educacional do grupo de práticas de auditoria da ISO/IEC 27001](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf).
 
-Na ValeVerde, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção será aprofundada depois da decisão de risco da A09.
+Na Nuvora, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção será aprofundada depois da decisão de risco da A09.
 
 **Confira a diferença:** “quem aprova a política?” é uma pergunta de liderança; “qual medida encerra o acesso no prazo?” é uma pergunta sobre controle. Ambas precisam de resposta para o mesmo serviço.
 
@@ -182,7 +182,7 @@ Na ValeVerde, “definir prazo e verificar o encerramento do acesso do fornecedo
 
 **Explicação e exemplo**
 
-A ValeVerde usa um portal para receber pedidos e disponibilizar documentos. A equipe comercial trabalha com essas informações, TI mantém o portal e o Suporte Norte presta manutenção contratada. Antes de escrever a política de segurança, a empresa precisa responder: **quais dessas atividades serão abrangidas pelo SGSI?**
+A Nuvora usa um portal para receber pedidos e disponibilizar documentos. A equipe comercial trabalha com essas informações, TI mantém o portal e o Suporte Norte presta manutenção contratada. Antes de escrever a política de segurança, a empresa precisa responder: **quais dessas atividades serão abrangidas pelo SGSI?**
 
 **Escopo do SGSI é a definição dos limites dessa gestão:** quais atividades, informações, pessoas e recursos serão abrangidos. Neste momento, estamos escolhendo o que será abrangido. A política será elaborada para orientar a proteção desse conjunto; ainda não estamos avaliando o cumprimento de uma política existente.
 
@@ -197,7 +197,7 @@ Comece pelo serviço de pedidos digitais e identifique o que permite seu funcion
 | Trabalho de TI e funcionamento do portal | A equipe mantém os recursos que recebem pedidos e disponibilizam documentos. |
 | Serviço de manutenção do Suporte Norte | A empresa conta com esse fornecedor para realizar manutenção no portal. |
 
-A manutenção do portal depende do serviço prestado pelo Suporte Norte. Essa relação é uma **dependência externa**: uma atividade da ValeVerde precisa do trabalho de outra organização. Por isso, o escopo deve considerar o serviço contratado e o acesso necessário para realizá-lo.
+A manutenção do portal depende do serviço prestado pelo Suporte Norte. Essa relação é uma **dependência externa**: uma atividade da Nuvora precisa do trabalho de outra organização. Por isso, o escopo deve considerar o serviço contratado e o acesso necessário para realizá-lo.
 
 ### Compare duas formas de escrever o escopo
 
@@ -205,14 +205,14 @@ A manutenção do portal depende do serviço prestado pelo Suporte Norte. Essa r
 
 Esse texto identifica um equipamento, mas deixa uma dúvida: o SGSI também abrange o trabalho com os pedidos, a publicação de documentos e a manutenção contratada?
 
-> **Proposta B:** “O SGSI abrange o recebimento e a manutenção dos pedidos digitais e a publicação de documentos no portal da ValeVerde. Inclui as informações de clientes e pedidos, os documentos publicados, o portal e as atividades das equipes comercial e de TI relacionadas a esses serviços. Abrange também a manutenção do portal realizada pelo Suporte Norte e o acesso utilizado pelo fornecedor nesse serviço.”
+> **Proposta B:** “O SGSI abrange o recebimento e a manutenção dos pedidos digitais e a publicação de documentos no portal da Nuvora. Inclui as informações de clientes e pedidos, os documentos publicados, o portal e as atividades das equipes comercial e de TI relacionadas a esses serviços. Abrange também a manutenção do portal realizada pelo Suporte Norte e o acesso utilizado pelo fornecedor nesse serviço.”
 
 A proposta B identifica o conjunto para o qual a empresa vai estabelecer política, responsabilidades e procedimentos. Ela é um ponto de partida para o exercício; a empresa ainda precisaria identificar os locais e recursos envolvidos e confirmar os requisitos aplicáveis.
 
 **Limite a confirmar:** o caso menciona a operação de embalagem, mas não detalha como a manutenção do portal poderia afetá-la. Antes de incluir essa operação no escopo, é preciso esclarecer essa relação. Se uma intervenção puder afetar a embalagem, será necessário avaliar seu efeito e obter autorização de quem responde pela operação.
 
 !!! question "Confira seu escopo"
-    A manutenção do portal faz parte da proposta B mesmo sendo executada por outra empresa? Localize o trecho que sustenta sua resposta e explique por que a ValeVerde depende desse serviço. Você está verificando o que o escopo abrange; as regras de acesso ainda serão definidas.
+    A manutenção do portal faz parte da proposta B mesmo sendo executada por outra empresa? Localize o trecho que sustenta sua resposta e explique por que a Nuvora depende desse serviço. Você está verificando o que o escopo abrange; as regras de acesso ainda serão definidas.
 
 <a id="passo-1-definir-contexto-necessidades-e-escopo"></a>
 
@@ -225,7 +225,7 @@ A Emenda 1:2024 acrescenta a consideração de mudança climática ao contexto. 
 !!! example "Exemplo público — como a UCL delimita seu SGSI"
     A **University College London (UCL)** publica o escopo do SGSI de seus dados de pesquisa. O documento delimita ambientes de pesquisa confiáveis que processam dados altamente confidenciais; identifica pessoas e serviços envolvidos e explicita elementos fora do escopo. Isso torna a fronteira verificável, em vez de declarar apenas “proteger a universidade”. Consulte **1. Scope Statement** (declaração de escopo), **4. Scope Overview** (visão do escopo) e **8. Out of scope** (fora do escopo) no [RISM01, versão 10.4, revisão de 31/03/2025](https://isms.arc.ucl.ac.uk/rism01-scope/).
 
-    **Aplique à ValeVerde:** escreva uma frase que inclua o portal, a publicação de documentos e a interface com o suporte. Depois indique uma exclusão e explique por que ela não elimina uma dependência relevante. A fronteira escolhida pela UCL atende ao contexto de pesquisa; a ValeVerde precisa justificar a sua.
+    **Aplique à Nuvora:** escreva uma frase que inclua o portal, a publicação de documentos e a interface com o suporte. Depois indique uma exclusão e explique por que ela não elimina uma dependência relevante. A fronteira escolhida pela UCL atende ao contexto de pesquisa; a Nuvora precisa justificar a sua.
 
 O escopo delimita o conjunto protegido; a política estabelece os compromissos para esse conjunto.
 
@@ -276,7 +276,7 @@ A ISO/IEC 27001 trata da política em **5.2**. Os requisitos das seções **4–
 
 O **item 8 — Serviços contratados e mudanças** da política proposta orienta: acesso com finalidade e período definidos, autorização, acompanhamento e encerramento. O procedimento deve indicar quem aprova, como registra o período e quem confere o encerramento. A política não aprova uma solicitação concreta.
 
-[Consulte a política PSI-VV-01 integral e sua correspondência com a ISO/IEC 27001](#politica-exemplo). Seu estado é proposta didática, ainda sem aprovação. Use a identificação e o item pertinente; não é necessário copiar a política inteira.
+[Consulte a política PSI-NU-01 integral e sua correspondência com a ISO/IEC 27001](#politica-exemplo). Seu estado é proposta didática, ainda sem aprovação. Use a identificação e o item pertinente; não é necessário copiar a política inteira.
 
 ### Dois casos para aplicar a orientação
 
@@ -340,14 +340,14 @@ O item 3 da política atribui à direção a definição de autoridades. **Supon
 | Conferência do encerramento | Rui, de TI | Examinar os registros e comprovar o encerramento; encaminhar ausência de evidência. |
 | Exceções acima desses limites | Direção | Decidir e registrar o tratamento das exceções; designar substituto quando necessário. |
 
-**Registro 2 — diretriz e papéis:** identifique PSI-VV-01, item 8; registre “manter” ou uma adaptação necessária, com justificativa. Relacione aprovador, executor, responsável pela conferência e encaminhamento na ausência de autoridade. Não copie a política inteira.
+**Registro 2 — diretriz e papéis:** identifique PSI-NU-01, item 8; registre “manter” ou uma adaptação necessária, com justificativa. Relacione aprovador, executor, responsável pela conferência e encaminhamento na ausência de autoridade. Não copie a política inteira.
 
 **Confira:** o item 7 da política também orienta recuperação e proteção dos pedidos. Qual papel precisaria decidir a prioridade de recuperação e qual precisaria verificar sua viabilidade técnica? Isso mostra como os mesmos papéis atendem a outra necessidade do serviço.
 
 !!! example "Exemplo público brasileiro — política e aprovação no LNCC"
     O **Laboratório Nacional de Computação Científica (LNCC)** publica sua Política de Segurança da Informação, versão 3.1, de 21/10/2025. Na **seção 1**, a política registra compromisso da administração, atendimento a requisitos e melhoria contínua. A **seção 15** separa elaboração, verificação e aprovação. Localize essas seções nas páginas **1–2 e 18** do [PDF oficial do LNCC](https://www.gov.br/lncc/pt-br/acesso-a-informacao/institucional/politica-de-seguranca-1/politicas-de-seguranca-da-informacao/02-psi-v3-1.pdf).
 
-    **Aplique à ValeVerde:** confira na identificação da política quem mantém o documento e quem aprova; indique quem verificará a viabilidade do procedimento proposto. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
+    **Aplique à Nuvora:** confira na identificação da política quem mantém o documento e quem aprova; indique quem verificará a viabilidade do procedimento proposto. Uma pessoa pode acumular funções quando isso for adequado, mas a autoridade precisa ficar explícita. O técnico que prepara o procedimento de manutenção não recebe automaticamente poder para autorizar qualquer acesso.
 
     Esse documento permite observar compromissos e responsabilidades formalizados. A execução do SGSI precisaria ser examinada por outros registros. Obrigações próprias de um órgão público brasileiro não são automaticamente requisitos da empresa fictícia.
 
@@ -431,7 +431,7 @@ A data e a hora da revisão são o **corte da medição**: comparamos o prazo vi
 | Paulo e Lia recebem o procedimento vigente | Permite executar e registrar as etapas previstas. |
 | O procedimento identifica versão, responsável e aprovação | Permite reconhecer a orientação que deve ser seguida. |
 
-**Procedimento proposto PR-VV-01, versão 0.1:** receber pedido com finalidade, identidade e período; encaminhar a Marina após exame técnico de Paulo; registrar a decisão; executar somente se houver aprovação e condições verificadas; Rui confere o encerramento e registra qualquer pendência. O procedimento depende de aprovação antes do uso real.
+**Procedimento proposto PR-NU-01, versão 0.1:** receber pedido com finalidade, identidade e período; encaminhar a Marina após exame técnico de Paulo; registrar a decisão; executar somente se houver aprovação e condições verificadas; Rui confere o encerramento e registra qualquer pendência. O procedimento depende de aprovação antes do uso real.
 
 **Registro 4 — objetivo e preparação:** guarde a meta, o conjunto observado, a data de corte a usar, responsáveis e recursos. Calcule a linha de base com G04 abaixo. No tema de operação, use o pedido S01 para examinar a clareza do procedimento.
 
@@ -441,7 +441,7 @@ A data e a hora da revisão são o **corte da medição**: comparamos o prazo vi
 
 **Orientação aplicada:** itens 5 e 10 da política — definir objetivos e acompanhar resultados. A seção 9.1 da ISO trata da medição e avaliação.
 
-A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha de base para o objetivo de encerramento; não demonstra o efeito de PR-VV-01 ou da simulação S01. Use como corte o instante da revisão descrita em G04.
+A amostra **G04 é anterior à proposta de procedimento**. Ela serve como linha de base para o objetivo de encerramento; não demonstra o efeito de PR-NU-01 ou da simulação S01. Use como corte o instante da revisão descrita em G04.
 
 | Situação no corte da revisão G04 | Quantidade | Tratamento no cálculo |
 |---|---:|---|
@@ -492,7 +492,7 @@ A simulação a seguir usa o escopo, a diretriz e os papéis propostos. A design
 | Campo | Dado fictício fornecido |
 |---|---|
 | Finalidade | Corrigir a apresentação do catálogo no portal, preservando pedidos e documentos internos. |
-| Solicitante | Setor comercial da ValeVerde. |
+| Solicitante | Setor comercial da Nuvora. |
 | Técnica indicada | Lia, do Suporte Norte. |
 | Identidade informada | `suporte-portal`; a atribuição individual e as permissões efetivas ainda precisam de verificação. |
 | Período solicitado | 10/09/2026, das 14h às 15h; datas fictícias do caso. |
@@ -505,7 +505,7 @@ A simulação a seguir usa o escopo, a diretriz e os papéis propostos. A design
 | Estado examinado | Decisão sustentada | O que ainda não aconteceu |
 |---|---|---|
 | **Acordo original G03:** exige aprovação, mas não define o aprovador. | Manter S01 pendente e encaminhar a definição da autoridade. | Não há aprovação nem execução demonstrada. |
-| **Arranjo proposto:** Marina tem a autoridade descrita na tema de responsabilidades e PR-VV-01 identifica as etapas. | Encaminhar S01 a Marina após exame técnico; registrar sua decisão simulada. | Ter definido papéis não autoriza automaticamente o pedido. |
+| **Arranjo proposto:** Marina tem a autoridade descrita na tema de responsabilidades e PR-NU-01 identifica as etapas. | Encaminhar S01 a Marina após exame técnico; registrar sua decisão simulada. | Ter definido papéis não autoriza automaticamente o pedido. |
 
 **Decisão simulada fornecida:** Marina aprova somente a correção do catálogo no período solicitado, condicionada à verificação das permissões da identidade e ao acompanhamento de Paulo. Não autoriza alteração de dados dos pedidos nem divulgação de documentos internos. Se as condições não puderem ser verificadas antes do início, a manutenção não deve começar e o pedido volta à responsável pelo serviço.
 
@@ -558,7 +558,7 @@ A simulação a seguir usa o escopo, a diretriz e os papéis propostos. A design
 !!! example "Exemplo público — o que acontece depois de uma auditoria na UCL"
     No procedimento público de auditoria da UCL, as seções **4. Responsibilities** (responsabilidades) e **6. Audit Findings** (achados de auditoria) tratam da imparcialidade e do encaminhamento dos achados. As ações recebem identificador, responsável, prazo e estado para acompanhamento. Consulte o [RISM05, versão 4.1, revisão de 11/04/2025](https://isms.arc.ucl.ac.uk/rism05-audit_procedure/).
 
-    **Aplique à ValeVerde:** se uma auditoria confirmar que a comprovação de encerramento exigida pelo procedimento está ausente, registre o achado e atribua a ação de investigar a causa, com responsável, prazo e estado. A ausência de comprovação, por si só, ainda não demonstra uso indevido do acesso. Esse encaminhamento prepara a análise de melhoria.
+    **Aplique à Nuvora:** se uma auditoria confirmar que a comprovação de encerramento exigida pelo procedimento está ausente, registre o achado e atribua a ação de investigar a causa, com responsável, prazo e estado. A ausência de comprovação, por si só, ainda não demonstra uso indevido do acesso. Esse encaminhamento prepara a análise de melhoria.
 
     O procedimento publicado descreve como auditar. Ele não fornece, sozinho, o resultado de uma auditoria executada.
 
@@ -643,7 +643,7 @@ A falha conhecida orientou uma proposta de processo com escopo, autoridade, recu
 
 ### Funcionamento do portal e chamado G02
 
-A **ValeVerde** é a empresa fictícia deste exercício. Ela recebe pedidos pela web e mantém uma operação de embalagem. O **setor comercial** cuida dos pedidos e das informações oferecidas aos clientes. A **equipe de TI** administra o portal e os acessos. A empresa contratada **Suporte Norte** executa mudanças no portal quando recebe uma solicitação aprovada.
+A **Nuvora** é a empresa fictícia deste exercício. Ela recebe pedidos pela web e mantém uma operação de embalagem. O **setor comercial** cuida dos pedidos e das informações oferecidas aos clientes. A **equipe de TI** administra o portal e os acessos. A empresa contratada **Suporte Norte** executa mudanças no portal quando recebe uma solicitação aprovada.
 
 O portal oferece um catálogo público de produtos. Também há documentos de trabalho do comercial, como planilhas de custos e margens de venda, que devem permanecer disponíveis somente à equipe autorizada. **Publicar um documento**, neste caso, significa colocá-lo à disposição para leitura pelo portal. Poder enviar um arquivo ao sistema não significa ter autoridade para torná-lo público.
 
@@ -659,7 +659,7 @@ Os nomes e os registros abaixo são dados fictícios para leitura em sala. Você
 
 Um **chamado de suporte** é um registro de atendimento: descreve o problema comunicado à equipe, a ação realizada e o motivo do encerramento. Leia o chamado G02 fornecido para esta aula:
 
-> **Solicitante:** setor comercial da ValeVerde.
+> **Solicitante:** setor comercial da Nuvora.
 
 > **Problema informado:** a planilha interna `margens-agosto.xlsx` pode ser baixada sem entrar em uma conta pelo endereço do portal cujo caminho é `/publicacoes/margens-agosto.xlsx`.
 
@@ -714,21 +714,21 @@ O Suporte Norte também apoia a engenharia em períodos de manutenção previame
 </figure>
 
 <figure class="didactic-figure didactic-figure-wide" id="sintese-visual-valeverde">
-  <a href="../../assets/m1/A08-valeverde-responsabilidades.png" target="_blank" rel="noopener">
-    <img src="../../assets/m1/A08-valeverde-responsabilidades.png" alt="Síntese dos registros ValeVerde: G01 deixa a autoridade de publicação indefinida; G02 distingue retirada da planilha de agosto de nova exposição em setembro; G03 exige aprovação de suporte sem definir responsabilidades; G04 contém cinco autorizações vencidas, quatro com encerramento comprovado e uma sem comprovação, além de uma ainda vigente. A análise liga cada lacuna a quem pode decidir e acompanhar." loading="lazy" />
+  <a href="../../assets/m1/A08-nuvora-responsabilidades.png" target="_blank" rel="noopener">
+    <img src="../../assets/m1/A08-nuvora-responsabilidades.png" alt="Síntese dos registros Nuvora: G01 deixa a autoridade de publicação indefinida; G02 distingue retirada da planilha de agosto de nova exposição em setembro; G03 exige aprovação de suporte sem definir responsabilidades; G04 contém cinco autorizações vencidas, quatro com encerramento comprovado e uma sem comprovação, além de uma ainda vigente. A análise liga cada lacuna a quem pode decidir e acompanhar." loading="lazy" />
   </a>
   <figcaption><strong>Da lacuna no registro à responsabilidade pela decisão.</strong> Na publicação de planilhas, falta definir quem autoriza sua divulgação; no suporte, quem aprova, limita e acompanha o acesso. Em G04, contamos autorizações de suporte, e a falta de comprovação de encerramento exige verificação. Ilustração fornecida pelo docente, adaptada ao caso fictício desta aula. Clique para ampliar.</figcaption>
 </figure>
 
 ## Consulta: política integral {#politica-exemplo}
 
-**Identificação:** PSI-VV-01 · **Versão:** 0.1 · **Data:** 08/09/2026.
+**Identificação:** PSI-NU-01 · **Versão:** 0.1 · **Data:** 08/09/2026.
 
 **Estado:** proposta didática, ainda sem aprovação.
 
 **Responsável pela manutenção:** responsável pelo SGSI a ser designado pela direção.
 
-**Aprovação prevista:** direção da ValeVerde. **Vigência:** após aprovação formal e comunicação.
+**Aprovação prevista:** direção da Nuvora. **Vigência:** após aprovação formal e comunicação.
 
 **Revisão proposta:** anual ou diante de mudança relevante; esta periodicidade é uma escolha do exemplo.
 
@@ -738,7 +738,7 @@ Esta política orienta a proteção das informações necessárias ao recebiment
 
 #### 2. Compromissos de segurança
 
-A ValeVerde se compromete a preservar a **confidencialidade**, permitindo conhecimento por pessoas autorizadas; a **integridade**, protegendo a exatidão e as alterações legítimas; e a **disponibilidade**, mantendo informações e serviços acessíveis quando necessários. Compromete-se a satisfazer os requisitos de segurança aplicáveis, inclusive legais e contratuais, e a melhorar continuamente o SGSI. Esses requisitos serão identificados e mantidos atualizados.
+A Nuvora se compromete a preservar a **confidencialidade**, permitindo conhecimento por pessoas autorizadas; a **integridade**, protegendo a exatidão e as alterações legítimas; e a **disponibilidade**, mantendo informações e serviços acessíveis quando necessários. Compromete-se a satisfazer os requisitos de segurança aplicáveis, inclusive legais e contratuais, e a melhorar continuamente o SGSI. Esses requisitos serão identificados e mantidos atualizados.
 
 #### 3. Liderança e responsabilidades
 
@@ -772,7 +772,7 @@ A organização manterá um processo para comunicar, avaliar e responder a incid
 
 A organização acompanhará objetivos e controles, realizará auditorias internas com objetividade e imparcialidade e promoverá análises críticas pela direção em intervalos planejados. Desvios serão tratados, suas causas examinadas e a eficácia das ações corretivas verificada. Decisões sobre mudanças, recursos e oportunidades de melhoria serão registradas e acompanhadas.
 
-**Fim da política de exemplo.** [Baixar a política em PDF — 2 páginas](../assets/m1/A08-politica-seguranca-valeverde.pdf).
+**Fim da política de exemplo.** [Baixar a política em PDF — 2 páginas](../assets/m1/A08-politica-seguranca-nuvora.pdf).
 
 ### Como essa política se relaciona à ISO/IEC 27001
 
@@ -798,9 +798,9 @@ Assista a **“ISO 27001 - ENTENDA DE VEZ!”**, do canal **Guru De Risco** (**1
 
 [Abrir o vídeo no YouTube](https://www.youtube.com/watch?v=V6N6luxhnd0). Publicado em 29 de março de 2022, o vídeo apresenta o conceito de SGSI. Para a numeração e a estrutura dos requisitos, use o mapa da edição de outubro de 2022 apresentado nesta página.
 
-**Aplique à ValeVerde:** o acordo de suporte exige aprovação, mas não define quem pode concedê-la. Explique qual responsabilidade precisa ser estabelecida e como a empresa poderia acompanhar seu cumprimento. Relacione sua resposta a uma das seções da norma apresentadas na tabela: liderança, planejamento, operação, avaliação ou melhoria.
+**Aplique à Nuvora:** o acordo de suporte exige aprovação, mas não define quem pode concedê-la. Explique qual responsabilidade precisa ser estabelecida e como a empresa poderia acompanhar seu cumprimento. Relacione sua resposta a uma das seções da norma apresentadas na tabela: liderança, planejamento, operação, avaliação ou melhoria.
 
-Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. Na ValeVerde, isso significa identificar quem pode aprovar o suporte, registrar a execução e verificar o encerramento do acesso. Use esse vínculo para justificar a responsabilidade proposta para o acesso do fornecedor.
+Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. Na Nuvora, isso significa identificar quem pode aprovar o suporte, registrar a execução e verificar o encerramento do acesso. Use esse vínculo para justificar a responsabilidade proposta para o acesso do fornecedor.
 
 ## Referências
 
@@ -815,4 +815,4 @@ Um SGSI conecta a regra às pessoas, aos recursos e à revisão dos resultados. 
 - [ISO/IEC 27001 Auditing Practices Group — nota sobre SoA](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf) — material educacional de interpretação, não substitui a norma nem constitui requisito adicional.
 - [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) — negar por padrão e verificar permissão por requisição.
 
-Fontes consultadas em 8 de setembro de 2026. A ValeVerde, seus documentos, metas e registros numéricos são fictícios. Os documentos da UCL e do LNCC são fontes institucionais reais, resumidas para comparação.
+Fontes consultadas em 8 de setembro de 2026. A Nuvora, seus documentos, metas e registros numéricos são fictícios. Os documentos da UCL e do LNCC são fontes institucionais reais, resumidas para comparação.

@@ -9,7 +9,7 @@ import re
 import sys
 
 root = Path(__file__).resolve().parents[1]
-source = root / 'docs/assets/m1/A08-politica-seguranca-valeverde.txt'
+source = root / 'docs/assets/m1/A08-politica-seguranca-nuvora.txt'
 paragraphs = source.read_text(encoding='utf-8').strip().split('\n\n')
 blocks = []
 section_open = False
@@ -19,7 +19,7 @@ for index, paragraph in enumerate(paragraphs):
         continue
     if index == 0:
         title, subtitle = paragraph.split('\n', 1)
-        blocks.append(f'<header><p class="eyebrow">VALEVERDE · SEGURANÇA DA INFORMAÇÃO</p><h1>Política de Segurança da Informação</h1><p>{escape(subtitle)}</p></header>')
+        blocks.append(f'<header><p class="eyebrow">NUVORA · SEGURANÇA DA INFORMAÇÃO</p><h1>Política de Segurança da Informação</h1><p>{escape(subtitle)}</p></header>')
     elif re.match(r'^\d+\. ', paragraph):
         if section_open:
             blocks.append('</section>')
@@ -31,10 +31,10 @@ for index, paragraph in enumerate(paragraphs):
 if section_open:
     blocks.append('</section>')
 html = '''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<title>PSI-VV-01 — Política de Segurança da Informação da ValeVerde</title>
+<title>PSI-NU-01 — Política de Segurança da Informação da Nuvora</title>
 <style>
 @page { size: A4; margin: 17mm 19mm 18mm;
- @bottom-left { content: "ValeVerde · PSI-VV-01 · Proposta didática v0.1"; font: 8pt Arial; color: #526170; }
+ @bottom-left { content: "Nuvora · PSI-NU-01 · Proposta didática v0.1"; font: 8pt Arial; color: #526170; }
  @bottom-right { content: counter(page); font: 8pt Arial; color: #526170; }
 }
 body { margin: 0; color: #1b2935; font: 11pt/1.4 Arial, sans-serif; }

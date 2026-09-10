@@ -11,7 +11,7 @@ Objetivos: relacionar seções ISO/IEC 27001 às decisões do SGSI; construir es
 
 Herança: o registro de consulta integral da apresentação A07 em 8 set. 2026 confirma mapeamento de comportamentos no ATT&CK, sem chamado ou correção de arquivo herdados. A presente revisão conserva essa descrição; não atribui nova execução à turma. Link consultado: https://docs.google.com/presentation/d/187O4GeB7Xz62l6ij-is0U7La_26eCO4308GKGYArjqk.
 
-Caso: ValeVerde, pedidos digitais, publicação de documentos e manutenção do portal pelo Suporte Norte. A relação com embalagem é pendência para ampliação posterior. A08 e A09 não incluem projetos de engenharia ou alteração de processo industrial em seu escopo de decisão. G01–G04 descrevem a linha de base; PSI-VV-01 e PR-VV-01 são propostas. S01 acrescenta solicitação concreta e condições simuladas, sem modificar a linha de base.
+Caso: Nuvora, pedidos digitais, publicação de documentos e manutenção do portal pelo Suporte Norte. A relação com embalagem é pendência para ampliação posterior. A08 e A09 não incluem projetos de engenharia ou alteração de processo industrial em seu escopo de decisão. G01–G04 descrevem a linha de base; PSI-NU-01 e PR-NU-01 são propostas. S01 acrescenta solicitação concreta e condições simuladas, sem modificar a linha de base.
 
 Cadeia vigente de planejamento: problema de recorrência → distinção decisão/execução/acompanhamento → SGSI → escopo → política/procedimento/registro → papéis → risco candidato → objetivo e linha de base → simulação de operação → auditoria/melhoria → esboço para avaliar riscos na A09. O caso fornece exemplos e registros, sem exigir recapitulação narrativa a cada tema.
 

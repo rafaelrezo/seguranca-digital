@@ -48,7 +48,7 @@ Se você não tiver o registro anterior, use esta base fornecida: o escopo cobre
 
 **Explicação e exemplo**
 
-Os documentos desta página continuam o caso fictício da ValeVerde. **R01 e R02 descrevem a situação original, anterior às propostas de política e procedimento da A08.** Use essas propostas para planejar o tratamento; sua redação ou aprovação simulada não demonstra que a condição original foi corrigida. Os fatos de cada ficha valem dentro do exercício e não são observações de sistemas reais.
+Os documentos desta página continuam o caso fictício da Nuvora. **R01 e R02 descrevem a situação original, anterior às propostas de política e procedimento da A08.** Use essas propostas para planejar o tratamento; sua redação ou aprovação simulada não demonstra que a condição original foi corrigida. Os fatos de cada ficha valem dentro do exercício e não são observações de sistemas reais.
 
 ### R01 — Publicação de informação interna
 
@@ -112,7 +112,7 @@ A avaliação pode usar abordagens qualitativas ou quantitativas, conforme objet
 
 ### Critérios de consequência para esta decisão
 
-As categorias abaixo são uma **convenção didática da ValeVerde**, não uma escala universal da ISO ou do NIST.
+As categorias abaixo são uma **convenção didática da Nuvora**, não uma escala universal da ISO ou do NIST.
 
 | Nível | Descrição operacional |
 |---|---|
@@ -264,7 +264,9 @@ Uma mesma decisão pode combinar medidas. Acompanhar sessões pode apoiar um tra
 
 **Explicação e exemplo**
 
-### Condições de recurso da ValeVerde
+<a id="condicoes-de-recurso-da-valeverde"></a>
+
+### Condições de recurso da Nuvora
 
 As estimativas abaixo foram fornecidas para a simulação; não são preços ou durações medidos em sistemas reais.
 
@@ -447,7 +449,7 @@ Fontes consultadas em 8 de setembro de 2026. Categorias, matriz, fichas, estimat
 
 ### Governança e decisão de tratamento — fechamento de A08 e A09
 
-A ValeVerde precisa manter o suporte do fornecedor sem deixar decisões de acesso sem responsável. Em dupla, produza um registro que permita à empresa decidir **quem pode aprovar a manutenção, qual risco precisa de tratamento e em que condições a decisão deve ser revista**.
+A Nuvora precisa manter o suporte do fornecedor sem deixar decisões de acesso sem responsável. Em dupla, produza um registro que permita à empresa decidir **quem pode aprovar a manutenção, qual risco precisa de tratamento e em que condições a decisão deve ser revista**.
 
 **Escopo:** governança da A08 e avaliação/decisão de risco da A09. Avalie R01 e R02 e detalhe uma decisão para R02. O trabalho termina com essa decisão fundamentada e seu plano de acompanhamento; não exige implementação de controles nem conteúdo das aulas seguintes.
 
@@ -457,13 +459,13 @@ A ValeVerde precisa manter o suporte do fornecedor sem deixar decisões de acess
 
 Use o [modelo editável do registro](../assets/m1/A09-modelo-governanca-riscos.txt) ou copie seus campos para um editor de texto. Os documentos descrevem uma empresa fictícia; a atividade é de análise, sem acesso a contas ou sistemas reais.
 
-- **Governança:** nos [registros G01–G04 da A08](A08-governanca-sgsi.md#2-o-caso-valeverde-documentos-para-examinar), o acordo exige aprovação para suporte, mas não define quem pode concedê-la; uma das cinco autorizações vencidas não tem comprovação de encerramento.
+- **Governança:** nos [registros G01–G04 da A08](A08-governanca-sgsi.md#documentos-do-caso), o acordo exige aprovação para suporte, mas não define quem pode concedê-la; uma das cinco autorizações vencidas não tem comprovação de encerramento.
 - **Riscos:** nas [fichas R01 e R02 desta aula](#1-receber-riscos-formulados-sem-reiniciar-a-investigacao), compare publicação indevida de informação interna e acesso de manutenção além do prazo. Separe evidência fornecida de condição desconhecida.
 - **Recursos e alternativas:** use os critérios e a tabela C1–C5 desta página. Considere C1 para R01, com consumo de duas das oito horas disponíveis; restam seis horas para encaminhar R02. O gestor comercial e TI precisam preservar o recebimento de pedidos e avaliar o efeito de qualquer suspensão da manutenção do portal.
 
 ### 2. Defina quem pode decidir e acompanhar
 
-Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Use o **item 8 — Serviços contratados e mudanças** da [política de referência da ValeVerde](A08-governanca-sgsi.md#politica-valeverde). Avalie se a diretriz atende ao suporte do portal: mantenha-a ou adapte-a se necessário, justificando sua decisão e indicando quem pode aprová-la. Explique que detalhe deverá constar do procedimento e que registro permitirá verificar sua execução. Identifique a referência usada; não reproduza a política inteira. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
+Resuma o contexto e o escopo em um parágrafo: processo, informação, partes interessadas, necessidades e dependência do fornecedor. Use o **item 8 — Serviços contratados e mudanças** da [política de referência da Nuvora](A08-governanca-sgsi.md#politica-exemplo). Avalie se a diretriz atende ao suporte do portal: mantenha-a ou adapte-a se necessário, justificando sua decisão e indicando quem pode aprová-la. Explique que detalhe deverá constar do procedimento e que registro permitirá verificar sua execução. Identifique a referência usada; não reproduza a política inteira. Complete até quatro linhas de responsabilidade, indicando quem pode aprovar o acesso ou sua prorrogação, quem executa, quem confere o encerramento e para quem escalar quando o aprovador estiver ausente.
 
 Formule um objetivo verificável e uma rotina de acompanhamento: resultado esperado, conjunto observado, critério, fonte de evidência, responsável e momento de revisão. Se já tiver essas anotações da A08, revise-as para o acesso de manutenção do portal.
 

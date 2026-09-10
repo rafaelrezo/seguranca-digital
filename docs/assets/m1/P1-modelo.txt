@@ -5,7 +5,7 @@ Dupla: [nomes]  |  Versão: [identificação]  |  Data de revisão: [preencher]
 ## 1. Governança
 
 Contexto, partes interessadas, necessidades, escopo dos pedidos/portal e dependência do suporte: [um parágrafo]
-Política de referência: PSI-VV-01, versão 0.1, Aula 08.
+Política de referência: PSI-NU-01, versão 0.1, Aula 08.
 Diretriz avaliada: item 8 — Serviços contratados e mudanças.
 Decisão de manter ou adaptar, justificativa e aprovador: [se adaptar, registrar a orientação curta]
 Procedimento necessário e registro de execução: [separar o detalhe operacional da diretriz]

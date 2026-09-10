@@ -1,13 +1,13 @@
-POLÍTICA DE SEGURANÇA DA INFORMAÇÃO DA NUVORA
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO DA VALEVERDE
 Exemplo autoral para estudo — não comprova implantação ou conformidade.
 
-Identificação: PSI-NU-01 · Versão: 0.1 · Data: 08/09/2026.
+Identificação: PSI-VV-01 · Versão: 0.1 · Data: 08/09/2026.
 
 Estado: proposta didática, ainda sem aprovação.
 
 Responsável pela manutenção: responsável pelo SGSI a ser designado pela direção.
 
-Aprovação prevista: direção da Nuvora. Vigência: após aprovação formal e comunicação.
+Aprovação prevista: direção da ValeVerde. Vigência: após aprovação formal e comunicação.
 
 Revisão proposta: anual ou diante de mudança relevante; esta periodicidade é uma escolha do exemplo.
 
@@ -17,7 +17,7 @@ Esta política orienta a proteção das informações necessárias ao recebiment
 
 2. Compromissos de segurança
 
-A Nuvora se compromete a preservar a confidencialidade, permitindo conhecimento por pessoas autorizadas; a integridade, protegendo a exatidão e as alterações legítimas; e a disponibilidade, mantendo informações e serviços acessíveis quando necessários. Compromete-se a satisfazer os requisitos de segurança aplicáveis, inclusive legais e contratuais, e a melhorar continuamente o SGSI. Esses requisitos serão identificados e mantidos atualizados.
+A ValeVerde se compromete a preservar a confidencialidade, permitindo conhecimento por pessoas autorizadas; a integridade, protegendo a exatidão e as alterações legítimas; e a disponibilidade, mantendo informações e serviços acessíveis quando necessários. Compromete-se a satisfazer os requisitos de segurança aplicáveis, inclusive legais e contratuais, e a melhorar continuamente o SGSI. Esses requisitos serão identificados e mantidos atualizados.
 
 3. Liderança e responsabilidades
 
