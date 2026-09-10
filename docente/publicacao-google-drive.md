@@ -1,6 +1,12 @@
 # Registro de publicação no Google Drive
 
+## A09 — Figura 3 reconciliada com o original — 10 set. 2026
+
+Print fornecido pelo docente comparado ao esquema; SVG redesenhado em português preservando a cadeia e os qualificadores da Figura 3. Legenda, texto alternativo e pacote sem conexão alinhados. Matriz, atividade e carga preservadas. Publicação no Pages; sem alterações no Drive.
+
 ## A09 — resumo aplicado da NIST SP 800-30 Rev. 1 — 10 set. 2026
+
+**Publicação verificada:** commit `1d77d93a930ef8e82a9653069123ace081dca641`; validação `34533111451` e deploy `34533111490` concluídos com sucesso. Página pública, dois esquemas, CSVs, modelos, pacote e CSS conferidos; dez arquivos públicos coincidem com os locais após normalização de finais de linha.
 
 Reconciliação solicitada pelo docente com a edição mais recente: Rev. 1 final de 2012. Oito temas, Figuras 3/5 adaptadas, combinações G-5/I-2, sete vistas de dezessete campos e atividade em novo cenário alinhada. Plano, fontes, modelos e pacote sem conexão atualizados. Validação editorial, build estrito, tabelas e testes de navegador aprovados. Publicação destinada ao Pages; Drive e Classroom preservados. [Registro de reconciliação](A09-decisao-de-riscos/reconciliacao-nist-800-30.md).
 

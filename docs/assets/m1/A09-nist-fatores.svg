@@ -1,1 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 510" role="img" aria-labelledby="title desc"><title id="title">Fatores do risco e suas relações</title><desc id="desc">Fonte inicia evento; vulnerabilidades e condições influenciam a possibilidade de dano; impacto e verossimilhança fundamentam risco. Controles existentes ou planejados influenciam fatores, com eficácia e cobertura explícitas.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#36576b"/></marker></defs><rect width="1000" height="510" rx="16" fill="#f5f8fa"/><style>text{font-family:Arial,sans-serif;fill:#173345;font-size:23px}.small{font-size:18px}.head{font-weight:700;font-size:25px}.arrow{fill:none;stroke:#36576b;stroke-width:3;marker-end:url(#arrow)}.both{marker-start:url(#arrow)}</style><rect x="25" y="35" width="250" height="120" rx="10" fill="#dcecf3" stroke="#8ba8b8" stroke-width="2"/><text x="150.0" y="67" text-anchor="middle" class="head">Fonte de ameaça</text><text x="150.0" y="96" text-anchor="middle" class="small">Capacidade, intenção, alvo</text><text x="150.0" y="125" text-anchor="middle" class="small">ou erro, falha e acidente</text><rect x="375" y="35" width="250" height="120" rx="10" fill="#fff" stroke="#8ba8b8" stroke-width="2"/><text x="500.0" y="67" text-anchor="middle" class="head">Evento</text><text x="500.0" y="96" text-anchor="middle" class="small">Ação ou ocorrência</text><text x="500.0" y="125" text-anchor="middle" class="small">que pode causar dano</text><rect x="725" y="35" width="250" height="120" rx="10" fill="#fff0d8" stroke="#8ba8b8" stroke-width="2"/><text x="850.0" y="67" text-anchor="middle" class="head">Impacto</text><text x="850.0" y="96" text-anchor="middle" class="small">Dano ao trabalho,</text><text x="850.0" y="125" text-anchor="middle" class="small">aos dados ou às pessoas</text><path class="arrow" d="M275 95H365"/><text x="325" y="80" text-anchor="middle" class="small">inicia</text><path class="arrow" d="M625 95H715"/><text x="675" y="67" text-anchor="middle" class="small">pode</text><text x="675" y="87" text-anchor="middle" class="small">causar</text><rect x="340" y="214" width="350" height="120" rx="10" fill="#e8f1f5" stroke="#8ba8b8" stroke-width="2"/><text x="515.0" y="246" text-anchor="middle" class="head" style="font-size:22px">Vulnerabilidades e condições</text><text x="515.0" y="275" text-anchor="middle" class="small">Fragilidades e exposição</text><text x="515.0" y="304" text-anchor="middle" class="small">influenciam o caminho</text><path class="arrow" d="M590 214L672 120"/><rect x="25" y="238" width="265" height="120" rx="10" fill="#e6f1e9" stroke="#8ba8b8" stroke-width="2"/><text x="157.5" y="270" text-anchor="middle" class="head">Controles</text><text x="157.5" y="299" text-anchor="middle" class="small">Existentes ou planejados</text><text x="157.5" y="328" text-anchor="middle" class="small">Eficácia e cobertura</text><path class="arrow" d="M290 275H330"/><rect x="725" y="250" width="250" height="90" rx="10" fill="#fff0d8" stroke="#8ba8b8" stroke-width="2"/><text x="850.0" y="282" text-anchor="middle" class="head">Risco</text><text x="850.0" y="311" text-anchor="middle" class="small">Verossimilhança e impacto</text><path class="arrow" d="M850 155V240"/><text x="500" y="405" text-anchor="middle">A preparação define critérios e premissas para avaliar os fatores.</text><text x="500" y="440" text-anchor="middle" class="small">Controle planejado e controle eficaz representam estados diferentes.</text><text x="500" y="480" text-anchor="middle" class="small">Adaptação simplificada • NIST SP 800-30 Rev. 1, Figura 3, p. 12</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+<title id="title">Figura 3 — Modelo genérico de risco com os principais fatores de risco</title>
+<desc id="desc">Tradução e redesenho da Figura 3 da NIST SP 800-30 Rev. 1, página 12. Uma fonte de ameaça, com características como capacidade, intenção e direcionamento, inicia um evento com verossimilhança de iniciação. O evento, composto por ações, atividades ou cenários, explora uma vulnerabilidade com verossimilhança de sucesso. A vulnerabilidade tem severidade e está no contexto de condições predisponentes, com abrangência, e de controles planejados ou implantados, com eficácia. O encadeamento causa impacto adverso com determinado grau. Risco combina impacto e verossimilhança, produzindo risco organizacional. Entradas do enquadramento de risco influenciam e podem modificar os principais fatores.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#315970"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#173345;text-anchor:middle}.title{font-weight:bold;font-size:30px}.body{font-size:25px}.small{font-size:22px}.org{font-size:20px}.em{font-size:25px;font-weight:bold}.arrow{stroke:#315970;stroke-width:4;fill:none;marker-end:url(#arrow)}</style>
+<rect x="2" y="2" width="1496" height="846" rx="18" fill="#f5f8fa" stroke="#a0b5c1" stroke-width="2"/>
+<rect x="695" y="48" width="275" height="665" rx="10" fill="#e8f1f5" stroke="#7896a7" stroke-width="2"/>
+<rect x="25" y="72" width="215" height="120" rx="10" fill="#dcecf3" stroke="#7896a7" stroke-width="2"/>
+<text x="132.5" y="120" class="title">Fonte de</text>
+<text x="132.5" y="155" class="title">ameaça</text>
+<rect x="380" y="72" width="210" height="120" rx="10" fill="#dcecf3" stroke="#7896a7" stroke-width="2"/>
+<text x="485.0" y="120" class="title">Evento de</text>
+<text x="485.0" y="155" class="title">ameaça</text>
+<rect x="715" y="72" width="235" height="120" rx="10" fill="#dcecf3" stroke="#7896a7" stroke-width="2"/>
+<text x="832.5" y="120" class="title">Vulnerabilidade</text>
+<rect x="1125" y="72" width="345" height="120" rx="10" fill="#fff0d8" stroke="#7896a7" stroke-width="2"/>
+<text x="1297.5" y="120" class="title">Impacto</text>
+<text x="1297.5" y="155" class="title">adverso</text>
+<path d="M245 132H370" class="arrow"/>
+<text x="308" y="113" class="small">inicia</text>
+<text x="308" y="225" class="small">com</text>
+<text x="308" y="258" class="small">Verossimilhança</text>
+<text x="308" y="287" class="small">de iniciação</text>
+<path d="M595 132H705" class="arrow"/>
+<text x="650" y="113" class="small">explora</text>
+<text x="650" y="225" class="small">com</text>
+<text x="650" y="258" class="small">Verossimilhança</text>
+<text x="650" y="287" class="small">de sucesso</text>
+<path d="M975 132H1115" class="arrow"/>
+<text x="1043" y="113" class="small">causando</text>
+<text x="1043" y="225" class="small">com</text>
+<text x="1043" y="258" class="em">Grau</text>
+<text x="132" y="226" class="small">com</text>
+<text x="132" y="262" class="small">Características</text>
+<text x="132" y="303" class="small">Capacidade, intenção</text>
+<text x="132" y="333" class="small">e direcionamento</text>
+<text x="132" y="363" class="small">ao alvo em ameaças</text>
+<text x="132" y="393" class="small">adversariais</text>
+<text x="485" y="226" class="small">com</text>
+<text x="485" y="266" class="small">Sequência de</text>
+<text x="485" y="301" class="body">ações, atividades</text>
+<text x="485" y="334" class="body">ou cenários</text>
+<text x="832" y="226" class="em">com severidade</text>
+<text x="832" y="278" class="small">No contexto de</text>
+<rect x="715" y="299" width="235" height="95" rx="10" fill="#dcecf3" stroke="#7896a7" stroke-width="2"/>
+<text x="832" y="338" class="em">Condições</text>
+<text x="832" y="370" class="em">predisponentes</text>
+<text x="832" y="429" class="small">com</text>
+<text x="832" y="464" class="em">Abrangência</text>
+<rect x="715" y="490" width="235" height="130" rx="10" fill="#e6f1e9" stroke="#7896a7" stroke-width="2"/>
+<text x="832" y="530" class="em">Controles de</text>
+<text x="832" y="559" class="em">segurança</text>
+<text x="832" y="583" class="small">Planejados ou</text>
+<text x="832" y="610" class="small">implantados</text>
+<text x="832" y="648" class="small">com</text>
+<text x="832" y="681" class="em">Eficácia</text>
+<text x="1297" y="231" class="body">com risco como</text>
+<text x="1297" y="266" class="body">combinação de</text>
+<text x="1297" y="301" class="em">impacto e verossimilhança</text>
+<path d="M1297 330V405" class="arrow"/>
+<text x="1378" y="372" class="small">produzindo</text>
+<rect x="1095" y="425" width="375" height="248" rx="10" fill="#fff0d8" stroke="#7896a7" stroke-width="2"/>
+<text x="1282" y="466" class="em">RISCO ORGANIZACIONAL</text>
+<g style="font-size:20px"><text x="1282" y="507" class="org">Para operações organizacionais</text>
+<text x="1282" y="537" class="org">(missão, funções, imagem e reputação),</text>
+<text x="1282" y="567" class="org">ativos organizacionais,</text>
+<text x="1282" y="597" class="org">indivíduos, outras organizações</text>
+<text x="1282" y="627" class="org">e a nação.</text>
+</g><rect x="25" y="467" width="640" height="230" rx="10" fill="#e6f1e9" stroke="#7896a7" stroke-width="2"/>
+<text x="345" y="510" class="em">Entradas do enquadramento de risco</text>
+<text x="345" y="549" class="small">Estratégia ou abordagem de gestão de riscos</text>
+<text x="345" y="606" class="body">Influenciam e podem modificar</text>
+<text x="345" y="642" class="body">os principais fatores de risco.</text>
+<text x="750" y="765" class="em">MODELO GENÉRICO DE RISCO COM OS PRINCIPAIS FATORES</text>
+<text x="750" y="807" class="small">Tradução e redesenho: material da A09 • NIST SP 800-30 Rev. 1, Figura 3, p. 12</text>
+</svg>

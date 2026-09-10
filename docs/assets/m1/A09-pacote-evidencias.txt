@@ -121,11 +121,13 @@ Na etapa **conduzir**, primeiro identifique de onde pode vir o dano e como ele a
 | **Controle existente** | Que proteção já atua nesse caminho? | Autenticação por senha, insuficiente contra quem já a possui. |
 | **Impacto possível** | Que perda resultaria para o trabalho ou as pessoas? | Perda de autoria e integridade de decisões técnicas. |
 
-[Figura: Uma fonte inicia um evento que pode explorar vulnerabilidades e causar impacto. Condições do ambiente e eficácia dos controles influenciam o caminho; verossimilhança e impacto sustentam o risco.]
+[Figura: A fonte de ameaça inicia um evento com verossimilhança de iniciação; o evento explora uma vulnerabilidade com verossimilhança de sucesso, causando impacto adverso em determinado grau. A vulnerabilidade tem severidade e está no contexto de condições predisponentes com abrangência e controles planejados ou implantados com eficácia. O risco combina impacto e verossimilhança e afeta operações, ativos, pessoas, outras organizações e a nação. O enquadramento de risco influencia os principais fatores.]
 
-Adaptação da Figura 3 da NIST SP 800-30 Rev. 1, p. 12. As relações orientam a análise; não demonstram que um ataque ocorreu.
+Figura 3 — Modelo genérico de risco com os principais fatores. Tradução e redesenho da NIST SP 800-30 Rev. 1, p. 12, preservando os elementos e as relações do original. Clique para ampliar.
 
 Fonte: [Figura 3 — fatores de risco](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf#page=21).
+
+**Leitura do esquema:** o enquadramento fornece a estratégia e os critérios que orientam a avaliação. A severidade qualifica a vulnerabilidade; a abrangência indica o quanto uma condição está presente no ambiente; a eficácia diz quanto o controle produz o efeito esperado. A verossimilhança de sucesso indicada na exploração não equivale à verossimilhança geral do risco, construída no tema seguinte.
 
 Uma fonte pode ser **adversarial** (pessoa ou grupo com intenção, capacidade e interesse no alvo) ou **não adversarial** (erro, falha, acidente ou fenômeno ambiental). Para a primeira, examine iniciação intencional; para a segunda, ocorrência. R05 começa por perda acidental, mas o acesso posterior por quem encontra o notebook também precisa ser considerado. Outro encadeamento pode ser registrado separadamente se mudar a decisão.
 

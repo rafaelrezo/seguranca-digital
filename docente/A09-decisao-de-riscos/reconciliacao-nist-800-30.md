@@ -41,3 +41,7 @@ Combinações G-5/I-2 confrontadas com o PDF; critérios, exemplo, CSVs, modelo 
 - https://csrc.nist.gov/pubs/sp/800/30/r1/final
 - https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf
 - https://csrc.nist.gov/pubs/sp/800/30/final (edição retirada)
+
+## Reconciliação da Figura 3 com o print fornecido — 10 set. 2026
+
+O docente forneceu `Screenshot From 2026-09-10 18-48-13.png`, em `Pictures/Screenshots`, com a Figura 3 original. A versão anterior omitia qualificadores e encurtava a cadeia evento → exploração → vulnerabilidade → impacto. Substituída por tradução/redesenho SVG com a topologia do original: fonte/características; iniciação/verossimilhança; evento/sequência; exploração/verossimilhança de sucesso; vulnerabilidade/severidade; condições predisponentes/abrangência; controles planejados ou implantados/eficácia; impacto/grau; risco como combinação de impacto e verossimilhança; risco organizacional e destinatários; entradas do enquadramento influenciando os fatores. Texto alternativo, legenda, leitura breve e pacote sem conexão reconciliados. Print original preservado no local fornecido; link ao PDF permite consulta ao original. Não muda matriz, critérios, atividade ou carga. Não se trata de tradução oficial do NIST.
