@@ -1,5 +1,7 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+**Ordem da abertura A09 — 10 set. 2026:** a pedido docente, apresentar ambiente ilustrado e linha de base E1–E8 antes dos seis riscos. A matriz recebe a análise dessas condições já conhecidas. Ajuste de exposição, sem alterar cenário, dados, objetivos, produto ou carga.
+
 ## Ajuste vigente — seis riscos e matriz progressiva (10 set. 2026)
 
 A pedido docente, conduzir A09 preenchendo uma única matriz: evidência/incerteza → consequência/plausibilidade/classe → tratamento/controle/recurso → avaliação de resultado → residual/decisão/revisão. Seis linhas: comprometimento de conta, ransomware, fraude por e-mail, suporte remoto indevido, perda de notebook e destruição de cópias. R01 é exemplo; R02 recebe aprofundamento e V1; demais linhas têm decisões breves, sem seis investigações completas. A matriz é o produto cumulativo e integra a entrega única de 3–4 páginas, podendo ser dividida em faixas de colunas com os mesmos IDs. Mantidos 100 min (60T/40P), encerramento na A09 e A10 pendente. Esta decisão supera a restrição anterior a dois riscos.

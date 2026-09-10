@@ -70,6 +70,23 @@ A figura reúne os recursos usados nesse trabalho, as cópias para recuperação
 
 O ambiente acima é o escopo desta análise. Use a [base de governança da retomada](#contexto-a08) para identificar a diretriz, os responsáveis e o objetivo de recuperação.
 
+### Linha de base — antes dos controles propostos
+
+Os registros abaixo descrevem as condições atuais do ambiente e o que ainda falta verificar. Eles serão o ponto de partida para formular e comparar os riscos.
+
+| Registro simulado | Informação fornecida | Limite |
+|---|---|---|
+| **E1 — Identidade** | E-mail e plataforma aceitam senha sem segundo fator. A conta analisada pode aprovar alterações e enviar mensagens externas. | Isso descreve capacidade; não prova abuso ocorrido. |
+| **E2 — Verificação de entrada** | No teste fictício, entrar de outro navegador apenas com a senha correta permite abrir a plataforma. | Mostra o que alguém com a senha consegue fazer; não mede frequência de ataques. |
+| **E3 — Estação** | O inventário fictício registra usuários com administração local e ausência de regra de bloqueio de aplicações não aprovadas. | Privilégios administrativos ampliam capacidades, mas programas maliciosos também podem afetar dados acessíveis ao usuário comum. Não há prova de propagação. |
+| **E4 — Recuperação** | Há cópia diária com acesso separado, mas nenhum registro de restauração completa. | “Cópia concluída” não demonstra prazo nem retorno da função. |
+| **E5 — Solicitação externa** | Uma mensagem simulada de domínio parecido com o do fornecedor pede alteração técnica. O procedimento aceita e-mail sem confirmar por contato previamente conhecido. | Não há registro de alteração executada; a aceitação da mensagem ainda é condição a verificar. |
+| **E6 — Suporte** | Conta remota administrativa do fornecedor continua habilitada após o encerramento do serviço, sem aprovação de uma nova sessão. | Falta verificar conexão efetiva e alcance; não há uso indevido observado. |
+| **E7 — Notebook** | Inventário informa ausência de criptografia do disco e cópia local de projetos confidenciais. O cenário considera perda com o equipamento desligado. | Não há perda real nem leitura por terceiros; senha de login não equivale a criptografia do disco. |
+| **E8 — Cópias** | A conta administrativa de backup é separada das contas de trabalho, mas usa só senha e pode apagar todas as cópias, sem retenção protegida. | A posse dessa senha é hipótese. Separação de acesso não significa proteção contra o próprio administrador comprometido. |
+
+**Na primeira leitura:** em uma frase, separe a observação de E2 da hipótese de roubo de senha. Depois indique qual desconhecido de E4 mais pesa na decisão.
+
 Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça** é uma possível causa de dano; **vulnerabilidade** é uma fragilidade que pode permitir esse dano. As fichas abaixo ligam essas ideias a situações concretas.
 
 ### Seis riscos para comparar
@@ -84,22 +101,6 @@ Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça*
 | **R06 — Destruição das cópias** | Um terceiro obtém a credencial administrativa do backup e apaga as cópias disponíveis, prejudicando a recuperação. | É um caminho próprio; pode agravar R02, mas não deve ser contado como outra perda independente sem justificar. |
 
 *Ransomware* é uma forma de malware associada à extorsão; neste exercício, analisamos a indisponibilidade causada pela cifragem. A possibilidade de vazamento exigiria evidências e tratamento próprios.
-
-### Linha de base — antes dos controles propostos
-
-| Registro simulado | Informação fornecida | Limite |
-|---|---|---|
-| **E1 — Identidade** | E-mail e plataforma aceitam senha sem segundo fator. A conta analisada pode aprovar alterações e enviar mensagens externas. | Isso descreve capacidade; não prova abuso ocorrido. |
-| **E2 — Verificação de entrada** | No teste fictício, entrar de outro navegador apenas com a senha correta permite abrir a plataforma. | Sustenta o caminho de R01 para quem tiver a senha; não mede frequência de ataques. |
-| **E3 — Estação** | O inventário fictício registra usuários com administração local e ausência de regra de bloqueio de aplicações não aprovadas. | Administração amplia capacidades; ransomware também pode afetar dados do usuário sem administração. Não há prova de propagação. |
-| **E4 — Recuperação** | Há cópia diária com acesso separado, mas nenhum registro de restauração completa. | “Cópia concluída” não demonstra prazo nem retorno da função. |
-| **E5 — Solicitação externa** | Uma mensagem simulada de domínio parecido com o do fornecedor pede alteração técnica. O procedimento aceita e-mail sem confirmar por contato previamente conhecido. | Não há registro de alteração executada; a aceitação da mensagem ainda é condição a verificar. |
-| **E6 — Suporte** | Conta remota administrativa do fornecedor continua habilitada após o encerramento do serviço, sem aprovação de uma nova sessão. | Falta verificar conexão efetiva e alcance; não há uso indevido observado. |
-| **E7 — Notebook** | Inventário informa ausência de criptografia do disco e cópia local de projetos confidenciais. O cenário considera perda com o equipamento desligado. | Não há perda real nem leitura por terceiros; senha de login não equivale a criptografia do disco. |
-| **E8 — Cópias** | A conta administrativa de backup é separada das contas de trabalho, mas usa só senha e pode apagar todas as cópias, sem retenção protegida. | A posse dessa senha é hipótese. Separação de acesso não significa proteção contra o próprio administrador comprometido. |
-
-**Na primeira leitura:** em uma frase, separe a observação de E2 da hipótese de roubo de senha. Depois indique qual desconhecido de E4 mais pesa na decisão.
-
 
 ### Matriz da aula {#matriz-riscos}
 
