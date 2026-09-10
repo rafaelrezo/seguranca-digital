@@ -12,7 +12,7 @@ Ao concluir, você deverá conseguir:
 2. Justificar controles viáveis, indicando benefício, limite e função legítima preservada.
 3. Avaliar resultados fornecidos e registrar risco residual, autoridade e condição de revisão.
 
-**Tempo:** 100 minutos. **Pré-requisitos:** ativo, ameaça, vulnerabilidade e os conceitos de escopo, autoridade e acompanhamento da [A08](A08-governanca-sgsi.md). **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
+**Tempo:** 100 minutos. **Base conceitual:** a retomada abaixo reúne o contexto de governança; os conceitos necessários à análise são explicados ao longo deste arquivo. **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
 
 **O registro da aula será uma matriz com seis riscos.** Comece pelas evidências e acrescente as colunas à medida que tomar as decisões. R01 mostra um preenchimento possível; R02 será revisto com mais detalhe. Nos demais riscos, registre conclusões curtas e justificadas. A análise e a avaliação de controles terminam nesta aula. A [atividade](#atividade) reúne A08–A09.
 
@@ -21,6 +21,26 @@ Ao concluir, você deverá conseguir:
 
 
 
+
+## Da A08 à A09: o contexto necessário
+
+A A08 apresentou uma questão de gestão: **quem decide como proteger um serviço, quem executa essa decisão e como a organização acompanha o resultado?** O exemplo era o portal de pedidos da Nuvora, com equipe comercial, TI e manutenção contratada. Uma correção técnica isolada não definia responsabilidades nem garantia que o problema deixaria de se repetir.
+
+Essa organização da segurança é a ideia de um **Sistema de Gestão de Segurança da Informação (SGSI)**: estabelecer objetivos e responsabilidades, avaliar riscos, colocar medidas em prática e revisar seus resultados. Uma política faz parte desse sistema; escrevê-la, por si só, não significa que a proteção esteja funcionando.
+
+| Ideia retomada | O que significa | Como será usada nesta aula |
+|---|---|---|
+| **Contexto e escopo** | Entender a atividade e delimitar pessoas, informações, serviços e recursos abrangidos. | Proteger o trabalho da equipe técnica: identidades, e-mail, plataforma de projetos, estações e recuperação. |
+| **Política e diretriz** | Declarar o compromisso e orientar as decisões; o procedimento detalha como agir. | Justificar os controles pelo que precisam proteger, sem transformar a política numa lista de ferramentas. |
+| **Responsabilidade e autoridade** | Distinguir quem responde pelo risco, quem executa a medida e quem pode aceitar uma exceção. | Registrar esses papéis junto da decisão, inclusive quando uma medida ficar adiada. |
+| **Objetivo e critério** | Dizer qual resultado se busca e como reconhecê-lo. | Verificar se a função crítica retorna em até **4 h**, com perda de trabalho de até **24 h**. |
+| **Evidência e acompanhamento** | Comparar o resultado com o critério, registrar desvios e decidir o que revisar. | Usar os registros fornecidos para avaliar controles e atualizar o risco residual — a exposição que permanece. |
+
+**Base de governança fornecida para a A09:** a coordenação técnica responde pelos seis riscos e aprova a priorização; TI executa e documenta as medidas; a direção decide eventuais exceções para risco alto. A diretriz proposta é: “Proteger identidades e a continuidade do trabalho técnico, preservando autoria, uso autorizado e recuperação verificável”. A proposta ainda exige aprovação; não representa um SGSI implantado.
+
+O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamos os princípios de gestão, sem presumir que a política anterior já cubra essas novas atividades. O próximo passo é preencher a matriz: avaliar os riscos, escolher medidas viáveis e verificar o que seus resultados permitem concluir.
+
+**Você pode realizar a A09 com as informações deste material.** A [A08 — Governança e SGSI](A08-governanca-sgsi.md) fica como aprofundamento; não é necessário consultá-la nem recuperar um registro anterior para iniciar a análise.
 
 ## 1. Escopo: reconhecer o que está em risco
 
@@ -46,9 +66,9 @@ Seis profissionais elaboram projetos de software ou automação, registram alter
 | Estações e aplicações técnicas | Elaborar, conferir e continuar trabalhos | Preservar disponibilidade e integridade do ambiente |
 | Cópia de recuperação | Restabelecer ambiente e trabalho após perda | Continuar disponível quando a estação falhar |
 
-A [A08](A08-governanca-sgsi.md) apresentou governança no portal. Aqui há **outro escopo**, fornecido para transferir aqueles conceitos: identidades, e-mail, plataforma, estações e recuperação da equipe técnica. A política do portal não passa a cobrir tudo isso automaticamente.
+O ambiente acima é o escopo desta análise. Use a base de governança da retomada para identificar a diretriz, os responsáveis e o objetivo de recuperação.
 
-**Base de governança do exercício:** a coordenação técnica responde pelos seis riscos e pode aprovar a priorização; TI executa e documenta medidas; a direção decide exceções para risco alto. A diretriz proposta para este escopo é: “Proteger identidades e a continuidade do trabalho técnico, preservando autoria, uso autorizado e recuperação verificável”. Sua aprovação é uma condição do exercício, não implantação de um SGSI real. O objetivo é bloquear o abuso descrito e recuperar a função crítica em até quatro horas, com perda de trabalho de até 24 horas.
+Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça** é uma possível causa de dano; **vulnerabilidade** é uma fragilidade que pode permitir esse dano. As fichas abaixo ligam essas ideias a situações concretas.
 
 ### Seis riscos para comparar
 

@@ -12,12 +12,32 @@ Ao concluir, você deverá conseguir:
 2. Justificar controles viáveis, indicando benefício, limite e função legítima preservada.
 3. Avaliar resultados fornecidos e registrar risco residual, autoridade e condição de revisão.
 
-**Tempo:** 100 minutos. **Pré-requisitos:** ativo, ameaça, vulnerabilidade e os conceitos de escopo, autoridade e acompanhamento da [A08](A08-governanca-sgsi.md). **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
+**Tempo:** 100 minutos. **Base conceitual:** a retomada abaixo reúne o contexto de governança; os conceitos necessários à análise são explicados ao longo desta página. **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
 
 **O registro da aula será uma matriz com seis riscos.** Comece pelas evidências e acrescente as colunas à medida que tomar as decisões. R01 mostra um preenchimento possível; R02 será revisto com mais detalhe. Nos demais riscos, registre conclusões curtas e justificadas. A análise e a avaliação de controles terminam nesta aula. A [atividade](#atividade) reúne A08–A09.
 
 !!! note "Origem e limite dos registros"
     A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Abra o [pacote em texto](../assets/m1/A09-pacote-evidencias.txt) para consulta ou uso sem conexão; seu conteúdo essencial também está nesta página. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
+
+## Da A08 à A09: o contexto necessário {#contexto-a08}
+
+A A08 apresentou uma questão de gestão: **quem decide como proteger um serviço, quem executa essa decisão e como a organização acompanha o resultado?** O exemplo era o portal de pedidos da Nuvora, com equipe comercial, TI e manutenção contratada. Uma correção técnica isolada não definia responsabilidades nem garantia que o problema deixaria de se repetir.
+
+Essa organização da segurança é a ideia de um **Sistema de Gestão de Segurança da Informação (SGSI)**: estabelecer objetivos e responsabilidades, avaliar riscos, colocar medidas em prática e revisar seus resultados. Uma política faz parte desse sistema; escrevê-la, por si só, não significa que a proteção esteja funcionando.
+
+| Ideia retomada | O que significa | Como será usada nesta aula |
+|---|---|---|
+| **Contexto e escopo** | Entender a atividade e delimitar pessoas, informações, serviços e recursos abrangidos. | Proteger o trabalho da equipe técnica: identidades, e-mail, plataforma de projetos, estações e recuperação. |
+| **Política e diretriz** | Declarar o compromisso e orientar as decisões; o procedimento detalha como agir. | Justificar os controles pelo que precisam proteger, sem transformar a política numa lista de ferramentas. |
+| **Responsabilidade e autoridade** | Distinguir quem responde pelo risco, quem executa a medida e quem pode aceitar uma exceção. | Registrar esses papéis junto da decisão, inclusive quando uma medida ficar adiada. |
+| **Objetivo e critério** | Dizer qual resultado se busca e como reconhecê-lo. | Verificar se a função crítica retorna em até **4 h**, com perda de trabalho de até **24 h**. |
+| **Evidência e acompanhamento** | Comparar o resultado com o critério, registrar desvios e decidir o que revisar. | Usar os registros fornecidos para avaliar controles e atualizar o risco residual — a exposição que permanece. |
+
+**Base de governança fornecida para a A09:** a coordenação técnica responde pelos seis riscos e aprova a priorização; TI executa e documenta as medidas; a direção decide eventuais exceções para risco alto. A diretriz proposta é: “Proteger identidades e a continuidade do trabalho técnico, preservando autoria, uso autorizado e recuperação verificável”. A proposta ainda exige aprovação; não representa um SGSI implantado.
+
+O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamos os princípios de gestão, sem presumir que a política anterior já cubra essas novas atividades. O próximo passo é preencher a matriz: avaliar os riscos, escolher medidas viáveis e verificar o que seus resultados permitem concluir.
+
+**Você pode realizar a A09 com as informações desta página.** A [A08 — Governança e SGSI](A08-governanca-sgsi.md) fica como aprofundamento; não é necessário consultá-la nem recuperar um registro anterior para iniciar a análise.
 
 <a id="1-receber-riscos-formulados-sem-reiniciar-a-investigacao"></a>
 <a id="primeiro-esquema"></a>
@@ -46,9 +66,9 @@ Seis profissionais elaboram projetos de software ou automação, registram alter
 | Estações e aplicações técnicas | Elaborar, conferir e continuar trabalhos | Preservar disponibilidade e integridade do ambiente |
 | Cópia de recuperação | Restabelecer ambiente e trabalho após perda | Continuar disponível quando a estação falhar |
 
-A [A08](A08-governanca-sgsi.md) apresentou governança no portal. Aqui há **outro escopo**, fornecido para transferir aqueles conceitos: identidades, e-mail, plataforma, estações e recuperação da equipe técnica. A política do portal não passa a cobrir tudo isso automaticamente.
+O ambiente acima é o escopo desta análise. Use a [base de governança da retomada](#contexto-a08) para identificar a diretriz, os responsáveis e o objetivo de recuperação.
 
-**Base de governança do exercício:** a coordenação técnica responde pelos seis riscos e pode aprovar a priorização; TI executa e documenta medidas; a direção decide exceções para risco alto. A diretriz proposta para este escopo é: “Proteger identidades e a continuidade do trabalho técnico, preservando autoria, uso autorizado e recuperação verificável”. Sua aprovação é uma condição do exercício, não implantação de um SGSI real. O objetivo é bloquear o abuso descrito e recuperar a função crítica em até quatro horas, com perda de trabalho de até 24 horas.
+Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça** é uma possível causa de dano; **vulnerabilidade** é uma fragilidade que pode permitir esse dano. As fichas abaixo ligam essas ideias a situações concretas.
 
 ### Seis riscos para comparar
 
@@ -346,9 +366,9 @@ O ciclo de análise e avaliação de controles está concluído nesta aula quand
 
 **Missão:** recomendar como proteger a equipe técnica da Nuvora, comparar os seis riscos digitais e revisar o tratamento de ransomware à luz de V1. **Em dupla, um PDF de 3–4 páginas**, chamado `A08-A09-sobrenome1-sobrenome2.pdf`. Estimativa de até duas horas de consolidação fora da aula; prazo definido pelo docente no Classroom. Não há nova etapa dependente da A10.
 
-**Preparação:** use esta página, o [pacote de evidências](../assets/m1/A09-pacote-evidencias.txt) e o [modelo editável](../assets/m1/A09-modelo-governanca-riscos.txt). Retome os conceitos e os registros disponíveis da A08. Se não houver registro próprio, use a base de governança do tema 1 e identifique-a como fornecida. A atividade não exige recriar uma política integral nem comprovar execução técnica.
+**Preparação:** use esta página, o [pacote de evidências](../assets/m1/A09-pacote-evidencias.txt) e o [modelo editável](../assets/m1/A09-modelo-governanca-riscos.txt). Use a [retomada de contexto](#contexto-a08) e sua base de governança, identificando-as como fornecidas. Um registro próprio da A08 pode complementar a análise, mas não é necessário. A atividade não exige recriar uma política integral nem comprovar execução técnica.
 
-1. **Delimite a governança:** escreva o novo escopo em 3–4 linhas, uma diretriz justificada e os papéis de coordenação, TI e direção. Explique qual princípio da A08 foi transferido e por que o escopo do portal não basta. Indique o objetivo de recuperação e seu acompanhamento.
+1. **Delimite a governança:** escreva o novo escopo em 3–4 linhas, uma diretriz justificada e os papéis de coordenação, TI e direção. Escolha um princípio explicado na retomada e mostre como ele se aplica à equipe técnica; explique por que o escopo do portal não basta. Indique o objetivo de recuperação e seu acompanhamento.
 2. **Preencha a matriz de R01 a R06:** registre evidência/incerteza e acrescente consequência, plausibilidade e classe. Justifique a prioridade pelos mesmos critérios. R01 é exemplo; detalhe R02 e use frases curtas nas outras quatro linhas.
 3. **Escolha o plano:** respeite as 12 h e as dependências. Use as colunas tratamento/controle e recurso/cobertura nas seis linhas, distinguindo medidas incluídas e adiadas. Para R02, detalhe mecanismo, alcance, responsável, critério, benefício, efeito operacional e alternativa adiada/rejeitada. Declare exposição que o recurso não cobre.
 4. **Avalie e revise na mesma matriz:** examine T1–T7 conforme a medida de cada risco, distinguindo desenho, implantação e resultado. Aplique V1 à decisão de R02: revise residual, encaminhamento de recurso, medida provisória, autoridade, prazo e gatilho. Se sua escolha diferiu do plano demonstrado, não atribua a ela os resultados de outro plano.

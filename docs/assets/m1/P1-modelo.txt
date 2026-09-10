@@ -4,7 +4,8 @@ Um PDF de 3–4 páginas. Dados fornecidos são simulações didáticas.
 CSV inicial: A09-matriz-riscos.csv. O preenchimento no site deve ser exportado antes de sair.
 
 1. GOVERNANÇA (síntese)
-Escopo e princípio transferido da A08:
+Use a retomada de contexto da própria A09. Registros anteriores são opcionais.
+Escopo e princípio da retomada “Da A08 à A09” aplicado à equipe técnica:
 Diretriz e justificativa:
 Coordenação/proprietário, TI/executor e direção/autoridade de exceção:
 Objetivo (função em até 4 h; perda até 24 h) e acompanhamento:

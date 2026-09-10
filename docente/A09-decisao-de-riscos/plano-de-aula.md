@@ -16,7 +16,7 @@
 
 ## Preparação e condução pela matriz
 
-Abra a página no tema 1 e mostre as seis linhas. Explique os três campos iniciais; somente R01 terá o exemplo completo nas etapas seguintes. Deixe CSV e pacote em texto disponíveis sem conexão. Use projeção e respostas curtas; a digitação individual é opcional. O professor registra uma síntese da turma na matriz, exportando antes de sair. Não há salvamento automático. Para evitar tabela larga, marque “Mostrar só as colunas desta etapa”; desmarque quando precisar comparar o acumulado. Cada recorte mantém risco e ordem das linhas.
+Comece pela retomada “Da A08 à A09”: em até 4 minutos, relacione SGSI, escopo, diretriz, papéis e acompanhamento à nova análise. Use a base fornecida; não pedir que a turma abra a A08 ou recupere registros. Depois abra o tema 1 e mostre as seis linhas. Explique os três campos iniciais; somente R01 terá o exemplo completo nas etapas seguintes. Deixe CSV e pacote em texto disponíveis sem conexão. Use projeção e respostas curtas; a digitação individual é opcional. O professor registra uma síntese da turma na matriz, exportando antes de sair. Não há salvamento automático. Para evitar tabela larga, marque “Mostrar só as colunas desta etapa”; desmarque quando precisar comparar o acumulado. Cada recorte mantém risco e ordem das linhas.
 
 **Enquadramento:** seis riscos competem por 12 h de TI, mas não haverá seis estudos completos. R01 ensina o preenchimento; R02 recebe análise mais detalhada e V1. R03–R06 ampliam a comparação com uma justificativa breve por campo. Nos temas 2–3, distinguir quadro de classificação (3×3) da matriz de análise (seis riscos).
 
@@ -24,7 +24,7 @@ Abra a página no tema 1 e mostre as seis linhas. Explique os três campos inici
 
 | Minutos | T/P | Colunas e condução | Participação |
 |---|---|---|---|
-| 0–15 | 5/10 | Etapa 1: risco, evidência e incerteza. Ler ambiente/E1–E8 e seis caminhos. | Cada resposta distingue fato do registro e hipótese. Não iniciar seis investigações. |
+| 0–15 | 5/10 | Retomada de governança (4 min dos 5 T do bloco); etapa 1: risco, evidência e incerteza. Ler ambiente/E1–E8 e seis caminhos. | Cada resposta distingue fato do registro e hipótese. Não iniciar seis investigações. |
 | 15–35 | 15/5 | Etapa 2: consequência, plausibilidade e classe inicial. Preencher R01, aprofundar R02 e comparar R03–R06. | Cerca de 5 min exemplo, 5 min R02, 8 min demais e 2 min prioridade. Justificativas curtas; não impor seis riscos altos. |
 | 35–60 | 15/10 | Etapa 3: tratamento/controle e recurso/cobertura. Examinar C1–C8; decidir quais cabem em 12 h. | Nomear medida candidata por linha, distinguir incluída/adiada e explicar função preservada. R02 recebe alternativa detalhada. |
 | 60–85 | 15/10 | Etapas 4–5: critério/resultado, residual e decisão/acompanhamento. Avaliar T1–T3, comparar T4–T7 e aplicar V1. | 4 min desenho/implantação/resultado; 7 min T1–T3; 6 min T4–T7; 8 min V1/residual. Hipótese de implementação não reduz risco atual. |
