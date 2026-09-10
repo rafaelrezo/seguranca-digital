@@ -1,18 +1,31 @@
 A09 — MATRIZ DE ESTUDO: NUVORA
-Acompanha os exemplos da aula; não é o modelo de entrega do novo cenário.
-Use E1–E8, R01–R06 e, quando apresentados, C1–C8, T1–T7 e V1.
+NIST SP 800-30 Rev. 1; adaptação didática com seis riscos.
 
-Acrescente campos depois da explicação de cada tema:
-1. Risco | Evidência | Incerteza
-2. Consequência | Plausibilidade
-3. Classe inicial
-4. Tratamento
-5. Controle | Recurso/cobertura | Critério de verificação
-6. Resultado/limite
-7. Risco residual
-8. Decisão/acompanhamento
+Preparar: finalidade, escopo, período de 30 dias, fontes, premissas e restrições.
+A matriz começa no tema 2. Temas 2–8 acrescentam as colunas após sua explicação.
 
-Mantenha as mesmas seis linhas. R01 é exemplo; R02–R06 pedem justificativas.
-Conserve a avaliação inicial e registre a revisão após V1 nas novas colunas.
-A matriz do site sincroniza as edições entre os temas; exporte antes de sair.
-Para a atividade, use A09-atividade-cenario.txt e A09-atividade-matriz.csv.
+1. Risco: fonte, evento e ativo
+2. Evidência
+3. Vulnerabilidades e condições
+4. Controles existentes
+5. Incerteza e premissas
+6. Iniciação/ocorrência
+7. Dano dado o evento
+8. Verossimilhança geral
+9. Impacto
+10. Classe inicial
+11. Tratamento
+12. Controle proposto
+13. Recurso/cobertura
+14. Critério de verificação
+15. Decisão/acompanhamento
+16. Resultado/limite
+17. Risco residual
+
+R01 é exemplo provisório sob H1, não ocorrência de ataque.
+G-5 combina iniciação e dano dado o evento; I-2 combina geral e impacto.
+H1: iniciação moderada; dano alto; geral moderada; impacto alto; risco moderado.
+T1: sob H1, dano baixo; geral baixa; impacto alto; risco baixo somente no caminho testado.
+
+Exportar antes de fechar: não há persistência das edições.
+A atividade usa OUTRO cenário, F01–F08, e riscos N01–N06 formulados pela dupla.

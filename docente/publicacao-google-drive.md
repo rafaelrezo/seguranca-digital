@@ -1,5 +1,25 @@
 # Registro de publicação no Google Drive
 
+## A09 — resumo aplicado da NIST SP 800-30 Rev. 1 — 10 set. 2026
+
+Reconciliação solicitada pelo docente com a edição mais recente: Rev. 1 final de 2012. Oito temas, Figuras 3/5 adaptadas, combinações G-5/I-2, sete vistas de dezessete campos e atividade em novo cenário alinhada. Plano, fontes, modelos e pacote sem conexão atualizados. Validação editorial, build estrito, tabelas e testes de navegador aprovados. Publicação destinada ao Pages; Drive e Classroom preservados. [Registro de reconciliação](A09-decisao-de-riscos/reconciliacao-nist-800-30.md).
+
+## Sínteses e atividade em novo cenário A09 — 10 set. 2026
+
+Publicação `533e21e77bb5f801f0eb10bc50ec4fa4802da5c8`: oito sínteses itemizadas, exemplo de formulação de risco e atividade na central fictícia de equipamentos. Seis riscos levantados pela dupla, matriz de treze campos em branco, controles propostos e verificação planejada. Downloads de estudo e entrega separados; A08, plano e planejamento alinhados. Validação `34525455239` e deploy `34525455213` aprovados. Página, cenário e modelos públicos conferidos por conteúdo/bytes. Registro local posterior ao deploy; detalhes em `docente/A09-decisao-de-riscos/sinteses-e-nova-atividade.md`.
+
+## Matriz junto de cada explicação A09 — 10 set. 2026
+
+Publicação `d39d5cdfd1884a391b5caffe4167899c261fd3c4`: oito visualizações sincronizadas, com campos acrescentados após cada tema (3/5/6/7/10/11/12/13). Critério separado de resultado e tratamento separado de controle. Modelos/pacote/plano alinhados. Validação `34523563434` e deploy `34523563776` aprovados. Ordem pública das etapas e bytes de CSV, pacote, modelo, JS e CSS conferidos. Registro local posterior ao deploy; descrição técnica e validação em `docente/A09-decisao-de-riscos/progressao-da-matriz.md`.
+
+## Ambiente, linha de base e guia da matriz A09 — 10 set. 2026
+
+Figura docente incorporada sem edição; texto do ambiente simplificado e exclusão enfática de CLP/supervisório retirada. Ordem vigente: ambiente ilustrado → linha de base → riscos → guia das colunas → matriz. Pacote sem conexão e plano docente alinhados. Publicação final `4ed8320be594853990582c97957373bfde19bc21`, validação `34522517627` e deploy `34522517470` aprovados; ordem pública, guia, imagem original e pacote conferidos. Registro local posterior ao deploy.
+
+## Contexto autocontido na A09 — 10 set. 2026
+
+Retomada de SGSI, contexto/escopo, diretriz, autoridade, objetivo e acompanhamento adicionada à A09 em `#contexto-a08`; pacote, modelos e plano alinhados. Consulta à A08 e registro prévio são opcionais. Quatro minutos da abertura, sem ampliar os 100 min. Publicação `c5d031713715b8cc110f107cfa5431d843a5857f`; validação `34521657318` e deploy `34521657311` aprovados. Página, âncora e downloads públicos conferidos. Registro local posterior ao deploy.
+
 ## Matriz progressiva e revisão editorial A09 — 10 set. 2026
 
 Atualização solicitada: seis riscos, matriz cumulativa editável e exportável, revisão editorial por agente e retirada dos oito fluxos repetidos da página. Alinhados modelo, pacote, plano, diretrizes e planejamento. R01 exemplo, R02 aprofundado, demais comparações breves; 100 min e fechamento na A09 preservados. Registro: `docente/A09-decisao-de-riscos/revisao-editorial-matriz.md`. Validação local aprovada; conferir a publicação no Pages pelo workflow desta revisão.

@@ -95,7 +95,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 <a id="a09"></a>
 
-### A09 — Decidir e avaliar controles de segurança digital
+### A09 — Avaliar riscos com a NIST SP 800-30
 
 **Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1, entrega encerrada aqui.
 
@@ -103,11 +103,11 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Objetivos:** formular riscos a partir de fatos e comparar riscos por critérios comuns e incertezas; justificar controles viáveis e função preservada; avaliar resultados e revisar residual/autoridade/gatilho.
 
-**Conteúdos e condução:** matriz apresentada após a explicação em cada tema, com edições sincronizadas e novas colunas locais; treze campos, tratamento separado de controle e critério separado de resultado. oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E8 são linha de base simulada. C1–C8 permitem comparar planos de 12 h. T1–T7 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
+**Conteúdos e condução:** resumo aplicado da NIST SP 800-30 Rev. 1 (2012): preparar; identificar fontes/eventos/vulnerabilidades/controles existentes; estimar iniciação, dano condicionado, geral e impacto; determinar risco; aplicar resposta; comunicar; examinar evidências; manter a avaliação. Figuras 3/5 e combinações G-5/I-2. Sete vistas progressivas nos temas 2–8, dezessete campos. E1–E8, C1–C8, T1–T7/V1 preservados. Hipóteses explícitas, horizonte de 30 dias e sensibilidade; nenhuma execução técnica inventada.
 
 **Tempo:** 15 ambiente (5T/10P); 20 critérios/prioridade (15T/5P); 25 tratamento/controles (15T/10P); 25 evidências/revisão (15T/10P); 15 consolidação (10T/5P). Total 60T/40P.
 
-**Produto e critério:** PDF único de 3–4 páginas sobre novo cenário: central fictícia de empréstimo de equipamentos. Seis riscos levantados pela dupla a partir de F01–F08, matriz completa de treze campos com controles propostos, verificação planejada e residual condicionado. Nuvora permanece como exemplo de estudo. Resultado não verificado deve ser explicitado; T1–T7/V1 não são dados da central. [Plano docente](../A09-decisao-de-riscos/plano-de-aula.md).
+**Produto e critério:** PDF único de 3–4 páginas sobre novo cenário: central fictícia de empréstimo de equipamentos. Seis riscos levantados pela dupla a partir de F01–F08, matriz completa de dezessete campos com controles propostos, verificação planejada e residual condicionado. Nuvora permanece como exemplo de estudo. Resultado não verificado deve ser explicitado; T1–T7/V1 não são dados da central. [Plano docente](../A09-decisao-de-riscos/plano-de-aula.md).
 
 **Fechamento:** análise, seleção e avaliação de controles concluídas na A09. Nenhuma etapa obrigatória adiada para A10.
 

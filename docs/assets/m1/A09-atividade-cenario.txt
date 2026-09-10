@@ -1,4 +1,4 @@
-## Atividade
+A09 — ATIVIDADE: CENTRAL DE EQUIPAMENTOS
 
 ### Uma central de equipamentos precisa proteger seu serviço
 
@@ -6,7 +6,7 @@
 - **Decida:** construa a matriz completa, proponha controles e justifique prioridades e limites.
 - **Entregue:** um PDF de **3–4 páginas por dupla**, com matriz, síntese de governança e justificativas individuais.
 
-Você já acompanhou o método na Nuvora. Agora vai aplicá-lo a uma **central fictícia de empréstimo de equipamentos tecnológicos**. Os riscos e controles desta atividade serão definidos por sua dupla. Use o [cenário para consulta sem conexão](../assets/m1/A09-atividade-cenario.txt), a [matriz em branco — CSV](../assets/m1/A09-atividade-matriz.csv) e o [modelo da entrega — texto](../assets/m1/A09-modelo-governanca-riscos.txt).
+Você já acompanhou a avaliação orientada pela NIST SP 800-30 Rev. 1 na Nuvora. Agora vai aplicá-lo a uma **central fictícia de empréstimo de equipamentos tecnológicos**. Os riscos e controles desta atividade serão definidos por sua dupla. Use o [cenário para consulta sem conexão](../assets/m1/A09-atividade-cenario.txt), a [matriz em branco — CSV](../assets/m1/A09-atividade-matriz.csv) e o [modelo da entrega — texto](../assets/m1/A09-modelo-governanca-riscos.txt).
 
 ### Conheça o serviço e seus limites
 
@@ -21,6 +21,7 @@ O serviço depende do portal, do banco de reservas, dos computadores do balcão 
 | **Dados protegidos** | Nome, contato e histórico individual de empréstimos são de uso interno; o catálogo de equipamentos pode ser público. |
 | **Responsabilidades** | Coordenação da central responde pelo serviço e prioriza; TI do campus executa medidas; direção decide exceções para risco alto. |
 | **Objetivo de recuperação** | Retomar o serviço em até 4 h, com perda de registros de até 24 h. |
+| **Horizonte da avaliação** | Próximos 30 dias; reavaliar em até 7 dias ou antes se mudar uma condição relevante. |
 | **Recurso inicial** | 12 horas de trabalho de TI na primeira semana. Proponha estimativas de esforço, declare premissas e indique o que ficará adiado. Não são orçamentos reais. |
 
 ### Examine os fatos antes de nomear os riscos
@@ -40,45 +41,46 @@ Todos os registros abaixo são **fictícios**. Eles descrevem condições do ser
 
 ### Formule os seis riscos
 
-- Identifique **ativo ou função afetada, evento de ameaça, condição que o permite e consequência**.
+- Identifique **fonte e evento de ameaça, ativo/função afetada, vulnerabilidade ou condição e consequência**.
 - Use identificadores **N01–N06** e dê a cada risco um nome descritivo. Não há correspondência obrigatória entre número do risco e número do fato.
-- Relacione cada risco a um ou mais registros F01–F08 e indique a incerteza. Um fato pode sustentar mais de uma análise; dois nomes para o mesmo caminho não contam como riscos distintos.
+- Relacione cada risco a um ou mais registros F01–F08 e indique os controles existentes, a incerteza e a confiança na avaliação. Um fato pode sustentar mais de uma análise; dois nomes para o mesmo caminho não contam como riscos distintos.
 - Mantenha o foco em segurança digital. Atraso de entrega ou perda física de equipamento, isoladamente, não descrevem um risco digital: explique a ação sobre conta, sistema, informação ou serviço que leva à consequência.
 
 Uma forma de escrever a linha é: **“Se [evento de ameaça] ocorrer, a condição [fato ou hipótese] poderá afetar [ativo/função], causando [consequência]”.** Complete com sua análise do caso.
 
 ### Avalie e priorize com critérios comuns
 
-Use as escalas de [plausibilidade](#tema-2) e o [quadro de classificação](#tema-3) da aula. Para consequência, aplique a régua ao serviço da central:
+Use a preparação do [tema 1](#tema-1), as escalas e a combinação G-5 do [tema 3](#tema-3) e a tabela I-2 do [tema 4](#tema-4). Registre finalidade, horizonte, fontes, premissas e restrições. Para impacto, aplique esta adaptação ao serviço:
 
-| Consequência | Critério deste cenário |
+| Impacto | Critério deste cenário |
 |---|---|
-| **Limitada** | Correção local e reversível em até 1 h, sem retirada indevida nem exposição de dados internos. |
-| **Relevante** | Retrabalho ou interrupção acima de 1 h e até 4 h, com registros recuperáveis e sem exposição de dados internos ou empréstimo indevido confirmado. |
-| **Grave** | Interrupção acima de 4 h, perda de registros superior a 24 h, exposição de dados internos ou retirada indevida que comprometa a responsabilização pelo equipamento. |
+| **Muito baixo** | Efeito desprezível sobre o serviço, sem perda de registros ou exposição interna. |
+| **Baixo** | Correção local em até 1 h, sem retirada indevida nem exposição de dados internos. |
+| **Moderado** | Retrabalho ou interrupção acima de 1 h e até 4 h, com registros recuperáveis, sem retirada indevida nem exposição interna. |
+| **Alto** | Interrupção acima de 4 h, perda de registros superior a 24 h, exposição de dados internos ou retirada indevida que comprometa a responsabilização pelo equipamento. |
+| **Muito alto** | Perda extensa e duradoura da capacidade de operar a central, com dano excepcional à continuidade do serviço. Justifique extensão e duração; não basta ultrapassar 4 h. |
 
-Explique a condição que sustenta a consequência e a plausibilidade; não classifique todos os riscos automaticamente como altos. Risco alto exige encaminhamento à direção; moderado pode ter aceitação temporária pela coordenação por até sete dias, com justificativa e acompanhamento; baixo permanece acompanhado. Não presuma que uma exceção já foi aprovada.
+Faltam dados de frequência para vários eventos. Declare uma hipótese para a iniciação/ocorrência, fundamente-a e marque a classe como provisória; em pelo menos um risco, compare dois valores possíveis e mostre se a decisão muda. Não copie H1 como fato deste caso. Informação ausente não implica automaticamente nível moderado.
+
+Aplique a regra de autoridade do tema 4: direção para alto/muito alto, coordenação para aceitação temporária de moderado, acompanhamento para baixo/muito baixo. Não presuma aprovação. Quando um fato já mostra exposição, diferencie essa condição observada da ocorrência futura que sua linha avalia.
 
 ### Construa a matriz completa com controles
 
-Preencha as **treze colunas** no mesmo percurso demonstrado em aula:
+Preencha os **dezessete campos** seguindo a mesma progressão:
 
-1. **Risco, evidência e incerteza:** formule os seis cenários e cite os fatos usados.
-2. **Consequência, plausibilidade e classe inicial:** avalie e justifique a prioridade.
-3. **Tratamento:** escolha reduzir, evitar, compartilhar ou reter e explique por quê.
-4. **Controle:** proponha uma medida específica por risco, ligada à condição ou consequência. Um controle compartilhado pode atender a vários riscos, com cobertura justificada.
-5. **Recurso/cobertura:** estime esforço, dependências e alcance; indique medidas incluídas nas 12 h e adiadas. Não conte duas vezes o esforço de um controle compartilhado.
-6. **Critério de verificação:** diga qual ação verificaria o controle e qual resultado mostraria proteção e função legítima preservada. Para recuperação, verificar apenas abertura da aplicação não basta.
-7. **Resultado/limite:** como os controles são propostas, registre **“não verificado”**, o limite atual e a verificação necessária. Resultados da Nuvora não são evidência desta central.
-8. **Risco residual:** estime a exposição que permaneceria **se o controle fosse implantado e atendesse ao critério**. A exposição atual continua sem redução comprovada.
-9. **Decisão/acompanhamento:** nomeie executor, autoridade, prazo e gatilho de revisão, inclusive para os riscos adiados.
+1. **Identificação:** risco com fonte/evento/ativo; evidência; vulnerabilidades/condições; controles existentes; incerteza/premissas.
+2. **Estimativas:** iniciação/ocorrência; dano dado o evento; verossimilhança geral (G-5); impacto; classe inicial (I-2).
+3. **Resposta:** tratamento; controle proposto; recurso/cobertura; critério de verificação de proteção e função legítima. Estime o esforço, indique dependências e o que entra nas 12 h; não conte duas vezes controles compartilhados.
+4. **Comunicação:** decisão/acompanhamento com executor, autoridade, prazo e gatilho, inclusive para medidas adiadas.
+5. **Evidência:** resultado/limite = **não verificado**, limite atual e verificação necessária. T1–T7/V1 não são evidências desta central.
+6. **Manutenção:** residual estimado **se o controle for implantado e atender ao critério**. Informe os fatores e a classe que mudariam; exposição atual não tem redução comprovada.
 
 A matriz está completa quando todos os campos têm informação justificada. **“Não verificado” é um estado válido; resultado inventado não é.** A atividade termina na análise e no plano de verificação, sem instalação, exploração ou teste em sistemas reais.
 
 ### Organize e confira a entrega
 
 - **Governança:** em poucas linhas, delimite o escopo, proponha uma diretriz coerente com o serviço e registre papéis e objetivo. A [retomada da própria A09](#contexto-a08) oferece os conceitos necessários.
-- **Matriz:** mantenha N01–N06 na mesma ordem; divida as colunas em três faixas, como no modelo, para preservar a leitura em 3–4 páginas.
+- **Matriz:** mantenha N01–N06 na mesma ordem; divida as colunas em quatro faixas, como no modelo, para preservar a leitura em 3–4 páginas.
 - **Justificativa:** destaque o risco priorizado, uma alternativa de controle rejeitada/adiada e uma informação que poderia mudar a decisão. Inclua uma justificativa individual curta de cada integrante.
 - **Revisão cruzada:** confira se a ameaça, a condição e a consequência estão ligadas; se o controle atua nesse caminho; e se a verificação preserva o uso legítimo. Cite fontes e declare o uso de IA.
 
@@ -86,8 +88,8 @@ A matriz está completa quando todos os campos têm informação justificada. **
 
 | Critério | Peso | Evidência esperada |
 |---|---:|---|
-| Contexto e identificação dos riscos | 25% | Escopo, diretriz e papéis coerentes; seis riscos digitais distintos ligados a F01–F08, com incertezas |
-| Avaliação e prioridade | 20% | Critérios comuns, classes justificadas e prioridade explicada |
+| Contexto e identificação dos riscos | 25% | Escopo, diretriz e papéis coerentes; seis riscos digitais distintos ligados a F01–F08, com fontes/eventos, condições, controles existentes e incertezas |
+| Avaliação e prioridade | 20% | Iniciação e dano separados, combinações G-5/I-2 corretas, premissas e sensibilidade justificadas |
 | Tratamento e controles | 25% | Medidas específicas, recurso, dependências, cobertura e função legítima |
 | Verificação, residual e decisão | 20% | Critérios observáveis, estado não verificado, residual condicionado, responsável, autoridade e revisão |
 | Clareza e autoria | 10% | Matriz completa e legível, justificativas individuais e fontes/uso de IA declarados |
@@ -96,3 +98,4 @@ A matriz está completa quando todos os campos têm informação justificada. **
 
 **Extensão opcional, sem nova entrega:** escolha uma medida adiada e explique qual mudança de condição faria sua prioridade aumentar.
 
+Consulta do método: https://rafaelrezo.github.io/seguranca-digital/aulas/A09-decisao-de-riscos/

@@ -1,51 +1,54 @@
-A08–A09 — ATIVIDADE: CENTRAL DE EQUIPAMENTOS TECNOLÓGICOS
+A08–A09 — CENTRAL DE EQUIPAMENTOS TECNOLÓGICOS
+Avaliação orientada pela NIST SP 800-30 Rev. 1 (2012)
 Dupla:                               Data:
-Cenário fictício. PDF de 3–4 páginas. Seis riscos identificados pela dupla.
-Use A09-atividade-cenario.txt e A09-atividade-matriz.csv.
-O caso Nuvora é referência de método; seus riscos e resultados não são dados desta central.
+PDF único de 3–4 páginas; seis riscos identificados pela dupla.
+Insumos: A09-atividade-cenario.txt e A09-atividade-matriz.csv.
+A matriz é adaptação didática; não é formulário oficial do NIST.
 
-1. GOVERNANÇA (síntese)
-Escopo e função legítima a preservar:
-Diretriz proposta e justificativa:
-Coordenação/proprietário; TI/executor; direção/autoridade:
-Objetivo de recuperação e acompanhamento:
+1. PREPARAÇÃO E GOVERNANÇA (síntese no início da primeira página)
+Finalidade, escopo e função legítima:
+Horizonte de 30 dias; fontes; premissas; restrições:
+Diretriz proposta; coordenação/proprietário; TI/executor; direção/autoridade:
+Objetivo de recuperação; critérios G-5/I-2 e impacto local:
 
-2. MATRIZ COMPLETA — SEIS RISCOS, TREZE COLUNAS
-Nomeie e formule N01–N06. Não há riscos previamente definidos.
-Cada risco relaciona evento de ameaça, condição, ativo/função e consequência.
-Use os fatos F01–F08 e identifique hipóteses; não presumir ataque ocorrido.
+2. MATRIZ COMPLETA — SEIS RISCOS, DEZESSETE CAMPOS
+N01–N06: nomeie e formule fonte, evento, ativo/função e dano possível.
+Use F01–F08; distinga condição observada de ocorrência futura.
+Conserve a ordem das seis linhas em quatro faixas (uma por página):
+A) Risco: fonte/evento/ativo | Evidência | Vulnerabilidades/condições | Controles existentes | Incerteza/premissas
+B) Risco (ID) | Iniciação/ocorrência | Dano dado o evento | Verossimilhança geral | Impacto | Classe inicial
+C) Risco (ID) | Tratamento | Controle proposto | Recurso/cobertura | Critério de verificação
+D) Risco (ID) | Decisão/acompanhamento | Resultado/limite | Risco residual
+Se usar três páginas, reúna faixas somente se continuarem legíveis.
 
-Preencha e conserve a mesma ordem em três faixas no PDF:
-A) Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial
-B) Risco | Tratamento | Controle | Recurso/cobertura | Critério de verificação
-C) Risco | Resultado/limite | Risco residual | Decisão/acompanhamento
-
+Iniciação: período definido, fundamento e hipótese quando faltarem dados.
+Dano dado o evento: considerar condições e controles existentes.
+Geral: combinar pela G-5; classe: geral e impacto pela I-2.
 Resultado/limite: não verificado; limite atual e verificação necessária.
-Residual: estimativa condicionada à implantação e ao atendimento do critério.
-Decisão: executor, autoridade, prazo e gatilho; aprovações não presumidas.
-Um controle pode cobrir mais de um risco se a relação for justificada.
+Residual: se o controle funcionar, quais fatores e classe mudariam?
+Decisão: executor, autoridade, prazo, gatilho e aprovação pendente.
 
-3. PRIORIDADE E PLANO (justificativa breve)
-Qual risco deve ser tratado primeiro e por quê:
-Plano das primeiras 12 h; estimativas e premissas; dependências:
-Medidas incluídas e adiadas, sem contar esforço compartilhado duas vezes:
-Alternativa de controle rejeitada/adiada e efeito operacional:
-Informação que poderia mudar a decisão e como obtê-la:
+3. PRIORIDADE E PLANO (justificativas breves junto às faixas pertinentes)
+Risco prioritário e razão; alternativa rejeitada ou adiada:
+Plano de 12 h: estimativas, premissas, dependências, incluídas/adiadas:
+Não contar duas vezes o esforço de controle compartilhado.
+Sensibilidade em um risco: dois valores possíveis, efeito na classe/decisão:
+Informação que reduziria a incerteza e como obtê-la:
 
-4. AUTORIA E FONTES
+4. AUTORIA E FONTES (final da última página)
 Integrante 1 — decisão e fato que a sustenta:
 Integrante 2 — decisão e fato que a sustenta:
 Fontes:
 IA: não utilizada OU pedido, decisões aceitas/rejeitadas e justificativa:
 
 CONFERÊNCIA
-[ ] Seis riscos digitais distintos, formulados pela dupla e ligados ao novo caso.
-[ ] Treze colunas preenchidas; não é preciso produzir seis relatórios separados.
-[ ] Critérios comuns e incertezas explícitas.
-[ ] Controle atua sobre condição ou consequência; função legítima preservada.
-[ ] Esforço, dependências, alcance e adiamentos justificados.
-[ ] Verificação descreve ação e resultado esperado, sem afirmar execução.
-[ ] Nenhum T1–T7/V1 da Nuvora foi apresentado como dado da central.
+[ ] Seis riscos digitais distintos e ligados ao novo caso.
+[ ] Dezessete campos com informação, sem inventar execução.
+[ ] Fonte/evento, vulnerabilidade, controle existente e proposto diferenciados.
+[ ] Iniciação e dano separados; G-5/I-2 e impacto local aplicados.
+[ ] Hipóteses justificadas; confiança/limites e sensibilidade explícitos.
+[ ] Verificação protege e preserva uso legítimo.
+[ ] Nenhum T1–T7/V1 atribuído à central.
 [ ] Residual condicionado e decisão com responsável, autoridade, prazo e gatilho.
-[ ] Justificativas individuais, fontes e IA declaradas.
+[ ] Fontes, justificativas individuais e IA declaradas.
 [ ] Um PDF de 3–4 páginas, encerrado na A09.

@@ -143,3 +143,10 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
 /* A09: parágrafos de estudo são texto, e cabeçalhos mantêm palavras inteiras. */
 .md-content__inner:has(#a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar) .study-explanation > p:first-child { color: var(--md-default-fg-color); }
 .md-content__inner:has(#a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar) .study-explanation > .md-typeset__scrollwrap th { overflow-wrap: normal; }
+
+/* Esquemas NIST legíveis em projeção; ampliação disponível no link. */
+.md-typeset figure.nist-figure { display: block; width: 100%; max-width: 100%; }
+.nist-figure > a { display: block; width: 100%; }
+.risk-matrix .matrix-risk-detail { font-weight: normal; }
+.risk-matrix[data-focus="true"] .matrix-risk-detail { display: none; }
+@media print { .risk-matrix .matrix-risk-detail { display: inline !important; } }
