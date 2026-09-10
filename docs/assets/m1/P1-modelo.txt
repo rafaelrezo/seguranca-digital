@@ -16,16 +16,24 @@ R01 Conta comprometida; R02 Ransomware; R03 Fraude por e-mail;
 R04 Suporte remoto; R05 Notebook perdido; R06 Cópias destruídas.
 Use o CSV ou copie os cabeçalhos abaixo em seu editor. Frases curtas.
 
-Etapa 1 — Risco | Evidência | Incerteza
-Etapa 2 — Acrescente: Consequência | Plausibilidade | Classe inicial
-Etapa 3 — Acrescente: Tratamento/controle | Recurso/cobertura
-Etapa 4 — Acrescente: Critério/resultado
-Etapa 5 — Acrescente: Risco residual | Decisão/acompanhamento
+Depois de cada explicação, acrescente os campos na mesma matriz:
+Tema 1 — Risco | Evidência | Incerteza
+Tema 2 — Consequência | Plausibilidade
+Tema 3 — Classe inicial (com prioridade justificada)
+Tema 4 — Tratamento
+Tema 5 — Controle | Recurso/cobertura | Critério de verificação
+Tema 6 — Resultado/limite
+Tema 7 — Risco residual (revisar R02 após V1)
+Tema 8 — Decisão/acompanhamento
+
+Treze colunas, seis linhas. No site, preencher uma célula atualiza as demais
+visualizações dessa célula. Exportar até aqui inclui somente as colunas já abertas.
+Exporte a matriz final no tema 8 antes de fechar/recarregar a página.
 
 No PDF, dividir por faixas com os mesmos seis riscos é permitido:
 A) Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial
-B) Risco | Tratamento/controle | Recurso/cobertura | Critério/resultado
-C) Risco | Risco residual | Decisão/acompanhamento
+B) Risco | Tratamento | Controle | Recurso/cobertura | Critério de verificação
+C) Risco | Resultado/limite | Risco residual | Decisão/acompanhamento
 São partes da mesma matriz, não três entregas. Não reduzir a fonte para encaixar tudo.
 
 3. JUSTIFICATIVAS ESSENCIAIS (priorize R02)

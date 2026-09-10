@@ -12,15 +12,12 @@ Ao concluir, você deverá conseguir:
 2. Justificar controles viáveis, indicando benefício, limite e função legítima preservada.
 3. Avaliar resultados fornecidos e registrar risco residual, autoridade e condição de revisão.
 
-**Tempo:** 100 minutos. **Base conceitual:** a retomada abaixo reúne o contexto de governança; os conceitos necessários à análise são explicados ao longo deste arquivo. **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
+**Tempo:** 100 minutos. **Base conceitual:** a retomada abaixo reúne o contexto de governança; os conceitos necessários à análise são explicados ao longo desta página. **Recursos:** esta página, navegador e editor de texto ou papel. Não há instalação obrigatória. A análise pode ser acompanhada sem computador individual.
 
 **O registro da aula será uma matriz com seis riscos.** Comece pelas evidências e acrescente as colunas à medida que tomar as decisões. R01 mostra um preenchimento possível; R02 será revisto com mais detalhe. Nos demais riscos, registre conclusões curtas e justificadas. A análise e a avaliação de controles terminam nesta aula. A [atividade](#atividade) reúne A08–A09.
 
 !!! note "Origem e limite dos registros"
-    A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Este arquivo é o pacote para consulta sem conexão. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
-
-
-
+    A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Este é o pacote em texto para consulta sem conexão. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
 
 ## Da A08 à A09: o contexto necessário
 
@@ -40,7 +37,10 @@ Essa organização da segurança é a ideia de um **Sistema de Gestão de Segura
 
 O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamos os princípios de gestão, sem presumir que a política anterior já cubra essas novas atividades. O próximo passo é preencher a matriz: avaliar os riscos, escolher medidas viáveis e verificar o que seus resultados permitem concluir.
 
-**Você pode realizar a A09 com as informações deste material.** A [A08 — Governança e SGSI](A08-governanca-sgsi.md) fica como aprofundamento; não é necessário consultá-la nem recuperar um registro anterior para iniciar a análise.
+**Você pode realizar a A09 com as informações desta página.** A [A08 — Governança e SGSI](A08-governanca-sgsi.md) fica como aprofundamento; não é necessário consultá-la nem recuperar um registro anterior para iniciar a análise.
+
+
+
 
 ## 1. Escopo: reconhecer o que está em risco
 
@@ -59,16 +59,11 @@ O ambiente técnico desta aula tem **escopo diferente do portal**. Reaproveitamo
 
 A equipe técnica da Nuvora tem seis profissionais que elaboram projetos de software ou automação, registram e aprovam alterações numa plataforma web e atendem clientes por e-mail. O trabalho acontece nas estações da equipe e num notebook usado em visitas técnicas, com apoio de um fornecedor de suporte remoto.
 
-A equipe dispõe de cópias para recuperação. A plataforma web é mantida por um provedor externo; TI cuida das estações e acompanha o suporte contratado.
+A figura reúne os recursos usados nesse trabalho, as cópias para recuperação e os responsáveis pelas decisões de segurança. A plataforma web é mantida por um provedor externo; TI cuida das estações e acompanha o suporte contratado.
 
-| Componente | Uso autorizado | Proteção necessária |
-|---|---|---|
-| Identidade corporativa | Entrar no e-mail e na plataforma com a conta pessoal | Impedir uso por outra pessoa e permitir rastrear ações |
-| Plataforma de projetos | Registrar e aprovar alterações técnicas | Preservar autoria e integridade das decisões |
-| Estações e aplicações técnicas | Elaborar, conferir e continuar trabalhos | Preservar disponibilidade e integridade do ambiente |
-| Cópia de recuperação | Restabelecer ambiente e trabalho após perda | Continuar disponível quando a estação falhar |
+**Ilustração — descrição:** Equipe técnica com contas pessoais para registrar e aprovar alterações na plataforma web; estações e notebook para projetos e visitas; suporte remoto e cópias de recuperação. A coordenação prioriza riscos, TI executa e documenta medidas, e a direção decide exceções.
 
-O ambiente acima é o escopo desta análise. Use a base de governança da retomada para identificar a diretriz, os responsáveis e o objetivo de recuperação.
+O ambiente acima é o escopo desta análise. Use a [base de governança da retomada](#contexto-a08) para identificar a diretriz, os responsáveis e o objetivo de recuperação.
 
 ### Linha de base — antes dos controles propostos
 
@@ -102,42 +97,31 @@ Na leitura dos riscos, **ativo** é aquilo que precisa de proteção; **ameaça*
 
 *Ransomware* é uma forma de malware associada à extorsão; neste exercício, analisamos a indisponibilidade causada pela cifragem. A possibilidade de vazamento exigiria evidências e tratamento próprios.
 
-### Como construir a matriz
 
-**Cada linha acompanha um risco; cada nova coluna acrescenta uma parte da decisão.** Você começa pelo que sabe sobre o ambiente e termina registrando o que fazer e acompanhar. Os seis riscos permanecem na mesma ordem.
 
-| Etapa | Coluna | O que registrar |
-|---|---|---|
-| **1. Evidências** | **Risco** | O cenário de dano analisado. As seis linhas já estão identificadas. |
-| 1 | **Evidência** | A informação disponível que sustenta a análise, com seu registro de origem. |
-| 1 | **Incerteza** | O que falta saber ou está sendo assumido. |
-| **2. Avaliação** | **Consequência** | A perda caso o cenário ocorra e sua gravidade. |
-| 2 | **Plausibilidade** | O quanto as condições e barreiras conhecidas sustentam a ocorrência do cenário. |
-| 2 | **Classe inicial** | A classificação obtida ao combinar consequência e plausibilidade; acrescente a prioridade justificada. |
-| **3. Tratamento** | **Tratamento / controle** | A resposta escolhida e a medida que a coloca em prática. |
-| 3 | **Recurso / cobertura** | O esforço, as dependências e onde a medida será aplicada; indique se foi incluída ou adiada. |
-| **4. Resultados** | **Critério / resultado** | O que deveria acontecer, o que o registro informa e se atende ao critério, com seus limites. |
-| **5. Residual e decisão** | **Risco residual** | A exposição que permanece, considerando as medidas e os resultados disponíveis. |
-| 5 | **Decisão / acompanhamento** | O encaminhamento, quem executa e aprova, o prazo e o que exige revisão. |
 
-**Exemplo de início:** “R01 — conta comprometida” identifica o risco; “E2 permite entrada só com senha” registra uma evidência; “não sabemos se houve roubo de senha” explicita uma incerteza. Essas informações ocupam células diferentes porque cumprem funções diferentes.
 
-Comece pela etapa 1. Para classificar, use os critérios de avaliação do tema 2 e o quadro de classificação do tema 3; os temas seguintes orientam as outras colunas. Assim, você preenche a matriz por partes, conforme desenvolve a análise.
 
-### Matriz da aula
 
-Comece lendo as três primeiras colunas. Nas próximas etapas, acrescente as novas análises **às mesmas seis linhas**. R01 traz um exemplo; as células de R02–R06 ficam disponíveis para sua decisão. Clique numa célula para escrever e use Tab para avançar.
+### Na matriz: o que sabemos
 
-Os botões abrem novas colunas. “Mostrar só as colunas desta etapa” facilita a leitura em projeção; desmarque para rever o acumulado. **Exporte antes de sair: a página não salva o preenchimento ao ser fechada ou recarregada.** O [modelo CSV](../assets/m1/A09-matriz-riscos.csv) pode ser preenchido numa planilha; papel e [modelo em texto](../assets/m1/A09-modelo-governanca-riscos.txt) também servem.
+Cada linha acompanha um dos seis riscos. **Evidência** registra a informação disponível e sua origem; **incerteza** indica o que falta saber ou está sendo assumido. R01 mostra um exemplo. Confira essas duas informações nas demais linhas antes de avançar.
 
-| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento / controle | Recurso / cobertura | Critério / resultado | Risco residual | Decisão / acompanhamento |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir: C1, MFA nos dois serviços. | 4 h; seis contas. Incluir no plano de exemplo. | T1: senha negada; fatores válidos permitem entrada. Não cobre sessões existentes. | Moderado no caminho testado (grave/baixa), condicionado a C1 implantado. Outros caminhos não avaliados. | Coordenação acompanha; TI executa. Aceitação temporária depende de aprovação, até 7 dias; reabrir se senha sozinha permitir entrada. |
-| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |  |  |  |  |
-| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |  |  |  |  |
-| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |  |  |  |  |
-| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |  |  |  |  |
-| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |  |  |  |  |
+A matriz reaparece ao final de cada tema com as novas colunas. No site, as edições de uma célula são compartilhadas entre as etapas. Nesta versão em texto, preencha o modelo CSV ou papel e acrescente os campos na mesma ordem. “Mostrar só as colunas novas” permite focar a discussão mantendo os mesmos riscos.
+
+Para preencher um registro único, use o modelo CSV ou papel. As tabelas abaixo permitem acompanhar cada etapa.
+
+**Exporte antes de sair:** o preenchimento não fica salvo ao fechar ou recarregar a página. O [modelo CSV](../assets/m1/A09-matriz-riscos.csv), o [modelo em texto](../assets/m1/A09-modelo-governanca-riscos.txt) e papel são alternativas para acompanhar o registro.
+
+| Risco | Evidência | Incerteza |
+| --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |
+
 
 
 
@@ -169,6 +153,21 @@ A plausibilidade é **qualitativa e condicionada ao cenário**. Em R01, consider
 **O que falta saber?** “não encontramos teste de restauração” permite concluir “a cópia é inútil”? Explique o que seria necessário observar para afirmar que a função volta dentro do prazo.
 
 
+### Na matriz: consequência e plausibilidade
+
+Acrescente **consequência** e **plausibilidade** às mesmas seis linhas. Na primeira, indique a perda e sua gravidade; na segunda, relacione as condições e barreiras que sustentam o cenário. Use as escalas que acabou de ler e escreva a hipótese junto da classificação. Ainda não é necessário escolher a classe do risco.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade |
+| --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |
+
+
+
 
 
 
@@ -195,16 +194,25 @@ Este quadro de classificação não mede perdas financeiras nem produz probabili
 
 **Regra de decisão fornecida:** risco alto exige plano e encaminhamento à direção, sem aceitação rotineira pela equipe; moderado pode ter aceitação temporária pela coordenação por até sete dias, com justificativa, acompanhamento e gatilho; baixo permanece acompanhado. Pendência de evidência exige coleta definida. A classificação não aprova automaticamente uma exceção.
 
-### Acrescente a avaliação à matriz
 
 
 
+**Para discutir:** quais riscos receberam a mesma classe por motivos diferentes? Se R01 e R02 ficarem altos, justifique se é necessário terminar a solução de um antes de iniciar uma medida do outro.
 
-Volte à matriz e abra a etapa 2 — Avaliação. Acrescente **consequência, plausibilidade e classe** às seis linhas. O exemplo de R01 mostra como relacionar a classificação aos registros; complete R02–R06 com os mesmos critérios.
 
-Em R02, uma consequência grave depende da hipótese explícita de parada acima de quatro horas; a recuperação ainda é desconhecida. Não transforme essa hipótese em fato. Para R05, considere também a exposição de informação confidencial, sem afirmar que houve leitura.
+### Na matriz: classe inicial
 
-**Para discutir:** quais riscos receberam a mesma classe por motivos diferentes? Se R01 e R02 ficarem altos, justifique se é necessário terminar a solução de um antes de iniciar uma medida do outro. Anote a prioridade junto à classe inicial; você a consolidará na decisão ao final. Não escolha somente pelo risco mais familiar.
+Agora acrescente **classe inicial**, combinando consequência e plausibilidade no quadro acima. Anote também uma razão para a prioridade. R01 ilustra a classificação; em R02, uma consequência grave depende da hipótese explícita de parada acima de quatro horas. Compare as premissas quando duas avaliações divergirem.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial |
+| --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |
+
 
 
 
@@ -226,9 +234,22 @@ O tratamento é a resposta escolhida para lidar com o risco. O controle é uma m
 
 **Exemplo — R01:** desabilitar toda a identidade bloquearia o uso indevido, mas também e-mail e aprovação legítima. A autenticação adicional é uma alternativa de redução que permite manter essas funções, desde que o usuário autorizado consiga entrar e a recuperação da conta seja protegida.
 
-Na etapa 3 da matriz, abra **tratamento/controle** e **recurso/cobertura**. Comece pela resposta pretendida; complete medida e esforço depois de comparar as opções do próximo tema.
-
 **Compare as opções:** uma contratação que só disponibiliza suporte em 24 horas atende ao objetivo de retorno em quatro horas? Identifique a incompatibilidade antes de propor a contratação como solução suficiente.
+
+
+### Na matriz: tratamento
+
+Acrescente **tratamento**: reduzir, evitar, compartilhar ou reter, acompanhado de uma razão. Neste ponto, escolha a resposta ao risco e considere o trabalho que precisa continuar. A medida concreta será definida no próximo tema.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento |
+| --- | --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir o uso indevido da conta. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |
+
 
 
 
@@ -270,9 +291,24 @@ A recomendação de combinar proteção de identidade, restrições de execuçã
 
 C1 + C2 + C3 consomem **12 h**. O plano atua no uso de senha roubada, no início de execução não aprovada e no retorno da estação piloto. É viável no recurso fornecido, mas deixa cinco estações sem o controle de execução validado e não comprova recuperação da equipe inteira. C2 + C4 também consomem 12 h, ampliando execução controlada, mas adiam C1 e C3. A soma não decide qual exposição pode esperar.
 
-Complete a etapa 3 da matriz: proponha uma medida para cada linha, mas marque quais cabem na janela de **12 h** e quais ficam adiadas. Uma medida proposta não precisa estar aprovada para aparecer na matriz. Some cada controle compartilhado apenas uma vez e justifique a exposição dos riscos adiados. R01 já mostra C1; detalhe benefício, função preservada e alternativa de R02. As demais linhas pedem justificativa breve.
-
 **Confira a cobertura:** o registro “C2 instalado em uma estação” autoriza afirmar “R02 controlado na equipe”? Nomeie a diferença entre alcance do plano e alcance da evidência.
+
+
+### Na matriz: controle e verificação
+
+Acrescente **controle**, **recurso/cobertura** e **critério de verificação**. Diga qual medida executa o tratamento, onde ela se aplica, seu esforço e o resultado esperado para proteção e uso legítimo.
+
+Proponha uma medida por risco, mas marque quais cabem nas **12 h** e quais ficam adiadas. Some controles compartilhados apenas uma vez. Para R02, justifique também a alternativa rejeitada. Registre o critério antes de consultar os resultados do próximo tema.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento | Controle | Recurso / cobertura | Critério de verificação |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir o uso indevido da conta. | C1 — MFA nos dois serviços. | 4 h; seis contas. Incluir no plano de exemplo. | Senha sozinha deve ser negada; fatores válidos devem permitir entrada. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |  |  |  |
+
 
 
 
@@ -310,13 +346,26 @@ Os registros abaixo são **cenários comparativos separados**. Não significam q
 | **T6 — Notebook (C7)** | Disco retirado do notebook desligado: projetos não legíveis sem chave. Uso autorizado e recuperação com chave de TI: acesso funciona. | Não representa notebook ligado e desbloqueado. |
 | **T7 — Cópias (C8)** | Exclusão de cópia retida com a conta de backup: negada. Nova cópia e restauração de amostra: permitidas. | Não comprova restauração completa nem testa todos os administradores. |
 
-Na etapa 4 da matriz, acrescente **critério/resultado**. Para cada linha, indique o registro pertinente, a conclusão e seu limite. Se a medida ficou adiada, escreva “resultado comparativo; medida não incluída no plano”. Não reduza o risco atual com base numa implantação hipotética.
-
 ### Exemplo trabalhado — avaliar C1
 
 O desenho atua no caminho “terceiro tem só a senha”. A configuração informa cobertura das contas e serviços especificados. T1 informa bloqueio desse caminho e entrada legítima. É defensável reduzir a plausibilidade **desse cenário específico**, registrando que recuperação de conta e outros caminhos não foram examinados. Não escrever “a identidade está segura contra qualquer ataque”.
 
 **Antes de continuar:** qual verificação falta em T3 para saber se o profissional consegue trabalhar? Formule um caso com ação e resultado observável antes de ler a próxima seção.
+
+
+### Na matriz: resultado e limite
+
+Acrescente **resultado/limite**. Compare cada registro pertinente com o critério que você já escreveu e conclua: **atende**, **não atende** ou **inconclusivo**, com uma razão. Se a medida ficou adiada, identifique o resultado como comparativo; ele não comprova redução da exposição atual.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento | Controle | Recurso / cobertura | Critério de verificação | Resultado / limite |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir o uso indevido da conta. | C1 — MFA nos dois serviços. | 4 h; seis contas. Incluir no plano de exemplo. | Senha sozinha deve ser negada; fatores válidos devem permitir entrada. | T1 atende aos dois casos. Não cobre sessões existentes. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |  |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |  |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |  |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |  |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |  |  |  |  |
+
 
 
 
@@ -353,9 +402,22 @@ O que mudou foi a evidência de recuperação funcional. A existência da cópia
 
 Defina revisão em até sete dias ou antes, caso ocorra novo bloqueio da função, falha de recuperação ou expansão sem verificação. Esse prazo é convenção do exercício; a urgência pode exigir ação imediata. **Concluir o registro não significa eliminar o risco.**
 
-Abra a etapa 5 da matriz: acrescente **risco residual** e **decisão/acompanhamento** às seis linhas. Revise R02 com V1; em R06, considere a dependência entre preservar cópias e conseguir recuperar a função. V1 não comprova destruição das cópias. Mantenha a avaliação inicial visível e registre a revisão nas novas colunas.
-
 **Revise sua decisão:** mudar a nota para baixa resolve V1? Identifique a evidência que precisaria existir para sustentar uma redução.
+
+
+### Na matriz: risco residual
+
+Acrescente **risco residual**: o que permanece exposto após as medidas consideradas e o que a evidência permite afirmar. Mantenha a avaliação inicial visível e registre aqui a revisão de R02 após V1. Em R06, considere a dependência entre preservar cópias e recuperar a função; V1 não comprova destruição das cópias.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento | Controle | Recurso / cobertura | Critério de verificação | Resultado / limite | Risco residual |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir o uso indevido da conta. | C1 — MFA nos dois serviços. | 4 h; seis contas. Incluir no plano de exemplo. | Senha sozinha deve ser negada; fatores válidos devem permitir entrada. | T1 atende aos dois casos. Não cobre sessões existentes. | Moderado no caminho testado (grave/baixa), condicionado a C1 implantado. Outros caminhos não avaliados. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |  |  |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |  |  |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |  |  |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |  |  |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |  |  |  |  |  |
+
 
 
 
@@ -378,6 +440,20 @@ O produto é um registro que outra pessoa consegue revisar sem reconstruir uma h
 
 **Revisão cruzada:** leia a decisão de outra dupla ou releia a sua como revisor. Localize um benefício sem evidência, uma dependência não atendida ou uma função legítima esquecida. Corrija antes de entregar. Não há envio separado deste checkpoint.
 
+### Na matriz: decisão e acompanhamento
+
+Complete **decisão/acompanhamento**: o que será feito, quem executa, quem pode aprovar, até quando e qual ocorrência exige revisão. Indique aprovações pendentes. Agora a matriz reúne toda a análise; confira também os riscos cujas medidas ficaram adiadas.
+
+| Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial | Tratamento | Controle | Recurso / cobertura | Critério de verificação | Resultado / limite | Risco residual | Decisão / acompanhamento |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R01 · Conta comprometida | E1/E2: senha permite entrada e a conta aprova alterações. | Senha já obtida é premissa; invasão real não demonstrada. | Grave: aprovação ou comunicação indevida. | Alta no caminho de senha já obtida. | Alto. | Reduzir o uso indevido da conta. | C1 — MFA nos dois serviços. | 4 h; seis contas. Incluir no plano de exemplo. | Senha sozinha deve ser negada; fatores válidos devem permitir entrada. | T1 atende aos dois casos. Não cobre sessões existentes. | Moderado no caminho testado (grave/baixa), condicionado a C1 implantado. Outros caminhos não avaliados. | Coordenação acompanha; TI executa. Aceitação temporária depende de aprovação, até 7 dias; reabrir se senha sozinha permitir entrada. |
+| R02 · Ransomware | E3/E4: execução sem regra; restauração completa não comprovada. | Prazo de retorno e alcance desconhecidos. |  |  |  |  |  |  |  |  |  |  |
+| R03 · Fraude por e-mail | E5: domínio parecido e pedido sem confirmação por contato conhecido. | Execução da solicitação falsa não demonstrada. |  |  |  |  |  |  |  |  |  |  |
+| R04 · Suporte remoto | E6: conta do fornecedor habilitada após o serviço. | Conexão efetiva e alcance a verificar. |  |  |  |  |  |  |  |  |  |  |
+| R05 · Notebook perdido | E7: projetos confidenciais em disco sem criptografia. | Leitura por terceiros não demonstrada; cenário desligado. |  |  |  |  |  |  |  |  |  |  |
+| R06 · Cópias destruídas | E8: conta de backup pode apagar todas as cópias. | Posse da senha é hipótese; relação com R02 exige cuidado. |  |  |  |  |  |  |  |  |  |  |
+
+
 ### Revisão rápida
 
 1. Por que E2 não mede a probabilidade anual de comprometimento da conta?
@@ -385,6 +461,9 @@ O produto é um registro que outra pessoa consegue revisar sem reconstruir uma h
 3. Como V1 muda a avaliação de C3 e a decisão de aceitar o residual?
 
 O ciclo de análise e avaliação de controles está concluído nesta aula quando a decisão, seus limites e a revisão estiverem registrados. A implementação técnica aprofundada pode ser estudada em outros temas do curso; não é requisito adicional desta entrega.
+
+
+
 
 
 

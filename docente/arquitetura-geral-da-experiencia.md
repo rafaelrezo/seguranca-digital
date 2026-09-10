@@ -1,5 +1,7 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+**Progressão da matriz A09 — revisão docente de 10 set. 2026:** cada tema explica os campos antes de mostrá-los na matriz, apresentada junto da aplicação ao final do próprio tema. Oito visualizações sincronizadas de um único registro, sem retorno obrigatório à abertura nem seletor que antecipe etapas. Temas 1–8 acrescentam respectivamente: risco/evidência/incerteza; consequência/plausibilidade; classe inicial; tratamento; controle/recurso/critério; resultado; residual; decisão/acompanhamento. Treze colunas, seis riscos. Guia geral antecipado substituído por orientações locais. Mesmos 100 min e entrega única. Esta decisão supera a orientação de apresentar um guia de todas as colunas antes da primeira matriz.
+
 **Ordem da abertura A09 — 10 set. 2026:** a pedido docente, apresentar ambiente ilustrado e linha de base E1–E8 antes dos seis riscos. Antes da matriz, um guia breve explica suas colunas e etapas de preenchimento. A matriz recebe a análise dessas condições já conhecidas. Ajuste de exposição, sem alterar cenário, dados, objetivos, produto ou carga.
 
 ## Ajuste vigente — seis riscos e matriz progressiva (10 set. 2026)

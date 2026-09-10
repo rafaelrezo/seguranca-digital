@@ -16,7 +16,11 @@
 
 ## Preparação e condução pela matriz
 
-Comece pela retomada “Da A08 à A09”: em até 4 minutos, relacione SGSI, escopo, diretriz, papéis e acompanhamento à nova análise. Use a base fornecida; não pedir que a turma abra a A08 ou recupere registros. Depois abra o tema 1: use a ilustração fornecida pelo docente para localizar equipe, plataforma, estações, suporte e recuperação. Apresente então E1–E8 como condições atuais; só depois leia os seis riscos. Apresente o guia “Como construir a matriz” antes de abrir o registro: linha acompanha risco, coluna acrescenta análise. Use as três primeiras colunas no início e retome as demais definições a cada etapa; não exigir classificação antes dos critérios. Relacione cada risco a uma condição já apresentada, sem recapitular exclusões de escopo. A tabela descritiva fica no pacote em texto como alternativa à imagem. Explique os três campos iniciais; somente R01 terá o exemplo completo nas etapas seguintes. Deixe CSV e pacote em texto disponíveis sem conexão. Use projeção e respostas curtas; a digitação individual é opcional. O professor registra uma síntese da turma na matriz, exportando antes de sair. Não há salvamento automático. Para evitar tabela larga, marque “Mostrar só as colunas desta etapa”; desmarque quando precisar comparar o acumulado. Cada recorte mantém risco e ordem das linhas.
+Comece pela retomada “Da A08 à A09” (até 4 min), use a ilustração e leia a linha de base antes dos riscos. No final do tema 1, explique e confira somente risco, evidência e incerteza. Não apresente um guia de todas as colunas nem uma matriz completa na abertura.
+
+A matriz aparece **ao final de cada tema**, após sua explicação: tema 2 adiciona consequência/plausibilidade; 3, classe; 4, tratamento; 5, controle/recurso/critério; 6, resultado; 7, residual; 8, decisão/acompanhamento. São visualizações sincronizadas de um único registro, com os mesmos seis riscos. Preencher uma célula atualiza as ocorrências dela nas outras etapas. Não mandar a turma voltar ao topo. “Mostrar só as colunas novas” facilita a projeção; desmarcar permite rever o acumulado. O professor digita a síntese das respostas curtas; reprodução individual é opcional.
+
+Separar a escolha de tratamento da medida concreta e escrever critério antes de mostrar T1–T7. Depois de V1, registrar residual sem apagar a avaliação inicial. No tema 8, consolidar responsável, autoridade, prazo e gatilho. Exportar ao final: não há salvamento ao fechar/recarregar. CSV/texto/papel são alternativas; sem interação, as tabelas permanecem legíveis, mas preenchimento único deve ocorrer no modelo.
 
 **Enquadramento:** seis riscos competem por 12 h de TI, mas não haverá seis estudos completos. R01 ensina o preenchimento; R02 recebe análise mais detalhada e V1. R03–R06 ampliam a comparação com uma justificativa breve por campo. Nos temas 2–3, distinguir quadro de classificação (3×3) da matriz de análise (seis riscos).
 
@@ -25,10 +29,10 @@ Comece pela retomada “Da A08 à A09”: em até 4 minutos, relacione SGSI, esc
 | Minutos | T/P | Colunas e condução | Participação |
 |---|---|---|---|
 | 0–15 | 5/10 | Retomada de governança (4 min dos 5 T do bloco); etapa 1: risco, evidência e incerteza. Ler ambiente/E1–E8 e seis caminhos. | Cada resposta distingue fato do registro e hipótese. Não iniciar seis investigações. |
-| 15–35 | 15/5 | Etapa 2: consequência, plausibilidade e classe inicial. Preencher R01, aprofundar R02 e comparar R03–R06. | Cerca de 5 min exemplo, 5 min R02, 8 min demais e 2 min prioridade. Justificativas curtas; não impor seis riscos altos. |
-| 35–60 | 15/10 | Etapa 3: tratamento/controle e recurso/cobertura. Examinar C1–C8; decidir quais cabem em 12 h. | Nomear medida candidata por linha, distinguir incluída/adiada e explicar função preservada. R02 recebe alternativa detalhada. |
-| 60–85 | 15/10 | Etapas 4–5: critério/resultado, residual e decisão/acompanhamento. Avaliar T1–T3, comparar T4–T7 e aplicar V1. | 4 min desenho/implantação/resultado; 7 min T1–T3; 6 min T4–T7; 8 min V1/residual. Hipótese de implementação não reduz risco atual. |
-| 85–100 | 10/5 | Conferir a matriz inteira, preencher responsáveis/prazos/gatilhos e explicar entrega. | Revisão cruzada e exportação. Consolidar fora da aula sem operação nova. |
+| 15–35 | 15/5 | Temas 2–3: consequência/plausibilidade e, depois do quadro de classificação, classe inicial. Preencher R01, aprofundar R02 e comparar R03–R06. | Cerca de 5 min exemplo, 5 min R02, 8 min demais e 2 min prioridade. Justificativas curtas; não impor seis riscos altos. |
+| 35–60 | 15/10 | Temas 4–5: tratamento; depois controle, recurso/cobertura e critério de verificação. Examinar C1–C8; decidir quais cabem em 12 h. | Nomear medida candidata por linha, distinguir incluída/adiada e explicar função preservada. R02 recebe alternativa detalhada. |
+| 60–85 | 15/10 | Temas 6–7: resultado/limite e, após V1, risco residual. Avaliar T1–T3, comparar T4–T7 e aplicar V1. | 4 min desenho/implantação/resultado; 7 min T1–T3; 6 min T4–T7; 8 min V1/residual. Hipótese de implementação não reduz risco atual. |
+| 85–100 | 10/5 | Tema 8: acrescentar decisão/acompanhamento, conferir a matriz inteira e explicar entrega. | Revisão cruzada e exportação. Consolidar fora da aula sem operação nova. |
 | **Total** | **60/40** | **100 minutos** | **Registro único concluído na A09** |
 
 Se atrasar, reduza rodadas de falas e peça uma razão por célula; preserve V1 e a revisão do residual. Não adie controles para A10. As tabelas do site são insumos; a matriz é o registro cumulativo, não uma atividade extra. O modelo aceita três faixas de colunas com os mesmos seis IDs em 3–4 páginas.
@@ -44,7 +48,7 @@ Se atrasar, reduza rodadas de falas e peça uma razão por célula; preserve V1 
 
 ### Avaliação
 
-No tema 3, conduzir pela matriz comparativa: mesmos campos, R01 preenchido e R02–R06 a completar. Percorrer evidência → consequência → plausibilidade → classe → incerteza → ação → autoridade. O checkpoint é condicional: não anunciar que ambos são altos antes da justificativa da turma.
+No tema 3, reabrir as mesmas linhas, acrescentando classe somente após consequência/plausibilidade. R01 está preenchido; R02–R06 exigem justificativa. Tratamento, controle, resultado e decisão entram nos temas correspondentes. O checkpoint é condicional: não anunciar que ambos são altos antes da justificativa da turma.
 
 R01: grave/alta → alto **no cenário de senha já obtida**, por E1/E2. Explicar por que isso não é probabilidade anual. R02: média é justificável porque a execução de malware não foi observada e o caminho depende de condição não verificada. Consequência grave pode ser adotada sob hipótese explícita de parada >4 h e recuperação desconhecida; quadro de classificação → alto. Não premiar automaticamente o rótulo: pedir hipótese e coleta. Uma alternativa de consequência relevante exige justificar recuperação dentro do limite, que E4 ainda não comprova.
 
@@ -86,3 +90,5 @@ Sem internet: abrir pacote salvo ou projetar/circular seu texto; todos os dados 
 ## Revisão editorial solicitada
 
 Revisão por agente independente registrada em [revisao-editorial-matriz.md](revisao-editorial-matriz.md). Removidos da página os oito fluxos iguais, preservando os arquivos. Aberturas variadas, perguntas ligadas à célula atual e comparação T3/V1 substituem o molde repetitivo. Sínteses permanecem onde ajudam; tabelas também cumprem essa função. A revisão não acrescenta enredo.
+
+**Revisão da interação — 10 set. 2026:** treze colunas distribuídas pelos oito temas. A orientação anterior de guia geral antes da matriz foi superada. A consistência está nos dados e critérios compartilhados, sem antecipar os campos nem separar explicação de aplicação.

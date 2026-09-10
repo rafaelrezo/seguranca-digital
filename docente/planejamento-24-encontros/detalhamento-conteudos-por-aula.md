@@ -103,7 +103,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Objetivos:** comparar riscos por critérios comuns e incertezas; justificar controles viáveis e função preservada; avaliar resultados e revisar residual/autoridade/gatilho.
 
-**Conteúdos e condução:** oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E8 são linha de base simulada. C1–C8 permitem comparar planos de 12 h. T1–T7 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
+**Conteúdos e condução:** matriz apresentada após a explicação em cada tema, com edições sincronizadas e novas colunas locais; treze campos, tratamento separado de controle e critério separado de resultado. oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E8 são linha de base simulada. C1–C8 permitem comparar planos de 12 h. T1–T7 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
 
 **Tempo:** 15 ambiente (5T/10P); 20 critérios/prioridade (15T/5P); 25 tratamento/controles (15T/10P); 25 evidências/revisão (15T/10P); 15 consolidação (10T/5P). Total 60T/40P.
 
