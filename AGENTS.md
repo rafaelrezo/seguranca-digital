@@ -38,7 +38,10 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 ### Síntese temática para condução e estudo — decisão de 10 de setembro de 2026
 
 - Organizar cada aula por conceitos e decisões identificáveis no índice. Preferir títulos que nomeiem o tema e indiquem a ação, como “Escopo: delimitar o que será protegido”.
-- Abrir cada ponto temático central com uma síntese itemizada de 3–5 ideias, acompanhada de esquema, comparação ou evidência anotada quando isso esclarecer a relação. Ajustar a quantidade à complexidade; não transformar parágrafos longos em marcadores.
+- Abrir os pontos temáticos centrais com uma síntese breve que ajude a explicar ou comparar o conteúdo. Preferir 3–5 itens quando a enumeração for adequada; permitir tabela, exemplo anotado ou pergunta acompanhada de evidência quando cumprirem melhor essa função. Preservar explicações completas para estudo.
+- Escolher a representação pela relação: tabela para comparação; fluxo para sequência ou dependência; mapa para estrutura; antes/depois para mudança; evidência anotada para interpretação. Não repetir o mesmo esquema visual em todas as seções por padronização.
+- Variar a redação e a abertura dos blocos sem criar enredo. Usar verbos concretos e perguntas ligadas à decisão atual; empregar “Síntese”, “Aplicação”, “Explicação” e “Checkpoint” quando ajudarem a orientação, sem sequência obrigatória de rótulos.
+- Quando o produto for cumulativo, conduzir o encontro pela construção desse registro: identificadores e ordem estáveis, novos campos a cada etapa e recortes legíveis na projeção. Manter consistência nos critérios, sem impor formato idêntico a todos os blocos.
 - Escrever itens conceituais que possam ser compreendidos sem recordar personagens ou IDs. Usar o caso em um exemplo curto e identificado; manter seus dados completos acessíveis.
 - Aproximar síntese, esquema e aplicação. Evitar repetir a mesma explicação integralmente em lista, figura, legenda e texto. Cada representação deve cumprir uma função.
 - Manter explicações completas, definições, limites, exemplos trabalhados, instruções e referências para estudo. A síntese apoia a condução; não substitui o material referencial.

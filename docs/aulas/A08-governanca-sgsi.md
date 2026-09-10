@@ -625,7 +625,7 @@ Guarde os registros disponíveis de contexto, escopo, diretriz, papéis, objetiv
 
 ## Síntese e próxima decisão
 
-A falha conhecida orientou uma proposta de processo com escopo, autoridade, recursos e acompanhamento. Sua implantação e seu resultado ainda precisam de evidência. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), aplicaremos **escopo e autoridade de decisão** a dois riscos digitais já formulados num novo ambiente fornecido. A análise, a escolha dos controles e a avaliação de evidências serão concluídas nesse encontro.
+A falha conhecida orientou uma proposta de processo com escopo, autoridade, recursos e acompanhamento. Sua implantação e seu resultado ainda precisam de evidência. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), aplicaremos **escopo e autoridade de decisão** a seis riscos digitais já formulados num novo ambiente fornecido. A análise, a escolha dos controles e a avaliação de evidências serão concluídas nesse encontro.
 
 **Revisão rápida:**
 

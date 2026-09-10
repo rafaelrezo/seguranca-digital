@@ -99,15 +99,15 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1, entrega encerrada aqui.
 
-**Herança:** conceitos de escopo, diretriz, papéis e objetivo da A08. O caso da equipe técnica é fornecido como novo recorte; não presumir cobertura pela política do portal nem execução de atividade anterior. R01 é comprometimento de conta; R02 é ransomware nas estações. Sem avanço para chão de fábrica.
+**Herança:** conceitos de escopo, diretriz, papéis e objetivo da A08. O caso da equipe técnica é fornecido como novo recorte; não presumir cobertura pela política do portal nem execução de atividade anterior. Matriz progressiva com R01 comprometimento de conta, R02 ransomware, R03 fraude por e-mail, R04 suporte remoto indevido, R05 notebook perdido e R06 destruição de cópias. R01 exemplo e R02 aprofundado; demais decisões breves. Sem avanço para chão de fábrica.
 
 **Objetivos:** comparar riscos por critérios comuns e incertezas; justificar controles viáveis e função preservada; avaliar resultados e revisar residual/autoridade/gatilho.
 
-**Conteúdos e condução:** oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E4 são linha de base simulada. C1–C4 permitem comparar planos de 12 h. T1–T3 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
+**Conteúdos e condução:** oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E8 são linha de base simulada. C1–C8 permitem comparar planos de 12 h. T1–T7 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
 
 **Tempo:** 15 ambiente (5T/10P); 20 critérios/prioridade (15T/5P); 25 tratamento/controles (15T/10P); 25 evidências/revisão (15T/10P); 15 consolidação (10T/5P). Total 60T/40P.
 
-**Produto e critério:** PDF único de 3–4 páginas, dois riscos, plano viável e decisão detalhada de R02 após V1. Evidência distingue proposta, implantação e resultado; piloto não prova eficácia na equipe. Residual, autoridade e revisão explícitos. [Plano docente](../A09-decisao-de-riscos/plano-de-aula.md).
+**Produto e critério:** PDF único de 3–4 páginas, seis riscos em matriz cumulativa, plano viável e decisão detalhada de R02 após V1. Evidência distingue proposta, implantação e resultado; piloto não prova eficácia na equipe. Residual, autoridade e revisão explícitos. [Plano docente](../A09-decisao-de-riscos/plano-de-aula.md).
 
 **Fechamento:** análise, seleção e avaliação de controles concluídas na A09. Nenhuma etapa obrigatória adiada para A10.
 

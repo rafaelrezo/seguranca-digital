@@ -1,5 +1,12 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Ajuste vigente — seis riscos e matriz progressiva (10 set. 2026)
+
+A pedido docente, conduzir A09 preenchendo uma única matriz: evidência/incerteza → consequência/plausibilidade/classe → tratamento/controle/recurso → avaliação de resultado → residual/decisão/revisão. Seis linhas: comprometimento de conta, ransomware, fraude por e-mail, suporte remoto indevido, perda de notebook e destruição de cópias. R01 é exemplo; R02 recebe aprofundamento e V1; demais linhas têm decisões breves, sem seis investigações completas. A matriz é o produto cumulativo e integra a entrega única de 3–4 páginas, podendo ser dividida em faixas de colunas com os mesmos IDs. Mantidos 100 min (60T/40P), encerramento na A09 e A10 pendente. Esta decisão supera a restrição anterior a dois riscos.
+
+Revisão editorial por agente solicitada pelo docente: variar sínteses e representações conforme a relação explicada, com linguagem natural e sem enredo acrescentado. Não exigir um fluxo de três caixas por tema. Preservar explicação de estudo, critérios e limites de evidência.
+
+
 ## Decisão vigente — A09 encerra riscos e controles (10 set. 2026)
 
 Reformulação solicitada e aprovada pelo docente: A09 passa a comparar **comprometimento de conta e ransomware**, no ambiente digital de uma equipe técnica da Nuvora. Inclui análise, tratamento, seleção de controles, avaliação de evidências, residual e revisão **nos mesmos 100 minutos (60T/40P)**. Não adiar avaliação de controles para A10. Os dados são simulações didáticas fornecidas; a prática é análise conduzida, sem execução de malware nem alegação de teste real.

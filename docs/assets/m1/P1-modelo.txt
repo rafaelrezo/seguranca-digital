@@ -1,56 +1,54 @@
-A08–A09 — GOVERNANÇA, RISCOS E CONTROLES
-Dupla:                         Data:
-PDF de 3–4 páginas. Dados fornecidos são simulações didáticas.
+A08–A09 — MATRIZ DE ANÁLISE E DECISÃO
+Dupla:                              Data:
+Um PDF de 3–4 páginas. Dados fornecidos são simulações didáticas.
+CSV inicial: A09-matriz-riscos.csv. O preenchimento no site deve ser exportado antes de sair.
 
-1. GOVERNANÇA (aproximadamente meia página)
-Escopo: identidades, e-mail, plataforma, estações e recuperação da equipe técnica.
-Princípio transferido da A08 e diferença em relação ao escopo do portal:
+1. GOVERNANÇA (síntese)
+Escopo e princípio transferido da A08:
 Diretriz e justificativa:
-Coordenação/proprietário dos riscos:
-TI/executor e registro esperado:
-Direção/autoridade para exceção de risco alto:
-Objetivo e acompanhamento (função em até 4 h; perda até 24 h):
+Coordenação/proprietário, TI/executor e direção/autoridade de exceção:
+Objetivo (função em até 4 h; perda até 24 h) e acompanhamento:
 
-2. AVALIAÇÃO DOS DOIS RISCOS (aproximadamente meia página)
-R01 — comprometimento de conta:
-Caminho / consequência / plausibilidade / classe / evidência / incerteza:
-R02 — ransomware nas estações:
-Caminho / consequência / plausibilidade / classe / evidência / incerteza:
-Prioridade e justificativa comparativa:
+2. UMA MATRIZ, CONSTRUÍDA POR ETAPAS
+Mantenha R01–R06 na mesma ordem em todas as faixas de colunas.
+R01 Conta comprometida; R02 Ransomware; R03 Fraude por e-mail;
+R04 Suporte remoto; R05 Notebook perdido; R06 Cópias destruídas.
+Use o CSV ou copie os cabeçalhos abaixo em seu editor. Frases curtas.
 
-3. PLANO E AVALIAÇÃO (aproximadamente uma página)
-Plano de até 12 h; soma e dependências:
-R01: medida, critério e limite:
-R02: tratamento, controle, mecanismo, alcance, benefício e efeito operacional:
-R02: alternativa adiada/rejeitada e justificativa:
-Executor, aprovador e recurso:
-O que o plano não cobre:
-T1: resultado fornecido, conclusão e limite:
-T2: resultado fornecido, conclusão e limite:
-T3: resultado fornecido, conclusão e verificação faltante:
-Distinção entre desenho, implantação e resultado:
-Se plano diferente de C1+C2+C3: quais conclusões são apenas comparativas?
+Etapa 1 — Risco | Evidência | Incerteza
+Etapa 2 — Acrescente: Consequência | Plausibilidade | Classe inicial
+Etapa 3 — Acrescente: Tratamento/controle | Recurso/cobertura
+Etapa 4 — Acrescente: Critério/resultado
+Etapa 5 — Acrescente: Risco residual | Decisão/acompanhamento
 
-4. REVISÃO DE R02 APÓS V1 (aproximadamente meia página)
-Evidência nova e premissa invalidada:
-Consequência, plausibilidade, classe e residual revistos:
-Correção proposta e teste necessário (não executado):
-Medida provisória, efeito operacional, recurso adicional ou adiamento:
-Autoridade para decisão e estado da aprovação (não presumir aprovação):
-Responsável, prazo e gatilho de revisão:
+No PDF, dividir por faixas com os mesmos seis riscos é permitido:
+A) Risco | Evidência | Incerteza | Consequência | Plausibilidade | Classe inicial
+B) Risco | Tratamento/controle | Recurso/cobertura | Critério/resultado
+C) Risco | Risco residual | Decisão/acompanhamento
+São partes da mesma matriz, não três entregas. Não reduzir a fonte para encaixar tudo.
 
-5. AUTORIA E FONTES (aproximadamente meia página)
+3. JUSTIFICATIVAS ESSENCIAIS (priorize R02)
+Plano de até 12 h: medidas incluídas/adiadas, soma sem contar controle compartilhado duas vezes:
+Prioridade entre os seis riscos; alternativa rejeitada e exposição dos adiados:
+R02: mecanismo, benefício, dependência e função legítima preservada:
+Resultados pertinentes T1–T7 e seus limites (não supor implantação de todas as opções):
+V1: premissa invalidada em R02; correção, critério de nova verificação e recurso necessário:
+R02: decisão provisória, autoridade, responsável, prazo e gatilho:
+R06: relação com recuperação, sem inventar destruição de cópias a partir de V1:
+
+4. AUTORIA E FONTES
 Integrante 1 — decisão e evidência que a sustenta:
 Integrante 2 — decisão e evidência que a sustenta:
 Fontes e origem simulada dos registros:
 IA: não utilizada OU pedido, decisões aceitas/rejeitadas e justificativa:
 
 CONFERÊNCIA
-[ ] Mesmo critério nos dois riscos; incertezas explícitas.
-[ ] Recurso e dependências conferidos; função legítima preservada.
-[ ] Piloto não apresentado como cobertura da equipe.
-[ ] V1 incorporada; recuperação funcional não presumida.
-[ ] Residual, autoridade, prazo e revisão registrados.
+[ ] Seis linhas com critérios comuns, sem seis relatórios separados.
+[ ] R01 exemplo compreendido; R02 aprofundado; demais justificativas breves.
+[ ] Recurso/dependências e função legítima conferidos.
+[ ] Piloto não generalizado; resultados comparativos identificados.
+[ ] Avaliação inicial preservada; residual atualizado e V1 incorporada.
+[ ] Responsável, autoridade, prazo e gatilho em decisão/acompanhamento.
 [ ] Recomendação separada de aprovação, implantação e resultado fornecido.
-[ ] Nenhum teste real ou execução pela turma alegado sem evidência.
-[ ] Entrega completa nesta A09, sem etapa na A10.
+[ ] Nenhum teste executado pela turma alegado sem evidência.
+[ ] Entrega encerrada na A09, sem etapa na A10.

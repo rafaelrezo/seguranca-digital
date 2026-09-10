@@ -99,3 +99,27 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
   .theme-summary { break-inside: avoid; background: transparent; }
   .thematic-figure img { min-width: 0; }
 }
+
+/* A09: matriz cumulativa, com risco fixo e recorte por etapa para projeção. */
+.risk-matrix { max-width: 100%; min-width: 0; margin: 1rem 0 2rem; }
+.risk-matrix [hidden] { display: none !important; }
+.risk-matrix-controls { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.risk-matrix-controls button { border: 1px solid var(--md-default-fg-color--light); border-radius: .2rem; padding: .4rem .6rem; cursor: pointer; font: inherit; }
+.risk-matrix-controls button[aria-pressed="true"] { background: var(--md-primary-fg-color); color: var(--md-primary-bg-color); }
+.risk-matrix-controls label { flex-basis: 100%; margin: .4rem 0; }
+.risk-matrix-scroll { max-width: 100%; overflow-x: auto; }
+.md-content__inner .risk-matrix table { display: table; overflow: visible; width: max-content; min-width: 100%; max-width: none; table-layout: fixed; font-size: .8rem; }
+.risk-matrix th, .risk-matrix td { min-width: 12rem; max-width: 16rem; vertical-align: top; white-space: normal; overflow-wrap: anywhere; }
+.risk-matrix tr > :first-child { position: sticky; left: 0; z-index: 1; min-width: 8rem; max-width: 10rem; background: var(--md-default-bg-color); color: var(--md-default-fg-color); border-right: 2px solid var(--md-default-fg-color--lightest); }
+.risk-matrix [contenteditable]:focus { outline: 2px solid var(--md-accent-fg-color); outline-offset: -2px; }
+.risk-matrix td:empty::before { content: attr(data-placeholder); color: var(--md-default-fg-color--light); }
+.risk-matrix-controls :focus-visible, .risk-matrix-scroll:focus-visible { outline: 2px solid var(--md-accent-fg-color); }
+@media print {
+  .risk-matrix-controls { display: none; }
+  .risk-matrix-scroll { overflow: visible; }
+  .md-content__inner .risk-matrix table { display: block; width: 100%; }
+  .risk-matrix thead { display: none; }
+  .risk-matrix tbody, .risk-matrix tr { display: block; }
+  .risk-matrix th, .risk-matrix td, .risk-matrix [hidden] { display: block !important; position: static !important; min-width: 0; max-width: none; }
+  .risk-matrix td::before { content: attr(aria-label) " — "; font-weight: bold; }
+}

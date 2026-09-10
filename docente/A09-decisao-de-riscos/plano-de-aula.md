@@ -6,32 +6,32 @@
 
 **Ementa:** avaliação qualitativa, prioridade, tratamento, controles, desenho/implantação/resultado, residual e autoridade. **Pergunta:** como decidir e verificar proteção contra comprometimento de conta e ransomware sem deixar a equipe técnica sem trabalhar?
 
-**Três objetivos:** comparar os dois riscos com critérios e incertezas; justificar controles viáveis e função preservada; avaliar evidências e revisar residual, autoridade e condição de acompanhamento. O ganho sobre A08 é transformar governança em decisão sustentada por resultados, concluindo avaliação de controles nesta A09.
+**Três objetivos:** comparar os seis riscos com critérios e incertezas; justificar controles viáveis e função preservada; avaliar evidências e revisar residual, autoridade e condição de acompanhamento. O ganho sobre A08 é transformar governança em decisão sustentada por resultados, concluindo avaliação de controles nesta A09.
 
 **Herança confirmada:** o docente confirmou A08 ministrada; a versão exata usada e a produção individual não estão confirmadas. Reutilizar conceitos de escopo, diretriz, autoridade e acompanhamento. O ambiente técnico é um novo recorte fornecido; a política do portal não se estende automaticamente. Não dizer que estes riscos ou testes já foram trabalhados na A08.
 
 **Infraestrutura:** navegador, página/pacote em texto, projeção e papel/editor. **Operação:** ler campos dos registros, prever critério, comparar resultado e revisar decisão. **Evidência de aprendizagem:** registro justificado dos estudantes, não log de teste executado. Nenhum malware, autenticação real, instalação, sistema externo ou nuvem. O pacote é simulado e sua leitura constitui prática analítica, não demonstração técnica de implantação.
 
-**Cadeia:** conceitos de governança disponíveis → novo escopo e E1–E4 fornecidos → comparar dois riscos → quadro de justificativas → critérios e lacunas → avaliação/tratamento → selecionar plano de 12 h → analisar T1–T3 e V1 → registro único concluído → nenhuma etapa de risco/controle pendente para A10. A10 aguarda replanejamento.
+**Cadeia:** conceitos de governança disponíveis → novo escopo e E1–E8 fornecidos → comparar seis riscos → matriz progressiva → critérios e lacunas → avaliação/tratamento → selecionar plano de 12 h → analisar T1–T7 e V1 → registro único concluído → nenhuma etapa de risco/controle pendente para A10. A10 aguarda replanejamento.
 
-## Preparação imediata do docente
+## Preparação e condução pela matriz
 
-Abra a página nos temas 1, 5, 6, 7 e na atividade. Mantenha o pacote de evidências salvo localmente como alternativa. Prepare um quadro com duas linhas, R01 e R02, e campos consequência/plausibilidade/evidência/decisão. Não é necessário preparar ambiente vulnerável.
+Abra a página no tema 1 e mostre as seis linhas. Explique os três campos iniciais; somente R01 terá o exemplo completo nas etapas seguintes. Deixe CSV e pacote em texto disponíveis sem conexão. Use projeção e respostas curtas; a digitação individual é opcional. O professor registra uma síntese da turma na matriz, exportando antes de sair. Não há salvamento automático. Para evitar tabela larga, marque “Mostrar só as colunas desta etapa”; desmarque quando precisar comparar o acumulado. Cada recorte mantém risco e ordem das linhas.
 
-Diga na abertura: “Temos dois riscos digitais e 12 horas de TI. Vamos decidir o plano e avaliar se a evidência sustenta o resultado”. Explicite a diferença entre 100 minutos de aula e 12 horas fictícias de implementação. Mostre a função legítima antes do abuso. Não construa episódios, personagens ou novas ameaças ao longo dos blocos.
+**Enquadramento:** seis riscos competem por 12 h de TI, mas não haverá seis estudos completos. R01 ensina o preenchimento; R02 recebe análise mais detalhada e V1. R03–R06 ampliam a comparação com uma justificativa breve por campo. Nos temas 2–3, distinguir quadro de classificação (3×3) da matriz de análise (seis riscos).
 
 ## Condução de 100 minutos
 
-| Minutos | T/P | Conteúdo e ação docente | Participação e checkpoint |
+| Minutos | T/P | Colunas e condução | Participação |
 |---|---|---|---|
-| 0–15 | 5/10 | Tema 1: mostrar ambiente e E1–E4. Explicar os campos, a conta com aprovação e o limite da cópia diária. Fornecer escopo/papéis. | Perguntar qual ação precisa continuar funcionando e separar evidência de hipótese. Pausar até a turma localizar um registro para cada risco. |
-| 15–35 | 15/5 | Temas 2–3: explicar escalas; preencher R01 como exemplo. Conduzir R02 sem dar sua conclusão antes da justificativa. | Colher consequência, plausibilidade e lacuna em respostas curtas. Comparar duas justificativas e resolver divergência de premissa. |
-| 35–60 | 15/10 | Temas 4–5: distinguir tratamento de controle; ler C1–C4, esforços e dependência C4→C2. Comparar planos de 12 h. | Pedir uma escolha e uma alternativa rejeitada. Pausar para conferir soma, função legítima e cobertura do piloto. |
-| 60–85 | 15/10 | Temas 6–7: antes de cada resultado pedir previsão. Ler T1, T2, T3. Em T3, perguntar o teste faltante; só então apresentar V1. | Classificar atende/não atende/inconclusivo. Revisar a conclusão de recuperação e registrar recurso/autoridade necessários. |
-| 85–100 | 10/5 | Tema 8 e atividade: consolidar o registro e rubrica; revisão cruzada breve, explicar PDF e justificativas individuais. | Cada dupla formula o residual e um gatilho. Encerrar risco e controle aqui; consolidação domiciliar sem operação nova. |
-| **Total** | **60/40** | **100 minutos** | **Sem descoberta autônoma longa de ferramenta** |
+| 0–15 | 5/10 | Etapa 1: risco, evidência e incerteza. Ler ambiente/E1–E8 e seis caminhos. | Cada resposta distingue fato do registro e hipótese. Não iniciar seis investigações. |
+| 15–35 | 15/5 | Etapa 2: consequência, plausibilidade e classe inicial. Preencher R01, aprofundar R02 e comparar R03–R06. | Cerca de 5 min exemplo, 5 min R02, 8 min demais e 2 min prioridade. Justificativas curtas; não impor seis riscos altos. |
+| 35–60 | 15/10 | Etapa 3: tratamento/controle e recurso/cobertura. Examinar C1–C8; decidir quais cabem em 12 h. | Nomear medida candidata por linha, distinguir incluída/adiada e explicar função preservada. R02 recebe alternativa detalhada. |
+| 60–85 | 15/10 | Etapas 4–5: critério/resultado, residual e decisão/acompanhamento. Avaliar T1–T3, comparar T4–T7 e aplicar V1. | 4 min desenho/implantação/resultado; 7 min T1–T3; 6 min T4–T7; 8 min V1/residual. Hipótese de implementação não reduz risco atual. |
+| 85–100 | 10/5 | Conferir a matriz inteira, preencher responsáveis/prazos/gatilhos e explicar entrega. | Revisão cruzada e exportação. Consolidar fora da aula sem operação nova. |
+| **Total** | **60/40** | **100 minutos** | **Registro único concluído na A09** |
 
-Sugestão para o bloco 60–85: 4 min distinguir desenho/implantação/resultado; 8 min T1/T2; 5 min T3 e teste faltante; 8 min V1 e revisão. Se atrasar, reduza a discussão de estratégias do tema 4; preserve a avaliação de evidências e V1, que são o fechamento novo.
+Se atrasar, reduza rodadas de falas e peça uma razão por célula; preserve V1 e a revisão do residual. Não adie controles para A10. As tabelas do site são insumos; a matriz é o registro cumulativo, não uma atividade extra. O modelo aceita três faixas de colunas com os mesmos seis IDs em 3–4 páginas.
 
 ## Guia de perguntas e respostas esperadas
 
@@ -44,13 +44,26 @@ Sugestão para o bloco 60–85: 4 min distinguir desenho/implantação/resultado
 
 ### Avaliação
 
-R01: grave/alta → alto **no cenário de senha já obtida**, por E1/E2. Explicar por que isso não é probabilidade anual. R02: média é justificável porque a execução de malware não foi observada e o caminho depende de condição não verificada. Consequência grave pode ser adotada sob hipótese explícita de parada >4 h e recuperação desconhecida; matriz → alto. Não premiar automaticamente o rótulo: pedir hipótese e coleta. Uma alternativa de consequência relevante exige justificar recuperação dentro do limite, que E4 ainda não comprova.
+No tema 3, conduzir pela matriz comparativa: mesmos campos, R01 preenchido e R02–R06 a completar. Percorrer evidência → consequência → plausibilidade → classe → incerteza → ação → autoridade. O checkpoint é condicional: não anunciar que ambos são altos antes da justificativa da turma.
+
+R01: grave/alta → alto **no cenário de senha já obtida**, por E1/E2. Explicar por que isso não é probabilidade anual. R02: média é justificável porque a execução de malware não foi observada e o caminho depende de condição não verificada. Consequência grave pode ser adotada sob hipótese explícita de parada >4 h e recuperação desconhecida; quadro de classificação → alto. Não premiar automaticamente o rótulo: pedir hipótese e coleta. Uma alternativa de consequência relevante exige justificar recuperação dentro do limite, que E4 ainda não comprova.
 
 A matriz é didática, não ferramenta de precisão. Se houver empate, a decisão pode preparar C1 e iniciar piloto/recuperação na mesma janela. Evitar o falso dilema “terminar um risco antes de começar outro”.
 
+### Comparação breve dos quatro riscos adicionais
+
+| Risco | Raciocínio defensável, sem gabarito mecânico | Controle/resultado e limite |
+|---|---|---|
+| R03 — Fraude por e-mail | Consequência depende da alteração falsa; grave se comprometer decisão externa. Plausibilidade média se aceitar a mensagem ainda é condição não verificada. Não pressupor conta comprometida. | C5/T4: confirmar por contato conhecido; dois casos não provam adesão permanente. |
+| R04 — Suporte remoto | E6 sustenta exposição, não conexão indevida. Média enquanto conexão/alcance não forem verificados. Consequência depende da alteração possível e da parada. | C6/T5: fora da janela negado, sessão legítima e encerramento; um chamado não cobre todos os acessos. |
+| R05 — Notebook perdido | Grave se o cenário expuser projetos confidenciais. Discutir plausibilidade condicionada à posse do equipamento desligado; inventário não é teste de leitura nem frequência de perda. | C7/T6: disco cifrado contra leitura sem chave no recorte desligado; não generalizar para sessão aberta. |
+| R06 — Cópias destruídas | Credencial administrativa obtida é hipótese; avaliar alcance de E8 e consequência quando houver necessidade de restaurar. Não somar automaticamente a perda de R02 duas vezes. | C8/T7 protege retenção contra a conta testada; restauração de amostra não prova recuperação funcional. V1 não mostra exclusão. |
+
+Aceitar classes diferentes quando as premissas estiverem explícitas e forem compatíveis com a evidência. Todos os riscos precisam de decisão, inclusive os adiados; isso não significa implantar todos os controles na janela.
+
 ### Plano e controles
 
-C1+C2+C3 = 12 h, adequado como plano de exemplo, com cobertura incompleta explícita. C2+C4 = 12 h se o piloto for satisfatório; amplia execução controlada, adia identidade/recuperação. C1+C2+C4 = 16 h e não cabe. C4 sozinho viola dependência. Propostas diferentes são aceitáveis se declararem exposição, função, autoridade e recurso. Não inventar esforço para incluir medida extra gratuitamente.
+C1+C2+C3 = 12 h, adequado como plano de exemplo, com cobertura incompleta explícita. C2+C4 = 12 h se o piloto for satisfatório; amplia execução controlada, adia identidade/recuperação. C1+C2+C4 = 16 h e não cabe. C4 sozinho viola dependência. Propostas diferentes são aceitáveis se declararem exposição, função, autoridade e recurso. C5/C6 demandam 2 h cada; C7/C8, 4 h cada. C1+C5+C6+C7 = 12 h é outra combinação possível, com C2/C3/C8 adiados e risco de recuperação sem solução na janela. Compare exposições antes de recomendar. Não inventar esforço para incluir medida extra gratuitamente.
 
 C1: acrescenta prova para o caminho de senha sozinha; não tratar MFA como garantia universal contra phishing ou roubo de sessão. C2: bloquear aplicação não aprovada e manter tarefa legítima; usuário padrão não é antimalware suficiente. C3: recuperar função e dados, não impedir a infecção. Proposta de suspensão precisa explicar o trabalho afetado e quem autoriza.
 
@@ -64,8 +77,12 @@ Correção candidata: completar dependências, repetir restauração integral e 
 
 ## Encerramento, atividade e contingência
 
-Produto: um PDF de 3–4 páginas por dupla, com governança transferida, comparação dos dois riscos, plano, avaliação T1–T3 e decisão detalhada de R02 após V1; justificativas individuais curtas e declaração de IA. Modelo e pacote estão vinculados à atividade. Carga externa estimada de até 2 h. Checkpoints não geram tarefas adicionais. A08 aponta para a mesma entrega, sem exigir reescrever sua aula ou implantar SGSI.
+Produto: um PDF de 3–4 páginas por dupla, com governança transferida, matriz progressiva de seis riscos, plano, resultados pertinentes T1–T7 e decisão detalhada de R02 após V1; justificativas individuais curtas e declaração de IA. Modelo e pacote estão vinculados à atividade. Carga externa estimada de até 2 h. Checkpoints não geram tarefas adicionais. A08 aponta para a mesma entrega, sem exigir reescrever sua aula ou implantar SGSI.
 
-Sem internet: abrir pacote salvo ou projetar/circular seu texto; todos os dados estão no corpo da página. Sem editor: preencher quadro em papel. Sem registro A08: usar base fornecida, com origem explícita. Sem tempo para todas as falas: colher duas justificativas e sistematizar critérios; não transferir primeiro contato com T1–T3/V1 para casa. Não enviar mensagens ao Classroom nem alterar slides ou Drive nesta revisão.
+Sem internet: abrir pacote salvo ou projetar/circular seu texto; todos os dados estão no corpo da página. Sem editor: preencher quadro em papel. Sem registro A08: usar base fornecida, com origem explícita. Sem tempo para todas as falas: colher duas justificativas e sistematizar critérios; não transferir primeiro contato com T1–T7/V1 para casa. Não enviar mensagens ao Classroom nem alterar slides ou Drive nesta revisão.
 
 **Fontes conferidas em 10 set. 2026:** [NIST SP 800-30r1](https://www.nist.gov/publications/guide-conducting-risk-assessments), para avaliação; [CISA #StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide), para mecanismos de proteção e recuperação. Matriz, esforço, critérios de aceitação e registros são construções didáticas originais. Não afirmar conformidade com ISO/IEC 27001 nem exigir declaração completa de aplicabilidade. A seleção justificada e a distinção desenho/implantação/resultado fecham neste encontro.
+
+## Revisão editorial solicitada
+
+Revisão por agente independente registrada em [revisao-editorial-matriz.md](revisao-editorial-matriz.md). Removidos da página os oito fluxos iguais, preservando os arquivos. Aberturas variadas, perguntas ligadas à célula atual e comparação T3/V1 substituem o molde repetitivo. Sínteses permanecem onde ajudam; tabelas também cumprem essa função. A revisão não acrescenta enredo.

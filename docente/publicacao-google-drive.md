@@ -1,10 +1,17 @@
 # Registro de publicação no Google Drive
 
+## Matriz progressiva e revisão editorial A09 — 10 set. 2026
+
+Atualização solicitada: seis riscos, matriz cumulativa editável e exportável, revisão editorial por agente e retirada dos oito fluxos repetidos da página. Alinhados modelo, pacote, plano, diretrizes e planejamento. R01 exemplo, R02 aprofundado, demais comparações breves; 100 min e fechamento na A09 preservados. Registro: `docente/A09-decisao-de-riscos/revisao-editorial-matriz.md`. Validação local aprovada; conferir a publicação no Pages pelo workflow desta revisão.
+
 ## Reformulação A09 — 10 set. 2026
 
 Conteúdo preparado para Pages: comprometimento de conta/ransomware; análise, seleção e avaliação de controles encerradas em A09. Alinhados página, pacote, modelo, plano docente, ponte A08 e planejamento; A10 pendente. Slides e arquivos do Drive preservados. Validação e publicação desta revisão serão registradas no relatório `planejamento-24-encontros/reformulacao-a09-riscos-controles-2026-09-10.md`; preparação local não comprova publicação ou execução pela turma.
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
+
+
+**Publicação verificada:** commit `cb23c39f3e171dd4768e2926cac4f25e8eb1cf52`; validação `34518686762` e deploy `34518686765` concluídos com sucesso. A08/A09 públicas conferidas; pacote, modelo e esquema A09-06 coincidem byte a byte com os arquivos locais. Verificação registrada localmente após o deploy.
 
 ## Nome fictício Nuvora — 10 set. 2026
 
