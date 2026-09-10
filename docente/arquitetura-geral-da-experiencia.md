@@ -1,5 +1,14 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Decisão vigente — A09 encerra riscos e controles (10 set. 2026)
+
+Reformulação solicitada e aprovada pelo docente: A09 passa a comparar **comprometimento de conta e ransomware**, no ambiente digital de uma equipe técnica da Nuvora. Inclui análise, tratamento, seleção de controles, avaliação de evidências, residual e revisão **nos mesmos 100 minutos (60T/40P)**. Não adiar avaliação de controles para A10. Os dados são simulações didáticas fornecidas; a prática é análise conduzida, sem execução de malware nem alegação de teste real.
+
+A08 foi ministrada; seu caso do portal e seus artefatos históricos ficam preservados. A09 transfere os conceitos de escopo, diretriz, autoridade e acompanhamento para um **novo recorte explicitamente fornecido**, que não está automaticamente coberto pela política do portal. Não atribuir à turma riscos, registros ou resultados que não foram confirmados. A entrega única A08–A09 fecha em A09#atividade, 3–4 páginas, com análise dos dois riscos e decisão detalhada para ransomware, incluindo evidência e mudança de condição.
+
+**A10: replanejamento pendente.** Sua função anterior de completar controles foi absorvida por A09; não definir novo tema, ampliar entrega nem pressupor herança produzida em A10. Dependências posteriores de A10 exigem revalidação antes da produção. A implantação técnica aprofundada permanece nas unidades correspondentes, sem ser requisito para concluir esta análise. Esta decisão supera as distribuições A09/A10 e os riscos do portal registrados abaixo. Plano anterior da A09 preservado em `docente/A09-decisao-de-riscos/plano-preservado-2026-09-10-portal.md`.
+
+
 > **Documento de governança curricular.** Esta é a referência local para planejar, criar e revisar aulas da disciplina. Ela define a espinha dorsal da experiência; não é material destinado aos estudantes nem substitui o plano de ensino institucional.
 
 ## Produção e publicação autorizadas — A08 e A09

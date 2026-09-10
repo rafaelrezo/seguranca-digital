@@ -14,9 +14,9 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A06 — Como antecipar o que pode dar errado?](aulas/A06-do-ticket-ao-modelo.md) | Diagrama de fluxo de dados e ameaças testáveis com STRIDE | [Atividade](aulas/A06-do-ticket-ao-modelo.md#atividade) |
 | [A07 — Da aplicação web ao processo industrial: como o adversário avança?](aulas/A07-do-modelo-a-decisao.md) | Comportamentos de um relato e técnicas ATT&CK Enterprise/ICS | [Atividade](aulas/A07-do-modelo-a-decisao.md#atividade) |
 | [A08 — Governança e SGSI](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
-| [A09 — Avaliação e tratamento de riscos](aulas/A09-decisao-de-riscos.md) | Critérios, prioridade, tratamento e risco residual | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
+| [A09 — Decidir e avaliar controles de segurança digital](aulas/A09-decisao-de-riscos.md) | Comprometimento de conta e ransomware: risco, controles, evidência e residual | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
 
-A atividade de **governança e decisão de tratamento** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com modelo, critérios e formato da entrega.
+A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com modelo, critérios e formato da entrega.
 
 ## Como preparar sua evidência
 

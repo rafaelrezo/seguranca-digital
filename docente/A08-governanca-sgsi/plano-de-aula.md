@@ -1,5 +1,7 @@
 # A08 — Plano de condução vigente
 
+**Ponte vigente após a realização — 10 set. 2026:** a A09 passa a usar comprometimento de conta/ransomware no ambiente digital de equipe técnica, com novo escopo explicitamente fornecido. Transferir conceitos da A08, sem afirmar que a política do portal já cobre esse ambiente ou que os riscos foram trabalhados pela turma. Entrega única A08–A09 inclui avaliação de controles e termina na A09; A10 aguarda replanejamento. Esta nota supera encaminhamentos futuros do plano abaixo, preservado como registro da condução anterior.
+
 **Estado:** revisão temática aprovada em 10 set. 2026. A08 realizada conforme relato docente; esta organização é apoio posterior, sem comprovar a execução de cada etapa. [Plano anterior preservado](plano-preservado-2026-09-08.md).
 **Página:** `docs/aulas/A08-governanca-sgsi.md`. **Atividade:** enunciado integral em A09#atividade; uma entrega A08–A09, identificador interno P1.
 **Carga:** 100 minutos, 50 T/50 P conduzida. **Recursos:** página projetada, navegador e editor/caderno; não requer portal real, conta ou instalação.

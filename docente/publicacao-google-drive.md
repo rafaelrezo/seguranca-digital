@@ -1,10 +1,14 @@
 # Registro de publicação no Google Drive
 
+## Reformulação A09 — 10 set. 2026
+
+Conteúdo preparado para Pages: comprometimento de conta/ransomware; análise, seleção e avaliação de controles encerradas em A09. Alinhados página, pacote, modelo, plano docente, ponte A08 e planejamento; A10 pendente. Slides e arquivos do Drive preservados. Validação e publicação desta revisão serão registradas no relatório `planejamento-24-encontros/reformulacao-a09-riscos-controles-2026-09-10.md`; preparação local não comprova publicação ou execução pela turma.
+
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
 ## Nome fictício Nuvora — 10 set. 2026
 
-Renomeação solicitada pelo docente em A08/A09, modelos, política e ilustração. Política vigente: PSI-NU-01; procedimento: PR-NU-01. PDF e fonte novos usam `A08-politica-seguranca-nuvora`; a URL antiga do PDF recebe o mesmo conteúdo atualizado para compatibilidade. Originais da política preservados fora do site. Slides e Drive permanecem históricos. Verificação da publicação sucede esta preparação.
+Renomeação solicitada pelo docente em A08/A09, modelos, política e ilustração. Política vigente: PSI-NU-01; procedimento: PR-NU-01. PDF e fonte novos usam `A08-politica-seguranca-nuvora`; a URL antiga do PDF recebe o mesmo conteúdo atualizado para compatibilidade. Originais da política preservados fora do site. Slides e Drive permanecem históricos. Publicado em `d08ca968dbc90fa49601e035485dddcacfdbf2e4`. Validação `34515204060` aprovada; páginas públicas com Nuvora conferidas e PDF/ilustração coincidentes byte a byte com os arquivos locais.
 
 ## Revisão temática A08/A09 — 10 set. 2026
 

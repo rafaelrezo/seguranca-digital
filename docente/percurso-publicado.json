@@ -56,14 +56,15 @@
       "page": "aulas/A08-governanca-sgsi.md",
       "activity": "atividade",
       "title": "A08 — Quem governa a segurança depois que a falha é conhecida?",
-      "status": "publicado_realizacao_nao_declarada",
-      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade"
+      "status": "realizacao_confirmada_pelo_docente",
+      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade",
+      "note": "Realização confirmada em 10 set. 2026; versão exata conduzida e entregas individuais não confirmadas. Revisão posterior é apoio de estudo."
     },
     {
       "id": "A09",
       "page": "aulas/A09-decisao-de-riscos.md",
       "activity": "atividade",
-      "title": "A09 — Quais riscos a organização aceita e quais precisa tratar?",
+      "title": "A09 — Decidir e avaliar controles de segurança digital",
       "status": "publicado_realizacao_nao_declarada",
       "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade"
     }

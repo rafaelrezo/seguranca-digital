@@ -1,6 +1,6 @@
 # A09 — Decidir e avaliar controles de segurança digital
 
-<a id="a09-quais-riscos-a-organizacao-aceita-e-quais-precisa-tratar"></a>
+
 
 Uma conta pode ser usada para aprovar uma alteração sem autorização. Um programa malicioso pode impedir a equipe de usar suas estações de trabalho. **Com recursos limitados, o que proteger primeiro e como saber se a medida funcionou?**
 
@@ -17,14 +17,14 @@ Ao concluir, você deverá conseguir:
 **Percurso:** ambiente e riscos → critérios e prioridade → tratamento e controles → evidências → revisão e decisão final. A análise e a avaliação de controles terminam nesta aula. A [atividade](#atividade) reúne A08–A09.
 
 !!! note "Origem e limite dos registros"
-    A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Abra o [pacote em texto](../assets/m1/A09-pacote-evidencias.txt) para consulta ou uso sem conexão; seu conteúdo essencial também está nesta página. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
+    A Nuvora e todos os dados, configurações, esforços e resultados desta página são **simulações didáticas**. Não são incidentes reais, comandos executados ou resultados obtidos pela turma. Este arquivo contém o contexto, os critérios e os registros para consulta sem conexão. Não execute malware, envie mensagens de teste ou tente acessar contas reais.
 
-<a id="1-receber-riscos-formulados-sem-reiniciar-a-investigacao"></a>
-<a id="primeiro-esquema"></a>
 
-## 1. Escopo: reconhecer o que está em risco {#tema-1}
 
-<div class="theme-summary" markdown="1">
+
+## 1. Escopo: reconhecer o que está em risco
+
+
 
 **Síntese**
 
@@ -33,14 +33,12 @@ Ao concluir, você deverá conseguir:
 - Uma evidência mostra um recorte; o que falta permanece como incerteza.
 - O escopo e a autoridade devem cobrir o ambiente analisado.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-01.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-01.svg" alt="Função legítima: Trabalhar e aprovar → Condição de abuso: Senha ou execução → Consequência: Ação falsa ou parada" /></a>
-</figure>
+
 
 **Aplicação:** localize uma função legítima e uma consequência digital para cada risco.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -79,13 +77,13 @@ A [A08](A08-governanca-sgsi.md) apresentou governança no portal. Aqui há **out
 
 **Checkpoint:** em uma frase, separe a observação de E2 da hipótese de roubo de senha. Depois indique qual desconhecido de E4 mais pesa na decisão.
 
-</div>
 
-<a id="2-avaliar-risco-e-relacionar-cenario-consequencia-e-plausibilidade"></a>
 
-## 2. Critérios: comparar consequência e plausibilidade {#tema-2}
 
-<div class="theme-summary" markdown="1">
+
+## 2. Critérios: comparar consequência e plausibilidade
+
+
 
 **Síntese**
 
@@ -94,14 +92,12 @@ A [A08](A08-governanca-sgsi.md) apresentou governança no portal. Aqui há **out
 - Incerteza não equivale a risco baixo: registre a informação que falta.
 - A mesma régua deve valer para os dois riscos.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-02.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-02.svg" alt="Cenário e evidência: Qual caminho existe? → Duas dimensões: Consequência + plausibilidade → Julgamento: Com incerteza explícita" /></a>
-</figure>
+
 
 **Aplicação:** avalie R02 com os mesmos critérios de R01; cite um registro e uma lacuna.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -125,13 +121,13 @@ A plausibilidade é **qualitativa e condicionada ao cenário**. Em R01, consider
 
 **Checkpoint:** “não encontramos teste de restauração” permite concluir “a cópia é inútil”? Explique o que seria necessário observar para afirmar que a função volta dentro do prazo.
 
-</div>
 
-<a id="3-uma-matriz-ajuda-a-conversar-nao-decide-sozinha"></a>
 
-## 3. Prioridade: justificar o que exige ação {#tema-3}
 
-<div class="theme-summary" markdown="1">
+
+## 3. Prioridade: justificar o que exige ação
+
+
 
 **Síntese**
 
@@ -140,14 +136,12 @@ A plausibilidade é **qualitativa e condicionada ao cenário**. Em R01, consider
 - Prazo, dependências e confiança na informação ajudam a decidir a sequência.
 - Aceitar exige critério, responsável e limite de tempo.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-03.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-03.svg" alt="Classificar: Usar a mesma régua → Priorizar: Prazo e dependências → Decidir: Ação e autoridade" /></a>
-</figure>
+
 
 **Aplicação:** indique uma primeira ação para cada risco e explique por que a ordem é defensável.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -171,13 +165,13 @@ Use E3/E4. A restauração dentro de quatro horas é desconhecida. Uma avaliaç�
 
 **Checkpoint:** ambos ficaram altos. Você precisa terminar toda a solução de um risco antes de iniciar a medida do outro? Examine a dependência entre preparação e verificação; não escolha somente pelo risco mais conhecido.
 
-</div>
 
-<a id="4-escolher-um-tratamento-exige-preservar-o-que-precisa-funcionar"></a>
 
-## 4. Tratamento: escolher a resposta ao risco {#tema-4}
 
-<div class="theme-summary" markdown="1">
+
+## 4. Tratamento: escolher a resposta ao risco
+
+
 
 **Síntese**
 
@@ -186,14 +180,12 @@ Use E3/E4. A restauração dentro de quatro horas é desconhecida. Uma avaliaç�
 - Compartilhar responsabilidades ou perdas não elimina o risco técnico.
 - Reter é assumir o risco com autoridade e acompanhamento.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-04.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-04.svg" alt="Risco priorizado: Qual perda evitar? → Alternativas: Benefício e custo operacional → Tratamento: Escolha justificada" /></a>
-</figure>
+
 
 **Aplicação:** compare reduzir R02 com interromper a atividade; identifique o efeito sobre a equipe.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -210,13 +202,13 @@ O tratamento é a resposta escolhida para lidar com o risco. O controle é uma m
 
 **Checkpoint:** uma contratação que só disponibiliza suporte em 24 horas atende ao objetivo de retorno em quatro horas? Identifique a incompatibilidade antes de propor a contratação como solução suficiente.
 
-</div>
 
 
 
-## 5. Controles: definir mecanismo, cobertura e verificação {#tema-5}
 
-<div class="theme-summary" markdown="1">
+## 5. Controles: definir mecanismo, cobertura e verificação
+
+
 
 **Síntese**
 
@@ -225,18 +217,16 @@ O tratamento é a resposta escolhida para lidar com o risco. O controle é uma m
 - Uma medida pode reduzir um caminho e deixar outros abertos.
 - Escreva o critério de sucesso antes de olhar o resultado.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-05.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-05.svg" alt="Medida: Onde atua? → Aplicação: Quem, alcance e recurso → Critério: Abuso bloqueado + função" /></a>
-</figure>
+
 
 **Aplicação:** monte um plano de até 12 horas e indique o que continuará fora da cobertura.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
-<a id="condicoes-de-recurso-da-valeverde"></a>
+
 
 A equipe dispõe de **12 horas de trabalho de TI na próxima janela de dois dias**, com os recursos do exercício já disponíveis. As horas abaixo são estimativas fictícias para comparar decisões, não preços ou estimativas universais. São horas de implementação e verificação da equipe, não tempo de aula.
 
@@ -259,13 +249,13 @@ C1 + C2 + C3 consomem **12 h**. O plano atua no uso de senha roubada, no início
 
 **Checkpoint:** o registro “C2 instalado em uma estação” autoriza afirmar “R02 controlado na equipe”? Nomeie a diferença entre alcance do plano e alcance da evidência.
 
-</div>
 
 
 
-## 6. Evidências: distinguir proposta, implantação e resultado {#tema-6}
 
-<div class="theme-summary" markdown="1">
+## 6. Evidências: distinguir proposta, implantação e resultado
+
+
 
 **Síntese**
 
@@ -274,14 +264,12 @@ C1 + C2 + C3 consomem **12 h**. O plano atua no uso de senha roubada, no início
 - Um resultado permite avaliar comportamento nas condições verificadas.
 - Um caso favorável não prova eficácia contínua nem cobertura total.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-06.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-06.svg" alt="Desenho: Medida é adequada? → Implantação: Está aplicada onde? → Resultado: Atendeu ao critério?" /></a>
-</figure>
+
 
 **Aplicação:** compare T1–T3 com os critérios; registre uma conclusão autorizada e uma que seria exagerada.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -307,13 +295,13 @@ O desenho atua no caminho “terceiro tem só a senha”. A configuração infor
 
 **Checkpoint:** qual verificação falta em T3 para saber se o profissional consegue trabalhar? Formule um caso com ação e resultado observável antes de ler a próxima seção.
 
-</div>
 
 
 
-## 7. Risco residual: revisar quando a evidência muda {#tema-7}
 
-<div class="theme-summary" markdown="1">
+## 7. Risco residual: revisar quando a evidência muda
+
+
 
 **Síntese**
 
@@ -322,18 +310,16 @@ O desenho atua no caminho “terceiro tem só a senha”. A configuração infor
 - Falha funcional ou cobertura incompleta limita a alegação de redução.
 - A revisão precisa de responsável, prazo, autoridade e gatilho.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-07.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-07.svg" alt="Resultado observado: Atendeu à função? → Residual: O que permanece? → Revisão: Corrigir e decidir" /></a>
-</figure>
+
 
 **Aplicação:** revise sua decisão para R02 após V1; declare o que mudou e quem deve decidir.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
-<a id="5-o-que-permanece-depois-da-decisao"></a>
+
 
 Depois de escolher controles, estime o residual sob condições explícitas. Depois de avaliar resultados, reabra essas condições. Uma medida planejada não reduz, por si só, a exposição atual; um piloto não transforma automaticamente o risco de toda a equipe.
 
@@ -357,13 +343,13 @@ Defina revisão em até sete dias ou antes, caso ocorra novo bloqueio da funçã
 
 **Checkpoint:** mudar a nota para baixa resolve V1? Identifique a evidência que precisaria existir para sustentar uma redução.
 
-</div>
 
-<a id="6-construa-um-registro-que-outra-equipe-consiga-usar"></a>
 
-## 8. Registro: tornar a decisão verificável {#tema-8}
 
-<div class="theme-summary" markdown="1">
+
+## 8. Registro: tornar a decisão verificável
+
+
 
 **Síntese**
 
@@ -372,14 +358,12 @@ Defina revisão em até sete dias ou antes, caso ocorra novo bloqueio da funçã
 - Separe recomendação, autorização, implantação e resultado.
 - Feche com exposição remanescente e próxima verificação definida.
 
-<figure class="didactic-figure thematic-figure" tabindex="0" role="group" aria-label="Esquema; role lateralmente se necessário">
-<a href="../../assets/m1/sinteses/A09-08.svg" target="_blank" rel="noopener" aria-label="Abrir esquema ampliado"><img src="../../assets/m1/sinteses/A09-08.svg" alt="Decisão: Risco e justificativa → Sustentação: Controle e evidência → Compromisso: Responsável e revisão" /></a>
-</figure>
+
 
 **Aplicação:** use o modelo para consolidar dois riscos e detalhar o tratamento e a revisão de R02.
 
-</div>
-<div class="study-explanation" markdown="1">
+
+
 
 **Explicação e exemplo**
 
@@ -403,39 +387,4 @@ O produto é um registro que outra pessoa consegue revisar sem reconstruir uma h
 
 O ciclo de análise e avaliação de controles está concluído nesta aula quando a decisão, seus limites e a revisão estiverem registrados. A implementação técnica aprofundada pode ser estudada em outros temas do curso; não é requisito adicional desta entrega.
 
-</div>
 
-## Atividade {#atividade}
-
-### Governança, riscos e controles — fechamento de A08 e A09
-
-**Missão:** recomendar como proteger a equipe técnica da Nuvora, comparar os dois riscos digitais e revisar o tratamento de ransomware à luz de V1. **Em dupla, um PDF de 3–4 páginas**, chamado `A08-A09-sobrenome1-sobrenome2.pdf`. Estimativa de até duas horas de consolidação fora da aula; prazo definido pelo docente no Classroom. Não há nova etapa dependente da A10.
-
-**Preparação:** use esta página, o [pacote de evidências](../assets/m1/A09-pacote-evidencias.txt) e o [modelo editável](../assets/m1/A09-modelo-governanca-riscos.txt). Retome os conceitos e os registros disponíveis da A08. Se não houver registro próprio, use a base de governança do tema 1 e identifique-a como fornecida. A atividade não exige recriar uma política integral nem comprovar execução técnica.
-
-1. **Delimite a governança:** escreva o novo escopo em 3–4 linhas, uma diretriz justificada e os papéis de coordenação, TI e direção. Explique qual princípio da A08 foi transferido e por que o escopo do portal não basta. Indique o objetivo de recuperação e seu acompanhamento.
-2. **Compare R01 e R02:** registre caminho, consequência, plausibilidade, classe, evidência e incerteza. Justifique a prioridade usando os mesmos critérios.
-3. **Escolha o plano:** respeite as 12 h e as dependências. Para R01, registre medida e limite de forma breve. Para R02, detalhe mecanismo, alcance, responsável, critério, benefício, efeito operacional e alternativa adiada/rejeitada. Declare exposição que o recurso não cobre.
-4. **Avalie e revise:** examine T1–T3, distinguindo desenho, implantação e resultado. Aplique V1 à decisão de R02: revise residual, encaminhamento de recurso, medida provisória, autoridade, prazo e gatilho. Se sua escolha diferiu do plano demonstrado, não atribua a ela os resultados de outro plano.
-5. **Conclua:** acrescente uma justificativa individual curta de cada integrante, identificando uma decisão e a evidência que a sustenta. Confira fontes e origem dos registros.
-
-| Critério | Peso | Evidência esperada |
-|---|---:|---|
-| Governança e escopo | 20% | Transferência explícita, diretriz justificada, papéis e objetivo coerentes |
-| Avaliação e prioridade | 20% | Dois riscos comparados, critérios comuns, evidência e incerteza |
-| Tratamento e controles | 25% | Plano viável, dependências, alternativa, mecanismo e função preservada |
-| Evidência e revisão | 25% | Limites de T1–T3, efeito de V1, residual, autoridade, prazo e gatilho |
-| Clareza e autoria | 10% | Registro rastreável, justificativas individuais e fontes/uso de IA declarados |
-
-**Critério de encerramento:** o leitor consegue saber o que foi recomendado, o que os registros simulados sustentam, o que permanece exposto e quem deve decidir o próximo passo. Entregue somente o PDF pelo canal indicado pelo docente. Não há recurso de nuvem, sistema de laboratório ou serviço a desligar.
-
-**Uso de IA:** se utilizada, registre o pedido, as decisões aceitas/rejeitadas e sua justificativa. Não envie dados sensíveis. Cada integrante deve compreender e defender o resultado. Se não utilizada, declare isso.
-
-**Extensão opcional, sem nova entrega:** qual informação permitiria expandir a conclusão do piloto às outras estações? Proponha uma verificação com ação e critério, sem executá-la em sistemas reais.
-
-## Referências
-
-- [NIST SP 800-30 Rev. 1 — Guide for Conducting Risk Assessments](https://www.nist.gov/publications/guide-conducting-risk-assessments): avaliação de risco e relação entre impacto, possibilidade e informação disponível.
-- [CISA — #StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide): medidas de proteção e recuperação. Leitura complementar; o exercício não exige executar os procedimentos técnicos do guia.
-- [A08 — Governança e SGSI](A08-governanca-sgsi.md): conceitos de escopo, diretriz, autoridade e acompanhamento.
-- [Consulta conceitual sobre riscos](../gestao_riscos/introducao.md): aprofundamento. Os critérios, a matriz, os esforços e os registros desta A09 são convenções didáticas originais, não requisitos normativos.

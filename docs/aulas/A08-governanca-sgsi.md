@@ -151,7 +151,7 @@ Quando esta aula ou a política da Nuvora mencionar **“Anexo A”**, a referê
 
 **Como usar essa parte da norma:** o Anexo A oferece uma referência de controles de segurança. Durante o tratamento de riscos, a organização confronta os controles que considera necessários com essa referência para identificar omissões. A **Declaração de Aplicabilidade**, também chamada **SoA** (*Statement of Applicability*), registra controles necessários, justificativas de inclusão, situação de implementação e razões para exclusões de controles do Anexo A. Controles necessários podem vir também de outras fontes. [Nota educacional do grupo de práticas de auditoria da ISO/IEC 27001](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IECJTC1-SC27-WG1_N3298_Auditing%20Practices%20Note%20-%20SoA.pdf).
 
-Na Nuvora, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção será aprofundada depois da decisão de risco da A09.
+Na Nuvora, “definir prazo e verificar o encerramento do acesso do fornecedor” é uma medida candidata porque responde à autorização vencida sem comprovação. A justificativa nasce dessa condição. Escrever “usar todos os controles” não demonstra que a seleção atende à necessidade. A ISO/IEC 27002 oferece orientação sobre controles; a ISO/IEC 27001 estabelece requisitos do sistema de gestão. A seleção e a avaliação de controles serão concluídas na A09, junto da decisão de risco.
 
 **Confira a diferença:** “quem aprova a política?” é uma pergunta de liderança; “qual medida encerra o acesso no prazo?” é uma pergunta sobre controle. Ambas precisam de resposta para o mesmo serviço.
 
@@ -620,12 +620,12 @@ Você tem um **esboço com decisões e pendências**, não um SGSI implantado. A
 
 ## Atividade {#atividade}
 
-Guarde o contexto, o escopo, a avaliação da diretriz da política (mantida ou adaptada com justificativa), os papéis, o objetivo e a rotina de acompanhamento que você registrou. Eles serão usados na [atividade de governança e decisão de tratamento, ao final da A09](A09-decisao-de-riscos.md#atividade), junto da avaliação dos riscos. A entrega reúne o trabalho das duas aulas; não há envio separado na A08.
+Guarde os registros disponíveis de contexto, escopo, diretriz, papéis, objetivo e acompanhamento. Na [atividade de governança, riscos e controles da A09](A09-decisao-de-riscos.md#atividade), você aplicará esses conceitos a **outro recorte fornecido: o ambiente digital de uma equipe técnica**, com comprometimento de conta e ransomware. Explique a mudança de escopo; a política do portal não cobre automaticamente o novo ambiente. A entrega reúne A08–A09 e inclui análise e avaliação de controles, sem envio separado na A08. Se não houver registro próprio, a A09 fornece a base necessária e pede que sua origem seja identificada.
 
 
 ## Síntese e próxima decisão
 
-A falha conhecida orientou uma proposta de processo com escopo, autoridade, recursos e acompanhamento. Sua implantação e seu resultado ainda precisam de evidência. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), reabriremos precisamente o **escopo e a autoridade de decisão** do registro, usando dois riscos já formulados.
+A falha conhecida orientou uma proposta de processo com escopo, autoridade, recursos e acompanhamento. Sua implantação e seu resultado ainda precisam de evidência. A organização ainda precisa decidir **quais riscos tratar primeiro e o que pode aceitar**. Na [A09](A09-decisao-de-riscos.md), aplicaremos **escopo e autoridade de decisão** a dois riscos digitais já formulados num novo ambiente fornecido. A análise, a escolha dos controles e a avaliação de evidências serão concluídas nesse encontro.
 
 **Revisão rápida:**
 

@@ -1,48 +1,56 @@
-# A09 — Registro de governança e decisão de tratamento
+A08–A09 — GOVERNANÇA, RISCOS E CONTROLES
+Dupla:                         Data:
+PDF de 3–4 páginas. Dados fornecidos são simulações didáticas.
 
-Dupla: [nomes]  |  Versão: [identificação]  |  Data de revisão: [preencher]
+1. GOVERNANÇA (aproximadamente meia página)
+Escopo: identidades, e-mail, plataforma, estações e recuperação da equipe técnica.
+Princípio transferido da A08 e diferença em relação ao escopo do portal:
+Diretriz e justificativa:
+Coordenação/proprietário dos riscos:
+TI/executor e registro esperado:
+Direção/autoridade para exceção de risco alto:
+Objetivo e acompanhamento (função em até 4 h; perda até 24 h):
 
-## 1. Governança
+2. AVALIAÇÃO DOS DOIS RISCOS (aproximadamente meia página)
+R01 — comprometimento de conta:
+Caminho / consequência / plausibilidade / classe / evidência / incerteza:
+R02 — ransomware nas estações:
+Caminho / consequência / plausibilidade / classe / evidência / incerteza:
+Prioridade e justificativa comparativa:
 
-Contexto, partes interessadas, necessidades, escopo dos pedidos/portal e dependência do suporte: [um parágrafo]
-Política de referência: PSI-NU-01, versão 0.1, Aula 08.
-Diretriz avaliada: item 8 — Serviços contratados e mudanças.
-Decisão de manter ou adaptar, justificativa e aprovador: [se adaptar, registrar a orientação curta]
-Procedimento necessário e registro de execução: [separar o detalhe operacional da diretriz]
+3. PLANO E AVALIAÇÃO (aproximadamente uma página)
+Plano de até 12 h; soma e dependências:
+R01: medida, critério e limite:
+R02: tratamento, controle, mecanismo, alcance, benefício e efeito operacional:
+R02: alternativa adiada/rejeitada e justificativa:
+Executor, aprovador e recurso:
+O que o plano não cobre:
+T1: resultado fornecido, conclusão e limite:
+T2: resultado fornecido, conclusão e limite:
+T3: resultado fornecido, conclusão e verificação faltante:
+Distinção entre desenho, implantação e resultado:
+Se plano diferente de C1+C2+C3: quais conclusões são apenas comparativas?
 
-| Decisão/ação | Papel responsável | Autoridade/recurso | Evidência e revisão |
-|---|---|---|---|
-| [preencher] | | | |
+4. REVISÃO DE R02 APÓS V1 (aproximadamente meia página)
+Evidência nova e premissa invalidada:
+Consequência, plausibilidade, classe e residual revistos:
+Correção proposta e teste necessário (não executado):
+Medida provisória, efeito operacional, recurso adicional ou adiamento:
+Autoridade para decisão e estado da aprovação (não presumir aprovação):
+Responsável, prazo e gatilho de revisão:
 
-Objetivo e critério: [resultado, universo observado e condição de cumprimento]
-Rotina de acompanhamento: [quem, fonte, momento e resposta a desvio]
+5. AUTORIA E FONTES (aproximadamente meia página)
+Integrante 1 — decisão e evidência que a sustenta:
+Integrante 2 — decisão e evidência que a sustenta:
+Fontes e origem simulada dos registros:
+IA: não utilizada OU pedido, decisões aceitas/rejeitadas e justificativa:
 
-## 2. Avaliação dos riscos
-
-Base: situação original anterior às propostas da A08; não presumir controles implantados.
-
-| Risco | Evidência | Consequência e razão | Plausibilidade e razão | Incerteza | Prioridade | Proprietário |
-|---|---|---|---|---|---|---|
-| R01 | | | | | | |
-| R02 | | | | | | |
-
-## 3. Decisão de tratamento para R02
-
-Risco: R02 — acesso de manutenção do portal além do prazo
-Alternativa escolhida e comparação com outra: [justificar]
-Restrição de esforço e função preservada: [considerar C1 para R01, 2h usadas e 6h restantes para R02]
-Premissa e resposta à variação V1: [explicar]
-Autoridade necessária e estado da decisão: [proposta/aprovação simulada/pendência]
-Residual estimado: [o que permanece possível]
-Evidência necessária e gatilho de revisão: [preencher]
-
-## 4. Justificativas individuais e referências
-
-Estudante 1: [uma decisão que consegue justificar e seu limite]
-Estudante 2: [uma decisão que consegue justificar e seu limite]
-Fontes e IDs de documentos utilizados: [listar]
-Uso de IA, se houver: [pedido, decisão aceita/rejeitada e justificativa própria]
-
-Consolidar o documento final em 3–4 páginas. Remover instruções entre colchetes.
-Nome do PDF: A09-governanca-riscos-nome1-nome2.pdf.
-Escopo concluído em A08–A09. Enviar conforme prazo indicado no Google Classroom.
+CONFERÊNCIA
+[ ] Mesmo critério nos dois riscos; incertezas explícitas.
+[ ] Recurso e dependências conferidos; função legítima preservada.
+[ ] Piloto não apresentado como cobertura da equipe.
+[ ] V1 incorporada; recuperação funcional não presumida.
+[ ] Residual, autoridade, prazo e revisão registrados.
+[ ] Recomendação separada de aprovação, implantação e resultado fornecido.
+[ ] Nenhum teste real ou execução pela turma alegado sem evidência.
+[ ] Entrega completa nesta A09, sem etapa na A10.

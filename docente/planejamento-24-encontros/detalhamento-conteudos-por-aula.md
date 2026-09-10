@@ -1,10 +1,12 @@
 # Detalhamento temático dos conteúdos — A08 a A31
 
+**Precedência — 10 set. 2026:** a reformulação vigente de A09 conclui análise e avaliação de controles em comprometimento de conta/ransomware. A10 está pendente. Os registros editoriais anteriores abaixo conservam o histórico e não prevalecem sobre as fichas A09/A10 atualizadas.
+
 **Estado:** detalhamento curricular docente solicitado em 8 de setembro de 2026, com revisão independente de especialista em segurança IT/OT. Não constitui material de aula ensaiado ou publicado. Deriva da [macroorganização](proposta-macroorganizacao.md) e da [arquitetura vigente](../arquitetura-geral-da-experiencia.md).
 
 Mantêm-se **24 encontros de 100 minutos**, títulos temáticos e numeração **A08–A31**, em continuidade à A07. São cinco macrocomponentes e **cinco submissões principais**, uma por componente. Os registros de cada aula são partes do exemplo conduzido e insumos da mesma atividade, não tarefas extras. A atividade externa é apresentada no início do bloco e consolidada depois de demonstrado o percurso indispensável.
 
-**Gestão de riscos e definição de controles pertencem ao M1:** A08 estabelece o SGSI, A09 aprofunda avaliação e decisão de risco, A10 seleciona e avalia controles, A11–A12 adaptam o tratamento a OT. M2–M4 concretizam os controles, e M5 verifica eficácia e reabre risco residual. Definir controle e comprovar sua eficácia são momentos conectados do curso.
+**Gestão de riscos e definição de controles pertencem ao M1:** A08 estabelece o SGSI, A09 conclui avaliação, decisão de risco e avaliação de controles; A10 aguarda replanejamento; A11–A12 adaptam o tratamento a OT. M2–M4 concretizam os controles, e M5 verifica eficácia e reabre risco residual. Definir controle e comprovar sua eficácia são momentos conectados do curso.
 
 ## Organização e continuidade
 
@@ -29,8 +31,8 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 ## Índice temático
 
 - [A08 — Governança e SGSI](#a08)
-- [A09 — Avaliação e tratamento de riscos](#a09)
-- [A10 — Como demonstrar que os controles atendem ao risco?](#a10)
+- [A09 — Decidir e avaliar controles de segurança digital](#a09)
+- [A10 — Replanejamento pendente](#a10)
 - [A11 — O que muda no programa de segurança quando há processo físico?](#a11)
 - [A12 — Como usar NIST SP 800-82 e ISA/IEC 62443 na mesma decisão?](#a12)
 - [A13 — Como o processo físico depende dos fluxos de comunicação?](#a13)
@@ -57,7 +59,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Finalidade:** Governar a decisão: fechar uma ameaça, avaliar até dois riscos e definir tratamento, controles, responsabilidades e evidência.
 
-**Uma atividade principal — P1:** 3–4 páginas; um fluxo, até dois riscos e uma decisão de tratamento detalhada; aproximadamente 2h externas por dupla. Preparação em A08; enunciado integral e fechamento em A09#atividade, sem rótulo público P1. A10–A12 retomam o registro em checkpoints, sem ampliar a entrega.
+**Uma atividade principal — P1:** 3–4 páginas; um fluxo, até dois riscos e uma decisão de tratamento detalhada; aproximadamente 2h externas por dupla. Preparação em A08; enunciado integral e fechamento em A09#atividade, sem rótulo público P1. A entrega inclui a avaliação de controles em A09. A10 aguarda replanejamento; dependências posteriores serão revalidadas sem ampliar esta entrega.
 
 <a id="a08"></a>
 
@@ -93,67 +95,29 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 <a id="a09"></a>
 
-### A09 — Avaliação e tratamento de riscos
+### A09 — Decidir e avaliar controles de segurança digital
 
-**Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1.
+**Carga:** 100 min (60 T / 40 P). **Vínculo:** M1/P1, entrega encerrada aqui.
 
-**Herança concreta:** escopo, diretriz avaliada, papéis e objetivos propostos na A08. R01 e R02 pertencem ao portal: publicação indevida e acesso de manutenção a configurações/dados dos pedidos. As fichas são linha de base anterior às propostas; não pressupor implantação. Engenharia e processo industrial exigirão ampliação explícita posterior. Não refazer triagem ou inventário.
+**Herança:** conceitos de escopo, diretriz, papéis e objetivo da A08. O caso da equipe técnica é fornecido como novo recorte; não presumir cobertura pela política do portal nem execução de atividade anterior. R01 é comprometimento de conta; R02 é ransomware nas estações. Sem avanço para chão de fábrica.
 
-**Objetivos observáveis:**
+**Objetivos:** comparar riscos por critérios comuns e incertezas; justificar controles viáveis e função preservada; avaliar resultados e revisar residual/autoridade/gatilho.
 
-- Comparar riscos com critérios comuns e incerteza explícita.
-- Justificar prioridade e alternativa de tratamento diante de restrições.
-- Registrar autoridade de aceitação, proprietário e condição de revisão do residual.
+**Conteúdos e condução:** oito temas — escopo/componentes; consequência e plausibilidade; prioridade; tratamento; mecanismos/cobertura/recursos; desenho/implantação/resultado; residual e V1; registro. E1–E4 são linha de base simulada. C1–C4 permitem comparar planos de 12 h. T1–T3 permitem avaliar bloqueio, uso legítimo e recuperação; V1 mostra falha funcional após a aplicação abrir. Não executar malware nem chamar registros fictícios de testes da turma.
 
-**Conteúdos, na ordem de construção:**
+**Tempo:** 15 ambiente (5T/10P); 20 critérios/prioridade (15T/5P); 25 tratamento/controles (15T/10P); 25 evidências/revisão (15T/10P); 15 consolidação (10T/5P). Total 60T/40P.
 
-1. Receber descrição dos riscos e restrições: consequência, ativos/processos, controles existentes, prazo operacional e recurso disponível. O trabalho novo é avaliar, não redescobrir a ameaça.
-2. Construir critérios qualitativos de consequência e plausibilidade e explicitar qualidade da informação. Separar tolerância/critério de aceitação de preferência pessoal; reconhecer limites das escalas.
-3. Comparar os dois riscos sob os mesmos critérios; distinguir severidade técnica e prioridade organizacional. Examinar como uma premissa incerta pode mudar a decisão.
-4. Confrontar alternativas de evitar, reduzir, compartilhar e reter: benefício, custo, prazo, efeito operacional e dependências. A autoridade de aceitação vem do arranjo de governança da A08.
-5. Registrar tratamento escolhido, proprietário, residual estimado e gatilho de revisão. Diferenciar decisão aprovada, tratamento planejado e redução comprovada; a avaliação de controles continua em A10.
+**Produto e critério:** PDF único de 3–4 páginas, dois riscos, plano viável e decisão detalhada de R02 após V1. Evidência distingue proposta, implantação e resultado; piloto não prova eficácia na equipe. Residual, autoridade e revisão explícitos. [Plano docente](../A09-decisao-de-riscos/plano-de-aula.md).
 
-**Investigação e participação conduzidas:** professor apresenta duas fichas de risco prontas e alternativas sob restrição fictícia. A turma acompanha a avaliação, decide prioridade e revisa a escolha quando o professor muda uma premissa explícita. Justifica por que a outra alternativa foi adiada ou rejeitada.
-
-**Distribuição dos 100 minutos:** 10 entrada/risco fornecido; 20 critérios; 25 avaliação comparada; 25 alternativas e aceitação; 20 residual/responsável/revisão.
-
-**Registro e critério de conclusão:** quadro de até dois riscos dentro de P1, com critérios comparáveis, prioridade, uma decisão de tratamento detalhada, proprietário, residual estimado e gatilho. A justificativa deve comparar alternativas; apenas nomear um controle não conclui a aula.
-
-**Limite e cuidado de preparação:** fornecer informações suficientes à comparação sem simular precisão inexistente. Não multiplicar escalas ordinais como medição científica. Aceitar risco exige autoridade definida; não basta a preferência da dupla.
-
-**Ponte:** decisão de tratamento e critério de aceitação que orientarão aplicabilidade e avaliação dos controles em A10.
+**Fechamento:** análise, seleção e avaliação de controles concluídas na A09. Nenhuma etapa obrigatória adiada para A10.
 
 <a id="a10"></a>
 
-### A10 — Como demonstrar que os controles atendem ao risco?
+### A10 — Replanejamento pendente
 
-**Carga:** 100 min (50 T / 50 P). **Vínculo:** M1/P1.
+**Reserva de carga anterior:** 100 min (50 T / 50 P), a revalidar com o novo plano. Não atribuir novo conteúdo ou objetivo sem decisão docente. A função anterior de completar seleção e avaliação de controles foi absorvida pela A09. O registro A08–A09 já está concluído e não recebe nova exigência nesta aula.
 
-**Herança concreta:** decisão de tratamento, critério de aceitação e proprietário da A09. Escolha genérica de controle já foi estudada em A02; A05 já incluiu verificação positiva/negativa e accounting.
-
-**Objetivos observáveis:**
-
-- Justificar um conjunto mínimo de controles e sua aplicabilidade ao risco.
-- Traduzir tratamento em regra, responsabilidade e procedimento verificável.
-- Distinguir adequação do desenho, implantação e eficácia operacional a partir de evidências diferentes.
-
-**Conteúdos, na ordem de construção:**
-
-1. Derivar os controles necessários da decisão e das obrigações do caso. Explicar a função da orientação ISO/IEC 27002 e sua relação com o SGSI; controles preventivos/detectivos/corretivos são vocabulário herdado, não outro bloco introdutório.
-2. Trabalhar um recorte didático da declaração de aplicabilidade: necessidade, justificativa, inclusão/exclusão pertinente e estado de implementação. Verificar lacunas de cobertura sem preencher ou decorar todo o Anexo A.
-3. Converter a decisão em política/padrão/procedimento com responsável, condição de exceção, aprovação e revisão. Usar manutenção de fornecedor para distinguir regra escrita e autorização efetiva.
-4. Comparar evidência de desenho adequado, implantação e operação ao longo do tempo: política, configuração, registro de aprovação, acesso temporário e encerramento. Um teste de autorização isolado não prova cumprimento recorrente do processo.
-5. Definir amostra, frequência, responsável pela avaliação, critério e resposta a desvio; distinguir ação corretiva, novo tratamento e aceitação temporária. Relacionar revisão do controle ao residual da A09.
-
-**Investigação e participação conduzidas:** professor recebe o tratamento aprovado e mostra um conjunto fictício identificado de política, configuração e registros de manutenção. A turma compara situações em que há apenas documento, há configuração e há evidência de operação; identifica uma exceção não encerrada e propõe a próxima verificação. A comparação não presume implementação real no Juice Shop.
-
-**Distribuição dos 100 minutos:** 10 decisão herdada; 20 aplicabilidade; 20 regra/implementação; 30 avaliação das evidências; 20 desvio/melhoria/ponte OT.
-
-**Registro e critério de conclusão:** recorte de aplicabilidade e avaliação em checkpoint, usando a decisão de A09 como insumo, ligando risco, controle, justificativa, responsável, evidência e revisão. O estudante deve identificar pelo menos um caso em que documento ou configuração não sustenta alegação de eficácia operacional.
-
-**Limite e cuidado de preparação:** um recorte didático não é declaração de aplicabilidade completa nem prova de conformidade. Preparar registros com procedência, datas e limitações explícitas; não chamar análise documental de reteste executado. A implantação técnica aprofundada vem em M2–M5.
-
-**Ponte:** restrição de manutenção e limite da evidência para avaliar consequência física e participação da operação em A11.
+A sequência histórica está preservada no histórico Git e nos documentos anteriores. Dependências A11–A12 de um produto de A10 devem ser revalidadas antes de produzir esses encontros; não pressupor que a reserva de carga confirma um plano pronto.
 
 <a id="a11"></a>
 
@@ -161,7 +125,7 @@ A reconciliação histórica usa as apresentações A01–A07 reconsultadas no D
 
 **Carga:** 100 min (50 T / 50 P). **Vínculo:** M1/P1.
 
-**Herança concreta:** A10 — Recorte de aplicabilidade, regra de manutenção e avaliação de controle com limite explícito da evidência.
+**Herança a revalidar antes da produção:** A09 fornece decisão e avaliação de controle com limites; A10 aguarda replanejamento. Não presumir produto de A10.
 
 **Objetivos observáveis:**
 
