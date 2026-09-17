@@ -10,6 +10,20 @@
 - Preservar cinco atividades principais por macrocomponente. A atividade A08–A09 já terminou; A10 tem checkpoint presencial. A11–A12, A13–A18, A19–A22 e A23–A31 terão uma entrega cumulativa por bloco, com operação essencial demonstrada antes da entrega.
 - A01–A09 não são reescritas como se a turma tivesse observado ou produzido evidências novas. Uma nova edição do começo do curso poderá melhorar o apoio de estudo, com indicação de que é revisão posterior.
 
+## Conteúdo histórico A01–A07
+
+Esta tabela descreve temas do material e o relato de realização; **não declara que cada estudante executou ou entregou os produtos**. Antes de usar um detalhe como pré-requisito, conferir o material vigente usado no encontro e o relato docente.
+
+| Aula | Conteúdo apresentado como base do percurso |
+|---|---|
+| A01 | Incidente em linha de produção; fatos, hipóteses e propriedades de segurança. |
+| A02 | Ativos, ameaças, vulnerabilidades, exposição e escolha inicial de controle. |
+| A03 | Registros e passagem de observação para ameaça candidata. |
+| A04 | Fluxo legítimo da aplicação, requisição, identidade, ação, recurso e fronteira navegador–servidor. |
+| A05 | Sessão, propriedade de recurso, autorização e accounting. |
+| A06 | Diagrama de fluxo de dados e ameaças testáveis com STRIDE. |
+| A07 | Comportamentos de um relato e mapeamento ATT&CK Enterprise/ICS, com limite entre técnica e risco avaliado. |
+
 ## Sequência e evidências
 
 Os minutos T/P abaixo são **alocação de planejamento**, integrados na condução; não determinam blocos expositivos separados. A08 e A09 conservam 60T/40P cada. A10 conserva os 40T/60P publicados.
