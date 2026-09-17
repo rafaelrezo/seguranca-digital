@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A10 — painel de verificação de visitas</title>
+  <style>
+    :root { color-scheme: light; font: 17px/1.5 system-ui, sans-serif; }
+    body { max-width: 880px; margin: auto; padding: 1rem; color: #172331; background: #f7f9fc; }
+    h1, h2 { line-height: 1.25; }
+    .card { background: white; border: 1px solid #b7c4d2; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
+    label, select, button { font: inherit; }
+    select, button { padding: .45rem .65rem; margin: .3rem .25rem .3rem 0; }
+    button { border: 1px solid #123b66; border-radius: .3rem; background: #e8f2ff; cursor: pointer; }
+    button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #b26000; outline-offset: 2px; }
+    .muted { color: #46576a; }
+    #log { white-space: pre-wrap; background: #eff4f8; padding: .8rem; min-height: 3rem; }
+    .result { border-left: 5px solid #245e84; padding: .6rem; background: #eaf5fb; }
+  </style>
+</head>
+<body>
+  <h1>A10 — verificar uma visita de manutenção</h1>
+  <p>Simulação local com dados fictícios. O painel compara pedidos, cadastro e decisões; não consulta pessoas ou sistemas reais. Use somente para o laboratório da disciplina.</p>
+
+  <section class="card" aria-labelledby="pedido-titulo">
+    <h2 id="pedido-titulo">1. Pedido apresentado na portaria</h2>
+    <label for="caso">Escolha o caso:</label>
+    <select id="caso">
+      <option value="a">A — visita agendada</option>
+      <option value="b">B — urgência alegada</option>
+      <option value="c">C — ampliação de escopo</option>
+    </select>
+    <p id="pedido"></p>
+    <p class="muted">Antes de consultar, preveja qual informação faltaria para decidir.</p>
+  </section>
+
+  <section class="card" aria-labelledby="consulta-titulo">
+    <h2 id="consulta-titulo">2. Canal independente e cadastro</h2>
+    <button id="consultar" type="button">Consultar cadastro e contato conhecido</button>
+    <div id="cadastro" aria-live="polite">Consulta ainda não realizada.</div>
+  </section>
+
+  <section class="card" aria-labelledby="decisao-titulo">
+    <h2 id="decisao-titulo">3. Decisão e registro</h2>
+    <label for="decisao">Ação proposta:</label>
+    <select id="decisao">
+      <option value="">Selecione uma decisão</option>
+      <option value="total">Autorizar o pedido como apresentado</option>
+      <option value="limitado">Autorizar somente o escopo cadastrado</option>
+      <option value="negar">Não autorizar e escalar a divergência</option>
+    </select>
+    <p><label><input id="acompanhante" type="checkbox"> Há responsável designado para acompanhar e registrar entrada/saída.</label></p>
+    <button id="registrar" type="button">Registrar decisão</button>
+    <p id="resultado" class="result" aria-live="polite">Aguardando decisão.</p>
+    <h2>Trilha desta sessão</h2>
+    <div id="log" role="log" aria-live="polite">Nenhuma decisão registrada.</div>
+  </section>
+
+  <p><a href="../../aulas/A10-engenharia-social-seguranca-fisica/">Voltar à aula A10</a></p>
+  <script>
+    const dados = {
+      a: { pedido: "10:05. Marta, da ServTec, apresenta o chamado SV-104 para manutenção da impressora da recepção. Solicita acesso à recepção.", cadastro: "Cadastro: SV-104, Marta, ServTec, 10:00–10:30, impressora da recepção. Responsável: Ana. O número previamente cadastrado da ServTec confirma a visita e esse escopo.", correto: "total", exigeAcompanhante: true, explicacao: "A visita coincide com pessoa, horário, finalidade e área cadastrados. Registrar entrada, acompanhamento e saída; a confirmação não concede acesso a outras áreas." },
+      b: { pedido: "09:15. Leo mostra imagem de um crachá ServTec e afirma que precisa entrar imediatamente na sala de engenharia para uma correção urgente. Cita o chamado SV-999.", cadastro: "Cadastro: não há SV-999 nem visita de Leo. O número previamente cadastrado da ServTec informa que não solicitou serviço urgente na sala de engenharia.", correto: "negar", exigeAcompanhante: false, explicacao: "A justificativa e o crachá mostrado não substituem a confirmação independente. Não autorizar entrada; registrar a divergência e encaminhar ao responsável, sem acusar intenção ou identidade criminosa." },
+      c: { pedido: "10:07. Marta apresenta SV-104, mas pede também entrada na sala de engenharia para 'verificar a rede' depois de atender a impressora.", cadastro: "Cadastro: SV-104 cobre somente impressora da recepção, 10:00–10:30. O número conhecido confirma a visita original, mas não aprovou a sala de engenharia nem trabalho de rede.", correto: "limitado", exigeAcompanhante: true, explicacao: "A visita original pode prosseguir acompanhada. A ampliação para engenharia precisa de novo pedido e autoridade; registrar a recusa dessa parte sem interromper o suporte legítimo." }
+    };
+    const caso = document.getElementById("caso");
+    const pedido = document.getElementById("pedido");
+    const cadastro = document.getElementById("cadastro");
+    const resultado = document.getElementById("resultado");
+    const log = document.getElementById("log");
+    let consultado = false;
+    let eventos = [];
+    function mostrar() {
+      pedido.textContent = dados[caso.value].pedido;
+      cadastro.textContent = "Consulta ainda não realizada.";
+      resultado.textContent = "Aguardando decisão.";
+      document.getElementById("decisao").value = "";
+      document.getElementById("acompanhante").checked = false;
+      consultado = false;
+    }
+    caso.addEventListener("change", mostrar);
+    document.getElementById("consultar").addEventListener("click", () => {
+      cadastro.textContent = dados[caso.value].cadastro;
+      consultado = true;
+    });
+    document.getElementById("registrar").addEventListener("click", () => {
+      const item = dados[caso.value];
+      const escolha = document.getElementById("decisao").value;
+      const acompanhado = document.getElementById("acompanhante").checked;
+      if (!consultado) { resultado.textContent = "Falta consultar o cadastro e o contato conhecido antes de concluir."; return; }
+      if (!escolha) { resultado.textContent = "Selecione uma decisão e registre-a."; return; }
+      const adequado = escolha === item.correto && (!item.exigeAcompanhante || acompanhado);
+      resultado.textContent = (adequado ? "Decisão sustentada. " : "Revise a decisão ou o acompanhamento. ") + item.explicacao;
+      eventos.push(`${caso.value.toUpperCase()} | consulta realizada | ${document.getElementById("decisao").selectedOptions[0].textContent} | acompanhante: ${acompanhado ? "sim" : "não"} | ${adequado ? "critério atendido" : "revisão necessária"}`);
+      log.textContent = eventos.join("\n");
+    });
+    mostrar();
+  </script>
+</body>
+</html>

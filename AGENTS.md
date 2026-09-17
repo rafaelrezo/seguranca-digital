@@ -2,9 +2,11 @@
 
 Estas instruções orientam todo conteúdo criado ou revisado neste repositório. O curso deve ser desenvolvido a partir de problemas observáveis, experimentação segura e situações profissionais verossímeis. A teoria entra quando ajuda o estudante a explicar uma evidência, tomar uma decisão ou melhorar uma solução.
 
+**Decisão docente de 17 set. 2026 — planejamento antes do cenário:** antes de escolher um caso ou ferramenta para uma aula, analisar o objetivo da aula no roadmap, o ganho de competência em relação aos encontros vizinhos, os conceitos necessários e a prática que permite aplicar e verificar esse ganho. Definir a proporção teórica/prática conforme a natureza do encontro; não repetir 50/50 por hábito. Um caso contínuo é recurso opcional quando favorece a aprendizagem. Pode-se usar exemplos independentes ou comparações curtas quando revelarem melhor os limites e a transferência de um conceito. A ponte entre aulas pode ser uma pergunta, critério, método, evidência ou decisão, sem exigir a mesma empresa, personagem ou incidente. Preservar dados completos e procedência quando um caso for usado; não inventar herança de aula ministrada.
+
 ## Referência obrigatória de arquitetura curricular
 
-Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, o caso condutor, as dependências entre encontros, os produtos integradores e os portões contra *drift*.
+Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, os objetivos e dependências entre encontros, os produtos integradores e os portões contra *drift*.
 
 Consultar também [`docente/publicacao-google-drive.md`](docente/publicacao-google-drive.md) antes de publicar ou substituir materiais. O arquivo registra a pasta oficial, o inventário vigente e o procedimento de sincronização entre repositório e Google Drive.
 
@@ -86,7 +88,7 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 ### 1.1 Demonstração com ferramentas reais como padrão
 
 - Todo conceito técnico deve ser ligado a uma demonstração, observação ou investigação com ferramenta real antes de sua sistematização teórica, sempre que houver uma forma segura e pedagogicamente útil de torná-lo observável.
-- Usar prioritariamente o OWASP Juice Shop, executado localmente em Docker, como continuidade da trilha web. Reutilizar contas, fluxos, rastros e produtos das aulas anteriores em vez de reiniciar o cenário.
+- Na trilha web, considerar prioritariamente o OWASP Juice Shop local quando a aplicação tornar visível a competência pretendida. Reutilizar contas, fluxos e rastros anteriores quando isso acrescentar evidência útil; outro exemplo é adequado quando permitir comparação ou evitar limitar o conteúdo.
 - Usar DevTools do navegador para tornar visíveis requisições, respostas, cabeçalhos, estado e comportamento da aplicação; introduzir proxy, scanner, ferramentas de sistema ou código somente depois de instrumentar seu uso e explicar qual rastro será obtido.
 - Quando o Juice Shop não representar adequadamente o conceito, selecionar uma ferramenta real coerente com o domínio: AWS Academy para nuvem; OpenPLC/FUXA e telemetria isolada para OT; utilitários de sistema, logs e configurações reais ou pacotes de evidência para endpoint, rede, criptografia e resposta.
 - A demonstração não pode ser ornamental. Ela deve responder a uma pergunta de aprendizagem, produzir um registro identificável e sustentar uma interpretação, decisão, intervenção ou validação.
@@ -260,7 +262,7 @@ Estas regras se aplicam a apresentações solicitadas. Sua transposição ao MkD
 - Tratar cada apresentação como uma cadeia de raciocínio, não como uma coleção de tópicos. Cada slide deve recuperar o estado atual do caso, resolver ou aprofundar uma pergunta e criar a necessidade do próximo passo.
 - Planejar explicitamente as pontes entre slides. Para cada transição, registrar no roteiro docente: o que a turma já pode afirmar, qual lacuna permanece e por que o próximo conceito, evidência ou decisão entra naquele momento.
 - Não antecipar taxonomias, frameworks, controles ou classificações antes de o cenário produzir uma pergunta que eles ajudem a responder. Primeiro fazer a necessidade aparecer; depois nomear e sistematizar o conceito.
-- Preservar um mesmo caso, evidência ou arquitetura ao longo da explicação. Evoluir o exemplo progressivamente, acrescentando condições, fronteiras, consequências e decisões, em vez de trocar de exemplo a cada conceito.
+- Quando a progressão de um caso favorecer o objetivo, preservá-lo ao longo da explicação e acrescentar condições, fronteiras, consequências e decisões. Usar outro exemplo quando a comparação revelar uma propriedade, limite ou transferência que o primeiro não mostra bem.
 - Separar visualmente e verbalmente observação, hipótese, condição a verificar, consequência plausível e fato confirmado. Não permitir que a narrativa transforme correlação em causalidade sem evidência.
 - Reconstruir o funcionamento normal antes de representar abuso, falha ou ataque. Explicitar função, fluxo legítimo, autoridade e dependências para que controles não sejam propostos sem considerar a operação preservada.
 - Alternar blocos curtos de construção com checkpoints de participação. Antes de apresentar a solução conceitual, pedir previsão, escolha de evidência, formulação de hipótese, diagnóstico ou decisão condicionada.
@@ -275,7 +277,7 @@ Estas regras se aplicam a apresentações solicitadas. Sua transposição ao MkD
 
 - Tratar cards como recurso de comparação entre unidades realmente independentes, não como composição padrão. Evitar três ou mais slides consecutivos baseados em grades de cards, sobretudo quando o estudante precisa compreender sequência, causalidade, fronteira, fluxo ou transformação.
 - Quando o conteúdo responder a “quem se relaciona com quem?”, “o que atravessa?”, “onde muda?”, “o que causa?” ou “como evolui?”, representar a relação diretamente por diagrama, fluxo anotado, cadeia causal, mapa de escopo, antes/depois, sobreposição progressiva ou evidência visual.
-- Preservar o mesmo caso e fazê-lo evoluir visualmente. Retomar os mesmos atores, dados, decisões e rastros, acrescentando uma variável por vez; não reiniciar o raciocínio com novos exemplos apenas para variar o layout.
+- Quando o caso for cumulativo, fazê-lo evoluir visualmente, retomando dados, decisões e rastros. Alternar exemplos por necessidade conceitual ou de transferência, e explicar o que muda entre eles.
 - Integrar explicação curta ao ponto correspondente do diagrama para evitar atenção dividida. Não colocar a figura em um lado e uma legenda extensa, distante, que precise ser mentalmente reconstruída pelo estudante.
 - Introduzir toda sigla ou técnica pela sequência `lacuna observável → finalidade → nome por extenso → origem ou contexto → componentes → exemplo trabalhado → uso guiado → limite`. Nunca apresentar somente o acrônimo, a taxonomia ou a interface da ferramenta.
 - Para métodos operacionais, mostrar um exemplo completo antes da prática independente: `estado inicial → elemento selecionado → pergunta aplicada → hipótese formulada → evidência necessária → decisão`. Depois, reduzir gradualmente o apoio.
@@ -458,4 +460,4 @@ docente/
 
 ## 15. Escopo
 
-Estas diretrizes valem para todo o conteúdo em `docs/` e para novos materiais de planejamento do curso. Na revisão, priorizar páginas que permitam estabelecer o cenário condutor do Juice Shop e, depois, conectar fundamentos, ameaças, proteção de dados, criptografia, gestão de riscos, governança, pentest, nuvem e segurança industrial.
+Estas diretrizes valem para todo o conteúdo em `docs/` e para novos materiais de planejamento do curso. Na revisão, priorizar páginas que desenvolvam as competências do roadmap com evidências e práticas adequadas, conectando fundamentos, ameaças, proteção de dados, criptografia, gestão de riscos, governança, pentest, nuvem e segurança industrial. Usar o Juice Shop quando servir à competência da trilha web.

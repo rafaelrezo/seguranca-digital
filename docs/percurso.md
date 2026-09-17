@@ -15,6 +15,7 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A07 — Da aplicação web ao processo industrial: como o adversário avança?](aulas/A07-do-modelo-a-decisao.md) | Comportamentos de um relato e técnicas ATT&CK Enterprise/ICS | [Atividade](aulas/A07-do-modelo-a-decisao.md#atividade) |
 | [A08 — Governança e SGSI](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
 | [A09 — Avaliar riscos com a NIST SP 800-30](aulas/A09-decisao-de-riscos.md) | NIST SP 800-30 Rev. 1: avaliação em matriz progressiva, controles e revisão | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
+| [A10 — Quem pode entrar e até onde pode ir?](aulas/A10-engenharia-social-seguranca-fisica.md) | Engenharia social, segurança física e decisão de acesso com matriz de risco | [Checkpoint na própria aula](aulas/A10-engenharia-social-seguranca-fisica.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
