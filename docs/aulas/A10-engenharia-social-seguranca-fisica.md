@@ -2,7 +2,7 @@
 
 Às 09:15, alguém apresenta uma imagem de crachá da ServTec e diz que precisa entrar **agora** na sala de engenharia de uma indústria de envase. Cita o chamado SV-999 e afirma que a produção será prejudicada se a portaria atrasar a entrada. **Qual controle decide esse pedido e que rastro permitiria revisar a decisão?**
 
-Esta é uma situação didática nova depois da [A09](A09-decisao-de-riscos.md): os registros, nomes e horários são fictícios. A página fornece a matriz inicial. O [laboratório de política de visitas](../assets/m1/A10-painel-visitas.html) executa regras reais no navegador sobre dados simulados; não abre portas, consulta fornecedores ou comprova o funcionamento de uma instalação.
+Esta é uma situação didática nova depois da [A09](A09-decisao-de-riscos.md): os registros, nomes e horários são fictícios. A página fornece a matriz inicial e contém o laboratório. O navegador calcula decisões sobre dados simulados; não abre portas, consulta fornecedores ou comprova o funcionamento de uma instalação.
 
 ## Objetivos e percurso
 
@@ -10,11 +10,11 @@ Ao fim dos 100 minutos, você deverá conseguir:
 
 1. **Explicar** como pretexto, impersonificação, pressão de urgência e entrada junto a outra pessoa tentam atravessar uma fronteira física.
 2. **Distinguir** identificação, autenticação, autorização por pessoa/área/tempo e registro de acesso, escolhendo controles complementares.
-3. **Configurar e testar** uma política de visitas com casos permitido, negado e limitado; registrar resultado, falha remanescente e revisão do risco.
+3. **Testar duas regras** de visita com casos permitido, negado e limitado; explicar o resultado e uma falha que o modelo não observa.
 
-**Recursos:** esta página, o painel local no navegador e papel ou editor para uma tabela de testes. O professor conduz a execução e pausa para previsão e comparação. O painel também funciona sem rede depois de aberto. Use apenas dados do exercício; não teste portarias, pessoas ou credenciais reais.
+**Recursos:** esta página no navegador e papel ou editor para três comparações. O professor conduz a execução e pausa para previsão e comparação. A página funciona sem rede depois de carregada. Use apenas dados do exercício; não teste portarias, pessoas ou credenciais reais.
 
-**Produto presencial:** duas linhas da matriz R10-01/R10-02 e uma tabela `caso → previsão → configuração → resultado → rastro → limite`. A atividade de governança/riscos encerrou-se na A09; esta aula não cria outra entrega no Classroom.
+**Produto presencial:** duas linhas da matriz R10-01/R10-02 e três comparações curtas: `caso → previsão → regra ativada → resultado → limite`. A atividade de governança/riscos encerrou-se na A09; esta aula não cria outra entrega no Classroom.
 
 ## 1. Primeiro teste: o que acontece sem uma política?
 
@@ -27,7 +27,7 @@ Ao fim dos 100 minutos, você deverá conseguir:
 
 </div>
 
-Abra o [laboratório de política de visitas](../assets/m1/A10-painel-visitas.html). O estado inicial tem as cinco regras desmarcadas. Leia o caso **B** e anote sua previsão. Selecione B e clique em **Executar caso**. O resultado inicial é **PERMITIR: engenharia**: o modelo permissivo aceita o pedido apresentado sem confrontá-lo com o cadastro e libera a área inteira. Esse comportamento é a linha de base a corrigir, não uma política recomendada. Observe que o painel informa **“Sem rastro”** porque o registro também está desligado.
+Leia novamente o pedido de Leo na abertura. Ele mostra uma imagem de crachá e cita SV-999. **Antes de conhecer a resposta**, anote: qual dado você conferiria e o que faria se não encontrasse o chamado? Na [prática desta mesma página](#laboratorio), você testará o que acontece quando essa verificação falta. O modelo inicial aceita o pedido apresentado; essa é a linha de base a corrigir, não uma política recomendada.
 
 ![Quatro etapas entre pedido e aplicação de acesso: alegação, confirmação, autorização e barreira física.](../assets/m1/A10-caminho-do-pretexto.svg)
 *Figura 1 — Esquema original desta aula. Uma etapa não autoriza automaticamente a seguinte.*
@@ -108,7 +108,7 @@ A [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) or
 
 Uma identidade conferida não concede acesso amplo. A política de visita pode ser expressa como atributos: `pessoa + chamado + finalidade + zona + janela + responsável`. O crachá temporário representa uma autorização limitada; a portaria ou o leitor **aplica** a decisão; o registro permite revisá-la. O nome de uma fornecedora responde apenas a parte da pergunta de identidade. Consulte [autenticação](../fundamentos_de_seguranca_digital/G-autenticacao.md), [autorização](../fundamentos_de_seguranca_digital/H-autorizacao.md) e [accounting](../fundamentos_de_seguranca_digital/I-accounting.md) para mecanismos digitais equivalentes e suas diferenças.
 
-**Exemplo trabalhado — A.** Às 10:05, Marta apresenta SV-104 para a impressora. O cadastro anterior à chegada traz Marta, ServTec, recepção, 10:00–10:30 e Ana. O contato conhecido confirma exatamente esse escopo. A regra pode **permitir a recepção**, com acompanhante e entrada/saída registradas. Isso não prova que o serviço foi concluído nem concede a sala de engenharia. No painel, ative as cinco regras e execute A: o resultado esperado é **PERMITIR: recepção**, com evento no log. O evento prova a decisão do modelo; a entrada física ainda precisaria de registro próprio.
+**Exemplo trabalhado — A.** Às 10:05, Marta apresenta SV-104 para a impressora. O cadastro anterior à chegada traz Marta, ServTec, recepção, 10:00–10:30 e Ana. O contato conhecido confirma exatamente esse escopo. A regra pode **permitir a recepção**, com acompanhante e entrada/saída registrados pela portaria. Isso não prova que o serviço foi concluído nem concede a sala de engenharia. No laboratório abaixo, com as duas regras ativadas, A continua **PERMITIR: recepção**; a trilha prova somente a decisão do modelo.
 
 A política também precisa funcionar no caso **C**: a identidade e a visita original são válidas, mas a sala de engenharia foi acrescentada. Negar toda a manutenção seria um custo desnecessário; permitir tudo violaria o escopo. O resultado correto é **LIMITAR: recepção** e pedir nova autorização para engenharia. Esse é um exemplo de autorização por atributos, não apenas por papel genérico “fornecedor”.
 
@@ -123,45 +123,69 @@ A política também precisa funcionar no caso **C**: a identidade e a visita ori
 
 </div>
 
-**Premissas fornecidas:** horizonte didático de 30 dias; iniciação moderada; dano condicionado alto se a sala de engenharia for alcançada; impacto alto para arquivos/estações. Não há ocorrência real medida. Usando as combinações qualitativas **G-5/I-2** explicadas na [A09](A09-decisao-de-riscos.md#tema-3), a verossimilhança geral e o risco são **moderados provisórios**. Não reclassifique com base apenas em cinco pedidos artificiais.
+**Premissas fornecidas:** horizonte didático de 30 dias; iniciação moderada; dano condicionado alto se a sala de engenharia for alcançada; impacto alto para arquivos/estações. Não há ocorrência real medida. Usando as combinações qualitativas **G-5/I-2** explicadas na [A09](A09-decisao-de-riscos.md#tema-3), a verossimilhança geral e o risco são **moderados provisórios**. Não reclassifique com base apenas em três pedidos artificiais.
 
 | ID | Evento e consequência | Condição a controlar | Experimento do encontro | Limite |
 |---|---|---|---|---|
 | **R10-01 — pretexto de manutenção** | Pessoa obtém entrada na engenharia sem visita válida; estações/arquivos podem ser expostos. | A alegação parece plausível, mas chamado e confirmação não existem. | B antes/depois da verificação independente; A garante que a visita legítima continue. | Simulação não confirma tentativa ou dano real. |
 | **R10-02 — ampliação de escopo** | Visitante válida usa autorização da recepção para alcançar engenharia. | Pessoa aprovada, zona adicional não aprovada. | C antes/depois da regra de zona; A protege a função legítima. | Regra não detecta *tailgating* ou tarefa executada. |
 
-D e E são **testes de condições** das mesmas decisões de visita: janela vencida e acompanhante indisponível. Eles não viram riscos separados só para caber na interface. Se a organização observar outras consequências ou caminhos, a matriz deve ser revisada. O [controle de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) pode prevenir, detectar ou apoiar correção; o rastro de um leitor sem revisão humana não resolve todos os caminhos.
+Janela vencida e acompanhante indisponível continuam importantes, mas são tratados como **condições operacionais na discussão**, fora do pequeno motor de teste. Se a organização observar outras consequências ou caminhos, a matriz deve ser revista. O [controle de segurança](../fundamentos_de_seguranca_digital/J-Controles_seguranca.md) pode prevenir, detectar ou apoiar correção; o rastro de um leitor sem revisão humana não resolve todos os caminhos.
 
 ## 6. Laboratório: construa e teste a política
 
 <div class="theme-summary" markdown="1">
 
-- Alterar **uma regra por vez** mostra que falha ela corrige e qual custo introduz.
-- Testar A junto de B–E evita “resolver” o risco bloqueando toda manutenção.
-- A decisão visível e o log têm funções diferentes: sem registro, falta rastro para revisão.
-- Uma política aprovada no modelo ainda exige implantação, procedimento e teste na portaria real.
+- Teste B sem regras: o resultado permissivo torna a falha visível.
+- Ative a confirmação e teste B de novo: a diferença mostra o papel do cadastro.
+- Ative o limite de área e teste C; depois use A como contraprova da função legítima.
+- A trilha mostra cálculos do navegador; entrada, acompanhamento e saída exigem registros próprios.
 
 </div>
 
-No [laboratório](../assets/m1/A10-painel-visitas.html), a seção **Pedidos e cadastro** contém os cinco insumos; **Configure a política** tem cinco caixas de seleção; **Executar caso** mostra a decisão escolhida; **Executar os cinco casos** compara os resultados; **Trilha desta sessão** só guarda eventos quando o registro estiver ativado. A saída **SUSPENDER** significa não conceder entrada até obter autorização ou condição faltante; não significa acusar alguém de ataque.
+<section id="laboratorio" class="a10-lab" aria-labelledby="a10-lab-titulo">
+<style>
+.a10-lab { border: 1px solid #aabdd0; border-radius: .6rem; padding: 1rem; background: #f7f9fc; margin-block: 1rem; }
+.a10-lab h3 { margin: .4rem 0; }
+.a10-lab label { display: block; margin: .7rem 0; }
+.a10-lab select, .a10-lab button { font: inherit; padding: .35rem .6rem; }
+.a10-lab button { border: 1px solid #23486d; border-radius: .3rem; background: #e8f2ff; cursor: pointer; margin-right: .5rem; }
+.a10-lab :focus-visible { outline: 3px solid #b26000; outline-offset: 2px; }
+.a10-lab .a10-evidencia { border-left: 4px solid #52769b; padding: .3rem .7rem; background: #edf3f9; }
+.a10-lab .a10-resultado { border-left: 4px solid #2a7954; padding: .5rem .7rem; background: #e9f6ed; min-height: 2.4rem; }
+</style>
+<h3 id="a10-lab-titulo">Teste de política de visitas</h3>
+<p>Leia um pedido, mude uma regra e compare o resultado. Tudo acontece aqui; os dados são fictícios.</p>
+<label for="a10-caso">Caso</label>
+<select id="a10-caso"><option value="A">A — visita regular</option><option value="B">B — chamado não confirmado</option><option value="C">C — área ampliada</option></select>
+<p id="a10-pedido"></p>
+<div class="a10-evidencia"><strong>Cadastro anterior e contato conhecido</strong><p id="a10-cadastro"></p></div>
+<label><input id="a10-confirmar" type="checkbox"> Exigir chamado confirmado</label>
+<label><input id="a10-limitar" type="checkbox"> Liberar somente a área aprovada</label>
+<p>Antes de clicar, preveja: permitir, suspender ou limitar?</p>
+<button id="a10-testar" type="button">Testar pedido</button><button id="a10-reiniciar" type="button">Recomeçar</button>
+<p id="a10-resultado" class="a10-resultado" role="status" aria-live="polite">Aguardando teste.</p>
+<strong>Trilha desta sessão</strong><ol id="a10-trilha" aria-live="polite"><li>Ainda não há teste.</li></ol>
+</section>
+<script src="../../assets/m1/A10-lab.js"></script>
+<noscript><p><strong>Alternativa sem JavaScript:</strong> A: Marta, SV-104, impressora da recepção; cadastro e contato confirmam recepção, 10:00–10:30, com Ana. B: Leo, SV-999, pede engenharia; cadastro e contato não confirmam. C: Marta, SV-104, pede recepção e engenharia; cadastro confirma somente recepção. Compare cada pedido com o cadastro antes de decidir.</p></noscript>
 
-1. **Linha de base:** desmarque todas as regras, clique em **Executar os cinco casos** e anote os resultados. Pare se a configuração inicial não estiver vazia. Preveja qual pedido indevido passará.
-2. **Pedido independente:** marque só **Exigir cadastro e confirmação**. Execute A e B. Anote o antes/depois de B e por que A permanece permitida. Não confunda “crachá mostrado” com chamada confirmada.
-3. **Escopo:** mantenha a verificação, marque **Restringir a área** e execute C. Compare a zona solicitada com a zona liberada. Registre por que a visita original pode prosseguir.
-4. **Tempo e pessoa responsável:** marque **Conferir janela** e execute D; marque **Exigir acompanhante** e execute E. Para cada suspensão, diga qual nova autorização ou recurso humano seria necessário para retomar o serviço.
-5. **Rastro:** marque **Registrar decisão**, execute os cinco casos e leia a trilha. Compare com a execução anterior sem log. Registre **caso, decisão, motivo, regras e limite**. Use **Limpar trilha e resultados** antes de novo ensaio, sem confundir limpeza da interface com exclusão de registro real.
+O pedido, o cadastro, as duas regras e a resposta aparecem no **mesmo bloco**. **Testar pedido** mostra decisão e motivo; a trilha guarda apenas os cálculos desta sessão. **Recomeçar** limpa escolhas e trilha. **SUSPENDER** significa não conceder entrada até confirmar o pedido; não significa acusar a pessoa de ataque.
 
-| Caso | Previsão antes da execução | Decisão com as cinco regras | O que o teste ensina |
-|---|---|---|---|
-| A — visita regular | Preencha antes de clicar. | **PERMITIR** recepção. | Função legítima preservada. |
-| B — pretexto e urgência | Preencha. | **SUSPENDER**. | Falta cadastro/confirmação; intenção não está provada. |
-| C — ampliação | Preencha. | **LIMITAR** à recepção. | Identidade válida não amplia a zona. |
-| D — janela vencida | Preencha. | **SUSPENDER**. | Nova janela exige aprovação, não ajuste verbal. |
-| E — sem acompanhante | Preencha. | **SUSPENDER**. | Uma condição operacional da autorização não foi atendida. |
+1. **B, sem regra:** deixe as duas caixas vazias, selecione B, preveja e teste. Registre que a engenharia foi permitida pelo modelo permissivo.
+2. **B, com confirmação:** marque somente **Exigir chamado confirmado** e teste B outra vez. Compare as duas linhas da trilha: qual dado mudou a decisão?
+3. **C, com limite de área:** mantenha a confirmação, marque **Liberar somente a área aprovada** e teste C. Que parte da visita prossegue?
+4. **A, contraprova:** sem mudar as regras, teste A. A manutenção legítima continua possível? Registre um limite que o navegador não observa.
 
-**Alternativa sem painel:** use a tabela da seção 3 e aplique, nesta ordem, `cadastro/contato → janela → acompanhante → interseção de zonas → registro`. Faça a comparação inicial sem verificações e a final com todas. A mesma decisão cognitiva permanece disponível em papel.
+| Comparação | Resultado esperado | Ideia demonstrada |
+|---|---|---|
+| B antes/depois da confirmação | **PERMITIR → SUSPENDER** | Um nome e um crachá não substituem visita confirmada. |
+| C com as duas regras | **LIMITAR** à recepção | Pessoa aprovada não ganha a engenharia por extensão. |
+| A com as duas regras | **PERMITIR** recepção | Controle deve preservar a tarefa legítima. |
 
-**Diagnóstico:** se B ainda for permitido, confira **Exigir cadastro e confirmação**; se C for permitido integralmente, confira **Restringir a área**; se D/E passarem, confira janela/acompanhante; se a decisão aparecer sem evento, confira **Registrar decisão**. Se A for negado, volte aos dados de cadastro e às caixas marcadas. O painel não mede frequência, não identifica a pessoa real e não testa a porta.
+**Alternativa sem JavaScript:** os dados dos três casos aparecem no bloco alternativo acima. Primeiro aceite o pedido como apresentado; depois aplique `chamado confirmado? → área solicitada está aprovada?`. Anote a decisão em cada etapa. A mesma comparação pode ser feita em papel.
+
+**Diagnóstico:** se B continuar permitido, confira a primeira regra; se C for permitido integralmente, confira a segunda. Se A for suspenso, releia cadastro e pedido. O laboratório não testa horário, acompanhante, passagem física ou frequência de tentativas; esses pontos são discutidos fora da interface.
 
 ## 7. O que a política ainda não vê? Implementação técnica e humana
 
@@ -173,7 +197,7 @@ A implantação da política pede decisões técnicas e humanas diferentes:
 |---|---|---|---|
 | Cadastro e aprovação | Responsável interno e fornecedor mantêm pessoa, tarefa, zona, horário e contato de retorno. | Pedido existe antes da chegada; A confirma, B não. | Cadastro desatualizado gera falso bloqueio; há escalonamento. |
 | Credencial e zona | Portaria e administração de acesso limitam cartão/identificação ao prazo e área aprovados. | A passa na recepção; C não recebe engenharia; acesso expira na saída. | Leitor, relógio ou porta em falha exigem procedimento seguro. |
-| Acompanhamento e vigilância | Ana recebe, acompanha, observa desvios e confirma saída. | E suspende sem acompanhante; entrada e saída têm responsável. | Log de credencial não prova pessoa sozinha ou tarefa concluída. |
+| Acompanhamento e vigilância | Ana recebe, acompanha, observa desvios e confirma saída. | Responsável e horários de entrada/saída registrados pela portaria. | Trilha do navegador não prova pessoa sozinha ou tarefa concluída. |
 | Aprendizagem e resposta | Gestão treina frases de verificação e valoriza reporte de divergência. | Equipe sabe verificar, escalar e registrar sem culpar quem perguntou. | Treinamento concluído não prova comportamento futuro. |
 
 **Defesa em profundidade** combina barreiras com funções distintas. Se a confirmação falhar, a zona e o acompanhamento ainda podem limitar o dano; se a porta permitir algo indevido, registro e vigilância podem tornar o evento observável. **Zero trust** aqui ajuda a rejeitar confiança implícita por estar no prédio ou usar a marca de um fornecedor; não é uma instrução de reautenticar indiscriminadamente em um processo industrial. A [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) aprofunda esse princípio; sua aplicação a OT exige os requisitos da A19–A22.
@@ -182,7 +206,7 @@ A implantação da política pede decisões técnicas e humanas diferentes:
 
 **Checkpoint presencial, sem nova entrega no Classroom.** Complete R10-01 e R10-02 com `caminho de dano → controle → caso de teste → antes/depois → rastro → limite → responsável`. Acrescente uma linha para o caso de *tailgating*: indique por que o painel não o testa e qual evidência humana/física seria necessária. Em dupla, uma pessoa defende a preservação da visita A/C; a outra questiona o efeito de cadastro desatualizado, falha do leitor ou ausência de Ana. Registrem uma melhoria de procedimento e uma condição para revisão do risco.
 
-**Critério de conclusão:** A é permitida apenas na recepção; B é suspenso sem atribuição de intenção; C mantém apenas o escopo original; D/E apontam a condição faltante; o log é distinguido de entrada física; a lacuna de *tailgating* tem controle e responsável plausíveis. A [atividade A08–A09](A09-decisao-de-riscos.md#atividade) permanece encerrada.
+**Critério de conclusão:** A é permitida apenas na recepção; B muda de permitido para suspenso após a verificação, sem atribuição de intenção; C mantém somente o escopo original; a trilha do navegador é distinguida de entrada física; janela, acompanhante e *tailgating* têm procedimento e responsável plausíveis fora do motor. A [atividade A08–A09](A09-decisao-de-riscos.md#atividade) permanece encerrada.
 
 ### Revisão rápida
 
