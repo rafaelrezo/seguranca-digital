@@ -12,7 +12,7 @@ Consultar também [`docente/publicacao-google-drive.md`](docente/publicacao-goog
 
 - O `AGENTS.md` define as diretrizes gerais de produção e qualidade.
 - A arquitetura geral define **por que cada aula existe, o que recebe da anterior e o que prepara para a seguinte**.
-- O arquivo [`docente/conteudo-programatico-por-encontro.md`](docente/conteudo-programatico-por-encontro.md) conserva a matriz curricular anterior. Para A08–A31, consultar primeiro o [detalhamento aprovado](docente/planejamento-24-encontros/detalhamento-conteudos-por-aula.md) e a [confrontação histórica](docente/planejamento-24-encontros/confrontacao-a01-a07-a08-a10.md) antes de definir fichas-base. A08/A09 têm produção e publicação expressamente autorizadas.
+- Para A08–A31, consultar o [roadmap vigente](docente/roadmap-curso.md) antes de definir fichas-base. A08/A09 foram ministradas e A10 foi publicada; novas fichas devem respeitar a distinção entre material e execução comprovada.
 - O plano docente de cada aula detalha a execução do encontro.
 - Se uma alteração mudar cenário, progressão, objetivo, evidência, produto ou ponte entre aulas, atualizar primeiro a arquitetura geral ou registrar nela a decisão pendente; depois alinhar os artefatos afetados.
 - Não considerar uma sequência aprovada apenas porque seus arquivos já existem. Prevalecem os estados e decisões registrados na arquitetura geral.
@@ -61,7 +61,7 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 - Preservar participação cognitiva com respostas curtas, escolhas justificadas e leitura de evidências; acompanhar não significa somente assistir.
 - Definir **uma atividade principal por macrocomponente**, acumulativa ao longo de seus encontros. Checkpoints presenciais não geram novas tarefas no Classroom. Cada página aponta para a atividade compartilhada quando não houver entrega própria.
 - A operação indispensável à atividade principal deve ter sido demonstrada antes da realização fora da aula. Fornecer insumos sanitizados e alternativa sem ferramenta; não transferir instalação ou descoberta essencial para casa.
-- A distribuição proposta está em `docente/planejamento-24-encontros/proposta-macroorganizacao.md`. Enquanto a solicitação for de planejamento, alterar somente diretrizes e documentos docentes; não editar páginas, publicar no Pages ou enviar atividades.
+- A distribuição vigente está em `docente/roadmap-curso.md`. Quando a solicitação for apenas de planejamento, alterar diretrizes e documentos docentes; não publicar páginas nem enviar atividades sem pedido de produção.
 - Estas decisões substituem preferências anteriores por reprodução obrigatória em cada máquina e atividade domiciliar por encontro. Os demais requisitos de rigor, segurança, continuidade e evidência permanecem.
 
 ## 1. Princípio pedagógico central

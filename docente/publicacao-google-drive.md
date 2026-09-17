@@ -2,6 +2,8 @@
 
 ## A09 — Figura 3 reconciliada com o original — 10 set. 2026
 
+**Publicação verificada:** `3c908e5a92471a1c2d75863df903875c0641149e`; validação `34534496766` e deploy `34534496697` aprovados. SVG, pacote e página públicos conferidos. Esquema inspecionado em tamanho original e na página em 1280/390 px, sem transbordamento.
+
 Print fornecido pelo docente comparado ao esquema; SVG redesenhado em português preservando a cadeia e os qualificadores da Figura 3. Legenda, texto alternativo e pacote sem conexão alinhados. Matriz, atividade e carga preservadas. Publicação no Pages; sem alterações no Drive.
 
 ## A09 — resumo aplicado da NIST SP 800-30 Rev. 1 — 10 set. 2026
@@ -32,7 +34,7 @@ Atualização solicitada: seis riscos, matriz cumulativa editável e exportável
 
 ## Reformulação A09 — 10 set. 2026
 
-Conteúdo preparado para Pages: comprometimento de conta/ransomware; análise, seleção e avaliação de controles encerradas em A09. Alinhados página, pacote, modelo, plano docente, ponte A08 e planejamento; A10 pendente. Slides e arquivos do Drive preservados. Validação e publicação desta revisão serão registradas no relatório `planejamento-24-encontros/reformulacao-a09-riscos-controles-2026-09-10.md`; preparação local não comprova publicação ou execução pela turma.
+Conteúdo preparado para Pages: comprometimento de conta/ransomware; análise, seleção e avaliação de controles encerradas em A09. Alinhados página, pacote, modelo, plano docente, ponte A08 e planejamento; A10 estava pendente naquele momento. Slides e arquivos do Drive preservados. O relatório de planejamento dessa revisão foi retirado do percurso vigente e permanece recuperável no histórico Git; preparação local não comprova publicação ou execução pela turma.
 
 Este registro liga os artefatos versionados no repositório à pasta oficial de distribuição. Ele não substitui as fontes locais nem o histórico Git.
 
@@ -45,7 +47,7 @@ Renomeação solicitada pelo docente em A08/A09, modelos, política e ilustraç�
 
 ## Revisão temática A08/A09 — 10 set. 2026
 
-Padrão aprovado pelo docente: dez/oito temas, sínteses e esquemas, texto integral de estudo e atividade preservados. [Registro de implementação e validação local](planejamento-24-encontros/revisao-tematica-a08-a09-2026-09-10.md). Atualização destinada ao Pages; Drive, slides e PDFs históricos preservados. A realização da A08 foi confirmada pelo docente; sua revisão é apoio posterior. Publicação confirmada pelo commit `5af1dbe7c294477fc8e46f0697dc017a08c17801`: validação `34513451775` e deploy `34513451752` concluídos com sucesso; páginas A08/A09, atividade, CSS e esquema conferidos no endereço público.
+Padrão aprovado pelo docente: dez/oito temas, sínteses e esquemas, texto integral de estudo e atividade preservados. O registro de implementação local foi retirado do planejamento vigente e permanece recuperável no histórico Git. Atualização destinada ao Pages; Drive, slides e PDFs históricos preservados. A realização da A08 foi confirmada pelo docente; sua revisão é apoio posterior. Publicação confirmada pelo commit `5af1dbe7c294477fc8e46f0697dc017a08c17801`: validação `34513451775` e deploy `34513451752` concluídos com sucesso; páginas A08/A09, atividade, CSS e esquema conferidos no endereço público.
 
 ## Revisão da A08 — 8 set. 2026
 
@@ -90,7 +92,7 @@ Os registros abaixo documentam operações passadas. Quantidades, títulos e est
 | A06–A07 | 2 | 2 | Google Slides e Google Docs | pacotes reconciliados, importados e verificados em 1º set. 2026 |
 | A08–A30 | 23 | 23 | Google Slides e Google Docs | rascunhos publicados sob a arquitetura antiga de 30 encontros/104 min; não ministrar como sequência vigente; preservar até a substituição segura |
 
-> **Reconciliação de 1º set. 2026:** a realidade passou a ser A01–A05 ministradas e 20 encontros restantes de 90 minutos. Após revisão técnica, cognitivo-didática e reconciliação histórica, o planejamento vigente está em [`reconciliacao-curricular-25-encontros.md`](reconciliacao-curricular-25-encontros.md). Pentest foi deslocado para A23–A24, depois de modelagem, criptografia, SGSI e OT. Nenhum arquivo futuro foi excluído ou substituído nesta etapa.
+> **Registro histórico de 1º set. 2026:** à época, planejaram-se A01–A05 ministradas e 20 encontros restantes de 90 minutos. Esse plano foi superado pela [arquitetura](arquitetura-geral-da-experiencia.md) e pelo [roadmap vigente](roadmap-curso.md); sua versão anterior permanece no histórico Git. Nenhum arquivo futuro foi excluído ou substituído naquela etapa.
 
 Os títulos no Drive começam pelo identificador estável `Axx`. Os roteiros terminam com `— prática`. A pasta deve conter somente uma apresentação vigente por identificador.
 
