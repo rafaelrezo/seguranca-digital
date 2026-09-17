@@ -3,98 +3,112 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A10 — painel de verificação de visitas</title>
+  <title>A10 — laboratório de política de visitas</title>
   <style>
     :root { color-scheme: light; font: 17px/1.5 system-ui, sans-serif; }
-    body { max-width: 880px; margin: auto; padding: 1rem; color: #172331; background: #f7f9fc; }
-    h1, h2 { line-height: 1.25; }
-    .card { background: white; border: 1px solid #b7c4d2; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
-    label, select, button { font: inherit; }
-    select, button { padding: .45rem .65rem; margin: .3rem .25rem .3rem 0; }
-    button { border: 1px solid #123b66; border-radius: .3rem; background: #e8f2ff; cursor: pointer; }
-    button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #b26000; outline-offset: 2px; }
+    body { max-width: 1040px; margin: auto; padding: 1rem; color: #172331; background: #f7f9fc; }
+    h1,h2 { line-height: 1.25; }
+    .card { background: #fff; border: 1px solid #b7c4d2; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: .7rem; }
+    .control { display: block; border: 1px solid #cad5df; border-radius: .4rem; padding: .6rem; }
+    button,select { font: inherit; padding: .45rem .65rem; }
+    button { border: 1px solid #123b66; border-radius: .3rem; background: #e8f2ff; cursor: pointer; margin: .25rem .4rem .25rem 0; }
+    button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible { outline: 3px solid #b26000; outline-offset: 2px; }
+    table { border-collapse: collapse; width: 100%; }
+    th,td { border: 1px solid #b7c4d2; padding: .5rem; text-align: left; vertical-align: top; }
+    .scroll { overflow-x: auto; }
     .muted { color: #46576a; }
-    #log { white-space: pre-wrap; background: #eff4f8; padding: .8rem; min-height: 3rem; }
-    .result { border-left: 5px solid #245e84; padding: .6rem; background: #eaf5fb; }
+    .result { border-left: 5px solid #245e84; padding: .7rem; background: #eaf5fb; min-height: 2.4rem; }
+    #log { white-space: pre-wrap; background: #eff4f8; padding: .8rem; min-height: 2rem; }
+    code { overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
-  <h1>A10 — verificar uma visita de manutenção</h1>
-  <p>Simulação local com dados fictícios. O painel compara pedidos, cadastro e decisões; não consulta pessoas ou sistemas reais. Use somente para o laboratório da disciplina.</p>
-
-  <section class="card" aria-labelledby="pedido-titulo">
-    <h2 id="pedido-titulo">1. Pedido apresentado na portaria</h2>
-    <label for="caso">Escolha o caso:</label>
-    <select id="caso">
-      <option value="a">A — visita agendada</option>
-      <option value="b">B — urgência alegada</option>
-      <option value="c">C — ampliação de escopo</option>
-    </select>
-    <p id="pedido"></p>
-    <p class="muted">Antes de consultar, preveja qual informação faltaria para decidir.</p>
+  <h1>A10 — laboratório de política de visitas</h1>
+  <p>Dados fictícios e avaliação local no navegador. Os controles abaixo executam regras de decisão do modelo; nenhuma porta ou fornecedor real é consultado.</p>
+  <section class="card" aria-labelledby="casos-titulo">
+    <h2 id="casos-titulo">1. Pedidos e cadastro</h2>
+    <p>Compare o pedido apresentado com o cadastro e a confirmação pelo contato previamente conhecido. A aparência do crachá é apenas uma alegação.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Caso</th><th>Pedido na portaria</th><th>Cadastro e confirmação independente</th></tr></thead>
+      <tbody>
+        <tr><th>A</th><td>10:05, Marta, SV-104, impressora da recepção.</td><td>Marta, recepção, 10:00–10:30, Ana acompanha; contato conhecido confirma.</td></tr>
+        <tr><th>B</th><td>09:15, Leo, imagem de crachá, SV-999, urgência na sala de engenharia.</td><td>SV-999 não existe; contato conhecido não confirma serviço.</td></tr>
+        <tr><th>C</th><td>10:07, Marta, SV-104, impressora e sala de engenharia.</td><td>Somente impressora da recepção aprovada; Ana acompanha.</td></tr>
+        <tr><th>D</th><td>11:00, Marta, SV-104, impressora da recepção.</td><td>Visita aprovada apenas entre 10:00 e 10:30; nova janela não foi aprovada.</td></tr>
+        <tr><th>E</th><td>10:10, Marta, SV-104, impressora da recepção, sem Ana disponível.</td><td>Visita confirmada, mas a autorização exige acompanhante.</td></tr>
+      </tbody>
+    </table></div>
   </section>
-
-  <section class="card" aria-labelledby="consulta-titulo">
-    <h2 id="consulta-titulo">2. Canal independente e cadastro</h2>
-    <button id="consultar" type="button">Consultar cadastro e contato conhecido</button>
-    <div id="cadastro" aria-live="polite">Consulta ainda não realizada.</div>
+  <section class="card" aria-labelledby="politica-titulo">
+    <h2 id="politica-titulo">2. Configure a política</h2>
+    <p>O estado inicial aceita o pedido apresentado sem confrontá-lo com cadastro ou condições. Ative uma regra por vez e observe qual falha ela corrige.</p>
+    <div class="grid">
+      <label class="control"><input id="confirmar" type="checkbox"> Exigir cadastro e confirmação pelo contato conhecido</label>
+      <label class="control"><input id="escopo" type="checkbox"> Restringir a área ao escopo aprovado</label>
+      <label class="control"><input id="janela" type="checkbox"> Conferir janela de horário</label>
+      <label class="control"><input id="acompanhar" type="checkbox"> Exigir acompanhante designado</label>
+      <label class="control"><input id="registrar" type="checkbox"> Registrar decisão e motivo no log</label>
+    </div>
+    <p class="muted">Se cadastro ou confirmação faltar, a política com verificação ativa suspende a entrada. Se apenas parte da área estiver aprovada, a decisão é limitada. Horário vencido ou acompanhante ausente suspendem toda a visita até nova autorização.</p>
   </section>
-
-  <section class="card" aria-labelledby="decisao-titulo">
-    <h2 id="decisao-titulo">3. Decisão e registro</h2>
-    <label for="decisao">Ação proposta:</label>
-    <select id="decisao">
-      <option value="">Selecione uma decisão</option>
-      <option value="total">Autorizar o pedido como apresentado</option>
-      <option value="limitado">Autorizar somente o escopo cadastrado</option>
-      <option value="negar">Não autorizar e escalar a divergência</option>
-    </select>
-    <p><label><input id="acompanhante" type="checkbox"> Há responsável designado para acompanhar e registrar entrada/saída.</label></p>
-    <button id="registrar" type="button">Registrar decisão</button>
-    <p id="resultado" class="result" aria-live="polite">Aguardando decisão.</p>
+  <section class="card" aria-labelledby="teste-titulo">
+    <h2 id="teste-titulo">3. Execute e compare</h2>
+    <label for="caso">Caso:</label>
+    <select id="caso"><option value="A">A — visita regular</option><option value="B">B — pretexto</option><option value="C">C — ampliação</option><option value="D">D — horário vencido</option><option value="E">E — acompanhante ausente</option></select>
+    <button id="testar" type="button">Executar caso</button>
+    <button id="todos" type="button">Executar os cinco casos</button>
+    <p id="resultado" class="result" role="status" aria-live="polite">Nenhum teste executado. Preveja a decisão antes de clicar.</p>
+    <div class="scroll"><table><thead><tr><th>Caso</th><th>Decisão do modelo</th><th>Motivo observável</th></tr></thead><tbody id="resultados"><tr><td colspan="3">Aguardando execução.</td></tr></tbody></table></div>
     <h2>Trilha desta sessão</h2>
-    <div id="log" role="log" aria-live="polite">Nenhuma decisão registrada.</div>
+    <p>Se “Registrar decisão” estiver desligado, o modelo ainda decide, mas não conserva rastro para revisão.</p>
+    <div id="log" role="log" aria-live="polite">Nenhum evento registrado.</div>
+    <button id="limpar" type="button">Limpar trilha e resultados</button>
   </section>
-
+  <section class="card" aria-labelledby="limites-titulo">
+    <h2 id="limites-titulo">4. Limite do teste</h2>
+    <p>O modelo não vê uma pessoa seguindo outra pela porta, não confere documento físico e não garante que a tarefa foi concluída. Para esse caminho, a equipe precisa de observação, acompanhamento, orientação e procedimento de resposta. O log prova somente que esta regra foi executada nesta sessão.</p>
+  </section>
   <p><a href="../../aulas/A10-engenharia-social-seguranca-fisica/">Voltar à aula A10</a></p>
   <script>
-    const dados = {
-      a: { pedido: "10:05. Marta, da ServTec, apresenta o chamado SV-104 para manutenção da impressora da recepção. Solicita acesso à recepção.", cadastro: "Cadastro: SV-104, Marta, ServTec, 10:00–10:30, impressora da recepção. Responsável: Ana. O número previamente cadastrado da ServTec confirma a visita e esse escopo.", correto: "total", exigeAcompanhante: true, explicacao: "A visita coincide com pessoa, horário, finalidade e área cadastrados. Registrar entrada, acompanhamento e saída; a confirmação não concede acesso a outras áreas." },
-      b: { pedido: "09:15. Leo mostra imagem de um crachá ServTec e afirma que precisa entrar imediatamente na sala de engenharia para uma correção urgente. Cita o chamado SV-999.", cadastro: "Cadastro: não há SV-999 nem visita de Leo. O número previamente cadastrado da ServTec informa que não solicitou serviço urgente na sala de engenharia.", correto: "negar", exigeAcompanhante: false, explicacao: "A justificativa e o crachá mostrado não substituem a confirmação independente. Não autorizar entrada; registrar a divergência e encaminhar ao responsável, sem acusar intenção ou identidade criminosa." },
-      c: { pedido: "10:07. Marta apresenta SV-104, mas pede também entrada na sala de engenharia para 'verificar a rede' depois de atender a impressora.", cadastro: "Cadastro: SV-104 cobre somente impressora da recepção, 10:00–10:30. O número conhecido confirma a visita original, mas não aprovou a sala de engenharia nem trabalho de rede.", correto: "limitado", exigeAcompanhante: true, explicacao: "A visita original pode prosseguir acompanhada. A ampliação para engenharia precisa de novo pedido e autoridade; registrar a recusa dessa parte sem interromper o suporte legítimo." }
+    const casos = {
+      A: {pedido:["recepção"], aprovado:["recepção"], cadastro:true, confirmado:true, horario:true, acompanhante:true},
+      B: {pedido:["engenharia"], aprovado:[], cadastro:false, confirmado:false, horario:false, acompanhante:false},
+      C: {pedido:["recepção","engenharia"], aprovado:["recepção"], cadastro:true, confirmado:true, horario:true, acompanhante:true},
+      D: {pedido:["recepção"], aprovado:["recepção"], cadastro:true, confirmado:true, horario:false, acompanhante:true},
+      E: {pedido:["recepção"], aprovado:["recepção"], cadastro:true, confirmado:true, horario:true, acompanhante:false}
     };
-    const caso = document.getElementById("caso");
-    const pedido = document.getElementById("pedido");
-    const cadastro = document.getElementById("cadastro");
-    const resultado = document.getElementById("resultado");
-    const log = document.getElementById("log");
-    let consultado = false;
+    const $ = id => document.getElementById(id);
     let eventos = [];
-    function mostrar() {
-      pedido.textContent = dados[caso.value].pedido;
-      cadastro.textContent = "Consulta ainda não realizada.";
-      resultado.textContent = "Aguardando decisão.";
-      document.getElementById("decisao").value = "";
-      document.getElementById("acompanhante").checked = false;
-      consultado = false;
+    function politica() { return {confirmar:$("confirmar").checked, escopo:$("escopo").checked, janela:$("janela").checked, acompanhar:$("acompanhar").checked, registrar:$("registrar").checked}; }
+    function avaliar(id,p) {
+      const c=casos[id];
+      if (p.confirmar && (!c.cadastro || !c.confirmado)) return {decisao:"SUSPENDER",motivo:"Cadastro ou confirmação independente ausente"};
+      if (p.janela && !c.horario) return {decisao:"SUSPENDER",motivo:"Fora da janela aprovada"};
+      if (p.acompanhar && !c.acompanhante) return {decisao:"SUSPENDER",motivo:"Acompanhante exigido não disponível"};
+      const areas=p.escopo ? c.pedido.filter(a=>c.aprovado.includes(a)) : c.pedido;
+      if (!areas.length) return {decisao:"SUSPENDER",motivo:"Nenhuma área solicitada está aprovada"};
+      const limitado=areas.length<c.pedido.length;
+      return {decisao:limitado?"LIMITAR":"PERMITIR",motivo:(limitado?"Somente ":"Áreas liberadas: ")+areas.join(", ")};
     }
-    caso.addEventListener("change", mostrar);
-    document.getElementById("consultar").addEventListener("click", () => {
-      cadastro.textContent = dados[caso.value].cadastro;
-      consultado = true;
-    });
-    document.getElementById("registrar").addEventListener("click", () => {
-      const item = dados[caso.value];
-      const escolha = document.getElementById("decisao").value;
-      const acompanhado = document.getElementById("acompanhante").checked;
-      if (!consultado) { resultado.textContent = "Falta consultar o cadastro e o contato conhecido antes de concluir."; return; }
-      if (!escolha) { resultado.textContent = "Selecione uma decisão e registre-a."; return; }
-      const adequado = escolha === item.correto && (!item.exigeAcompanhante || acompanhado);
-      resultado.textContent = (adequado ? "Decisão sustentada. " : "Revise a decisão ou o acompanhamento. ") + item.explicacao;
-      eventos.push(`${caso.value.toUpperCase()} | consulta realizada | ${document.getElementById("decisao").selectedOptions[0].textContent} | acompanhante: ${acompanhado ? "sim" : "não"} | ${adequado ? "critério atendido" : "revisão necessária"}`);
-      log.textContent = eventos.join("\n");
-    });
-    mostrar();
+    function rodar(ids) {
+      const p=politica();
+      $("resultados").replaceChildren();
+      const resumo=[];
+      for (const id of ids) {
+        const r=avaliar(id,p);
+        const linha=document.createElement("tr");
+        for(const valor of [id,r.decisao,r.motivo]) { const celula=document.createElement("td");celula.textContent=valor;linha.appendChild(celula); }
+        $("resultados").appendChild(linha);
+        resumo.push(`${id}: ${r.decisao}`);
+        if(p.registrar) eventos.push(`${id} | ${r.decisao} | ${r.motivo} | regras: ${Object.entries(p).filter(([,v])=>v).map(([k])=>k).join(", ")}`);
+      }
+      $("resultado").textContent=resumo.join(" · ")+(p.registrar?". Rastro gravado nesta sessão.":". Sem rastro: registro desativado.");
+      $("log").textContent=eventos.length?eventos.join("\n"):"Nenhum evento registrado.";
+    }
+    $("testar").addEventListener("click",()=>rodar([$("caso").value]));
+    $("todos").addEventListener("click",()=>rodar(Object.keys(casos)));
+    $("limpar").addEventListener("click",()=>{eventos=[];$("resultados").replaceChildren();const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=3;td.textContent="Aguardando execução.";tr.appendChild(td);$("resultados").appendChild(tr);$("resultado").textContent="Nenhum teste executado. Preveja a decisão antes de clicar.";$("log").textContent="Nenhum evento registrado.";});
   </script>
 </body>
 </html>

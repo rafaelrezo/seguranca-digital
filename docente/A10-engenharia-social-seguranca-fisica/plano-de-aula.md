@@ -1,56 +1,51 @@
-# Plano docente — A10: quem pode entrar e até onde pode ir?
+# Plano docente — A10: uma visita confirmada pode entrar em qualquer área?
 
 ## Ficha-base
 
 | Campo | Definição |
 |---|---|
-| Identificador | A10 — início da nova matriz industrial prospectiva |
-| Ementa | Engenharia social e conscientização; segurança física como condição de acesso; autenticação, autorização, accounting e gestão de riscos. |
-| Objetivos | Separar alegação e confirmação; decidir entrada e escopo por evidências; propor verificação, acompanhamento e registro que preservem manutenção legítima. |
-| Carga | 100 min: 40 T / 60 P conduzidos pelo professor. Proporção do curso completo a recalcular na nova edição. |
-| Situação | Portaria de indústria fictícia de envase; visita para impressora da recepção versus pedido de sala de engenharia. |
-| Pré-requisito | A09 forneceu método de avaliação de risco; a página A10 contém toda a matriz de partida e não depende de entrega individual. |
-| Infraestrutura | MkDocs e painel HTML local em `docs/assets/m1/A10-painel-visitas.html`; navegador com JavaScript. Alternativa completa na página. Nenhum acesso físico ou digital externo. |
-| Evidência | Registro curto R10-01/R10-02 e decisões A, B, C com rastro, limite e responsável. |
-| Critério | Autorizar A só no escopo; negar B e escalar sem atribuir intenção; preservar a visita original em C e negar a ampliação; distinguir simulação de controle físico executado. |
-| Fontes | NIST SP 800-30r1, SP 800-53r5 Update 1, SP 800-207 e SP 800-82r3; links na página. |
+| Identificador | A10 — engenharia social, segurança física e política de visitas. |
+| Ementa | Engenharia social e conscientização; segurança física; autenticação, autorização, accounting; avaliação e mitigação de risco. |
+| Objetivos | Explicar quatro mecanismos de engenharia social; distinguir zonas/barreiras e AAA; configurar e testar política com permitido, negado e limitado. |
+| Carga | 100 minutos: 40 T / 60 P de demonstração e análise conduzidas. |
+| Situação | Indústria didática de envase, visita para impressora da recepção e pedidos de acesso à engenharia. |
+| Pré-requisito | Método de risco da A09; página fornece matriz nova e todos os dados dos testes. Não presumir entrega individual. |
+| Infraestrutura | MkDocs, navegador, `docs/assets/m1/A10-painel-visitas.html`; alternativa integral em tabelas na página. Não usar instalação real. |
+| Evidência | R10-01/R10-02 e tabela de testes antes/depois com configuração, decisão, log, limite e responsável. |
+| Critério | Preservar A, suspender B/D/E, limitar C; reconhecer que tailgating não gera pedido para o motor; propor controle humano e técnico. |
 
-## Posição no curso e cadeia didática
+## Ganho e cadeia
 
-A09 foi confirmada como realizada, mas a versão projetada e os produtos individuais não foram confirmados. A10 abre novo cenário industrial sem transportar fatos da Nuvora ou da central de equipamentos. A08/A09 permanecem históricas. A competência é aplicar decisão de risco a um **processo sociotécnico de acesso**, com controles humanos e físicos complementares. A11 abordará dados; OT técnico e processo físico virão depois, com fundamentos NIST SP 800-82, defesa em profundidade, leitura situada de zero trust e ISA/IEC 62443.
+A09 avaliou riscos; A10 mostra **como uma decisão de tratamento altera o comportamento de uma política** e o que permanece fora do teste. O painel anterior era uma pergunta de múltipla escolha com resposta pronta. O painel atual implementa condições configuráveis, executa cinco casos e evidencia a diferença entre decisão e registro. Não representa uma porta real. A10 não antecipa um impacto no CLP; A11 receberá a pergunta sobre dados alcançáveis pelas áreas.
 
-**Cadeia:** herança conceitual de risco → apresentar função normal e áreas → fornecer matriz R10-01/R10-02 → prever decisão para pedido → consultar cadastro/canal conhecido no painel → ler resultado e trilha → explicar pretexto, escopo e barreiras físicas → decidir A/B/C → comparar efeito e limite → registrar responsável/rotina → abrir risco de dados para A11. O painel executa comparação local com dados fictícios; não comprova que uma portaria real bloqueou entrada.
+**Cadeia:** herança de avaliação de risco → pedido B e política permissiva → execução da linha de base → rastro sem registro → pretexto e fronteiras físicas → regra de verificação/zona/janela/acompanhante → casos A–E → log e limites → R10-01/R10-02 → falha fora do modelo (*tailgating*) → revisão de procedimento → pergunta de dados para A11.
 
-## Condução e tempo
+## Condução por blocos
 
-| Minutos | T/P | Ação do professor e participação | Ponto de espera |
+| Minutos | T/P | Demonstração e participação | Ponto de espera |
 |---|---:|---|---|
-| 0–15 | 10/5 | Abertura com pedido B sem resposta; identificar função legítima, áreas e informação faltante. Mostrar matriz pronta. | Turma separa fala/crachá de autorização cadastrada. |
-| 15–30 | 10/5 | Sistematizar pretexto, urgência, canal independente, papéis. Exemplo trabalhado A. | Ninguém trata telefone informado pelo visitante como contato confiável. |
-| 30–50 | 5/15 | Painel A: previsão, consulta, decisão, acompanhante, log. Professor mostra cada botão e sua função antes do uso. | A autorizado só na recepção; entrada/saída ainda são registros a produzir. |
-| 50–70 | 5/15 | Painel B: pedido urgente; turma prevê, consulta, registra, revisa hipótese. | B negado/escalado; intenção não atribuída. |
-| 70–85 | 5/10 | Painel C: escopo original versus sala adicional; discutir zonas, acompanhamento e exceção. | C preserva serviço aprovado e nega ampliação. |
-| 85–95 | 3/7 | Comparar duas barreiras, responsáveis e evidências; completar matriz e criticar falha de cadastro. | Controle proposto não vira controle executado no mundo físico. |
-| 95–100 | 2/3 | Revisão rápida, ponte para dados A11 e recolha oral de uma decisão corrigida. | Checkpoint final, sem envio no Classroom. |
+| 0–10 | 3/7 | Abrir B com política vazia; turma prevê, observa PERMITIR e ausência de log. | Todos identificam que o modelo inicial aceita o pedido sem confronto com cadastro e condições. |
+| 10–25 | 10/5 | Figuras 1–2 e comparação de pretexto, impersonificação, urgência, vishing e tailgating; pergunta aberta ao contato cadastrado. | Não chamar pressão de urgência de prova de fraude nem usar número fornecido no pedido. |
+| 25–40 | 10/5 | Figuras 3–4, perímetro, zona, leitor/controlador, vigilância, ambiente; PE-2/3/8 por função; distinguir autorização de registro. | SV-104 termina na recepção; leitor não detecta pessoa que entra junto. |
+| 40–55 | 7/8 | AAA/atributos, matriz R10-01/R10-02 e caso A trabalhado; ativar as cinco regras e testar A. | A passa com log, sem liberar engenharia. |
+| 55–80 | 5/20 | Redefinir painel, ligar regra a regra; B, C, D, E; executar conjunto e comparar com previsão. | B/D/E suspendem, C limita; log apenas quando habilitado. |
+| 80–95 | 3/12 | Tailgating fora do modelo; equipe propõe vigilância, acompanhante e resposta; completar duas linhas de risco. | Distinguir teste do motor e controle físico real. |
+| 95–100 | 2/3 | Revisão rápida e ponte para tipos/fluxos de dados de A11. | Registrar uma falha remanescente e responsável. |
 | **Total** | **40/60** |  |  |
 
-As pausas presenciais são curtas, com previsão e interpretação; não reservar um bloco longo para estudantes explorarem o painel sozinhos. O professor abre o painel, apresenta o estado, opera e congela os resultados. Quem não estiver no computador participa com a mesma tabela da página.
+## Gabarito e limites
 
-## Respostas e decisões esperadas
+- **Linha de base:** A–E são permitidos porque a configuração não consulta cadastro, área, janela ou acompanhante. O resultado é intencionalmente inadequado. Sem regra de registro, a tela mostra decisão mas nenhum evento de revisão.
+- **Confirmação:** B suspende. A, C, D e E ainda podem passar porque a regra não testa as demais condições. Essa observação motiva as regras seguintes.
+- **Escopo:** C fica limitado à recepção; o chamado original continua válido. B continua suspenso.
+- **Janela:** D suspende até autorização nova; não basta editar o relógio ou aceitar fala do visitante.
+- **Acompanhamento:** E suspende até acompanhante aprovado; evitar que a portaria assuma essa função sem designação.
+- **Registro:** o log guarda ID do caso, decisão, motivo e regras ativas na sessão. Não comprova identidade física, passagem, execução da tarefa ou intenção.
+- **Tailgating:** não há pedido ao motor. Câmera, desenho da passagem, observação, entrada individual, acompanhamento e reporte são camadas possíveis; discutir custo operacional e privacidade.
+- **R10-01/R10-02:** premissas qualitativas fornecidas, risco moderado provisório; cinco casos artificiais não estimam probabilidade nem risco residual real. PE-2/3/8 são referências de função, não certificação.
 
-- **R10-01:** a classe moderada é provisória, derivada da premissa de iniciação moderada e dano condicionado alto, com impacto alto. Não converter ausência de histórico em probabilidade zero. Nova evidência pode mudar a avaliação.
-- **R10-02:** autorização inicial verdadeira não cobre novo local ou finalidade. Controle é negar ampliação e pedir nova autoridade, sem cancelar automaticamente a manutenção legítima.
-- **A:** Marta/SV-104/10:00–10:30/impressora/recepção coincidem com cadastro e retorno no número conhecido. Autorizar só esse escopo, com acompanhante e registro. O painel não prova execução do serviço.
-- **B:** Leo/SV-999/sala de engenharia não constam; o contato conhecido nega a solicitação. Não autorizar entrada, registrar a divergência e escalar. Não chamar a pessoa de atacante comprovado.
-- **C:** Marta e SV-104 são válidos para impressora, mas a sala de engenharia não foi aprovada. Permitir o original com acompanhante, negar a expansão, registrar a necessidade de novo chamado/autorização.
-- Decisão antes da consulta é insuficiente, mesmo que por acaso coincida com a resposta esperada. Log local mostra o que o operador escolheu e a regra avaliou; não é log de catraca.
+## Contingência e segurança
 
-## Segurança, contingência e limites
+Sem JavaScript ou projeção, a página contém os dados de A–E e a ordem de avaliação: `cadastro/contato → janela → acompanhante → interseção de zonas → registro`. Simular a política em papel e comparar antes/depois. Não realizar ensaio físico em instalações, abordar visitantes, expor contatos reais ou usar credenciais reais. Se o navegador abrir o arquivo local, a navegação de volta ao MkDocs pode depender da URL do site; a página da aula continua disponível no menu.
 
-Não executar teste de intrusão física, não abordar visitantes reais, não usar nomes ou contatos de fornecedores verdadeiros. O painel é um artefato estático sem rede; não coleta dados pessoais. Se JavaScript falhar, a tabela A/B/C e os registros de cadastro na página permitem o mesmo exercício. Se faltar projeção, o docente lê os três pedidos e as confirmações fornecidas, com pausa para previsão.
-
-Evitar apresentar NIST SP 800-207 como obrigação de comprar uma ferramenta ou aplicar zero trust diretamente ao CLP. Nesta aula, a ideia pertinente é não dar acesso implícito pela localização ou afiliação; a avaliação de OT e seus limites operacionais será feita em A19–A22. NIST SP 800-53 oferece famílias de controles; citar a publicação não equivale a conformidade. Não descrever entrada, incidente ou entrega da turma como fato até que haja registro real.
-
-## Produto e ponte
-
-Checkpoint presencial: duas linhas de risco com controle, caso, resultado, limite, responsável e rotina de revisão. A atividade de A08–A09 segue encerrada. A11 receberá a pergunta “que dados a indústria mantém, quem deve vê-los e como prevenir sua saída indevida?”, abrindo nova linha da matriz sem reclassificar R10-01/R10-02 automaticamente.
+A atividade é checkpoint presencial, não nova tarefa do Classroom. A política exige procedimento de exceção, manutenção do cadastro e resposta a falha de leitor/relógio; não apresentar toggles do laboratório como implantação produtiva.

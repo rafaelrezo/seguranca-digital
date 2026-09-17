@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 330" role="img" aria-labelledby="title desc">
+<title id="title">Componentes de um controle eletrônico de porta</title>
+<desc id="desc">Credencial é lida; controlador compara identificador, zona e horário com política aprovada; saída permite ou nega o acionamento da fechadura e gera evento de auditoria. Acompanhamento e saída de emergência são caminhos humanos e de segurança separados.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#38546f"/></marker></defs>
+<rect width="1100" height="330" fill="#f7f9fc"/>
+<g font-family="Arial,sans-serif" fill="#17324d">
+<rect x="25" y="48" width="205" height="110" rx="10" fill="#e9f3ff" stroke="#3d6f9e" stroke-width="2"/><text x="43" y="90" font-size="21" font-weight="700">Credencial</text><text x="43" y="123" font-size="16">ID apresentado</text>
+<rect x="285" y="48" width="250" height="110" rx="10" fill="#e9f3ff" stroke="#3d6f9e" stroke-width="2"/><text x="303" y="90" font-size="21" font-weight="700">Leitor + controlador</text><text x="303" y="123" font-size="16">consulta regra vigente</text>
+<rect x="590" y="48" width="210" height="110" rx="10" fill="#e7f6ee" stroke="#38845d" stroke-width="2"/><text x="608" y="90" font-size="21" font-weight="700">Porta</text><text x="608" y="123" font-size="16">permite ou nega</text>
+<rect x="850" y="48" width="225" height="110" rx="10" fill="#edf0fa" stroke="#596b9e" stroke-width="2"/><text x="868" y="90" font-size="21" font-weight="700">Evento</text><text x="868" y="123" font-size="16">hora, porta, decisão</text>
+<rect x="285" y="215" width="250" height="78" rx="10" fill="#fff1db" stroke="#b87914" stroke-width="2"/><text x="303" y="246" font-size="19" font-weight="700">Política aprovada</text><text x="303" y="274" font-size="16">pessoa + zona + janela</text>
+<rect x="590" y="215" width="485" height="78" rx="10" fill="#fff" stroke="#8496a8" stroke-width="2"/><text x="608" y="246" font-size="19" font-weight="700">Fora do leitor</text><text x="608" y="274" font-size="16">acompanhante, tailgating, evacuação</text>
+</g><g stroke="#38546f" stroke-width="3" marker-end="url(#arrow)"><path d="M234 104h47"/><path d="M539 104h47"/><path d="M804 104h42"/><path d="M410 211v-49"/></g>
+</svg>

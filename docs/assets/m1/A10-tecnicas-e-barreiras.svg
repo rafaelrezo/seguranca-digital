@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 410" role="img" aria-labelledby="title desc">
+<title id="title">Três caminhos de engenharia social e a barreira correspondente</title>
+<desc id="desc">Linha um: pretexto e impersonificação apresentam identidade e serviço plausíveis, combatidos por cadastro e contato conhecido. Linha dois: urgência e autoridade pressionam por exceção, combatidas por pausa e escalonamento. Linha três: tailgating evita apresentar pedido, exigindo observação e entrada individual.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#38546f"/></marker></defs>
+<rect width="1100" height="410" fill="#f7f9fc"/>
+<g font-family="Arial,sans-serif" fill="#17324d">
+<text x="30" y="42" font-size="24" font-weight="700">Caminho usado</text><text x="420" y="42" font-size="24" font-weight="700">Decisão pressionada</text><text x="750" y="42" font-size="24" font-weight="700">Barreira que responde</text>
+<g transform="translate(20 66)"><rect width="340" height="90" rx="10" fill="#fff1db" stroke="#b87914" stroke-width="2"/><text x="18" y="35" font-size="20" font-weight="700">Pretexto + impersonificação</text><text x="18" y="64" font-size="17">“Sou da ServTec; tenho chamado.”</text></g>
+<g transform="translate(405 66)"><rect width="280" height="90" rx="10" fill="#fff" stroke="#8496a8" stroke-width="2"/><text x="18" y="35" font-size="19">Aceitar a identidade</text><text x="18" y="64" font-size="19">e o serviço alegados</text></g>
+<g transform="translate(730 66)"><rect width="350" height="90" rx="10" fill="#e7f6ee" stroke="#38845d" stroke-width="2"/><text x="18" y="35" font-size="19" font-weight="700">Cadastro anterior</text><text x="18" y="64" font-size="17">+ contato conhecido</text></g>
+<g transform="translate(20 176)"><rect width="340" height="90" rx="10" fill="#fff1db" stroke="#b87914" stroke-width="2"/><text x="18" y="35" font-size="20" font-weight="700">Urgência + autoridade</text><text x="18" y="64" font-size="17">“A gerência mandou liberar.”</text></g>
+<g transform="translate(405 176)"><rect width="280" height="90" rx="10" fill="#fff" stroke="#8496a8" stroke-width="2"/><text x="18" y="35" font-size="19">Abrir exceção</text><text x="18" y="64" font-size="19">sem verificar</text></g>
+<g transform="translate(730 176)"><rect width="350" height="90" rx="10" fill="#e7f6ee" stroke="#38845d" stroke-width="2"/><text x="18" y="35" font-size="19" font-weight="700">Pausa + escalonamento</text><text x="18" y="64" font-size="17">com registro da decisão</text></g>
+<g transform="translate(20 286)"><rect width="340" height="90" rx="10" fill="#fff1db" stroke="#b87914" stroke-width="2"/><text x="18" y="35" font-size="20" font-weight="700">Tailgating</text><text x="18" y="64" font-size="17">Segue alguém pela porta.</text></g>
+<g transform="translate(405 286)"><rect width="280" height="90" rx="10" fill="#fff" stroke="#8496a8" stroke-width="2"/><text x="18" y="35" font-size="19">Evitar a interface</text><text x="18" y="64" font-size="19">de autorização</text></g>
+<g transform="translate(730 286)"><rect width="350" height="90" rx="10" fill="#e7f6ee" stroke="#38845d" stroke-width="2"/><text x="18" y="35" font-size="19" font-weight="700">Entrada individual</text><text x="18" y="64" font-size="17">+ observação e resposta</text></g>
+</g>
+<g stroke="#38546f" stroke-width="3" marker-end="url(#arrow)"><path d="M364 111h37"/><path d="M689 111h37"/><path d="M364 221h37"/><path d="M689 221h37"/><path d="M364 331h37"/><path d="M689 331h37"/></g>
+</svg>

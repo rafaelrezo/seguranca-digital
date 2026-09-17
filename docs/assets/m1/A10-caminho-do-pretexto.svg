@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 300" role="img" aria-labelledby="title desc">
+<title id="title">Da alegação de manutenção à decisão de entrada</title>
+<desc id="desc">Quatro quadros: pessoa apresenta crachá e urgência; portaria compara chamado e contato conhecido; responsável aprova pessoa, área, serviço e janela; porta aplica escopo e registro acompanha a visita. Setas mostram que a fala não substitui confirmação.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#355475"/></marker></defs>
+<rect width="1120" height="300" fill="#f7f9fc"/>
+<g font-family="Arial,sans-serif" fill="#17324d">
+<g transform="translate(20 38)"><rect width="250" height="185" rx="12" fill="#fff1db" stroke="#c47b00" stroke-width="2"/><text x="18" y="38" font-size="22" font-weight="700">1. Pedido</text><text x="18" y="76" font-size="17">“Sou da manutenção.”</text><text x="18" y="106" font-size="17">Crachá + urgência</text><text x="18" y="145" font-size="16" fill="#6b4200">Alegação, não prova</text></g>
+<g transform="translate(295 38)"><rect width="250" height="185" rx="12" fill="#e9f3ff" stroke="#3d6f9e" stroke-width="2"/><text x="18" y="38" font-size="22" font-weight="700">2. Verificação</text><text x="18" y="76" font-size="17">Chamado anterior</text><text x="18" y="106" font-size="17">Contato cadastrado</text><text x="18" y="145" font-size="16" fill="#244e78">Confirmação independente</text></g>
+<g transform="translate(570 38)"><rect width="250" height="185" rx="12" fill="#e7f6ee" stroke="#35815d" stroke-width="2"/><text x="18" y="38" font-size="22" font-weight="700">3. Autorização</text><text x="18" y="76" font-size="17">Pessoa + tarefa</text><text x="18" y="106" font-size="17">Zona + horário</text><text x="18" y="145" font-size="16" fill="#1f6441">Responsável decide</text></g>
+<g transform="translate(845 38)"><rect width="250" height="185" rx="12" fill="#edf0fa" stroke="#596b9e" stroke-width="2"/><text x="18" y="38" font-size="22" font-weight="700">4. Aplicação</text><text x="18" y="76" font-size="17">Porta e acompanhante</text><text x="18" y="106" font-size="17">Entrada e saída</text><text x="18" y="145" font-size="16" fill="#3b4f85">Rastro e revisão</text></g>
+</g><g stroke="#355475" stroke-width="3" marker-end="url(#arrow)"><path d="M273 130h19"/><path d="M548 130h19"/><path d="M823 130h19"/></g>
+<text x="20" y="269" font-family="Arial,sans-serif" font-size="17" fill="#17324d">A etapa anterior não autoriza automaticamente a seguinte. Mudança de área ou horário exige nova decisão.</text>
+</svg>
