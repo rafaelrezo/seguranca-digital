@@ -6,7 +6,7 @@
 
 - A01–A07 e A08–A09 foram relatadas como ministradas. Material publicado, slides e planos não comprovam, por si, execução de cada checkpoint ou produto individual. Para uma aula conduzida por apresentação, consultar a apresentação vigente no Drive antes de atribuir observação à turma; para aula conduzida no MkDocs, consultar a versão usada quando identificável.
 - A08 iniciou governança e SGSI; A09 avaliou riscos com NIST SP 800-30 Rev. 1 e encerrou a atividade compartilhada. Sua matriz não se transforma automaticamente na matriz industrial.
-- A10 está publicada no MkDocs: visita de manutenção, engenharia social, acesso físico e matriz inicial R10-01/R10-02. O painel de visitas simula decisões; não controla portas reais. O checkpoint é presencial e não abre nova entrega no Classroom.
+- A10 está publicada no MkDocs: visita de manutenção, matriz inicial R10-01/R10-02 e duas trilhas de mitigação, uma para engenharia social e outra para acesso físico. O laboratório integrado simula duas regras de decisão; não controla portas reais. O checkpoint é presencial e não abre nova entrega no Classroom.
 - Revisões futuras de páginas antigas são apoio de estudo ou nova edição. Preservar apresentações, PDFs, fontes e registros históricos de aulas ministradas; não reescrever o que a turma supostamente fez.
 
 ## Progressão curricular
@@ -20,7 +20,7 @@ O caso industrial é uma base incremental, não um enredo obrigatório. A10 trat
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |
-| A10 | R10-01/R10-02 e decisões A/B/C, sem entrega domiciliar nova. | A11 pergunta quais dados estão ao alcance das áreas e pessoas. |
+| A10 | R10-01/R10-02, controles sociais e físicos com evidência/limite, e decisões A/B/C, sem entrega domiciliar nova. | A11 pergunta quais dados estão ao alcance das áreas e pessoas. |
 | A11–A12 | Uma atividade de fluxo/classificação/DLP e rastro de endpoint/malware. | A13 pergunta que propriedade criptográfica protege cada dado. |
 | A13–A18 | Uma atividade de mecanismos, confiança, canal e ciclo de chaves com casos positivos/negativos. | A19 pergunta como aplicar controles preservando processo físico. |
 | A19–A22 | Uma atividade OT: processo, risco, zonas/conduítes, acesso, observação e recuperação. | A23 delimita o que pode ser testado com autorização. |

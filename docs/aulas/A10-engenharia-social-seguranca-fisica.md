@@ -9,7 +9,7 @@ Esta é uma situação didática nova depois da [A09](A09-decisao-de-riscos.md):
 Ao fim dos 100 minutos, você deverá conseguir:
 
 1. **Explicar** como pretexto, impersonificação, pressão de urgência e entrada junto a outra pessoa tentam atravessar uma fronteira física.
-2. **Distinguir** identificação, autenticação, autorização por pessoa/área/tempo e registro de acesso, escolhendo controles complementares.
+2. **Selecionar** controles contra engenharia social e controles físicos de acesso para R10-01/R10-02, explicando implementação, rastro e limite de cada família.
 3. **Testar duas regras** de visita com casos permitido, negado e limitado; explicar o resultado e uma falha que o modelo não observa.
 
 **Recursos:** esta página no navegador e papel ou editor para três comparações. O professor conduz a execução e pausa para previsão e comparação. A página funciona sem rede depois de carregada. Use apenas dados do exercício; não teste portarias, pessoas ou credenciais reais.
@@ -36,6 +36,15 @@ A sequência normal é: um solicitante abre o chamado; o responsável interno ap
 
 **Checkpoint:** o teste B revelou uma falha de identidade, de autorização, de registro ou uma combinação? Indique qual evidência falta para cada parte.
 
+### Recorte da matriz: quais caminhos de dano vamos interromper?
+
+| Risco | Caminho de dano | Decisão de tratamento nesta aula |
+|---|---|---|
+| **R10-01 — pretexto de manutenção** | Uma pessoa usa a marca da fornecedora, um chamado inexistente e urgência para obter entrada na engenharia. | Confirmar o serviço por fonte independente, capacitar a portaria a interromper a exceção e impedir a emissão de acesso sem aprovação. |
+| **R10-02 — ampliação de escopo** | Uma visita real à impressora da recepção é usada para pedir acesso adicional à engenharia. | Vincular autorização a tarefa, área, horário e acompanhante; aplicar a restrição na passagem e revisar o registro. |
+
+Nos dois casos, o **evento** é acesso indevido e a **consequência possível** é exposição de estações e arquivos. Não há incidente real demonstrado. Um controle contra a conversa enganosa reduz a chance de aprovação incorreta; um controle físico impede ou detecta a passagem mesmo quando a conversa falha. A matriz detalhada, com premissas e limites, aparece na seção 5. As duas famílias de controles são estudadas separadamente a seguir.
+
 ## 2. Engenharia social: técnicas e decisões que elas pressionam
 
 <div class="theme-summary" markdown="1">
@@ -61,6 +70,24 @@ Engenharia social usa contexto e confiança para levar alguém a revelar informa
 *Figura 2 — Esquema original desta aula. As duas primeiras linhas pressionam uma decisão; a terceira contorna a interface de decisão.*
 
 Essas categorias não são mutuamente exclusivas: B combina pretexto, marca de fornecedor e urgência. O problema não é supor que a portaria “deveria perceber o golpe” pela aparência. O processo precisa oferecer fonte confiável, tempo e autoridade para interromper o pedido. [Veja os mecanismos de pretexting](../engenharia_social/pretexting.md), [impersonificação](../engenharia_social/impersonificacao.md) e [gatilhos](../engenharia_social/gatilhos.md) para exemplos fora da instalação; aqui o critério é a decisão de acesso.
+
+### Controles contra engenharia social: verificar, interromper e reportar
+
+**1. Confirmação independente do pedido.** A equipe consulta um cadastro criado *antes* da chegada, com pessoa, empresa, chamado, tarefa, área, janela e responsável. Liga para um contato mantido pela organização ou usa o fluxo interno de chamados; o telefone, QR code e link oferecidos pela pessoa não servem para confirmar a própria alegação. A pergunta deve ser aberta: “Qual visita da ServTec está aprovada agora, para quem e em qual área?”. Se a fonte não confirmar SV-999, a decisão é suspender a entrada e escalar ao responsável. **Evidência:** chamado prévio, contato usado, hora, resposta e responsável pela decisão. **Limite:** um cadastro desatualizado também pode bloquear uma visita legítima; a exceção precisa de nova aprovação documentada, não de uma autorização verbal sem rastro.
+
+**2. Procedimento para urgência e autoridade alegada.** Urgência pode ser real, mas não altera sozinha a autorização. A portaria deve ter uma rota rápida para localizar o responsável e uma frase operacional: “Vou confirmar pelo canal cadastrado; enquanto isso, aguarde na recepção”. A chefia deve apoiar essa pausa, inclusive quando o pedido invoca produção ou diretoria. **Evidência:** tempo de escalonamento, aprovação da exceção e escopo concedido. **Limite:** impor demora sem canal de resposta incentiva atalhos; o processo deve resolver o trabalho legítimo sem abrir área não aprovada.
+
+**3. Capacitação por função e ensaio de decisão.** Um treinamento genérico que apenas lista golpes não demonstra competência. Para portaria, recepção e responsáveis de área, praticar três decisões: chamada de fornecedor com número fornecido no próprio pedido, visitante que cita um gestor e visita válida que pede nova sala. O exercício exige reconhecer o sinal, consultar a fonte correta, formular a recusa segura e registrar a divergência. Em revisão, medir acertos **e falsos bloqueios**, tempo de encaminhamento e qualidade do registro; evitar punir quem reportou. A NIST SP 800-53, **AT-2 e AT-2(3)**, situa treinamento e reconhecimento/reporte de engenharia social; treinamento concluído não prova comportamento futuro.
+
+**4. Canal de reporte e resposta.** Mensagens, ligações ou visitas divergentes devem chegar à equipe designada por um canal conhecido, com dados mínimos: horário, canal, alegação, referência do pedido e ação tomada. Não repassar foto de documento ou dados pessoais em grupos informais. A equipe de resposta correlaciona relatos repetidos, confirma com a fornecedora e, se necessário, revoga autorizações emitidas por engano. **Evidência:** protocolo de reporte, encaminhamento e encerramento. **Limite:** ausência de relato não prova ausência de tentativa.
+
+**Exemplo de aplicação a R10-01.** B mostra a imagem de crachá e cita SV-999; a portaria consulta o cadastro e retorna pelo contato preexistente. Como não há chamado confirmado, suspende a entrada, registra a divergência e aciona o responsável. O treinamento explica *como* fazer essa verificação sob pressão; o canal de reporte torna repetições observáveis. Nenhuma dessas medidas, isoladamente, garante que uma pessoa não atravesse uma porta atrás de outra.
+
+| Controle social | Pergunta de verificação | Resposta ruim que ele deve evitar |
+|---|---|---|
+| Contato independente | A autorização existe em fonte anterior ao pedido? | Retornar pelo número entregue por quem solicita acesso. |
+| Exceção documentada | Quem pode aprovar mudança de escopo e por quanto tempo? | Confundir urgência ou cargo alegado com aprovação. |
+| Treinamento e reporte | A equipe consegue pausar, consultar e registrar? | Exigir que a pessoa “descubra o golpe” pela aparência. |
 
 **Aplicação curta:** redija uma pergunta aberta ao contato cadastrado que confirme pessoa, tarefa e área sem revelar o que Leo alegou. Depois identifique qual dado você não deve fornecer a quem ligou.
 
@@ -92,6 +119,20 @@ Segurança física protege pessoas, instalações, equipamentos e mídias. Ela i
 A implementação pode ser manual ou eletrônica. Em leitor eletrônico, a política compara identificador da credencial, zona e horário; o evento de **permissão ou negação** deve poder ser revisado. Em controle manual, uma pessoa confere os mesmos atributos e registra a decisão. Nenhum modelo dispensa saída de emergência nem autoriza bloquear evacuação. Se cadastro, relógio, leitor ou acompanhante falhar, suspenda a visita restrita e escale conforme o procedimento; mantenha a operação segura.
 
 **Falhas físicas que mudam o desenho do controle:** uma credencial perdida ou copiada pode apresentar o identificador esperado, então emissão, devolução, revogação e revisão de uso são necessárias; uma pessoa que passa junto de outra pode não gerar leitura própria, então câmera, acompanhante ou passagem individual tratam um caminho diferente; uma porta mantida aberta por conveniência neutraliza a regra do controlador, então o estado da porta e a resposta ao alarme precisam ser definidos. Uma câmera é sobretudo **detectiva**; fechadura e regra de zona são **preventivas**; o procedimento de suspender e reautorizar é **corretivo**. A escolha depende do dano possível, da circulação legítima, da acessibilidade e da saída segura.
+
+### Controles físicos de acesso: autorizar, aplicar, observar e encerrar
+
+**1. Cadastro de autorizações e zonas.** Definir quem pode aprovar entrada em cada zona, quem mantém a lista e com que frequência ela é revista. Para SV-104, a autorização contém recepção, impressora, 10:00–10:30 e Ana; “fornecedor ServTec” não é uma permissão para toda a planta. Alteração para engenharia exige aprovação específica antes de editar a credencial. **Evidência:** versão do cadastro, aprovador, validade e revisão de autorizações vencidas. É a função de **PE-2** na NIST SP 800-53.
+
+**2. Identificação, credencial temporária e passagem.** Na portaria, conferir a pessoa conforme o procedimento local, emitir credencial individual vinculada à visita e limitar sua validade. Na porta, um leitor e controlador podem comparar credencial, zona e horário; uma barreira manual pode fazer a mesma comparação se houver pessoal e registro. A credencial deve expirar ou ser devolvida na saída, e perda deve levar a bloqueio. **Evidência:** emissão, tentativa permitida/negada e baixa. **Limite:** foto ou posse de cartão não prova identidade por si; leitor não enxerga quem passa sem apresentar credencial. A aplicação na fronteira corresponde a **PE-3**.
+
+**3. Acompanhante e fluxo de visitantes.** Ana aceita a visita, encontra Marta, acompanha o trajeto autorizado e confirma a saída. A organização precisa definir o que fazer se Ana estiver ausente: outro acompanhante aprovado ou visita suspensa. O registro de visitante liga pessoa, propósito, responsável e horários de entrada/saída; conferir pendências de saída e autorizações ainda ativas. **Evidência:** associação visitante–responsável, livro/sistema de entrada e baixa, divergências tratadas. **Limite:** uma assinatura não prova acompanhamento contínuo. O registro se relaciona a **PE-8**.
+
+**4. Barreira contra passagem junto e porta aberta.** Catraca individual, porta com fechamento automático, sensor de porta mantida aberta e observação por pessoa ou câmera são alternativas que precisam ser escolhidas conforme fluxo e risco. Se a pessoa atravessa junto de Marta, não há segundo pedido para o controlador: o sensor/observador deve notar a discrepância e haver procedimento de abordagem segura por equipe autorizada. **Evidência:** evento de porta, contagem de passagens quando disponível, observação e tratamento do alerta. **Limite:** câmera sem revisão ou resposta é apenas gravação; barreira não pode impedir evacuação. A observação se relaciona a **PE-6**.
+
+**5. Revisão e exceções.** Comparar periodicamente chamados, credenciais emitidas, eventos de porta, visitantes presentes e saídas. Investigar credencial usada fora da janela, tentativa na engenharia e porta mantida aberta; corrigir regra, cadastro ou rotina conforme a causa. Em falha de leitor ou energia, aplicar procedimento aprovado que preserve segurança das pessoas e da operação, com autorização excepcional rastreável. **Evidência:** reconciliação e ação corretiva concluída. Uma lista de eventos sem responsável por examiná-la não valida o controle.
+
+**Exemplo de aplicação a R10-02.** C tem visita válida à recepção. O cadastro mantém essa área; a credencial não libera engenharia. Se Marta pedir a ampliação, Ana solicita nova aprovação; até lá, a visita original pode prosseguir. Uma tentativa negada na porta cria um rastro para revisão, mas não informa se alguém entrou por outra passagem. Por isso o fluxo de acompanhante e a observação da fronteira permanecem necessários.
 
 A [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) organiza, entre outros, **PE-2** (autorizações de acesso físico), **PE-3** (controle de acesso físico) e **PE-8** (registros de visitantes). Aqui usamos suas funções para analisar o exercício, sem alegar conformidade. Na trilha OT, a [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) exige considerar disponibilidade, confiabilidade e segurança de pessoas antes de aplicar uma barreira a um processo real.
 
@@ -204,7 +245,7 @@ A implantação da política pede decisões técnicas e humanas diferentes:
 
 ## Atividade {#atividade}
 
-**Checkpoint presencial, sem nova entrega no Classroom.** Complete R10-01 e R10-02 com `caminho de dano → controle → caso de teste → antes/depois → rastro → limite → responsável`. Acrescente uma linha para o caso de *tailgating*: indique por que o painel não o testa e qual evidência humana/física seria necessária. Em dupla, uma pessoa defende a preservação da visita A/C; a outra questiona o efeito de cadastro desatualizado, falha do leitor ou ausência de Ana. Registrem uma melhoria de procedimento e uma condição para revisão do risco.
+**Checkpoint presencial, sem nova entrega no Classroom.** Complete R10-01 e R10-02 com `caminho de dano → controle social → controle físico → evidência → limite → responsável`. Para R10-01, use o antes/depois de B e indique como confirmar e reportar o pedido. Para R10-02, use C e A, indicando como a regra de zona se traduz em credencial, passagem e acompanhamento. Acrescente uma linha para *tailgating*: por que o laboratório não o testa, qual barreira ou observação ajudaria e que resposta humana seria necessária? Em dupla, comparem uma falha de cadastro e uma falha de leitor; registrem quem decidiria a exceção e como preservar a visita legítima.
 
 **Critério de conclusão:** A é permitida apenas na recepção; B muda de permitido para suspenso após a verificação, sem atribuição de intenção; C mantém somente o escopo original; a trilha do navegador é distinguida de entrada física; janela, acompanhante e *tailgating* têm procedimento e responsável plausíveis fora do motor. A [atividade A08–A09](A09-decisao-de-riscos.md#atividade) permanece encerrada.
 
@@ -212,7 +253,7 @@ A implantação da política pede decisões técnicas e humanas diferentes:
 
 1. Qual diferença entre pretexto, impersonificação e gatilho de urgência no pedido B?
 2. Por que uma credencial autêntica ainda pode ser negada na engenharia?
-3. Que evento o log do painel comprova e que evento ele não pode comprovar?
+3. Que evento a trilha do laboratório comprova e que evento físico ela não pode comprovar?
 
 ### Continuidade e aprofundamento
 
@@ -220,4 +261,4 @@ A matriz industrial começa com acesso humano/físico. A A11 perguntará **quais
 
 Para ampliar a leitura: [engenharia social](../engenharia_social/introducao.md), [pretexting](../engenharia_social/pretexting.md), [impersonificação](../engenharia_social/impersonificacao.md), [gatilhos](../engenharia_social/gatilhos.md), [segurança física](../seguranca_fisica/introducao.md), [controles físicos](../seguranca_fisica/controles_fisicos.md) e [AAA](../fundamentos_de_seguranca_digital/H-autorizacao.md). As Figuras 1–4 são **originais deste material**, elaboradas para este caso; os conceitos usados têm as fontes abaixo.
 
-**Fontes oficiais:** [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) (premissas e avaliação de risco); [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) (PE-2, PE-3, PE-8); [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) (restrições OT); [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) (confiança implícita); [CERT.br, Cartilha de Segurança para Internet](https://cartilha.cert.br/) (golpes e verificação).
+**Fontes oficiais:** [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) (premissas e avaliação de risco); [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) (AT-2/AT-2(3) para treinamento em engenharia social; PE-2, PE-3, PE-6 e PE-8 para acesso, observação e visitantes); [CISA, Four Cybersecurity Essentials](https://www.cisa.gov/resources-tools/resources/four-cybersecurity-essentials-sltts) (verificação por canal conhecido e reporte); [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) (restrições OT); [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) (confiança implícita); [CERT.br, Cartilha de Segurança para Internet](https://cartilha.cert.br/) (golpes e verificação).

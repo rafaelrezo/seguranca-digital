@@ -6,7 +6,7 @@
 |---|---|
 | Identificador | A10 — engenharia social, segurança física e política de visitas. |
 | Ementa | Engenharia social e conscientização; segurança física; autenticação, autorização, accounting; avaliação e mitigação de risco. |
-| Objetivos | Explicar quatro mecanismos de engenharia social; distinguir zonas/barreiras e AAA; configurar e testar política com permitido, negado e limitado. |
+| Objetivos | Explicar mecanismos de engenharia social; selecionar controles sociais e físicos para R10-01/R10-02 com implementação, rastro e limite; configurar e testar política com permitido, negado e limitado. |
 | Carga | 100 minutos: 40 T / 60 P de demonstração e análise conduzidas. |
 | Situação | Indústria didática de envase, visita para impressora da recepção e pedidos de acesso à engenharia. |
 | Pré-requisito | Método de risco da A09; página fornece matriz nova e todos os dados dos testes. Não presumir entrega individual. |
@@ -25,11 +25,11 @@ A09 avaliou riscos; A10 mostra **como uma decisão de tratamento altera o compor
 | Minutos | T/P | Demonstração e participação | Ponto de espera |
 |---|---:|---|---|
 | 0–10 | 3/7 | Apresentar B na abertura; turma prevê a decisão do modelo permissivo e anota qual dado verificaria. | Todos identificam que o pedido ainda não foi confrontado com cadastro. |
-| 10–25 | 10/5 | Figuras 1–2 e comparação de pretexto, impersonificação, urgência, vishing e tailgating; pergunta aberta ao contato cadastrado. | Não chamar pressão de urgência de prova de fraude nem usar número fornecido no pedido. |
-| 25–40 | 10/5 | Figuras 3–4, perímetro, zona, leitor/controlador, vigilância, ambiente; PE-2/3/8 por função; distinguir autorização de registro. | SV-104 termina na recepção; leitor não detecta pessoa que entra junto. |
+| 10–25 | 10/5 | Ler o recorte R10-01/R10-02 e separar mecanismos de engenharia social; aplicar confirmação independente, exceção sob urgência, treinamento por função e reporte ao pedido B. | Não chamar pressão de urgência de prova de fraude nem usar número fornecido no pedido. Cada controle deve ter rastro e limite. |
+| 25–40 | 10/5 | Figuras 3–4; aplicar cadastro de zonas, credencial/passagem, acompanhante/registro, observação de porta e revisão ao pedido C. Situar PE-2/3/6/8. | SV-104 termina na recepção; leitor não detecta pessoa que entra junto. Controle instalado precisa de revisão e resposta. |
 | 40–55 | 7/8 | AAA/atributos, matriz R10-01/R10-02 e caso A trabalhado; localizar os dados no laboratório integrado. | A tem cadastro confirmado e escopo restrito à recepção. |
 | 55–80 | 5/20 | Na própria seção do laboratório, testar B sem regra, B com confirmação, C com limite de área e A como contraprova. Cada mudança vem após previsão da turma. | B passa a suspenso, C fica limitado e A permanece permitido; a trilha registra apenas decisões do navegador. |
-| 80–95 | 3/12 | Tailgating fora do modelo; equipe propõe vigilância, acompanhante e resposta; completar duas linhas de risco. | Distinguir teste do motor e controle físico real. |
+| 80–95 | 3/12 | Tailgating fora do modelo; equipe completa R10-01/R10-02 com um controle social e um físico para cada risco, evidência, limite e responsável. | Distinguir cálculo do navegador, procedimento humano e evento de passagem real. |
 | 95–100 | 2/3 | Revisão rápida e ponte para tipos/fluxos de dados de A11. | Registrar uma falha remanescente e responsável. |
 | **Total** | **40/60** |  |  |
 
