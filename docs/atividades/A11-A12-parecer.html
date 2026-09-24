@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A11–A12 — Parecer técnico sobre dados e endpoint</title>
+<meta name="description" content="Atividade integrada de Segurança Digital: analise dados e rastros, justifique controles e produza um parecer técnico em dupla.">
+<!-- Gerado por scripts/build_a11_a12_activity_html.py a partir do enunciado Markdown canônico. -->
+<style>
+:root{color-scheme:light;--ink:#192b3e;--muted:#475b70;--blue:#164f79;--paper:#fff;--line:#d3dfe8;--wash:#edf3f7}
+*{box-sizing:border-box}html{scroll-padding-top:1rem}body{margin:0;background:var(--wash);color:var(--ink);font:1.05rem/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--blue);text-underline-offset:.18em}a:hover{text-decoration-thickness:2px}a:focus-visible,[tabindex]:focus-visible{outline:3px solid #b75400;outline-offset:4px}p{margin:.8rem 0}strong{font-weight:750}code{font-size:.9em;background:#e9eff4;border-radius:.25rem;padding:.12em .3em;overflow-wrap:anywhere}h1,h2,h3{line-height:1.2;text-wrap:balance}h1{font-size:clamp(2rem,4.5vw,3.2rem);margin:.8rem 0 1rem;max-width:24ch}h2{font-size:clamp(1.45rem,3vw,1.9rem);margin:.25rem 0 1.25rem}h3{font-size:1.2rem}.skip{position:absolute;top:-5rem;left:1rem;padding:.6rem;background:#fff;z-index:2}.skip:focus{top:1rem}.hero{background:#133c5a;color:#fff;padding:3.5rem max(1.25rem,calc((100vw - 1100px)/2)) 3rem}.hero a{color:#fff}.eyebrow{text-transform:uppercase;letter-spacing:.11em;font-size:.8rem;font-weight:750}.lead{max-width:65ch;color:#e3edf5}.badges{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}.badges span{padding:.3rem .8rem;border:1px solid #7694ab;border-radius:2rem;font-size:.9rem}.layout{max-width:1140px;margin:0 auto;padding:1.5rem 1.25rem 3rem;display:grid;grid-template-columns:190px minmax(0,1fr);gap:1.5rem}.index{align-self:start;position:sticky;top:1rem}.index p{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:750;color:var(--muted)}.index a{display:block;padding:.65rem .75rem;margin:.2rem 0;border-radius:.5rem;text-decoration:none;font-size:.95rem}.index a:hover{background:#dce7ef}.index .download{margin-top:1rem;border:1px solid #a9bccb}main{min-width:0}.card{background:var(--paper);border:1px solid var(--line);border-radius:1rem;padding:clamp(1.2rem,3vw,2rem);margin-bottom:1.4rem;box-shadow:0 3px 14px #19344d06}.card .step{color:var(--blue);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:750}.safety{border-left:5px solid #9b5c17;background:#fffaf3}blockquote{margin:1.25rem 0;border-left:4px solid var(--blue);padding:.4rem 1rem;background:#eef5fa}blockquote p{margin:.3rem 0}ul,ol{padding-left:1.5rem}li{padding-left:.25rem;margin:.7rem 0}.tasks{list-style:none;counter-reset:task;padding:0;margin:1.25rem 0}.tasks>li{counter-increment:task;border-top:1px solid var(--line);padding:1.2rem 0 1.2rem 2.7rem;position:relative;margin:0}.tasks>li:before{content:counter(task);position:absolute;left:0;top:1.3rem;width:1.7rem;height:1.7rem;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:white;font-size:.85rem;font-weight:700}.table-scroll{overflow-x:auto;margin:1.3rem 0;border:1px solid var(--line);border-radius:.6rem}.table-scroll:focus-visible{outline-offset:1px}table{width:100%;border-collapse:collapse;font-size:.92rem;text-align:left;min-width:520px}th{background:#e7eff5;font-weight:750;color:#183f5c}th,td{padding:.7rem .85rem;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f7f9fb}td code{white-space:normal}footer{max-width:1100px;margin:0 auto;padding:0 1.25rem 2rem;font-size:.9rem;color:var(--muted)}.table-hint{color:var(--muted);font-size:.85rem}.deliverable{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1.2rem 0}.deliverable div{border:1px solid var(--line);border-radius:.6rem;padding:.8rem;background:#f3f7fa;font-size:.95rem}.deliverable span{display:block;color:var(--muted);font-size:.8rem}
+@media(max-width:800px){.layout{grid-template-columns:1fr;padding:1rem}.index{position:static;display:flex;flex-wrap:wrap;gap:.2rem .5rem}.index p{width:100%;margin:0}.index a{padding:.35rem .55rem;margin:0}.index .download{margin:0}.hero{padding:2rem 1.25rem}.tasks>li{padding-left:2.2rem}}
+@media(max-width:420px){body{font-size:1rem}.card{padding:1.1rem}.deliverable{grid-template-columns:1fr}}
+@media print{body{background:white;font-size:10pt;line-height:1.45;color:#111}.hero{background:white;color:#111;padding:0 0 1rem}.hero a,.lead{color:#111}h1{font-size:24pt;max-width:none}.badges span{border-color:#777}.layout{display:block;max-width:none;padding:0}.index,.skip,.table-hint{display:none}.card{box-shadow:none;border:0;border-radius:0;padding:0;margin:1rem 0 1.5rem}.safety{border-left:3px solid #777;padding-left:1rem}h2,h3,.step{break-after:avoid}table{min-width:0;font-size:8.5pt}.table-scroll{overflow:visible;border-radius:0}tr{break-inside:avoid}thead{display:table-header-group}th,td{padding:.35rem}.tasks>li:before{background:white;color:#111;border:1px solid #333}.tasks>li{break-inside:auto}a{color:#111}footer{padding:0}@page{margin:16mm}}
+</style></head>
+<body>
+<a class="skip" href="#atividade">Ir para a atividade</a>
+<header class="hero"><div class="eyebrow">Segurança Digital · A11–A12</div><h1>Parecer técnico sobre dados e endpoint</h1><p class="lead">Leia os dois conjuntos de dados, justifique suas decisões e organize um único parecer com quatro blocos.</p><div class="badges" aria-label="Resumo da entrega"><span>Em dupla</span><span>Um PDF</span><span>Sem ferramentas especializadas</span></div></header>
+<div class="layout"><nav class="index" aria-label="Etapas da atividade"><p>Nesta atividade</p><a href="#inicio">1. Preparação e entrega</a><a href="#seguranca">2. Escopo e segurança</a><a href="#parte-a">3. Dados e recuperação</a><a href="#parte-b">4. Endpoint e resposta</a><a href="#conclusao">5. Revisão e avaliação</a><a class="download" href="../assets/a11-a12/modelo-parecer.txt" download>Baixar modelo de texto</a></nav>
+<main id="atividade" tabindex="-1"><section class="card" id="inicio" aria-labelledby="titulo-inicio"><p class="step">Comece aqui</p><h2 id="titulo-inicio">Preparação e entrega</h2>
+<p><strong>Missão:</strong> justificar controles de proteção e uma decisão de resposta a partir dos dois conjuntos de dados abaixo. Trabalhe em dupla e produza um único parecer. Não é necessário inventar empresa, incidente, personagem ou matriz de riscos.</p>
+<p><strong>Preparação:</strong> estude <a href="../aulas/A11-protecao-de-dados/">A11 — proteção de dados</a> e <a href="../aulas/A12-protecao-de-endpoints/">A12 — proteção de endpoints</a>. Antes da entrega, confira a comparação de conteúdo mínimo e os exemplos de permissões e revogação, LGPD, regra com contraprova, recuperação e leitura de alerta. Todos os insumos são artificiais e estão nesta página; a atividade funciona sem ferramentas especializadas.</p>
+<p><strong>Prazo:</strong> conforme convocação no Classroom. <strong>Entrega:</strong> um PDF com os quatro blocos indicados abaixo, nomeado <code>A11-A12_sobrenome1_sobrenome2.pdf</code>. Uma pessoa envia, identificando os dois integrantes. Use o <a href="../assets/a11-a12/modelo-parecer.txt">modelo de texto</a> ou a mesma estrutura em seu editor.</p>
+</section>
+<section class="card safety" id="seguranca" aria-labelledby="titulo-seguranca"><p class="step">Antes de analisar</p><h2 id="titulo-seguranca">Escopo e segurança</h2>
+<p>Analise apenas as tabelas fornecidas. Não execute os caminhos ou endereços dos registros, não faça varreduras e não teste regras em serviços pessoais ou institucionais. Não inclua dados reais, credenciais ou capturas do seu dispositivo. As respostas são decisões justificadas; não devem ser descritas como testes executados.</p>
+<p>Se usar IA, registre o pedido, as sugestões aceitas e rejeitadas e sua justificativa. Não envie dados sensíveis. Cada integrante deve conseguir explicar a decisão entregue.</p>
+</section>
+<section class="card" id="parte-a" aria-labelledby="titulo-parte-a"><p class="step">Conjunto de dados A</p><h2 id="titulo-parte-a">Parte A — Dados, circulação e recuperação</h2>
+<p>A tarefa é produzir uma contagem por setor e situação. A base de teste contém:</p>
+<div class="table-scroll" role="region" aria-label="Tabela 1 — Parte A — Dados, circulação e recuperação" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">registro</th>
+<th scope="col">setor</th>
+<th scope="col">contato_teste</th>
+<th scope="col">situacao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T01</td>
+<td>LAB</td>
+<td>t01@example.invalid</td>
+<td>aberto</td>
+</tr>
+<tr>
+<td>T02</td>
+<td>LAB</td>
+<td>t02@example.invalid</td>
+<td>fechado</td>
+</tr>
+<tr>
+<td>T03</td>
+<td>SUPORTE</td>
+<td>t03@example.invalid</td>
+<td>aberto</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Informações fornecidas:</strong> a origem tem acesso restrito a uma equipe autorizada. Uma cópia CSV com todas as colunas foi salva em pasta compartilhada com um grupo mais amplo. Esse grupo precisa apenas da contagem por setor e situação. Para este exercício, a exportação completa recebe o rótulo <strong>restrito</strong>; um resultado agregado só recebe rótulo <strong>público</strong> depois de revisão e aprovação explícitas. Não suponha que uma transformação muda automaticamente a classificação.</p>
+<p>A política didática em avaliação é:</p>
+<blockquote>
+<p>No canal coberto, bloquear conteúdo restrito enviado a destinatário externo não aprovado. Exceção só vale quando aprovada para o conteúdo, destinatário e horário do envio. Registrar resultado e motivo. A regra não concede outras permissões.</p>
+</blockquote>
+<div class="table-scroll" role="region" aria-label="Tabela 2 — Parte A — Dados, circulação e recuperação" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Envio</th>
+<th scope="col">Rótulo</th>
+<th scope="col">Destinatário</th>
+<th scope="col">Canal coberto?</th>
+<th scope="col">Exceção</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Restrito</td>
+<td>Externo não aprovado</td>
+<td>Sim</td>
+<td>Nenhuma</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Restrito</td>
+<td>Interno autorizado</td>
+<td>Sim</td>
+<td>Nenhuma</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Público, já revisado</td>
+<td>Externo</td>
+<td>Sim</td>
+<td>Nenhuma</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Restrito</td>
+<td>Externo não aprovado</td>
+<td>Sim</td>
+<td>Expirou antes do envio</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Restrito</td>
+<td>Externo não aprovado</td>
+<td>Não</td>
+<td>Nenhuma</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Recuperação:</strong> houve interrupção às 15h. A última cópia utilizável representa o estado das 14h30. O objetivo de RPO é 15 minutos. O objetivo de RTO é 60 minutos, contado a partir das 15h. Um ensaio registrou retorno funcional e conferência do conteúdo às 15h45. Todos os horários usam a mesma referência. Estes valores são dados do exercício, não medições da sua dupla.</p>
+<p>Produza:</p>
+<ol class="tasks">
+<li>
+<p>Um mapa curto de origem e cópia, identificando o acesso ampliado, acompanhado de uma proposta de controle. Organize esse mesmo bloco do parecer pelos três aspectos abaixo; não são entregas separadas.</p>
+<div class="table-scroll" role="region" aria-label="Tabela 3 — Parte A — Dados, circulação e recuperação" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Aspecto</th>
+<th scope="col">O que explicar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conteúdo e finalidade</td>
+<td>Campos ou agregações necessários e verificação antes de compartilhar; relação da minimização com um princípio da LGPD; informação ainda ausente para fundamentar o tratamento em situação real, sem inventar base legal</td>
+</tr>
+<tr>
+<td>Acesso e responsáveis</td>
+<td>Destino, leitores/editores e local da configuração; quem aprova finalidade/destinatários, quem configura/verifica, o que cabe ao usuário e a quem encaminhar dúvidas; teste permitido e negado</td>
+</tr>
+<tr>
+<td>Encerramento e limite</td>
+<td>Teste após retirada do acesso, tratamento dos downloads anteriores e momento de revisão da necessidade da cópia</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p>Uma decisão para cada envio A–E, com condição aplicada e limite. Identifique um caso que verifica preservação do uso legítimo. Para E, diferencie ausência de cobertura de autorização.</p>
+</li>
+<li>Uma possível causa de falso positivo ou falso negativo, explicando que informação de referência permitiria reconhecê-la.</li>
+<li>Cálculo da janela potencial de perda e do tempo de recuperação. Compare separadamente com RPO e RTO. Descreva origem da recuperação, destino de teste, dependências de acesso e uma verificação necessária além da existência de um arquivo restaurado.</li>
+</ol>
+</section>
+<section class="card" id="parte-b" aria-labelledby="titulo-parte-b"><p class="step">Conjunto de dados B</p><h2 id="titulo-parte-b">Parte B — Endpoint, rastros e resposta</h2>
+<p><strong>Registros didáticos:</strong> todos são do dispositivo <code>LAB-02</code>, em UTC. O usuário informou que iniciaria uma exportação, mas não forneceu aprovação para envio externo. A fonte de eventos associa as operações ao identificador estável P44 neste conjunto. Os caminhos e endereços existem apenas como texto do exercício.</p>
+<div class="table-scroll" role="region" aria-label="Tabela 1 — Parte B — Endpoint, rastros e resposta" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Registro</th>
+<th scope="col">Horário</th>
+<th scope="col">Fonte e observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>10:20:00</td>
+<td>Execução: P44 iniciado por P30, usuário comum, programa <code>/lab/exportador</code></td>
+</tr>
+<tr>
+<td>R2</td>
+<td>10:20:02</td>
+<td>Arquivo: P44 criou <code>/lab/saida.csv</code></td>
+</tr>
+<tr>
+<td>R3</td>
+<td>10:20:03</td>
+<td>Rede: P44 tentou conexão TCP a <code>192.0.2.60:443</code>; a ferramenta registrou bloqueio dessa tentativa</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>10:20:04</td>
+<td>Alerta: a tentativa acionou regra de destino não aprovado; registro vinculado a R3</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>10:20:08</td>
+<td>Arquivo: P44 alterou <code>/lab/saida.csv</code> novamente</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Informações que não foram fornecidas:</strong> conteúdo do CSV; comunicações anteriores; inventário de outros processos; mecanismos de inicialização; intenção do usuário; evidência de propagação a outro dispositivo.</p>
+<p>Produza:</p>
+<ol class="tasks">
+<li>Uma linha do tempo comentada relacionando pelo menos três registros. Explique por que R4 não significa erradicação e o que R5 acrescenta à leitura.</li>
+<li>Duas afirmações sustentadas e duas conclusões que não podem ser feitas com esses dados. Indique a evidência adicional necessária para uma delas.</li>
+<li>Compare duas medidas possíveis de contenção quanto a alvo, efeito esperado, impacto e limite. Escolha uma ação ou um encaminhamento condicionado à informação ausente. Justifique o critério; não apresente uma intervenção em produção como realizada.</li>
+<li>Um critério para verificar a contenção e outro para considerar retorno. Relacione sua decisão a um controle de dados da Parte A, sem afirmar que os dois conjuntos pertencem a um mesmo incidente.</li>
+</ol>
+</section>
+<section class="card" id="conclusao" aria-labelledby="titulo-conclusao"><p class="step">Antes de enviar</p><h2 id="titulo-conclusao">Organização do parecer e conclusão</h2>
+<div class="deliverable" aria-label="Quatro blocos do parecer"><div><span>Bloco 1</span><strong>Exposição e controles</strong></div><div><span>Bloco 2</span><strong>Regra e contraprovas</strong></div><div><span>Bloco 3</span><strong>Recuperação</strong></div><div><span>Bloco 4</span><strong>Triagem e resposta</strong></div></div><p>Use quatro blocos: <strong>exposição e controles</strong>, <strong>regra e contraprovas</strong>, <strong>recuperação</strong>, <strong>triagem e resposta</strong>. Responda com referência aos campos e IDs pertinentes. Capturas não são necessárias. Uma resposta que apenas recomenda “DLP”, “antivírus” ou “backup” não explica o mecanismo nem permite verificar a decisão.</p>
+<p>Antes de enviar, cada integrante revisa uma decisão do outro. Registre uma correção feita ou uma discordância resolvida. Confira se o PDF abre, se tabelas e justificativas estão legíveis e se todos os cálculos indicam unidade. Encerre fechando os arquivos de trabalho; esta atividade não cria recursos em nuvem nem exige limpeza de ambiente vulnerável.</p>
+<div class="table-scroll" role="region" aria-label="Tabela 1 — Organização do parecer e conclusão" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Critério</th>
+<th style="text-align: right;">Peso</th>
+<th scope="col">Evidência de atendimento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exposição e controles</td>
+<td style="text-align: right;">25%</td>
+<td>Origem/cópia, finalidade, relação com LGPD, configuração proposta, responsáveis e testes permitido/negado/revogação, com limite</td>
+</tr>
+<tr>
+<td>Regra e contraprovas</td>
+<td style="text-align: right;">25%</td>
+<td>Decisões A–E coerentes, exceção e cobertura diferenciadas, erro de classificação explicado</td>
+</tr>
+<tr>
+<td>Leitura de rastros</td>
+<td style="text-align: right;">25%</td>
+<td>Correlação fundamentada, ação efetiva identificada e incertezas preservadas</td>
+</tr>
+<tr>
+<td>Recuperação e resposta</td>
+<td style="text-align: right;">25%</td>
+<td>RPO/RTO calculados, impacto da contenção discutido e verificações de contenção/retorno propostas</td>
+</tr>
+</tbody>
+</table></div>
+<p>Em cada critério: <strong>completo</strong> apresenta os elementos solicitados sem extrapolação; <strong>parcial</strong> omite mecanismo, verificação ou limite; <strong>insuficiente</strong> apresenta apenas nomes de ferramentas ou contradiz os dados. A avaliação considera a justificativa; intervenções diferentes podem ser defensáveis sob condições explicitadas.</p>
+<p><strong>Extensão opcional:</strong> substitua R3 por uma conexão estabelecida, sem informação de conteúdo. Identifique quais frases do parecer precisam mudar e quais permanecem válidas. Não transforme essa alteração em prova automática de vazamento.</p>
+</section></main></div>
+<footer><a href="../aulas/A11-protecao-de-dados/">Consultar A11</a> · <a href="../aulas/A12-protecao-de-endpoints/">Consultar A12</a> · <a href="#inicio">Voltar ao início</a><p>Prazo e envio: consulte a convocação no Google Classroom.</p></footer>
+</body></html>

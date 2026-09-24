@@ -150,3 +150,12 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
 .risk-matrix .matrix-risk-detail { font-weight: normal; }
 .risk-matrix[data-focus="true"] .matrix-risk-detail { display: none; }
 @media print { .risk-matrix .matrix-risk-detail { display: inline !important; } }
+
+/* Tabelas de consulta A11: colunas legíveis e rolagem por teclado. */
+.md-content__inner .a11-reference-table table { display: table; min-width: 40rem; width: 100%; overflow: visible; }
+.a11-reference-table .md-typeset__scrollwrap { margin: 0; overflow: visible; }
+.a11-reference-table .md-typeset__table { display: block; padding: 0; }
+.md-content__inner:has(#procedimentos-lgpd) :is(h3, h4) { scroll-margin-top: 4rem; }
+@media print {
+  .md-content__inner .a11-reference-table table { min-width: 0; }
+}

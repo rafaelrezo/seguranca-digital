@@ -61,6 +61,9 @@ exclude_docs: |
   aulas/A29-processo-seguro-apos-intervencao.md
   aulas/A30-defender-a-decisao-do-inicio-ao-fim.md
 
+not_in_nav: |
+  atividades/A11-A12-protecao-integrada.md
+
 nav:
   - Início: index.md
   - Percurso e atividades: percurso.md
@@ -75,6 +78,8 @@ nav:
       - "A08 — Governança e SGSI": aulas/A08-governanca-sgsi.md
       - "A09 — Avaliar riscos com a NIST SP 800-30": aulas/A09-decisao-de-riscos.md
       - "A10 — Engenharia social e segurança física": aulas/A10-engenharia-social-seguranca-fisica.md
+      - "A11 — Proteção de dados": aulas/A11-protecao-de-dados.md
+      - "A12 — Proteção de endpoints": aulas/A12-protecao-de-endpoints.md
   - Referencial de consulta:
       - Fundamentos de Segurança:
           - Visão geral: fundamentos_de_seguranca_digital/index.md

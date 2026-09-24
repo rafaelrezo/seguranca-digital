@@ -1,0 +1,56 @@
+A11–A12 — Parecer técnico
+Integrantes:
+
+1. EXPOSIÇÃO E CONTROLES
+Origem, cópia e acesso:
+Finalidade e dados necessários:
+Controle proposto / mecanismo / verificação / limite:
+Quem aprova finalidade/destinatários:
+Quem configura e verifica:
+O que cabe ao usuário / a quem encaminhar dúvidas:
+Destino e local de configuração:
+Leitores, editores e administração do acesso:
+Teste permitido / teste negado / teste após revogação:
+Downloads anteriores e encerramento da cópia:
+Princípio da LGPD relacionado à minimização:
+Informação ausente para fundamentar o tratamento (sem inventar base legal):
+
+2. REGRA E CONTRAPROVAS
+Envio A — decisão, condição e limite:
+Envio B — decisão, condição e limite:
+Envio C — decisão, condição e limite:
+Envio D — decisão, condição e limite:
+Envio E — decisão, condição e limite:
+Caso que verifica preservação do uso legítimo:
+Possível erro de classificação e referência necessária:
+
+3. RECUPERAÇÃO
+Janela potencial de perda (cálculo e unidade):
+Comparação com RPO:
+Tempo de recuperação (cálculo e unidade):
+Comparação com RTO:
+Origem da recuperação / destino de teste / dependências de acesso:
+Verificação de conteúdo e função:
+
+4. TRIAGEM E RESPOSTA
+Linha do tempo comentada (IDs dos registros):
+Duas afirmações sustentadas:
+Duas conclusões não autorizadas pelos dados:
+Evidência adicional necessária:
+Medida 1 — alvo / efeito / impacto / limite:
+Medida 2 — alvo / efeito / impacto / limite:
+Decisão ou encaminhamento e condições:
+Verificação da contenção:
+Critério de retorno:
+Relação com um controle de dados:
+
+REVISÃO DA DUPLA
+Correção feita ou discordância resolvida:
+
+USO DE IA, SE HOUVER
+Pedido:
+Sugestões aceitas e justificativa:
+Sugestões rejeitadas e justificativa:
+
+Exportar para PDF: A11-A12_sobrenome1_sobrenome2.pdf
+Prazo conforme Classroom. Não incluir dados sensíveis.

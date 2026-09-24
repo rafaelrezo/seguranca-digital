@@ -1,0 +1,3 @@
+registro,instante_utc,fonte,processo,pai,objeto,observacao
+L1,2026-09-24T16:54:14+00:00,consulta ps,P1,P0,python3,processo presente no instante da consulta
+L2,2026-09-24T16:54:14+00:00,leitura de arquivo,P1 (associacao pelo ensaio),P0,arquivo de teste,conteudo lido: observacao benigna; bytes: 18

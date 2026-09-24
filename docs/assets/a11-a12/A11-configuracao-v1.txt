@@ -1,0 +1,4 @@
+versao=1
+registros=4
+formato=csv
+separador=ponto-e-virgula

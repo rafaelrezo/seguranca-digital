@@ -65,8 +65,35 @@
       "page": "aulas/A09-decisao-de-riscos.md",
       "activity": "atividade",
       "title": "A09 — Decidir e avaliar controles de segurança digital",
-      "status": "publicado_realizacao_nao_declarada",
-      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade"
+      "status": "realizacao_confirmada_pelo_docente",
+      "shared_activity": "aulas/A09-decisao-de-riscos.md#atividade",
+      "note": "Realização registrada no roadmap e na arquitetura consolidados em 17 set. 2026; manifesto alinhado em 24 set. 2026. Não comprova execução de cada checkpoint ou entregas individuais."
+    },
+    {
+      "id": "A10",
+      "page": "aulas/A10-engenharia-social-seguranca-fisica.md",
+      "activity": "atividade",
+      "title": "A10 — Engenharia social e segurança física",
+      "status": "realizacao_confirmada_pelo_docente",
+      "note": "Realização confirmada pelo docente em 24 set. 2026; data do encontro, versão exata utilizada e execução de cada checkpoint ou produto individual não informadas. Checkpoint presencial, sem nova entrega domiciliar."
+    },
+    {
+      "id": "A11",
+      "page": "aulas/A11-protecao-de-dados.md",
+      "activity": "atividade",
+      "title": "A11 — Proteção de dados",
+      "status": "preparado_localmente_realizacao_nao_declarada",
+      "shared_activity": "atividades/A11-A12-parecer.html#atividade",
+      "note": "A11 ampliada em 24 set. 2026: responsabilidades, LGPD aplicada e procedimentos com fontes, implementação/verificação de controles, DLP empresarial/nuvem e alternativas. Revisões especializadas sequenciais aplicadas; duração a reavaliar. Figuras 1–4 e 9–13 incorporadas; Figura 10 aguarda correção editorial da palavra RODAPÉ. Publicação remota não confirmada. Exemplo CSV condensado; videomonitoramento industrial ilustra papéis LGPD."
+    },
+    {
+      "id": "A12",
+      "page": "aulas/A12-protecao-de-endpoints.md",
+      "activity": "atividade",
+      "title": "A12 — Proteção de endpoints",
+      "status": "preparado_localmente_realizacao_nao_declarada",
+      "shared_activity": "atividades/A11-A12-parecer.html#atividade",
+      "note": "Conteúdo produzido em 24 set. 2026. Figura 5 incorporada; prompts 6–8 pendentes. Publicação remota não confirmada."
     }
   ]
 }

@@ -1,5 +1,80 @@
 # Registro de publicação no Google Drive
 
+## Revisão de recuperação, Purview e atividade HTML — 24 set. 2026
+
+A11 com RPO/RTO contextualizados, definições itemizadas, capturas oficiais e acesso público demonstrativo ao Purview. Atividade com HTML independente fora do menu, acessível por links das aulas e do percurso. Fonte Markdown preservada; mesma entrega e rubrica. Build e verificações locais aprovados; nenhuma publicação remota ou alteração no Drive/Classroom.
+
+
+## Figura 11 incorporada; correção editorial da Figura 10 pendente
+
+Figura 11 validada e inserida com original preservado, alt, legenda e ampliação. Figuras 10 e 12 também incorporadas. A palavra “RODAPÉ:” na Figura 10 foi identificada pelo docente como erro editorial; novo prompt preparado, aguardando imagem corrigida. Pendentes 6–8 na A12. Alterações locais, sem publicação remota.
+
+
+## Figuras 10 e 12 incorporadas
+
+As duas imagens foram verificadas e inseridas nos lugares dos prompts, com originais preservados, legendas, alt e ampliação. Figura 10 distingue simulação/aplicação; Figura 12 compara pontos independentes de controle e descoberta. A legenda da Figura 12 esclarece o significado das setas. Pendentes 6–8 na A12 e 11 na A11. Alterações locais, sem publicação remota.
+
+
+## Figura 10 incorporada
+
+Imagem `/tmp/figura10.jpeg` validada: correspondência e registro nos dois estados; simulação sem bloqueio, aplicação com bloqueio no fluxo coberto. Original preservado, prompt arquivado e substituído por figura com legenda, alt e ampliação. Pendentes 6–8 na A12 e 11–12 na A11. Alterações locais, sem publicação remota.
+
+
+## Figura 13 corrigida e incorporada
+
+Nova versão localizada em `/tmp/figure13.jpeg`, distinta do arquivo anterior. Seta de instruções correta (indústria → prestadora); papéis e ressalvas conferidos. Imagem inserida no lugar do prompt com original preservado, legenda, alt e ampliação. Pendentes 6–8 na A12 e 10–12 na A11. Alteração local, sem publicação remota. Parecer em `A11-A12-protecao-dados-endpoints/figuras/figura-13-revisao.md`.
+
+
+## Figura 9 incorporada e novo prompt da Figura 13
+
+Figura 9 validada e inserida com legenda esclarecendo a identidade anteriormente autorizada no painel de revogação; original preservado. Figura 13 não incorporada devido à seta invertida; novo prompt reforça origem indústria e ponta na prestadora. Pendentes 6–8 na A12 e 10–13 na A11. Alterações locais, sem publicação remota.
+
+
+## Figura 13 recebida — correção necessária
+
+Imagem `/tmp/figura13.jpeg` inspecionada. Papéis coerentes, mas seta “Instruções autorizadas” invertida (prestadora → indústria). Não incorporada; prompt precisado para exigir indústria → prestadora. Parecer em `A11-A12-protecao-dados-endpoints/figuras/figura-13-revisao.md`. Sem publicação remota.
+
+
+## A11 — exemplo CSV condensado e videomonitoramento — 24 set. 2026
+
+Revisão independente aplicada: trecho de CSV reduzido de cerca de mil para duzentas palavras, com comparação, Figura 1 e arquivos para consulta. Responsabilidades e leitura dinâmica ajustadas. Exemplo industrial de videomonitoramento incorporado à tabela LGPD; conferência especializada aprovou as condições de controlador/operador e a posição do técnico. Prompt Figura 13 preparado com personagens por papéis; pendentes 6–8 na A12 e 9–13 na A11. Alterações locais, sem publicação remota, Drive ou Classroom. Ver registros de validação e revisão independente na pasta docente A11–A12.
+
+
+## A11 — revisão especializada, referências DLP e procedimentos LGPD — 24 set. 2026
+
+Responsabilidades operacionais/legais, controles pragmáticos, LGPD e consequências revisados. Revisão técnica seguida de pedagógica concluídas e aplicadas, inclusive aos acréscimos de pesquisa: sínteses Microsoft/AWS/Fortinet, comparação empresarial/nuvem, exemplo industrial documental e alternativas sem suíte. Não há evidência suficiente para declarar produto mais implantado. Procedimentos LGPD em dois quadros com condições, responsáveis, evidências e links normativos. DOCX artificial do piloto disponível, sem rótulo ou execução real alegada.
+
+Build estrito, verificação editorial e Chrome 1440/390 px aprovados, incluindo rolagem das tabelas por teclado. Novo prompt Figura 12; pendentes 6–8 na A12 e 9–12 na A11. Detalhes e pareceres em `A11-A12-protecao-dados-endpoints/validacao-producao.md`. Duração a reavaliar após leitura docente. **Alterações locais; nenhuma publicação remota, substituição no Drive ou envio ao Classroom.**
+
+
+## Figura 6 da A12 recebida — revisão pendente de correção
+
+Imagem localizada em `/tmp/figura6.jpeg` após atualização docente. Revisão visual independente e conferência docente técnica: quatro quadros, fusão Execução/Efeito e definição incompleta de Efeito. Não incorporada para preservar a distinção entre as cinco funções. Prompt original mantido; ajustes de regeneração informados ao docente. Parecer em `A11-A12-protecao-dados-endpoints/figuras/figura-6-revisao.md`. Sem alteração pública ou publicação remota.
+
+
+## A11 ampliada e Figura 5 da A12 — 24 set. 2026
+
+A11 revista com LGPD aplicada, implementação de controles de cópias, permissões/revogação, DLP progressivo, retenção e restauração. Comparação de coluna oculta contextualizada, sem tarefa isolada. Atividade, modelo e planos alinhados; duração a reavaliar após leitura docente. Build estrito, validação editorial, insumos e navegador 1440/390 px aprovados. Figura 5 da A12 recebida, validada e incorporada; original preservado, legenda, alt e ampliação conferidos. Prompts pendentes 6–8 e 9–11. Figura 6 informada pelo docente, mas arquivo ainda não localizado nesta verificação.
+
+Alterações locais; sem publicação remota, Drive ou Classroom. Relatórios em `A11-A12-protecao-dados-endpoints/validacao-producao.md`, `a11-ampliada-browser.json` e `a12-figura5-browser.json`.
+
+
+## A11 — Figura 4 incorporada localmente — 24 set. 2026
+
+Linha temporal de RPO/RTO validada e inserida no lugar do prompt, com legenda, descrição alternativa e acesso ao original. As quatro figuras da A11 estão incorporadas; prompts 5–8 da A12 pendentes. Build estrito e carregamento em 1440/390 px aprovados. Alteração local, sem publicação remota, Drive ou Classroom.
+
+## A11 — Figura 3 e atualização da Figura 2 — 24 set. 2026
+
+Figura 3 inserida com legenda e descrição alternativa; Figura 2 substituída pela versão reenviada de maior resolução. Originais preservados, ressalvas registradas na área docente. Build estrito e carregamento em 1440/390 px aprovados. Prompts 4–8 pendentes. Alterações locais, sem publicação remota, Drive ou Classroom.
+
+## Figuras 1–2 da A11 incorporadas localmente — 24 set. 2026
+
+Imagens fornecidas pelo docente substituem seus prompts na A11, com legenda, texto alternativo e ampliação. Originais preservados sem edição; ressalvas de textos secundários documentadas na revisão docente. Build estrito e carregamento em 1440/390 px verificados. Prompts 3–8 permanecem pendentes. Publicação remota não executada; Drive e Classroom preservados.
+
+## A11–A12 — conteúdo MkDocs preparado — 24 set. 2026
+
+Páginas de proteção de dados e endpoints, atividade única e insumos produzidos localmente, com sínteses temáticas, textos completos e oito prompts ilustrativos solicitados pelo docente. Build estrito, validação editorial e inspeção em 1440/390 px aprovados. [Registro de validação](A11-A12-protecao-dados-endpoints/validacao-producao.md). Imagens finais serão fornecidas pelo docente. **Publicação remota não executada ou confirmada nesta produção**; Drive e Classroom não alterados.
+
 ## A09 — Figura 3 reconciliada com o original — 10 set. 2026
 
 **Publicação verificada:** `3c908e5a92471a1c2d75863df903875c0641149e`; validação `34534496766` e deploy `34534496697` aprovados. SVG, pacote e página públicos conferidos. Esquema inspecionado em tamanho original e na página em 1280/390 px, sem transbordamento.

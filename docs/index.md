@@ -29,14 +29,14 @@ Em termos simples, a disciplina não trata segurança como uma coleção de ferr
 
 ## 2. Como estudar este material
 
-Comece pelo [percurso de aulas e atividades](percurso.md). Em cada encontro, a página reúne o caso, a preparação do ambiente, a investigação guiada, a explicação dos conceitos e a atividade de entrega. Siga os pontos de conferência antes de avançar.
+Comece pelo [percurso de aulas e atividades](percurso.md). Cada página combina ideias principais destacadas, explicações completas, exemplos e pontos de conferência. A11 e A12 organizam proteção de dados e dispositivos por conceitos e comparações diretas.
 
-1. Leia a situação e registre uma previsão.
-2. Execute a observação indicada ou use a alternativa de evidências da página.
-3. Compare o rastro com sua previsão e leia os conceitos necessários para explicá-lo.
-4. Produza a entrega indicada em **Atividade**, revise pelos critérios e envie no Google Classroom quando solicitada pelo professor.
+1. Leia a síntese para identificar as ideias centrais do tema.
+2. Estude a explicação e o exemplo trabalhado, conferindo mecanismo e limite.
+3. Acompanhe a observação proposta ou use os dados disponíveis na própria página.
+4. Consulte **Atividade** para saber se há uma entrega compartilhada. Envie no Classroom somente conforme convocação e prazo do professor.
 
-Não é necessário abrir uma apresentação ou baixar um roteiro para acompanhar essas aulas. A biblioteca temática oferece aprofundamento: volte à página do encontro para aplicar o conceito ao caso. O mapa abaixo serve para consulta por assunto, sem estabelecer a ordem dos encontros.
+Não é necessário abrir uma apresentação ou baixar um roteiro para acompanhar as aulas. A biblioteca temática oferece aprofundamento; o percurso indica a ordem e a ligação entre os encontros.
 
 ---
 

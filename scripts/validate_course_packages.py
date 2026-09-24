@@ -33,9 +33,13 @@ if not (ROOT / manifest["conducao"]).is_file():
 for base in ("slides", "docente"):
     if (ROOT / "docs" / base).exists():
         errors.append(f"árvore não publicável dentro de docs/: {base}")
+# Insumo artificial para testar rotulagem DLP, não fonte editorial de aula.
+# Procedência e inspeção do conteúdo registradas na pasta docente da A11–A12.
+public_office_inputs = {ROOT / "docs/assets/a11-a12/A11-contatos-dlp.docx"}
 for path in (ROOT / "docs").rglob("*"):
     if path.suffix.lower() in {".pptx", ".docx"}:
-        errors.append(f"fonte Office dentro do site: {path.relative_to(ROOT)}")
+        if path not in public_office_inputs:
+            errors.append(f"fonte Office dentro do site: {path.relative_to(ROOT)}")
 
 secret_patterns = [
     re.compile(r"AKIA[0-9A-Z]{16}"),

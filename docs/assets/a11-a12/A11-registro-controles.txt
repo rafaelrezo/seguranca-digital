@@ -1,0 +1,36 @@
+A11 — Registro de tratamento e verificação
+Dados artificiais de estudo. Copie o bloco para cada destino relevante.
+Não preencher resultado observado com uma previsão.
+
+OBJETO E FINALIDADE
+Origem e cópia:
+Finalidade e campos necessários:
+Classificação e justificativa:
+Há dados pessoais em situação real equivalente? Qual decisão precisa de fundamento?
+Responsável pela decisão:
+Custodiante:
+Ações delegadas ao usuário:
+Responsável pela verificação:
+Canal para dúvidas, exceções ou falhas:
+
+CONTROLE E VERIFICAÇÃO
+Destino de armazenamento:
+Onde configurar o controle:
+Identidades/grupos e permissões:
+Canal e destinatários:
+Caso permitido — ação e resultado esperado:
+Caso negado — ação e resultado esperado:
+Retirada de acesso — ação e resultado esperado:
+Resultado observado (somente se executado):
+Data, objeto e identidade de teste:
+Limite / cópias fora do controle:
+
+RETENÇÃO E RECUPERAÇÃO
+Regra ou necessidade que fundamenta retenção:
+Marco inicial / data ou evento de revisão:
+Responsável pela revisão e executor:
+Ação de encerramento e evidência:
+Destino de recuperação e dependências:
+RPO e RTO propostos, com justificativa:
+Procedimento de restauração e conteúdo esperado:
+Resultado observado (somente se executado):

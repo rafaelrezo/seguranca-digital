@@ -1,0 +1,5 @@
+registro;setor;contato_teste;situacao
+T01;LAB;t01@example.invalid;aberto
+T02;LAB;t02@example.invalid;aberto
+T03;LAB;t03@example.invalid;fechado
+T04;SUPORTE;t04@example.invalid;aberto
