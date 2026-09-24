@@ -1,5 +1,16 @@
 # Registro de publicação no Google Drive
 
+## Publicação A11–A12 confirmada — 24 set. 2026
+
+Solicitada pelo docente e realizada no GitHub Pages. Commits `591832cf` (planejamento e revisões) e `060fc702` (material e atividade) enviados à `main`, preservando a versão remota da A10. [Deploy 36054191697](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36054191697) concluído com sucesso. A11, A12 e HTML da atividade retornaram HTTP 200 com conteúdo idêntico ao build local validado; Chrome conferiu A11 e atividade em 1440/390 px, imagens e links. A atividade está fora do menu geral.
+
+- [A11](https://rafaelrezo.github.io/seguranca-digital/aulas/A11-protecao-de-dados/)
+- [A12](https://rafaelrezo.github.io/seguranca-digital/aulas/A12-protecao-de-endpoints/)
+- [Atividade independente](https://rafaelrezo.github.io/seguranca-digital/atividades/A11-A12-parecer.html#atividade)
+
+Nenhuma alteração no Google Drive ou envio ao Classroom. Publicação não comprova realização dos encontros. Permanecem as pendências ilustrativas já registradas (Figura 10 e Figuras 6–8). Os registros anteriores de produção local descrevem etapas anteriores a esta publicação.
+
+
 ## Revisão de recuperação, Purview e atividade HTML — 24 set. 2026
 
 A11 com RPO/RTO contextualizados, definições itemizadas, capturas oficiais e acesso público demonstrativo ao Purview. Atividade com HTML independente fora do menu, acessível por links das aulas e do percurso. Fonte Markdown preservada; mesma entrega e rubrica. Build e verificações locais aprovados; nenhuma publicação remota ou alteração no Drive/Classroom.
