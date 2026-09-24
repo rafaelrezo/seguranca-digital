@@ -1,0 +1,23 @@
+[
+  {
+    "page": "aulas/A11-protecao-de-dados/index.html",
+    "summaries": 6,
+    "prompts": 4,
+    "links": "OK",
+    "anchors": "OK"
+  },
+  {
+    "page": "aulas/A12-protecao-de-endpoints/index.html",
+    "summaries": 6,
+    "prompts": 4,
+    "links": "OK",
+    "anchors": "OK"
+  },
+  {
+    "page": "atividades/A11-A12-protecao-integrada/index.html",
+    "summaries": 0,
+    "prompts": 0,
+    "links": "OK",
+    "anchors": "OK"
+  }
+]

@@ -1,0 +1,20 @@
+PROMPT ILUSTRATIVO FIGURA 10 = "Crie uma ilustração didática em português, horizontal 16:9, fundo claro, alto contraste, letras grandes e poucos elementos. Não imite uma interface de produto.
+
+Título: DLP: SIMULAÇÃO E APLICAÇÃO.
+
+Logo abaixo, apresente uma regra comum aos dois painéis:
+Condição: conteúdo restrito E destinatário externo não aprovado.
+Ação configurada: bloquear.
+
+Divida o restante em dois painéis de igual tamanho.
+
+PAINEL ESQUERDO — texto visível: SIMULAÇÃO.
+Mostre um arquivo entrando na análise DLP. Resultado: Correspondência encontrada. Inclua um ícone de registro com o texto Evento registrado. O caminho continua livre até o destinatário, com o texto Bloqueio não aplicado — dados passam. Não desenhe barreira, cadeado fechado ou símbolo de bloqueio nesse caminho.
+
+PAINEL DIREITO — texto visível: APLICAÇÃO.
+Repita o mesmo arquivo, condição e análise. Resultado: Correspondência encontrada. Inclua um ícone de registro com o texto Ação registrada. Interrompa o caminho com uma barreira antes do destinatário. Texto: Bloqueio aplicado ao fluxo coberto. Nenhuma seta deve atravessar a barreira ou chegar ao destinatário; o arquivo permanece antes dela.
+
+Na parte inferior, escreva somente esta frase, centralizada:
+Validar também uso legítimo, exceções e canais fora da cobertura.
+
+As expressões PAINEL ESQUERDO, PAINEL DIREITO, texto visível e parte inferior são instruções de composição e NÃO devem aparecer na imagem. Não escreva RODAPÉ, CONCLUSÃO ou números de faixa. Não acrescente marcas, personagens ou garantias de cobertura universal. Diferencie os resultados por texto e símbolos, sem depender apenas das cores. A imagem deve mostrar que reconhecer e registrar não significa necessariamente bloquear."

@@ -1,0 +1,107 @@
+[
+  {
+    "width": 1440,
+    "route": "aulas/A11-protecao-de-dados/",
+    "overflow": false,
+    "images": [
+      {
+        "src": "../../assets/a11-a12/A11-figura-1-copias-dos-dados.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-2-fronteiras-da-protecao.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-3-decisao-dlp.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-4-rpo-rto.jpg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 15,
+    "tableKeyboard": []
+  },
+  {
+    "width": 1440,
+    "route": "atividades/A11-A12-protecao-integrada/",
+    "overflow": false,
+    "images": [],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 0
+  },
+  {
+    "width": 390,
+    "route": "aulas/A11-protecao-de-dados/",
+    "overflow": false,
+    "images": [
+      {
+        "src": "../../assets/a11-a12/A11-figura-1-copias-dos-dados.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-2-fronteiras-da-protecao.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-3-decisao-dlp.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-4-rpo-rto.jpg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 15,
+    "tableKeyboard": [
+      {
+        "label": "Preparar e manter o tratamento: procedimentos LGPD",
+        "moved": true
+      },
+      {
+        "label": "Responder a situações específicas: procedimentos LGPD",
+        "moved": true
+      },
+      {
+        "label": "Pontos de atuação dos controles DLP",
+        "moved": true
+      },
+      {
+        "label": "Contribuições das referências DLP",
+        "moved": true
+      },
+      {
+        "label": "Comparação de soluções DLP empresariais",
+        "moved": true
+      },
+      {
+        "label": "Serviços de descoberta e transformação em nuvem",
+        "moved": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "atividades/A11-A12-protecao-integrada/",
+    "overflow": false,
+    "images": [],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 0
+  }
+]

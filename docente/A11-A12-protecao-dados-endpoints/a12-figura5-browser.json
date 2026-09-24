@@ -1,0 +1,33 @@
+{
+  "page": "http://127.0.0.1:8771/aulas/A12-protecao-de-endpoints/",
+  "checks": [
+    {
+      "viewport": 1440,
+      "id": "figura-5",
+      "loaded": true,
+      "width": 992,
+      "naturalWidth": 2752,
+      "naturalHeight": 1536,
+      "overflow": false,
+      "src": "http://127.0.0.1:8771/assets/a11-a12/A12-figura-5-alcance-processo.jpeg",
+      "href": "http://127.0.0.1:8771/assets/a11-a12/A12-figura-5-alcance-processo.jpeg",
+      "alt": "Processo P0 inicia P1 em contexto de usuário comum. Neste exemplo, P1 pode ler e escrever documentos do usuário, mas não recebe acesso aos arquivos protegidos indicados. Sem privilégio administrativo, ainda pode haver dano aos documentos acessíveis.",
+      "caption": "Figura 5 — Alcance do processo. O dano possível depende das operações permitidas ao processo. A barreira representa os arquivos e acessos negados neste exemplo; não significa que todo arquivo do sistema seja ilegível por um usuário comum. O UID 1001 é ilustrativo: o número isolado não determina os privilégios. Imagem fornecida pelo docente. Selecione a figura para ampliar.",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "id": "figura-5",
+      "loaded": true,
+      "width": 342,
+      "naturalWidth": 2752,
+      "naturalHeight": 1536,
+      "overflow": false,
+      "src": "http://127.0.0.1:8771/assets/a11-a12/A12-figura-5-alcance-processo.jpeg",
+      "href": "http://127.0.0.1:8771/assets/a11-a12/A12-figura-5-alcance-processo.jpeg",
+      "alt": "Processo P0 inicia P1 em contexto de usuário comum. Neste exemplo, P1 pode ler e escrever documentos do usuário, mas não recebe acesso aos arquivos protegidos indicados. Sem privilégio administrativo, ainda pode haver dano aos documentos acessíveis.",
+      "caption": "Figura 5 — Alcance do processo. O dano possível depende das operações permitidas ao processo. A barreira representa os arquivos e acessos negados neste exemplo; não significa que todo arquivo do sistema seja ilegível por um usuário comum. O UID 1001 é ilustrativo: o número isolado não determina os privilégios. Imagem fornecida pelo docente. Selecione a figura para ampliar.",
+      "status": 200
+    }
+  ]
+}

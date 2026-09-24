@@ -1,0 +1,1 @@
+Edite a Figura 10 removendo somente a palavra “RODAPÉ:” da faixa inferior. Preserve a frase “Validar também uso legítimo, exceções e canais fora da cobertura DLP”, centralizada nessa faixa. Não altere os demais textos, setas, símbolos ou estados da política.

@@ -4,6 +4,8 @@ Estas instruções orientam todo conteúdo criado ou revisado neste repositório
 
 **Decisão docente de 17 set. 2026 — planejamento antes do cenário:** antes de escolher um caso ou ferramenta para uma aula, analisar o objetivo da aula no roadmap, o ganho de competência em relação aos encontros vizinhos, os conceitos necessários e a prática que permite aplicar e verificar esse ganho. Definir a proporção teórica/prática conforme a natureza do encontro; não repetir 50/50 por hábito. Um caso contínuo é recurso opcional quando favorece a aprendizagem. Pode-se usar exemplos independentes ou comparações curtas quando revelarem melhor os limites e a transferência de um conceito. A ponte entre aulas pode ser uma pergunta, critério, método, evidência ou decisão, sem exigir a mesma empresa, personagem ou incidente. Preservar dados completos e procedência quando um caso for usado; não inventar herança de aula ministrada.
 
+**Decisão docente de 24 set. 2026 — exposição integrada em A11–A12:** organizar proteção de dados e endpoint como um bloco de dois encontros predominantemente expositivos, com conceitos e técnicas apresentados diretamente e exemplos concretos de apoio. Não exigir cenário imaginário, personagens, empresa ou continuidade da matriz industrial. Usar comparações, arquivos, configurações e rastros curtos para ilustrar propriedades e limites. A continuidade é conceitual; demonstrações e análise guiada permanecem como apoio. Esta decisão prevalece, para esse bloco, sobre a preferência por abrir unidades com cenário e observar antes de toda definição. Ver o planejamento integrado docente. Não converter exposição em slides nem publicar páginas sem solicitação de produção.
+
 ## Referência obrigatória de arquitetura curricular
 
 Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, os objetivos e dependências entre encontros, os produtos integradores e os portões contra *drift*.
@@ -12,7 +14,7 @@ Consultar também [`docente/publicacao-google-drive.md`](docente/publicacao-goog
 
 - O `AGENTS.md` define as diretrizes gerais de produção e qualidade.
 - A arquitetura geral define **por que cada aula existe, o que recebe da anterior e o que prepara para a seguinte**.
-- Para A08–A31, consultar o [roadmap vigente](docente/roadmap-curso.md) antes de definir fichas-base. A08/A09 foram ministradas e A10 foi publicada; novas fichas devem respeitar a distinção entre material e execução comprovada.
+- Para A08–A31, consultar o [roadmap vigente](docente/roadmap-curso.md) antes de definir fichas-base. A08–A10 foram ministradas (A10 confirmada pelo docente em 24 set. 2026); novas fichas devem respeitar a distinção entre material e execução comprovada.
 - O plano docente de cada aula detalha a execução do encontro.
 - Se uma alteração mudar cenário, progressão, objetivo, evidência, produto ou ponte entre aulas, atualizar primeiro a arquitetura geral ou registrar nela a decisão pendente; depois alinhar os artefatos afetados.
 - Não considerar uma sequência aprovada apenas porque seus arquivos já existem. Prevalecem os estados e decisões registrados na arquitetura geral.

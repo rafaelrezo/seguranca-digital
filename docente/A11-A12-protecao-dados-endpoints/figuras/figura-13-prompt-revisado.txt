@@ -1,0 +1,11 @@
+PROMPT ILUSTRATIVO FIGURA 13 = "Crie uma ilustração didática em português, horizontal 16:9, com fundo claro, alto contraste, letras grandes e personagens profissionais genéricos. Título: PAPÉIS NO VIDEOMONITORAMENTO INDUSTRIAL.
+
+Na faixa superior, coloque duas organizações em caixas grandes. À ESQUERDA: INDÚSTRIA — CONTROLADORA, com um representante dentro da caixa e o texto Define finalidade, retenção e acesso. À DIREITA: PRESTADORA — OPERADORA NESTE EXEMPLO, com o texto Trata imagens sob instruções. Dentro da caixa da prestadora, inclua um técnico com capacete, identificado como TÉCNICO EMPREGADO — Executa e registra o serviço. Os personagens representam profissionais das organizações; não apresente o técnico ou o representante da indústria como controlador individual.
+
+ENTRE AS DUAS CAIXAS, DESENHE UMA ÚNICA SETA HORIZONTAL DA ESQUERDA PARA A DIREITA: INDÚSTRIA → PRESTADORA. A ORIGEM da seta fica na indústria. A PONTA TRIANGULAR fica junto à prestadora. Escreva sobre ela: Instruções autorizadas. Não desenhe ponta voltada para a indústria nem seta de mão dupla.
+
+Na faixa inferior, mostre uma câmera e uma tela com silhuetas, identificadas como IMAGENS DE PESSOAS IDENTIFICÁVEIS. Ao lado, coloque trabalhadores e visitantes genéricos com o rótulo PESSOAS FILMADAS — TITULARES. Em uma caixa separada, represente o ENCARREGADO — Comunicação e orientação. Ligue o encarregado à indústria e aos titulares por linhas pontilhadas SEM pontas de seta, rotuladas Comunicação. Essas linhas não representam ordens nem transferência de responsabilidade.
+
+No rodapé, escreva: O papel depende da atuação; instalar equipamentos não torna a empresa operadora automaticamente.
+
+Não inclua marcas, nomes próprios, rostos reais, reconhecimento facial, consentimento obrigatório ou prazo de retenção inventado. Use texto e símbolos, sem depender apenas das cores. Antes de finalizar, confira especialmente: a única seta de instruções deve terminar na PRESTADORA, à direita."

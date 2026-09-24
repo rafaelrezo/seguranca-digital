@@ -1,0 +1,80 @@
+[
+  {
+    "width": 1440,
+    "route": "aulas/A11-protecao-de-dados/",
+    "overflow": false,
+    "images": [
+      {
+        "src": "../../assets/a11-a12/A11-figura-1-copias-dos-dados.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-2-fronteiras-da-protecao.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-3-decisao-dlp.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-4-rpo-rto.jpg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 11
+  },
+  {
+    "width": 1440,
+    "route": "atividades/A11-A12-protecao-integrada/",
+    "overflow": false,
+    "images": [],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 0
+  },
+  {
+    "width": 390,
+    "route": "aulas/A11-protecao-de-dados/",
+    "overflow": false,
+    "images": [
+      {
+        "src": "../../assets/a11-a12/A11-figura-1-copias-dos-dados.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-2-fronteiras-da-protecao.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-3-decisao-dlp.jpeg",
+        "loaded": true,
+        "alt": true
+      },
+      {
+        "src": "../../assets/a11-a12/A11-figura-4-rpo-rto.jpg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 11
+  },
+  {
+    "width": 390,
+    "route": "atividades/A11-A12-protecao-integrada/",
+    "overflow": false,
+    "images": [],
+    "missing": [],
+    "duplicateIds": [],
+    "summaries": 0
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "coleta_utc": "2026-09-24T18:04:17.028456+00:00",
+  "metodo": "Python csv e shutil em diretório temporário; não execução em editor gráfico ou serviço de backup",
+  "base_linhas": 4,
+  "agregado_linhas": 3,
+  "soma": 4,
+  "restauracao_identica": true,
+  "trabalho_preservado_versao": 2,
+  "sha256_restaurado": "6ca38199f38439ad650fe096e98172264e252e90c7454c92deed578f6233ed60"
+}

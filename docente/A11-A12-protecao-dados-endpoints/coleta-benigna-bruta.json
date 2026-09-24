@@ -1,0 +1,8 @@
+{
+  "observed_utc": "2026-09-24T16:54:14+00:00",
+  "ps": "4       2 python3",
+  "python": "3.14.4",
+  "file_bytes": 18,
+  "content": "observacao benigna",
+  "note": "Sem coleta de rede; consulta pontual, nao rastreamento completo."
+}

@@ -1,14 +1,16 @@
 # Roadmap vigente — Segurança Digital, A08–A31
 
-**Decisão docente consolidada em 17 set. 2026.** A01–A07 são história ministrada; A08 e A09 também foram realizadas. O material publicado dessas aulas não comprova os produtos individuais da turma. A10 está publicada e abre uma **nova matriz de riscos industrial**, sem atribuir à turma fatos da A09. A11–A31 são planejamento prospectivo: título, recorte e prática serão refinados na ficha de cada aula, sem mudar sua competência e sua ponte sem registrar a revisão aqui.
+**Decisão docente consolidada em 17 set. 2026.** A01–A07 são história ministrada; A08, A09 e A10 também foram realizadas; a confirmação docente da A10 foi registrada em 24 set. 2026, sem informação da data do encontro, versão exata utilizada ou execução de cada checkpoint. O material publicado dessas aulas não comprova os produtos individuais da turma. O material publicado da A10 abre uma **nova matriz de riscos industrial**, sem atribuir à turma fatos da A09. A11–A12 têm conteúdo MkDocs produzido localmente em 24 set. 2026, sem realização ou publicação remota confirmadas. A13–A31 são planejamento prospectivo: título, recorte e prática serão refinados na ficha de cada aula, sem mudar sua competência e sua ponte sem registrar a revisão aqui.
+
+**Revisão de 24 set. 2026:** A11–A12 passam a compor um bloco integrado e predominantemente expositivo, com exemplos concretos de apoio, sem cenário imaginário condutor. Ver [planejamento integrado](A11-A12-protecao-dados-endpoints/planejamento-integrado.md).
 
 ## Critérios de progressão
 
 - Começar pela competência e pela evidência que o estudante deverá produzir; escolher caso, ferramenta e proporção de teoria/prática em seguida. A continuidade de cenário é flexível.
-- Manter uma matriz industrial **incremental**. A10 entrega R10-01/R10-02; novas linhas só surgem com novo evento, consequência ou contexto. Não transportar classes de risco entre TI e OT sem revisar premissas.
+- A matriz industrial é um recurso **incremental quando pertinente**, sem obrigação de percorrer todos os blocos. O material A10 apresenta R10-01/R10-02; A11–A12 usam exemplos independentes e não exigem novas linhas. Novas linhas só surgem com novo evento, consequência ou contexto. Não transportar classes de risco entre TI e OT sem revisar premissas.
 - Em cada aula, oferecer leitura técnica completa e sínteses curtas destacadas no MkDocs. A prática presencial é conduzida pelo professor, com previsão, rastro, interpretação e decisão. Nenhum slide ou PDF novo é requisito.
 - Preservar cinco atividades principais por macrocomponente. A atividade A08–A09 já terminou; A10 tem checkpoint presencial. A11–A12, A13–A18, A19–A22 e A23–A31 terão uma entrega cumulativa por bloco, com operação essencial demonstrada antes da entrega.
-- A01–A09 não são reescritas como se a turma tivesse observado ou produzido evidências novas. Uma nova edição do começo do curso poderá melhorar o apoio de estudo, com indicação de que é revisão posterior.
+- A01–A10 não são reescritas como se a turma tivesse observado ou produzido evidências novas. Uma nova edição do começo do curso poderá melhorar o apoio de estudo, com indicação de que é revisão posterior.
 
 ## Conteúdo histórico A01–A07
 
@@ -32,9 +34,9 @@ Os minutos T/P abaixo são **alocação de planejamento**, integrados na conduç
 |---|---:|---|---|
 | A08 — SGSI e governança | 60/40 | Delimitar escopo, responsabilidades e objetivos de proteção. | Registro de governança para avaliar riscos. **Ministrada.** |
 | A09 — avaliação de riscos | 60/40 | Formular, classificar e tratar riscos com premissas e limites. | Matriz e atividade A08–A09 encerradas. **Ministrada.** |
-| [A10 — engenharia social e segurança física](../docs/aulas/A10-engenharia-social-seguranca-fisica.md) | 40/60 | A partir de R10-01/R10-02, distinguir controles contra engenharia social e controles físicos de acesso, seus rastros e limites; testar confirmação e limite de área. | R10-01/R10-02 com controle social e físico, testes A–C no laboratório integrado, lacuna de *tailgating* e pergunta sobre dados acessíveis. **Publicada.** |
-| A11 — dados e prevenção de perda | 50/50 | Inventariar tipos, classificação, proprietário, finalidade, estados, retenção e saída de dados; formular regra DLP e exceção. | Fluxo classificado, caso permitido/bloqueado e risco de exposição ou perda. |
-| A12 — malware e endpoint | 40/60 | Distinguir execução legítima, indício de malware e propagação possível de *worm*; ler processo, arquivo, persistência, rede e alerta. | Linha do tempo, hipótese limitada, contenção reversível e encerramento da atividade de dados/endpoint. |
+| [A10 — engenharia social e segurança física](../docs/aulas/A10-engenharia-social-seguranca-fisica.md) | 40/60 | A partir de R10-01/R10-02, distinguir controles contra engenharia social e controles físicos de acesso, seus rastros e limites; testar confirmação e limite de área. | R10-01/R10-02 com controle social e físico, testes A–C no laboratório integrado, lacuna de *tailgating* e pergunta sobre dados acessíveis. **Ministrada; confirmação docente registrada em 24 set. 2026.** |
+| [A11 — proteção de dados: classificação, circulação e controles](../docs/aulas/A11-protecao-de-dados.md) | 70/30 | Mapear dados e cópias, classificar por impacto e finalidade, relacionar LGPD e implementar controles de cópia e acesso; explicar detecção e cobertura DLP, validar regra/exceção e distinguir armazenamento de recuperação verificável. | Mapa de dado/cópias, decisão de proteção, regra com contraprova e critério de restauração; pergunta sobre os privilégios do processo que manipula o dado. |
+| [A12 — proteção de dispositivos: malware, detecção e resposta](../docs/aulas/A12-protecao-de-endpoints.md) | 70/30 | Explicar execução, privilégios, persistência e propagação; relacionar mecanismos de malware às camadas defensivas; correlacionar processo, arquivo e rede, avaliar alerta e justificar contenção/recuperação. | Triagem com linha do tempo, evidência ausente, alcance da contenção e critério de retorno; integração dos controles de dado e endpoint e encerramento da atividade única. |
 | A13 — cifra simétrica autenticada | 60/40 | Ligar confidencialidade e integridade a AEAD, chave, nonce e alteração detectada. | Dados e propriedades a proteger; teste positivo/negativo com segredo descartável. |
 | A14 — hash, HMAC e senhas | 60/40 | Distinguir digest, autenticação de mensagem, sal, KDF e armazenamento de senha. | Referência confiável e limite de cada mecanismo. |
 | A15 — assimétrica, acordo e assinatura | 60/40 | Diferenciar cifrar, assinar e acordar segredo; experimentar par de chaves e (EC)DH em laboratório. | Verificação com chave correta/incorreta e necessidade de identidade da chave. |
@@ -55,7 +57,7 @@ Os minutos T/P abaixo são **alocação de planejamento**, integrados na conduç
 | A30 — transferência segura para OT | 50/50 | Rever escopo e limites de testes em processo industrial; verificar controles sem exploração destrutiva. | Plano de validação OT, evidência permitida/negada e critério de parada. |
 | A31 — relatório e decisão residual | 55/45 | Comunicar dois achados, contraprovas, correções, retestes, limites e risco residual. | Entrega integrada de pentest e defesa, com responsáveis e próxima revisão. |
 
-**Somatório planejado A08–A31:** 24 × 100 min = 2.400 min, **1.200 T + 1.200 P**. A distribuição institucional de 30 h teóricas + 30 h práticas para o curso inteiro ainda depende da conciliação com carga e calendário reais de A01–A07; não declarar esse total como verificado apenas por esta tabela.
+**Somatório planejado A08–A31:** 24 × 100 min = 2.400 min, **1.250 T + 1.150 P**. A revisão de A11–A12 acrescenta 50 minutos teóricos e reduz 50 práticos em relação ao plano anterior; não redistribuir outros encontros apenas para recompor 50/50. A conciliação global permanece pendente. A distribuição institucional de 30 h teóricas + 30 h práticas para o curso inteiro ainda depende da conciliação com carga e calendário reais de A01–A07; não declarar esse total como verificado apenas por esta tabela.
 
 ## Referenciais e limites do bloco de pentest
 
@@ -63,6 +65,12 @@ A **[CWE Top 25 vigente da MITRE](https://cwe.mitre.org/top25/)** orienta a esco
 
 Na trilha OT, [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) fundamenta as restrições e a segurança em profundidade; [ISA/IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) apoia papéis, zonas, conduítes e requisitos; [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) ajuda a avaliar confiança implícita. Nenhuma dessas referências autoriza testar sistemas de produção.
 
-## Próxima produção
+## Ampliação operacional da A11 — duração a reavaliar
 
-Criar a ficha e a página A11 a partir da pergunta deixada na A10: **quais dados a indústria guarda, quem pode usá-los e como distinguir circulação legítima de perda?** Atualizar a matriz com uma linha de dado somente após definir ativo, fluxo, consequência e evidência. O conteúdo e o experimento de A11 devem anteceder a tarefa do bloco A11–A12; não pressupor que o aluno implementou um DLP na A10.
+Por solicitação docente, produzir primeiro a experiência completa: LGPD aplicada, exportação mínima, permissões e revogação, configuração DLP, retenção e restauração. A linha A11 de 70/30 e o somatório acima permanecem referência do plano anterior; não constituem estimativa validada da edição ampliada. O tempo será analisado posteriormente, sem reduzir agora o conteúdo. A atividade continua única, acrescentando configuração proposta e contraprovas ao parecer.
+
+## Produção A11–A12 e próximo passo
+
+Páginas A11–A12 e atividade integrada produzidas localmente em 24 set. 2026, com sínteses itemizadas, explicações, exemplos, alternativas e oito prompts ilustrativos numerados. O docente gerará as imagens para posterior composição; o conteúdo permanece compreensível sem elas. A11 encaminha para a atividade única e A12 a conclui. Planos docentes e respostas permanecem fora de `docs/`. Publicação remota e realização não confirmadas.
+
+Próximo passo editorial: revisar o material e incorporar as imagens recebidas, conferindo correspondência conceitual, texto alternativo e legibilidade. Próxima ficha curricular: A13, partindo das propriedades de confidencialidade e integridade e dos limites do endpoint, sem exigir cenário ou matriz industrial.
