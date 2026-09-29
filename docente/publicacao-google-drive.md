@@ -1,5 +1,9 @@
 # Registro de publicação no Google Drive
 
+## Resumo da LGPD na A11 — 29 set. 2026
+
+Publicada no GitHub Pages a síntese objetiva da Lei nº 13.709/2018 no início da seção LGPD da A11. O commit `e0808163` foi enviado à `main`; a [validação](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36645489502) e o [deploy](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36645489615) concluíram com sucesso. A [página pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A11-protecao-de-dados/#lgpd) contém o resumo e seu HTML coincide com o build local validado. A publicação incluiu somente a página A11; Google Drive e Classroom não foram alterados.
+
 ## Publicação A11–A12 confirmada — 24 set. 2026
 
 Solicitada pelo docente e realizada no GitHub Pages. Commits `591832cf` (planejamento e revisões) e `060fc702` (material e atividade) enviados à `main`, preservando a versão remota da A10. [Deploy 36054191697](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36054191697) concluído com sucesso. A11, A12 e HTML da atividade retornaram HTTP 200 com conteúdo idêntico ao build local validado; Chrome conferiu A11 e atividade em 1440/390 px, imagens e links. A atividade está fora do menu geral.
