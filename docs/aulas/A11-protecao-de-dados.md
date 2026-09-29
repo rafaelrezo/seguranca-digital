@@ -144,15 +144,19 @@ Uma tabela sem nomes ainda pode combinar atributos que distingam uma pessoa. Por
 
 ## LGPD: ligar finalidade, direitos e controles {#lgpd}
 
+### Lei Geral de Proteção de Dados Pessoais: resumo objetivo
+
 <div class="theme-summary" markdown="1">
 
-- A **Lei Geral de Proteção de Dados Pessoais — LGPD** trata de operações com dados pessoais, inclusive fora de sistemas digitais.
-- Dado pessoal, dado pessoal sensível e classificação “restrito” são conceitos diferentes.
-- Finalidade e base legal orientam o tratamento; consentimento é uma das hipóteses.
-- Permissões, minimização e recuperação apoiam a proteção, mas não tornam qualquer uso legítimo.
-- Direitos dos titulares dependem de localizar dados, responsáveis e compartilhamentos.
+- **O que protege e quando se aplica:** a Lei nº 13.709/2018 protege direitos de pessoas naturais no tratamento de dados pessoais, em meio digital ou físico, observados os critérios de aplicação e as exceções legais. Dado sensível é uma categoria definida pela lei; “restrito” é uma classificação interna da organização. [Arts. 1º e 3º–5º][lgpd].
+- **Quando e para que tratar:** cada operação precisa de finalidade legítima e de uma hipótese legal aplicável. O tratamento deve observar princípios como adequação, necessidade, transparência e segurança. Consentimento é uma das hipóteses, não uma exigência universal. Dados sensíveis têm requisitos próprios. [Arts. 6º, 7º e 11][lgpd].
+- **O que o titular pode exigir:** entre outros direitos, confirmação do tratamento, acesso, correção e, nas condições previstas na lei, bloqueio ou eliminação. A conservação pode continuar quando houver hipótese legal. [Arts. 16 e 18][lgpd].
+- **Quem responde e o que deve fazer:** o controlador decide sobre o tratamento; o operador o realiza em seu nome. Os agentes devem registrar operações e adotar medidas técnicas e administrativas de proteção. Incidentes capazes de causar risco ou dano relevante são comunicados pelo controlador à ANPD e aos titulares. [Arts. 5º, 37, 46 e 48][lgpd].
+- **Como se fiscaliza:** a ANPD fiscaliza o cumprimento da lei e pode aplicar sanções administrativas após apuração, conforme os critérios legais; há também regras de reparação de danos. Uma falha ou vazamento, por si só, não define a responsabilidade ou a sanção. [Arts. 42–45 e 52][lgpd].
 
 </div>
+
+As próximas partes mostram como reconhecer os dados, atribuir responsabilidades e transformar essas exigências em decisões sobre cópias, acesso e retenção.
 
 ### Identificar o dado e a operação
 
