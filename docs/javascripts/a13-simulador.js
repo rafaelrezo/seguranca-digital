@@ -5,93 +5,93 @@
 
   const models = {
     virus() {
-      const files = { "A.exe": "programa + marcador V", "B.exe": "programa limpo" };
+      const files = { "A.exe": "contém uma cópia do vírus", "B.exe": "sem cópia do vírus" };
       const before = JSON.stringify(files);
-      files["B.exe"] = "programa + marcador V";
-      return [before, JSON.stringify(files), "O hospedeiro B.exe mudou; a cópia segue com o arquivo."];
+      files["B.exe"] = "contém uma cópia do vírus";
+      return [before, JSON.stringify(files), "B.exe passa a carregar uma cópia do vírus dentro do arquivo."];
     },
     worm() {
-      const devices = { "PC-1": "cópia W", "PC-2": "sem cópia" };
+      const devices = { "PC-1": "tem uma cópia do programa", "PC-2": "sem cópia" };
       const before = JSON.stringify(devices);
-      devices["PC-2"] = "cópia W";
+      devices["PC-2"] = "tem uma cópia do programa";
       return [before, JSON.stringify(devices), "A cópia aparece em outro dispositivo sem alterar arquivo hospedeiro."];
     },
     trojan() {
-      const app = { anuncio: "visualizador", acao: "abrir relatório" };
+      const app = { "Nome mostrado": "Leitor de relatórios", "O que faz": "abrir relatório" };
       const before = JSON.stringify(app);
-      app.acao = "abrir relatório + acesso oculto";
-      return [before, JSON.stringify(app), "A apresentação ao usuário omite a ação indevida."];
+      app["O que faz"] = "abrir relatório + criar entrada secreta";
+      return [before, JSON.stringify(app), "O programa parece ser um leitor, mas também cria uma entrada secreta." ];
     },
     ransomware() {
-      const data = { arquivo: "legível", pedido: "nenhum" };
+      const data = { "relatorio.txt": "pode ser aberto", "Mensagem de cobrança": "não existe" };
       const before = JSON.stringify(data);
-      data.arquivo = "inacessível";
-      data.pedido = "resgate";
-      return [before, JSON.stringify(data), "O acesso foi restringido e surgiu uma cobrança fictícia."];
+      data["relatorio.txt"] = "não pode ser aberto";
+      data["Mensagem de cobrança"] = "pague para recuperar o acesso";
+      return [before, JSON.stringify(data), "O arquivo fica inacessível e aparece uma cobrança." ];
     },
     spyware() {
-      const collection = { dados: "histórico fictício", enviados: false };
+      const collection = { "Histórico de navegação": "só no computador", "Cópia para terceiros": "não" };
       const before = JSON.stringify(collection);
-      collection.enviados = true;
-      return [before, JSON.stringify(collection), "O modelo marca coleta e envio indevidos; nenhuma rede é usada."];
+      collection["Cópia para terceiros"] = "sim, na simulação";
+      return [before, JSON.stringify(collection), "O programa obtém informações sem autorização. Nenhum dado real é lido ou enviado." ];
     },
     adware() {
-      const browser = { busca: "destino escolhido pelo usuário" };
+      const browser = { "Destino da busca": "página escolhida pelo usuário" };
       const before = JSON.stringify(browser);
-      browser.busca = "página de anúncios fictícia";
-      return [before, JSON.stringify(browser), "A busca foi redirecionada sem consentimento no modelo."];
+      browser["Destino da busca"] = "página de anúncios";
+      return [before, JSON.stringify(browser), "A busca passa a abrir anúncios sem escolha do usuário." ];
     },
     keylogger() {
-      const keys = { digitado: "TESTE", registro: [] };
+      const keys = { "Texto de exemplo": "TESTE", "Registro de letras": [] };
       const before = JSON.stringify(keys);
-      keys.registro.push(...keys.digitado);
-      return [before, JSON.stringify(keys), "Somente a palavra fictícia TESTE foi copiada em memória; nenhuma tecla real é capturada."];
+      keys["Registro de letras"].push(...keys["Texto de exemplo"]);
+      return [before, JSON.stringify(keys), "As letras de TESTE aparecem em outro registro. O teclado real não é observado." ];
     },
     backdoor() {
-      const access = { caminhos: ["entrada autorizada"] };
+      const access = { "Formas de entrar": ["login com senha"] };
       const before = JSON.stringify(access);
-      access.caminhos.push("atalho oculto fictício");
-      return [before, JSON.stringify(access), "Foi acrescentado um caminho que contorna o fluxo normal no modelo."];
+      access["Formas de entrar"].push("entrada secreta sem pedir senha");
+      return [before, JSON.stringify(access), "Surge uma segunda forma de entrar, escondida e sem o login normal." ];
     },
     rat() {
-      const remote = { autorizado: false, comandos: [] };
+      const remote = { "Permissão do dono": "não concedida", "Ordens recebidas": [] };
       const before = JSON.stringify(remote);
-      remote.comandos.push("abrir documento fictício");
-      return [before, JSON.stringify(remote), "O modelo recebeu uma ordem remota não autorizada; nenhuma conexão é aberta."];
+      remote["Ordens recebidas"].push("abrir relatorio.txt");
+      return [before, JSON.stringify(remote), "Uma pessoa distante controla o programa sem autorização do dono. Não há conexão real." ];
     },
     rootkit() {
-      const system = { processosReais: ["editor", "componente X"], processosVisiveis: ["editor", "componente X"] };
+      const system = { "Programas em execução": ["Editor", "Programa X"], "Programas mostrados na lista": ["Editor", "Programa X"] };
       const before = JSON.stringify(system);
-      system.processosVisiveis = ["editor"];
-      return [before, JSON.stringify(system), "A visão omite X, embora X continue na lista real do modelo."];
+      system["Programas mostrados na lista"] = ["Editor"];
+      return [before, JSON.stringify(system), "O Programa X continua em execução, mas desaparece da lista mostrada." ];
     },
     logicbomb() {
-      const state = { dataDeTeste: "2030-01-01", gatilho: "2030-01-01", arquivo: "presente" };
+      const state = { "Data do exemplo": "01/01/2030", "Data programada": "01/01/2030", "relatorio.txt": "presente" };
       const before = JSON.stringify(state);
-      if (state.dataDeTeste === state.gatilho) state.arquivo = "apagado no modelo";
-      return [before, JSON.stringify(state), "Uma condição fictícia disparou a mudança em memória; nenhum arquivo foi apagado."];
+      if (state["Data do exemplo"] === state["Data programada"]) state["relatorio.txt"] = "marcado como apagado na tela";
+      return [before, JSON.stringify(state), "A data programada dispara a ação. Nenhum arquivo real é apagado." ];
     },
     botnet() {
       const devices = { "PC-1": [], "PC-2": [] };
       const before = JSON.stringify(devices);
-      for (const commands of Object.values(devices)) commands.push("ordem fictícia");
-      return [before, JSON.stringify(devices), "Dois dispositivos do modelo receberam a mesma ordem; não há rede real."];
+      for (const commands of Object.values(devices)) commands.push("abrir página de teste");
+      return [before, JSON.stringify(devices), "PC-1 e PC-2 recebem a mesma ordem de um controlador. Nenhuma rede é usada." ];
     }
   };
 
   const scenes = {
-    virus: ["Arquivo A.exe com marcador V", "Copia o marcador para outro arquivo hospedeiro", "Arquivo B.exe"],
-    worm: ["Dispositivo PC-1 com cópia W", "Cria uma cópia em outro dispositivo", "Dispositivo PC-2"],
-    trojan: ["Aplicativo anunciado como visualizador", "Acrescenta uma ação que o anúncio não informa", "Ação real do aplicativo"],
-    ransomware: ["Código no dispositivo fictício", "Restringe acesso e apresenta cobrança", "Arquivo e pedido de resgate"],
-    spyware: ["Processo sem autorização", "Marca coleta de dados fictícios", "Histórico do usuário no modelo"],
-    adware: ["Programa de anúncios fictício", "Redireciona uma busca sem consentimento", "Destino da busca no modelo"],
-    keylogger: ["Componente fictício", "Copia a palavra TESTE para um registro", "Registro de teclas no modelo"],
-    backdoor: ["Componente instalado no modelo", "Acrescenta um caminho oculto", "Caminhos de acesso"],
-    rat: ["Ordem remota fictícia", "Insere a ordem em uma lista", "Comandos do programa no modelo"],
-    rootkit: ["Componente X do modelo", "Omite X da lista visível", "Visão dos processos"],
-    logicbomb: ["Data de teste fictícia", "Ativa a condição programada", "Estado de um arquivo no modelo"],
-    botnet: ["Ordem fictícia única", "Distribui a ordem a dois dispositivos", "PC-1 e PC-2 do modelo"]
+    virus: ["Arquivo A.exe com uma cópia do vírus", "Coloca uma cópia dentro de B.exe", "Arquivo B.exe"],
+    worm: ["PC-1 com uma cópia do programa", "Cria uma cópia em outro computador", "PC-2"],
+    trojan: ["Programa 'Leitor de relatórios'", "Abre o relatório e cria uma entrada secreta", "O que o programa faz"],
+    ransomware: ["Programa aberto no PC de exemplo", "Impede abrir o arquivo e mostra uma cobrança", "relatorio.txt e mensagem"],
+    spyware: ["Programa sem autorização", "Copia o histórico de navegação", "Informações do usuário"],
+    adware: ["Extensão do navegador", "Troca o destino de uma busca", "Página aberta pela busca"],
+    keylogger: ["Programa que registra letras", "Copia as letras de TESTE", "Registro de letras"],
+    backdoor: ["Programa 'Assistente de suporte'", "Acrescenta uma entrada escondida que não pede senha", "Formas de entrar no PC de exemplo"],
+    rat: ["Pessoa distante sem autorização", "Envia a ordem 'abrir relatorio.txt'", "Programa de controle remoto"],
+    rootkit: ["Programa X", "Esconde seu nome da lista exibida", "Lista de programas em execução"],
+    logicbomb: ["Regra com data marcada", "Age quando chega 01/01/2030", "relatorio.txt na tela"],
+    botnet: ["Controlador remoto", "Dá a mesma ordem a dois PCs", "PC-1 e PC-2"]
   };
 
   function line(label, value) {
@@ -130,11 +130,11 @@
       objects.append(card);
     }
     output.replaceChildren(
-      line("Origem", origin),
-      line("Ação simulada", action),
-      line("Alvo", target),
+      line("Quem age", origin),
+      line("O que faz", action),
+      line("O que é afetado", target),
       objects,
-      line("Relação com a família", clue)
+      line("O que isso mostra", clue)
     );
   });
 })();

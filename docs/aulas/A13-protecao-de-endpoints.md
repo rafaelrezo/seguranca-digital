@@ -136,9 +136,9 @@ Um worm pode precisar de uma ação inicial para entrar no ambiente. “Autoprop
 
 ### Demonstração segura: executar modelos no navegador {#simulacao-malware}
 
-O simulador representa **objetos fictícios**, como `B.exe` e `PC-2`. Ele mostra **quem inicia a ação, qual é o alvo e o que mudou no alvo**. Use-o no navegador de Windows ou Ubuntu; nenhum arquivo ou dispositivo real será modificado.
+Esta tela representa um **computador de exemplo**. Nomes como `B.exe`, `PC-2` e `relatorio.txt` são etiquetas na página; não são arquivos ou computadores acessados de verdade. Cada clique mostra **quem age, o que faz, o que é afetado e o que muda**. Funciona no navegador de Windows ou Ubuntu.
 
-**Procedimento:** escolha **Vírus**, preveja qual objeto vai mudar e clique em **Executar simulação**. Leia **Origem → Ação simulada → Alvo** e compare os cartões **Antes/Depois**. Repita com **Worm** e depois com outra família. Registre três linhas no formato **família → objeto que mudou → por que essa mudança ilustra a família**. Pare após as três linhas. Cada clique recomeça do mesmo estado fictício. Se o botão não funcionar, faça a comparação com M1–M12 abaixo.
+**Procedimento:** escolha **Vírus**, preveja qual objeto vai mudar e clique em **Executar simulação**. Leia **Quem age → O que faz → O que é afetado** e compare os cartões **Antes/Depois**. Repita com **Worm** e depois com outra família. Registre três linhas no formato **família → objeto que mudou → por que essa mudança ilustra a família**. Pare após as três linhas. Cada clique recomeça do mesmo estado de exemplo. Se o botão não funcionar, faça a comparação com M1–M12 abaixo.
 
 <div id="simulador-a13" class="a13-simulator">
   <label for="familia-a13">Família ou função para simular</label>
@@ -160,18 +160,20 @@ O simulador representa **objetos fictícios**, como `B.exe` e `PC-2`. Ele mostra
   <div class="a13-result" role="status" aria-live="polite"><p>Escolha uma família, preveja a mudança e execute a simulação.</p></div>
 </div>
 
-**Leitura trabalhada:** em **Vírus**, a origem é o arquivo fictício `A.exe`; o alvo `B.exe` muda de “programa limpo” para “programa + marcador V”. A cópia depende do **arquivo hospedeiro**. Em **Worm**, a origem é `PC-1`; o alvo `PC-2` muda de “sem cópia” para “cópia W”. A cópia alcança **outro dispositivo**, sem infectar um hospedeiro. Nas outras opções, observe a mesma sequência: **origem → ação → alvo → mudança → conceito**.
+**Leitura trabalhada:** em **Vírus**, `A.exe` age sobre `B.exe`, que muda de “sem cópia do vírus” para “contém uma cópia do vírus”. A cópia depende do **arquivo hospedeiro**. Em **Worm**, `PC-1` alcança `PC-2`, que muda de “sem cópia” para “tem uma cópia do programa”. A cópia alcança **outro dispositivo**, sem infectar um hospedeiro. Nas outras opções, faça a mesma leitura: **quem age → o que faz → o que muda → o que isso mostra**.
 
-O [código-fonte JavaScript completo](../javascripts/a13-simulador.js) contém os 12 modelos e pode ser lido antes de clicar. Ele altera apenas objetos temporários **na memória desta página**: não lê arquivos ou teclas reais, não usa rede e não executa malware. O trecho abaixo mostra as duas operações usadas nos primeiros modelos:
+**Mais um exemplo, Backdoor:** o programa chamado “Assistente de suporte” acrescenta uma **entrada escondida que não pede senha**. Antes, a lista mostrava apenas “login com senha”; depois, mostra as duas formas de entrar. É isso que a palavra *backdoor* descreve neste exemplo: um caminho de acesso que contorna o login normal. O simulador só altera a lista exibida nesta página.
+
+O [código-fonte JavaScript completo](../javascripts/a13-simulador.js) contém os 12 exemplos programados e pode ser lido antes de clicar. Ele altera apenas objetos temporários **na memória desta página**: não lê arquivos ou teclas reais, não usa rede e não executa malware. O trecho abaixo mostra as duas operações usadas nos primeiros exemplos:
 
 ```javascript
 // Vírus: muda o estado de um arquivo hospedeiro fictício.
-const arquivos = { "A.exe": "programa + V", "B.exe": "programa limpo" };
-arquivos["B.exe"] = "programa + V";
+const arquivos = { "A.exe": "contém uma cópia do vírus", "B.exe": "sem cópia do vírus" };
+arquivos["B.exe"] = "contém uma cópia do vírus";
 
 // Worm: muda o estado de outro dispositivo fictício.
-const dispositivos = { "PC-1": "cópia W", "PC-2": "sem cópia" };
-dispositivos["PC-2"] = "cópia W";
+const dispositivos = { "PC-1": "tem uma cópia do programa", "PC-2": "sem cópia" };
+dispositivos["PC-2"] = "tem uma cópia do programa";
 ```
 
 **A tabela abaixo** preserva a atividade quando JavaScript estiver desativado e mostra os rastros que cada modelo representa.

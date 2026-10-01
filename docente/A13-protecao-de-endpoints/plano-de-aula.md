@@ -10,6 +10,8 @@
 
 **Ajuste da relação visual no simulador:** a primeira saída apenas serializava objetos em texto e não evidenciava a relação entre mecanismo e alvo. O novo painel mostra **origem → ação simulada → alvo**, seguido de cartões por objeto com **Antes/Depois** e indicação textual do que mudou. Conduzir Vírus e Worm comparando o objeto alterado (`B.exe` versus `PC-2`), depois pedir uma terceira família. Os cartões continuam modelos em memória e não rastros reais.
 
+**Simplificação da linguagem do simulador:** o docente identificou termos sem referente concreto, como “componente instalado no modelo” para backdoor. Para a turma iniciante, isso cria carga desnecessária: o estudante precisa imaginar quem é o componente antes de entender o mecanismo. A interface usa agora **Quem age → O que faz → O que é afetado**, com programas, arquivos e dispositivos nomeados. Em Backdoor, o “Assistente de suporte” acrescenta à lista uma entrada escondida sem senha; a página explica o antes/depois e diz que a lista existe apenas na tela. Manter uma única ressalva de segurança no início e não repetir “no modelo” em cada cartão.
+
 ## Ficha-base
 
 | Campo | Definição |
