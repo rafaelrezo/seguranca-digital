@@ -4,6 +4,8 @@
 
 **Revisão expositiva posterior, por solicitação docente.** A página passou de cerca de 3.990 para 2.070 palavras. Diagnóstico de carga cognitiva para estudantes com conhecimento básico de segurança e primeiro contato com telemetria de endpoint: a carga intrínseca é alta na correlação entre processo, arquivo, rede e ação; a carga extrínseca vinha de sínteses repetidas, excesso de nomes de famílias e alternância entre casos reais e registros didáticos. A edição mantém o esforço produtivo em três decisões — alcance, interpretação e resposta — e aproxima definição, exemplo e pergunta. Vírus/worm têm comparação explícita; Stuxnet e Ucrânia 2015 ficam em um quadro curto; HatMan/TRITON passa a leitura opcional para OT. L1/L2 e E1–E4 conservam procedência e função distintas. O recorte mantém conteúdo de estudo, sem comprimir a atividade única nem alegar execução em aula.
 
+**Precisão posterior solicitada pelo docente:** a tabela curta anterior não deixava as definições claras e o CSV Linux pressupunha procedimentos que a turma Windows não havia visto. O percurso principal agora usa Bloco de Notas, Explorador e Gerenciador de Tarefas com passos, resultado e parada explícitos. W1/W2 são observações locais ou valores de referência ilustrativos; L1/L2 continuam como comparação opcional de outro ensaio. A tabela define vírus, worm, trojan, ransomware, spyware, adware malicioso, keylogger, backdoor, RAT malicioso, rootkit, bomba lógica e bot/botnet; M1–M12 demonstram cada mecanismo por rastros fictícios, sem código executável. Bloatware aparece como contraste e não é automaticamente malware. As decisões com casos industriais, controles, E1–E4 e resposta foram convertidas em procedimentos de leitura e registro. O aumento pontual de texto serve às instruções operacionais e evita depender de fala não registrada.
+
 ## Ficha-base
 
 | Campo | Definição |
@@ -14,14 +16,14 @@
 | Carga | 100 minutos: 70 T / 30 P de análise guiada. |
 | Formato | Exposição direta, duas comparações curtas com incidentes industriais documentados, observação benigna e triagem guiada. |
 | Pré-requisito | Propriedades, autorização e mecanismos de proteção de dados trabalhados em A11–A12; os checkpoints e produtos individuais ainda não foram relatados. |
-| Infraestrutura | Navegador, CSV e tabelas incorporadas; sem agente ou instalação pelo estudante. |
+| Infraestrutura | Página no navegador; Windows 10/11 com Bloco de Notas, Explorador e Gerenciador de Tarefas para observação guiada. Resultados W1/W2 escritos na página permitem acompanhar sem computador. Sem agente ou instalação. |
 | Evidência | Observação limitada por fonte, correlação, informação ausente, ação e verificação. |
 | Critério | Não equiparar alerta a bloqueio nem bloqueio a erradicação; justificar alcance e impacto da resposta. |
 | Fontes | Sysmon/Microsoft Learn e CERT.br, com links na página e procedência dos insumos; alertas ICS-CERT/CISA indicados abaixo para os incidentes. |
 
 ## Ganho e cadeia
 
-A11–A12 trataram controles sobre o dado. A13 examina o processo que o utiliza. Ganho novo: sair de “o dado tem permissão, regra e cópia” para “um processo com acesso pode agir sobre esse dado; que evidência delimita seu alcance e a resposta?”. Cadeia: herança conceitual de dado legível e acesso, sem presumir checkpoint individual da A11–A12 → CSV benigno L1/L2 e campos explicados → diferença entre arquivo, processo e ação → incidentes documentados que distinguem propagação, efeito e indisponibilidade → controle associado ao mecanismo → registros didáticos E1–E4 → leitura do resultado e da lacuna → contenção proporcional e critério de retorno → parecer único → pergunta sobre confiança do endpoint ao utilizar chaves no encontro seguinte de criptografia, cuja numeração ainda será conciliada.
+A11–A12 trataram controles sobre o dado. A13 examina o processo que o utiliza. Ganho novo: sair de “o dado tem permissão, regra e cópia” para “um processo com acesso pode agir sobre esse dado; que evidência delimita seu alcance e a resposta?”. Cadeia: herança conceitual de dado legível e acesso, sem presumir checkpoint individual da A11–A12 → observação benigna W1/W2 no Windows, com L1/L2 opcional e procedência separada → diferença entre arquivo, processo e ação → definições e rastros fictícios M1–M12 → incidentes documentados que distinguem propagação, efeito e indisponibilidade → controle associado ao mecanismo → registros didáticos E1–E4 → leitura do resultado e da lacuna → contenção proporcional e critério de retorno → parecer único → pergunta sobre confiança do endpoint ao utilizar chaves no encontro seguinte de criptografia, cuja numeração ainda será conciliada.
 
 ## Recorte de incidentes industriais para a exposição
 
@@ -34,15 +36,15 @@ Usar **dois cartões de caso**, com 3 a 4 fatos cada, fonte e pergunta de interp
 
 Se houver tempo e a turma já dominar as duas distinções, citar [HatMan/TRITON — análise de malware ICS-CERT](https://www.cisa.gov/sites/default/files/documents/MAR-17-352-01%20HatMan%E2%80%94Safety%20System%20Targeted%20Malware_S508C.pdf) em **dois minutos** para mostrar que um controlador de segurança pode ser alvo. A análise descreve componentes no PC e no controlador e apresenta capacidades sob hipóteses técnicas; não afirmar que todo efeito possível ocorreu. A avaliação detalhada da função de segurança pertence ao bloco OT.
 
-As categorias vírus, worm, trojan, ransomware e spyware continuam definidas na página para consulta. Em sala, distinguir propagação, apresentação enganosa, persistência e efeito quando cada caso exigir. Uma amostra pode combinar características; não obrigar uma classificação única nem consumir o encontro em nomes de famílias.
+As doze famílias ou funções da tabela são explicadas com um rastro fictício cada. Em sala, trabalhar M1/M2 para vírus/worm e escolher M3 ou M6 para mostrar que as funções se sobrepõem; as outras linhas ficam disponíveis para leitura e perguntas. Não obrigar uma classificação única de uma amostra real nem executar código.
 
 ## Condução
 
 | Minutos | T/P | Conteúdo e participação | Ponto de espera |
 |---|---:|---|---|
 | 0–10 | 10/0 | Reabrir a pergunta de proteção de dados: o que um processo autorizado pode fazer com um arquivo legível? Explicar arquivo, processo, usuário, privilégio e recurso. | Não exigir relato ou produto específico da A11–A12. |
-| 10–25 | 10/5 | Ler L1/L2 do ensaio benigno, explicar fonte e limite; a turma formula uma afirmação sustentada e uma ausente. | Consulta `ps` não é evento de escrita nem demonstração de EDR. |
-| 25–45 | 15/5 | Expor Stuxnet e Ucrânia 2015 em dois cartões; comparar propagação, credenciais, efeito no endpoint e consequência operacional. | Não transformar família de malware em causa suficiente da interrupção. |
+| 10–25 | 10/5 | Conduzir W1/W2 no Windows: criar arquivo fictício, localizar `Notepad.exe` e PID, abrir arquivo e registrar duas afirmações. Se não houver Windows acessível, usar os resultados ilustrativos da própria página. | Gerenciador e Explorador não são log de escrita vinculado ao PID. L1/L2 são opcionais e pertencem a outro ensaio. |
+| 25–45 | 15/5 | Explicar definições da tabela, trabalhar M1/M2 e M3 ou M6, depois expor Stuxnet e Ucrânia 2015 como dois cartões. | Rastros M1–M12 são ficção didática; casos documentados não transformam uma estação local em caso confirmado. |
 | 45–60 | 15/0 | Associar atualização, privilégio, controle de execução, antimalware, telemetria e cópia recuperável às ações que podem limitar ou observar. Distinguir AV, coleta, EDR e resposta pelo mecanismo. | Nome da ferramenta não comprova cobertura ou bloqueio. |
 | 60–80 | 10/10 | Explicar campos e trabalhar E1–E4: relacionar processo, arquivo, rede e alerta. Mudar E4 de “registrar” para “bloquear” e pedir nova conclusão com limite. | Conexão não prova conteúdo enviado; alerta não é erradicação. |
 | 80–95 | 10/5 | Comparar encerrar processo e isolar rede quanto a alvo, impacto, efeito local e verificação; estabelecer condição de retorno. Mostrar R1–R5 como extensão da atividade, sem resolver o parecer. | Bloqueio da tentativa em R3 não interrompe a escrita local em R5. |
@@ -51,12 +53,13 @@ As categorias vírus, worm, trojan, ransomware e spyware continuam definidas na 
 
 ## Procedência e contingência
 
-L1/L2 foram coletados por execução benigna em Linux, consulta ps e leitura de arquivo temporário. A origem bruta e o coletor estão em `docente/A11-A12-protecao-dados-endpoints/`; a versão pública substitui PIDs por P0/P1. Não transformar leitura de arquivo em evento de auditoria de escrita. A coleta não constitui uma demonstração de EDR. Não é preciso executar o coletor em sala.
+W1/W2 podem ser observados em Windows ou lidos como resultados ilustrativos na página; PIDs ilustrativos não correspondem à máquina da turma. Manter o Bloco de Notas aberto até consultar o processo; mais de uma instância pode impedir associar a janela a um único PID. A demonstração não inclui log de auditoria, EDR nem prova de intenção. L1/L2 foram coletados por execução benigna em Linux, consulta ps e leitura de arquivo temporário. A origem bruta e o coletor estão em `docente/A11-A12-protecao-dados-endpoints/`; a versão pública substitui PIDs por P0/P1. Não transformar leitura de arquivo em evento de auditoria de escrita. Não é preciso executar o coletor em sala.
 
-E1–E4 e R1–R5 são conjuntos didáticos, não incidentes observados. Endereços usam faixa de documentação. Sem download, usar a descrição de L1/L2 e as tabelas da página. Nenhum comando precisa ser executado pelo estudante.
+M1–M12, E1–E4 e R1–R5 são conjuntos didáticos, não incidentes observados. Endereços usam faixa de documentação. Sem Windows, usar W1/W2 descritos na página; sem download, usar as tabelas M1–M12 e E1–E4. Nenhum comando de malware ou alteração de segurança precisa ser executado pelo estudante.
 
 ## Respostas e orientação de avaliação
 
+- W1 sustenta presença de `Notepad.exe` com PID naquele instante; W2 sustenta conteúdo do arquivo. A autoria da escrita é conhecida pelo procedimento acompanhado, não demonstrada por W1/W2 isolados. M3 admite trojan e backdoor; M6 admite keylogger e coleta tipo spyware.
 - E1–E4: processo iniciou, criou arquivo e conectou; alerta apenas registrado. Faltam conteúdo transferido e autorização. Não há prova de worm, ransomware ou vazamento.
 - E4 alterado para bloqueio: é possível afirmar apenas bloqueio da tentativa correspondente, sem garantir ausência de comunicação anterior ou remoção do processo.
 - Persistência/alteração/propagação: distinguir mecanismo de retorno, efeito em arquivo e execução em outro alvo; uma frase isolada precisa de fonte e vínculo.
