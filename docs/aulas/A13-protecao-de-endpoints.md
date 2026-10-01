@@ -1,271 +1,135 @@
-# A13 — Proteger endpoints: execução, evidência e resposta
+# A13 — Proteger endpoints: execução, malware e resposta
 
-Um arquivo pode existir sem ter sido executado. Um programa pode alterar documentos sem ser administrador. Um alerta pode indicar detecção sem comprovar bloqueio. **Para avaliar o comprometimento de um dispositivo, precisamos relacionar ação, identidade, recurso, tempo e resultado.**
+Um arquivo armazenado não está necessariamente em execução. Um processo com acesso comum pode alterar documentos. Um alerta pode apenas registrar uma ação. Nesta aula, você vai usar essas distinções para explicar **o que aconteceu, o que ainda não sabemos e qual resposta cabe**.
 
-**Tempo:** 100 minutos. **Recursos:** esta página, navegador e editor de texto opcional. O material fornece registros legíveis; não é necessário instalar agente, executar malware ou acessar máquina de terceiros. **Pré-requisitos:** propriedades de segurança, autorização e proteção de dados estudadas nos encontros A11–A12, com o [material de proteção de dados](A11-protecao-de-dados.md) disponível para consulta. Esta página não pressupõe que toda demonstração daquele material tenha sido executada.
+**Tempo:** 100 minutos. **Recursos:** esta página e um navegador; editor de texto opcional. Use somente os registros fornecidos. Não é preciso instalar agentes ou executar malware. **Base:** propriedades de segurança e [proteção de dados](A11-protecao-de-dados.md) dos encontros A11–A12.
 
 **Objetivos de aprendizagem**
 
-1. Explicar como execução, privilégios, persistência e propagação condicionam efeitos de malware.
-2. Correlacionar processo, arquivo e rede, distinguindo observação, hipótese, alerta e ação de proteção.
-3. Justificar contenção e retorno com alcance, impacto e critério de verificação explícitos.
+1. Explicar como a identidade e as permissões de um processo limitam suas ações.
+2. Distinguir vírus, worm e outros mecanismos de malware usando exemplos industriais documentados.
+3. Interpretar processo, arquivo, rede e alerta para propor contenção e retorno verificáveis.
 
-O produto do bloco é uma [única atividade de proteção de dados e endpoint](#atividade), concluída após a A13. As análises curtas durante a leitura não são novas entregas.
+As respostas curtas nesta página preparam a [única atividade integrada de A11–A13](#atividade); não geram entregas separadas.
 
-## Execução e privilégios: entender o alcance de um processo {#execucao}
+## Execução: o que o processo consegue fazer? {#execucao}
 
-<div class="theme-summary" markdown="1">
+**Arquivo** é um objeto armazenado; **processo** é um programa em execução. O processo atua com uma identidade e permissões. Se essa identidade pode editar um documento, o processo também pode alterá-lo, mesmo sem ser administrador. Privilégio administrativo amplia certas ações, mas sua ausência não protege automaticamente os arquivos do usuário.
 
-- **Arquivo** é um objeto armazenado; **processo** é uma instância em execução com estado e recursos.
-- Processo pai, caminho, usuário e permissões ajudam a explicar uma execução.
-- Acesso administrativo amplia alcance, mas acesso comum pode bastar para afetar documentos do usuário.
-- Nome conhecido, assinatura ou presença no disco não resolvem sozinhos a análise de comportamento.
-
-</div>
-
-### Do programa armazenado à ação sobre os dados
-
-Um endpoint é um dispositivo final, como estação, notebook ou servidor, no qual dados são usados e processos executados. O sistema operacional administra memória, arquivos, comunicação e permissões. Um programa armazenado passa a atuar quando alguma forma de execução o coloca em funcionamento. Scripts, por exemplo, podem ser interpretados por outro programa.
-
-O **processo pai** fornece contexto sobre quem iniciou o processo observado. O identificador numérico, ou PID, permite localizá-lo naquele sistema e período; pode ser reutilizado posteriormente. O caminho indica qual objeto executável foi utilizado. A linha de comando pode informar parâmetros, mas também conter dados sensíveis: sanitize antes de compartilhar.
-
-A execução ocorre em um **contexto de segurança**, com identidade e privilégios. Se esse contexto permite alterar os documentos de uma pasta, um programa pode conseguir alterá-los sem controlar o sistema inteiro. A necessidade de privilégio depende da ação e das regras do ambiente. “Não era administrador” não comprova ausência de dano; também não autoriza afirmar que todas as áreas do sistema foram atingidas.
-
-Assinatura digital pode ajudar a verificar origem e integridade de um componente, conforme a cadeia de confiança. Não garante que todo uso dele é legítimo. Uma ferramenta administrativa conhecida pode ser usada fora da finalidade aprovada. Em sentido inverso, um nome desconhecido não é prova de malware.
+Para delimitar o alcance de uma execução, procure: **processo e pai**, **usuário**, **recurso acessado**, **ação** e **resultado**. O nome do programa é uma pista; não demonstra sozinho uso legítimo ou malicioso. O identificador do processo, chamado PID, pode ser reutilizado depois que ele termina; associe-o também ao dispositivo e ao horário.
 
 <figure class="didactic-figure didactic-figure-wide" id="figura-5" markdown="1">
 
-[![Processo P0 inicia P1 em contexto de usuário comum. Neste exemplo, P1 pode ler e escrever documentos do usuário, mas não recebe acesso aos arquivos protegidos indicados. Sem privilégio administrativo, ainda pode haver dano aos documentos acessíveis.](../assets/a11-a12/A12-figura-5-alcance-processo.jpeg)](../assets/a11-a12/A12-figura-5-alcance-processo.jpeg){ aria-label="Abrir a Figura 5 em tamanho original" }
+[![Processo P0 inicia P1 como usuário comum. P1 pode ler e escrever os documentos permitidos ao usuário; os arquivos protegidos indicados permanecem negados. Sem privilégio administrativo, ainda pode haver dano aos documentos acessíveis.](../assets/a11-a12/A12-figura-5-alcance-processo.jpeg)](../assets/a11-a12/A12-figura-5-alcance-processo.jpeg){ aria-label="Abrir a figura de alcance do processo em tamanho original" }
 
-<figcaption><strong>Figura 5 — Alcance do processo.</strong> O dano possível depende das operações permitidas ao processo. A barreira representa os arquivos e acessos negados neste exemplo; não significa que todo arquivo do sistema seja ilegível por um usuário comum. O UID 1001 é ilustrativo: o número isolado não determina os privilégios. Imagem fornecida pelo docente. Selecione a figura para ampliar.</figcaption>
+<figcaption><strong>Alcance do processo.</strong> P1 pode afetar os documentos aos quais sua identidade tem acesso. O UID 1001 é ilustrativo; o número isolado não define os privilégios. Imagem fornecida pelo docente. Selecione para ampliar.</figcaption>
 </figure>
 
-### Observação real de laboratório: processo e arquivo benignos
+### Observação benigna: ler a fonte antes de concluir
 
-O [CSV de observação benigna](../assets/a11-a12/observacao-benigna.csv) foi coletado em um ambiente Linux para esta aula. Um programa Python abriu um processo filho que escreveu somente `observacao benigna` em um arquivo temporário e aguardou alguns segundos. Uma consulta `ps` verificou a presença do processo; a leitura do arquivo verificou seu conteúdo. Os identificadores foram substituídos por **P0**, coletor, e **P1**, filho. A [nota de procedência](../assets/a11-a12/procedencia.md) explica a transformação e os limites.
+Abra o [CSV de observação benigna](../assets/a11-a12/observacao-benigna.csv) no navegador ou em um editor. O arquivo registra um ensaio em Linux: um processo filho P1 escreveu `observacao benigna` em um arquivo temporário. Os identificadores foram substituídos por P0/P1; a [procedência](../assets/a11-a12/procedencia.md) explica o procedimento. As colunas são registro, instante UTC, fonte, processo, pai, objeto e observação. UTC é a referência de horário dos dois registros.
 
-Abra o CSV no navegador ou em editor de texto. Em planilha, o separador é vírgula e a codificação é UTF-8. As colunas são: registro, instante UTC, fonte, processo, pai, objeto e observação. **UTC** é uma referência de horário; não misture seus valores com horário local sem conversão.
+1. Em **L1**, a consulta `ps` mostra P1 presente e P0 como pai **naquele instante**.
+2. Em **L2**, a leitura mostra o conteúdo do arquivo. A associação da escrita a P1 vem do procedimento conhecido do ensaio; L2 não é um log de auditoria de escrita.
+3. Registre uma afirmação sustentada por L1 ou L2 e uma ação que esses registros **não** permitem afirmar.
 
-1. Localize L1 e identifique a fonte `consulta ps`. Ela sustenta que P1 estava presente e tinha P0 como pai no instante consultado.
-2. Localize L2 e identifique a fonte `leitura de arquivo`. Ela sustenta que o conteúdo indicado estava legível. A associação com P1 vem do procedimento controlado do ensaio, não de um evento de auditoria de escrita.
-3. Registre uma afirmação sustentada por cada linha e uma informação ausente. Pare ao encontrar uma conclusão que exigiria outra fonte.
+**Sem download:** L1 informa “P1 estava presente, com pai P0”; L2 informa “o arquivo continha a linha de teste”. Não há registro de rede, persistência ou intenção maliciosa. Em outra máquina, atribuir a escrita a um processo exigiria uma fonte que ligasse processo, arquivo e operação.
 
-**Alternativa sem download:** as duas observações essenciais são “P1 estava presente, com pai P0” e “o arquivo continha a linha de teste”. Nenhuma delas registra conexões de rede, persistência ou intenção maliciosa. A consulta pontual não reconstrói tudo o que o processo fez.
+## Malware: distinguir propagação de efeito {#malware}
 
-**Checkpoint:** qual fonte seria necessária para atribuir uma escrita a um processo em uma máquina desconhecida, sem conhecer previamente o ensaio? A resposta deve mencionar um registro que associe ação, processo e arquivo, e não apenas proximidade de horários.
+Malware é software usado para realizar uma ação não autorizada. **Entrega** leva um artefato ao alvo; **execução** põe instruções em funcionamento; **persistência** permite voltar a executar; **propagação** alcança outros objetos ou dispositivos; **efeito** é o que o código faz, como coletar, alterar ou tornar dados indisponíveis. Um malware não precisa apresentar todas essas funções nem seguir essa ordem.
 
-## Malware: separar mecanismo, propagação e efeito {#malware}
+### Vírus e worm: qual é a diferença?
 
-<div class="theme-summary" markdown="1">
-
-- Entrega, execução, persistência, propagação e efeito são funções diferentes.
-- Categorias de malware descrevem características que podem se combinar.
-- Persistência é capacidade de voltar a executar; não significa necessariamente privilégio elevado.
-- Uma ferramenta legítima ou um serviço normal pode participar de uma ação indevida.
-
-</div>
-
-### Uma cadeia possível não é um roteiro universal
-
-A **entrega** coloca um artefato ou oportunidade ao alcance do alvo: download, anexo ou outro meio. A **execução** faz instruções atuarem. A **persistência** oferece um caminho de nova execução ou manutenção de acesso. A **propagação** amplia presença para outros objetos ou dispositivos. O **efeito** pode ser coleta de informação, alteração, interrupção ou uso do equipamento para outra finalidade. Nem todo malware possui todas essas funções; elas não formam uma sequência única obrigatória.
-
-Serviços e tarefas agendadas são mecanismos legítimos que podem ser configurados para execução recorrente. Encontrar um deles exige verificar origem, finalidade, conta e configuração. A presença não comprova persistência maliciosa, assim como encerrar um processo não demonstra que sua forma de inicialização foi removida.
-
-| Categoria | Característica central | Pergunta de análise |
+| | Vírus | Worm |
 |---|---|---|
-| Vírus | Replicação associada à infecção de um hospedeiro, como um arquivo | Qual objeto foi modificado e como sua execução leva adiante a infecção? |
-| Worm | Capacidade de autopropagação | Que ação e resultado sustentam passagem a outro alvo? |
-| Trojan | Apresentação enganosa como algo desejável ou legítimo | Que função foi prometida e que comportamento foi observado? |
-| Ransomware | Restrição de acesso ou cifragem associada a extorsão | Que dados ficaram indisponíveis e há evidência adicional de exposição? |
-| Spyware/keylogger | Coleta de informação ou de entradas do usuário | Qual coleta foi observada e para onde os dados seguiram? |
-| Backdoor/rootkit | Acesso alternativo ou ocultação, respectivamente | Qual mecanismo de acesso ou ocultação foi identificado? |
+| **Replicação** | Infecta um arquivo ou programa hospedeiro; a cópia segue com esse hospedeiro. | Consegue criar cópias e procurar novos alvos sem infectar um arquivo hospedeiro. |
+| **Evidência necessária** | Objeto hospedeiro modificado e mecanismo de replicação. | Mecanismo de propagação e efeito observado em outro alvo. |
+| **Cuidado** | Abrir um arquivo suspeito não comprova infecção por vírus. | Várias conexões de rede não comprovam autopropagação. |
 
-Não confunda família, técnica e efeito. Um artefato apresentado como trojan pode instalar outro componente. Uma operação de extorsão pode envolver roubo de dados e indisponibilidade. Restaurar um backup não desfaz uma exposição já ocorrida. O [CERT.br explica a evolução dos ataques de ransomware](https://www.cert.br/docs/ransomware/entender/).
+Um worm pode precisar de uma ação inicial para entrar no ambiente. “Autopropagação” descreve o que ele consegue fazer **depois**. Outras categorias respondem a perguntas diferentes: **trojan** se apresenta como algo desejável ou legítimo; **ransomware** restringe acesso e exige pagamento; **spyware** coleta informações. Uma mesma operação pode combinar características. O nome da família não substitui a descrição da ação observada.
 
-### Ferramentas legítimas e limites dos sinais isolados
+### Dois episódios industriais documentados {#incidentes-industriais}
 
-Interpretadores, utilitários de administração e clientes de rede possuem usos normais. Avaliar uma execução exige contexto: quem iniciou, com quais parâmetros, sobre que recurso, em qual horário e com qual resultado. O uso malicioso de ferramentas legítimas não depende de criar um executável de nome suspeito.
-
-A expressão *fileless* costuma destacar execução que reduz dependência de novos executáveis gravados em disco, por exemplo ao usar interpretadores e memória. Não significa necessariamente ausência total de arquivos, configuração ou rastros. Também não transforma qualquer script em malware.
-
-**Muitas conexões não comprovam worm.** Navegadores, sincronizadores e gerenciadores de atualização podem contatar vários destinos. Para sustentar autopropagação, precisamos de evidências compatíveis com o mecanismo e seus efeitos em outros alvos. Movimento lateral conduzido por alguém também não é automaticamente autopropagação.
-
-### Incidentes industriais: identificar mecanismo e consequência {#incidentes-industriais}
-
-Os dois episódios abaixo são **incidentes documentados**, usados aqui como exemplos de mecanismos. Eles não são a origem dos registros didáticos E1–E4 desta página nem dos registros R1–R5 da atividade. Em cada caso, separe **como o código ou o operador chegou ao sistema**, **o que ocorreu no endpoint**, **qual função industrial foi afetada** e **qual evidência sustenta essa relação**. Uma operação pode combinar técnicas; o nome de uma família de malware não explica sozinho o incidente.
-
-| Episódio e fonte | O que a fonte permite examinar | Limite da conclusão |
+| Episódio | Mecanismo que interessa aqui | Decisão que ele ajuda a explicar |
 |---|---|---|
-| [Stuxnet — alerta ICS-CERT/CISA](https://www.cisa.gov/uscert/ics/advisories/ICSA-10-272-01) | O alerta documenta vários caminhos de propagação, entre eles dispositivos USB, compartilhamentos de rede e arquivos de projeto, e a interação do malware com WinCC/STEP 7. Compare **propagação** com a presença do artefato em uma estação de engenharia. | Um USB conectado ou um arquivo de projeto existente não comprova infecção. Os indicadores e as condições descritos no alerta precisam ser verificados antes de afirmar presença e alcance. |
-| [Ataque à distribuição elétrica ucraniana de 2015 — síntese CISA](https://www.cisa.gov/news-events/alerts/2022/01/11/understanding-and-mitigating-russian-state-sponsored-cyber-threats-us-critical-infrastructure) | A síntese descreve BlackEnergy usado para obter credenciais, KillDisk para tornar computadores inoperantes e interrupções nas distribuidoras atacadas. Compare **obtenção de acesso**, **efeito destrutivo no endpoint** e **consequência operacional**. | A interrupção resultou de uma operação com várias etapas. Não atribua todo o efeito físico à execução de um único arquivo nem conclua que restaurar arquivos resolve o uso indevido de credenciais. |
+| [Stuxnet — ICS-CERT/CISA](https://www.cisa.gov/uscert/ics/advisories/ICSA-10-272-01) | O alerta relata propagação por USB, compartilhamentos e arquivos de projeto, além de interação com WinCC/STEP 7. | Restringir USB cobre uma via de entrada, mas não todas. Para afirmar infecção em uma estação específica, é preciso verificar indicadores nela. |
+| [Rede elétrica ucraniana, 2015 — CISA](https://www.cisa.gov/news-events/alerts/2022/01/11/understanding-and-mitigating-russian-state-sponsored-cyber-threats-us-critical-infrastructure) | A síntese relaciona BlackEnergy à obtenção de credenciais, KillDisk à inutilização de computadores e interrupções nas distribuidoras atacadas. | Restaurar arquivos pode recuperar função; ainda é preciso examinar credenciais e caminhos de acesso. A interrupção envolveu mais que um único arquivo. |
 
-**Exemplo trabalhado — Stuxnet:** “propagou-se por USB e projetos” descreve caminhos relatados pela fonte; “esta estação está infectada” exigiria indicador aplicável e verificação no equipamento. “Interage com WinCC/STEP 7” descreve uma capacidade e seu alvo técnico; não informa, por si, o efeito físico de cada instalação observada. O controle também depende do mecanismo: restringir mídia removível pode reduzir uma via de entrada, mas não cobre automaticamente compartilhamentos ou projetos recebidos por outro caminho.
+**Exemplo trabalhado:** a fonte de Stuxnet documenta **caminhos de propagação**. Ela não informa que uma estação específica da sua organização esteja infectada. A conclusão local dependeria de uma observação nessa estação. **Agora compare:** no episódio ucraniano, que problema uma restauração poderia resolver? Qual pergunta sobre acesso permaneceria aberta?
 
-**Sua comparação — Ucrânia 2015:** se uma estação volta a iniciar após restauração, qual propriedade foi recuperada? Que informação ainda falta para afirmar que o acesso indevido terminou? Registre uma frase sustentada pela síntese e uma pergunta para a equipe de resposta. Não execute indicadores, amostras ou comandos desses relatos.
+Os episódios acima são reais e documentados. Os registros L1/L2 e E1–E4 desta página são separados deles. Não execute amostras, indicadores ou comandos retirados dos relatos. A análise detalhada das consequências para o processo físico fica para o bloco de OT.
 
-Em um contexto industrial, a intervenção deve considerar também a função que a estação presta ao processo. O [relatório técnico ICS-CERT sobre HatMan/TRITON](https://www.cisa.gov/sites/default/files/documents/MAR-17-352-01%20HatMan%E2%80%94Safety%20System%20Targeted%20Malware_S508C.pdf) oferece uma comparação adicional: descreve componentes em PC e controlador de segurança e possíveis efeitos sobre a função de proteção. O relatório analisa capacidades e hipóteses; não trate todo efeito possível como ocorrido. A avaliação detalhada de segurança operacional pertence ao bloco de OT.
+## Controles: associar mecanismo, resultado e limite {#defesas}
 
-**Aplicação:** classifique “tarefa executa novamente após login”, “arquivo de teste é sobrescrito” e “outro dispositivo passa a executar o componente”. Explique que registro precisaria acompanhar cada frase antes de tratá-la como fato confirmado. Consulte [vírus](../malwares/virus.md), [worms](../malwares/worms.md) e [trojans](../malwares/trojans.md) para outras comparações.
+Escolha o controle pela ação que deseja limitar ou observar:
 
-## Defesa em camadas: relacionar controle e ação {#defesas}
-
-<div class="theme-summary" markdown="1">
-
-- Atualização, menor privilégio e controle de execução atuam em partes diferentes do problema.
-- Antivírus pode combinar assinatura, reputação, heurística e comportamento.
-- EDR agrega recursos de detecção, investigação e resposta no endpoint, conforme implementação.
-- Coleta, alerta e resposta são funções distintas; instalar um componente não comprova cobertura.
-
-</div>
-
-### Escolha pelo mecanismo
-
-Uma atualização pode corrigir uma vulnerabilidade específica; não impede todo abuso de função legítima. Menor privilégio reduz o alcance de certas ações, mas deixa disponíveis os acessos necessários ao trabalho. Controle de aplicações restringe o que pode executar conforme regras; sua utilidade depende de manutenção e exceções. Restrição de macros ou scripts precisa considerar fluxos legítimos e ser validada no contexto correto.
-
-| Camada | Ação que procura limitar ou apoiar | Verificação e limite |
+| Ação em foco | Controle | Como verificar |
 |---|---|---|
-| Atualização | Exploração de falhas corrigidas | Conferir versão e funcionamento; não elimina todas as formas de comprometimento |
-| Menor privilégio | Acesso além da tarefa | Testar permitido/negado; os dados autorizados continuam ao alcance do processo |
-| Controle de aplicações | Execução fora da política | Verificar regra e exceção; não basta conhecer o nome do arquivo |
-| Proteção antimalware | Identificação e intervenção sobre ameaças | Conferir detecção e ação; ausência de alerta não comprova ausência de problema |
-| Telemetria e EDR | Investigação e resposta sobre comportamento | Conferir dispositivo coberto, fontes, retenção e ações disponíveis |
-| Backup e recuperação | Retorno de dados e função | Ensaiar restauração; não desfaz necessariamente exposição |
+| Explorar falha conhecida | Atualização compatível | Conferir versão corrigida e funcionamento da aplicação. |
+| Executar código fora da política | Controle de aplicações ou restrição de scripts | Testar execução permitida e negada; conferir exceções. |
+| Alterar dados além da tarefa | Menor privilégio e permissão de acesso | Testar leitura/edição necessárias e acesso negado; o processo ainda alcança dados autorizados. |
+| Reconhecer e responder a comportamento | Antimalware, telemetria e EDR | Confirmar dispositivo coberto, registro, alerta e ação efetivamente executada. |
+| Perder dados ou função | Cópia recuperável | Restaurar em destino de teste e conferir conteúdo e uso; isso não desfaz exposição anterior. |
 
-**Assinatura de detecção** é uma característica usada para reconhecer conteúdo ou comportamento conhecido; não é o mesmo que assinatura digital de software. **Heurística** aplica critérios que indicam características suspeitas. **Reputação** considera informações prévias sobre um artefato ou origem. **Detecção comportamental** observa ações e relações. Essas técnicas podem coexistir; não reduza antivírus a uma lista de hashes.
+**Antimalware** pode usar assinatura de detecção, reputação, heurística e comportamento. Uma assinatura de detecção reconhece características de ameaça; é diferente da assinatura digital que ajuda a verificar a origem de software. **EDR** reúne capacidades de investigação e resposta no endpoint, conforme produto e configuração. Um coletor de eventos, como o [Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon), registra atividades configuradas; não é, por si, um EDR ou uma decisão automática sobre intenção.
 
-**EDR — Endpoint Detection and Response** reúne capacidades para investigar e responder a atividades no dispositivo. O nome da categoria não garante uma combinação universal de funcionalidades. A [documentação do Defender for Endpoint](https://learn.microsoft.com/en-us/defender-endpoint/overview-endpoint-detection-response) mostra um exemplo de implementação; recursos precisam ser conferidos no ambiente adotado.
+**Aplicação curta:** para um processo que altera documentos acessíveis ao usuário, identifique um controle que **reduz o alcance** e outro que **ajuda a observar a ação**. Explique o que cada verificação ainda deixaria em aberto.
 
-### Observar não equivale a detectar
+## Telemetria: ler o rastro antes de nomear o incidente {#telemetria}
 
-Um painel de processos mostra informações de execução. Um coletor registra eventos. Um mecanismo de detecção avalia sinais e pode produzir alerta. Uma ferramenta de resposta pode executar contenção. Uma plataforma pode integrar várias dessas funções, mas devemos saber qual delas produziu a evidência observada.
+Leia cada registro nesta ordem: **quando e onde → quem/processo → ação/recurso → resultado/fonte**. Compare horários na mesma referência de fuso. Processo pai e caminho ajudam a relacionar ações, mas um nome conhecido não garante legitimidade. Um evento de rede informa conexão ou tentativa; não revela automaticamente o conteúdo enviado. Um alerta informa que uma regra foi acionada; a ação configurada diz se houve registro, aviso ou bloqueio.
 
-O **Sysmon**, utilizado aqui como referência de campos, fornece registros de atividades de sistema. Não é um EDR completo nem produz uma conclusão automática sobre a intenção de cada evento. A coleta depende de configuração; algumas categorias podem estar desabilitadas. A [documentação oficial](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon) é a referência para interpretar os eventos e suas condições de coleta.
+O exemplo a seguir é **artificial**, criado para análise. Todos os registros pertencem ao dispositivo `LAB-01`, em UTC. O operador declarou “exportação de relatório”, mas não forneceu autorização de envio externo. O endereço IP usa uma faixa reservada para documentação.
 
-Se um registro esperado não aparece, confira fonte, filtro, período, dispositivo e retenção antes de concluir que a ação não ocorreu. Evite aumentar coleta indiscriminadamente: volume sem finalidade dificulta leitura e pode incluir informações sensíveis.
-
-## Telemetria: transformar registros em análise revisável {#telemetria}
-
-<div class="theme-summary" markdown="1">
-
-- Correlacione **dispositivo, processo, tempo e recurso**, sem depender apenas do PID.
-- Evento, hipótese, alerta e ação de proteção representam níveis diferentes de informação.
-- “Detectado”, “bloqueado”, “em quarentena” e “resolvido” não são equivalentes.
-- Registre também a evidência ausente e a próxima verificação necessária.
-
-</div>
-
-### Ler os campos antes de procurar uma explicação
-
-| Campo | Para que serve | Cuidado de interpretação |
+| Registro | Horário | Observação |
 |---|---|---|
-| Tempo e referência de fuso | Ordenar e comparar registros | Relógios e fusos diferentes podem distorcer a sequência |
-| Dispositivo e usuário | Delimitar origem e contexto | Mesma conta pode existir em sessões e dispositivos diferentes |
-| Processo, pai e identificador | Relacionar execução e origem | PID pode ser reutilizado; use contexto temporal e identificadores adicionais |
-| Caminho e parâmetros | Identificar objeto e ação solicitada | Nome conhecido não garante uso legítimo; parâmetros podem conter dados sensíveis |
-| Arquivo e operação | Distinguir leitura, criação, alteração ou remoção | Existência de arquivo não prova quem o produziu |
-| Destino e resultado de rede | Delimitar comunicação observada | Conexão não demonstra o conteúdo transferido |
-| Regra, alerta e ação | Saber por que houve sinalização e o que foi feito | Detecção não comprova prevenção ou erradicação |
+| E1 | 09:00:00 | P20 iniciou, pai P10, usuário comum, caminho `/lab/exportador`. |
+| E2 | 09:00:02 | P20 criou `/lab/saida.csv`. |
+| E3 | 09:00:03 | P20 abriu conexão TCP para `192.0.2.40:443`. |
+| E4 | 09:00:04 | Regra “cria arquivo e conecta externamente” gerou alerta; ação: **somente registrar**. |
 
-A origem importa. Uma consulta `ps` informa estado no instante da consulta; um registro de criação de processo informa um evento. Um log de rede e uma leitura de conteúdo de arquivo respondem a perguntas distintas. Preserve essa diferença ao combinar fontes.
+**Leitura trabalhada:** E1–E3 sustentam que P20 iniciou, criou o arquivo e abriu uma conexão. E4 sustenta que a regra gerou um alerta sem bloquear a ação. **Não há evidência do conteúdo transferido nem autorização de envio.** Portanto, a conclusão útil é: “P20 criou um arquivo e abriu conexão; verificar se houve transferência do conteúdo e se o destino era autorizado”. Os quatro registros não demonstram worm, ransomware ou vazamento.
 
-### Exemplo trabalhado: separar fato, hipótese e conclusão
+**Sua vez:** mantenha E1–E3 e troque E4 por “a tentativa de conexão foi bloqueada, com resultado confirmado no registro”. Escreva uma nova conclusão e uma incerteza. O bloqueio vale para aquela tentativa; não prova remoção de P20 nem ausência de comunicação anterior. Use quatro linhas: **observado → hipótese → informação ausente → próxima verificação**. A tabela é a alternativa sem ferramenta; não invente registros adicionais.
 
-O quadro seguinte é um **conjunto didático criado para análise**, não captura de incidente. Os identificadores permanecem estáveis apenas dentro deste exemplo. Todos os registros vêm de `LAB-01`; horários estão em UTC. A atividade foi declarada pelo operador como “exportação de relatório”, mas não foi fornecida uma autorização de envio externo. O endereço IP pertence a uma faixa reservada para documentação.
+## Resposta: conter, tratar a causa e verificar retorno {#resposta}
 
-| Registro | Horário | Observação fornecida |
+**Conter** limita o dano em andamento. **Erradicar** trata a causa e os mecanismos que poderiam manter o problema. **Recuperar** restabelece uma função confiável. São objetivos distintos: um alerta não comprova contenção, e uma contenção não comprova erradicação.
+
+| Medida | O que pode interromper | O que permanece possível |
 |---|---|---|
-| E1 | 09:00:00 | Processo P20, pai P10, usuário comum, caminho `/lab/exportador`, iniciado |
-| E2 | 09:00:02 | P20 criou `/lab/saida.csv` |
-| E3 | 09:00:03 | P20 abriu conexão TCP para `192.0.2.40:443` |
-| E4 | 09:00:04 | Regra “processo cria arquivo e conecta externamente” gerou alerta; ação configurada: somente registrar |
+| Encerrar P20 | Ação daquela instância do processo. | Outra instância pode iniciar; o mecanismo de retorno não foi examinado. |
+| Isolar a rede do dispositivo | Comunicação coberta pelo isolamento. | P20 pode continuar alterando arquivos locais; serviços de suporte podem parar. |
+| Revogar sessão ou credencial | Acesso que depende daquela autoridade, conforme o serviço. | Arquivos locais e processos em execução não desaparecem. |
 
-**Leitura trabalhada:** E1 e E2 relacionam execução e criação do arquivo. E3 informa conexão, não conteúdo enviado. E4 informa que a condição de uma regra foi satisfeita e que não havia bloqueio configurado. A explicação “exportação legítima com envio aprovado” é possível, mas a aprovação não foi fornecida. A hipótese “envio indevido” também precisa de evidência de conteúdo, autorização e destino. Nenhuma linha comprova worm ou ransomware.
+**Decisão guiada com E1–E4:** os registros mostram criação de arquivo e conexão, mas não dizem se houve dano indevido. Registre primeiro o que precisa ser verificado: conteúdo e finalidade do arquivo, autorização do destino, ações posteriores de P20 e funções que uma intervenção afetaria. Se houver alteração indevida em curso, uma ação mais imediata pode ser justificada. Em ambiente industrial, consulte os responsáveis pelo processo antes de interromper uma estação que sustenta uma função operacional. Esta análise não autoriza intervenção em produção.
 
-Uma conclusão revisável seria: “P20 criou o arquivo e abriu conexão. O alerta foi apenas registrado. Falta verificar autorização e se houve transferência do conteúdo de `saida.csv`”. Ela delimita o que sabemos e a pergunta seguinte, sem tratar hipótese como fato.
+**Critério de retorno:** confirmar causa tratada, acessos relevantes revistos, dados e função testados e observação disponível para acompanhar recorrência. Se houve restauração, compare também o estado recuperado com as metas RPO/RTO estudadas em proteção de dados. Uma varredura sem alerta não é prova absoluta de ausência de comprometimento.
 
-### Sua comparação
+## Síntese: dado e dispositivo precisam de controles diferentes {#sintese}
 
-Mantenha E1–E3 e altere E4 para “tentativa de conexão bloqueada pela ferramenta, resultado confirmado no registro”. Agora é possível afirmar bloqueio **daquela tentativa**, mas não de toda comunicação anterior nem remoção do processo. Registre uma conclusão nova e uma incerteza que permanece.
+Permissões e DLP tratam **quem usa e para onde o dado circula**. Controle de execução e menor privilégio limitam **o que um processo pode fazer**. Telemetria ajuda a **reconstruir ações**; backup e restauração ajudam a **recuperar função e dados**. Para justificar um controle, declare **mecanismo, evidência de verificação e limite**.
 
-Para organizar a resposta, use quatro linhas: **observado → hipótese → informação ausente → próxima verificação**. Se baixar registros, mantenha a origem e a indicação de que são didáticos. A tabela já é a alternativa sem ferramenta. Pare quando uma pergunta exigir novo dado; não invente uma saída para completar a narrativa.
-
-## Resposta: escolher alcance, impacto e condição de retorno {#resposta}
-
-<div class="theme-summary" markdown="1">
-
-- **Conter** limita dano; **erradicar** trata causa e mecanismos remanescentes; **recuperar** restabelece função confiável.
-- A menor ação adequada depende do efeito observado e do alcance conhecido.
-- Isolar rede não interrompe necessariamente ações locais; encerrar processo não remove toda persistência.
-- Retorno exige causa tratada, função verificada e acompanhamento compatível com o problema.
-
-</div>
-
-### Intervenções diferentes, efeitos diferentes
-
-Uma ação de resposta deve declarar alvo, motivo, impacto esperado, autorização e verificação. Se existe dano ativo, contenção pode ter prioridade; isso não elimina a necessidade de preservar os registros disponíveis. A decisão entre interromper, coletar mais ou escalar depende do contexto e do procedimento aprovado. Não use a leitura desta página como autorização para agir em dispositivo de produção.
-
-| Intervenção | Efeito pretendido | Limite e impacto a considerar |
-|---|---|---|
-| Quarentena de arquivo | Restringir acesso ou uso de um artefato | Não comprova encerramento de execução já iniciada; pode afetar arquivo legítimo |
-| Encerrar processo | Interromper aquela instância | Pode perder estado e não impedir reinicialização |
-| Isolar rede | Reduzir comunicação do dispositivo conforme mecanismo | Pode interromper suporte ou serviço; alteração local pode continuar |
-| Revogar sessão ou credencial | Reduzir acesso baseado naquela autoridade | Efeito depende dos serviços e sessões; não remove artefatos locais |
-| Reconstruir e restaurar | Restabelecer ambiente a partir de base confiável | Exige tratar causa, validar cópia e evitar reintrodução do problema |
-
-Ações reversíveis também podem interromper trabalho. “Isolar tudo” não é uma conclusão automaticamente segura. Em dispositivos ligados a processo físico, a interrupção pode ter consequência operacional; essa avaliação será aprofundada no bloco OT.
-
-O [CERT.br, em suas orientações de resposta a ransomware](https://www.cert.br/docs/ransomware/responder/), distingue contenção, eliminação da presença e da causa, restauração e retorno. O resultado de uma ferramenta não substitui a verificação de cada objetivo pertinente.
-
-### Critérios de retorno
-
-Antes de considerar o retorno, verifique a causa tratada, os caminhos de acesso remanescentes, a situação das credenciais afetadas e a confiança na origem usada para restauração. Teste a função necessária, revise permissões e confirme que a observação continuará disponível. Uma varredura sem detecções é um dado da análise, não prova absoluta de ausência de comprometimento.
-
-Para dados restaurados, retome RPO e RTO da A11 e registre o estado recuperado. Para o dispositivo, confira o que mudou e qual comportamento esperado voltou a ocorrer. Se não houver como avaliar a causa com o material disponível, declare essa lacuna e escale para quem tem competência e autorização para investigá-la.
-
-**Aplicação:** há registro de escrita local contínua e conexão externa. Compare o que isolamento de rede e encerramento do processo resolveriam separadamente. Indique o impacto possível de cada medida e o que ainda precisaria ser examinado. A decisão é analítica; não execute essas ações no seu equipamento.
-
-## Integração: dado protegido e dispositivo confiável {#sintese}
-
-<div class="theme-summary" markdown="1">
-
-- DLP, proteção de execução, telemetria e recuperação atuam em objetivos complementares.
-- Acesso legítimo pode ser usado por uma execução indevida.
-- Recuperar disponibilidade não elimina necessariamente exposição.
-- A justificativa precisa indicar **evidência, alcance e limite**.
-
-</div>
-
-| Problema | Pergunta de proteção | Limite que permanece |
-|---|---|---|
-| Envio indevido de conteúdo | O fluxo é coberto e a regra identifica a ação relevante? | Outros canais ou classificações incorretas podem escapar |
-| Processo altera documentos | Que contexto permitiu a escrita e qual controle limita a execução ou o alcance? | A conta ainda precisa realizar seu trabalho legítimo |
-| Dispositivo indisponível | Existe restauração confiável de dados e função? | Voltar a operar não prova que não houve exposição |
-
-Uma explicação profissional pode ser curta e ainda conter mecanismo: “Restringir a exportação aos campos necessários reduz os dados distribuídos; monitorar o canal permite avaliar a circulação; a proteção do endpoint trata execuções indevidas; a recuperação exige cópia utilizável e teste”. Cada trecho descreve uma função e permite perguntar como verificá-la.
-
-**Diagnóstico de erros comuns:** se você concluiu infecção pelo nome do processo, procure ação e contexto; se concluiu vazamento pela conexão, procure conteúdo e autorização; se concluiu erradicação pelo bloqueio, procure causa e mecanismos remanescentes. Se o registro não contém essas respostas, preserve a incerteza.
-
-No próximo bloco, a criptografia aprofundará mecanismos de confidencialidade e integridade. Reabra esta pergunta: **o que acontece com uma chave e com o texto legível quando o dispositivo que os utiliza está comprometido?**
+No próximo bloco, a criptografia aprofundará confidencialidade e integridade. Leve uma pergunta: **se o endpoint usa uma chave e vê o texto legível, o que acontece quando esse dispositivo está comprometido?**
 
 ## Atividade {#atividade}
 
-Conclua o [parecer técnico de A11–A13](../atividades/A11-A12-parecer.html#atividade). O endereço da atividade conserva o identificador antigo para manter links já distribuídos. Os insumos e o modelo estão na página da atividade. A entrega combina proteção de dados, regra com contraprova, leitura de rastros e decisão de resposta. Os episódios industriais ilustram mecanismos; não acrescente fatos deles aos registros artificiais do parecer. Não é necessário instalar ferramentas ou reproduzir ataque.
+Conclua o [parecer técnico de A11–A13](../atividades/A11-A12-parecer.html#atividade). A entrega reúne proteção de dados, regra com contraprova, leitura de rastros e resposta. Use somente os insumos fornecidos; os incidentes industriais acima não pertencem aos registros artificiais do parecer. Não é preciso instalar ferramentas ou reproduzir ataque.
 
 ## Revisão rápida
 
-1. Por que “o processo não era administrador” não elimina a possibilidade de dano aos documentos?
-2. Que diferença existe entre conexão registrada, alerta gerado e bloqueio confirmado?
-3. Qual evidência distinguiria recuperação da função de eliminação da causa?
+1. Qual evidência diferencia a replicação de um vírus da autopropagação de um worm?
+2. O que E3 e E4 permitem afirmar sobre conexão, alerta e bloqueio?
+3. Por que isolar a rede não garante que P20 parou de alterar arquivos locais?
 
 ## Referências e aprofundamento
 
-- [Microsoft Sysinternals — Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon): campos e condições de coleta.
-- [Microsoft Learn — EDR](https://learn.microsoft.com/en-us/defender-endpoint/overview-endpoint-detection-response): exemplo de capacidades de investigação e resposta.
-- [CERT.br — códigos maliciosos](https://cartilha.cert.br/fasciculos/codigos-maliciosos/fasciculo-codigos-maliciosos.pdf): conceitos e mecanismos.
-- [CERT.br — entender ransomware](https://www.cert.br/docs/ransomware/entender/): efeitos e contexto de extorsão.
+- [CERT.br — códigos maliciosos](https://cartilha.cert.br/fasciculos/codigos-maliciosos/fasciculo-codigos-maliciosos.pdf): famílias e mecanismos.
+- [ICS-CERT/CISA — Stuxnet](https://www.cisa.gov/uscert/ics/advisories/ICSA-10-272-01): propagação e interação com sistemas de engenharia.
+- [CISA — Ucrânia 2015](https://www.cisa.gov/news-events/alerts/2022/01/11/understanding-and-mitigating-russian-state-sponsored-cyber-threats-us-critical-infrastructure): BlackEnergy, KillDisk e interrupção.
+- [Microsoft Sysinternals — Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon) e [Microsoft Learn — EDR](https://learn.microsoft.com/en-us/defender-endpoint/overview-endpoint-detection-response): funções de coleta, investigação e resposta.
 - [CERT.br — responder a ransomware](https://www.cert.br/docs/ransomware/responder/): contenção, remoção e recuperação.
-- [ICS-CERT/CISA — Stuxnet](https://www.cisa.gov/uscert/ics/advisories/ICSA-10-272-01): propagação, indicadores e sistemas de engenharia afetados.
-- [CISA — ataques à infraestrutura crítica e Ucrânia 2015](https://www.cisa.gov/news-events/alerts/2022/01/11/understanding-and-mitigating-russian-state-sponsored-cyber-threats-us-critical-infrastructure): BlackEnergy, KillDisk e interrupção operacional.
-- [ICS-CERT — análise de HatMan/TRITON](https://www.cisa.gov/sites/default/files/documents/MAR-17-352-01%20HatMan%E2%80%94Safety%20System%20Targeted%20Malware_S508C.pdf): componentes e limites da análise de controlador de segurança.
+- [ICS-CERT — HatMan/TRITON](https://www.cisa.gov/sites/default/files/documents/MAR-17-352-01%20HatMan%E2%80%94Safety%20System%20Targeted%20Malware_S508C.pdf): leitura opcional para o bloco OT.
 
-Referências de endpoint consultadas em 24 set. 2026; fontes dos incidentes industriais conferidas em 1º out. 2026. L1/L2 são observações de um ensaio benigno com procedência registrada. E1–E4 são exemplos artificiais e não evidências de incidente real. Ao terminar, feche os arquivos e mantenha apenas os registros de estudo; nenhum agente ou malware foi instalado como requisito desta página.
+Fontes dos incidentes industriais conferidas em 1º out. 2026. L1/L2 vêm de um ensaio benigno com [procedência registrada](../assets/a11-a12/procedencia.md). E1–E4 são exemplos artificiais, não evidências de incidente real.

@@ -2,6 +2,8 @@
 
 **Revisão de estratégia e produção — 1º out. 2026.** O docente confirmou dois encontros de proteção de dados: A11 e A12. Endpoint é o próximo encontro, A13. A distribuição abaixo planeja 100 minutos para A13. Incidentes industriais documentados entram como exemplos breves de mecanismo e consequência, por sugestão docente. A página pública foi identificada como A13; o endereço antigo de A12 endpoint encaminha para ela. O endereço da atividade integrada foi preservado, com título e entrega atualizados para A11–A13. Essa produção não comprova uso em sala.
 
+**Revisão expositiva posterior, por solicitação docente.** A página passou de cerca de 3.990 para 2.070 palavras. Diagnóstico de carga cognitiva para estudantes com conhecimento básico de segurança e primeiro contato com telemetria de endpoint: a carga intrínseca é alta na correlação entre processo, arquivo, rede e ação; a carga extrínseca vinha de sínteses repetidas, excesso de nomes de famílias e alternância entre casos reais e registros didáticos. A edição mantém o esforço produtivo em três decisões — alcance, interpretação e resposta — e aproxima definição, exemplo e pergunta. Vírus/worm têm comparação explícita; Stuxnet e Ucrânia 2015 ficam em um quadro curto; HatMan/TRITON passa a leitura opcional para OT. L1/L2 e E1–E4 conservam procedência e função distintas. O recorte mantém conteúdo de estudo, sem comprimir a atividade única nem alegar execução em aula.
+
 ## Ficha-base
 
 | Campo | Definição |
