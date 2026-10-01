@@ -1,12 +1,12 @@
-# A11–A12 — Parecer técnico sobre dados e endpoint
+# A11–A13 — Parecer técnico sobre dados e endpoint
 
 ## Atividade {#atividade}
 
 **Missão:** justificar controles de proteção e uma decisão de resposta a partir dos dois conjuntos de dados abaixo. Trabalhe em dupla e produza um único parecer. Não é necessário inventar empresa, incidente, personagem ou matriz de riscos.
 
-**Preparação:** estude [A11 — proteção de dados](../aulas/A11-protecao-de-dados.md) e [A12 — proteção de endpoints](../aulas/A12-protecao-de-endpoints.md). Antes da entrega, confira a comparação de conteúdo mínimo e os exemplos de permissões e revogação, LGPD, regra com contraprova, recuperação e leitura de alerta. Todos os insumos são artificiais e estão nesta página; a atividade funciona sem ferramentas especializadas.
+**Preparação:** estude o [material de proteção de dados de A11–A12](../aulas/A11-protecao-de-dados.md) e a [A13 — proteção de endpoints](../aulas/A13-protecao-de-endpoints.md). Antes da entrega, confira a comparação de conteúdo mínimo e os exemplos de permissões e revogação, LGPD, regra com contraprova, recuperação e leitura de alerta. Todos os insumos da atividade são artificiais e estão nesta página; ela funciona sem ferramentas especializadas. Os episódios industriais da A13 ilustram mecanismos e não pertencem aos registros R1–R5.
 
-**Prazo:** conforme convocação no Classroom. **Entrega:** um PDF com os quatro blocos indicados abaixo, nomeado `A11-A12_sobrenome1_sobrenome2.pdf`. Uma pessoa envia, identificando os dois integrantes. Use o [modelo de texto](../assets/a11-a12/modelo-parecer.txt) ou a mesma estrutura em seu editor.
+**Prazo:** conforme convocação no Classroom. **Entrega:** um PDF com os quatro blocos indicados abaixo, nomeado `A11-A13_sobrenome1_sobrenome2.pdf`. Uma pessoa envia, identificando os dois integrantes. Use o [modelo de texto](../assets/a11-a12/modelo-parecer.txt) ou a mesma estrutura em seu editor. O endereço desta atividade conserva A11-A12 para manter links anteriormente distribuídos; a identificação da entrega agora é A11–A13.
 
 ### Escopo e segurança
 

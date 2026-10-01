@@ -1,4 +1,4 @@
-A11–A12 — Parecer técnico
+A11–A13 — Parecer técnico
 Integrantes:
 
 1. EXPOSIÇÃO E CONTROLES
@@ -52,5 +52,5 @@ Pedido:
 Sugestões aceitas e justificativa:
 Sugestões rejeitadas e justificativa:
 
-Exportar para PDF: A11-A12_sobrenome1_sobrenome2.pdf
+Exportar para PDF: A11-A13_sobrenome1_sobrenome2.pdf
 Prazo conforme Classroom. Não incluir dados sensíveis.

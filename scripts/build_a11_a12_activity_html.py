@@ -54,16 +54,16 @@ def render():
     return '''<!doctype html>
 <html lang="pt-BR">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A11–A12 — Parecer técnico sobre dados e endpoint</title>
+<title>A11–A13 — Parecer técnico sobre dados e endpoint</title>
 <meta name="description" content="Atividade integrada de Segurança Digital: analise dados e rastros, justifique controles e produza um parecer técnico em dupla.">
 <!-- Gerado por scripts/build_a11_a12_activity_html.py a partir do enunciado Markdown canônico. -->
 <style>'''+CSS+'''</style></head>
 <body>
 <a class="skip" href="#atividade">Ir para a atividade</a>
-<header class="hero"><div class="eyebrow">Segurança Digital · A11–A12</div><h1>Parecer técnico sobre dados e endpoint</h1><p class="lead">Leia os dois conjuntos de dados, justifique suas decisões e organize um único parecer com quatro blocos.</p><div class="badges" aria-label="Resumo da entrega"><span>Em dupla</span><span>Um PDF</span><span>Sem ferramentas especializadas</span></div></header>
+<header class="hero"><div class="eyebrow">Segurança Digital · A11–A13</div><h1>Parecer técnico sobre dados e endpoint</h1><p class="lead">Leia os dois conjuntos de dados, justifique suas decisões e organize um único parecer com quatro blocos.</p><div class="badges" aria-label="Resumo da entrega"><span>Em dupla</span><span>Um PDF</span><span>Sem ferramentas especializadas</span></div></header>
 <div class="layout"><nav class="index" aria-label="Etapas da atividade"><p>Nesta atividade</p><a href="#inicio">1. Preparação e entrega</a><a href="#seguranca">2. Escopo e segurança</a><a href="#parte-a">3. Dados e recuperação</a><a href="#parte-b">4. Endpoint e resposta</a><a href="#conclusao">5. Revisão e avaliação</a><a class="download" href="../assets/a11-a12/modelo-parecer.txt" download>Baixar modelo de texto</a></nav>
 <main id="atividade" tabindex="-1">'''+ '\n'.join(cards)+'''</main></div>
-<footer><a href="../aulas/A11-protecao-de-dados/">Consultar A11</a> · <a href="../aulas/A12-protecao-de-endpoints/">Consultar A12</a> · <a href="#inicio">Voltar ao início</a><p>Prazo e envio: consulte a convocação no Google Classroom.</p></footer>
+<footer><a href="../aulas/A11-protecao-de-dados/">Consultar dados (A11–A12)</a> · <a href="../aulas/A13-protecao-de-endpoints/">Consultar A13</a> · <a href="#inicio">Voltar ao início</a><p>Prazo e envio: consulte a convocação no Google Classroom.</p></footer>
 </body></html>
 '''
 

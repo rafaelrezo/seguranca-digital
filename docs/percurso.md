@@ -16,8 +16,9 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A08 — Governança e SGSI](aulas/A08-governanca-sgsi.md) | SGSI, escopo, autoridade, objetivos e acompanhamento | [Preparar o registro para A09](aulas/A08-governanca-sgsi.md#atividade) |
 | [A09 — Avaliar riscos com a NIST SP 800-30](aulas/A09-decisao-de-riscos.md) | NIST SP 800-30 Rev. 1: avaliação em matriz progressiva, controles e revisão | [Atividade de A08–A09](aulas/A09-decisao-de-riscos.md#atividade) |
 | [A10 — Engenharia social e segurança física](aulas/A10-engenharia-social-seguranca-fisica.md) | Verificação independente, autorização de visita, área e acompanhamento | [Checkpoint presencial](aulas/A10-engenharia-social-seguranca-fisica.md#atividade) |
-| [A11 — Proteção de dados](aulas/A11-protecao-de-dados.md) | LGPD, cópias, permissões e revogação, DLP e recuperação verificável | [Atividade integrada A11–A12](atividades/A11-A12-parecer.html#atividade) |
-| [A12 — Proteção de endpoints](aulas/A12-protecao-de-endpoints.md) | Execução, malware, telemetria, contenção e retorno | [Concluir a atividade integrada](atividades/A11-A12-parecer.html#atividade) |
+| [A11 — Proteção de dados](aulas/A11-protecao-de-dados.md) | LGPD, cópias, permissões e revogação, DLP e recuperação verificável | [Atividade integrada A11–A13](atividades/A11-A12-parecer.html#atividade) |
+| [A12 — Proteção de dados (continuação)](aulas/A12-protecao-de-dados-continuacao.md) | Segundo encontro de proteção de dados; consulte o material de estudo compartilhado com A11 | [Mesma atividade integrada](atividades/A11-A12-parecer.html#atividade) |
+| [A13 — Proteção de endpoints](aulas/A13-protecao-de-endpoints.md) | Execução, incidentes industriais ilustrativos, telemetria, contenção e retorno | [Concluir a atividade integrada](atividades/A11-A12-parecer.html#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 

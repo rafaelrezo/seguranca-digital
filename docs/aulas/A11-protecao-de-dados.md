@@ -10,7 +10,7 @@ Uma tabela protegida por login pode ser exportada para um arquivo sem as mesmas 
 2. Justificar a redução de conteúdo e especificar permissões e compartilhamento, explicando como verificar os controles e seus limites.
 3. Traduzir uma regra de prevenção de perda em configuração e contraprovas e elaborar um procedimento verificável de retenção e recuperação.
 
-A11 e [A12](A12-protecao-de-endpoints.md) compõem um bloco. Há [uma única atividade integrada](#atividade), concluída após A12. As perguntas desta página são oportunidades de conferir a compreensão; não constituem entregas separadas.
+A proteção de dados ocupou os encontros A11 e [A12](A12-protecao-de-dados-continuacao.md); a [A13](A13-protecao-de-endpoints.md) examina o dispositivo que usa esses dados. Há [uma única atividade integrada](#atividade), concluída após A13. As perguntas desta página são oportunidades de conferir a compreensão; não constituem entregas separadas. Esta página reúne material de estudo e não identifica quais seções foram tratadas em cada um dos dois encontros de dados.
 
 ## Responsabilidades: quem decide e quem executa a proteção? {#responsabilidades}
 
@@ -997,11 +997,11 @@ Uma recomendação técnica precisa ir além de “usar DLP” ou “ter backup�
 
 Se uma regra não bloquear o esperado, confira cobertura, atributos e exceções antes de concluir que o produto falhou. Se um arquivo continuar expondo conteúdo, confira se houve transformação dos dados ou apenas da aparência. Se a restauração funcionar, limite a conclusão ao objeto e às condições verificadas.
 
-A próxima pergunta é concreta: **o que um programa executado com o acesso do usuário pode fazer com esses dados?** Continue na [A12 — proteção de endpoints](A12-protecao-de-endpoints.md).
+A próxima pergunta é concreta: **o que um programa executado com o acesso do usuário pode fazer com esses dados?** Continue na [A13 — proteção de endpoints](A13-protecao-de-endpoints.md).
 
 ## Atividade {#atividade}
 
-A atividade é compartilhada com A12: [Parecer técnico sobre proteção de dados e endpoint](../atividades/A11-A12-parecer.html#atividade). Leia nesta etapa os insumos de dados, proponha uma configuração e seus testes, relacione a finalidade à minimização, aplique a regra e registre o critério de recuperação. Complete a parte de endpoint após A12. Há uma única entrega; prazo e convocação serão informados no Classroom.
+A atividade é compartilhada com A13: [Parecer técnico sobre proteção de dados e endpoint](../atividades/A11-A12-parecer.html#atividade). Leia nesta etapa os insumos de dados, proponha uma configuração e seus testes, relacione a finalidade à minimização, aplique a regra e registre o critério de recuperação. Complete a parte de endpoint após A13. Há uma única entrega; prazo e convocação serão informados no Classroom.
 
 ## Revisão rápida
 

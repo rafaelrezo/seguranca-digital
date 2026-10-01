@@ -6,6 +6,8 @@ Estas instruções orientam todo conteúdo criado ou revisado neste repositório
 
 **Decisão docente de 24 set. 2026 — exposição integrada em A11–A12:** organizar proteção de dados e endpoint como um bloco de dois encontros predominantemente expositivos, com conceitos e técnicas apresentados diretamente e exemplos concretos de apoio. Não exigir cenário imaginário, personagens, empresa ou continuidade da matriz industrial. Usar comparações, arquivos, configurações e rastros curtos para ilustrar propriedades e limites. A continuidade é conceitual; demonstrações e análise guiada permanecem como apoio. Esta decisão prevalece, para esse bloco, sobre a preferência por abrir unidades com cenário e observar antes de toda definição. Ver o planejamento integrado docente. Não converter exposição em slides nem publicar páginas sem solicitação de produção.
 
+**Atualização docente de 1º out. 2026 — sequência efetiva:** proteção de dados ocupou dois encontros completos, A11 e A12; endpoint é A13. A decisão pedagógica de exposição direta, exemplos concretos e atividade única continua, com incidentes industriais documentados como ilustrações breves na A13. A distribuição dos tópicos e checkpoints realizados em A11–A12 não foi informada. A numeração após A13 permanece provisória até a conciliação do calendário; as referências antigas a endpoint em A12 são histórico de planejamento, não a sequência vigente.
+
 ## Referência obrigatória de arquitetura curricular
 
 Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, os objetivos e dependências entre encontros, os produtos integradores e os portões contra *drift*.

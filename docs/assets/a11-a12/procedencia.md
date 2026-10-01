@@ -1,4 +1,4 @@
-# Procedência da observação benigna de A12
+# Procedência da observação benigna de A13
 
 O arquivo [observacao-benigna.csv](observacao-benigna.csv) contém duas observações coletadas em 24 set. 2026, em Linux, para um exemplo de leitura de processo e arquivo. Consulte o instante exato em UTC no CSV.
 
@@ -19,4 +19,4 @@ L1 é consulta pontual de processo. L2 é leitura de conteúdo; a associação a
 
 O conjunto E1–E4 da aula e o conjunto R1–R5 da atividade são exemplos artificiais distintos, explicitamente identificados. Não são derivados desta coleta.
 
-[Voltar à A12](../../aulas/A12-protecao-de-endpoints.md#execucao).
+[Voltar à A13](../../aulas/A13-protecao-de-endpoints.md#execucao).
