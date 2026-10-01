@@ -27,67 +27,71 @@ Para delimitar o alcance de uma execução, procure: **processo**, **usuário**,
 
 ### Observação benigna: escolha seu sistema
 
-Faça **somente um** dos roteiros completos: [Windows](#observacao-windows) ou [Ubuntu](#observacao-ubuntu). Os dois produzem uma observação de processo e uma leitura de arquivo; use os registros W1/W2 **ou** U1/U2 na conclusão. Se estiver apenas acompanhando, use os resultados ilustrativos no fim de cada roteiro. O [CSV L1/L2](../assets/a11-a12/observacao-benigna.csv) é um ensaio anterior e independente, disponível como fonte complementar.
+Selecione **Windows 10/11** ou **Ubuntu** nas abas e faça somente o roteiro do seu sistema. Os dois produzem uma observação de processo e uma leitura de arquivo; use os registros W1/W2 **ou** U1/U2 na conclusão. Se estiver apenas acompanhando, use os resultados ilustrativos no fim de cada roteiro. O [CSV L1/L2](../assets/a11-a12/observacao-benigna.csv) é um ensaio anterior e independente, disponível como fonte complementar.
 
-#### Windows 10/11: Bloco de Notas e Gerenciador de Tarefas {#observacao-windows}
+=== "Windows 10/11"
 
-**Estado inicial:** computador Windows 10/11, com sua própria conta, sem precisar de privilégios de administrador. Use somente o texto fictício indicado. Não abra arquivos pessoais nem altere configurações de segurança.
+    <span id="observacao-windows"></span>
 
-| Passo | Faça no Windows | Resultado esperado e registro |
-|---|---|---|
-| 1. Preparar o arquivo | Pressione `Win + E` para abrir o **Explorador de Arquivos**. Entre em **Documentos** e crie uma pasta chamada `Observacao-A13` pelo botão **Novo > Pasta**. Abra o **Bloco de Notas** pelo menu Iniciar, digite `observacao benigna` e use **Arquivo > Salvar como**. Escolha essa pasta e o nome `observacao-benigna.txt`. Mantenha o Bloco de Notas aberto. | O título do Bloco de Notas mostra o arquivo salvo. Se a pasta Documentos não puder ser usada, escolha outra pasta em que você possa salvar e anote o caminho. |
-| 2. Observar o processo | Pressione `Ctrl + Shift + Esc` para abrir o **Gerenciador de Tarefas**. Se aparecer a visão compacta, selecione **Mais detalhes**. Abra **Detalhes** e localize `Notepad.exe` (Bloco de Notas). | **W1:** registre nome do processo, PID mostrado na coluna **PID** e horário da consulta. Se houver mais de um `Notepad.exe`, registre que a lista não identifica qual janela é a sua. |
-| 3. Observar o arquivo | Volte ao **Explorador de Arquivos**, entre na pasta escolhida e abra `observacao-benigna.txt`. | **W2:** confirme e registre o caminho do arquivo e o texto `observacao benigna`. Se o arquivo aparecer com outro nome ou extensão, registre o nome real antes de prosseguir. |
+    **Estado inicial:** computador Windows 10/11, com sua própria conta, sem precisar de privilégios de administrador. Use somente o texto fictício indicado. Não abra arquivos pessoais nem altere configurações de segurança.
 
-**Encerramento:** depois de registrar W1 e W2, feche o arquivo de teste e o Gerenciador de Tarefas. O arquivo fictício pode ser excluído pelo Explorador; confira o nome antes de excluí-lo. Pare aqui e vá para a [interpretação comum](#interpretacao-observacao).
+    | Passo | Faça no Windows | Resultado esperado e registro |
+    |---|---|---|
+    | 1. Preparar o arquivo | Pressione `Win + E` para abrir o **Explorador de Arquivos**. Entre em **Documentos** e crie uma pasta chamada `Observacao-A13` pelo botão **Novo > Pasta**. Abra o **Bloco de Notas** pelo menu Iniciar, digite `observacao benigna` e use **Arquivo > Salvar como**. Escolha essa pasta e o nome `observacao-benigna.txt`. Mantenha o Bloco de Notas aberto. | O título do Bloco de Notas mostra o arquivo salvo. Se a pasta Documentos não puder ser usada, escolha outra pasta em que você possa salvar e anote o caminho. |
+    | 2. Observar o processo | Pressione `Ctrl + Shift + Esc` para abrir o **Gerenciador de Tarefas**. Se aparecer a visão compacta, selecione **Mais detalhes**. Abra **Detalhes** e localize `Notepad.exe` (Bloco de Notas). | **W1:** registre nome do processo, PID mostrado na coluna **PID** e horário da consulta. Se houver mais de um `Notepad.exe`, registre que a lista não identifica qual janela é a sua. |
+    | 3. Observar o arquivo | Volte ao **Explorador de Arquivos**, entre na pasta escolhida e abra `observacao-benigna.txt`. | **W2:** confirme e registre o caminho do arquivo e o texto `observacao benigna`. Se o arquivo aparecer com outro nome ou extensão, registre o nome real antes de prosseguir. |
 
-**Sem computador:** use W1 = “Gerenciador de Tarefas mostra `Notepad.exe`, PID 4321, às 10:05” e W2 = “Explorador abre `Documentos/Observacao-A13/observacao-benigna.txt` com `observacao benigna`”. PID, horário e caminho são **ilustrativos**.
+    **Encerramento:** depois de registrar W1 e W2, feche o arquivo de teste e o Gerenciador de Tarefas. O arquivo fictício pode ser excluído pelo Explorador; confira o nome antes de excluí-lo. Pare aqui e vá para a [interpretação comum](#interpretacao-observacao).
 
-#### Ubuntu: Terminal, `ps` e leitura de arquivo {#observacao-ubuntu}
+    **Sem computador:** use W1 = “Gerenciador de Tarefas mostra `Notepad.exe`, PID 4321, às 10:05” e W2 = “Explorador abre `Documentos/Observacao-A13/observacao-benigna.txt` com `observacao benigna`”. PID, horário e caminho são **ilustrativos**.
 
-**Estado inicial:** Ubuntu com Terminal e Python 3 disponíveis; use sua própria conta. O ensaio cria uma pasta temporária exclusiva e um arquivo com texto fictício. Não use `sudo`. Mantenha o mesmo Terminal aberto até o encerramento, pois as variáveis `DIR_A13` e `PID_A13` valem somente nele. Se `python3 --version` mostrar “comando não encontrado”, use U1/U2 ilustrativos abaixo; não instale nada.
+=== "Ubuntu"
 
-1. Abra o **Terminal** pelo menu de aplicativos ou com `Ctrl + Alt + T`. Digite `python3 --version` e pressione **Enter**. O resultado esperado começa com `Python 3`. Se não aparecer, pare e use o exemplo sem computador.
-2. Crie uma pasta temporária e mostre seu caminho. Digite as duas linhas, pressionando **Enter** após cada uma:
+    <span id="observacao-ubuntu"></span>
 
-    ```bash
-    DIR_A13="$(mktemp -d)"
-    printf '%s\n' "$DIR_A13"
-    ```
+    **Estado inicial:** Ubuntu com Terminal e Python 3 disponíveis; use sua própria conta. O ensaio cria uma pasta temporária exclusiva e um arquivo com texto fictício. Não use `sudo`. Mantenha o mesmo Terminal aberto até o encerramento, pois as variáveis `DIR_A13` e `PID_A13` valem somente nele. Se `python3 --version` mostrar “comando não encontrado”, use U1/U2 ilustrativos abaixo; não instale nada.
 
-    O segundo comando mostra um caminho semelhante a `/tmp/tmp.ABC123`. **Anote o caminho mostrado**; o sufixo varia. `mktemp -d` cria uma pasta nova, sem usar arquivos pessoais.
+    1. Abra o **Terminal** pelo menu de aplicativos ou com `Ctrl + Alt + T`. Digite `python3 --version` e pressione **Enter**. O resultado esperado começa com `Python 3`. Se não aparecer, pare e use o exemplo sem computador.
+    2. Crie uma pasta temporária e mostre seu caminho. Digite as duas linhas, pressionando **Enter** após cada uma:
 
-3. Inicie um processo benigno que escreve uma linha e permanece aberto por até dez minutos. Digite as três linhas abaixo **no mesmo Terminal**:
+        ```bash
+        DIR_A13="$(mktemp -d)"
+        printf '%s\n' "$DIR_A13"
+        ```
 
-    ```bash
-    python3 -c 'from pathlib import Path; import sys, time; Path(sys.argv[1]).write_text("observacao benigna\n"); time.sleep(600)' "$DIR_A13/observacao-benigna.txt" &
-    PID_A13=$!
-    sleep 1
-    ```
+        O segundo comando mostra um caminho semelhante a `/tmp/tmp.ABC123`. **Anote o caminho mostrado**; o sufixo varia. `mktemp -d` cria uma pasta nova, sem usar arquivos pessoais.
 
-    O `&` deixa o programa em segundo plano, `$!` guarda seu PID e `sleep 1` dá tempo para o arquivo ser criado. O processo usa apenas a pasta temporária. Se ele terminar antes da consulta, repita **somente este passo** para criar um novo PID.
+    3. Inicie um processo benigno que escreve uma linha e permanece aberto por até dez minutos. Digite as três linhas abaixo **no mesmo Terminal**:
 
-4. Consulte o processo e o horário UTC:
+        ```bash
+        python3 -c 'from pathlib import Path; import sys, time; Path(sys.argv[1]).write_text("observacao benigna\n"); time.sleep(600)' "$DIR_A13/observacao-benigna.txt" &
+        PID_A13=$!
+        sleep 1
+        ```
 
-    ```bash
-    ps -o pid,ppid,comm -p "$PID_A13"
-    date -u +'%Y-%m-%dT%H:%M:%SZ'
-    ```
+        O `&` deixa o programa em segundo plano, `$!` guarda seu PID e `sleep 1` dá tempo para o arquivo ser criado. O processo usa apenas a pasta temporária. Se ele terminar antes da consulta, repita **somente este passo** para criar um novo PID.
 
-    A primeira saída deve ter uma linha `python3`: **PID** identifica o processo e **PPID** identifica seu pai naquela consulta. **U1:** anote PID, PPID e horário UTC. Se aparecer apenas o cabeçalho de `ps`, o processo já terminou; repita o passo 3 antes de continuar.
+    4. Consulte o processo e o horário UTC:
 
-5. Leia o arquivo criado:
+        ```bash
+        ps -o pid,ppid,comm -p "$PID_A13"
+        date -u +'%Y-%m-%dT%H:%M:%SZ'
+        ```
 
-    ```bash
-    printf '%s\n' "$DIR_A13/observacao-benigna.txt"
-    cat "$DIR_A13/observacao-benigna.txt"
-    ```
+        A primeira saída deve ter uma linha `python3`: **PID** identifica o processo e **PPID** identifica seu pai naquela consulta. **U1:** anote PID, PPID e horário UTC. Se aparecer apenas o cabeçalho de `ps`, o processo já terminou; repita o passo 3 antes de continuar.
 
-    O primeiro comando mostra o caminho; o segundo deve mostrar `observacao benigna`. **U2:** anote caminho e conteúdo. Se `cat` informar que o arquivo não existe, pare e refaça o passo 3; não procure outros arquivos.
+    5. Leia o arquivo criado:
 
-6. Encerre **somente o processo deste ensaio** com `kill "$PID_A13"`. O arquivo permanece na pasta temporária para conferência. Pare após registrar U1 e U2; não é preciso executar o antigo coletor CSV.
+        ```bash
+        printf '%s\n' "$DIR_A13/observacao-benigna.txt"
+        cat "$DIR_A13/observacao-benigna.txt"
+        ```
 
-**Sem Terminal:** use U1 = “`ps` mostra `python3`, PID 4321, PPID 4000, às 13:05 UTC” e U2 = “`/tmp/tmp.ABC123/observacao-benigna.txt` contém `observacao benigna`”. Os números, horário e caminho são **ilustrativos**.
+        O primeiro comando mostra o caminho; o segundo deve mostrar `observacao benigna`. **U2:** anote caminho e conteúdo. Se `cat` informar que o arquivo não existe, pare e refaça o passo 3; não procure outros arquivos.
+
+    6. Encerre **somente o processo deste ensaio** com `kill "$PID_A13"`. O arquivo permanece na pasta temporária para conferência. Pare após registrar U1 e U2; não é preciso executar o antigo coletor CSV.
+
+    **Sem Terminal:** use U1 = “`ps` mostra `python3`, PID 4321, PPID 4000, às 13:05 UTC” e U2 = “`/tmp/tmp.ABC123/observacao-benigna.txt` contém `observacao benigna`”. Os números, horário e caminho são **ilustrativos**.
 
 #### Interpretação comum: o que os registros sustentam? {#interpretacao-observacao}
 
