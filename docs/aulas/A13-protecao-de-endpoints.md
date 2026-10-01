@@ -136,19 +136,9 @@ Um worm pode precisar de uma ação inicial para entrar no ambiente. “Autoprop
 
 ### Demonstração segura: executar modelos no navegador {#simulacao-malware}
 
-O [código-fonte JavaScript do simulador](../javascripts/a13-simulador.js) contém **12 funções executáveis**, uma para cada linha M1–M12. Ele altera apenas objetos temporários **na memória desta página**: não lê arquivos ou teclas reais, não usa rede e não instala nem executa malware. Funciona no navegador de Windows e Ubuntu. O trecho abaixo mostra as duas diferenças centrais; o arquivo vinculado contém o código completo e pode ser aberto antes da execução:
+O simulador representa **objetos fictícios**, como `B.exe` e `PC-2`. Ele mostra **quem inicia a ação, qual é o alvo e o que mudou no alvo**. Use-o no navegador de Windows ou Ubuntu; nenhum arquivo ou dispositivo real será modificado.
 
-```javascript
-// Vírus: muda o conteúdo de um arquivo hospedeiro fictício.
-const arquivos = { "A.exe": "programa + V", "B.exe": "programa limpo" };
-arquivos["B.exe"] = "programa + V";
-
-// Worm: acrescenta uma cópia em outro dispositivo fictício.
-const dispositivos = { "PC-1": "cópia W", "PC-2": "sem cópia" };
-dispositivos["PC-2"] = "cópia W";
-```
-
-**Procedimento:** (1) escolha uma família na lista; (2) antes de clicar, preveja qual objeto vai mudar; (3) selecione **Executar simulação**; (4) leia **Antes**, **Depois** e **Pista** e registre “família → mudança → limite”. Comece com **Vírus** e **Worm**; depois escolha uma das outras famílias. Pare após três registros. Os valores reiniciam a cada clique, portanto a saída é reproduzível. Se o botão não funcionar, use a tabela M1–M12 logo abaixo para fazer a mesma comparação.
+**Procedimento:** escolha **Vírus**, preveja qual objeto vai mudar e clique em **Executar simulação**. Leia **Origem → Ação simulada → Alvo** e compare os cartões **Antes/Depois**. Repita com **Worm** e depois com outra família. Registre três linhas no formato **família → objeto que mudou → por que essa mudança ilustra a família**. Pare após as três linhas. Cada clique recomeça do mesmo estado fictício. Se o botão não funcionar, faça a comparação com M1–M12 abaixo.
 
 <div id="simulador-a13" class="a13-simulator">
   <label for="familia-a13">Família ou função para simular</label>
@@ -167,10 +157,24 @@ dispositivos["PC-2"] = "cópia W";
     <option value="logicbomb">Bomba lógica — M12</option>
   </select>
   <button type="button">Executar simulação</button>
-  <pre role="status" aria-live="polite">Escolha uma família, preveja a mudança e execute a simulação.</pre>
+  <div class="a13-result" role="status" aria-live="polite"><p>Escolha uma família, preveja a mudança e execute a simulação.</p></div>
 </div>
 
-**Saída esperada do primeiro clique:** em Vírus, `B.exe` passa de “programa limpo” para “programa + marcador V”; em Worm, PC-2 passa de “sem cópia” para “cópia W”. Nenhuma dessas mudanças ocorre no computador: os nomes designam apenas objetos JavaScript. **A tabela abaixo** preserva a atividade quando JavaScript estiver desativado e mostra os rastros que cada modelo representa.
+**Leitura trabalhada:** em **Vírus**, a origem é o arquivo fictício `A.exe`; o alvo `B.exe` muda de “programa limpo” para “programa + marcador V”. A cópia depende do **arquivo hospedeiro**. Em **Worm**, a origem é `PC-1`; o alvo `PC-2` muda de “sem cópia” para “cópia W”. A cópia alcança **outro dispositivo**, sem infectar um hospedeiro. Nas outras opções, observe a mesma sequência: **origem → ação → alvo → mudança → conceito**.
+
+O [código-fonte JavaScript completo](../javascripts/a13-simulador.js) contém os 12 modelos e pode ser lido antes de clicar. Ele altera apenas objetos temporários **na memória desta página**: não lê arquivos ou teclas reais, não usa rede e não executa malware. O trecho abaixo mostra as duas operações usadas nos primeiros modelos:
+
+```javascript
+// Vírus: muda o estado de um arquivo hospedeiro fictício.
+const arquivos = { "A.exe": "programa + V", "B.exe": "programa limpo" };
+arquivos["B.exe"] = "programa + V";
+
+// Worm: muda o estado de outro dispositivo fictício.
+const dispositivos = { "PC-1": "cópia W", "PC-2": "sem cópia" };
+dispositivos["PC-2"] = "cópia W";
+```
+
+**A tabela abaixo** preserva a atividade quando JavaScript estiver desativado e mostra os rastros que cada modelo representa.
 
 | Cartão | Rastro fictício para observar | Família ou função ilustrada |
 |---|---|---|

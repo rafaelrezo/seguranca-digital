@@ -8,6 +8,8 @@
 
 **Correção docente seguinte:** separar Windows e Ubuntu em dois roteiros autocontidos, agora exibidos em **abas alternativas** na página; a interpretação comum fica depois delas. Em Ubuntu, um processo Python benigno cria uma linha em pasta temporária; `ps` fornece PID/PPID (U1) e `cat` lê o arquivo (U2). O processo do ensaio é encerrado pelo próprio PID. W1/W2 e U1/U2 são pares alternativos, sem herança cruzada. O CSV L1/L2 continua como terceiro ensaio, apenas complementar. A demonstração de malware agora inclui doze modelos JavaScript executáveis no navegador, com fonte aberta, mudanças somente em memória e saída antes/depois; M1–M12 são a alternativa textual. Isso substitui a afirmação anterior de que os exemplos não tinham código executável.
 
+**Ajuste da relação visual no simulador:** a primeira saída apenas serializava objetos em texto e não evidenciava a relação entre mecanismo e alvo. O novo painel mostra **origem → ação simulada → alvo**, seguido de cartões por objeto com **Antes/Depois** e indicação textual do que mudou. Conduzir Vírus e Worm comparando o objeto alterado (`B.exe` versus `PC-2`), depois pedir uma terceira família. Os cartões continuam modelos em memória e não rastros reais.
+
 ## Ficha-base
 
 | Campo | Definição |

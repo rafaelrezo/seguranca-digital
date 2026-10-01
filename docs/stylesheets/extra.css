@@ -166,4 +166,10 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
 .a13-simulator select, .a13-simulator button { font: inherit; max-width: 100%; padding: .35rem .5rem; margin: 0 .5rem .5rem 0; }
 .a13-simulator button { background: var(--md-primary-fg-color); color: var(--md-primary-bg-color); border: 0; border-radius: .2rem; cursor: pointer; }
 .a13-simulator button:focus-visible, .a13-simulator select:focus-visible { outline: 3px solid var(--md-accent-fg-color); outline-offset: 2px; }
-.a13-simulator pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: .5rem 0 0; }
+.a13-result { margin-top: .5rem; }
+.a13-result > p { margin: .3rem 0; }
+.a13-result > p:nth-child(-n+3) { padding-left: .55rem; border-left: 3px solid var(--md-primary-fg-color); }
+.a13-objects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: .6rem; margin: .8rem 0; }
+.a13-object { border: 1px solid var(--md-default-fg-color--lightest); border-radius: .25rem; padding: .5rem .7rem; overflow-wrap: anywhere; }
+.a13-object-changed { border-left: 4px solid var(--md-accent-fg-color); }
+.a13-object p { margin: .15rem 0; }

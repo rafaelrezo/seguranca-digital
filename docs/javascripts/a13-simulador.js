@@ -79,13 +79,62 @@
     }
   };
 
+  const scenes = {
+    virus: ["Arquivo A.exe com marcador V", "Copia o marcador para outro arquivo hospedeiro", "Arquivo B.exe"],
+    worm: ["Dispositivo PC-1 com cópia W", "Cria uma cópia em outro dispositivo", "Dispositivo PC-2"],
+    trojan: ["Aplicativo anunciado como visualizador", "Acrescenta uma ação que o anúncio não informa", "Ação real do aplicativo"],
+    ransomware: ["Código no dispositivo fictício", "Restringe acesso e apresenta cobrança", "Arquivo e pedido de resgate"],
+    spyware: ["Processo sem autorização", "Marca coleta de dados fictícios", "Histórico do usuário no modelo"],
+    adware: ["Programa de anúncios fictício", "Redireciona uma busca sem consentimento", "Destino da busca no modelo"],
+    keylogger: ["Componente fictício", "Copia a palavra TESTE para um registro", "Registro de teclas no modelo"],
+    backdoor: ["Componente instalado no modelo", "Acrescenta um caminho oculto", "Caminhos de acesso"],
+    rat: ["Ordem remota fictícia", "Insere a ordem em uma lista", "Comandos do programa no modelo"],
+    rootkit: ["Componente X do modelo", "Omite X da lista visível", "Visão dos processos"],
+    logicbomb: ["Data de teste fictícia", "Ativa a condição programada", "Estado de um arquivo no modelo"],
+    botnet: ["Ordem fictícia única", "Distribui a ordem a dois dispositivos", "PC-1 e PC-2 do modelo"]
+  };
+
+  function line(label, value) {
+    const p = document.createElement("p");
+    const strong = document.createElement("strong");
+    strong.textContent = `${label}: `;
+    p.append(strong, document.createTextNode(value));
+    return p;
+  }
+
+  function show(value) {
+    if (Array.isArray(value)) return value.length ? value.join(", ") : "nenhum";
+    if (typeof value === "boolean") return value ? "sim" : "não";
+    return String(value);
+  }
+
   const select = root.querySelector("select");
   const button = root.querySelector("button");
-  const output = root.querySelector("pre");
+  const output = root.querySelector(".a13-result");
   button.addEventListener("click", () => {
     const model = models[select.value];
     if (!model) return;
     const [before, after, clue] = model();
-    output.textContent = `Antes: ${before}\nDepois: ${after}\nPista: ${clue}`;
+    const [origin, action, target] = scenes[select.value];
+    const prior = JSON.parse(before);
+    const next = JSON.parse(after);
+    const objects = document.createElement("div");
+    objects.className = "a13-objects";
+    for (const name of Object.keys(prior)) {
+      const card = document.createElement("div");
+      const oldValue = show(prior[name]);
+      const newValue = show(next[name]);
+      card.className = `a13-object${oldValue !== newValue ? " a13-object-changed" : ""}`;
+      card.append(line("Objeto", name), line("Antes", oldValue), line("Depois", newValue));
+      if (oldValue !== newValue) card.append(line("Mudança", "este objeto mudou"));
+      objects.append(card);
+    }
+    output.replaceChildren(
+      line("Origem", origin),
+      line("Ação simulada", action),
+      line("Alvo", target),
+      objects,
+      line("Relação com a família", clue)
+    );
   });
 })();
