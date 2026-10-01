@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## A13 em abas com simulador visual publicada — 1º out. 2026
+
+Após duas correções docentes, os procedimentos de observação Windows e Ubuntu aparecem em abas alternativas, com a interpretação comum logo abaixo. O simulador de malware passou a mostrar **origem → ação simulada → alvo** e cartões de cada objeto com estados **Antes/Depois**, além de uma leitura trabalhada que compara o arquivo hospedeiro alterado no vírus ao outro dispositivo alcançado pelo worm. O código permanece limitado a objetos JavaScript em memória; M1–M12 são a alternativa sem JavaScript. O plano docente registra a nova representação; a A13 não foi declarada ministrada.
+
+Commits `43576a13` (abas) e `dab131dc` (simulador visual) enviados à `main`. Os [deploys 36925765087](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36925765087) e [36926277170](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36926277170), com as [validações 36925765192](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36925765192) e [36926277220](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36926277220), concluíram com sucesso. Build estrito, validador editorial, execução dos doze modelos e inspeção visual local de vírus e worm em 390 px passaram. A [página A13](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/) e o [JavaScript publicado](https://rafaelrezo.github.io/seguranca-digital/javascripts/a13-simulador.js) foram conferidos após o último deploy. Google Drive e Classroom não foram alterados.
+
 ## A13 com roteiros Windows/Ubuntu e simulador publicada — 1º out. 2026
 
 Por correção docente, a observação benigna foi separada em dois procedimentos completos e alternativos: Windows W1/W2 e Ubuntu U1/U2, cada um com estado inicial, ações, saídas, registro, alternativa e encerramento. O antigo CSV L1/L2 permanece como ensaio independente. A demonstração de famílias agora inclui o código JavaScript `docs/javascripts/a13-simulador.js`, com doze modelos executáveis apenas em memória no navegador; a tabela M1–M12 é alternativa sem JavaScript. Arquitetura e plano docente foram alinhados; a A13 continua prospectiva.
