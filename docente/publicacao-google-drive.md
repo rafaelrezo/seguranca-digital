@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Linguagem do simulador A13 simplificada — 1º out. 2026
+
+O docente apontou que expressões como “componente instalado no modelo” exigiam inferências desnecessárias. Os doze exemplos do simulador passaram a nomear programas, arquivos, dispositivos e mudanças concretas. A interface usa “Quem age → O que faz → O que é afetado”; no Backdoor, o programa “Assistente de suporte” acrescenta uma entrada escondida sem senha à lista de formas de entrar. Vírus e worm deixaram de usar marcadores V/W. Uma explicação inicial esclarece que a tela apenas altera objetos na memória do navegador, e a página contém um exemplo trabalhado de Backdoor. O plano docente registra a correção; a A13 permanece prospectiva.
+
+Commit `0a5b5f3f` enviado à `main`. O [deploy 36927991988](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36927991988) e a [validação 36927991997](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36927991997) concluíram com sucesso. Build estrito, validador editorial, execução dos doze exemplos, verificação de sintaxe e inspeção visual do Backdoor em 390 px passaram. A [página A13](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/) e o [JavaScript publicado](https://rafaelrezo.github.io/seguranca-digital/javascripts/a13-simulador.js) foram conferidos após o deploy. Não houve alteração no Google Drive nem envio ao Classroom; publicação não comprova execução em aula.
+
 ## A13 em abas com simulador visual publicada — 1º out. 2026
 
 Após duas correções docentes, os procedimentos de observação Windows e Ubuntu aparecem em abas alternativas, com a interpretação comum logo abaixo. O simulador de malware passou a mostrar **origem → ação simulada → alvo** e cartões de cada objeto com estados **Antes/Depois**, além de uma leitura trabalhada que compara o arquivo hospedeiro alterado no vírus ao outro dispositivo alcançado pelo worm. O código permanece limitado a objetos JavaScript em memória; M1–M12 são a alternativa sem JavaScript. O plano docente registra a nova representação; a A13 não foi declarada ministrada.
