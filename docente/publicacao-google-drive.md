@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Procedimentos e exemplos seguros da A13 publicados — 1º out. 2026
+
+Após retorno docente, a A13 passou a ter observação benigna guiada no Windows (Bloco de Notas, Explorador e Gerenciador de Tarefas), com W1/W2, resultado esperado, registro e parada; o CSV Linux L1/L2 ficou como comparação opcional. A tabela define as famílias e funções de malware presentes no material, seguida de M1–M12, rastros fictícios para demonstrar seus mecanismos sem executar malware. As leituras de incidentes, controles, E1–E4 e resposta agora dizem explicitamente o que ler, escrever e quando parar. Arquitetura e plano docente foram alinhados; a A13 não foi declarada ministrada.
+
+Commit `51be90f4` enviado à `main`. O [deploy 36923335533](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36923335533) e a [validação 36923335771](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36923335771) concluíram com sucesso. Build estrito, validador editorial e `git diff --check` passaram; a [página A13](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/) foi consultada após o deploy e continha as novas seções. Não houve alteração no Google Drive nem envio ao Classroom; publicação não comprova execução em sala.
+
 ## A13 expositiva publicada no GitHub Pages — 1º out. 2026
 
 Após solicitação docente para reduzir carga cognitiva, a página A13 foi reorganizada em cinco passos: execução, malware, controles, telemetria e resposta. O texto passou de cerca de 3.990 para 2.050 palavras, mantendo comparação vírus/worm, Stuxnet e Ucrânia 2015, observação benigna L1/L2, exemplo trabalhado E1–E4 e atividade integrada. Referências e limites de inferência permanecem próximos das decisões. O diagnóstico e a condução estão no plano docente A13.
