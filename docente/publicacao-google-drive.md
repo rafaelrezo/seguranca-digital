@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## A13 com roteiros Windows/Ubuntu e simulador publicada — 1º out. 2026
+
+Por correção docente, a observação benigna foi separada em dois procedimentos completos e alternativos: Windows W1/W2 e Ubuntu U1/U2, cada um com estado inicial, ações, saídas, registro, alternativa e encerramento. O antigo CSV L1/L2 permanece como ensaio independente. A demonstração de famílias agora inclui o código JavaScript `docs/javascripts/a13-simulador.js`, com doze modelos executáveis apenas em memória no navegador; a tabela M1–M12 é alternativa sem JavaScript. Arquitetura e plano docente foram alinhados; a A13 continua prospectiva.
+
+Commit `42c94858` enviado à `main`. O [deploy 36924903713](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36924903713) e a [validação 36924903727](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36924903727) concluíram com sucesso. O build estrito, validador editorial, verificação sintática JavaScript, execução dos doze modelos e teste local dos comandos Ubuntu passaram. A [página A13](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/) e o [código-fonte do simulador](https://rafaelrezo.github.io/seguranca-digital/javascripts/a13-simulador.js) foram consultados após o deploy. Não houve alteração no Google Drive nem envio ao Classroom; publicação não comprova execução em aula.
+
 ## Procedimentos e exemplos seguros da A13 publicados — 1º out. 2026
 
 Após retorno docente, a A13 passou a ter observação benigna guiada no Windows (Bloco de Notas, Explorador e Gerenciador de Tarefas), com W1/W2, resultado esperado, registro e parada; o CSV Linux L1/L2 ficou como comparação opcional. A tabela define as famílias e funções de malware presentes no material, seguida de M1–M12, rastros fictícios para demonstrar seus mecanismos sem executar malware. As leituras de incidentes, controles, E1–E4 e resposta agora dizem explicitamente o que ler, escrever e quando parar. Arquitetura e plano docente foram alinhados; a A13 não foi declarada ministrada.
