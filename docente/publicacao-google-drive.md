@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## A13 expositiva publicada no GitHub Pages — 1º out. 2026
+
+Após solicitação docente para reduzir carga cognitiva, a página A13 foi reorganizada em cinco passos: execução, malware, controles, telemetria e resposta. O texto passou de cerca de 3.990 para 2.050 palavras, mantendo comparação vírus/worm, Stuxnet e Ucrânia 2015, observação benigna L1/L2, exemplo trabalhado E1–E4 e atividade integrada. Referências e limites de inferência permanecem próximos das decisões. O diagnóstico e a condução estão no plano docente A13.
+
+Commit `a7f6df17` enviado à `main`. O [deploy 36921910582](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36921910582) e a [validação 36921910579](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36921910579) concluíram com sucesso. Build estrito, validador editorial, `git diff --check` e inspeção visual local em 1440/390 px passaram. A [página A13](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/) retornou HTTP 200 com novo título, comparação vírus/worm e episódios industriais. Não houve alteração no Google Drive nem envio ao Classroom; publicação não comprova realização da aula.
+
 ## Revisão A13 publicada no GitHub Pages — 1º out. 2026
 
 Solicitada pelo docente após confirmar A11–A12 como dois encontros de proteção de dados e A13 como endpoint. Commit `09aac769` enviado à `main`. O [deploy 36920111995](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36920111995) e a [validação 36920111899](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36920111899) concluíram com sucesso. O build estrito, o validador editorial, o sincronismo do HTML da atividade e a inspeção visual local em 1440/390 px foram aprovados. As quatro URLs abaixo retornaram HTTP 200 com identificação e conteúdo esperados:
