@@ -2,7 +2,7 @@
 
 Um arquivo armazenado não está necessariamente em execução. Um processo com acesso comum pode alterar documentos. Um alerta pode apenas registrar uma ação. Nesta aula, você vai usar essas distinções para explicar **o que aconteceu, o que ainda não sabemos e qual resposta cabe**.
 
-**Tempo:** 100 minutos. **Recursos:** esta página e, para a observação guiada, um computador Windows 10/11 com Bloco de Notas, Explorador de Arquivos e Gerenciador de Tarefas. Se você estiver apenas acompanhando a projeção, use o exemplo escrito nesta página. Não instale agentes nem execute malware. **Base:** propriedades de segurança e [proteção de dados](A11-protecao-de-dados.md) dos encontros A11–A12.
+**Tempo:** 100 minutos. **Recursos:** esta página e um computador Windows 10/11 **ou** Ubuntu para a observação guiada. Escolha o roteiro do seu sistema; se estiver apenas acompanhando a projeção, use os resultados ilustrativos escritos na página. Não instale agentes nem execute malware. **Base:** propriedades de segurança e [proteção de dados](A11-protecao-de-dados.md) dos encontros A11–A12.
 
 **Objetivos de aprendizagem**
 
@@ -25,9 +25,13 @@ Para delimitar o alcance de uma execução, procure: **processo**, **usuário**,
 <figcaption><strong>Alcance do processo.</strong> P1 pode afetar os documentos aos quais sua identidade tem acesso. O UID 1001 é ilustrativo; o número isolado não define os privilégios. Imagem fornecida pelo docente. Selecione para ampliar.</figcaption>
 </figure>
 
-### Observação benigna no Windows: processo e arquivo são fontes diferentes
+### Observação benigna: escolha seu sistema
 
-**Estado inicial:** use somente texto fictício. Acompanhe o professor; se estiver em um computador Windows, repita os passos. Pare depois de registrar W1 e W2. Não abra arquivos pessoais nem altere configurações de segurança.
+Faça **somente um** dos roteiros completos: [Windows](#observacao-windows) ou [Ubuntu](#observacao-ubuntu). Os dois produzem uma observação de processo e uma leitura de arquivo; use os registros W1/W2 **ou** U1/U2 na conclusão. Se estiver apenas acompanhando, use os resultados ilustrativos no fim de cada roteiro. O [CSV L1/L2](../assets/a11-a12/observacao-benigna.csv) é um ensaio anterior e independente, disponível como fonte complementar.
+
+#### Windows 10/11: Bloco de Notas e Gerenciador de Tarefas {#observacao-windows}
+
+**Estado inicial:** computador Windows 10/11, com sua própria conta, sem precisar de privilégios de administrador. Use somente o texto fictício indicado. Não abra arquivos pessoais nem altere configurações de segurança.
 
 | Passo | Faça no Windows | Resultado esperado e registro |
 |---|---|---|
@@ -35,13 +39,63 @@ Para delimitar o alcance de uma execução, procure: **processo**, **usuário**,
 | 2. Observar o processo | Pressione `Ctrl + Shift + Esc` para abrir o **Gerenciador de Tarefas**. Se aparecer a visão compacta, selecione **Mais detalhes**. Abra **Detalhes** e localize `Notepad.exe` (Bloco de Notas). | **W1:** registre nome do processo, PID mostrado na coluna **PID** e horário da consulta. Se houver mais de um `Notepad.exe`, registre que a lista não identifica qual janela é a sua. |
 | 3. Observar o arquivo | Volte ao **Explorador de Arquivos**, entre na pasta escolhida e abra `observacao-benigna.txt`. | **W2:** confirme e registre o caminho do arquivo e o texto `observacao benigna`. Se o arquivo aparecer com outro nome ou extensão, registre o nome real antes de prosseguir. |
 
-**Conclusão trabalhada:** W1 sustenta que havia um processo `Notepad.exe` com aquele PID **no instante da consulta**. W2 sustenta que o arquivo continha a linha de teste. Você sabe que salvou o arquivo porque acompanhou o procedimento, mas W1 e W2, isoladamente, **não são um registro de auditoria que vincula aquele PID à operação de escrita**. Também não mostram rede, persistência ou intenção maliciosa.
+**Encerramento:** depois de registrar W1 e W2, feche o arquivo de teste e o Gerenciador de Tarefas. O arquivo fictício pode ser excluído pelo Explorador; confira o nome antes de excluí-lo. Pare aqui e vá para a [interpretação comum](#interpretacao-observacao).
 
-**Registre agora duas frases:** (1) uma afirmação sustentada por W1 ou W2, citando o registro; (2) uma ação que esses registros não permitem atribuir a um processo em outra máquina. Para provar essa atribuição seria necessária uma fonte que registrasse processo, arquivo e operação de escrita. Encerre a observação após as duas frases; não é preciso instalar Sysmon.
+**Sem computador:** use W1 = “Gerenciador de Tarefas mostra `Notepad.exe`, PID 4321, às 10:05” e W2 = “Explorador abre `Documentos/Observacao-A13/observacao-benigna.txt` com `observacao benigna`”. PID, horário e caminho são **ilustrativos**.
 
-**Se você estiver apenas acompanhando:** use estes resultados de referência no lugar dos passos no computador: **W1:** “Gerenciador de Tarefas mostra `Notepad.exe`, PID 4321, às 10:05”; **W2:** “Explorador abre `Documentos/Observacao-A13/observacao-benigna.txt` com `observacao benigna`”. PID, horário e caminho são **ilustrativos**. Produza as mesmas duas frases.
+#### Ubuntu: Terminal, `ps` e leitura de arquivo {#observacao-ubuntu}
 
-**Comparação opcional em Linux:** o [CSV de observação benigna](../assets/a11-a12/observacao-benigna.csv) registra outro ensaio, com [procedência própria](../assets/a11-a12/procedencia.md). Abra o link e leia as linhas **L1** e **L2**: L1 mostra P1 com pai P0 numa consulta `ps`; L2 mostra o conteúdo do arquivo. A associação da escrita a P1 vem do procedimento conhecido do ensaio, não de um log de auditoria. L1/L2 não são os registros W1/W2 do Windows.
+**Estado inicial:** Ubuntu com Terminal e Python 3 disponíveis; use sua própria conta. O ensaio cria uma pasta temporária exclusiva e um arquivo com texto fictício. Não use `sudo`. Mantenha o mesmo Terminal aberto até o encerramento, pois as variáveis `DIR_A13` e `PID_A13` valem somente nele. Se `python3 --version` mostrar “comando não encontrado”, use U1/U2 ilustrativos abaixo; não instale nada.
+
+1. Abra o **Terminal** pelo menu de aplicativos ou com `Ctrl + Alt + T`. Digite `python3 --version` e pressione **Enter**. O resultado esperado começa com `Python 3`. Se não aparecer, pare e use o exemplo sem computador.
+2. Crie uma pasta temporária e mostre seu caminho. Digite as duas linhas, pressionando **Enter** após cada uma:
+
+    ```bash
+    DIR_A13="$(mktemp -d)"
+    printf '%s\n' "$DIR_A13"
+    ```
+
+    O segundo comando mostra um caminho semelhante a `/tmp/tmp.ABC123`. **Anote o caminho mostrado**; o sufixo varia. `mktemp -d` cria uma pasta nova, sem usar arquivos pessoais.
+
+3. Inicie um processo benigno que escreve uma linha e permanece aberto por até dez minutos. Digite as três linhas abaixo **no mesmo Terminal**:
+
+    ```bash
+    python3 -c 'from pathlib import Path; import sys, time; Path(sys.argv[1]).write_text("observacao benigna\n"); time.sleep(600)' "$DIR_A13/observacao-benigna.txt" &
+    PID_A13=$!
+    sleep 1
+    ```
+
+    O `&` deixa o programa em segundo plano, `$!` guarda seu PID e `sleep 1` dá tempo para o arquivo ser criado. O processo usa apenas a pasta temporária. Se ele terminar antes da consulta, repita **somente este passo** para criar um novo PID.
+
+4. Consulte o processo e o horário UTC:
+
+    ```bash
+    ps -o pid,ppid,comm -p "$PID_A13"
+    date -u +'%Y-%m-%dT%H:%M:%SZ'
+    ```
+
+    A primeira saída deve ter uma linha `python3`: **PID** identifica o processo e **PPID** identifica seu pai naquela consulta. **U1:** anote PID, PPID e horário UTC. Se aparecer apenas o cabeçalho de `ps`, o processo já terminou; repita o passo 3 antes de continuar.
+
+5. Leia o arquivo criado:
+
+    ```bash
+    printf '%s\n' "$DIR_A13/observacao-benigna.txt"
+    cat "$DIR_A13/observacao-benigna.txt"
+    ```
+
+    O primeiro comando mostra o caminho; o segundo deve mostrar `observacao benigna`. **U2:** anote caminho e conteúdo. Se `cat` informar que o arquivo não existe, pare e refaça o passo 3; não procure outros arquivos.
+
+6. Encerre **somente o processo deste ensaio** com `kill "$PID_A13"`. O arquivo permanece na pasta temporária para conferência. Pare após registrar U1 e U2; não é preciso executar o antigo coletor CSV.
+
+**Sem Terminal:** use U1 = “`ps` mostra `python3`, PID 4321, PPID 4000, às 13:05 UTC” e U2 = “`/tmp/tmp.ABC123/observacao-benigna.txt` contém `observacao benigna`”. Os números, horário e caminho são **ilustrativos**.
+
+#### Interpretação comum: o que os registros sustentam? {#interpretacao-observacao}
+
+Em Windows, W1 sustenta que `Notepad.exe` estava presente **naquele instante**; W2 sustenta o conteúdo do arquivo. Em Ubuntu, U1 sustenta que `python3` estava presente com o PPID exibido; U2 sustenta o caminho e o conteúdo do arquivo. Em ambos, você sabe quem salvou ou escreveu porque acompanhou o procedimento, mas os **dois registros, sozinhos, não são um log de auditoria que liga PID, arquivo e escrita**. Também não mostram rede, persistência ou intenção maliciosa.
+
+**Registre duas frases:** (1) uma afirmação sustentada por W1/W2 **ou** U1/U2, citando o registro; (2) uma ação que esses registros não permitem atribuir a um processo em outra máquina. Para atribuir uma escrita desconhecida seria necessária uma fonte que registrasse processo, arquivo e operação. Pare após as duas frases.
+
+O [CSV L1/L2 de um ensaio anterior em Linux](../assets/a11-a12/observacao-benigna.csv) tem [procedência própria](../assets/a11-a12/procedencia.md): L1 é uma consulta `ps`; L2 é a leitura do arquivo. Ele não é a saída dos procedimentos Windows ou Ubuntu acima, nem um log de auditoria de escrita.
 
 ## Malware: distinguir propagação de efeito {#malware}
 
@@ -76,9 +130,43 @@ Os nomes descrevem **mecanismos ou efeitos diferentes** e podem coexistir no mes
 
 Um worm pode precisar de uma ação inicial para entrar no ambiente. “Autopropagação” descreve o que ele consegue fazer **depois**. No vírus, observe a infecção do hospedeiro; no worm, a capacidade de alcançar outros alvos sem esse hospedeiro. Em ambos, peça evidência do mecanismo antes de usar o nome.
 
-### Demonstração segura: identificar o mecanismo em rastros fictícios
+### Demonstração segura: executar modelos no navegador {#simulacao-malware}
 
-Use a tabela abaixo **na própria página**; cada linha é uma simulação escrita, não um programa nem um registro de incidente real. Leia a observação, localize a ação decisiva e compare com a definição acima. Não baixe amostras nem reproduza o comportamento.
+O [código-fonte JavaScript do simulador](../javascripts/a13-simulador.js) contém **12 funções executáveis**, uma para cada linha M1–M12. Ele altera apenas objetos temporários **na memória desta página**: não lê arquivos ou teclas reais, não usa rede e não instala nem executa malware. Funciona no navegador de Windows e Ubuntu. O trecho abaixo mostra as duas diferenças centrais; o arquivo vinculado contém o código completo e pode ser aberto antes da execução:
+
+```javascript
+// Vírus: muda o conteúdo de um arquivo hospedeiro fictício.
+const arquivos = { "A.exe": "programa + V", "B.exe": "programa limpo" };
+arquivos["B.exe"] = "programa + V";
+
+// Worm: acrescenta uma cópia em outro dispositivo fictício.
+const dispositivos = { "PC-1": "cópia W", "PC-2": "sem cópia" };
+dispositivos["PC-2"] = "cópia W";
+```
+
+**Procedimento:** (1) escolha uma família na lista; (2) antes de clicar, preveja qual objeto vai mudar; (3) selecione **Executar simulação**; (4) leia **Antes**, **Depois** e **Pista** e registre “família → mudança → limite”. Comece com **Vírus** e **Worm**; depois escolha uma das outras famílias. Pare após três registros. Os valores reiniciam a cada clique, portanto a saída é reproduzível. Se o botão não funcionar, use a tabela M1–M12 logo abaixo para fazer a mesma comparação.
+
+<div id="simulador-a13" class="a13-simulator">
+  <label for="familia-a13">Família ou função para simular</label>
+  <select id="familia-a13">
+    <option value="virus">Vírus — M1</option>
+    <option value="worm">Worm — M2</option>
+    <option value="trojan">Trojan — M3</option>
+    <option value="ransomware">Ransomware — M4</option>
+    <option value="spyware">Spyware — M5</option>
+    <option value="keylogger">Keylogger — M6</option>
+    <option value="backdoor">Backdoor — M7</option>
+    <option value="rootkit">Rootkit — M8</option>
+    <option value="botnet">Bot/botnet — M9</option>
+    <option value="adware">Adware malicioso — M10</option>
+    <option value="rat">RAT malicioso — M11</option>
+    <option value="logicbomb">Bomba lógica — M12</option>
+  </select>
+  <button type="button">Executar simulação</button>
+  <pre role="status" aria-live="polite">Escolha uma família, preveja a mudança e execute a simulação.</pre>
+</div>
+
+**Saída esperada do primeiro clique:** em Vírus, `B.exe` passa de “programa limpo” para “programa + marcador V”; em Worm, PC-2 passa de “sem cópia” para “cópia W”. Nenhuma dessas mudanças ocorre no computador: os nomes designam apenas objetos JavaScript. **A tabela abaixo** preserva a atividade quando JavaScript estiver desativado e mostra os rastros que cada modelo representa.
 
 | Cartão | Rastro fictício para observar | Família ou função ilustrada |
 |---|---|---|
