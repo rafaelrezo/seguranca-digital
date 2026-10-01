@@ -1,5 +1,16 @@
 # Registro de publicação no Google Drive
 
+## Revisão A13 publicada no GitHub Pages — 1º out. 2026
+
+Solicitada pelo docente após confirmar A11–A12 como dois encontros de proteção de dados e A13 como endpoint. Commit `09aac769` enviado à `main`. O [deploy 36920111995](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36920111995) e a [validação 36920111899](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36920111899) concluíram com sucesso. O build estrito, o validador editorial, o sincronismo do HTML da atividade e a inspeção visual local em 1440/390 px foram aprovados. As quatro URLs abaixo retornaram HTTP 200 com identificação e conteúdo esperados:
+
+- [A13 — proteção de endpoints](https://rafaelrezo.github.io/seguranca-digital/aulas/A13-protecao-de-endpoints/): incidentes documentados de Stuxnet e rede elétrica ucraniana de 2015, separados dos rastros artificiais da prática.
+- [A12 — proteção de dados, continuação](https://rafaelrezo.github.io/seguranca-digital/aulas/A12-protecao-de-dados-continuacao/): registra o segundo encontro sem atribuir tópicos específicos não informados.
+- [Atividade integrada A11–A13](https://rafaelrezo.github.io/seguranca-digital/atividades/A11-A12-parecer.html#atividade): título e entrega atualizados; endereço preservado para links anteriores.
+- [Endereço anterior de endpoint](https://rafaelrezo.github.io/seguranca-digital/aulas/A12-protecao-de-endpoints/): encaminha à A13.
+
+O plano docente, a arquitetura, o roadmap e o manifesto foram alinhados. Não houve alteração no Google Drive nem envio ao Classroom. A publicação da A13 não comprova a realização do encontro.
+
 ## Resumo da LGPD na A11 — 29 set. 2026
 
 Publicada no GitHub Pages a síntese objetiva da Lei nº 13.709/2018 no início da seção LGPD da A11. O commit `e0808163` foi enviado à `main`; a [validação](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36645489502) e o [deploy](https://github.com/rafaelrezo/seguranca-digital/actions/runs/36645489615) concluíram com sucesso. A [página pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A11-protecao-de-dados/#lgpd) contém o resumo e seu HTML coincide com o build local validado. A publicação incluiu somente a página A11; Google Drive e Classroom não foram alterados.
