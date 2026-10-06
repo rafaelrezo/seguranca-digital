@@ -15,10 +15,6 @@ Ao final desta trilha, o aluno deve ser capaz de:
 **Tempo estimado da trilha:** 2h30 a 3h30 (sem exercícios).  
 **Pré-requisito:** noções básicas de redes e sistemas operacionais.
 
-## Vídeo de abertura
-
-![type:video](https://www.youtube.com/embed/AWykXE3XbaY)
-
 ---
 
 ## Ordem sugerida de estudo

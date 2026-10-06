@@ -7,10 +7,6 @@
 >
 > **Tempo estimado:** 15 minutos
 
-## Vídeo da aula
-
-![type:video](https://www.youtube.com/embed/AWykXE3XbaY)
-
 ## 1. O que é Confidencialidade?
 
 Confidencialidade é o princípio da **proteção de informações contra acesso ou divulgação não autorizados**.  

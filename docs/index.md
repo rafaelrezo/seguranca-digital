@@ -7,10 +7,6 @@
 >
 > **Tempo estimado:** 12 minutos
 
-## Vídeo de contexto
-
-![type:video](https://www.youtube.com/embed/AWykXE3XbaY)
-
 ## 1. O que este curso entrega
 
 Este curso foi organizado para funcionar em duas camadas ao mesmo tempo:
