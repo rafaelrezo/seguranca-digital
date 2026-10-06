@@ -173,3 +173,27 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
 .a13-object { border: 1px solid var(--md-default-fg-color--lightest); border-radius: .25rem; padding: .5rem .7rem; overflow-wrap: anywhere; }
 .a13-object-changed { border-left: 4px solid var(--md-accent-fg-color); }
 .a13-object p { margin: .15rem 0; }
+.a14-panel, #a15-checks, #a16-signatures, #a18-lab {
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .35rem;
+  padding: 1rem;
+}
+
+.a14-panel button, #a15-checks button, #a16-signatures button, #a18-lab button, #a18-lab select {
+  margin: .2rem .35rem .2rem 0;
+  padding: .4rem .6rem;
+  white-space: normal;
+}
+
+.a14-panel pre, #a15-checks pre, #a16-signatures pre, #a18-lab pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.a14-panel button:focus-visible, #a15-checks button:focus-visible,
+#a16-signatures button:focus-visible, #a18-lab button:focus-visible,
+#a18-lab select:focus-visible {
+  outline: 3px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}

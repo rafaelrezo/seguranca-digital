@@ -29,6 +29,8 @@ markdown_extensions:
 extra_javascript:
   - javascripts/a09-matriz.js
   - javascripts/a13-simulador.js
+  - javascripts/a14-aead.js
+  - javascripts/a15-hash-hmac.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
@@ -66,6 +68,7 @@ exclude_docs: |
 
 not_in_nav: |
   atividades/A11-A12-protecao-integrada.md
+  atividades/A14-A18-criptografia-confianca.md
 
 nav:
   - Início: index.md
@@ -84,6 +87,11 @@ nav:
       - "A11 — Proteção de dados": aulas/A11-protecao-de-dados.md
       - "A12 — Proteção de dados (continuação)": aulas/A12-protecao-de-dados-continuacao.md
       - "A13 — Proteção de endpoints": aulas/A13-protecao-de-endpoints.md
+      - "A14 (provisória) — Cifra simétrica autenticada": aulas/A14-cifra-simetrica-autenticada.md
+      - "A15 (provisória) — Hash, HMAC e senhas": aulas/A15-hash-hmac-senhas.md
+      - "A16 (provisória) — Chaves e assinaturas": aulas/A16-chaves-assinaturas.md
+      - "A17 (provisória) — Certificados e TLS": aulas/A17-certificados-tls.md
+      - "A18 (provisória) — Ciclo de chaves e integração": aulas/A18-ciclo-de-chaves-integracao.md
   - Referencial de consulta:
       - Fundamentos de Segurança:
           - Visão geral: fundamentos_de_seguranca_digital/index.md

@@ -1,6 +1,6 @@
 # Arquitetura geral da experiência — Segurança Digital
 
-**Estado vigente: 1º de outubro de 2026.** A confirmação de dois encontros de proteção de dados (A11–A12) e de endpoint como A13 atualiza a sequência de 24 de setembro. Este documento fixa a função de cada bloco, as dependências e os portões de qualidade. O [roadmap](roadmap-curso.md) registra A13 e a numeração provisória posterior, pendente de conciliação do calendário. As decisões de 24 de setembro abaixo permanecem como história do planejamento onde sua numeração foi substituída.
+**Estado vigente: 6 de outubro de 2026.** A confirmação de dois encontros de proteção de dados (A11–A12), endpoint como A13 e a decisão de organizar criptografia em cinco encontros atualizam a sequência de 24 de setembro. Este documento fixa a função de cada bloco, as dependências e os portões de qualidade. O [roadmap](roadmap-curso.md) registra A13 e a numeração provisória posterior, pendente de conciliação com o calendário real. As decisões anteriores abaixo permanecem como história do planejamento onde sua numeração foi substituída.
 
 ## História e autoridade
 
@@ -76,6 +76,10 @@ Retirar da página do aluno relatos da pesquisa de mercado e justificativas de a
 Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo para retorno funcional, antes das siglas e do cálculo. Preservar valores e Figura 4. A atividade integrada terá HTML independente, acessível por link direto no GitHub Pages e fora do menu, com organização responsiva e os mesmos insumos, requisitos e critérios. Não criar nova entrega nem alterar pesos. Manter fonte Markdown e compatibilidade dos links anteriores.
 
 ## Produtos e pontes
+
+**Preparação prospectiva de 6 out. 2026 — cifra autenticada:** a fala “paramos na A13” foi tomada como hipótese de que o encontro de endpoint terminou; ainda não há confirmação de realização, versão usada nem entrega estudantil. Foi preparado o encontro seguinte com identificador **A14 provisório**, dedicado a AEAD, chave, nonce, AAD, tag, caso válido e rejeição de alteração. O ganho em relação à A13 é proteger e verificar uma cópia fora do endpoint, preservando o limite de que o processo autorizado vê chave e texto legível. A prática usa Web Crypto em memória e quadro alternativo, com C1 de uma atividade única de criptografia e confiança. O bloco seguinte retoma hash, HMAC e senhas. O antigo `A14-quem-fez-o-que.md` permanece histórico, fora da navegação. Confirmar o estado da A13 e conciliar calendário antes de fixar a numeração ou distribuir a nova aula.
+
+**Decisão docente de 6 out. 2026 — criptografia em cinco encontros:** reduzir o bloco planejado A14–A19 a **cinco encontros prospectivos A14–A18**, com uma atividade cumulativa: A14 cifra autenticada; A15 hash, HMAC e armazenamento de senhas; A16 funções de chaves assimétricas e assinatura, com acordo de chaves em nível funcional; A17 certificados e TLS na mesma decisão de confiança e canal; A18 ciclo de chaves e integração. VPN e acesso remoto serão aplicações do bloco OT; tokens retomam identidade/autorização sem aula criptográfica autônoma. Planejar **ao menos 45 minutos de prática guiada por encontro**, com operação direta dos estudantes quando o ambiente permitir, alternativa com o mesmo raciocínio e verificação observável. A redução devolve um encontro ao calendário projetado, mas não certifica o cumprimento das 30 h teóricas + 30 h práticas; A11–A12 e calendário real ainda precisam de conciliação. A realização da A13 permanece sem confirmação documental.
 
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
