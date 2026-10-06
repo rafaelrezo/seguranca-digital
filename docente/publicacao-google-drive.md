@@ -1,5 +1,9 @@
 # Registro de publicação no Google Drive
 
+## Vídeo removido do GitHub Pages — 6 out. 2026
+
+O vídeo `AWykXE3XbaY` foi removido da página inicial, do índice de Fundamentos e da página de Confidencialidade no commit `a5ffb47ea84f8b6750424cd25720a5849596d331`. A cópia histórica em `docente/reconciliacao-mkdocs-2026-09-08/mkdocs-anterior/` foi preservada. O [deploy 37480926569](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37480926569) e a [validação 37480926735](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37480926735) concluíram com sucesso. As três páginas públicas retornaram HTTP 200 sem o identificador do vídeo. Google Drive e Classroom não foram alterados.
+
 ## Bloco A14–A18 publicado no GitHub Pages — 6 out. 2026
 
 O pacote de cinco encontros de criptografia e confiança, seus planos docentes, a atividade única C1–C5 e os painéis locais foram publicados na `main` pelo commit `558fa75fc29f8fe972b556add6ed93f23b2401f0`. A [validação 37474925085](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37474925085) e o [deploy 37474925178](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37474925178) concluíram com sucesso. O build estrito e o validador editorial passaram no worktree isolado; a revisão pedagógica confirmou 45–60 minutos de prática planejada por encontro.
