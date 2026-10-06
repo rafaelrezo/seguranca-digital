@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Bloco A14–A18 publicado no GitHub Pages — 6 out. 2026
+
+O pacote de cinco encontros de criptografia e confiança, seus planos docentes, a atividade única C1–C5 e os painéis locais foram publicados na `main` pelo commit `558fa75fc29f8fe972b556add6ed93f23b2401f0`. A [validação 37474925085](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37474925085) e o [deploy 37474925178](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37474925178) concluíram com sucesso. O build estrito e o validador editorial passaram no worktree isolado; a revisão pedagógica confirmou 45–60 minutos de prática planejada por encontro.
+
+As páginas [A14](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/), [A15](https://rafaelrezo.github.io/seguranca-digital/aulas/A15-hash-hmac-senhas/), [A16](https://rafaelrezo.github.io/seguranca-digital/aulas/A16-chaves-assinaturas/), [A17](https://rafaelrezo.github.io/seguranca-digital/aulas/A17-certificados-tls/), [A18](https://rafaelrezo.github.io/seguranca-digital/aulas/A18-ciclo-de-chaves-integracao/) e a [atividade única](https://rafaelrezo.github.io/seguranca-digital/atividades/A14-A18-criptografia-confianca/#atividade) retornaram HTTP 200 e conteúdo esperado. Os quatro scripts publicados coincidem byte a byte com os arquivos do commit. O Google Drive e o Classroom não foram alterados. A publicação não comprova realização da A13 nem fixa o calendário posterior.
+
 ## Linguagem do simulador A13 simplificada — 1º out. 2026
 
 O docente apontou que expressões como “componente instalado no modelo” exigiam inferências desnecessárias. Os doze exemplos do simulador passaram a nomear programas, arquivos, dispositivos e mudanças concretas. A interface usa “Quem age → O que faz → O que é afetado”; no Backdoor, o programa “Assistente de suporte” acrescenta uma entrada escondida sem senha à lista de formas de entrar. Vírus e worm deixaram de usar marcadores V/W. Uma explicação inicial esclarece que a tela apenas altera objetos na memória do navegador, e a página contém um exemplo trabalhado de Backdoor. O plano docente registra a correção; a A13 permanece prospectiva.
