@@ -165,6 +165,12 @@ openssl s_client -connect rafaelrezo.github.io:443 -servername rafaelrezo.github
 
 Você abriu `https://curso.exemplo.invalid`, mas o SAN apresentado cobre apenas `portal.exemplo.invalid`. Mesmo que o certificado esteja no prazo e tenha uma cadeia confiável, **recuse**: a chave foi vinculada a outro nome. Uma aparência semelhante na tela não modifica o endereço que o navegador pediu. Os domínios `.invalid` desta página são **fictícios e não devem ser acessados**.
 
+### Como essas funções entram no TLS e na VPN
+
+No handshake TLS, o servidor apresenta o certificado e usa sua chave privada para **assinar a negociação atual**. O par temporário ECDHE tem outra função: produzir o segredo do acordo. As chaves simétricas derivadas desse processo protegem a conexão.
+
+Na [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls), localize `Certificate` e `CertificateVerify` para distinguir o vínculo da identidade de sua prova nesta conexão. No [OpenVPN](A16-tls-ciclo-de-chaves.md#sequencia-vpn), o exemplo também exige certificado e prova do cliente para admitir o túnel.
+
 ## Atividade {#atividade}
 
 Atualize **C2** no [registro único de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) após T3, V1–V3 e inspeção de certificado: `chave → operação → resultado → origem da chave pública → condição para confiar → limite`. Não há entrega separada.

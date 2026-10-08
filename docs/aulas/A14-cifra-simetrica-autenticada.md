@@ -540,6 +540,8 @@ Uma KDF, como **HKDF**, deriva as chaves que serão usadas na cifra a partir des
 - **Para aceitar uma operação:** verificar a tag antes de usar o conteúdo e aplicar as regras da aplicação, inclusive contra repetição.
 - **Para comunicar entre sistemas:** estabelecer as chaves com autenticação e proteção adequadas; o ensaio local não é um protocolo pronto para comunicação segura.
 
+A [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls) mostrará esse acordo junto à autenticação por certificado. O [percurso do OpenVPN](A16-tls-ciclo-de-chaves.md#topologia-vpn) aplicará a cifra autenticada ao transporte de pacotes entre duas redes.
+
 ## Atividade {#atividade}
 
 Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade): use T1–T2 e G1–G3 para explicar a cifra, a rejeição da tag alterada e o segredo necessário no receptor. G4–G6 são extensões opcionais. Identifique resultados executados ou fornecidos. Continue C2 na A15 e C3 na A16; a entrega é única.
