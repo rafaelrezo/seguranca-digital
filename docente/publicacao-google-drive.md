@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Código AES-GCM copiável no VS Code — 8 out. 2026
+
+Por correção docente, a prática G1–G3 da A14 passou de código embutido em comando Bash para arquivo Python `aes_gcm_a14.py`, mostrado em bloco próprio e oferecido para download. A página orienta abrir `~/cripto-a14` no VS Code via WSL, salvar o arquivo e executá-lo com `python3 aes_gcm_a14.py`; também explica erros de caminho e dependência. O plano docente, a arquitetura e o `AGENTS.md` foram alinhados. A comparação entre tag original, tag alterada e AAD alterado permanece igual.
+
+Commit `18d82b37ec5c7c27354f4b4b0f673e5a02c7b04a` enviado à `main`. [Validação 37823406624](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37823406624) e [deploy 37823406496](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37823406496) concluíram com sucesso. O arquivo foi executado com G1 aceito e G2/G3 rejeitados; build estrito e validador editorial passaram. A [A14 pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/#gcm-terminal) e o [arquivo Python público](https://rafaelrezo.github.io/seguranca-digital/assets/a14-a17/aes_gcm_a14.py) retornaram HTTP 200; o arquivo público é idêntico ao do repositório. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## Práticas de GCM e certificado no terminal — 8 out. 2026
 
 A pedido do docente, o painel de cliques de AES-GCM foi removido da A14. A prática no WSL usa Python `cryptography`: G1 abre o conjunto original, G2 altera um bit da tag e é rejeitado, G3 altera apenas o AAD e também é rejeitado. A A15 passou a inspecionar o certificado real com OpenSSL no terminal. C1, plano da A14, roadmap, arquitetura e diretriz de práticas no `AGENTS.md` foram alinhados. Os quadros de resultados permanecem como alternativa declarada, sem simular execução estudantil.
