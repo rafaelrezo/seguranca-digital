@@ -368,68 +368,106 @@ Estas linhas são **referência de comportamento esperado**. O valor calculado n
 
 Se `sha256sum` ou OpenSSL não funcionar, leia o quadro na ordem D1–M3 e identifique-o como resultado fornecido. Se houver outro erro, anote comando e mensagem sem dados sensíveis. Espaços, acentos, quebras de linha e codificação mudam os bytes; confira a entrada exata antes de atribuir divergência a adulteração. A aceitação e rejeição do HMAC dependem da chave correta, mas não entregam diagnóstico causal de um evento real por si só.
 
-## Senhas: verificar sem guardar o texto secreto {#senhas}
+## Senhas: conferir uma tentativa sem guardar a senha {#senhas}
 
-Uma senha é um segredo escolhido ou conhecido pelo usuário. O serviço precisa verificar a senha digitada sem armazená-la em texto legível. Se a base de **verificadores** vazar, um atacante poderá testar palpites fora do serviço. SHA-256 direto é rápido demais para essa finalidade, mesmo quando se acrescenta sal sem um esquema de custo adequado.
+Na prática D1, SHA-256 permitiu comparar os bytes de **arquivos**. Agora a pergunta é outra: quando alguém cria uma conta e depois digita uma senha, como um programa confere essa tentativa sem manter uma cópia da senha na base de contas? Aqui, **serviço** significa o programa que recebe e confere a senha, como o responsável pelo login de um site. Nesta aula, vamos executar somente as operações locais, sem criar um site ou contas reais.
 
-Um **esquema de armazenamento de senhas** recebe senha, **sal** e parâmetros de **custo**:
+Guardar a senha em texto legível expõe todas as contas se a base for copiada. Guardar apenas `SHA-256(senha)` também é inadequado: SHA-256 é rápido, e uma base vazada permite testar muitos palpites fora do serviço. O hash de D1 continua útil para comparar arquivos; a finalidade de **verificar senhas** pede um esquema próprio, com sal e custo ([OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)).
 
-- O **sal**, diferente por conta, separa registros mesmo quando as senhas coincidem; não precisa ser secreto.
-- O **custo** torna mais caro cada palpite após vazamento da base.
-- O **verificador** é o valor armazenado para conferência no login, junto com esquema, versão, parâmetros e sal.
+### Cadastro e conferência: duas operações sobre o mesmo registro
 
-Argon2id em biblioteca mantida e parametrizada para o ambiente é uma opção recomendada pela [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Um *pepper*, se adotado, fica fora da base e não substitui sal ou custo.
+```text
+Cadastro: senha de teste + sal da conta + custo → verificador guardado
+Conferência: tentativa + sal e custo guardados → novo valor → comparar
+                                                     ├─ igual: aceitar
+                                                     └─ diferente: rejeitar
+```
 
-O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) exige sal e esquema adequado com fator de custo. A [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) detalha Argon2id e alternativas.
+No **cadastro**, o programa gera um sal para aquela conta, deriva um **verificador** da senha e guarda `esquema + custo + sal + verificador`. A senha legível não entra nesse registro. O sal pode ser público; sua função é separar contas, inclusive quando duas pessoas escolhem a mesma senha.
 
-O custo precisa ser medido no serviço real para não inviabilizar o login. Aqui, as linhas seguintes são **configurações fictícias**; nenhum verificador será derivado e nenhum login será executado.
+Na **conferência**, o programa recebe uma tentativa, usa o **sal e o custo guardados para aquela conta** e calcula outro valor. Se ele corresponder ao verificador, a tentativa é aceita. Não existe operação de “decifrar o verificador” para recuperar a senha.
 
-**Exemplo trabalhado:** guardar `SHA-256(senha)` permite palpites rápidos após vazamento; contas com a mesma senha têm o mesmo digest.
+O **custo** define trabalho repetido para cada derivação. Isso também torna mais caras as tentativas de um atacante que obteve a base. Não torna uma senha fraca segura nem substitui a limitação de tentativas no serviço. O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) descreve sal, custo e registro do esquema para verificadores de senha.
 
-A proposta revisada usa `Argon2id(senha, sal individual, parâmetros medidos)` e guarda versão, parâmetros, sal e verificador. O serviço deve aceitar a senha correta e rejeitar a incorreta em teste funcional. Isso dificulta o ataque offline, sem corrigir uma senha fraca ou dispensar limite de tentativas online.
+A prática usa **PBKDF2-HMAC-SHA256**, já introduzido em T2. Lá ele derivou chave e IV para cifrar uma cópia; aqui gera um verificador para conferir uma senha. As **100.000 iterações são apenas um parâmetro didático**. Para um sistema real, escolha um esquema e custo conforme recomendações atuais, como [Argon2id na OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html), e meça o desempenho no ambiente.
 
-### Oficina de configuração: localizar o que falta
+### Prática curta no VS Code e WSL: observar cadastro e conferência {#senha-terminal}
 
-**Estado inicial:** estas três linhas são propostas fictícias de armazenamento. Os valores `S-A`, `S-B` e `V-A` são rótulos, não sais nem verificadores reais. Não há login ou derivação de senha executados nesta oficina.
+**Objetivo:** com a **mesma senha fictícia** em duas contas, observar o efeito de sais diferentes e conferir uma tentativa correta e outra incorreta. Os valores são gerados e verificados pelo próprio programa.
 
-| Proposta | Campos previstos na base | Decisão a investigar |
+1. Na pasta `~/cripto-a14` aberta no VS Code, crie `verificador_senhas_a14.py`. Copie somente o código Python abaixo e salve. O [arquivo `.py` para download](../assets/a14-a17/verificador_senhas_a14.py) contém o mesmo código.
+2. Antes de executar, preveja S1–S3: os dois verificadores serão iguais? Qual tentativa será aceita?
+
+```python
+from hashlib import pbkdf2_hmac
+from hmac import compare_digest
+from os import urandom
+
+# Dados fictícios: o programa não recebe nem guarda uma senha real.
+senha_de_teste = b'senha-ficticia-123'
+iteracoes = 100_000  # valor didático; não é configuração de produção
+
+
+def derivar(senha_digitada, sal):
+    return pbkdf2_hmac('sha256', senha_digitada, sal, iteracoes)
+
+
+# Cadastro: duas contas usam a mesma senha, mas recebem sais próprios.
+sal_7 = urandom(16)
+sal_8 = urandom(16)
+verificador_7 = derivar(senha_de_teste, sal_7)
+verificador_8 = derivar(senha_de_teste, sal_8)
+
+print('Conta 7 — sal:', sal_7.hex())
+print('Conta 7 — verificador:', verificador_7.hex())
+print('Conta 8 — sal:', sal_8.hex())
+print('Conta 8 — verificador:', verificador_8.hex())
+print('Custo: ', iteracoes, 'iterações')
+print('S1 — verificadores iguais?', compare_digest(verificador_7, verificador_8))
+
+# Conferência: usar o sal e o custo guardados com o verificador da conta 7.
+tentativa_correta = b'senha-ficticia-123'
+tentativa_incorreta = b'outra-senha'
+print('S2 — senha correta aceita?', compare_digest(
+    derivar(tentativa_correta, sal_7), verificador_7
+))
+print('S3 — senha incorreta aceita?', compare_digest(
+    derivar(tentativa_incorreta, sal_7), verificador_7
+))
+```
+
+No terminal WSL, entre na pasta e execute:
+
+```bash
+cd ~/cripto-a14
+python3 verificador_senhas_a14.py
+```
+
+`cd` seleciona a pasta onde o arquivo foi salvo. `python3` executa o arquivo. **Leia o código e a saída:**
+
+- `urandom(16)` gera **16 bytes de sal** para cada conta; `.hex()` permite ver esses bytes. Os valores mudam a cada execução.
+- `pbkdf2_hmac('sha256', senha, sal, iteracoes)` deriva o verificador. O `sha256` aqui **faz parte do PBKDF2**, com sal e repetições; não é o SHA-256 direto de D1.
+- `compare_digest` compara os valores derivados. Na conferência de S2/S3, o programa usa o sal da conta 7; a senha de teste só existe em memória neste exercício.
+
+| Saída | Resultado esperado | O que demonstra |
 |---|---|---|
-| P-A | `conta=7; esquema=SHA-256; verificador=V-A` | O que facilita palpites após vazamento? |
-| P-B | `conta=7; esquema=Argon2id; sal=S-A; custo=medido; verificador=V-A` e `conta=8; esquema=Argon2id; sal=S-A; custo=medido; verificador=V-B` | O que está incorreto mesmo com esquema e custo adequados? |
-| P-C | `conta=7; esquema=Argon2id; versão=registrada; sal=S-A; custo=medido; verificador=V-A` e `conta=8; esquema=Argon2id; versão=registrada; sal=S-B; custo=medido; verificador=V-B` | Que teste funcional ainda falta realizar no serviço? |
+| S1 — verificadores iguais? | `False` | A mesma senha com sais diferentes produz verificadores diferentes. |
+| S2 — senha correta aceita? | `True` | A tentativa refeita com o sal e o custo da conta 7 corresponde ao registro. |
+| S3 — senha incorreta aceita? | `False` | A tentativa diferente não corresponde ao verificador da conta 7. |
 
-Em dupla, trabalhe na ordem:
+**Experimente uma mudança:** no VS Code, troque somente `sal_8 = urandom(16)` por `sal_8 = sal_7`, salve e execute outra vez. Preveja S1 antes de olhar. **S4:** S1 passa a `True`, porque senha, sal e custo agora coincidem nas duas contas. Restaure `sal_8 = urandom(16)` e salve: cada conta deve voltar a ter sal próprio. Não use essa configuração alterada para guardar senhas.
 
-1. Preveja qual proposta rejeitar, corrigir ou aceitar condicionalmente; marque os campos que sustentam a decisão.
-2. Reescreva apenas a linha de P-B que precisa de outro sal.
-3. Para P-C, proponha `senha correta → aceita` e `senha incorreta → rejeitada`, ambos **pendentes de teste**.
+**Registre S1–S4:** anote os valores lógicos (`True`/`False`) e explique a mudança em S4 em uma frase. Não copie a senha nem os verificadores completos para a entrega. Se Python não abrir o arquivo, confira `pwd` e `ls`; se `pbkdf2_hmac` não estiver disponível, use a tabela S1–S3 e a previsão de S4 como **dados fornecidos**, sem marcar o teste como executado.
 
-Troque a revisão com outra dupla e confira a resposta. **Pare** quando as três decisões tiverem motivo; não marque login como executado.
+### O que este teste permite decidir
 
-<details>
-<summary>Conferir a análise após registrar sua decisão</summary>
+O programa executou a derivação e a comparação de bytes em memória. Ele **não criou uma base de dados nem um login de produção**. Para armazenar um registro real, seriam necessários ao menos o esquema, seus parâmetros, o sal e o verificador por conta; acesso à base, proteção contra tentativas online e atualização futura do custo também precisam ser planejados.
 
-P-A é inadequada porque SHA-256 direto é rápido para palpites offline. P-B precisa de sal individual: reutilizar `S-A` entre contas elimina a diferenciação esperada. P-C contém os campos necessários para uma proposta, mas os rótulos não demonstram parametrização real, execução do esquema nem aceitação/rejeição no login; esses resultados precisam de teste funcional posterior.
-
-</details>
-
-**Sua decisão C1:** escolha o mecanismo para três finalidades:
-
-- Conferir um pacote público contra o valor publicado pelo fornecedor: indique **de onde vem a referência**.
-- Rejeitar alteração de mensagem entre serviços com segredo compartilhado: indique **quem conhece a chave**.
-- Guardar verificador de senha: indique **sal individual, custo e campos armazenados**.
-
-Para cada uma, registre entrada, caso válido, contraprova e limite. Não reutilize a chave literal de teste do terminal como segredo de produção.
-
-### Checkpoint: separar evidência de proposta
-
-Preencha C1 no [registro único](../atividades/A14-A18-criptografia-confianca.md#atividade): `finalidade → mecanismo → entrada/segredo/referência → D1 ou M1–M3 → caso negado → limite → decisão`.
-
-Marque **observado** apenas o que o terminal executou; quadro e configuração de senha são referências e propostas. Compare uma linha com outra dupla. A A15 retomará a verificação com um par de chaves.
+Na [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade), acrescente a C1 uma conclusão curta: **quais campos o programa precisaria guardar para repetir a conferência e qual dado não deveria guardar?** Use S1/S4 para justificar o sal individual e S2/S3 para justificar a comparação. Essa conclusão se apoia no que foi executado, sem exigir desenho de um serviço imaginário.
 
 ## Atividade {#atividade}
 
-Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) em pequenos passos: T1–T2 após a cifra; G1–G3 após GCM; D1/M1–M3 após hash e HMAC; P-A–P-C após senhas. Marque cada resultado como observado, fornecido ou proposto. A entrega será após A16.
+Continue **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade), usando os resultados obtidos ao longo da página: T1–T2 para cifra, G1–G3 para autenticação, D1/M1–M3 para hash e HMAC e S1–S4 para senhas. Identifique se cada resultado foi executado ou fornecido. A entrega única será concluída após A16.
 
 ## Revisão rápida
 
@@ -447,4 +485,5 @@ O [prompt numerado da Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#image
 - [OpenSSL `enc`](https://docs.openssl.org/3.5/man1/openssl-enc/) e [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).
 - [RFC 8018 — PBKDF2, sal e contagem de repetições](https://www.rfc-editor.org/info/rfc8018/).
 - [Documentação da biblioteca `cryptography` — AESGCM](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM).
+- [Documentação do Python — `hashlib.pbkdf2_hmac`](https://docs.python.org/3/library/hashlib.html#hashlib.pbkdf2_hmac).
 - [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104](https://www.rfc-editor.org/info/rfc2104/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).

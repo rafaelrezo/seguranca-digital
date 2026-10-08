@@ -10,15 +10,15 @@
 
 | Registro | Momento de preencher | Evidência mínima e decisão |
 |---|---|---|
-| **C1 — A14** | Após T1–T2, G1–G3, D1/M1–M3 e P-A–P-C. | Mesma chave na cifra e abertura; AES versus modo; em T2, senha + sal + PBKDF2 geram chave/IV, com sal visível na cópia; CBC oferece apenas sigilo; em GCM, identifique ciphertext e tag sem copiar a chave, mostre a aceitação da tag original e a rejeição de tag ou AAD alterados; hash versus HMAC; sal individual e custo para verificador de senha. Indique um caso válido, uma contraprova e um limite para cada finalidade. |
+| **C1 — A14** | Após G1–G3 e S1–S4; use T2, D1 e M1 como apoio. | Anexe um recorte curto de G1/G2 sem a chave e os valores lógicos de S1–S4. Em até seis frases, explique: por que G2 foi rejeitado; por que S1 difere de S4; quais campos guardar para conferir uma senha sem guardá-la; e quando usar SHA-256 de arquivo ou HMAC de mensagem. Cite CBC como exemplo de cifra sem tag própria. |
 | **C2 — A15** | Após T3, T4, V1–V3 e inspeção do certificado. | Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
 | **C3 — A16** | Após cartões B/N/A, terminal TLS e P1–P3/N1–N3. | Canal aceito/recusado, `403` como decisão da aplicação, chave ativa versus cópia antiga, recuperação condicional com teste pendente. |
 
-Use em cada entrada o mesmo esquema: `ID → objeto/pergunta → mecanismo → previsão → resultado e fonte → interpretação → contraprova → limite/próxima ação`. Para resultados executados no terminal, escreva **observado** e o comando; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
+Em C1, mostre somente os recortes e as explicações pedidos acima. Em C2/C3, use `ID → evidência → interpretação → limite/decisão`. Para resultados executados no terminal, escreva **observado** e o comando; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
 
-**Exemplo trabalhado:** `G2 → cópia cifrada → AES-GCM → tag alterada deveria ser rejeitada → InvalidTag no terminal (observado) → texto não foi entregue → G1 abre o conjunto original → a falha não identifica quem alterou`. Se você usou o quadro, troque “observado” por “fornecido”.
+**Exemplo trabalhado:** `G2: rejeitado; texto não entregue` é evidência observada de que a tag alterada não passou na abertura deste teste. G1, na mesma execução, abre o conjunto original. A comparação não identifica quem fez a alteração. Se você usou o quadro, marque a evidência como **fornecida**.
 
-**Sua extensão:** escolha uma cópia com rótulo que inclui o nome fictício `Pessoa A`. Decida se o rótulo fica como AAD visível ou dentro do texto cifrado. Registre propriedade, resultado que validaria a escolha e limite do endpoint. Depois, em C3, explique como preservar acesso a essa cópia durante a troca de chave sem manter K-A apta a cifrar novas cópias.
+**Extensão opcional:** no arquivo AES-GCM da A14, inclua `nome=Pessoa A` no texto que será cifrado, execute outra vez e compare `Text`, `AAD` e `Ciphertext` na saída. Explique em uma frase por que um dado que exige sigilo deve entrar em `text`, e não em `aad`. Use apenas esse nome fictício e não inclua `Key` na entrega.
 
 **Decisão final:** uma linha para **repouso, trânsito, backup e endpoint/identidade**, cada qual com `propriedade → mecanismo → evidência favorável → contraprova → limite/responsável`. Faça revisão cruzada: cada integrante comenta uma inferência do outro e registre ao menos uma correção ou divergência resolvida. Entregue somente após conferir que proposta, dado fornecido e observação estão distinguidos.
 
@@ -28,7 +28,7 @@ Use em cada entrada o mesmo esquema: `ID → objeto/pergunta → mecanismo → p
 
 | Critério | Peso | Evidência de atendimento |
 |---|---:|---|
-| C1 — fundamentos e mecanismos com segredo compartilhado | 40% | Definições corretas, casos válidos e contraprovas para cifra, GCM, hash/HMAC e senha; limites explícitos. |
+| C1 — fundamentos e mecanismos com segredo compartilhado | 40% | G1/G2 e S1–S4 interpretados corretamente; campos do verificador sem senha; SHA-256, HMAC e CBC situados por finalidade e limite. |
 | C2 — assinatura e certificado | 30% | Chaves e verificações corretas, distinção entre resultado matemático e vínculo de identidade. |
 | C3 — TLS, gestão e integração | 30% | Canal versus autorização, troca/recuperação de chaves, decisão final e fonte de cada evidência. |
 
