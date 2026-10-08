@@ -11,7 +11,7 @@
 | Registro | Momento de preencher | Evidência mínima e decisão |
 |---|---|---|
 | **C1 — A14** | Após T2 e G1–G3. G4–G6 são extensões opcionais. | Anexe um recorte curto de G1/G2 sem senha nem chave. Em até quatro frases, explique a rejeição de G2, os campos públicos do envelope e o segredo que o receptor já precisava ter. Cite CBC como cifra sem tag própria. |
-| **C2 — A15** | Após T3, T4, V1–V3 e inspeção do certificado. | Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
+| **C2 — A15** | Após RSA/híbrida, T3, T4, V1–V3 e inspeção do certificado. | Uma frase relacionando o limite RSA observado/fornecido em R1/R2 à chave curta e ao texto longo de H1/H2. Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
 | **C3 — A16** | Após canal/ciclo e bloco final D1, M1–M3 e S1–S4. | Registre um caso de canal aceito/recusado, a função de `CertificateVerify` e `Finished` e uma decisão de troca/recuperação de chave, com seu limite. Em duas frases, diferencie controle/dados no OpenVPN e indique onde a proteção VPN termina. Acrescente os valores lógicos de S1–S4. Em até quatro frases, explique S1 versus S4, os campos necessários ao verificador sem senha e a diferença de finalidade entre SHA-256 e HMAC. |
 
 Mostre somente os recortes e as explicações pedidos acima. Para decisões de C2/C3, use `ID → evidência → interpretação → limite/decisão`. Para resultados executados no terminal, escreva **observado** e o comando; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
@@ -29,7 +29,7 @@ Mostre somente os recortes e as explicações pedidos acima. Para decisões de C
 | Critério | Peso | Evidência de atendimento |
 |---|---:|---|
 | C1 — cifra e requisito do segredo compartilhado | 30% | G1/G2 interpretados; envelope público separado de senha/chave; limite de CBC e necessidade do segredo prévio no receptor. |
-| C2 — assinatura e certificado | 30% | Chaves e verificações corretas, distinção entre resultado matemático e vínculo de identidade. |
+| C2 — assinatura e certificado | 30% | RSA reservado à chave curta, AES-GCM ao conteúdo; papéis e verificações corretos, distinção entre resultado matemático e vínculo de identidade. |
 | C3 — TLS, gestão, hash e senhas | 40% | Sequência TLS, canais VPN e ciclo situados; S1–S4 interpretados, verificador sem senha e finalidade de SHA-256/HMAC; integração e fontes. |
 
 **Completo** apresenta mecanismo, evidência, contraprova e limite; **parcial** omite um desses elementos; **insuficiente** apenas nomeia a ferramenta ou afirma um teste que não ocorreu. O prazo e a submissão são definidos pelo docente.

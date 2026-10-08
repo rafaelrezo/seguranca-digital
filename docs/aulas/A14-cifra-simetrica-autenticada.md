@@ -511,6 +511,8 @@ Na prática, a senha já estava nos dois extremos. Em sistemas separados, é nec
 
 Assim, o arquivo não carrega sua chave em texto legível. Esse envelope contém uma chave cifrada; o nosso JSON carrega sal para derivar uma chave de senha já conhecida. São formas diferentes de resolver o acesso ao segredo.
 
+A [A15: RSA e cifragem híbrida](A15-chaves-assinaturas-certificados.md#rsa-hibrido) mostrará outra composição: proteger uma chave AES curta com a pública do receptor e usá-la para abrir um texto longo. O conteúdo continua sob cifra simétrica; o par de chaves será desenvolvido naquela aula.
+
 ### Acordo de chaves: uma ponte para A15 e A16
 
 Um **par de chaves** tem duas partes matematicamente relacionadas: uma **privada**, guardada pelo titular, e uma **pública**, que pode ser compartilhada. A [A15](A15-chaves-assinaturas-certificados.md) desenvolve esse fundamento e a verificação da origem de uma chave pública.
