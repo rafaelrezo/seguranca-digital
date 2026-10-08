@@ -25,3 +25,19 @@ Estas imagens são opcionais. As explicações, tabelas e demonstrações das au
 **Prompt:** “Crie uma ilustração didática horizontal, em português, para estudantes que nunca estudaram criptografia. Mostre à esquerda um pequeno arquivo com os dados fictícios ‘ordem=7;estado=aprovado’ e o rótulo ‘dados legíveis’. Uma seta chega à operação ‘cifrar’, que recebe também a ‘chave secreta K1’. No centro, mostre um arquivo com bytes ilegíveis, rotulado ‘dados cifrados’. Outra seta chega à operação ‘decifrar’, que recebe a **mesma chave secreta K1**, e produz à direita os dados legíveis originais. Desenhe K1 uma vez em posição central, com duas setas claras para as duas operações, enfatizando que é a mesma chave. Acrescente duas notas visuais curtas: ‘perdeu K1 → não consegue recuperar’ e ‘K1 exposta → sigilo comprometido’. Não mostre uma senha como se fosse a chave, não sugira que cifrar prova ausência de alteração e não inclua AES-GCM, nonce ou tag nesta figura introdutória. Fundo claro, alto contraste, texto grande, formato 16:9, sem marcas ou personagens.”
 
 **Texto alternativo previsto:** a mesma chave secreta K1 é usada para transformar dados legíveis em dados cifrados e para recuperar os dados legíveis; perda de K1 impede a recuperação e exposição de K1 compromete o sigilo.
+
+## Imagem 17 — Da senha à chave e ao IV por PBKDF2 (A14) {#imagem-17}
+
+**Local:** após “Senha e sal: obter material para AES-CBC”. O esquema nativo da página já mostra a relação enquanto a imagem não for fornecida.
+
+**Prompt:** “Crie um diagrama didático vertical em português, para estudantes iniciantes, com poucos rótulos e texto grande. Na primeira linha, duas caixas separadas: ‘senha descartável — segredo digitado’ e ‘sal aleatório — público, guardado com a cópia’. Ambas apontam para ‘PBKDF2 — função de derivação; repetições configuradas’. A saída aponta para ‘chave AES + IV derivados’ e depois para ‘AES-CBC cifra o arquivo’. Ao lado, inclua uma comparação pequena: ‘mesma senha + outro sal → outro material derivado’. Não desenhe o sal como chave, não mostre uma senha real e não sugira que o sal autentica a cópia. Alto contraste, fundo claro, leitura em celular e projeção, sem marcas.”
+
+**Texto alternativo previsto:** senha e sal público entram em PBKDF2, com repetições configuradas; o resultado fornece chave AES e IV para cifrar com CBC. Mudar o sal muda o material derivado mesmo com a mesma senha.
+
+## Imagem 18 — Entradas e saídas de AES-GCM (A14) {#imagem-18}
+
+**Local:** antes da prática G1–G3. O esquema nativo da página já mostra a relação enquanto a imagem não for fornecida.
+
+**Prompt:** “Crie um diagrama didático em português, fundo claro, alto contraste, texto grande. Mostre quatro entradas distintas para AES-GCM: ‘chave secreta’, ‘nonce novo para esta chave’, ‘texto legível: ordem=7;estado=aprovado’ e ‘AAD visível: tipo=ordem;versao=1’. Mostre duas saídas: ‘texto cifrado’ e ‘tag’. Em um segundo passo curto, mostre as mesmas entradas e a tag original abrindo o texto; depois ‘AAD alterado para versao=2, tag original’ levando a ‘rejeição, sem texto entregue’. Não represente o AAD como cifrado, nem o nonce como sal ou segredo. Formato horizontal responsivo, sem marcas ou pessoas.”
+
+**Texto alternativo previsto:** AES-GCM cifra o texto e produz uma tag usando chave, nonce e AAD; alterar apenas o AAD faz a abertura com a tag original falhar.

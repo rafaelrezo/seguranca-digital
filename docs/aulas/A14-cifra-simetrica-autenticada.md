@@ -1,6 +1,6 @@
 # A14 (provisória) — Cifra simétrica, hash e senhas
 
-Na **cifra simétrica**, a mesma chave secreta cifra e decifra. A aula parte desse fundamento e avança, em pequenos passos, por AES, modos de operação, hash, HMAC e senhas.
+**Como proteger uma cópia e verificar se ela pode ser aceita?** Primeiro veremos a cifra com a mesma chave secreta nos dois sentidos. Depois, cada mecanismo responderá a uma pergunta diferente: manter o conteúdo secreto, detectar alteração ou conferir uma senha.
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
@@ -16,7 +16,7 @@ Esta aula inicia o [registro único de criptografia e confiança](#atividade), p
 
 ## Cifra simétrica: a mesma chave nas duas operações {#fundamentos}
 
-**Criptografia** reúne técnicas matemáticas para proteger informações. Na **cifragem**, dados legíveis são transformados em dados cifrados, que não revelam diretamente o conteúdo. **Decifrar** é fazer a operação inversa e recuperar os dados legíveis. Os nomes técnicos **texto claro** e **texto cifrado** se aplicam também aos bytes de um arquivo, mesmo quando ele não contém frases.
+**Cifrar** transforma dados legíveis em bytes que não revelam diretamente o conteúdo. **Decifrar** recupera os dados legíveis. Os nomes **texto claro** e **texto cifrado** também se aplicam a arquivos que não contêm frases.
 
 Uma **chave criptográfica** é um valor usado pelo algoritmo para controlar o resultado. Ela não é o próprio algoritmo: podemos conhecer todas as regras da operação sem conhecer a chave. Na **cifra simétrica**, quem cifra e quem decifra precisam da **mesma chave secreta**. Chamaremos a chave de teste de **K1**. O nome *simétrica* descreve esse uso da mesma chave nos dois sentidos.
 
@@ -30,9 +30,9 @@ flowchart LR
     D --> R[Dados legíveis recuperados]
 ```
 
-**Leia o esquema da esquerda para a direita:** K1 entra tanto na cifragem quanto na decifragem. Os dados cifrados podem ser copiados ou transportados, mas K1 deve ficar sob acesso controlado. Sem K1, a operação de decifragem não consegue recuperar o conteúdo nas condições previstas pelo mecanismo.
+**Leia o esquema:** K1 entra nas duas operações. Os dados cifrados podem ser copiados ou transportados; K1 deve ficar sob acesso controlado.
 
-**Exemplo trabalhado:** o dado de teste é `ordem=7;estado=aprovado`. Um programa cifra esses bytes com K1; outro fornece **a mesma K1** para recuperar o texto.
+**Exemplo:** um programa cifra `ordem=7;estado=aprovado` com K1. Para recuperar esses bytes, a abertura precisa da **mesma K1**.
 
 - **Perda de K1:** a cópia pode ficar irrecuperável.
 - **Exposição de K1:** quem obtiver a cópia poderá tentar abri-la.
@@ -74,13 +74,14 @@ Um arquivo pode ter centenas ou milhões de bytes, enquanto AES transforma um bl
 
 **Modo de operação** é o conjunto de regras que aplica a cifra à mensagem inteira. Ele define como as partes são processadas, como iniciar a operação e quais valores precisam acompanhar o resultado. Por isso, “cifrado com AES” ainda não descreve o procedimento completo.
 
-```text
-Mensagem completa → partes processadas segundo um modo → resultado da mensagem
-                         ↑
-                 AES transforma blocos
+```mermaid
+flowchart LR
+    M[Mensagem maior que 16 bytes] --> O[Modo de operação]
+    A[AES transforma blocos de 16 bytes] --> O
+    O --> C[Mensagem cifrada completa]
 ```
 
-O modo também determina **quais propriedades são oferecidas**. Alguns modos foram definidos para manter o conteúdo secreto; outros combinam esse sigilo com verificação de alteração. Por isso, antes de escolher um modo, precisamos distinguir as duas perguntas: “quem consegue ler?” e “posso aceitar estes dados como não alterados?”. Não será necessário calcular blocos à mão.
+**Leia o esquema:** AES transforma blocos; o modo organiza o tratamento da mensagem completa. O modo também determina se a operação entrega apenas sigilo ou inclui verificação de alteração. Não será necessário calcular blocos à mão.
 
 | Camada | O que define | O que ainda falta decidir |
 |---|---|---|
@@ -88,20 +89,27 @@ O modo também determina **quais propriedades são oferecidas**. Alguns modos fo
 | Modo de operação | Como usar AES ao longo da mensagem. | Quais propriedades o modo oferece e como gerenciar seus parâmetros. |
 
 
-### Prática curta no WSL: AES-CBC mostra cifragem e abertura
+### Senha e sal: obter material para AES-CBC
 
-**CBC** é um modo que encadeia blocos cifrados. O primeiro bloco usa um **IV** (valor de inicialização). Nesta prática, o OpenSSL gera o material de chave e IV a partir de uma senha de teste: a senha digitada **não é** a chave AES pronta.
+**CBC** é um modo que encadeia blocos cifrados. O primeiro bloco usa um **IV**, valor de inicialização da operação. Nesta prática, digitaremos uma senha de teste para cifrar e abrir uma cópia. A senha digitada **não é** a chave AES pronta.
 
-Antes dos comandos, distinga as duas opções usadas nessa geração:
+**Como a senha vira material para a cifra?** Uma função de derivação de chave, ou **KDF**, recebe senha, sal e parâmetros. Aqui a KDF é **PBKDF2**. Ela repete o cálculo conforme um custo definido e produz material para a chave AES e o IV.
 
-- **`-pbkdf2`:** seleciona PBKDF2, uma função que deriva material criptográfico da **senha + sal** por várias repetições. Repetir o cálculo torna cada tentativa de adivinhar a senha mais custosa; não transforma uma senha fraca em forte. **`-iter 10000`** fixa a mesma contagem nas duas operações deste ensaio; não é uma recomendação de produção.
-- **`-salt`:** gera um **sal**, valor aleatório diferente para cada cifragem. Ele não é secreto. Mesmo usando a mesma senha, outro sal leva a outro material derivado. O OpenSSL grava o sal no início de `copia.cbc` para poder refazer a derivação na abertura.
-
-```text
-senha de teste + sal público → PBKDF2 → chave AES e IV → AES-CBC → cópia cifrada
+```mermaid
+flowchart TB
+    S[Senha de teste<br/>segredo digitado] --> K[PBKDF2<br/>10.000 repetições neste ensaio]
+    L[Sal aleatório<br/>público] --> K
+    K --> M[Chave AES e IV derivados]
+    M --> E[AES-CBC cifra a cópia]
 ```
 
-Na abertura, o OpenSSL lê o sal da cópia e usa **a mesma senha e os mesmos parâmetros de PBKDF2** para reconstruir chave e IV. A primeira linha abaixo pede uma senha descartável duas vezes; a linha de abertura pede a mesma senha. Os caracteres digitados não aparecem na tela. Esse sal da cifragem é distinto do sal **por conta** usado mais adiante para guardar verificadores de senha. Veja a [RFC 8018, seções 4–5](https://www.rfc-editor.org/rfc/rfc8018.html#section-4) e o [manual do `openssl enc`](https://docs.openssl.org/3.5/man1/openssl-enc/).
+**Leia o esquema:** o **sal** muda a derivação. Mesmo com a mesma senha, outro sal produz outro material. O sal não precisa ser secreto; o OpenSSL o grava no início de `copia.cbc`. Para abrir a cópia, o programa lê esse sal e repete PBKDF2 com a mesma senha e os mesmos parâmetros.
+
+O parâmetro `-pbkdf2` escolhe a KDF; `-salt` pede um sal novo; `-iter 10000` fixa o custo deste ensaio. **10.000 não é recomendação de produção.** Repetições tornam cada palpite mais caro, mas não consertam uma senha fraca. Veja a [RFC 8018](https://www.rfc-editor.org/rfc/rfc8018.html#section-4) e o [manual do OpenSSL](https://docs.openssl.org/3.5/man1/openssl-enc/).
+
+### Prática curta no WSL: cifrar e abrir com AES-CBC
+
+A primeira linha abaixo solicita uma senha descartável duas vezes; a linha de abertura pede a mesma senha. Os caracteres digitados não aparecem na tela. Use apenas a pasta e o arquivo fictício preparados em T1.
 
 ```bash
 openssl enc -aes-256-cbc -salt -pbkdf2 -iter 10000 -in claro.txt -out copia.cbc
@@ -156,16 +164,30 @@ Uma cópia pode trazer um rótulo público, como `tipo=ordem;versao=1`. O sistem
 
 Se alguém trocar `versao=1` por `versao=2` sem a chave, a abertura com a tag original falha. Assim, o rótulo não pode ser mudado silenciosamente. AAD oferece **verificação de alteração**, não sigilo: se o rótulo contiver informação confidencial, coloque-o dentro do texto a cifrar.
 
-Agora identifique as entradas de uma operação AES-GCM:
+### Chave, sal, nonce e AAD: funções diferentes {#chave-nonce}
 
-| Entrada | Neste exercício | Função |
+| Valor | Onde atua | Precisa ficar secreto? |
 |---|---|---|
-| Chave | Gerada pelo programa | Segredo usado para cifrar e abrir. |
-| Nonce | 12 bytes novos | Distingue esta operação das demais feitas com a chave. |
-| Texto legível | `ordem=7;estado=aprovado` | Conteúdo que será ocultado. |
-| AAD | `tipo=ordem;versao=1` | Rótulo visível cuja alteração deve ser detectada. |
+| **Chave** | Cifra e abre os dados. | **Sim.** O programa a mostra só para estudo com dados fictícios. |
+| **Sal** | Diversifica a derivação de uma chave ou verificador **a partir de senha**. | Não; deve ser guardado para repetir a derivação. |
+| **Nonce** | Distingue cada cifragem AES-GCM feita com a mesma chave. | Não; precisa ser único para essa chave. |
+| **AAD** | Vincula um rótulo visível ao texto cifrado pela tag. | Não neste exemplo; se o dado for secreto, cifre-o como texto. |
 
-Saem **texto cifrado e tag**. Para abrir, o programa usa a mesma chave, o mesmo nonce e o mesmo AAD, além do texto cifrado e da tag recebidos. Ele verifica o conjunto **antes de entregar o texto legível**. G1 usa as entradas originais; G3 troca apenas o AAD para testar a regra. A biblioteca `cryptography` executa essa verificação na prática abaixo.
+**AES-GCM precisa de sal?** Não nesta prática: `generate_key` cria diretamente uma chave aleatória. Se uma aplicação partir de uma **senha humana**, deverá derivar a chave antes de usar AES-GCM; nessa etapa de derivação entram o sal e os parâmetros da KDF. O **nonce** continua necessário na operação GCM. Sal e nonce não se substituem.
+
+Com a chave já pronta, a operação recebe **texto legível, nonce e AAD**. Ela entrega **texto cifrado e tag**:
+
+```mermaid
+flowchart LR
+    P[Texto legível] --> G[AES-GCM]
+    K[Chave secreta] --> G
+    N[Nonce novo com esta chave] --> G
+    A[AAD visível] --> G
+    G --> C[Texto cifrado]
+    G --> T[Tag de verificação]
+```
+
+**Leia o esquema:** o texto passa à forma cifrada; o AAD permanece legível, mas participa da tag. Para abrir, o programa recebe chave, nonce, AAD, texto cifrado e tag. Só entrega o texto legível se a verificação passar. G1 usa as entradas originais; G3 muda apenas o AAD.
 
 ### Prática curta no WSL: conferir a tag de AES-GCM {#gcm-terminal}
 
@@ -263,33 +285,9 @@ Se aparecer `ModuleNotFoundError: No module named 'cryptography'`, o Python usad
 
 Por isso, o exercício com `openssl enc -aes-256-cbc` mostra cifragem e abertura, enquanto G1–G3 testam a verificação da tag e do AAD. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
 
-```mermaid
-flowchart LR
-    P[Texto legível] --> C[AES-GCM]
-    K[Chave secreta] --> C
-    N[Nonce único com esta chave] --> C
-    A[AAD: rótulo visível] --> C
-    C --> O[Texto cifrado + tag]
-    O --> V[Verificação antes da abertura]
-    K --> V
-    N --> V
-    A --> V
-    V -->|válido| R[Texto legível]
-    V -->|alterado ou entrada errada| F[Falha: nenhum texto entregue]
-```
-
 **Decida:** o rótulo de tipo e versão do exercício precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com a propriedade correspondente. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem.
 
-## Chave e nonce: registrar funções diferentes {#chave-nonce}
-
-| Campo | Função | Onde aparece na prática |
-|---|---|---|
-| Chave | Segredo usado para cifrar e abrir. | `generate_key` a cria em memória; o código a imprime somente para observação com dados fictícios. |
-| Nonce | Valor por operação sob a mesma chave; não é segredo. | `urandom(12)` cria 12 bytes novos a cada execução. |
-| Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | `sealed` contém esses bytes seguidos da tag. |
-| Tag | Valor de verificação da operação. | `sealed[-16:]` seleciona os 16 bytes finais; G2 altera um bit deles. |
-
-Nesta prática, a chave e o nonce são criados de novo a cada execução. No sistema real, geração, reinício e volume de mensagens exigem planejamento para preservar a unicidade do par chave–nonce ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
+Nesta prática, a chave e o nonce são criados de novo a cada execução. Em um sistema real, geração, reinício e volume de mensagens exigem planejamento para preservar a unicidade do par chave–nonce ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
 
 ## Síntese: guardar a cópia {#aplicacao}
 
@@ -297,7 +295,9 @@ Para `ordem=7;estado=aprovado`, guarde nonce, AAD público e texto cifrado com t
 
 ## Hash e digest: comparar o conteúdo exato {#digest}
 
-Uma **função hash criptográfica** recebe uma sequência de bytes e produz um valor de tamanho fixo chamado **digest** ou resumo. SHA-256 produz 256 bits (32 bytes). Entradas idênticas produzem o mesmo digest; alterar a entrada quase certamente produz outro. A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest, mas igualdade de digests não identifica a origem do arquivo. Hash não cifra: o conteúdo pode continuar legível.
+Uma **função hash criptográfica** recebe bytes e produz um resumo de tamanho fixo, chamado **digest**. SHA-256 produz 256 bits (32 bytes). Os mesmos bytes produzem o mesmo digest; alterar os bytes quase certamente muda o resultado. Hash não cifra: o conteúdo pode continuar legível.
+
+A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest. Ainda assim, um digest igual não identifica quem criou ou publicou o arquivo.
 
 Para conferir uma cópia, calcule seu digest e compare com um valor publicado pelo fornecedor **por um canal confiável**. Se alguém puder substituir tanto a cópia quanto a referência, a igualdade não demonstra legitimidade. Essa distinção entre comparação de bytes e confiança na origem será usada novamente em assinaturas e certificados.
 
@@ -315,17 +315,16 @@ sha256sum hash-a.txt hash-b.txt
 
 As duas linhas com `printf` criam arquivos de três bytes, sem quebra de linha; `>` cria ou substitui cada arquivo. `sha256sum` calcula e mostra o digest SHA-256 **de cada arquivo**, seguido do nome. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir.
 
-Registre bytes exatos e fonte da referência. Se `sha256sum` faltar, use o valor NIST como dado fornecido. **Pare:** a comparação sozinha não atribui autoria.
-
-**Registre D1:** `abc` coincide com o valor de referência; `abd` difere. A conclusão se refere aos bytes comparados, não à autoria. **Pare** antes de aceitar uma referência sem procedência confiável.
+**Registre D1:** `abc` coincide com a referência NIST; `abd` difere. Anote os bytes comparados e a origem da referência. Se `sha256sum` faltar, use o valor NIST como **dado fornecido**. A igualdade não atribui autoria.
 
 ## HMAC: verificar mensagem com segredo compartilhado {#hmac}
 
-Um **código de autenticação de mensagem** (*MAC*) é calculado com uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)).
+Um **código de autenticação de mensagem** (*MAC*) depende de uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)). Quem recebe a mensagem confere o código com a **mesma chave** usada para produzi-lo.
 
-- O emissor calcula o código sobre os bytes da mensagem.
-- O receptor calcula ou verifica o código com a **mesma chave**.
-- A mensagem continua legível: HMAC detecta alteração, mas não oferece sigilo.
+| Operação | Entrada necessária | Resultado | O conteúdo fica secreto? |
+|---|---|---|---|
+| SHA-256 de D1 | Bytes do arquivo. | Digest para comparar com uma referência confiável. | Não. |
+| HMAC de M1–M3 | Bytes da mensagem **e chave compartilhada**. | Código que deve mudar se a mensagem ou a chave mudar. | Não. |
 
 Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
 
@@ -351,9 +350,7 @@ openssl dgst -sha256 -hmac 'outra-chave-aula' msg-a.txt
 
 A saída traz códigos HMAC, **não mensagens cifradas**. Os dois textos continuam legíveis nos arquivos.
 
-Os códigos devem diferir. A chave literal é pública nesta página e serve apenas para observar a operação; não representa segredo protegido. Registre mensagem, chave e resultado. Se OpenSSL faltar, use M1–M3 abaixo como dados fornecidos. **Pare** antes de afirmar qual pessoa produziu a mensagem.
-
-Registre M1–M3 como **comparação de códigos**; a página não executa um protocolo de verificação. **Pare** sem atribuir autoria individual.
+**Registre M1–M3:** compare os códigos gerados para mesma mensagem/chave, mensagem alterada e chave alterada. A chave literal é pública nesta página e serve apenas ao ensaio. Se OpenSSL faltar, use M1–M3 abaixo como **dados fornecidos**. O código não identifica qual detentor da chave produziu a mensagem.
 
 ### Quadro de resultados para acompanhar ou substituir o terminal
 
@@ -376,11 +373,17 @@ Guardar a senha em texto legível expõe todas as contas se a base for copiada. 
 
 ### Cadastro e conferência: duas operações sobre o mesmo registro
 
-```text
-Cadastro: senha de teste + sal da conta + custo → verificador guardado
-Conferência: tentativa + sal e custo guardados → novo valor → comparar
-                                                     ├─ igual: aceitar
-                                                     └─ diferente: rejeitar
+```mermaid
+flowchart TB
+    S[Senha criada] --> C[PBKDF2 com sal e custo]
+    L[Sal da conta] --> C
+    C --> V[Guardar sal, custo e verificador]
+    T[Tentativa de login] --> R[PBKDF2 com sal e custo guardados]
+    V -->|Sal e custo| R
+    R --> Q{Novo valor igual ao verificador?}
+    V -->|Verificador| Q
+    Q -->|Sim| A[Aceitar tentativa]
+    Q -->|Não| N[Rejeitar tentativa]
 ```
 
 No **cadastro**, o programa gera um sal para aquela conta, deriva um **verificador** da senha e guarda `esquema + custo + sal + verificador`. A senha legível não entra nesse registro. O sal pode ser público; sua função é separar contas, inclusive quando duas pessoas escolhem a mesma senha.
@@ -475,9 +478,9 @@ Continue **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptog
 2. Que diferença há entre digest, HMAC e cifra autenticada?
 3. Por que um sal individual sem custo adequado não resolve o armazenamento de senhas?
 
-## Ilustração opcional — Imagem 16
+## Ilustrações opcionais — Imagens 16–18
 
-O [prompt numerado da Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16) está pronto para geração posterior. O conteúdo desta página já pode ser estudado e praticado sem a imagem.
+Os prompts numerados da [Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16), da [Imagem 17](../assets/a14-a17/prompts-ilustrativos.md#imagem-17) e da [Imagem 18](../assets/a14-a17/prompts-ilustrativos.md#imagem-18) estão prontos para geração posterior. Os esquemas nativos acima já mostram as relações necessárias para estudar e executar as práticas.
 
 ## Referências
 
