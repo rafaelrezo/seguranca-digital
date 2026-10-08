@@ -517,24 +517,21 @@ Um **par de chaves** tem duas partes matematicamente relacionadas: uma **privada
 
 No acordo **ECDHE** — Diffie–Hellman em curvas elípticas com chaves efêmeras, isto é, temporárias para o acordo — as partes trocam informações públicas e calculam um segredo comum usando suas próprias chaves privadas.
 
-```mermaid
-%%{init: {'sequence': {'actorMargin': 20, 'width': 100, 'noteMargin': 5, 'diagramMarginX': 5}}}%%
-sequenceDiagram
-    participant C as Cliente
-    participant S as Servidor
-    C->>S: Informação pública C
-    S->>C: Informação pública S
-    Note over C: Privada C + pública S<br/>→ segredo comum
-    Note over S: Privada S + pública C<br/>→ mesmo segredo
-```
-
-**Leia o esquema:** cada chave privada fica no seu extremo. As informações que atravessam a rede permitem o cálculo local; o segredo resultante não é enviado.
+Cada chave privada fica no seu extremo. As informações públicas que atravessam a rede permitem o cálculo local; o segredo resultante não é enviado.
 
 Uma KDF, como **HKDF**, deriva as chaves que serão usadas na cifra a partir desse material. HKDF trata material criptográfico e não substitui uma KDF com custo para senhas ([RFC 5869](https://www.rfc-editor.org/rfc/rfc5869.html)).
 
 **O acordo sozinho não confirma a identidade:** alguém poderia substituir as informações públicas trocadas e intermediar a comunicação. No TLS 1.3 com certificados, a validação do certificado e a prova da chave privada autenticam o servidor. A [A16](A16-tls-ciclo-de-chaves.md) reúne esse estabelecimento de confiança e a proteção do tráfego; o protocolo deriva chaves distintas para cada direção ([RFC 8446, seções 2 e 7](https://www.rfc-editor.org/rfc/rfc8446.html#section-2)).
 
 **Ao abrir um site HTTPS:** navegador e servidor podem fazer esse acordo durante o início da conexão. O visitante não precisa receber uma senha AES do administrador. O certificado ajuda a autenticar o servidor; o acordo fornece material para as chaves que protegem aquela conexão.
+
+![No primeiro painel, uma senha previamente conhecida, o mesmo sal e os mesmos parâmetros permitem derivar K1 em cada extremo. No segundo, ECDHE combina a chave privada local com a pública recebida para obter um segredo comum; uma KDF deriva as chaves e a identidade precisa ser autenticada.](../assets/a14-a17/imagem20.png){#figura-20 loading=lazy}
+
+*Imagem 20 — Derivar uma chave de senha compartilhada e estabelecer chaves por acordo.* [Abrir a imagem ampliada](../assets/a14-a17/imagem20.png).
+
+**Compare os painéis:** no primeiro, a senha já existia nos dois lados. No segundo, cada participante conserva sua privada e recebe apenas informação pública do outro. A KDF transforma o segredo comum em chaves para o canal.
+
+“Iguais nos dois lados” indica **chaves correspondentes**: a chave usada por um lado para cifrar uma direção é a usada pelo outro para decifrá-la. No TLS 1.3, cada direção tem sua própria chave; não se usa uma única chave para todo o tráfego.
 
 ## Síntese: o que conservar e o que proteger {#aplicacao}
 

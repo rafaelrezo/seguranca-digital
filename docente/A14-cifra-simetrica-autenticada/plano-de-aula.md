@@ -30,6 +30,8 @@ Na exposição, usar os esquemas no momento em que cada relação entra: mesma c
 
 As Imagens 16 e 17 recebidas foram validadas e substituem os esquemas equivalentes no início da aula e na derivação por senha. Na Imagem 16, os bytes são ilustrativos; exposição da chave permite abertura quando também se obtém a cópia. Na Imagem 17, PBKDF2 fornece chave e IV especificamente nos comandos OpenSSL desta prática. A página oferece ampliação e texto alternativo; não contém links de produção.
 
+A Imagem 20 compara derivação por senha prévia e acordo ECDHE, substituindo o esquema equivalente do acordo. Esclarecer chaves correspondentes entre extremos e separação por direção no TLS. As primeiras Imagens 18 e 19 não foram incorporadas: a 18 omite a entrada de texto cifrado na abertura, e a 19 atribui a K1 a função de derivar; os prompts corrigidos ficam no catálogo separado.
+
 Relacionar cifra simétrica à proteção de volumes BitLocker; AES/modo à diferença entre disco e tráfego; CBC/IV ao formato de cofre KeePass; PBKDF2/sal ao arquivo protegido por senha; GCM/nonce/AAD ao registro HTTPS; distribuição à cifragem de envelope no KMS; acordo à abertura de uma conexão HTTPS. Definir XTS como modo para disco, sem desenvolver outro laboratório. KeePass autentica separadamente e o ensaio CBC não reproduz esse mecanismo; nonce e AAD do TLS não usam o formato JSON da prática. G5 motiva controle de duplicidade da aplicação. Os usos entram nos minutos expositivos já previstos, sem nova instalação ou entrega.
 
 ## Respostas e contingência

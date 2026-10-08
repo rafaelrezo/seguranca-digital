@@ -56,7 +56,7 @@ Estas imagens são opcionais. As explicações, tabelas e demonstrações das au
 
 ## Imagem 20 — Estabelecer o segredo antes de usar AES-GCM (A14) {#imagem-20}
 
-**Local:** após “Acordo de chaves: uma ponte para A15 e A16”. Os esquemas de derivação e acordo da página já permitem compreender as relações.
+**Estado:** imagem recebida, validada e incorporada em 8 out. 2026. [Arquivo publicado](imagem20.png); [local na A14](../../aulas/A14-cifra-simetrica-autenticada.md#figura-20). O texto esclarece que as chaves correspondem entre os extremos, com chaves diferentes para cada direção no TLS 1.3. O prompt abaixo permanece como referência de produção.
 
 **Prompt:** “Crie dois esquemas didáticos em português, com texto grande e alto contraste. Primeiro: ‘senha já conhecida nos dois lados’ alimenta duas operações PBKDF2, uma no emissor e uma no receptor; o mesmo sal público e os mesmos parâmetros entram em ambas; saem duas caixas com ‘mesma chave K1’. A senha não deve ser desenhada atravessando o envelope da mensagem. Segundo: ‘acordo ECDHE’ mostra cliente com privada C local e servidor com privada S local; somente informação pública C e pública S cruza o espaço entre eles. Cada lado calcula localmente o mesmo segredo, depois uma KDF deriva as chaves. Acrescente ‘Acordo exige autenticação dos participantes; no TLS com certificados, certificado e assinatura sustentam essa verificação’. Não desenhe segredo nem chaves privadas atravessando a rede; não mostre o segredo de ECDHE como chave AES pronta e não sugira que HKDF é função para endurecer senha. Sem marcas, personagens ou dados reais.”
 
