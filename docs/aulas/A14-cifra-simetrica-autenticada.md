@@ -54,6 +54,16 @@ cat claro.txt
 openssl version
 ```
 
+**Leia cada linha antes de executar:**
+
+| Comando | O que faz |
+|---|---|
+| `mkdir -p ~/cripto-a14` | Cria a pasta de teste na área pessoal; `-p` evita erro se ela já existir. |
+| `cd ~/cripto-a14` | Entra nessa pasta; os próximos arquivos serão criados nela. |
+| `printf ... > claro.txt` | Escreve o texto entre aspas em `claro.txt`; `>` cria ou substitui esse arquivo, sem acrescentar quebra de linha. |
+| `cat claro.txt` | Mostra o conteúdo legível do arquivo. |
+| `openssl version` | Mostra a versão do OpenSSL disponível no WSL; ainda não cifra nada. |
+
 **Resultado esperado:** `cat` mostra a frase exata; `openssl version` identifica a ferramenta. Registre `T1 → entrada legível → chave ainda não usada`. Se OpenSSL não existir, acompanhe a projeção e registre o resultado como **fornecido**. **Pare** para explicar onde a mesma chave entrará nos dois sentidos.
 
 ## AES: algoritmo de blocos e modo de operação {#aes}
@@ -80,18 +90,40 @@ O modo também determina **quais propriedades são oferecidas**. Alguns modos fo
 
 ### Prática curta no WSL: AES-CBC mostra cifragem e abertura
 
-O comando `openssl enc` usa uma **senha descartável** digitada duas vezes para derivar a chave com PBKDF2; `-salt` acrescenta sal à derivação. A senha não é uma chave AES digitada diretamente. A primeira linha pede a senha duas vezes; a segunda pede a mesma senha para abrir. Os caracteres não aparecem na tela. Use apenas uma senha inventada para esta aula.
+**CBC** é um modo que encadeia blocos cifrados. O primeiro bloco usa um **IV** (valor de inicialização). Nesta prática, o OpenSSL gera o material de chave e IV a partir de uma senha de teste: a senha digitada **não é** a chave AES pronta.
+
+Antes dos comandos, distinga as duas opções usadas nessa geração:
+
+- **`-pbkdf2`:** seleciona PBKDF2, uma função que deriva material criptográfico da **senha + sal** por várias repetições. Repetir o cálculo torna cada tentativa de adivinhar a senha mais custosa; não transforma uma senha fraca em forte. **`-iter 10000`** fixa a mesma contagem nas duas operações deste ensaio; não é uma recomendação de produção.
+- **`-salt`:** gera um **sal**, valor aleatório diferente para cada cifragem. Ele não é secreto. Mesmo usando a mesma senha, outro sal leva a outro material derivado. O OpenSSL grava o sal no início de `copia.cbc` para poder refazer a derivação na abertura.
+
+```text
+senha de teste + sal público → PBKDF2 → chave AES e IV → AES-CBC → cópia cifrada
+```
+
+Na abertura, o OpenSSL lê o sal da cópia e usa **a mesma senha e os mesmos parâmetros de PBKDF2** para reconstruir chave e IV. A primeira linha abaixo pede uma senha descartável duas vezes; a linha de abertura pede a mesma senha. Os caracteres digitados não aparecem na tela. Esse sal da cifragem é distinto do sal **por conta** usado mais adiante para guardar verificadores de senha. Veja a [RFC 8018, seções 4–5](https://www.rfc-editor.org/rfc/rfc8018.html#section-4) e o [manual do `openssl enc`](https://docs.openssl.org/3.5/man1/openssl-enc/).
 
 ```bash
-openssl enc -aes-256-cbc -salt -pbkdf2 -in claro.txt -out copia.cbc
+openssl enc -aes-256-cbc -salt -pbkdf2 -iter 10000 -in claro.txt -out copia.cbc
 od -An -tx1 -N32 copia.cbc
-openssl enc -d -aes-256-cbc -pbkdf2 -in copia.cbc -out aberto.txt
+od -An -tc -N8 copia.cbc
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 10000 -in copia.cbc -out aberto.txt
 cat aberto.txt
 ```
 
-**Resultado esperado:** `od` mostra bytes em hexadecimal, sem a frase legível; `cat aberto.txt` recupera `ordem=7;estado=aprovado`.
+**Leia cada linha:**
 
-**Registre T2:** arquivo de origem → cópia cifrada → senha usada na abertura → texto recuperado. Se faltar OpenSSL, use os resultados acima como **dados fornecidos**, sem inventar bytes.
+| Linha | O que faz |
+|---|---|
+| `openssl enc ... -in claro.txt -out copia.cbc` | Cifra `claro.txt` com AES-256 no modo CBC e grava `copia.cbc`. `-salt` gera o sal; `-pbkdf2` deriva chave e IV da senha digitada; `-iter 10000` define a contagem de repetições. |
+| `od -An -tx1 -N32 copia.cbc` | Mostra os primeiros 32 bytes da cópia em hexadecimal: `-N32` limita a leitura e `-An` omite os endereços. **Não decifra.** |
+| `od -An -tc -N8 copia.cbc` | Mostra os primeiros 8 bytes como caracteres (`-tc`), para localizar o marcador `Salted__`. **Não revela a senha.** |
+| `openssl enc -d ... -in copia.cbc -out aberto.txt` | `-d` pede a decifragem. O programa lê o sal da cópia, solicita a senha, usa as mesmas 10.000 repetições e grava `aberto.txt`. |
+| `cat aberto.txt` | Mostra o texto recuperado para comparação com `claro.txt`. |
+
+**Resultado esperado:** o primeiro `od` mostra bytes em hexadecimal, sem a frase legível. O segundo mostra o marcador `Salted__`: no formato produzido por estes comandos, os 8 bytes seguintes guardam o sal; os demais contêm dados cifrados. `cat aberto.txt` recupera `ordem=7;estado=aprovado`. Os bytes do sal variam a cada execução.
+
+**Registre T2:** `senha + sal → PBKDF2 → chave/IV`, a posição do sal na cópia e o texto recuperado. Não anote a senha. Se faltar OpenSSL, use os resultados acima como **dados fornecidos**, sem inventar bytes.
 
 **Pare:** o aspecto ilegível não demonstra integridade. Não altere CBC para tratar um erro eventual como verificação de tag; o [manual do OpenSSL](https://docs.openssl.org/3.5/man1/openssl-enc/) esclarece que `enc` não implementa GCM.
 
@@ -211,7 +243,17 @@ O exemplo `abc` tem um digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae22
 
 A entrada são exatamente três bytes ASCII, sem aspas, espaço ou quebra de linha. Uma comparação exige os mesmos bytes e a mesma codificação; aparência semelhante não basta.
 
-**Prática curta no WSL:** preveja os dois resumos e execute `printf 'abc' > hash-a.txt`, `printf 'abd' > hash-b.txt` e `sha256sum hash-a.txt hash-b.txt` no diretório `~/cripto-a14`. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir. Registre bytes exatos e fonte da referência. Se `sha256sum` faltar, use o valor NIST como dado fornecido. **Pare:** a comparação sozinha não atribui autoria.
+**Prática curta no WSL:** no mesmo diretório, preveja os dois resumos e execute:
+
+```bash
+printf 'abc' > hash-a.txt
+printf 'abd' > hash-b.txt
+sha256sum hash-a.txt hash-b.txt
+```
+
+As duas linhas com `printf` criam arquivos de três bytes, sem quebra de linha; `>` cria ou substitui cada arquivo. `sha256sum` calcula e mostra o digest SHA-256 **de cada arquivo**, seguido do nome. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir.
+
+Registre bytes exatos e fonte da referência. Se `sha256sum` faltar, use o valor NIST como dado fornecido. **Pare:** a comparação sozinha não atribui autoria.
 
 **Registre D1:** `abc` coincide com o valor de referência; `abd` difere. A conclusão se refere aos bytes comparados, não à autoria. **Pare** antes de aceitar uma referência sem procedência confiável.
 
@@ -225,25 +267,33 @@ Um **código de autenticação de mensagem** (*MAC*) é calculado com uma chave 
 
 Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
 
-| Entrada | Teste nesta aula | Leitura permitida |
-|---|---|---|
-| Mensagem original + chave K2 + HMAC original | Verificar | Aceito sob K2, para estes bytes. |
-| Mensagem alterada + K2 + HMAC original | Verificar | Rejeitado; os bytes enviados não correspondem ao código. |
-| Mensagem original + outra chave + HMAC original | Verificar | Rejeitado; a chave testada não corresponde. |
-
 **Prática curta no WSL:** no mesmo diretório, execute:
 
 ```bash
 printf 'pedido=7;valor=10' > msg-a.txt
 printf 'pedido=7;valor=11' > msg-b.txt
 openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt msg-b.txt
+openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt
+openssl dgst -sha256 -hmac 'outra-chave-aula' msg-a.txt
 ```
+
+**Leia cada linha:**
+
+| Linha | O que faz |
+|---|---|
+| `printf ... > msg-a.txt` | Cria a mensagem original com `valor=10`, sem quebra de linha. |
+| `printf ... > msg-b.txt` | Cria a mensagem alterada com `valor=11`. |
+| Primeiro `openssl dgst` | Calcula um HMAC por arquivo. `-sha256` escolhe SHA-256; `-hmac` usa a chave literal de teste. Os nomes finais indicam os arquivos de entrada. |
+| Segundo `openssl dgst` | Recalcula o HMAC de `msg-a.txt` com **a mesma chave**: o código deve coincidir com o primeiro. |
+| Terceiro `openssl dgst` | Usa **outra chave** sobre `msg-a.txt`: o código deve diferir. |
+
+A saída traz códigos HMAC, **não mensagens cifradas**. Os dois textos continuam legíveis nos arquivos.
 
 Os códigos devem diferir. A chave literal é pública nesta página e serve apenas para observar a operação; não representa segredo protegido. Registre mensagem, chave e resultado. Se OpenSSL faltar, use M1–M3 abaixo como dados fornecidos. **Pare** antes de afirmar qual pessoa produziu a mensagem.
 
-Para conferir a mensagem original, repita o comando com `msg-a.txt` e a mesma chave: o código deve coincidir. Repita com `msg-b.txt` ou outra chave: o código deve diferir. Registre M1–M3 como **comparação de códigos**; a página não executa um protocolo de verificação. **Pare** sem atribuir autoria individual.
+Registre M1–M3 como **comparação de códigos**; a página não executa um protocolo de verificação. **Pare** sem atribuir autoria individual.
 
-### Quadro de resultados para acompanhar ou substituir o painel
+### Quadro de resultados para acompanhar ou substituir o terminal
 
 Estas linhas são **referência de comportamento esperado**. O valor calculado no terminal depende exatamente dos bytes da mensagem e da chave literal de teste.
 
@@ -333,6 +383,7 @@ O [prompt numerado da Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#image
 
 - [NIST FIPS 197](https://csrc.nist.gov/pubs/fips/197/final), [SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final), [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final).
 - [OpenSSL `enc`](https://docs.openssl.org/3.5/man1/openssl-enc/) e [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).
+- [RFC 8018 — PBKDF2, sal e contagem de repetições](https://www.rfc-editor.org/info/rfc8018/).
 - [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104](https://www.rfc-editor.org/info/rfc2104/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 
 <script src="../../javascripts/a14-aead.js" defer></script>

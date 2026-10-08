@@ -10,7 +10,7 @@
 
 | Registro | Momento de preencher | Evidência mínima e decisão |
 |---|---|---|
-| **C1 — A14** | Após cada T1–T2, V1/F1, D1/M1–M3 e P-A–P-C. | Mesma chave na cifra e abertura; AES versus modo; CBC apenas para sigilo; GCM rejeita alteração; hash versus HMAC; sal individual e custo para senha. Indique um caso válido, uma contraprova e um limite para cada finalidade. |
+| **C1 — A14** | Após cada T1–T2, V1/F1, D1/M1–M3 e P-A–P-C. | Mesma chave na cifra e abertura; AES versus modo; em T2, senha + sal + PBKDF2 geram chave/IV, com sal visível na cópia; CBC oferece apenas sigilo; GCM rejeita alteração; hash versus HMAC; sal individual e custo para verificador de senha. Indique um caso válido, uma contraprova e um limite para cada finalidade. |
 | **C2 — A15** | Após T3, T4, V1–V3 e inspeção do certificado. | Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
 | **C3 — A16** | Após cartões B/N/A, terminal TLS e P1–P3/N1–N3. | Canal aceito/recusado, `403` como decisão da aplicação, chave ativa versus cópia antiga, recuperação condicional com teste pendente. |
 
