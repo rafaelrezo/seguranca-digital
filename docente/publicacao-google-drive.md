@@ -1,5 +1,9 @@
 # Registro de publicação no Google Drive
 
+## Revisão expositiva A14–A17 publicada no GitHub Pages — 8 out. 2026
+
+As quatro páginas de criptografia foram reorganizadas para apresentar fundamentos e tecnologias diretamente, com termos definidos antes das demonstrações. A abertura da atividade C1–C5, os planos docentes, a arquitetura e o roadmap foram alinhados. Os prompts opcionais das Imagens 14 e 15 ficaram disponíveis sem inserir imagens ainda não fornecidas pelo docente. Commit `3ce862c6b5821e1c48d26fcb61715cd0fefdaa30` enviado à `main` a partir de worktree isolado, preservando as demais alterações locais. [Validação 37811003320](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37811003320) e [deploy 37811003758](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37811003758) concluíram com sucesso. A14, A15, A16, A17, a atividade única e a página de prompts retornaram HTTP 200 com marcadores do conteúdo novo. Google Drive e Classroom não foram alterados. Publicação não comprova realização dos encontros.
+
 ## Vídeo removido do GitHub Pages — 6 out. 2026
 
 O vídeo `AWykXE3XbaY` foi removido da página inicial, do índice de Fundamentos e da página de Confidencialidade no commit `a5ffb47ea84f8b6750424cd25720a5849596d331`. A cópia histórica em `docente/reconciliacao-mkdocs-2026-09-08/mkdocs-anterior/` foi preservada. O [deploy 37480926569](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37480926569) e a [validação 37480926735](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37480926735) concluíram com sucesso. As três páginas públicas retornaram HTTP 200 sem o identificador do vídeo. Google Drive e Classroom não foram alterados.
