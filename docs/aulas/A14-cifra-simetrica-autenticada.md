@@ -1,4 +1,4 @@
-# A14 (provisória) — Cifra simétrica e compartilhamento de chaves
+# A14 — Cifra simétrica e compartilhamento de chaves
 
 **Como proteger uma cópia e verificar se ela pode ser aceita?** Primeiro veremos a cifra com a mesma chave secreta nos dois sentidos. Depois, vamos verificar alterações e explicar como o receptor obtém a chave necessária para abrir a mensagem.
 

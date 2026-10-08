@@ -1,4 +1,4 @@
-# Plano docente — A14 — cifra simétrica e compartilhamento de chaves (provisória)
+# Plano docente — A14 — cifra simétrica e compartilhamento de chaves
 
 **Estado:** revisão prospectiva de 8 out. 2026. A13 não tem realização documental confirmada. O plano anterior permanece no histórico Git; a numeração posterior exige conciliação do calendário.
 
