@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Senhas com cadastro e conferência executados na A14 — 8 out. 2026
+
+A seção de senhas passou a explicar por que SHA-256 de arquivo não resolve armazenamento de senha, o que o programa de login precisa guardar e como compara uma tentativa sem recuperar a senha. A oficina P-A–P-C de configurações fictícias foi substituída pelo arquivo Python `verificador_senhas_a14.py`, copiável no VS Code e executável no WSL. A mesma senha com sais distintos produz verificadores diferentes (S1); a tentativa correta é aceita (S2) e a incorreta rejeitada (S3). A extensão S4 repete o sal para mostrar a perda dessa separação. O código usa PBKDF2-HMAC-SHA256 com 100.000 iterações somente como parâmetro didático; a página remete às recomendações atuais para produção. C1 foi reduzida a recortes curtos de resultados e explicações ligadas a eles. Plano, roadmap, arquitetura e `AGENTS.md` foram alinhados.
+
+Commit `9a017183ddc594ebff3bc2926f02305cabb7ebf3` enviado à `main`. [Validação 37825973459](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37825973459) e [deploy 37825973589](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37825973589) concluíram com sucesso. O programa foi testado nas condições normais e com sal repetido; build estrito e validador editorial passaram. A [A14 pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/#senhas) e o [arquivo Python](https://rafaelrezo.github.io/seguranca-digital/assets/a14-a17/verificador_senhas_a14.py) retornaram HTTP 200; o arquivo público é idêntico ao do repositório. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## Saída completa e fundamentação de nonce/AAD na A14 — 8 out. 2026
 
 O programa Python da A14 passou a mostrar chave e nonce descartáveis, AAD e texto em hexadecimal e como texto legível, o conjunto `Sealed`, `Ciphertext` e `Tag`, antes das verificações G1–G3. A página agora explica nonce e AAD antes de apresentá-los como parâmetros: nonce público e novo por operação sob a mesma chave; AAD como rótulo visível vinculado ao conteúdo pela tag. Distingue nonce do sal de PBKDF2 e usa `versao=1`/`versao=2` para explicar G3. A chave exibida serve somente ao laboratório e não deve entrar na entrega. Plano docente, atividade e arquitetura foram alinhados.
