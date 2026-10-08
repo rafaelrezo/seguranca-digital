@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Explicação de PBKDF2, sal e comandos da A14 — 8 out. 2026
+
+Após correção docente, a prática T2 da A14 passou a definir CBC/IV, senha versus chave AES, PBKDF2, sal público por cifragem e contagem explícita de 10.000 repetições no ensaio antes dos comandos. A saída `Salted__` e a posição do sal no arquivo são interpretadas; cada linha das práticas WSL T1, T2, SHA-256 e HMAC tem sua função explicada. C1 e o plano docente foram alinhados, sem nova entrega. O comando de abertura recuperou o texto original; as linhas de HMAC reproduziram o mesmo código para a mesma mensagem/chave e códigos diferentes quando mensagem ou chave mudaram. As 10.000 repetições são parâmetro didático, não recomendação de produção.
+
+Commit `88edc2bd3b8e6ea76a7c3dc996bf227a9be02285` enviado à `main`. [Validação 37819362436](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37819362436) e [deploy 37819362532](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37819362532) concluíram com sucesso. A [A14 pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/) retornou HTTP 200 com os novos marcadores. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## A14–A16 reagrupadas e revisão de leitura publicadas — 8 out. 2026
 
 A decisão docente de reunir A14–A15 na A14 e resumir A16–A18 em A15–A16 foi aplicada com práticas curtas ao longo de cada conceito. A14 usa WSL/OpenSSL para observar cifra CBC, SHA-256 e HMAC, e Web Crypto para AES-GCM; A15 usa chaves descartáveis e assinatura no terminal, além de inspeção de certificado; A16 relaciona TLS, autorização e ciclo de chaves. A atividade única agora é C1–C3. A regra definitiva de parágrafos curtos e alternância criteriosa com itens foi acrescentada ao `AGENTS.md`, e as três páginas foram revisadas, em especial a seção de integridade/autenticação mostrada no print do docente. Os prompts opcionais das Imagens 14–16 continuam numerados. As URLs antigas A15–A18 exibem avisos de localização; seus conteúdos anteriores permanecem no histórico Git.
