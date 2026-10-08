@@ -569,9 +569,6 @@ Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptog
 
 Hash, HMAC e verificação de senhas continuam no [bloco final da A16](A16-tls-ciclo-de-chaves.md#digest).
 
-## Ilustrações opcionais — Imagens 16–20
-
-Os prompts numerados da [Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16), da [Imagem 17](../assets/a14-a17/prompts-ilustrativos.md#imagem-17), da [Imagem 18](../assets/a14-a17/prompts-ilustrativos.md#imagem-18), da [Imagem 19](../assets/a14-a17/prompts-ilustrativos.md#imagem-19) e da [Imagem 20](../assets/a14-a17/prompts-ilustrativos.md#imagem-20) estão prontos para geração posterior. Os esquemas nativos acima já mostram as relações necessárias para estudar e executar as práticas.
 
 ## Referências
 

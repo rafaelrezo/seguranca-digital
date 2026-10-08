@@ -363,9 +363,6 @@ Conclua **C3** na [atividade única de A14–A16](../atividades/A14-A18-criptogr
 2. Uma resposta `403` em HTTPS representa falha de TLS ou decisão da aplicação?
 3. Que diferença há entre comparar um arquivo com SHA-256, autenticar uma mensagem com HMAC e conferir uma senha com sal e custo?
 
-## Ilustração opcional — Imagem 15
-
-O [prompt numerado da Imagem 15](../assets/a14-a17/prompts-ilustrativos.md#imagem-15) está pronto para geração posterior. O conteúdo desta página já pode ser estudado e praticado sem a imagem.
 
 ## Referências
 

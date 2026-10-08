@@ -175,9 +175,6 @@ Atualize **C2** no [registro único de A14–A16](../atividades/A14-A18-criptogr
 2. Por que `Verified OK` não prova, sozinho, o nome do titular?
 3. Que campos do certificado impedem aceitar uma chave para qualquer nome e finalidade?
 
-## Ilustração opcional — Imagem 14
-
-O [prompt numerado da Imagem 14](../assets/a14-a17/prompts-ilustrativos.md#imagem-14) está pronto para geração posterior. O conteúdo desta página já pode ser estudado e praticado sem a imagem.
 
 ## Referências
 
