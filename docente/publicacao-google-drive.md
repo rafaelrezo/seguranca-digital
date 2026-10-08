@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Práticas de GCM e certificado no terminal — 8 out. 2026
+
+A pedido do docente, o painel de cliques de AES-GCM foi removido da A14. A prática no WSL usa Python `cryptography`: G1 abre o conjunto original, G2 altera um bit da tag e é rejeitado, G3 altera apenas o AAD e também é rejeitado. A A15 passou a inspecionar o certificado real com OpenSSL no terminal. C1, plano da A14, roadmap, arquitetura e diretriz de práticas no `AGENTS.md` foram alinhados. Os quadros de resultados permanecem como alternativa declarada, sem simular execução estudantil.
+
+Commit `f10eac62d33bd734fa354a5d15292df2e43b5035` enviado à `main`. [Validação 37821569275](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37821569275) e [deploy 37821569186](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37821569186) concluíram com sucesso. O código G1–G3 foi executado, a inspeção real com OpenSSL retornou verificação aceita no WSL de teste, e as páginas públicas [A14](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/) e [A15](https://rafaelrezo.github.io/seguranca-digital/aulas/A15-chaves-assinaturas-certificados/) retornaram HTTP 200 com os novos marcadores. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## Explicação de PBKDF2, sal e comandos da A14 — 8 out. 2026
 
 Após correção docente, a prática T2 da A14 passou a definir CBC/IV, senha versus chave AES, PBKDF2, sal público por cifragem e contagem explícita de 10.000 repetições no ensaio antes dos comandos. A saída `Salted__` e a posição do sal no arquivo são interpretadas; cada linha das práticas WSL T1, T2, SHA-256 e HMAC tem sua função explicada. C1 e o plano docente foram alinhados, sem nova entrega. O comando de abertura recuperou o texto original; as linhas de HMAC reproduziram o mesmo código para a mesma mensagem/chave e códigos diferentes quando mensagem ou chave mudaram. As 10.000 repetições são parâmetro didático, não recomendação de produção.
