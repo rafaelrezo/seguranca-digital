@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## IV explicado na A14 — 8 out. 2026
+
+Acrescentada a seção `#iv` antes da derivação por senha: significado de IV (*Initialization Vector*, vetor de inicialização), pronúncia “i-vê”, função no primeiro bloco do encadeamento CBC, tamanho de 16 bytes no AES-CBC, geração imprevisível e necessidade do mesmo IV na abertura. O esquema vertical e o exemplo mostram seu papel separado da chave; a seção seguinte distingue sal na derivação e IV na cifragem, explicando a reconstrução por PBKDF2 no comando OpenSSL de T2. Plano docente alinhado, com referência à NIST SP 800-38A.
+
+Commit `338a9b692bb76bdf9a43656ad13a275a0738a8ba` enviado à `main`. [Validação 37828640506](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37828640506) e [deploy 37828640535](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37828640535) concluíram com sucesso. Validador editorial, build estrito e `git diff --check` passaram; esquema e texto foram inspecionados em desktop e recorte com o mesmo estilo em 390 px. A [seção IV pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/#iv) retornou HTTP 200 com a definição e a pronúncia. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## A14 com explicação direta e esquemas visuais — 8 out. 2026
 
 A sequência de capturas fornecida pelo docente serviu de referência editorial para a A14. A página agora apresenta definições curtas antes dos parâmetros, esquemas nativos para AES/modo, senha + sal → PBKDF2 → chave/IV, entradas e saídas de AES-GCM, e cadastro/conferência de senha. Uma tabela distingue chave, sal, nonce e AAD; a seção de GCM responde quando há sal e quando não há. As explicações de hash e HMAC foram condensadas sem retirar as práticas no WSL/VS Code. Os prompts opcionais das Imagens 17 e 18 foram numerados e descritos; as capturas de referência não foram republicadas. Plano docente, arquitetura e `AGENTS.md` registram o padrão explicativo.
