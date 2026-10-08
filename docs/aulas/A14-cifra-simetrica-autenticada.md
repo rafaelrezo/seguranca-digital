@@ -22,17 +22,11 @@ Esta aula inicia o [registro único de criptografia e confiança](#atividade), p
 
 Uma **chave criptográfica** é um valor usado pelo algoritmo para controlar o resultado. Ela não é o próprio algoritmo: podemos conhecer todas as regras da operação sem conhecer a chave. Na **cifra simétrica**, quem cifra e quem decifra precisam da **mesma chave secreta**. Chamaremos a chave de teste de **K1**. O nome *simétrica* descreve esse uso da mesma chave nos dois sentidos.
 
-```mermaid
-flowchart LR
-    P[Dados legíveis] --> E[Cifrar]
-    K[Chave secreta K1] --> E
-    E --> C[Dados cifrados]
-    C --> D[Decifrar]
-    K --> D
-    D --> R[Dados legíveis recuperados]
-```
+![A mesma chave secreta K1 entra na cifragem e na decifragem. Os dados originais são recuperados com K1; perder a chave impede abrir a cópia e expô-la compromete o sigilo.](../assets/a14-a17/imagem16.png){#figura-16 loading=lazy}
 
-**Leia o esquema:** K1 entra nas duas operações. Os dados cifrados podem ser copiados ou transportados; K1 deve ficar sob acesso controlado.
+*Imagem 16 — A mesma chave nas duas operações.* [Abrir a imagem ampliada](../assets/a14-a17/imagem16.png).
+
+**Leia a figura:** as setas azuis levam K1 à cifragem e à decifragem; as setas pretas mostram o percurso dos dados. Quem obtiver K1 e a cópia cifrada poderá abri-la. Os bytes mostrados na figura são ilustrativos, não uma saída dos comandos da prática.
 
 **Exemplo:** um programa cifra `ordem=7;estado=aprovado` com K1. Para recuperar esses bytes, a abertura precisa da **mesma K1**.
 
@@ -132,15 +126,11 @@ Nesta prática, digitaremos uma senha de teste para cifrar e abrir uma cópia. A
 
 **Sal e IV têm funções diferentes:** o sal entra na **derivação**; o IV entra no **início da cifragem CBC**. Neste comando do OpenSSL, ambos se conectam porque PBKDF2 deriva a chave e o IV usando a senha e o sal. Na abertura, a mesma senha, sal e parâmetros permitem reconstruir os dois valores.
 
-```mermaid
-flowchart TB
-    S[Senha de teste<br/>segredo digitado] --> K[PBKDF2<br/>10.000 repetições neste ensaio]
-    L[Sal aleatório<br/>público] --> K
-    K --> M[Chave AES e IV derivados]
-    M --> E[AES-CBC cifra a cópia]
-```
+![Senha e sal público entram no PBKDF2 com repetições configuradas. Nos comandos desta prática, o material derivado fornece chave AES e IV para cifrar o arquivo com CBC. Outro sal produz outro material com a mesma senha.](../assets/a14-a17/imagem17.png){#figura-17 loading=lazy style="max-width: 560px; width: 100%;"}
 
-**Leia o esquema:** o **sal** muda a derivação. Mesmo com a mesma senha, outro sal produz outro material. O sal não precisa ser secreto; o OpenSSL o grava no início de `copia.cbc`. Para abrir a cópia, o programa lê esse sal e repete PBKDF2 com a mesma senha e os mesmos parâmetros.
+*Imagem 17 — Derivação usada nos comandos OpenSSL desta prática.* [Abrir a imagem ampliada](../assets/a14-a17/imagem17.png).
+
+**Leia a figura:** o **sal** muda a derivação. Mesmo com a mesma senha, outro sal produz outro material. O sal não precisa ser secreto; o OpenSSL o grava no início de `copia.cbc`. Para abrir a cópia, o programa lê esse sal e repete PBKDF2 com a mesma senha e os mesmos parâmetros.
 
 O parâmetro `-pbkdf2` escolhe a KDF; `-salt` pede um sal novo; `-iter 10000` fixa o custo deste ensaio. **10.000 não é recomendação de produção.** Repetições tornam cada palpite mais caro, mas não consertam uma senha fraca. Veja a [RFC 8018](https://www.rfc-editor.org/rfc/rfc8018.html#section-4) e o [manual do OpenSSL](https://docs.openssl.org/3.5/man1/openssl-enc/).
 
