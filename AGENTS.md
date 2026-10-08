@@ -128,7 +128,8 @@ O ciclo didático preferencial é:
 - Manter uma atividade principal em dupla por **macrocomponente**, mas não reservar para casa o primeiro contato operacional com comandos, menus ou procedimentos indispensáveis. O percurso mínimo deve ser executado ou acompanhado passo a passo durante a aula.
 - Nos minutos presenciais, combinar previsão, demonstração conduzida, comparação de evidências, formulação de hipótese e decisão. Prever pontos de espera explícitos para que ninguém avance com estado diferente do professor.
 - Os blocos de prática na página devem mostrar, no momento da ação, `estado inicial → onde clicar ou o que digitar → resultado visual esperado → o que registrar → critério de parada`. Não depender de instruções orais ocultas nem presumir familiaridade com DevTools, proxy, terminal ou cliente de API.
-- Preferir uma única ferramenta já disponível no ambiente. Introduzir Postman, proxy ou terminal somente quando o navegador não permitir obter o rastro necessário e depois de demonstrar sua função.
+- Nas aulas de criptografia com WSL, priorizar comandos de terminal e pequenos programas executados pelo estudante, com entrada, saída e contraprova visíveis. Não substituir uma operação criptográfica disponível no terminal por painel de cliques que apenas troca textos. Quadro de resultados é alternativa identificada quando a ferramenta falhar; não chamá-lo de execução observada.
+- Preferir uma única ferramenta já disponível no ambiente. Na trilha web, introduzir Postman, proxy ou terminal quando o navegador não permitir obter o rastro necessário e depois de demonstrar sua função. Nas práticas de criptografia, usar o terminal WSL conforme a diretriz anterior.
 - Explicitar no plano docente qual é o ganho novo do encontro em relação ao anterior. Repetições só são aceitáveis como linha de base breve para uma investigação mais profunda.
 
 - Planejar o curso completo com **30 horas teóricas e 30 horas práticas**.

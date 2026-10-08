@@ -4,7 +4,7 @@ Na **cifra simétrica**, a mesma chave secreta cifra e decifra. A aula parte des
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
-**Recursos:** terminal Ubuntu no WSL com OpenSSL e navegador em HTTPS. Cada operação tem resultado fornecido para acompanhamento sem ferramenta. Use somente dados de teste e senha descartável.
+**Recursos:** terminal Ubuntu no WSL com OpenSSL e Python 3; a prática AES-GCM usa a biblioteca Python `cryptography`, verificada antes de executar. Os resultados esperados na página servem de alternativa se o ambiente falhar. Use somente dados de teste e senha descartável.
 
 **Objetivos de aprendizagem**
 
@@ -151,7 +151,63 @@ Na cifragem com AES-GCM, entram:
 3. **Texto legível:** conteúdo que será ocultado.
 4. **AAD, se houver:** dado associado que permanece visível, mas deve ficar vinculado ao conteúdo.
 
-Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD, texto cifrado e tag. O mecanismo verifica a correspondência **antes de entregar o texto legível**. Se uma entrada protegida não corresponder, a abertura falha. A [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD, texto cifrado e tag. O mecanismo verifica a correspondência **antes de entregar o texto legível**. Se uma entrada protegida não corresponder, a abertura falha. A biblioteca `cryptography` executa e verifica essa operação na prática de terminal abaixo.
+
+### Prática curta no WSL: conferir a tag de AES-GCM {#gcm-terminal}
+
+Este exercício usa a biblioteca Python [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM), que implementa AES-GCM. No terminal WSL, **verifique primeiro** se ela está disponível:
+
+```bash
+python3 -c 'from cryptography.hazmat.primitives.ciphers.aead import AESGCM; print("AES-GCM disponível")'
+```
+
+`python3 -c` executa o trecho entre aspas e sai. Se aparecer `AES-GCM disponível`, continue. Se aparecer `ModuleNotFoundError`, acompanhe a execução no terminal do professor ou use o quadro G1–G3 abaixo como dados fornecidos; não é necessário instalar nada durante a aula.
+
+**Estado inicial:** o código abaixo usa somente bytes fictícios e cria uma chave e um nonce novos em memória. A biblioteca devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores hexadecimais mudam a cada execução; compare o resultado **dentro da mesma execução**.
+
+```bash
+python3 - <<'PY'
+from os import urandom
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from cryptography.exceptions import InvalidTag
+key = AESGCM.generate_key(bit_length=256)       # chave descartável de 256 bits
+nonce = urandom(12)                               # nonce novo de 12 bytes
+aad = b'tipo=ordem;versao=1'                     # rótulo visível, mas autenticado
+text = b'ordem=7;estado=aprovado'                 # conteúdo a cifrar
+sealed = AESGCM(key).encrypt(nonce, text, aad)   # texto cifrado + tag
+print('G1 tag:', sealed[-16:].hex())              # mostra a tag original
+print('G1 texto:', AESGCM(key).decrypt(nonce, sealed, aad).decode())
+tampered = sealed[:-1] + bytes([sealed[-1] ^ 1]) # muda um bit da tag
+print('G2 tag:', tampered[-16:].hex())            # mostra a tag alterada
+try:
+    AESGCM(key).decrypt(nonce, tampered, aad)    # tenta abrir o conjunto alterado
+    print('G2: aceito (inesperado)')
+except InvalidTag:
+    print('G2: rejeitado; texto não entregue')
+try:
+    AESGCM(key).decrypt(nonce, sealed, b'tipo=ordem;versao=2') # muda só AAD
+    print('G3: aceito (inesperado)')
+except InvalidTag:
+    print('G3: rejeitado; AAD alterado')
+PY
+```
+
+**Leia as operações:**
+
+- `python3 - <<'PY'` executa o código até a linha final `PY`, sem criar arquivo. As linhas `from` carregam AES-GCM, a fonte de bytes aleatórios e o nome do erro de tag.
+- `b'...'` representa bytes; `generate_key` cria a chave e `urandom(12)` cria um nonce de 12 bytes. `encrypt` devolve texto cifrado **seguido da tag**.
+- `sealed[-16:]` seleciona os 16 bytes finais da tag; `.hex()` os mostra em hexadecimal. Em **G1**, `decrypt` recebe as mesmas entradas e `.decode()` mostra o texto recuperado.
+- `sealed[:-1]` conserva tudo menos o último byte; `^ 1` inverte um bit desse byte da tag. Em **G2**, `try/except InvalidTag` mostra a rejeição sem usar texto não autenticado. Em **G3**, os bytes cifrados e a tag voltam a ser os originais, mas o AAD muda de `versao=1` para `versao=2`.
+
+| Caso | Saída esperada | O que concluir |
+|---|---|---|
+| G1 — tag original | `G1 texto: ordem=7;estado=aprovado` | O conjunto original foi aceito e o texto recuperado. |
+| G2 — um bit da tag alterado | `G2: rejeitado; texto não entregue` | A tag recebida não corresponde ao conjunto protegido. |
+| G3 — somente AAD alterado | `G3: rejeitado; AAD alterado` | O AAD permanece visível, mas sua mudança também é detectada. |
+
+**Registre G1–G3:** compare as duas tags mostradas e indique o byte que mudou. A biblioteca confere a tag internamente: entrega o texto em G1 e lança `InvalidTag`, capturado pelo código, em G2 e G3. A falha demonstra a rejeição **neste teste controlado**, sem identificar quem mudou o arquivo.
+
+**Pare** após G3, sem reutilizar a chave ou o nonce de teste. Se a saída diferir, registre a mensagem de erro e use o quadro acima como resultado **fornecido**, não observado.
 
 **CBC e GCM são modos diferentes para usar AES:**
 
@@ -160,7 +216,7 @@ Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD,
 | CBC | Encadeia blocos; o primeiro usa um valor inicial chamado **IV**. | Sigilo, sem tag de autenticação própria. |
 | GCM | Usa nonce e calcula a tag sobre o conjunto protegido. | Sigilo e rejeição de alteração antes de aceitar o texto. |
 
-Por isso, o exercício com `openssl enc -aes-256-cbc` mostra cifragem e abertura, enquanto o painel AES-GCM testa a verificação da tag. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
+Por isso, o exercício com `openssl enc -aes-256-cbc` mostra cifragem e abertura, enquanto G1–G3 testam a verificação da tag e do AAD. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
 
 ```mermaid
 flowchart LR
@@ -168,7 +224,7 @@ flowchart LR
     K[Chave secreta] --> C
     N[Nonce único com esta chave] --> C
     A[AAD: rótulo visível] --> C
-    C --> O[Texto cifrado + etiqueta]
+    C --> O[Texto cifrado + tag]
     O --> V[Verificação antes da abertura]
     K --> V
     N --> V
@@ -177,57 +233,18 @@ flowchart LR
     V -->|alterado ou entrada errada| F[Falha: nenhum texto entregue]
 ```
 
-O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo=ordem;versao=1`. Ele participa da verificação, mas **permanece legível**. Se o rótulo for confidencial, deverá ficar dentro do texto cifrado. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem. **Decida antes do painel:** esse rótulo de tipo e versão precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com uma das duas propriedades.
+O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo=ordem;versao=1`. Ele participa da verificação, mas **permanece legível**. Se o rótulo for confidencial, deverá ficar dentro do texto cifrado. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem. Esse rótulo de tipo e versão precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com uma das duas propriedades.
 
 ## Chave e nonce: registrar funções diferentes {#chave-nonce}
 
-| Campo | Função | Cuidados neste exercício |
+| Campo | Função | Onde aparece na prática |
 |---|---|---|
-| Chave K1 | Segredo usado para cifrar e abrir. | O painel a gera no navegador e não a exporta. Recarregar a página elimina K1; não há recuperação do exemplo anterior. |
-| Nonce N1 | Valor por operação para a mesma chave; não é segredo e não substitui K1. | O painel sorteia 96 bits novos a cada cifragem. **Não reutilize o par chave–nonce.** |
-| Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | Pode ser armazenado com o nonce; o conteúdo original não deve ser inferido pela aparência desses bytes. |
-| Tag | Valor de verificação produzido pela operação. | Alterar um bit do conjunto protegido deve fazer a abertura falhar. Não trate falha como texto parcialmente válido. |
+| Chave | Segredo usado para cifrar e abrir. | `generate_key` a cria em memória; o código não a imprime. |
+| Nonce | Valor por operação sob a mesma chave; não é segredo. | `urandom(12)` cria 12 bytes novos a cada execução. |
+| Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | `sealed` contém esses bytes seguidos da tag. |
+| Tag | Valor de verificação da operação. | `sealed[-16:]` seleciona os 16 bytes finais; G2 altera um bit deles. |
 
-O requisito de unicidade do nonce vale **por chave e operação**. Reutilizar o mesmo par em GCM compromete suas garantias de segurança. Sortear 96 bits ajuda neste ensaio curto.
-
-Num sistema real, é preciso especificar geração, volume de mensagens, reinício e coordenação entre dispositivos. A chave também exige guarda, acesso, troca e recuperação próprios ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
-
-**Antes de operar:** o painel mostra bytes em **hexadecimal**, uma forma compacta de escrever cada byte com dois caracteres. Você não precisa decifrar essa representação visualmente. Procure os nomes dos campos, compare o que mudou e leia se a abertura entregou texto ou falhou.
-
-## Demonstração: cifrar, abrir e rejeitar {#demonstracao}
-
-**Estado inicial:** nenhum arquivo será enviado ou salvo. O painel usa a frase e o rótulo fictícios indicados e opera apenas na memória do navegador; o [código da demonstração](../javascripts/a14-aead.js) pode ser consultado.
-
-A dupla pode clicar ou acompanhar a projeção. Em ambos os casos, preveja a saída, leia o resultado e marque sua fonte. Espere a comparação coletiva de V1 e F1 antes de avançar.
-
-<div id="a14-aead" class="a14-panel" aria-label="Demonstração de cifra autenticada">
-  <p id="a14-status" role="status">Preparando a demonstração. Se ela não abrir, use o quadro de resultados logo abaixo.</p>
-  <p><button type="button" id="a14-encrypt">1. Cifrar com K1 e nonce novo</button> <button type="button" id="a14-open" disabled>2. Abrir sem alteração</button></p>
-  <p><button type="button" id="a14-tamper" disabled>3. Alterar um bit do texto cifrado</button> <button type="button" id="a14-aad" disabled>4. Alterar o AAD</button> <button type="button" id="a14-wrong-key" disabled>5. Tentar outra chave</button></p>
-  <pre id="a14-output" tabindex="0" aria-label="Resultado textual da demonstração">Aguardando a primeira operação.</pre>
-</div>
-
-1. **Prepare e preveja.** Verifique que o painel diz “pronto”. Preveja quais campos aparecerão após **Cifrar**. Clique no botão 1. **Resultado esperado:** K1 permanece secreta, N1 aparece em hexadecimal, e o texto cifrado e a tag aparecem separados. **Registre:** quais campos poderiam acompanhar a cópia e qual deve permanecer secreta. Anote o nonce antes do próximo clique, pois a saída do painel será substituída.
-2. **Abra a versão íntegra.** Preveja o resultado, clique no botão 2 e leia a saída. **Resultado esperado:** a frase original reaparece. Isso verifica este conjunto de entradas no painel; não prova segurança do dispositivo ou identidade de uma pessoa. Registre o resultado como V1.
-3. **Teste alteração.** Preveja o resultado, clique no botão 3. O painel muda um bit numa cópia do texto cifrado e tenta abri-la com K1, N1, AAD e tag originais. **Resultado esperado:** falha, sem texto entregue. Registre F1 e a entrada alterada. O estado íntegro continua disponível para os próximos botões.
-4. **Compare outras entradas.** Clique nos botões 4 e 5, um de cada vez. Em 4, muda apenas o AAD; em 5, usa outra chave descartável. **Resultado esperado:** falha em ambos. Registre F2/F3 e explique por que AAD ser legível não significa que sua alteração passe despercebida.
-5. **Novo registro.** Clique novamente em 1. Compare o nonce anterior com o novo; depois clique em 2 para abrir a nova versão. **Resultado esperado:** outro nonce, outros bytes de saída para a mesma frase e abertura válida (V2). Não infira segurança apenas porque duas saídas são diferentes; a regra necessária é impedir reuso do par chave–nonce. **Pare aqui:** não use o painel para dados reais nem tente forçar reuso de nonce.
-
-**Diagnóstico em dupla:** uma pessoa escolhe F1, F2 ou F3 e informa somente a entrada alterada. A outra prevê o resultado e diz uma conclusão que a falha **não** autoriza, como atribuir a alteração a uma pessoa específica. Troquem de função.
-
-Registrem `ID → previsão → resultado observado ou fornecido → interpretação → limite`. Se a saída diferir do esperado, suspendam a conclusão e anotem ação, navegador e mensagem sem dados sensíveis.
-
-**Quadro alternativo de leitura**, caso Web Crypto não esteja disponível ou você esteja apenas acompanhando a projeção. Os valores de nonce e texto cifrado do painel mudam a cada execução; esta tabela registra somente relações esperadas, sem fingir uma coleta local.
-
-| ID | Entradas comparadas à operação íntegra | Resultado esperado | Conclusão limitada |
-|---|---|---|---|
-| V1 | K1, N1, AAD, texto cifrado e tag originais | Texto de teste recuperado | O conjunto verificado foi aceito. |
-| F1 | Um bit do texto cifrado diferente | Falha; nenhum texto entregue | A alteração foi detectada neste ensaio. |
-| F2 | AAD diferente | Falha; nenhum texto entregue | AAD também é autenticado, embora visível. |
-| F3 | Chave diferente | Falha; nenhum texto entregue | A chave testada não abre este conjunto. |
-| V2 | Mesma frase, K1, nonce novo | Novo texto cifrado e tag; abertura válida | Há outra operação; comparar bytes não substitui gestão de nonce. |
-
-Se o botão 1 falhar, confira se a página está em HTTPS ou `localhost` e se o navegador permite Web Crypto. Use o quadro V1–V2/F1–F3 para a mesma análise; não instale extensões nem envie conteúdo a um serviço externo. Se a mensagem aparecer como erro genérico, registre **qual entrada foi mudada**: a falha de autenticação sozinha não identifica se o problema foi chave, nonce, AAD, texto ou tag.
+O nonce precisa ser único **para cada operação com a mesma chave**. Repetir o par chave–nonce em GCM compromete a proteção. Nesta prática, a chave e o nonce são criados de novo a cada execução; no sistema real, geração, reinício e volume de mensagens exigem planejamento ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
 
 ## Síntese: guardar a cópia {#aplicacao}
 
@@ -363,11 +380,11 @@ Para cada uma, registre entrada, caso válido, contraprova e limite. Não reutil
 
 Preencha C1 no [registro único](../atividades/A14-A18-criptografia-confianca.md#atividade): `finalidade → mecanismo → entrada/segredo/referência → D1 ou M1–M3 → caso negado → limite → decisão`.
 
-Marque **observado** apenas o que o terminal ou painel executou; quadro e configuração de senha são referências e propostas. Compare uma linha com outra dupla. A A15 retomará a verificação com um par de chaves.
+Marque **observado** apenas o que o terminal executou; quadro e configuração de senha são referências e propostas. Compare uma linha com outra dupla. A A15 retomará a verificação com um par de chaves.
 
 ## Atividade {#atividade}
 
-Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) em pequenos passos: T1–T2 após a cifra; V1/F1–F2 após GCM; D1/M1–M3 após hash e HMAC; P-A–P-C após senhas. Marque cada resultado como observado, fornecido ou proposto. A entrega será após A16.
+Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) em pequenos passos: T1–T2 após a cifra; G1–G3 após GCM; D1/M1–M3 após hash e HMAC; P-A–P-C após senhas. Marque cada resultado como observado, fornecido ou proposto. A entrega será após A16.
 
 ## Revisão rápida
 
@@ -384,6 +401,5 @@ O [prompt numerado da Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#image
 - [NIST FIPS 197](https://csrc.nist.gov/pubs/fips/197/final), [SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final), [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final).
 - [OpenSSL `enc`](https://docs.openssl.org/3.5/man1/openssl-enc/) e [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).
 - [RFC 8018 — PBKDF2, sal e contagem de repetições](https://www.rfc-editor.org/info/rfc8018/).
+- [Documentação da biblioteca `cryptography` — AESGCM](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM).
 - [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104](https://www.rfc-editor.org/info/rfc2104/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
-
-<script src="../../javascripts/a14-aead.js" defer></script>

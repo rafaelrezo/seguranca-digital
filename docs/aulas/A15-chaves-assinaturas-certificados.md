@@ -4,7 +4,7 @@ A A14 mostrou mecanismos com segredo compartilhado. Agora, uma chave **privada**
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
-**Recursos:** WSL/Ubuntu com OpenSSL e navegador. Use chaves descartáveis e dados da página; os resultados fornecidos servem de alternativa. Não use arquivos ou certificados pessoais.
+**Recursos:** WSL/Ubuntu com OpenSSL e acesso à página HTTPS do curso. Use chaves descartáveis e dados da página; os resultados fornecidos servem de alternativa. Não use arquivos ou certificados pessoais.
 
 **Objetivos de aprendizagem**
 
@@ -106,22 +106,29 @@ Também é preciso conferir nome solicitado, prazo e finalidade ([RFC 5280](http
 | `Extended Key Usage` e restrições de uso | O certificado serve para autenticação de servidor TLS? | Um certificado limitado a autenticação de cliente não serve para esse papel. |
 | Estado de revogação | Há evidência de revogação ou de consulta válida? | A ausência de aviso não é prova universal de “não revogado”; políticas e mecanismos do cliente variam. |
 
-O visualizador apresenta **campos**; o navegador decide a aceitação conforme sua política. **Revogação** invalida um certificado antes do fim do prazo, por exemplo após suspeita de comprometimento da chave.
+O comando `openssl x509` apresenta **campos**; a decisão de aceitar a conexão depende também da verificação do nome e da cadeia pelo cliente. **Revogação** invalida um certificado antes do fim do prazo, por exemplo após suspeita de comprometimento da chave.
 
 CRL e OCSP são meios de publicar ou consultar esse estado ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280); [RFC 6960](https://www.rfc-editor.org/rfc/rfc6960)). Evidência confiável de revogação exige recusa. Sem informação, registre **estado não comprovado**; não deduza “não revogado” apenas porque a página abriu.
 
-### Inspeção no navegador: colher evidência real {#inspecao}
+### Inspeção no terminal: ler o certificado real {#inspecao}
 
-Use **somente a página do próprio curso que já está aberta**. Confira primeiro a barra de endereços: se começar com `https://`, há uma conexão candidata à inspeção. Se começar com `http://`, `file://` ou `localhost`, ou se o navegador não mostrar o certificado, passe diretamente ao pacote fictício. Não force HTTPS, não abra outro serviço e não contorne um aviso.
+Use somente `rafaelrezo.github.io`, domínio público do próprio curso. `openssl s_client` abre uma conexão TLS, envia o nome com `-servername` e verifica se o certificado cobre esse nome com `-verify_hostname`. `-verify_return_error` faz a conexão falhar quando a verificação não passa; `-brief` reduz a saída. Não informe credenciais nem contorne um erro de certificado.
 
-No **Firefox**, abra o ícone de conexão ao lado do endereço → **Conexão segura** → **Mais informações** → **Ver certificado** ([ajuda oficial](https://support.mozilla.org/en-US/kb/secure-website-certificate)).
+```bash
+openssl s_client -connect rafaelrezo.github.io:443 -servername rafaelrezo.github.io -verify_hostname rafaelrezo.github.io -verify_return_error -brief </dev/null
+```
 
-Em outro navegador, use o visualizador disponível. Se não localizar os campos, use o pacote fornecido na A16. Não altere opções de segurança nem contorne avisos.
+**Leia a saída:** `Verification: OK` indica que OpenSSL aceitou a verificação sob as âncoras disponíveis **neste WSL**. Se ocorrer erro, registre a mensagem e pare; não marque o certificado como aceito. Esse comando não prova autorização na aplicação nem estado de revogação.
 
-1. **Estado inicial:** copie apenas o **nome DNS** da página, sem caminho, parâmetros ou capturas de contas. Preveja se o certificado precisa conter exatamente esse nome ou um nome que o cubra validamente.
-2. **Ação:** abra o certificado do servidor. Localize SAN, início/fim de validade, emissor, caminho e finalidade, quando esses campos aparecerem. Registre `domínio observado → SAN relevante → intervalo → emissor/caminho mostrado → finalidade mostrada → estado da conexão`. **Resultado esperado:** campos legíveis e indicação do navegador para a conexão; os valores reais variam conforme a publicação. Não copie números de série nem impressões digitais completos.
-3. **Pausa de leitura:** distinga “vi o emissor/cadeia” de “o navegador aceitou a conexão”. Se um campo não aparecer, escreva **não exibido**. O certificado não mostra, por si, qual versão TLS foi negociada. Não marque revogação como “boa” somente porque a página abriu.
-4. **Critério de parada:** registre uma conclusão condicionada aos dados visíveis, sem declarar que o site é seguro em todos os sentidos. Se surgir alerta, pare, registre apenas a classe do aviso e retorne ao pacote fictício; não avance para o site.
+Para examinar os **campos do certificado apresentado pelo servidor**, execute:
+
+```bash
+openssl s_client -connect rafaelrezo.github.io:443 -servername rafaelrezo.github.io -verify_hostname rafaelrezo.github.io -verify_return_error -showcerts </dev/null 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName,extendedKeyUsage
+```
+
+**Leia cada parte:** `-showcerts` mostra os certificados enviados; `|` passa essa saída ao `openssl x509`, que lê o **primeiro certificado**, o do servidor. `-noout` evita imprimir o certificado inteiro. `-subject` e `-issuer` mostram titular e emissor; `-dates` mostra início e fim do prazo; `-ext subjectAltName,extendedKeyUsage` mostra nomes DNS cobertos e finalidades. `2>/dev/null` esconde mensagens de progresso do primeiro comando; por isso a aceitação da cadeia deve ser lida no **comando anterior**. A inspeção de um certificado isolado não valida sua cadeia.
+
+**Registre:** `nome solicitado → SAN relevante → prazo → finalidade → emissor → resultado de verificação → limite`. Os valores reais podem mudar. O SAN deve cobrir o nome solicitado; `TLS Web Server Authentication` indica uso de servidor. Se o segundo comando não mostrar campos, registre a falha sem completar por suposição. Se faltar rede ou OpenSSL, use o pacote fictício da A16 como **dado fornecido**, não como observação. Pare antes de concluir que o serviço é seguro em todos os aspectos.
 
 ### Exemplo trabalhado: o nome errado
 

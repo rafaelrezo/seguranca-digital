@@ -99,7 +99,7 @@ Uma chave precisa ter **finalidade, responsável, local, período de uso e estad
 
 ## Inventário: localizar dependências antes da troca {#inventario}
 
-O pacote tem identificadores estáveis. `K-A` e `K-B` são **rótulos**, nunca material secreto. “Selada” descreve a política proposta de guarda da cópia da chave, não uma operação executada nesta página. `C-01` e `C-02` são cópias fictícias da ordem `ordem=7;estado=aprovado`; os metadados `tipo=ordem;versao=1` são públicos neste exercício. O quadro mostra a situação **antes de E-1**; o painel começa **depois de E-1**. O painel não cifra nem decifra bytes.
+O pacote tem identificadores estáveis. `K-A` e `K-B` são **rótulos**, nunca material secreto. “Selada” descreve a política proposta de guarda da cópia da chave, não uma operação executada nesta página. `C-01` e `C-02` são cópias fictícias da ordem `ordem=7;estado=aprovado`; os metadados `tipo=ordem;versao=1` são públicos neste exercício. O quadro mostra a situação **antes de E-1**. As decisões P1–P3/N1–N3 são análise de política; nenhuma cifra ou abertura é executada nesse quadro.
 
 | ID | Estado inicial do pacote | Responsável e propósito |
 |---|---|---|

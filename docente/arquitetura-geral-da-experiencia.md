@@ -93,6 +93,8 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 
 **Precisão posterior da prática T2 na A14:** ensinar CBC e IV, distinguir senha digitada de chave AES, definir PBKDF2 como derivação por senha, sal e repetições e explicar o sal público gravado com a cópia antes de executar `openssl enc`. Ler cada linha dos comandos de WSL de T1, T2, hash e HMAC; localizar saída e limite. C1 registra a função de PBKDF2 e sal na cifra, sem confundi-los com o sal por conta dos verificadores de senha. A atividade permanece única e o 50 T/50 P é planejamento sujeito a verificação em aula.
 
+**Precisão docente de 8 out. 2026 — práticas diretas no terminal:** na A14, substituir o painel Web Crypto de cliques por execução estudantil no WSL. O exercício AES-GCM com Python `cryptography` mostra a tag original (G1), um bit alterado na tag (G2) e AAD alterado (G3); em cada caso o estudante compara entrada e resultado da abertura. Manter CBC, hash e HMAC no terminal. A15 usa OpenSSL para chaves, assinatura e inspeção do certificado real; a A16 usa `s_client` para ler o canal TLS. Quadros de saída servem apenas de alternativa declarada quando a ferramenta falhar. C1 aceita G1–G3 e o 50 T/50 P continua como planejamento.
+
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |

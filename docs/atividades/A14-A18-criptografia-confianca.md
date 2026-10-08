@@ -10,19 +10,19 @@
 
 | Registro | Momento de preencher | Evidência mínima e decisão |
 |---|---|---|
-| **C1 — A14** | Após cada T1–T2, V1/F1, D1/M1–M3 e P-A–P-C. | Mesma chave na cifra e abertura; AES versus modo; em T2, senha + sal + PBKDF2 geram chave/IV, com sal visível na cópia; CBC oferece apenas sigilo; GCM rejeita alteração; hash versus HMAC; sal individual e custo para verificador de senha. Indique um caso válido, uma contraprova e um limite para cada finalidade. |
+| **C1 — A14** | Após T1–T2, G1–G3, D1/M1–M3 e P-A–P-C. | Mesma chave na cifra e abertura; AES versus modo; em T2, senha + sal + PBKDF2 geram chave/IV, com sal visível na cópia; CBC oferece apenas sigilo; AES-GCM aceita a tag original e rejeita tag ou AAD alterados; hash versus HMAC; sal individual e custo para verificador de senha. Indique um caso válido, uma contraprova e um limite para cada finalidade. |
 | **C2 — A15** | Após T3, T4, V1–V3 e inspeção do certificado. | Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
 | **C3 — A16** | Após cartões B/N/A, terminal TLS e P1–P3/N1–N3. | Canal aceito/recusado, `403` como decisão da aplicação, chave ativa versus cópia antiga, recuperação condicional com teste pendente. |
 
-Use em cada entrada o mesmo esquema: `ID → objeto/pergunta → mecanismo → previsão → resultado e fonte → interpretação → contraprova → limite/próxima ação`. Para resultados do navegador ou terminal, escreva **observado** e o comando ou botão; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
+Use em cada entrada o mesmo esquema: `ID → objeto/pergunta → mecanismo → previsão → resultado e fonte → interpretação → contraprova → limite/próxima ação`. Para resultados executados no terminal, escreva **observado** e o comando; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
 
-**Exemplo trabalhado:** `F1 → cópia cifrada → AES-GCM → alteração deveria ser rejeitada → falha no painel (observado) → texto alterado não foi aceito → V1 abre o conjunto original → a falha não identifica quem alterou`. Se você usou o quadro, troque “observado” por “fornecido”.
+**Exemplo trabalhado:** `G2 → cópia cifrada → AES-GCM → tag alterada deveria ser rejeitada → InvalidTag no terminal (observado) → texto não foi entregue → G1 abre o conjunto original → a falha não identifica quem alterou`. Se você usou o quadro, troque “observado” por “fornecido”.
 
 **Sua extensão:** escolha uma cópia com rótulo que inclui o nome fictício `Pessoa A`. Decida se o rótulo fica como AAD visível ou dentro do texto cifrado. Registre propriedade, resultado que validaria a escolha e limite do endpoint. Depois, em C3, explique como preservar acesso a essa cópia durante a troca de chave sem manter K-A apta a cifrar novas cópias.
 
 **Decisão final:** uma linha para **repouso, trânsito, backup e endpoint/identidade**, cada qual com `propriedade → mecanismo → evidência favorável → contraprova → limite/responsável`. Faça revisão cruzada: cada integrante comenta uma inferência do outro e registre ao menos uma correção ou divergência resolvida. Entregue somente após conferir que proposta, dado fornecido e observação estão distinguidos.
 
-**Encerramento:** feche o painel, não envie arquivos `.pem` nem `copia.cbc`, e remova os diretórios de teste apenas se desejar; eles contêm somente dados artificiais, mas a chave privada de demonstração não deve ser reutilizada. Se um comando der resultado inesperado, pare, anote comando e erro sem segredo e use a alternativa fornecida.
+**Encerramento:** encerre o terminal, não envie arquivos `.pem` nem `copia.cbc`, e remova os diretórios de teste apenas se desejar; eles contêm somente dados artificiais, mas a chave privada de demonstração não deve ser reutilizada. Se um comando der resultado inesperado, pare, anote comando e erro sem segredo e use a alternativa fornecida.
 
 ### Critérios da entrega única
 
