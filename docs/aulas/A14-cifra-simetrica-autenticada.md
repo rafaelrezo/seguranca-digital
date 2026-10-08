@@ -1,6 +1,6 @@
-# A14 (provisória) — Cifra simétrica, hash e senhas
+# A14 (provisória) — Cifra simétrica e compartilhamento de chaves
 
-**Como proteger uma cópia e verificar se ela pode ser aceita?** Primeiro veremos a cifra com a mesma chave secreta nos dois sentidos. Depois, cada mecanismo responderá a uma pergunta diferente: manter o conteúdo secreto, detectar alteração ou conferir uma senha.
+**Como proteger uma cópia e verificar se ela pode ser aceita?** Primeiro veremos a cifra com a mesma chave secreta nos dois sentidos. Depois, vamos verificar alterações e explicar como o receptor obtém a chave necessária para abrir a mensagem.
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
@@ -9,8 +9,8 @@
 **Objetivos de aprendizagem**
 
 1. Descrever o percurso do texto legível ao cifrado e de volta com a mesma chave, distinguindo o algoritmo AES do modo de operação.
-2. Distinguir sigilo de detecção de alteração em AES-GCM, hash e HMAC.
-3. Justificar a necessidade de sal individual e custo no armazenamento de senhas.
+2. Comparar CBC e AES-GCM usando abertura original e rejeição de alteração na tag ou no AAD.
+3. Distinguir chave, IV, sal, nonce e AAD e explicar o segredo que o receptor precisa possuir previamente.
 
 Esta aula inicia o [registro único de criptografia e confiança](#atividade), preenchido após cada observação e continuado na A15–A16. O preenchimento de hoje não exige entrega separada.
 
@@ -179,67 +179,133 @@ Uma **cifra autenticada** reúne duas funções:
 
 **GCM** (*Galois/Counter Mode*) é um modo de operação que oferece essas funções. **AES-GCM** significa usar AES no modo GCM. Não se trata de outra cifra independente ([NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final)).
 
+### Exemplo: proteger uma mensagem de transferência {#mensagem-gcm}
+
+O conteúdo deste teste é uma mensagem com **contas e valor fictícios**:
+
+```json
+{
+  "origem": "conta123",
+  "destino": "conta456",
+  "valor": 5000
+}
+```
+
+O **emissor** prepara e cifra a mensagem. O **receptor** verifica o que recebeu e só então recupera o conteúdo. Os dois precisam ter a mesma chave. O objetivo é observar quais dados ficam visíveis e quais alterações impedem a abertura.
+
+```mermaid
+flowchart TB
+    E[Emissor<br/>cifra a mensagem] --> P[Envelope público<br/>Nonce, AAD, ciphertext e tag]
+    P --> R[Receptor<br/>verifica e decifra]
+    K[Mesma chave secreta<br/>já disponível nos dois lados] -.-> E
+    K -.-> R
+```
+
+**Leia o esquema:** a chave permanece nos dois extremos. O envelope contém os campos que podem acompanhar a mensagem. Neste ensaio, ele será um arquivo local, `mensagem_gcm.json`; sua gravação e leitura representam as etapas de envio e recepção. São operações reais sobre o arquivo, sem conexão de rede nem transação financeira.
+
 ### Nonce: distinguir uma cifragem da seguinte
 
-Imagine duas cópias protegidas com a **mesma chave K1**. Cada cifragem precisa receber um **nonce novo**: N1 para a primeira, N2 para a segunda. *Nonce* significa “número usado uma vez”. No GCM, a regra essencial é **não repetir o par chave–nonce**. Reutilizar K1 com N1 em outra cifragem compromete as garantias de sigilo e integridade ([NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final)).
+Mesmo quando a mensagem é idêntica, cada **nova cifragem** com K1 precisa de um **nonce diferente**. *Nonce* significa “número usado uma vez”. No AES-GCM, a regra é **não repetir o par chave–nonce**.
 
-O nonce não é uma senha nem substitui a chave. Ele pode ser guardado junto do texto cifrado para que a abertura use o mesmo valor. O **sal** da prática CBC tinha outra função: participar da derivação da chave e do IV a partir de uma senha. Aqui, o programa já gera diretamente uma chave AES; `urandom(12)` cria um nonce de 12 bytes para aquela operação.
+| Cifragem | Entradas mantidas | O que muda |
+|---|---|---|
+| Primeira | Mensagem e chave K1. | Nonce N1 → texto cifrado A. |
+| Segunda | Mesma mensagem e K1. | Nonce N2 → texto cifrado B. |
 
-### AAD: vincular um dado que continua visível
+O nonce pode acompanhar o texto cifrado: ele não é secreto. Usaremos **12 bytes, ou 96 bits**, gerados por `urandom(12)`. Repetir o par chave–nonce em outra cifragem compromete sigilo e autenticação. Em produção, a geração precisa considerar volume de mensagens e reinícios ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
 
-Uma cópia pode trazer um rótulo público, como `tipo=ordem;versao=1`. O sistema pode precisar ler `tipo` e `versao` **antes** de abrir o conteúdo. Esse rótulo é **AAD** (*additional authenticated data*, ou dados adicionais autenticados): permanece legível, mas entra na verificação da tag junto com o texto cifrado ([glossário NIST](https://csrc.nist.gov/glossary/term/AAD)).
+**Nova cifragem e nova leitura são operações diferentes:** o receptor usa o nonce original para abrir aquela mensagem. O nonce não impede que alguém copie e reapresente o envelope inteiro; testaremos esse limite na extensão G5.
 
-Se alguém trocar `versao=1` por `versao=2` sem a chave, a abertura com a tag original falha. Assim, o rótulo não pode ser mudado silenciosamente. AAD oferece **verificação de alteração**, não sigilo: se o rótulo contiver informação confidencial, coloque-o dentro do texto a cifrar.
+### AAD: proteger um cabeçalho que continua legível
+
+A mensagem também traz um **cabeçalho da aplicação**, com o tipo de conteúdo e a versão de seu formato:
+
+```text
+tipo=transferencia;versao=1
+```
+
+Esse cabeçalho será o **AAD** (*Additional Authenticated Data*, dados adicionais autenticados). Ele continua legível, mas participa da verificação da tag junto com o texto cifrado. Assim, podemos proteger metadados sem ocultá-los ([glossário NIST](https://csrc.nist.gov/glossary/term/AAD)).
+
+- **AAD:** informa tipo e versão; permanece visível no envelope.
+- **Texto cifrado:** oculta as contas e o valor do conteúdo.
+- **Tag:** permite verificar a correspondência do cabeçalho e do conteúdo protegido sob a chave.
+
+Trocar `versao=1` por `versao=2`, mantendo a tag original, faz a abertura falhar. **O cabeçalho só pode ser considerado autenticado depois que a verificação passar.** Ler um campo antes disso não autoriza executar a operação indicada nele.
+
+Se um dado precisa ficar secreto, inclua-o no texto a cifrar. O AAD deste exemplo é um cabeçalho definido pela aplicação; não representa os cabeçalhos de roteamento IP da rede.
 
 ### Chave, sal, nonce e AAD: funções diferentes {#chave-nonce}
 
 | Valor | Onde atua | Precisa ficar secreto? |
 |---|---|---|
-| **Chave** | Cifra e abre os dados. | **Sim.** O programa a mostra só para estudo com dados fictícios. |
-| **Sal** | Diversifica a derivação de uma chave ou verificador **a partir de senha**. | Não; deve ser guardado para repetir a derivação. |
-| **Nonce** | Distingue cada cifragem AES-GCM feita com a mesma chave. | Não; precisa ser único para essa chave. |
-| **AAD** | Vincula um rótulo visível ao texto cifrado pela tag. | Não neste exemplo; se o dado for secreto, cifre-o como texto. |
+| **Chave** | Cifra e abre os dados. | **Sim.** Será exibida apenas para estudo com dados fictícios. |
+| **Sal** | Diversifica a derivação de chave ou verificador **a partir de senha**. | Não; é guardado para repetir a derivação. |
+| **Nonce** | Distingue cada cifragem feita com a mesma chave. | Não; precisa ser único para essa chave. |
+| **AAD** | Vincula o cabeçalho visível ao conteúdo pela tag. | Não neste exemplo. Dados secretos devem entrar no texto a cifrar. |
 
-**AES-GCM precisa de sal?** Não nesta prática: `generate_key` cria diretamente uma chave aleatória. Se uma aplicação partir de uma **senha humana**, deverá derivar a chave antes de usar AES-GCM; nessa etapa de derivação entram o sal e os parâmetros da KDF. O **nonce** continua necessário na operação GCM. Sal e nonce não se substituem.
+**AES-GCM precisa de sal?** A operação GCM recebe chave, nonce, texto e AAD; sal não é um de seus parâmetros. Se a chave vier de uma senha, o sal entra **antes**, na KDF. Se a chave já tiver sido gerada aleatoriamente, como por `AESGCM.generate_key`, essa derivação por senha não é necessária.
 
-Com a chave já pronta, a operação recebe **texto legível, nonce e AAD**. Ela entrega **texto cifrado e tag**:
+Nesta prática, vamos conectar as duas etapas: **PBKDF2 deriva a chave; AES-GCM cifra a mensagem**. O sal irá no envelope para que o receptor refaça a derivação. Não substitui o nonce nem torna uma senha fraca segura.
+
+### Como o receptor obtém a mesma chave? {#mesma-chave}
+
+**Ele precisa conhecer previamente o segredo usado pelo emissor.** Receber sal, nonce, AAD e texto cifrado não entrega a chave. Neste teste, os dois lados já conhecem a mesma senha descartável e usam os mesmos parâmetros de PBKDF2.
 
 ```mermaid
-flowchart LR
-    P[Texto legível] --> G[AES-GCM]
-    K[Chave secreta] --> G
-    N[Nonce novo com esta chave] --> G
-    A[AAD visível] --> G
-    G --> C[Texto cifrado]
-    G --> T[Tag de verificação]
+flowchart TB
+    S[Mesma senha<br/>já conhecida nos dois lados] --> E[PBKDF2 no emissor]
+    S --> R[PBKDF2 no receptor]
+    L[Mesmo sal público<br/>e mesmos parâmetros] --> E
+    L --> R
+    E --> K1[Chave K1]
+    R --> K2[Mesma chave K1]
 ```
 
-**Leia o esquema:** o texto passa à forma cifrada; o AAD permanece legível, mas participa da tag. Para abrir, o programa recebe chave, nonce, AAD, texto cifrado e tag. Só entrega o texto legível se a verificação passar. G1 usa as entradas originais; G3 muda apenas o AAD.
+**Leia o esquema:** PBKDF2 é determinística: as mesmas entradas produzem o mesmo resultado. O emissor gera o sal e o inclui no envelope. O receptor usa esse sal com a senha **que já possui**, obtendo a mesma chave. Uma senha diferente produz outra chave e a abertura falha.
 
-### Prática curta no WSL: conferir a tag de AES-GCM {#gcm-terminal}
+A senha estará escrita no programa somente por ser descartável e fictícia. Ela funciona como um segredo pré-combinado para derivar a chave. A [verificação de senha de login na A16](A16-tls-ciclo-de-chaves.md#senhas) tem outra finalidade: conferir uma tentativa contra um registro guardado.
 
-Este exercício usa a biblioteca Python [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM), que implementa AES-GCM. **Crie um arquivo Python no VS Code** e execute-o no terminal WSL. O código fica separado dos comandos, para que você possa ler e alterar cada parte.
+Este ensaio não implementa distribuição segura do segredo. Se uma senha fraca fosse usada em comunicação real, quem capturasse o envelope poderia testar palpites localmente e usar a tag para conferir cada tentativa.
 
-1. No terminal WSL, entre na pasta da A14 com `cd ~/cripto-a14`. Se ela ainda não existir, crie-a com `mkdir -p ~/cripto-a14` e repita o `cd`.
-2. Digite `code .` no WSL para abrir essa pasta no VS Code. O ponto significa **pasta atual**. Se `code` não estiver disponível, no VS Code use **Conectar ao WSL** e abra `~/cripto-a14`.
-3. Crie `aes_gcm_a14.py` nessa pasta, copie **somente o código Python abaixo** e salve. O [arquivo `.py` pronto para baixar](../assets/a14-a17/aes_gcm_a14.py) contém o mesmo código, se preferir abri-lo no editor.
-4. Leia as seções numeradas do arquivo. Antes de executar, preveja o que acontecerá com a tag original, a tag alterada e o AAD alterado.
+### Prática no VS Code e WSL: preparar, receber e verificar {#gcm-terminal}
 
-**Estado inicial:** o programa usa dados fictícios e cria uma chave e um nonce novos em memória. `encrypt` devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores aleatórios mudam a cada execução; compare os valores **dentro da mesma execução**. A chave será impressa apenas para estudo neste laboratório: ela é secreta em uso real e não deve entrar na entrega.
+Use o mesmo arquivo `aes_gcm_a14.py`. Os blocos abaixo são **partes consecutivas desse arquivo**: copie-os na ordem, salve e execute após cada etapa. O [arquivo completo para download](../assets/a14-a17/aes_gcm_a14.py) reúne as etapas 1–3 e a extensão opcional.
+
+1. No WSL, entre em `~/cripto-a14` com `cd ~/cripto-a14`. Se faltar a pasta, crie-a com `mkdir -p ~/cripto-a14` e repita o `cd`.
+2. Abra a pasta no VS Code com `code .`. O ponto significa **pasta atual**. Se `code` faltar, use **Conectar ao WSL** no VS Code e abra essa pasta.
+3. Crie ou abra `aes_gcm_a14.py`. Use somente a senha e as contas fictícias do código.
+
+Em cada etapa, salve o arquivo e execute este comando no terminal WSL da mesma pasta:
+
+```bash
+python3 aes_gcm_a14.py
+```
+
+`python3` executa o arquivo salvo. Cada execução refaz o ensaio com sal e nonce novos; compare os valores **dentro da mesma execução**. A partir da etapa 2, `mensagem_gcm.json` será criado ou substituído nessa pasta.
+
+#### 1. Emissor: derivar a chave e cifrar
+
+PBKDF2 usa a senha, um sal de 16 bytes e 100.000 repetições para gerar **32 bytes de chave: 256 bits**. São parâmetros didáticos, não uma configuração recomendada para produção. A biblioteca [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM) faz a operação AES-GCM.
 
 ```python
+from hashlib import pbkdf2_hmac
 from os import urandom
+from pathlib import Path
+import json
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.exceptions import InvalidTag
 
-# 1. Preparar entradas e cifrar
-key = AESGCM.generate_key(bit_length=256)       # chave descartável de 256 bits
-nonce = urandom(12)                               # nonce novo de 12 bytes
-aad = b'tipo=ordem;versao=1'                     # rótulo visível, mas autenticado
-text = b'ordem=7;estado=aprovado'                 # conteúdo a cifrar
-sealed = AESGCM(key).encrypt(nonce, text, aad)   # texto cifrado + tag
+# 1. Emissor: derivar a chave, cifrar e mostrar os valores
+senha_emissor = b'senha-descartavel-a14'  # segredo fictício já conhecido nos dois lados
+iterations = 100_000               # custo didático; não é recomendação de produção
+salt = urandom(16)
+key = pbkdf2_hmac('sha256', senha_emissor, salt, iterations, dklen=32)
+nonce = urandom(12)
+aad = b'tipo=transferencia;versao=1'
+text = b'{"origem":"conta123","destino":"conta456","valor":5000}'
+sealed = AESGCM(key).encrypt(nonce, text, aad)
 
-# 2. Mostrar entradas e separar as partes da saída
+print("Salt:  ", salt.hex())
 print("Key:   ", key.hex())
 print("Nonce: ", nonce.hex())
 print("AAD:   ", aad.hex())
@@ -253,261 +319,215 @@ print("Text:  ", text.decode("utf-8"))
 print("\nComponentes AES-GCM:")
 print("Ciphertext:", sealed[:-16].hex())
 print("Tag:       ", sealed[-16:].hex())
+```
 
-# 3. Abrir o conjunto original
-print('G1 tag:', sealed[-16:].hex())              # mostra a tag original
-print('G1 texto:', AESGCM(key).decrypt(nonce, sealed, aad).decode())
+**Leia o código e a saída:**
 
-# 4. Alterar um bit da tag e tentar abrir
-tampered = sealed[:-1] + bytes([sealed[-1] ^ 1]) # muda um bit da tag
-print('G2 tag:', tampered[-16:].hex())            # mostra a tag alterada
+- `from` e `import` carregam derivação, bytes aleatórios, arquivos, JSON, AES-GCM e o erro de autenticação.
+- `b'...'` representa bytes. `pbkdf2_hmac` deriva a chave; `dklen=32` define seu tamanho em bytes. PBKDF2-HMAC-SHA256 é o nome completo desta função de derivação; seus componentes serão detalhados no bloco de hash.
+- `encrypt(nonce, text, aad)` entrega **texto cifrado seguido de uma tag de 16 bytes**.
+- `.hex()` mostra os bytes em hexadecimal; cada par de caracteres representa um byte. `.decode('utf-8')` exibe os mesmos bytes como texto.
+- `sealed[:-16]` seleciona o texto cifrado; `sealed[-16:]`, a tag. As duas partes juntas formam `Sealed`.
+
+**Confira antes de avançar:** sal e nonce estão visíveis; AAD ainda mostra tipo e versão; `Text` mostra o conteúdo usado como entrada. A chave aparece apenas para estudo e **não deve entrar na entrega**. Nenhum envelope foi escrito nesta primeira etapa.
+
+#### 2. Envelope e receptor: guardar campos públicos e reconstruir a chave
+
+Acrescente o bloco abaixo ao final do mesmo arquivo. **Preveja:** o envelope precisa conter a senha? O receptor conseguirá derivar uma chave igual usando seu próprio segredo e o sal recebido?
+
+```python
+# 2. Envelope: gravar apenas os campos públicos, depois ler como receptor
+packet = {
+    'salt': salt.hex(),
+    'nonce': nonce.hex(),
+    'aad': aad.decode('utf-8'),
+    'ciphertext': sealed[:-16].hex(),
+    'tag': sealed[-16:].hex(),
+}
+file = Path('mensagem_gcm.json')
+file.write_text(json.dumps(packet, indent=2), encoding='utf-8')
+print('\nEnvelope gravado em:', file)
+
+received = json.loads(file.read_text(encoding='utf-8'))
+senha_receptor = b'senha-descartavel-a14'  # já conhecida; não vem do envelope
+receiver_key = pbkdf2_hmac(
+    'sha256', senha_receptor, bytes.fromhex(received['salt']), iterations, dklen=32
+)
+receiver_nonce = bytes.fromhex(received['nonce'])
+receiver_aad = received['aad'].encode('utf-8')
+receiver_sealed = bytes.fromhex(received['ciphertext']) + bytes.fromhex(received['tag'])
+
+print('G1 chaves iguais:', key == receiver_key)
+print('G1 tag:', received['tag'])
+print('G1 texto:', AESGCM(receiver_key).decrypt(
+    receiver_nonce, receiver_sealed, receiver_aad
+).decode('utf-8'))
+```
+
+Salve, execute novamente e veja o arquivo criado:
+
+```bash
+cat mensagem_gcm.json
+```
+
+`cat` mostra o arquivo, sem decifrá-lo. **O envelope contém sal, nonce, AAD, texto cifrado e tag; não contém senha, chave ou conteúdo legível.** Sal e parâmetros seriam necessários para conservar uma cópia cifrada a partir de senha; aqui o custo e o esquema são fixos e conhecidos nos dois lados.
+
+- `packet` é um dicionário: associa cada nome de campo ao valor que será guardado.
+- `json.dumps(..., indent=2)` transforma esse dicionário em texto JSON organizado; `write_text` o grava.
+- `read_text` lê o arquivo e `json.loads` recupera seus campos para o receptor. O arquivo é lido como dado, não executado.
+- `bytes.fromhex` reconstrói os bytes; `.encode('utf-8')` faz o mesmo para o AAD textual. Hexadecimal e JSON são representações, não cifragem.
+- `receiver_key` é derivada novamente com a senha do receptor. O programa não copia `key` para fazer a abertura.
+
+**G1:** `G1 chaves iguais: True` confirma a reconstrução. `G1 texto` recupera a mensagem com as contas fictícias e `valor:5000`. A tag foi verificada antes de o programa receber esse texto.
+
+#### 3. Contraprovas: alterar a tag e depois o cabeçalho
+
+Acrescente o bloco abaixo. **Preveja:** o que muda quando só um bit da tag é alterado? E quando só a versão do AAD muda?
+
+```python
+# 3. Contraprovas: alterar tag ou AAD do conjunto recebido
+tampered = receiver_sealed[:-1] + bytes([receiver_sealed[-1] ^ 1])
+print('G2 tag:', tampered[-16:].hex())
 try:
-    AESGCM(key).decrypt(nonce, tampered, aad)    # tenta abrir o conjunto alterado
+    AESGCM(receiver_key).decrypt(receiver_nonce, tampered, receiver_aad)
     print('G2: aceito (inesperado)')
 except InvalidTag:
     print('G2: rejeitado; texto não entregue')
 
-# 5. Manter a tag original e alterar somente o AAD
-altered_aad = b'tipo=ordem;versao=2'           # muda só AAD
+altered_aad = b'tipo=transferencia;versao=2'
 try:
-    AESGCM(key).decrypt(nonce, sealed, altered_aad)
+    AESGCM(receiver_key).decrypt(receiver_nonce, receiver_sealed, altered_aad)
     print('G3: aceito (inesperado)')
 except InvalidTag:
     print('G3: rejeitado; AAD alterado')
 ```
 
-**Execute no terminal WSL**, dentro da pasta onde salvou o arquivo:
+`receiver_sealed[:-1]` conserva todos os bytes menos o último; `^ 1` inverte um bit desse último byte da tag. `try/except InvalidTag` captura a rejeição. Em G3, ciphertext e tag são originais; apenas o cabeçalho muda para `versao=2`.
 
-```bash
-python3 aes_gcm_a14.py
-```
-
-`python3` executa o arquivo indicado; o nome `aes_gcm_a14.py` deve corresponder ao arquivo salvo no VS Code. **Leia as operações do programa:**
-
-- As linhas `from` carregam AES-GCM, a fonte de bytes aleatórios e o nome do erro de tag.
-- `b'...'` representa bytes; `generate_key` cria a chave e `urandom(12)` cria um nonce de 12 bytes. `encrypt` devolve texto cifrado **seguido da tag**.
-- `.hex()` mostra bytes em hexadecimal: cada par de caracteres representa um byte. `.decode("utf-8")` mostra como texto legível o AAD e a mensagem de teste. São duas representações dos **mesmos bytes**, não duas mensagens diferentes.
-- `Sealed` é o conjunto completo devolvido por `encrypt`. `sealed[:-16]` mostra apenas o **ciphertext**; `sealed[-16:]` mostra a **tag**. Junte essas duas sequências, na mesma ordem, e você obtém os bytes exibidos em `Sealed`.
-- Em **G1**, `decrypt` recebe as mesmas entradas usadas na cifragem e `.decode()` mostra o texto recuperado.
-- `sealed[:-1]` conserva tudo menos o último byte; `^ 1` inverte um bit desse byte da tag. Em **G2**, `try/except InvalidTag` mostra a rejeição sem usar texto não autenticado. Em **G3**, os bytes cifrados e a tag voltam a ser os originais, mas o AAD muda de `versao=1` para `versao=2`.
-
-| Caso | Saída esperada | O que concluir |
+| Caso | Saída esperada | O que demonstra |
 |---|---|---|
-| G1 — tag original | `G1 texto: ordem=7;estado=aprovado` | O conjunto original foi aceito e o texto recuperado. |
-| G2 — um bit da tag alterado | `G2: rejeitado; texto não entregue` | A tag recebida não corresponde ao conjunto protegido. |
-| G3 — somente AAD alterado | `G3: rejeitado; AAD alterado` | O AAD permanece visível, mas sua mudança também é detectada. |
+| G1 — segredo e envelope originais | `G1 chaves iguais: True` e texto recuperado. | O receptor reconstruiu a chave e abriu o conjunto original. |
+| G2 — um bit da tag alterado | `G2: rejeitado; texto não entregue` | A tag não corresponde ao conjunto recebido. |
+| G3 — somente AAD alterado | `G3: rejeitado; AAD alterado` | O cabeçalho visível também participa da verificação. |
 
-**Registre G1–G3:** localize `Key`, `Nonce`, `AAD`, `Text`, `Ciphertext` e `Tag` na saída. Compare `Sealed` com suas duas partes e as tags de G1/G2 para indicar o byte que mudou. A biblioteca confere a tag internamente: entrega o texto em G1 e lança `InvalidTag`, capturado pelo código, em G2 e G3. A falha demonstra a rejeição **neste teste controlado**, sem identificar quem mudou o arquivo. Não copie `Key` para o registro entregue.
+**Registre G1–G3:** identifique o que ficou no envelope e o que precisou existir previamente no receptor. Compare as tags G1/G2 e a separação `Ciphertext | Tag`. Não copie senha nem chave para a entrega. A rejeição prova o resultado deste teste controlado; não identifica quem alterou os dados.
 
-**Pare** após G3, sem reutilizar a chave ou o nonce de teste. Se a saída diferir, registre a mensagem de erro e use o quadro acima como resultado **fornecido**, não observado.
+**Pare após G3** se não for realizar a extensão. Não reutilize os segredos de teste em outro sistema.
 
-Se aparecer `ModuleNotFoundError: No module named 'cryptography'`, o Python usado no terminal não possui a biblioteca. Confira que o terminal é o do WSL e informe ao professor; acompanhe a execução projetada ou use o quadro G1–G3 como dado fornecido. Se aparecer “can't open file”, confirme a pasta com `pwd` e o nome do arquivo com `ls`. Não trate erro de instalação ou de caminho como falha de autenticação.
+### Extensão: segunda mensagem, retransmissão e segredo diferente {#gcm-extensao}
 
-**CBC e GCM são modos diferentes para usar AES:**
-
-| Modo | Como participa da cifragem | O que este modo entrega sozinho |
-|---|---|---|
-| CBC | Encadeia blocos; o primeiro usa um valor inicial chamado **IV**. | Sigilo, sem tag de autenticação própria. |
-| GCM | Usa nonce e calcula a tag sobre o conjunto protegido. | Sigilo e rejeição de alteração antes de aceitar o texto. |
-
-Por isso, o exercício com `openssl enc -aes-256-cbc` mostra cifragem e abertura, enquanto G1–G3 testam a verificação da tag e do AAD. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
-
-**Decida:** o rótulo de tipo e versão do exercício precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com a propriedade correspondente. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem.
-
-Nesta prática, a chave e o nonce são criados de novo a cada execução. Em um sistema real, geração, reinício e volume de mensagens exigem planejamento para preservar a unicidade do par chave–nonce ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
-
-## Síntese: guardar a cópia {#aplicacao}
-
-Para `ordem=7;estado=aprovado`, guarde nonce, AAD público e texto cifrado com tag junto da cópia; proteja K1 separadamente. Se o rótulo contiver informação sigilosa, inclua-o no texto cifrado. Uma abertura válida permite usar o conteúdo **somente após a verificação**. A cifra não substitui proteção do endpoint nem recuperação da chave.
-
-## Hash e digest: comparar o conteúdo exato {#digest}
-
-Uma **função hash criptográfica** recebe bytes e produz um resumo de tamanho fixo, chamado **digest**. SHA-256 produz 256 bits (32 bytes). Os mesmos bytes produzem o mesmo digest; alterar os bytes quase certamente muda o resultado. Hash não cifra: o conteúdo pode continuar legível.
-
-A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest. Ainda assim, um digest igual não identifica quem criou ou publicou o arquivo.
-
-Para conferir uma cópia, calcule seu digest e compare com um valor publicado pelo fornecedor **por um canal confiável**. Se alguém puder substituir tanto a cópia quanto a referência, a igualdade não demonstra legitimidade. Essa distinção entre comparação de bytes e confiança na origem será usada novamente em assinaturas e certificados.
-
-O exemplo `abc` tem um digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad` ([exemplo NIST](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/examples/sha256.pdf)).
-
-A entrada são exatamente três bytes ASCII, sem aspas, espaço ou quebra de linha. Uma comparação exige os mesmos bytes e a mesma codificação; aparência semelhante não basta.
-
-**Prática curta no WSL:** no mesmo diretório, preveja os dois resumos e execute:
-
-```bash
-printf 'abc' > hash-a.txt
-printf 'abd' > hash-b.txt
-sha256sum hash-a.txt hash-b.txt
-```
-
-As duas linhas com `printf` criam arquivos de três bytes, sem quebra de linha; `>` cria ou substitui cada arquivo. `sha256sum` calcula e mostra o digest SHA-256 **de cada arquivo**, seguido do nome. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir.
-
-**Registre D1:** `abc` coincide com a referência NIST; `abd` difere. Anote os bytes comparados e a origem da referência. Se `sha256sum` faltar, use o valor NIST como **dado fornecido**. A igualdade não atribui autoria.
-
-## HMAC: verificar mensagem com segredo compartilhado {#hmac}
-
-Um **código de autenticação de mensagem** (*MAC*) depende de uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)). Quem recebe a mensagem confere o código com a **mesma chave** usada para produzi-lo.
-
-| Operação | Entrada necessária | Resultado | O conteúdo fica secreto? |
-|---|---|---|---|
-| SHA-256 de D1 | Bytes do arquivo. | Digest para comparar com uma referência confiável. | Não. |
-| HMAC de M1–M3 | Bytes da mensagem **e chave compartilhada**. | Código que deve mudar se a mensagem ou a chave mudar. | Não. |
-
-Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
-
-**Prática curta no WSL:** no mesmo diretório, execute:
-
-```bash
-printf 'pedido=7;valor=10' > msg-a.txt
-printf 'pedido=7;valor=11' > msg-b.txt
-openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt msg-b.txt
-openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt
-openssl dgst -sha256 -hmac 'outra-chave-aula' msg-a.txt
-```
-
-**Leia cada linha:**
-
-| Linha | O que faz |
-|---|---|
-| `printf ... > msg-a.txt` | Cria a mensagem original com `valor=10`, sem quebra de linha. |
-| `printf ... > msg-b.txt` | Cria a mensagem alterada com `valor=11`. |
-| Primeiro `openssl dgst` | Calcula um HMAC por arquivo. `-sha256` escolhe SHA-256; `-hmac` usa a chave literal de teste. Os nomes finais indicam os arquivos de entrada. |
-| Segundo `openssl dgst` | Recalcula o HMAC de `msg-a.txt` com **a mesma chave**: o código deve coincidir com o primeiro. |
-| Terceiro `openssl dgst` | Usa **outra chave** sobre `msg-a.txt`: o código deve diferir. |
-
-A saída traz códigos HMAC, **não mensagens cifradas**. Os dois textos continuam legíveis nos arquivos.
-
-**Registre M1–M3:** compare os códigos gerados para mesma mensagem/chave, mensagem alterada e chave alterada. A chave literal é pública nesta página e serve apenas ao ensaio. Se OpenSSL faltar, use M1–M3 abaixo como **dados fornecidos**. O código não identifica qual detentor da chave produziu a mensagem.
-
-### Quadro de resultados para acompanhar ou substituir o terminal
-
-Estas linhas são **referência de comportamento esperado**. O valor calculado no terminal depende exatamente dos bytes da mensagem e da chave literal de teste.
-
-| ID | Entradas | Resultado esperado | O que ainda não foi provado |
-|---|---|---|---|
-| D1 | SHA-256 de `abc` contra a referência NIST; depois `abd` | Coincide; depois difere | Autoria e procedência de qualquer arquivo externo. |
-| M1 | Mensagem original e mesma chave de teste | Código coincide ao recalcular | Qual detentor da chave produziu a primeira versão. |
-| M2 | Mensagem com `valor=11`, mesma chave | Código difere do M1 | Qual campo mudou fora deste teste controlado. |
-| M3 | Mensagem original, outra chave | Código difere do M1 | Se a chave real está protegida no sistema. |
-
-Se `sha256sum` ou OpenSSL não funcionar, leia o quadro na ordem D1–M3 e identifique-o como resultado fornecido. Se houver outro erro, anote comando e mensagem sem dados sensíveis. Espaços, acentos, quebras de linha e codificação mudam os bytes; confira a entrada exata antes de atribuir divergência a adulteração. A aceitação e rejeição do HMAC dependem da chave correta, mas não entregam diagnóstico causal de um evento real por si só.
-
-## Senhas: conferir uma tentativa sem guardar a senha {#senhas}
-
-Na prática D1, SHA-256 permitiu comparar os bytes de **arquivos**. Agora a pergunta é outra: quando alguém cria uma conta e depois digita uma senha, como um programa confere essa tentativa sem manter uma cópia da senha na base de contas? Aqui, **serviço** significa o programa que recebe e confere a senha, como o responsável pelo login de um site. Nesta aula, vamos executar somente as operações locais, sem criar um site ou contas reais.
-
-Guardar a senha em texto legível expõe todas as contas se a base for copiada. Guardar apenas `SHA-256(senha)` também é inadequado: SHA-256 é rápido, e uma base vazada permite testar muitos palpites fora do serviço. O hash de D1 continua útil para comparar arquivos; a finalidade de **verificar senhas** pede um esquema próprio, com sal e custo ([OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)).
-
-### Cadastro e conferência: duas operações sobre o mesmo registro
-
-```mermaid
-flowchart TB
-    S[Senha criada] --> C[PBKDF2 com sal e custo]
-    L[Sal da conta] --> C
-    C --> V[Guardar sal, custo e verificador]
-    T[Tentativa de login] --> R[PBKDF2 com sal e custo guardados]
-    V -->|Sal e custo| R
-    R --> Q{Novo valor igual ao verificador?}
-    V -->|Verificador| Q
-    Q -->|Sim| A[Aceitar tentativa]
-    Q -->|Não| N[Rejeitar tentativa]
-```
-
-No **cadastro**, o programa gera um sal para aquela conta, deriva um **verificador** da senha e guarda `esquema + custo + sal + verificador`. A senha legível não entra nesse registro. O sal pode ser público; sua função é separar contas, inclusive quando duas pessoas escolhem a mesma senha.
-
-Na **conferência**, o programa recebe uma tentativa, usa o **sal e o custo guardados para aquela conta** e calcula outro valor. Se ele corresponder ao verificador, a tentativa é aceita. Não existe operação de “decifrar o verificador” para recuperar a senha.
-
-O **custo** define trabalho repetido para cada derivação. Isso também torna mais caras as tentativas de um atacante que obteve a base. Não torna uma senha fraca segura nem substitui a limitação de tentativas no serviço. O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) descreve sal, custo e registro do esquema para verificadores de senha.
-
-A prática usa **PBKDF2-HMAC-SHA256**, já introduzido em T2. Lá ele derivou chave e IV para cifrar uma cópia; aqui gera um verificador para conferir uma senha. As **100.000 iterações são apenas um parâmetro didático**. Para um sistema real, escolha um esquema e custo conforme recomendações atuais, como [Argon2id na OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html), e meça o desempenho no ambiente.
-
-### Prática curta no VS Code e WSL: observar cadastro e conferência {#senha-terminal}
-
-**Objetivo:** com a **mesma senha fictícia** em duas contas, observar o efeito de sais diferentes e conferir uma tentativa correta e outra incorreta. Os valores são gerados e verificados pelo próprio programa.
-
-1. Na pasta `~/cripto-a14` aberta no VS Code, crie `verificador_senhas_a14.py`. Copie somente o código Python abaixo e salve. O [arquivo `.py` para download](../assets/a14-a17/verificador_senhas_a14.py) contém o mesmo código.
-2. Antes de executar, preveja S1–S3: os dois verificadores serão iguais? Qual tentativa será aceita?
+Acrescente este último bloco ao mesmo arquivo. Antes de executá-lo, preveja três resultados: mesma mensagem com outro nonce; nova abertura do envelope original; abertura com chave derivada de outra senha.
 
 ```python
-from hashlib import pbkdf2_hmac
-from hmac import compare_digest
-from os import urandom
+# 4. Extensões: novo nonce, repetição do envelope e senha diferente
+nonce2 = urandom(12)
+while nonce2 == nonce:
+    nonce2 = urandom(12)
+sealed2 = AESGCM(key).encrypt(nonce2, text, aad)
+print('G4 nonce 1:', nonce.hex())
+print('G4 nonce 2:', nonce2.hex())
+print('G4 mesmo texto, ciphertext diferente?', sealed[:-16] != sealed2[:-16])
 
-# Dados fictícios: o programa não recebe nem guarda uma senha real.
-senha_de_teste = b'senha-ficticia-123'
-iteracoes = 100_000  # valor didático; não é configuração de produção
+print('G5 envelope repetido:', AESGCM(receiver_key).decrypt(
+    receiver_nonce, receiver_sealed, receiver_aad
+).decode('utf-8'))
 
-
-def derivar(senha_digitada, sal):
-    return pbkdf2_hmac('sha256', senha_digitada, sal, iteracoes)
-
-
-# Cadastro: duas contas usam a mesma senha, mas recebem sais próprios.
-sal_7 = urandom(16)
-sal_8 = urandom(16)
-verificador_7 = derivar(senha_de_teste, sal_7)
-verificador_8 = derivar(senha_de_teste, sal_8)
-
-print('Conta 7 — sal:', sal_7.hex())
-print('Conta 7 — verificador:', verificador_7.hex())
-print('Conta 8 — sal:', sal_8.hex())
-print('Conta 8 — verificador:', verificador_8.hex())
-print('Custo: ', iteracoes, 'iterações')
-print('S1 — verificadores iguais?', compare_digest(verificador_7, verificador_8))
-
-# Conferência: usar o sal e o custo guardados com o verificador da conta 7.
-tentativa_correta = b'senha-ficticia-123'
-tentativa_incorreta = b'outra-senha'
-print('S2 — senha correta aceita?', compare_digest(
-    derivar(tentativa_correta, sal_7), verificador_7
-))
-print('S3 — senha incorreta aceita?', compare_digest(
-    derivar(tentativa_incorreta, sal_7), verificador_7
-))
+wrong_key = pbkdf2_hmac('sha256', b'outra-senha', salt, iterations, dklen=32)
+try:
+    AESGCM(wrong_key).decrypt(receiver_nonce, receiver_sealed, receiver_aad)
+    print('G6: aceito (inesperado)')
+except InvalidTag:
+    print('G6: rejeitado; senha diferente gera outra chave')
 ```
 
-No terminal WSL, entre na pasta e execute:
+Em **G4**, `while` repete a geração caso o novo nonce seja igual ao primeiro. `encrypt` cifra de novo o mesmo conteúdo com a mesma chave e um nonce diferente. Em **G5**, só ocorre outra leitura do conjunto já cifrado. Em **G6**, sal e parâmetros permanecem iguais, mas a senha muda.
 
-```bash
-cd ~/cripto-a14
-python3 verificador_senhas_a14.py
-```
-
-`cd` seleciona a pasta onde o arquivo foi salvo. `python3` executa o arquivo. **Leia o código e a saída:**
-
-- `urandom(16)` gera **16 bytes de sal** para cada conta; `.hex()` permite ver esses bytes. Os valores mudam a cada execução.
-- `pbkdf2_hmac('sha256', senha, sal, iteracoes)` deriva o verificador. O `sha256` aqui **faz parte do PBKDF2**, com sal e repetições; não é o SHA-256 direto de D1.
-- `compare_digest` compara os valores derivados. Na conferência de S2/S3, o programa usa o sal da conta 7; a senha de teste só existe em memória neste exercício.
-
-| Saída | Resultado esperado | O que demonstra |
+| Caso | Resultado esperado | Interpretação |
 |---|---|---|
-| S1 — verificadores iguais? | `False` | A mesma senha com sais diferentes produz verificadores diferentes. |
-| S2 — senha correta aceita? | `True` | A tentativa refeita com o sal e o custo da conta 7 corresponde ao registro. |
-| S3 — senha incorreta aceita? | `False` | A tentativa diferente não corresponde ao verificador da conta 7. |
+| G4 — nova cifragem, outro nonce | Dois nonces diferentes; comparação do ciphertext: `True`. | A mesma chave pode proteger mais de uma mensagem quando os nonces são gerenciados corretamente. |
+| G5 — envelope original repetido | O texto é entregue de novo. | AES-GCM sozinho não rejeita uma mensagem válida por ela já ter sido recebida. |
+| G6 — outra senha, mesmo envelope | `G6: rejeitado; senha diferente gera outra chave` | Os campos públicos não substituem o segredo correto do receptor. |
 
-**Experimente uma mudança:** no VS Code, troque somente `sal_8 = urandom(16)` por `sal_8 = sal_7`, salve e execute outra vez. Preveja S1 antes de olhar. **S4:** S1 passa a `True`, porque senha, sal e custo agora coincidem nas duas contas. Restaure `sal_8 = urandom(16)` e salve: cada conta deve voltar a ter sal próprio. Não use essa configuração alterada para guardar senhas.
+**Retransmissão ou replay** é reapresentar uma mensagem antiga. Para evitar processá-la duas vezes, a aplicação precisa de regras adicionais, como identificador ou sequência protegidos e registro de mensagens já processadas. Um identificador no AAD só ajuda se o receptor verificar a tag **e conferir seu histórico** ([RFC 5116, seção 1.2](https://www.rfc-editor.org/rfc/rfc5116.html#section-1.2)).
 
-**Registre S1–S4:** anote os valores lógicos (`True`/`False`) e explique a mudança em S4 em uma frase. Não copie a senha nem os verificadores completos para a entrega. Se Python não abrir o arquivo, confira `pwd` e `ls`; se `pbkdf2_hmac` não estiver disponível, use a tabela S1–S3 e a previsão de S4 como **dados fornecidos**, sem marcar o teste como executado.
+**Registre a extensão**, se executada, em uma frase por limite observado; ela não cria outra entrega. Pare após G6. A leitura repetida usa o nonce original para decifrar; não é uma nova cifragem com nonce reutilizado.
 
-### O que este teste permite decidir
+### Diagnóstico e alternativa
 
-O programa executou a derivação e a comparação de bytes em memória. Ele **não criou uma base de dados nem um login de produção**. Para armazenar um registro real, seriam necessários ao menos o esquema, seus parâmetros, o sal e o verificador por conta; acesso à base, proteção contra tentativas online e atualização futura do custo também precisam ser planejados.
+Se aparecer `ModuleNotFoundError: No module named 'cryptography'`, confira que o terminal é o do WSL e informe ao professor. Se aparecer “can't open file”, confira a pasta com `pwd` e o nome com `ls`. Erro de instalação ou caminho não é falha de autenticação.
 
-Na [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade), acrescente a C1 uma conclusão curta: **quais campos o programa precisaria guardar para repetir a conferência e qual dado não deveria guardar?** Use S1/S4 para justificar o sal individual e S2/S3 para justificar a comparação. Essa conclusão se apoia no que foi executado, sem exigir desenho de um serviço imaginário.
+Se o ambiente falhar, use os quadros G1–G6 como **resultados fornecidos**, sem inventar bytes. Não avance às contraprovas se G1 não abrir o conjunto original: compare as duas senhas, o sal e os parâmetros de derivação. Um erro inesperado em G1 não deve ser registrado como adulteração comprovada.
+
+### CBC e GCM: comparar as propriedades
+
+| Modo | Valor por operação | O que oferece sozinho |
+|---|---|---|
+| CBC | IV para iniciar o encadeamento. | Sigilo, sem tag de autenticação própria. |
+| GCM | Nonce e tag do conjunto protegido. | Sigilo e verificação de alteração antes de entregar o texto. |
+
+T2 mostrou cifragem e abertura em CBC; G1–G3 mostraram também a verificação do cabeçalho e da tag. AES-GCM pressupõe uma chave correta nos dois lados. Não estabelece essa chave nem identifica, sozinho, quem conhece o segredo.
+
+## Distribuição da chave: estabelecer o segredo antes da mensagem {#distribuicao-chave}
+
+Na prática, a senha já estava nos dois extremos. Em sistemas separados, é necessário **resolver esse compartilhamento antes de proteger a comunicação**. Há três situações diferentes:
+
+| Forma | O que cada lado precisa ter | O que continua necessário |
+|---|---|---|
+| **Chave pré-compartilhada (PSK)** | Mesma chave secreta, entregue previamente. | Guardar e trocar a chave com controle. |
+| **Derivação de senha compartilhada** | Mesma senha, sal recebido e parâmetros iguais. | Proteger a senha e resistir a palpites. |
+| **Acordo de chaves autenticado** | Par de chaves e informação pública do outro lado. | Autenticar o participante e derivar as chaves. |
+
+**Uma chave criada só no emissor não aparece automaticamente no receptor.** Enviá-la em texto legível junto do conteúdo cifrado permitiria a quem copiasse o envelope abrir a mensagem. Sal, nonce e AAD podem acompanhar o envelope; o segredo precisa de outro caminho ou de um protocolo que o estabeleça.
+
+### Acordo de chaves: uma ponte para A15 e A16
+
+Um **par de chaves** tem duas partes matematicamente relacionadas: uma **privada**, guardada pelo titular, e uma **pública**, que pode ser compartilhada. A [A15](A15-chaves-assinaturas-certificados.md) desenvolve esse fundamento e a verificação da origem de uma chave pública.
+
+No acordo **ECDHE** — Diffie–Hellman em curvas elípticas com chaves efêmeras, isto é, temporárias para o acordo — as partes trocam informações públicas e calculam um segredo comum usando suas próprias chaves privadas.
+
+```mermaid
+%%{init: {'sequence': {'actorMargin': 20, 'width': 100, 'noteMargin': 5, 'diagramMarginX': 5}}}%%
+sequenceDiagram
+    participant C as Cliente
+    participant S as Servidor
+    C->>S: Informação pública C
+    S->>C: Informação pública S
+    Note over C: Privada C + pública S<br/>→ segredo comum
+    Note over S: Privada S + pública C<br/>→ mesmo segredo
+```
+
+**Leia o esquema:** cada chave privada fica no seu extremo. As informações que atravessam a rede permitem o cálculo local; o segredo resultante não é enviado.
+
+Uma KDF, como **HKDF**, deriva as chaves que serão usadas na cifra a partir desse material. HKDF trata material criptográfico e não substitui uma KDF com custo para senhas ([RFC 5869](https://www.rfc-editor.org/rfc/rfc5869.html)).
+
+**O acordo sozinho não confirma a identidade:** alguém poderia substituir as informações públicas trocadas e intermediar a comunicação. No TLS 1.3 com certificados, a validação do certificado e a prova da chave privada autenticam o servidor. A [A16](A16-tls-ciclo-de-chaves.md) reúne esse estabelecimento de confiança e a proteção do tráfego; o protocolo deriva chaves distintas para cada direção ([RFC 8446, seções 2 e 7](https://www.rfc-editor.org/rfc/rfc8446.html#section-2)).
+
+## Síntese: o que conservar e o que proteger {#aplicacao}
+
+- **Para abrir esta cópia:** conservar sal, esquema/custo de derivação, nonce, AAD e texto cifrado com tag; proteger a senha separadamente.
+- **Para uma chave aleatória já pronta:** conservar os campos da cifra e proteger a chave; a etapa de senha/sal não é necessária.
+- **Para aceitar uma operação:** verificar a tag antes de usar o conteúdo e aplicar as regras da aplicação, inclusive contra repetição.
+- **Para comunicar entre sistemas:** estabelecer as chaves com autenticação e proteção adequadas; o ensaio local não é um protocolo pronto para comunicação segura.
 
 ## Atividade {#atividade}
 
-Continue **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade), usando os resultados obtidos ao longo da página: T1–T2 para cifra, G1–G3 para autenticação, D1/M1–M3 para hash e HMAC e S1–S4 para senhas. Identifique se cada resultado foi executado ou fornecido. A entrega única será concluída após A16.
+Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade): use T1–T2 e G1–G3 para explicar a cifra, a rejeição da tag alterada e o segredo necessário no receptor. G4–G6 são extensões opcionais. Identifique resultados executados ou fornecidos. Continue C2 na A15 e C3 na A16; a entrega é única.
 
 ## Revisão rápida
 
 1. Por que AES precisa de um modo e por que CBC não equivale a GCM?
-2. Que diferença há entre digest, HMAC e cifra autenticada?
-3. Por que um sal individual sem custo adequado não resolve o armazenamento de senhas?
+2. Quais campos podem acompanhar o envelope e qual segredo o receptor precisa ter antes?
+3. Por que uma mensagem válida pode passar de novo pela abertura AES-GCM?
 
-## Ilustrações opcionais — Imagens 16–18
+<span id="digest"></span>
+<span id="hmac"></span>
+<span id="senhas"></span>
 
-Os prompts numerados da [Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16), da [Imagem 17](../assets/a14-a17/prompts-ilustrativos.md#imagem-17) e da [Imagem 18](../assets/a14-a17/prompts-ilustrativos.md#imagem-18) estão prontos para geração posterior. Os esquemas nativos acima já mostram as relações necessárias para estudar e executar as práticas.
+Hash, HMAC e verificação de senhas continuam no [bloco final da A16](A16-tls-ciclo-de-chaves.md#digest).
+
+## Ilustrações opcionais — Imagens 16–20
+
+Os prompts numerados da [Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16), da [Imagem 17](../assets/a14-a17/prompts-ilustrativos.md#imagem-17), da [Imagem 18](../assets/a14-a17/prompts-ilustrativos.md#imagem-18), da [Imagem 19](../assets/a14-a17/prompts-ilustrativos.md#imagem-19) e da [Imagem 20](../assets/a14-a17/prompts-ilustrativos.md#imagem-20) estão prontos para geração posterior. Os esquemas nativos acima já mostram as relações necessárias para estudar e executar as práticas.
 
 ## Referências
 
@@ -516,4 +536,4 @@ Os prompts numerados da [Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#im
 - [RFC 8018 — PBKDF2, sal e contagem de repetições](https://www.rfc-editor.org/info/rfc8018/).
 - [Documentação da biblioteca `cryptography` — AESGCM](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM).
 - [Documentação do Python — `hashlib.pbkdf2_hmac`](https://docs.python.org/3/library/hashlib.html#hashlib.pbkdf2_hmac).
-- [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104](https://www.rfc-editor.org/info/rfc2104/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+- [RFC 5116 — interface AEAD e limites](https://www.rfc-editor.org/info/rfc5116/), [RFC 5869 — HKDF](https://www.rfc-editor.org/info/rfc5869/), [RFC 8446 — TLS 1.3](https://www.rfc-editor.org/info/rfc8446/).

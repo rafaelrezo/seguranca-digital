@@ -1,3 +1,3 @@
 # A15 — endereço anterior do planejamento
 
-Hash, HMAC e armazenamento de senhas foram integrados à [A14 — cifra simétrica, hash e senhas](A14-cifra-simetrica-autenticada.md). A A15 vigente trata de [chaves, assinaturas e certificados](A15-chaves-assinaturas-certificados.md).
+Hash, HMAC e verificação de senhas estão no [bloco final da A16](A16-tls-ciclo-de-chaves.md#digest). A A15 vigente trata de [chaves, assinaturas e certificados](A15-chaves-assinaturas-certificados.md).

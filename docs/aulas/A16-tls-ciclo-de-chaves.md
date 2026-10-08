@@ -1,16 +1,18 @@
-# A16 (provisória) — TLS e ciclo de chaves
+# A16 (provisória) — TLS, gestão de chaves, hash e senhas
 
-O TLS usa as funções estudadas nas aulas anteriores para proteger uma conexão. A mesma proteção só permanece útil se as chaves puderem ser guardadas, trocadas e recuperadas com controle. Esta aula conclui o bloco com duas perguntas: **o que o canal protege?** e **como manter as chaves utilizáveis sem ampliar o acesso?**
+O TLS usa as funções estudadas nas aulas anteriores para proteger uma conexão. A mesma proteção só permanece útil se as chaves puderem ser guardadas, trocadas e recuperadas com controle.
+
+Primeiro veremos o canal e a gestão de suas chaves. No bloco final, compararemos hash, HMAC e verificação de senhas: mecanismos que conferem dados sem necessariamente cifrá-los.
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
-**Recursos:** página HTTPS do curso e WSL/Ubuntu com OpenSSL. Os dados fornecidos substituem a conexão quando necessário. Não informe credenciais nem contorne avisos de certificado.
+**Recursos:** página HTTPS do curso, WSL/Ubuntu com OpenSSL, VS Code e Python 3. O verificador de senhas usa a biblioteca padrão do Python. Os dados fornecidos substituem a conexão quando necessário. Não informe credenciais nem contorne avisos de certificado.
 
 **Objetivos de aprendizagem**
 
-1. Relacionar certificado, acordo de chaves e cifra autenticada no TLS.
-2. Diferenciar aceitação do canal de autorização da aplicação.
-3. Justificar troca, restrição e recuperação de chaves usando casos permitidos e negados.
+1. Relacionar certificado, acordo e cifra autenticada no TLS, distinguindo canal de autorização.
+2. Justificar troca, restrição e recuperação de chaves com casos permitidos e negados.
+3. Diferenciar hash, HMAC e verificador de senha usando comandos e um programa Python.
 
 ## TLS 1.3: autenticação, chaves e tráfego {#tls}
 
@@ -134,15 +136,192 @@ A partir de E-1 (troca planejada), preveja e confira estas relações **fornecid
 
 **Registre:** um caso permitido, dois negados e o teste funcional ainda pendente. Em E-2, suspeita de exposição de K-A, interrompa seu uso novo, investigue dependências e planeje recifrar C-01 a partir de fonte confiável. Em E-3, perda da instância de K-B, restaure a cópia selada sob dupla autorização e teste uma abertura representativa; gerar outra chave chamada “K-B” não recupera os mesmos bytes. **Pare:** essa análise é de política, não execução de restauração.
 
+## Hash e digest: comparar o conteúdo exato {#digest}
+
+Uma **função hash criptográfica** recebe bytes e produz um resumo de tamanho fixo, chamado **digest**. SHA-256 produz 256 bits (32 bytes). Os mesmos bytes produzem o mesmo digest; alterar os bytes quase certamente muda o resultado. Hash não cifra: o conteúdo pode continuar legível.
+
+A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest. Ainda assim, um digest igual não identifica quem criou ou publicou o arquivo.
+
+Para conferir uma cópia, calcule seu digest e compare com um valor publicado pelo fornecedor **por um canal confiável**. Se alguém puder substituir tanto a cópia quanto a referência, a igualdade não demonstra legitimidade. Essa distinção entre comparação de bytes e confiança na origem será usada novamente em assinaturas e certificados.
+
+O exemplo `abc` tem um digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad` ([exemplo NIST](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/examples/sha256.pdf)).
+
+A entrada são exatamente três bytes ASCII, sem aspas, espaço ou quebra de linha. Uma comparação exige os mesmos bytes e a mesma codificação; aparência semelhante não basta.
+
+**Prática curta no WSL:** abra uma pasta própria para a A16. `mkdir -p` cria a pasta se necessário; `cd` entra nela. Preveja os dois resumos e execute:
+
+```bash
+mkdir -p ~/cripto-a16
+cd ~/cripto-a16
+printf 'abc' > hash-a.txt
+printf 'abd' > hash-b.txt
+sha256sum hash-a.txt hash-b.txt
+```
+
+As duas linhas com `printf` criam arquivos de três bytes, sem quebra de linha; `>` cria ou substitui cada arquivo. `sha256sum` calcula e mostra o digest SHA-256 **de cada arquivo**, seguido do nome. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir.
+
+**Registre D1:** `abc` coincide com a referência NIST; `abd` difere. Anote os bytes comparados e a origem da referência. Se `sha256sum` faltar, use o valor NIST como **dado fornecido**. A igualdade não atribui autoria.
+
+## HMAC: verificar mensagem com segredo compartilhado {#hmac}
+
+Um **código de autenticação de mensagem** (*MAC*) depende de uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)). Quem recebe a mensagem confere o código com a **mesma chave** usada para produzi-lo.
+
+| Operação | Entrada necessária | Resultado | O conteúdo fica secreto? |
+|---|---|---|---|
+| SHA-256 de D1 | Bytes do arquivo. | Digest para comparar com uma referência confiável. | Não. |
+| HMAC de M1–M3 | Bytes da mensagem **e chave compartilhada**. | Código que deve mudar se a mensagem ou a chave mudar. | Não. |
+
+Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
+
+**Prática curta no WSL:** no mesmo diretório, execute:
+
+```bash
+printf 'pedido=7;valor=10' > msg-a.txt
+printf 'pedido=7;valor=11' > msg-b.txt
+openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt msg-b.txt
+openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt
+openssl dgst -sha256 -hmac 'outra-chave-aula' msg-a.txt
+```
+
+**Leia cada linha:**
+
+| Linha | O que faz |
+|---|---|
+| `printf ... > msg-a.txt` | Cria a mensagem original com `valor=10`, sem quebra de linha. |
+| `printf ... > msg-b.txt` | Cria a mensagem alterada com `valor=11`. |
+| Primeiro `openssl dgst` | Calcula um HMAC por arquivo. `-sha256` escolhe SHA-256; `-hmac` usa a chave literal de teste. Os nomes finais indicam os arquivos de entrada. |
+| Segundo `openssl dgst` | Recalcula o HMAC de `msg-a.txt` com **a mesma chave**: o código deve coincidir com o primeiro. |
+| Terceiro `openssl dgst` | Usa **outra chave** sobre `msg-a.txt`: o código deve diferir. |
+
+A saída traz códigos HMAC, **não mensagens cifradas**. Os dois textos continuam legíveis nos arquivos.
+
+**Registre M1–M3:** compare os códigos gerados para mesma mensagem/chave, mensagem alterada e chave alterada. A chave literal é pública nesta página e serve apenas ao ensaio. Se OpenSSL faltar, use M1–M3 abaixo como **dados fornecidos**. O código não identifica qual detentor da chave produziu a mensagem.
+
+### Quadro de resultados para acompanhar ou substituir o terminal
+
+Estas linhas são **referência de comportamento esperado**. O valor calculado no terminal depende exatamente dos bytes da mensagem e da chave literal de teste.
+
+| ID | Entradas | Resultado esperado | O que ainda não foi provado |
+|---|---|---|---|
+| D1 | SHA-256 de `abc` contra a referência NIST; depois `abd` | Coincide; depois difere | Autoria e procedência de qualquer arquivo externo. |
+| M1 | Mensagem original e mesma chave de teste | Código coincide ao recalcular | Qual detentor da chave produziu a primeira versão. |
+| M2 | Mensagem com `valor=11`, mesma chave | Código difere do M1 | Qual campo mudou fora deste teste controlado. |
+| M3 | Mensagem original, outra chave | Código difere do M1 | Se a chave real está protegida no sistema. |
+
+Se `sha256sum` ou OpenSSL não funcionar, leia o quadro na ordem D1–M3 e identifique-o como resultado fornecido. Se houver outro erro, anote comando e mensagem sem dados sensíveis. Espaços, acentos, quebras de linha e codificação mudam os bytes; confira a entrada exata antes de atribuir divergência a adulteração. A aceitação e rejeição do HMAC dependem da chave correta, mas não entregam diagnóstico causal de um evento real por si só.
+
+## Senhas: conferir uma tentativa sem guardar a senha {#senhas}
+
+Na prática D1 acima, SHA-256 permitiu comparar os bytes de **arquivos**. Agora a pergunta é outra: quando alguém cria uma conta e depois digita uma senha, como um programa confere essa tentativa sem manter uma cópia da senha na base de contas? Aqui, **serviço** significa o programa que recebe e confere a senha, como o responsável pelo login de um site. Nesta aula, vamos executar somente as operações locais, sem criar um site ou contas reais.
+
+Guardar a senha em texto legível expõe todas as contas se a base for copiada. Guardar apenas `SHA-256(senha)` também é inadequado: SHA-256 é rápido, e uma base vazada permite testar muitos palpites fora do serviço. O hash de D1 continua útil para comparar arquivos; a finalidade de **verificar senhas** pede um esquema próprio, com sal e custo ([OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)).
+
+### Cadastro e conferência: duas operações sobre o mesmo registro
+
+```mermaid
+flowchart TB
+    S[Senha criada] --> C[PBKDF2 com sal e custo]
+    L[Sal da conta] --> C
+    C --> V[Guardar sal, custo e verificador]
+    T[Tentativa de login] --> R[PBKDF2 com sal e custo guardados]
+    V -->|Sal e custo| R
+    R --> Q{Novo valor igual ao verificador?}
+    V -->|Verificador| Q
+    Q -->|Sim| A[Aceitar tentativa]
+    Q -->|Não| N[Rejeitar tentativa]
+```
+
+No **cadastro**, o programa gera um sal para aquela conta, deriva um **verificador** da senha e guarda `esquema + custo + sal + verificador`. A senha legível não entra nesse registro. O sal pode ser público; sua função é separar contas, inclusive quando duas pessoas escolhem a mesma senha.
+
+Na **conferência**, o programa recebe uma tentativa, usa o **sal e o custo guardados para aquela conta** e calcula outro valor. Se ele corresponder ao verificador, a tentativa é aceita. Não existe operação de “decifrar o verificador” para recuperar a senha.
+
+O **custo** define trabalho repetido para cada derivação. Isso também torna mais caras as tentativas de um atacante que obteve a base. Não torna uma senha fraca segura nem substitui a limitação de tentativas no serviço. O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) descreve sal, custo e registro do esquema para verificadores de senha.
+
+A prática usa **PBKDF2-HMAC-SHA256**, usado em T2 na A14. Lá ele derivou chave e IV para cifrar uma cópia; aqui gera um verificador para conferir uma senha. As **100.000 iterações são apenas um parâmetro didático**. Para um sistema real, escolha um esquema e custo conforme recomendações atuais, como [Argon2id na OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html), e meça o desempenho no ambiente.
+
+### Prática curta no VS Code e WSL: observar cadastro e conferência {#senha-terminal}
+
+**Objetivo:** com a **mesma senha fictícia** em duas contas, observar o efeito de sais diferentes e conferir uma tentativa correta e outra incorreta. Os valores são gerados e verificados pelo próprio programa.
+
+1. No WSL, entre em `~/cripto-a16` e digite `code .` para abrir a pasta no VS Code. Se esse comando faltar, use **Conectar ao WSL** no editor e abra a pasta. Crie `verificador_senhas_a16.py`. Copie somente o código Python abaixo e salve. O [arquivo `.py` para download](../assets/a14-a17/verificador_senhas_a16.py) contém o mesmo código.
+2. Antes de executar, preveja S1–S3: os dois verificadores serão iguais? Qual tentativa será aceita?
+
+```python
+from hashlib import pbkdf2_hmac
+from hmac import compare_digest
+from os import urandom
+
+# Dados fictícios: o programa não recebe nem guarda uma senha real.
+senha_de_teste = b'senha-ficticia-123'
+iteracoes = 100_000  # valor didático; não é configuração de produção
+
+
+def derivar(senha_digitada, sal):
+    return pbkdf2_hmac('sha256', senha_digitada, sal, iteracoes)
+
+
+# Cadastro: duas contas usam a mesma senha, mas recebem sais próprios.
+sal_7 = urandom(16)
+sal_8 = urandom(16)
+verificador_7 = derivar(senha_de_teste, sal_7)
+verificador_8 = derivar(senha_de_teste, sal_8)
+
+print('Conta 7 — sal:', sal_7.hex())
+print('Conta 7 — verificador:', verificador_7.hex())
+print('Conta 8 — sal:', sal_8.hex())
+print('Conta 8 — verificador:', verificador_8.hex())
+print('Custo: ', iteracoes, 'iterações')
+print('S1 — verificadores iguais?', compare_digest(verificador_7, verificador_8))
+
+# Conferência: usar o sal e o custo guardados com o verificador da conta 7.
+tentativa_correta = b'senha-ficticia-123'
+tentativa_incorreta = b'outra-senha'
+print('S2 — senha correta aceita?', compare_digest(
+    derivar(tentativa_correta, sal_7), verificador_7
+))
+print('S3 — senha incorreta aceita?', compare_digest(
+    derivar(tentativa_incorreta, sal_7), verificador_7
+))
+```
+
+No terminal WSL, entre na pasta e execute:
+
+```bash
+cd ~/cripto-a16
+python3 verificador_senhas_a16.py
+```
+
+`cd` seleciona a pasta onde o arquivo foi salvo. `python3` executa o arquivo. **Leia o código e a saída:**
+
+- `urandom(16)` gera **16 bytes de sal** para cada conta; `.hex()` permite ver esses bytes. Os valores mudam a cada execução.
+- `pbkdf2_hmac('sha256', senha, sal, iteracoes)` deriva o verificador. O `sha256` aqui **faz parte do PBKDF2**, com sal e repetições; não é o SHA-256 direto de D1.
+- `compare_digest` compara os valores derivados. Na conferência de S2/S3, o programa usa o sal da conta 7; a senha de teste só existe em memória neste exercício.
+
+| Saída | Resultado esperado | O que demonstra |
+|---|---|---|
+| S1 — verificadores iguais? | `False` | A mesma senha com sais diferentes produz verificadores diferentes. |
+| S2 — senha correta aceita? | `True` | A tentativa refeita com o sal e o custo da conta 7 corresponde ao registro. |
+| S3 — senha incorreta aceita? | `False` | A tentativa diferente não corresponde ao verificador da conta 7. |
+
+**Experimente uma mudança:** no VS Code, troque somente `sal_8 = urandom(16)` por `sal_8 = sal_7`, salve e execute outra vez. Preveja S1 antes de olhar. **S4:** S1 passa a `True`, porque senha, sal e custo agora coincidem nas duas contas. Restaure `sal_8 = urandom(16)` e salve: cada conta deve voltar a ter sal próprio. Não use essa configuração alterada para guardar senhas.
+
+**Registre S1–S4:** anote os valores lógicos (`True`/`False`) e explique a mudança em S4 em uma frase. Não copie a senha nem os verificadores completos para a entrega. Se Python não abrir o arquivo, confira `pwd` e `ls`; se `pbkdf2_hmac` não estiver disponível, use a tabela S1–S3 e a previsão de S4 como **dados fornecidos**, sem marcar o teste como executado.
+
+### O que este teste permite decidir
+
+O programa executou a derivação e a comparação de bytes em memória. Ele **não criou uma base de dados nem um login de produção**. Para armazenar um registro real, seriam necessários ao menos o esquema, seus parâmetros, o sal e o verificador por conta; acesso à base, proteção contra tentativas online e atualização futura do custo também precisam ser planejados.
+
+Na [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade), acrescente a C3 uma conclusão curta: **quais campos o programa precisaria guardar para repetir a conferência e qual dado não deveria guardar?** Use S1/S4 para justificar o sal individual e S2/S3 para justificar a comparação. Essa conclusão se apoia no que foi executado, sem exigir desenho de um serviço imaginário.
+
 ## Atividade {#atividade}
 
-Conclua **C3** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) à medida que analisar os cartões, o terminal TLS e P1–P3/N1–N3. Faça uma decisão final para **repouso, trânsito, backup e endpoint**: `mecanismo → evidência → contraprova → limite → responsável`. Revise com a dupla e entregue um único PDF no prazo definido pelo docente.
+Conclua **C3** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) à medida que analisar o canal TLS, a gestão de chaves e os testes D1, M1–M3 e S1–S4. Escolha os recortes pedidos no registro único; não é necessário anexar todos os quadros da página. Faça uma decisão final para **repouso, trânsito, backup e endpoint**: `mecanismo → evidência → contraprova → limite → responsável`. Revise com a dupla e entregue um único PDF no prazo definido pelo docente.
 
 ## Revisão rápida
 
 1. Por que a chave pública do certificado não cifra cada resposta HTTP?
 2. Uma resposta `403` em HTTPS representa falha de TLS ou decisão da aplicação?
-3. Por que K-B ativa não abre C-01 e qual teste confirma a recuperação de K-B?
+3. Que diferença há entre comparar um arquivo com SHA-256, autenticar uma mensagem com HMAC e conferir uma senha com sal e custo?
 
 ## Ilustração opcional — Imagem 15
 
@@ -151,4 +330,6 @@ O [prompt numerado da Imagem 15](../assets/a14-a17/prompts-ilustrativos.md#image
 ## Referências
 
 - [RFC 8446 — TLS 1.3](https://www.rfc-editor.org/info/rfc8446/), [RFC 5280](https://www.rfc-editor.org/info/rfc5280/), [NIST SP 800-57 Part 1 Rev. 5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
-- [OpenSSL `s_client`](https://docs.openssl.org/3.5/man1/openssl-s_client/).
+- [OpenSSL `s_client`](https://docs.openssl.org/3.5/man1/openssl-s_client/) e [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).
+- [NIST FIPS 180-4 — hash](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104 — HMAC](https://www.rfc-editor.org/info/rfc2104/).
+- [Python — `hashlib.pbkdf2_hmac`](https://docs.python.org/3/library/hashlib.html#hashlib.pbkdf2_hmac), [RFC 8018](https://www.rfc-editor.org/info/rfc8018/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).

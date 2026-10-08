@@ -19,9 +19,9 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A11 — Proteção de dados](aulas/A11-protecao-de-dados.md) | LGPD, cópias, permissões e revogação, DLP e recuperação verificável | [Atividade integrada A11–A13](atividades/A11-A12-parecer.html#atividade) |
 | [A12 — Proteção de dados (continuação)](aulas/A12-protecao-de-dados-continuacao.md) | Segundo encontro de proteção de dados; consulte o material de estudo compartilhado com A11 | [Mesma atividade integrada](atividades/A11-A12-parecer.html#atividade) |
 | [A13 — Proteção de endpoints](aulas/A13-protecao-de-endpoints.md) | Execução, incidentes industriais ilustrativos, telemetria, contenção e retorno | [Concluir a atividade integrada](atividades/A11-A12-parecer.html#atividade) |
-| [A14 — Cifra simétrica, hash e senhas (provisória)](aulas/A14-cifra-simetrica-autenticada.md) | AES e modos, GCM, hash, HMAC e senha; práticas curtas no WSL e navegador | [Preencher C1 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A14 — Cifra simétrica e compartilhamento de chaves (provisória)](aulas/A14-cifra-simetrica-autenticada.md) | AES/CBC/GCM, envelope e segredo do receptor; comandos e programa no WSL | [Preencher C1 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
 | [A15 — Chaves, assinaturas e certificados (provisória)](aulas/A15-chaves-assinaturas-certificados.md) | Par de chaves, assinatura verificável e vínculo de certificado | [Preencher C2 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A16 — TLS e ciclo de chaves (provisória)](aulas/A16-tls-ciclo-de-chaves.md) | Canal, autorização, troca e recuperação de chaves | [Concluir C3 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A16 — TLS, gestão de chaves, hash e senhas (provisória)](aulas/A16-tls-ciclo-de-chaves.md) | Canal, gestão de chaves; hash, HMAC e verificação de senhas no bloco final | [Concluir C3 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 

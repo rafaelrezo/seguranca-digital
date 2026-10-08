@@ -38,6 +38,22 @@ Estas imagens são opcionais. As explicações, tabelas e demonstrações das au
 
 **Local:** antes da prática G1–G3. O esquema nativo da página já mostra a relação enquanto a imagem não for fornecida.
 
-**Prompt:** “Crie um diagrama didático em português, fundo claro, alto contraste, texto grande. Mostre quatro entradas distintas para AES-GCM: ‘chave secreta’, ‘nonce novo para esta chave’, ‘texto legível: ordem=7;estado=aprovado’ e ‘AAD visível: tipo=ordem;versao=1’. Mostre duas saídas: ‘texto cifrado’ e ‘tag’. Em um segundo passo curto, mostre as mesmas entradas e a tag original abrindo o texto; depois ‘AAD alterado para versao=2, tag original’ levando a ‘rejeição, sem texto entregue’. Não represente o AAD como cifrado, nem o nonce como sal ou segredo. Formato horizontal responsivo, sem marcas ou pessoas.”
+**Prompt:** “Crie um diagrama didático em português, fundo claro, alto contraste, texto grande. Mostre quatro entradas distintas para AES-GCM: ‘chave secreta’, ‘nonce novo para esta chave’, ‘texto legível: origem conta123, destino conta456, valor fictício 5000’ e ‘AAD visível: tipo=transferencia;versao=1’. Mostre duas saídas: ‘texto cifrado’ e ‘tag’. Em um segundo passo curto, mostre as mesmas entradas e a tag original abrindo o texto; depois ‘AAD alterado para versao=2, tag original’ levando a ‘rejeição, sem texto entregue’. Não represente o AAD como cifrado, nem o nonce como sal ou segredo. Formato horizontal responsivo, sem marcas ou pessoas.”
 
 **Texto alternativo previsto:** AES-GCM cifra o texto e produz uma tag usando chave, nonce e AAD; alterar apenas o AAD faz a abertura com a tag original falhar.
+
+## Imagem 19 — O que acompanha a mensagem AES-GCM (A14) {#imagem-19}
+
+**Local:** após “Exemplo: proteger uma mensagem de transferência”. O esquema nativo já representa o envelope enquanto a figura não for fornecida.
+
+**Prompt:** “Crie uma ilustração didática simples e direta em português. Mostre ‘Emissor: cifra’ e ‘Receptor: verifica e abre’, unidos por uma seta rotulada ‘envelope da aplicação’. Abaixo, represente os cinco campos do envelope em cartões: ‘Sal público: 16 bytes neste ensaio’, ‘Nonce público: 12 bytes’, ‘AAD visível: tipo=transferencia;versao=1’, ‘Texto cifrado: contas e valor ocultos’ e ‘Tag: 16 bytes’. Coloque a mesma chave K1 em cada extremo, em área separada e rotulada ‘segredo local’; nenhuma chave nem senha deve aparecer dentro do envelope. Uma legenda curta informa ‘O sal participa da derivação; o nonce participa da cifragem’. Contas fictícias conta123/conta456; nenhum dinheiro é movimentado. Não desenhe pacotes IP nem apresente este formato como protocolo de rede padronizado. Fundo claro, alto contraste, rótulos grandes, sem marcas ou pessoas.”
+
+**Texto alternativo previsto:** emissor e receptor usam a mesma chave local; sal, nonce, AAD, texto cifrado e tag acompanham a mensagem. Senha e chave não estão no envelope.
+
+## Imagem 20 — Estabelecer o segredo antes de usar AES-GCM (A14) {#imagem-20}
+
+**Local:** após “Acordo de chaves: uma ponte para A15 e A16”. Os esquemas de derivação e acordo da página já permitem compreender as relações.
+
+**Prompt:** “Crie dois esquemas didáticos em português, com texto grande e alto contraste. Primeiro: ‘senha já conhecida nos dois lados’ alimenta duas operações PBKDF2, uma no emissor e uma no receptor; o mesmo sal público e os mesmos parâmetros entram em ambas; saem duas caixas com ‘mesma chave K1’. A senha não deve ser desenhada atravessando o envelope da mensagem. Segundo: ‘acordo ECDHE’ mostra cliente com privada C local e servidor com privada S local; somente informação pública C e pública S cruza o espaço entre eles. Cada lado calcula localmente o mesmo segredo, depois uma KDF deriva as chaves. Acrescente ‘Acordo exige autenticação dos participantes; no TLS com certificados, certificado e assinatura sustentam essa verificação’. Não desenhe segredo nem chaves privadas atravessando a rede; não mostre o segredo de ECDHE como chave AES pronta e não sugira que HKDF é função para endurecer senha. Sem marcas, personagens ou dados reais.”
+
+**Texto alternativo previsto:** uma senha previamente compartilhada e entradas iguais permitem derivar a mesma chave por PBKDF2; ECDHE estabelece um segredo com trocas públicas e chaves privadas locais, exigindo autenticação e derivação posterior.

@@ -26,7 +26,9 @@ Três operações precisam ser separadas:
 
 Uma **assinatura digital** é calculada sobre os bytes da mensagem com a chave privada. A verificação usa **mensagem + assinatura + chave pública correspondente**. Alterar uma dessas entradas faz a conferência falhar.
 
-Assinar não equivale a “cifrar com a chave privada”: o texto pode continuar legível. O exercício usa ECDSA com curva P-256 e SHA-256; o digest sozinho não é uma assinatura ([NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final)).
+Assinar não equivale a “cifrar com a chave privada”: o texto pode continuar legível. O exercício usa **ECDSA**, um algoritmo de assinatura com curvas elípticas, na curva P-256, e **SHA-256**, uma função hash ([NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final)).
+
+Uma **função hash** calcula um resumo de tamanho fixo dos bytes, chamado **digest**. SHA-256 produz 32 bytes; mudar a mensagem quase certamente muda o resumo. Na assinatura deste exercício, esse cálculo é uma etapa interna, feita pelo OpenSSL. O digest sozinho não identifica quem produziu a mensagem e não é uma assinatura. A [A16](A16-tls-ciclo-de-chaves.md#digest) desenvolve a comparação de arquivos, HMAC e verificadores de senha.
 
 No **acordo de chaves**, duas partes combinam informações públicas com suas próprias chaves privadas para derivar um segredo comum. **ECDH** é um exemplo. O acordo, sozinho, não autentica a identidade da outra parte; isso exige mecanismo adicional. O TLS da A16 combinará essas funções. A [NIST SP 800-56A Rev. 3](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) descreve esquemas de estabelecimento de chaves. Nesta aula, a operação prática concentra-se na assinatura.
 
