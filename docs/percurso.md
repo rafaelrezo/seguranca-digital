@@ -19,15 +19,13 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A11 — Proteção de dados](aulas/A11-protecao-de-dados.md) | LGPD, cópias, permissões e revogação, DLP e recuperação verificável | [Atividade integrada A11–A13](atividades/A11-A12-parecer.html#atividade) |
 | [A12 — Proteção de dados (continuação)](aulas/A12-protecao-de-dados-continuacao.md) | Segundo encontro de proteção de dados; consulte o material de estudo compartilhado com A11 | [Mesma atividade integrada](atividades/A11-A12-parecer.html#atividade) |
 | [A13 — Proteção de endpoints](aulas/A13-protecao-de-endpoints.md) | Execução, incidentes industriais ilustrativos, telemetria, contenção e retorno | [Concluir a atividade integrada](atividades/A11-A12-parecer.html#atividade) |
-| [A14 — Cifrar e detectar alterações (provisória)](aulas/A14-cifra-simetrica-autenticada.md) | Cifra autenticada, nonce, chave e teste de adulteração | [Iniciar C1 no registro único](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A15 — Hash, HMAC e senhas (provisória)](aulas/A15-hash-hmac-senhas.md) | Referência confiável, mensagem autenticada e verificador de senha | [Continuar C2](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A16 — Chaves e assinaturas (provisória)](aulas/A16-chaves-assinaturas.md) | Assinatura válida, mensagem alterada e chave pública errada | [Continuar C3](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A17 — Certificados e TLS (provisória)](aulas/A17-certificados-tls.md) | Identidade do servidor, confiança no certificado e limite do canal | [Continuar C4](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A18 — Ciclo de chaves (provisória)](aulas/A18-ciclo-de-chaves-integracao.md) | Troca, acesso, recuperação e retorno verificável | [Concluir C5 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A14 — Cifra simétrica, hash e senhas (provisória)](aulas/A14-cifra-simetrica-autenticada.md) | AES e modos, GCM, hash, HMAC e senha; práticas curtas no WSL e navegador | [Preencher C1 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A15 — Chaves, assinaturas e certificados (provisória)](aulas/A15-chaves-assinaturas-certificados.md) | Par de chaves, assinatura verificável e vínculo de certificado | [Preencher C2 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A16 — TLS e ciclo de chaves (provisória)](aulas/A16-tls-ciclo-de-chaves.md) | Canal, autorização, troca e recuperação de chaves | [Concluir C3 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
-A atividade de **criptografia e confiança** reúne A14–A18 em um único registro. Cada encontro acrescenta uma decisão e uma contraprova; a entrega é feita uma vez, após o bloco e conforme convocação do docente no Classroom.
+A atividade de **criptografia e confiança** reúne A14–A16 em um único registro. Cada encontro acrescenta uma decisão e uma contraprova; a entrega é feita uma vez, após o bloco e conforme convocação do docente no Classroom.
 
 ## Como preparar sua evidência
 

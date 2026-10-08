@@ -58,6 +58,14 @@ A reconciliação do MkDocs com as apresentações e práticas publicadas está 
 - Conferir a página em projeção: título, ideias centrais e relação visual devem ser legíveis juntos quando viável. Dividir o bloco antes de reduzir fonte. Garantir leitura em tela pequena, texto alternativo e acesso por teclado.
 - Usar rótulos públicos como “Síntese”, “Exemplo” e “Explicação”. Mediação, respostas e decisões editoriais permanecem no plano docente.
 
+### Regra editorial definitiva — leitura rápida e densidade visual (8 out. 2026)
+
+- Desenvolver uma ideia principal por parágrafo. Se uma explicação reúne definição, condição, exemplo, limite e instrução, separá-los em blocos próximos, com rótulos claros quando úteis.
+- Alternar parágrafos curtos com listas, tabelas pequenas, comandos e esquemas **conforme a relação que precisam mostrar**. Usar itens para propriedades, etapas, entradas, saídas e critérios; usar tabela para comparação. Não transformar toda a página em listas nem repetir integralmente em itens o que o parágrafo já explicou.
+- Como referência de revisão, evitar parágrafos que ocupem mais de três ou quatro linhas na largura normal de leitura ou acumulem mais de uma pergunta conceitual. Dividir antes de reduzir fonte ou encurtar a teoria. Um parágrafo maior só permanece se sua unidade de raciocínio e legibilidade forem claras na projeção e no celular.
+- Aproximar cada definição de seu exemplo e de uma prática curta quando houver operação útil. Explicar o comando e a saída no ponto de uso; registrar a interpretação e o limite logo após, sem reservar toda a prática ao final.
+- Antes de publicar, ler a página renderizada em desktop/projeção e tela estreita: localizar visualmente cada conceito, comando, resultado e decisão sem procurar em um bloco extenso. Corrigir trechos densos e conferir que a conversão em itens não eliminou a explicação necessária ao estudo.
+
 ## Condução e avaliação — repactuação após A07
 
 - Para A08–A31, considerar 24 encontros restantes de **100 minutos efetivos**. O histórico A01–A07 permanece preservado.

@@ -1,0 +1,147 @@
+# A15 (provisória) — Chaves públicas, assinaturas e certificados
+
+A A14 mostrou mecanismos com segredo compartilhado. Agora, uma chave **privada** assina e uma chave **pública** verifica. Um **certificado** ajuda a vincular essa chave pública a um nome de serviço. Primeiro observe as operações, depois examine as condições de confiança.
+
+**Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
+
+**Recursos:** WSL/Ubuntu com OpenSSL e navegador. Use chaves descartáveis e dados da página; os resultados fornecidos servem de alternativa. Não use arquivos ou certificados pessoais.
+
+**Objetivos de aprendizagem**
+
+1. Distinguir chave privada e pública, assinatura e acordo de chaves.
+2. Verificar assinatura original e alterada sem atribuir identidade apenas ao resultado matemático.
+3. Identificar nome, validade, finalidade e cadeia que sustentam o uso de um certificado.
+
+## Par de chaves: segredo privado e informação pública {#funcoes}
+
+As duas chaves de um par são geradas juntas, mas têm papéis distintos. A chave **privada** deve permanecer sob controle do titular. A chave **pública** pode ser distribuída; sua divulgação não é uma falha. Isso não significa que qualquer chave pública recebida seja confiável: para associá-la a uma pessoa ou serviço, é preciso verificar sua origem. Um par de chaves não substitui a chave simétrica compartilhada da A14; mecanismos diferentes usam chaves diferentes.
+
+Três operações precisam ser separadas:
+
+| Necessidade | Mecanismo e chaves | O que se observa | Limite |
+|---|---|---|---|
+| Impedir leitura da cópia | Cifra autenticada, como AES-GCM da A14: a mesma chave secreta cifra e abre. | Sem chave, não se recupera o texto; alteração autenticada é rejeitada. | O processo que usa a chave vê o texto. |
+| Verificar mensagem e chave usada | Assinatura: a chave **privada** assina; a **pública** correspondente verifica. | Verificação válida ou inválida para mensagem, assinatura e chave recebidas. | Não oculta a mensagem nem prova, sozinha, a identidade do titular. |
+| Chegar a material secreto comum | Acordo de chaves: participantes combinam material público e suas próprias chaves privadas. | Ambos derivam um segredo sob as premissas do protocolo. | Precisa autenticar os participantes para evitar troca de chaves por terceiro. |
+
+Uma **assinatura digital** é calculada sobre os bytes da mensagem com a chave privada. A verificação usa **mensagem + assinatura + chave pública correspondente**. Alterar uma dessas entradas faz a conferência falhar.
+
+Assinar não equivale a “cifrar com a chave privada”: o texto pode continuar legível. O exercício usa ECDSA com curva P-256 e SHA-256; o digest sozinho não é uma assinatura ([NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final)).
+
+No **acordo de chaves**, duas partes combinam informações públicas com suas próprias chaves privadas para derivar um segredo comum. **ECDH** é um exemplo. O acordo, sozinho, não autentica a identidade da outra parte; isso exige mecanismo adicional. O TLS da A16 combinará essas funções. A [NIST SP 800-56A Rev. 3](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) descreve esquemas de estabelecimento de chaves. Nesta aula, a operação prática concentra-se na assinatura.
+
+
+### Prática curta no WSL: separar as chaves
+
+**Estado inicial:** use somente `~/cripto-a15`. `umask 077` limita as permissões dos arquivos novos; `genpkey` cria uma chave privada descartável de curva P-256; `pkey -pubout` extrai a chave pública. Não publique nem reutilize a privada.
+
+```bash
+mkdir -p ~/cripto-a15
+cd ~/cripto-a15
+umask 077
+openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out privada.pem
+openssl pkey -in privada.pem -pubout -out publica.pem
+ls -l privada.pem publica.pem
+```
+
+**Resultado esperado:** dois arquivos diferentes; somente o titular deve ter acesso à privada. `ls -l` mostra permissões, não prova proteção fora desta pasta. Registre `T3 → arquivo privado → arquivo distribuível → limite`. Se OpenSSL faltar, use a relação como dado fornecido. **Pare** antes de assinar e diga qual arquivo deve entrar em cada operação.
+
+## Origem da chave pública: o limite da verificação {#par}
+
+Nesta página, **K1** é o par que assina e **K2** é outro par, usado como contraprova. Os IDs valem apenas aqui. A parte pública de K1 não precisa de sigilo, mas precisa de **origem confiável e proteção contra substituição**. Se um terceiro substituir a chave pública anunciada pela sua, poderá apresentar uma assinatura válida sob essa outra chave e alegar uma identidade que não demonstrou possuir.
+
+No exercício de terminal, `privada.pem` e `outra-privada.pem` são chaves descartáveis. `publica.pem` e `outra-publica.pem` podem ser lidas por verificadores, mas seu conteúdo, por si, não informa a identidade do titular. Não use essas chaves para documentos reais.
+
+## Assinatura: verificar os mesmos bytes {#demonstracao}
+
+`openssl dgst -sha256 -sign` cria a assinatura de um arquivo com a chave privada; `-verify` confere assinatura, conteúdo e chave pública. Preveja o resultado antes de cada verificação. O texto permanece legível.
+
+```bash
+printf 'relatorio=7;resultado=aprovado' > relatorio.txt
+openssl dgst -sha256 -sign privada.pem -out assinatura.bin relatorio.txt
+openssl dgst -sha256 -verify publica.pem -signature assinatura.bin relatorio.txt
+printf 'relatorio=7;resultado=recusado' > alterado.txt
+openssl dgst -sha256 -verify publica.pem -signature assinatura.bin alterado.txt
+```
+
+**Resultado esperado:** `Verified OK` no original e `Verification failure` no alterado. A segunda linha de verificação retorna erro ao shell; isso é a rejeição esperada. Registre `T4 → bytes → chave → resultado → limite`. Para a terceira contraprova, gere outro par de teste e verifique o original com a outra chave pública:
+
+```bash
+openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out outra-privada.pem
+openssl pkey -in outra-privada.pem -pubout -out outra-publica.pem
+openssl dgst -sha256 -verify outra-publica.pem -signature assinatura.bin relatorio.txt
+```
+
+**Resultado esperado:** `Verification failure`. Se OpenSSL faltar, use o quadro como **dados fornecidos**:
+
+| ID | Mensagem, assinatura e chave pública | Resultado | Conclusão limitada |
+|---|---|---|---|
+| V1 | Original, S1, K1 pública | Válida | Estes três elementos correspondem. |
+| V2 | Alterada, S1, K1 pública | Inválida | Os bytes não correspondem aos assinados. |
+| V3 | Original, S1, K2 pública | Inválida | A chave testada não corresponde à assinatura. |
+
+**Exemplo trabalhado:** V2 falha porque `resultado=recusado` não são os bytes `resultado=aprovado` assinados. A falha não revela se houve fraude, erro de transporte ou seleção do arquivo errado. **Pare** antes de concluir que a assinatura válida identifica uma pessoa ou organização: isso depende da origem confiável de K1 pública.
+
+## Confiança: decidir quando aceitar {#confianca}
+
+V1 confirma a correspondência matemática entre mensagem, assinatura e K1 pública. **Não confirma que K1 pertença à pessoa ou serviço alegado.**
+
+Antes de aceitar uma origem específica, obtenha a chave pública por canal confiável ou valide um vínculo verificável. A seção seguinte apresenta o certificado como esse vínculo; a A16 mostra seu uso em TLS.
+
+## Certificado: vincular nome, chave e emissor {#certificado}
+
+Um certificado **X.509** reúne chave pública, nomes e outros campos assinados por uma **autoridade certificadora** (*emissor*). Ele apresenta um vínculo entre nome e chave, sujeito a verificações.
+
+O cliente confere uma **cadeia**: as assinaturas e restrições dos emissores precisam levar a uma **âncora de confiança** que o cliente já aceita. Receber uma raiz enviada pelo servidor não a torna confiável.
+
+Também é preciso conferir nome solicitado, prazo e finalidade ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280); [RFC 9525](https://www.rfc-editor.org/rfc/rfc9525)).
+
+**Síntese:** o certificado apresenta a chave; a cadeia e a âncora sustentam o vínculo; o nome precisa corresponder ao endereço solicitado; o período e a finalidade precisam permitir o uso. Uma verificação de assinatura isolada não substitui essas condições.
+
+| Evidência | Pergunta de decisão | Interpretação cuidadosa |
+|---|---|---|
+| Nome DNS em **Subject Alternative Name** (SAN) | O endereço acessado corresponde a um nome coberto? | O nome do site, e não uma aparência parecida, é a referência. O campo `Subject/CN` isolado não substitui essa conferência. |
+| `Not Before` / `Not After` | A data atual está dentro do intervalo? | Estar no prazo não prova que a chave privada continua sob controle do titular. |
+| Emissor e cadeia | As assinaturas e restrições levam a uma âncora confiável para este cliente? | “Emitido por X” escrito no certificado não equivale a cadeia validada. |
+| `Extended Key Usage` e restrições de uso | O certificado serve para autenticação de servidor TLS? | Um certificado limitado a autenticação de cliente não serve para esse papel. |
+| Estado de revogação | Há evidência de revogação ou de consulta válida? | A ausência de aviso não é prova universal de “não revogado”; políticas e mecanismos do cliente variam. |
+
+O visualizador apresenta **campos**; o navegador decide a aceitação conforme sua política. **Revogação** invalida um certificado antes do fim do prazo, por exemplo após suspeita de comprometimento da chave.
+
+CRL e OCSP são meios de publicar ou consultar esse estado ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280); [RFC 6960](https://www.rfc-editor.org/rfc/rfc6960)). Evidência confiável de revogação exige recusa. Sem informação, registre **estado não comprovado**; não deduza “não revogado” apenas porque a página abriu.
+
+### Inspeção no navegador: colher evidência real {#inspecao}
+
+Use **somente a página do próprio curso que já está aberta**. Confira primeiro a barra de endereços: se começar com `https://`, há uma conexão candidata à inspeção. Se começar com `http://`, `file://` ou `localhost`, ou se o navegador não mostrar o certificado, passe diretamente ao pacote fictício. Não force HTTPS, não abra outro serviço e não contorne um aviso.
+
+No **Firefox**, abra o ícone de conexão ao lado do endereço → **Conexão segura** → **Mais informações** → **Ver certificado** ([ajuda oficial](https://support.mozilla.org/en-US/kb/secure-website-certificate)).
+
+Em outro navegador, use o visualizador disponível. Se não localizar os campos, use o pacote fornecido na A16. Não altere opções de segurança nem contorne avisos.
+
+1. **Estado inicial:** copie apenas o **nome DNS** da página, sem caminho, parâmetros ou capturas de contas. Preveja se o certificado precisa conter exatamente esse nome ou um nome que o cubra validamente.
+2. **Ação:** abra o certificado do servidor. Localize SAN, início/fim de validade, emissor, caminho e finalidade, quando esses campos aparecerem. Registre `domínio observado → SAN relevante → intervalo → emissor/caminho mostrado → finalidade mostrada → estado da conexão`. **Resultado esperado:** campos legíveis e indicação do navegador para a conexão; os valores reais variam conforme a publicação. Não copie números de série nem impressões digitais completos.
+3. **Pausa de leitura:** distinga “vi o emissor/cadeia” de “o navegador aceitou a conexão”. Se um campo não aparecer, escreva **não exibido**. O certificado não mostra, por si, qual versão TLS foi negociada. Não marque revogação como “boa” somente porque a página abriu.
+4. **Critério de parada:** registre uma conclusão condicionada aos dados visíveis, sem declarar que o site é seguro em todos os sentidos. Se surgir alerta, pare, registre apenas a classe do aviso e retorne ao pacote fictício; não avance para o site.
+
+### Exemplo trabalhado: o nome errado
+
+Você abriu `https://curso.exemplo.invalid`, mas o SAN apresentado cobre apenas `portal.exemplo.invalid`. Mesmo que o certificado esteja no prazo e tenha uma cadeia confiável, **recuse**: a chave foi vinculada a outro nome. Uma aparência semelhante na tela não modifica o endereço que o navegador pediu. Os domínios `.invalid` desta página são **fictícios e não devem ser acessados**.
+
+## Atividade {#atividade}
+
+Atualize **C2** no [registro único de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) após T3, V1–V3 e inspeção de certificado: `chave → operação → resultado → origem da chave pública → condição para confiar → limite`. Não há entrega separada.
+
+## Revisão rápida
+
+1. Qual chave assina e qual verifica?
+2. Por que `Verified OK` não prova, sozinho, o nome do titular?
+3. Que campos do certificado impedem aceitar uma chave para qualquer nome e finalidade?
+
+## Ilustração opcional — Imagem 14
+
+O [prompt numerado da Imagem 14](../assets/a14-a17/prompts-ilustrativos.md#imagem-14) está pronto para geração posterior. O conteúdo desta página já pode ser estudado e praticado sem a imagem.
+
+## Referências
+
+- [NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final), [SP 800-56A Rev. 3](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), [RFC 5280](https://www.rfc-editor.org/rfc/rfc5280), [RFC 9525](https://www.rfc-editor.org/rfc/rfc9525).
+- [OpenSSL `genpkey`](https://docs.openssl.org/3.5/man1/openssl-genpkey/), [`pkey`](https://docs.openssl.org/3.5/man1/openssl-pkey/), [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).

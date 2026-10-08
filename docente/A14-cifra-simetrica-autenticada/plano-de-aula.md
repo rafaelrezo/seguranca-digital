@@ -1,55 +1,31 @@
-# Plano docente — cifra simétrica autenticada (A14 provisória)
+# Plano docente — A14 — cifra simétrica, hash e senhas (provisória)
 
-**Revisão de 8 out. 2026:** conduzir pela exposição direta de texto legível, cifra, chave, sigilo, integridade e AES-GCM. O texto curto da demonstração é apenas um vetor de teste. Apresentar cada termo antes dos botões; usar V1/F1–F3/V2 para verificar as propriedades. Preservar 55 T/45 P planejados.
-
-**Correção posterior no mesmo dia:** começar pela definição de cifra simétrica e pelo esquema em que **a mesma K1** entra na cifragem e na decifragem. Explicar AES como cifra de blocos de 128 bits e distinguir algoritmo de modo de operação. Comparar CBC (confidencialidade sem autenticação própria) e GCM somente depois desse fundamento; então introduzir nonce, AAD e tag. A Imagem 16 é opcional, pois o esquema da página já ilustra a relação. A exposição e a prática permanecem em 55 T/45 P planejados.
-
-**Precisão docente seguinte:** explicar *modo de operação* a partir da diferença entre um bloco de 16 bytes e uma mensagem completa, antes de nomear CBC ou GCM. Definir autenticação da mensagem como conferência do conjunto protegido sob a chave compartilhada, distinta de login e de atribuição individual. Só então apresentar GCM; CBC entra depois como comparação breve de um modo sem tag própria. O roteiro `openssl enc -aes-256-cbc`, se usado futuramente, demonstra somente cifragem e abertura, não a verificação GCM.
-
-**Estado:** produção prospectiva em 6 out. 2026. A realização da A13, a versão usada e a entrega A11–A13 ainda aguardam confirmação. Não atribuir à turma os checkpoints da A13. A numeração após A13 depende de conciliação com o calendário. Página: `docs/aulas/A14-cifra-simetrica-autenticada.md`.
+**Estado:** revisão prospectiva de 8 out. 2026. A13 não tem realização documental confirmada. O plano anterior permanece no histórico Git; a numeração posterior exige conciliação do calendário.
 
 ## Ficha-base
 
-| Campo | Definição |
+| Campo | Decisão |
 |---|---|
-| Ementa | Texto legível/cifrado, cifragem/decifragem com a mesma chave; AES como cifra de blocos e necessidade de modo de operação; confidencialidade e seu limite diante de alteração; cifra autenticada; GCM, nonce, AAD, tag, abertura e falha; limites do endpoint e gestão operacional. |
-| Objetivos | Descrever a mesma chave nos dois sentidos e distinguir AES de modo; separar sigilo de verificação de alteração; identificar entradas/saídas e interpretar caso válido e contraprovas, propondo armazenamento. |
-| Carga | 100 minutos planejados: 55 T / 45 P guiados. Prática inclui previsão, operação opcional pela dupla, leitura, diagnóstico, decisão e revisão. Sem assumir que esse valor foi ministrado. |
-| Ganho novo | Os conceitos de arquivo, processo e acesso associados à A13 servem de base, sem presumir sua realização; este encontro verifica proteção e alteração de uma cópia fora do dispositivo. |
-| Pré-requisito | Confidencialidade/integridade de A11–A12 e limite de processo/arquivo de A13 como conceitos; nenhum produto individual é exigido. |
-| Ferramenta | Página HTTPS com Web Crypto; exemplos fixos na página como alternativa integral. Sem instalação, rede externa de teste, dado real ou chave persistida. |
-| Produto | C1 do registro único de criptografia e confiança, ainda sem entrega no Classroom. |
-| Critério | Explicar por que a cifra é simétrica e por que AES precisa de modo de operação; distinguir K1/N1/AAD/tag; rejeitar alteração sem tratar erro genérico como diagnóstico causal; localizar limite do endpoint. |
-| Fontes | NIST FIPS 197, SP 800-38A e SP 800-38D, além da W3C Web Cryptography API, vinculadas na página. |
+| Ementa e ganho | Explicar mesma chave, AES e modo; distinguir sigilo/integridade; verificar GCM, hash, HMAC e senha. |
+| Herança | A13: conceitos de arquivo, processo e dado, sem atribuir execução não confirmada. |
+| Carga | 100 minutos, 50 T/50 P planejados; prática guiada intercalada, não bloco final. |
+| Infraestrutura | WSL/Ubuntu, OpenSSL e navegador; quadro alternativo fornecido na página. Dados artificiais e chaves descartáveis. |
+| Evidência/produto | Uma parte de C1–C3 na atividade única; sem entrega separada por encontro. |
+| Critério | Mecanismo, resultado válido, contraprova, limite e fonte da evidência. |
+| Ponte | A15: da chave compartilhada ao par público/privado e ao vínculo de identidade. |
 
-## Cadeia e ponte
+## Cadeia de aprendizagem
 
-Herança conceitual de arquivo e processo planejada na A13, sem afirmar sua execução → texto legível/cifrado e mesma chave K1 nas duas operações → efeitos da perda/exposição da chave → AES como algoritmo de blocos e função do modo de operação → distinção entre confidencialidade e detecção de alteração → GCM e seus campos → operação em memória conduzida e opcionalmente reproduzida pela dupla → V1/F1/F2/F3/V2 → leitura de aceitação/rejeição e de campos visíveis → decisão de armazenamento e posicionamento do rótulo → validação com abertura válida e alteração de um bit → C1 do registro único → pergunta para o encontro seguinte sobre hash, HMAC e senha sem sigilo do conteúdo.
+A13: conceitos de arquivo, processo e dado, sem atribuir execução não confirmada. → definição direta → previsão de resultado → comando/painel ou pacote fornecido → leitura da saída → explicação do mecanismo → decisão → contraprova → registro C1–C3 → A15: da chave compartilhada ao par público/privado e ao vínculo de identidade.
 
-O caso é um texto artificial curto, independente de empresa ou incidente. Não há exigência de continuidade de matriz industrial. A demonstração não representa implantação, recuperação de chave, assinatura digital, identidade de autor ou proteção do endpoint que já acessa a chave.
+## Condução por blocos
 
-## Condução planejada
+0–15 definição simétrica + T1 (8T/7P); 15–32 AES/modos + T2 CBC (8T/9P); 32–60 autenticação/GCM + V1/F1/F2 (13T/15P); 60–76 hash + D1 (8T/8P); 76–90 HMAC + M1–M3 (7T/7P); 90–100 senhas + P-A–P-C e C1 (6T/4P).
 
-| Minutos | T/P | Ação e participação | Parada/critério |
-|---|---:|---|---|
-| 0–20 | 14/6 | Definir texto legível/cifrado e cifra simétrica pelo esquema da mesma K1. Trabalhar o exemplo de teste e os efeitos distintos de perda e exposição da chave. Se A13 não ocorreu, explicar arquivo versus processo em duas frases. | Antes de prosseguir, turma aponta onde K1 entra em cada operação e o que ocorre se ela se perder. Não afirmar que A13 foi ministrada. |
-| 20–35 | 12/3 | Explicar AES como algoritmo de blocos de 128 bits; usar mensagem maior que um bloco para definir modo de operação antes de nomear exemplos. Duplas explicam a diferença entre algoritmo e regras para a mensagem completa. | “AES-256” indica tamanho de chave; AES sozinho não especifica como tratar o arquivo. |
-| 35–47 | 10/2 | Distinguir sigilo de alteração e definir autenticação da mensagem, tag e limite de identidade. Apresentar GCM, nonce e AAD; comparar CBC apenas depois, como modo sem tag própria. Explicar hexadecimal antes da saída. | Autenticação da mensagem não é login; AAD autenticado não é oculto; nonce não é chave e não se reutiliza com K1. |
-| 47–75 | 5/23 | Conduzir botões 1–5 e novo 1→2 para V2. Pausar após V1, F1 e F2/F3. Cada dupla pode clicar; quem acompanha projeção ou quadro registra previsão, fonte, resultado, interpretação e limite. | Antes de avançar, toda dupla localiza a entrada alterada e o resultado. Erro genérico não identifica a causa; falha não entrega texto. |
-| 75–90 | 10/5 | Trabalhar armazenamento da cópia e extensão com rótulo `Pessoa A`. Duplas preenchem C1 e confrontam o requisito de visibilidade. | Distinguir resultado observado, referência e proposta; chave separada; nonce junto da cópia. |
-| 90–100 | 4/6 | Comparar propostas, corrigir uma inferência excessiva, fechar C1 e enunciar pergunta hash/HMAC/senha. | Checkpoint presencial; sem nova tarefa no Classroom. |
-| **Total** | **55/45** | | |
+Em cada prática: indicar estado inicial, demonstrar comando ou clique, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
 
-## Respostas, contingência e avaliação
+## Respostas e contingência
 
-- V1 aceita o conjunto original; F1 muda texto cifrado, F2 muda AAD e F3 muda a chave. Todos os F devem falhar sem texto. V2 mantém a frase e K1, mas tem nonce novo. Saídas exatas variam e não são necessárias à resposta.
-- Perda de K1 impede a abertura da cópia no exemplo; exposição de K1 compromete o sigilo. A cifra transforma o texto, mas a aparência dos bytes não demonstra que a cópia recebida é íntegra. Usar essas respostas para justificar a entrada da verificação antes de nomear GCM.
-- Um AAD com nome pessoal expõe o nome. Para ocultá-lo, incluí-lo no texto cifrado; metadados ainda necessários à interpretação podem permanecer como AAD se sua visibilidade for aceitável.
-- Chave não exportável no painel simplifica o ensaio, mas ao recarregar a página o texto cifrado antigo não pode ser aberto. Sistema real precisa prever guarda e recuperação, além de autoridade, rotação e acesso.
-- GCM verifica autenticidade sob a chave compartilhada; não identifica qual detentor da chave criou os dados. Uma abertura válida não atesta que o endpoint está íntegro. Uma falha pode vir de qualquer entrada incorreta ou alterada.
-- Se JavaScript ou contexto seguro falhar, usar V1–V2/F1–F3 da página, identificados como referência. Manter previsão, diagnóstico, decisão e revisão entre duplas; o quadro informa relações esperadas e não simula uma coleta observada. Não pedir instalação, conta nem envio de segredo a site externo. Se o painel reportar resultado inesperado, suspender a inferência e registrar navegador/ação/saída sem dados sensíveis.
-- Na correção de C1, exigir objeto, propriedade, campos, resultado válido, contraprova, limite e decisão. Não confundir comparação de bytes com prova de unicidade operacional de nonce.
+T1/T2 mostram transformação e abertura, sem integridade; V1 aceita e F1/F2 rejeitam; D1 compara bytes sem origem; HMAC exige segredo comum; senha exige sal individual e custo.
 
-## Estado editorial
-
-O rascunho antigo `docs/aulas/A14-quem-fez-o-que.md` pertence a uma sequência superada e permanece preservado fora da navegação. Este plano não fixa número definitivo para os encontros posteriores nem declara publicação ou realização da aula. Confirmar o calendário e o estado da A13 antes de distribuir o endereço no Classroom.
+Se OpenSSL, Web Crypto ou rede falhar, usar o resultado fornecido na mesma página e marcar a fonte. Comando falho não vira evidência positiva. Não transmitir segredos, usar certificados institucionais nem publicar a chave privada descartável. Verificar o tempo real em aula antes de considerar o 50/50 efetivamente cumprido.

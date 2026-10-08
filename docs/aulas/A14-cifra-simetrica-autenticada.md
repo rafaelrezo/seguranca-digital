@@ -1,16 +1,18 @@
-# A14 (provisória) — Como funciona a cifra simétrica
+# A14 (provisória) — Cifra simétrica, hash e senhas
 
-Na **cifra simétrica**, a mesma chave secreta participa das duas operações: transformar dados legíveis em dados cifrados e recuperar os dados legíveis. Começaremos por esse funcionamento básico. Depois veremos o algoritmo AES, por que ele precisa de um modo de operação para proteger uma mensagem e como detectar alterações antes de aceitar o resultado.
+Na **cifra simétrica**, a mesma chave secreta cifra e decifra. A aula parte desse fundamento e avança, em pequenos passos, por AES, modos de operação, hash, HMAC e senhas.
 
-**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** esta página, navegador com JavaScript e Web Crypto em HTTPS ou `localhost`; há um quadro de resultados para quem não usar o painel. Use apenas os dados de teste indicados; não digite dados reais ou senhas.
+**Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
+
+**Recursos:** terminal Ubuntu no WSL com OpenSSL e navegador em HTTPS. Cada operação tem resultado fornecido para acompanhamento sem ferramenta. Use somente dados de teste e senha descartável.
 
 **Objetivos de aprendizagem**
 
 1. Descrever o percurso do texto legível ao cifrado e de volta com a mesma chave, distinguindo o algoritmo AES do modo de operação.
-2. Distinguir sigilo do conteúdo de detecção de alteração e identificar as entradas usadas na verificação.
-3. Comparar uma abertura válida com alterações controladas e justificar uma decisão de armazenamento e verificação.
+2. Distinguir sigilo de detecção de alteração em AES-GCM, hash e HMAC.
+3. Justificar a necessidade de sal individual e custo no armazenamento de senhas.
 
-Esta aula inicia o [registro único de criptografia e confiança](#atividade), que continuará nos encontros seguintes. O preenchimento de hoje não exige entrega separada.
+Esta aula inicia o [registro único de criptografia e confiança](#atividade), preenchido após cada observação e continuado na A15–A16. O preenchimento de hoje não exige entrega separada.
 
 ## Cifra simétrica: a mesma chave nas duas operações {#fundamentos}
 
@@ -30,15 +32,37 @@ flowchart LR
 
 **Leia o esquema da esquerda para a direita:** K1 entra tanto na cifragem quanto na decifragem. Os dados cifrados podem ser copiados ou transportados, mas K1 deve ficar sob acesso controlado. Sem K1, a operação de decifragem não consegue recuperar o conteúdo nas condições previstas pelo mecanismo.
 
-**Exemplo trabalhado:** o dado de teste é `ordem=7;estado=aprovado`. Primeiro, um programa combina esses bytes com K1 e grava a saída cifrada. Mais tarde, outro programa fornece **essa mesma K1** e a saída cifrada à operação inversa; o texto original reaparece. Se K1 se perder, a cópia cifrada pode ficar irrecuperável. Se K1 for exposta, quem obtiver a cópia poderá tentar abri-la. Registre o efeito de cada situação: perda afeta a recuperação; exposição afeta o sigilo.
+**Exemplo trabalhado:** o dado de teste é `ordem=7;estado=aprovado`. Um programa cifra esses bytes com K1; outro fornece **a mesma K1** para recuperar o texto.
+
+- **Perda de K1:** a cópia pode ficar irrecuperável.
+- **Exposição de K1:** quem obtiver a cópia poderá tentar abri-la.
+
+Registre os dois efeitos antes de avançar.
 
 A propriedade obtida aqui é **confidencialidade**: restringir a leitura da cópia. O programa autorizado ainda precisa acessar K1 e o texto depois de aberto; por isso a cifra não substitui a proteção do dispositivo discutida na [A13](A13-protecao-de-endpoints.md). Ver bytes ilegíveis também não prova que a cópia recebida não foi modificada.
+
+
+### Prática curta no WSL: observar o percurso da cifra
+
+**Estado inicial:** abra o terminal Ubuntu do WSL. `openssl version` deve informar a versão; `printf` cria um arquivo com bytes fictícios. Os comandos escrevem somente em `~/cripto-a14`. Preveja o conteúdo de cada arquivo antes de executá-los.
+
+```bash
+mkdir -p ~/cripto-a14
+cd ~/cripto-a14
+printf 'ordem=7;estado=aprovado' > claro.txt
+cat claro.txt
+openssl version
+```
+
+**Resultado esperado:** `cat` mostra a frase exata; `openssl version` identifica a ferramenta. Registre `T1 → entrada legível → chave ainda não usada`. Se OpenSSL não existir, acompanhe a projeção e registre o resultado como **fornecido**. **Pare** para explicar onde a mesma chave entrará nos dois sentidos.
 
 ## AES: algoritmo de blocos e modo de operação {#aes}
 
 **AES** (*Advanced Encryption Standard*) é um algoritmo de cifra simétrica padronizado pelo NIST. Ele transforma um **bloco de 128 bits**, isto é, 16 bytes, usando uma chave de 128, 192 ou 256 bits. Em **AES-256**, o número 256 descreve o tamanho da chave; o bloco continua tendo 128 bits. O algoritmo é público: o segredo necessário para abrir o conteúdo é a chave. Esses tamanhos e funções são definidos na [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final).
 
-Um arquivo pode ter centenas ou milhões de bytes, enquanto AES transforma um bloco de 16 bytes por operação. Uma mensagem de 40 bytes, por exemplo, ocupa duas partes de 16 bytes e uma parte final de 8 bytes. Surge então uma pergunta prática: **como aplicar o algoritmo à mensagem inteira, inclusive à parte final?** Um **modo de operação** é o conjunto de regras para esse uso. Ele define como processar as partes, como iniciar a operação e quais valores adicionais devem acompanhar o resultado. É por isso que “cifrado com AES” ainda não descreve um procedimento completo.
+Um arquivo pode ter centenas ou milhões de bytes, enquanto AES transforma um bloco de 16 bytes por operação. Uma mensagem de 40 bytes, por exemplo, ultrapassa dois blocos completos e ainda tem uma parte final.
+
+**Modo de operação** é o conjunto de regras que aplica a cifra à mensagem inteira. Ele define como as partes são processadas, como iniciar a operação e quais valores precisam acompanhar o resultado. Por isso, “cifrado com AES” ainda não descreve o procedimento completo.
 
 ```text
 Mensagem completa → partes processadas segundo um modo → resultado da mensagem
@@ -53,29 +77,58 @@ O modo também determina **quais propriedades são oferecidas**. Alguns modos fo
 | AES | Como transformar um bloco com uma chave. | Como tratar a mensagem completa. |
 | Modo de operação | Como usar AES ao longo da mensagem. | Quais propriedades o modo oferece e como gerenciar seus parâmetros. |
 
+
+### Prática curta no WSL: AES-CBC mostra cifragem e abertura
+
+O comando `openssl enc` usa uma **senha descartável** digitada duas vezes para derivar a chave com PBKDF2; `-salt` acrescenta sal à derivação. A senha não é uma chave AES digitada diretamente. A primeira linha pede a senha duas vezes; a segunda pede a mesma senha para abrir. Os caracteres não aparecem na tela. Use apenas uma senha inventada para esta aula.
+
+```bash
+openssl enc -aes-256-cbc -salt -pbkdf2 -in claro.txt -out copia.cbc
+od -An -tx1 -N32 copia.cbc
+openssl enc -d -aes-256-cbc -pbkdf2 -in copia.cbc -out aberto.txt
+cat aberto.txt
+```
+
+**Resultado esperado:** `od` mostra bytes em hexadecimal, sem a frase legível; `cat aberto.txt` recupera `ordem=7;estado=aprovado`.
+
+**Registre T2:** arquivo de origem → cópia cifrada → senha usada na abertura → texto recuperado. Se faltar OpenSSL, use os resultados acima como **dados fornecidos**, sem inventar bytes.
+
+**Pare:** o aspecto ilegível não demonstra integridade. Não altere CBC para tratar um erro eventual como verificação de tag; o [manual do OpenSSL](https://docs.openssl.org/3.5/man1/openssl-enc/) esclarece que `enc` não implementa GCM.
+
 ## Integridade e autenticação: verificar antes de aceitar {#propriedades}
 
-**Confidencialidade** restringe a leitura. **Integridade**, neste contexto, é detectar alterações nos dados protegidos antes de aceitá-los. O fato de uma cópia parecer ilegível mostra apenas que ela está cifrada; não mostra se seus bytes foram modificados. Uma operação de decifragem sem verificação própria pode até produzir uma saída após uma alteração, e essa saída não deve ser tratada como prova de integridade.
+**Confidencialidade** restringe a leitura. **Integridade**, aqui, significa detectar mudança nos dados protegidos antes de usá-los. Uma cópia ilegível pode estar cifrada e, ainda assim, ter sido alterada. A aparência dos bytes não responde à pergunta sobre alteração.
 
-**Autenticar uma mensagem**, aqui, significa conferir se os dados recebidos correspondem ao conjunto protegido por quem conhecia a chave secreta. Para isso, a cifragem autenticada produz uma **tag**, valor de verificação calculado com a chave e os dados protegidos. Na abertura, a tag é conferida junto com esses dados. Se a conferência falhar, a operação rejeita o conjunto sem entregar texto legível para uso. “Autenticação” neste ponto **não é login** e não identifica uma pessoa: se várias pessoas possuem a mesma chave, qualquer uma delas pode produzir um conjunto válido.
+**Autenticar uma mensagem** é conferir, com a chave compartilhada, se o conjunto recebido corresponde ao que foi protegido. A cifragem autenticada produz uma **tag**: valor de verificação calculado sobre os dados protegidos. Na abertura, uma tag incompatível causa rejeição, sem entregar texto legível para uso.
 
-**Exemplo de leitura:** texto cifrado e tag originais são aceitos com K1. Se um bit do texto cifrado for trocado e a tag original for mantida, a conferência falha. Isso permite rejeitar a cópia alterada; não permite descobrir quem fez a troca.
+Essa autenticação tem um limite: **não é login nem identifica uma pessoa**. Se várias pessoas conhecem a chave, qualquer uma pode produzir um conjunto válido.
 
-Uma **cifra autenticada** reúne as duas funções: restringe a leitura e rejeita alterações detectadas. Agora podemos examinar um modo concreto que faz isso.
+**Exemplo:** texto cifrado e tag originais abrem com K1. Troque um bit do texto cifrado e mantenha a tag: a abertura falha. O resultado sustenta a rejeição da cópia alterada neste teste, sem revelar quem a mudou.
 
-**GCM** significa *Galois/Counter Mode*. É um modo de operação que usa a cifra para ocultar o conteúdo e calcula a tag para verificar o conjunto protegido. **AES-GCM** significa usar AES nesse modo; não é uma segunda cifra independente. Na cifragem, o mecanismo recebe o texto legível, a chave e um **nonce** (valor usado uma vez por operação sob a mesma chave). Pode receber também **AAD** (*dado associado*): informação que permanece visível, mas deve ficar vinculada ao conteúdo. A saída traz texto cifrado e a tag de verificação.
+Uma **cifra autenticada** reúne duas funções:
 
-Na abertura, o programa fornece a mesma chave, o nonce, o AAD quando houver, o texto cifrado e a tag. O mecanismo **verifica antes de entregar o texto legível**. Se alguma entrada protegida não corresponder, a abertura falha. Assim, AES-GCM reúne **confidencialidade do texto** e **detecção de alteração**. Essa verificação depende do segredo da chave e não identifica qual pessoa, entre os possíveis detentores dela, produziu os dados. A [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+- **Sigilo:** restringe a leitura do texto.
+- **Verificação:** rejeita alterações detectadas antes do uso.
 
-**Comparação posterior: CBC e GCM são modos diferentes para usar AES.** No **CBC** (*Cipher Block Chaining*), cada bloco da mensagem é combinado com o bloco cifrado anterior antes de passar pelo AES; o primeiro usa um valor inicial chamado **IV**. CBC oferece cifragem, mas **não produz uma tag de autenticação por si só**. No **GCM**, um nonce entra na operação e a saída inclui a tag, que permite rejeitar alterações antes de usar o texto. Por isso, uma prática com `openssl enc -aes-256-cbc` pode mostrar cifragem e decifragem, mas não demonstra a verificação oferecida por AES-GCM. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
+**GCM** (*Galois/Counter Mode*) é um modo de operação que oferece essas funções. **AES-GCM** significa usar AES no modo GCM. Não se trata de outra cifra independente ([NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final)).
 
-**Síntese das propriedades:**
+Na cifragem com AES-GCM, entram:
 
-| Pergunta | Mecanismo ou limite |
-|---|---|
-| Quem pode ler a cópia? | A cifra mantém o texto legível fora da cópia; a chave K1 permite recuperá-lo. |
-| A cópia recebida foi aceita sem alteração detectada? | A verificação da cifra autenticada considera texto cifrado, tag e, quando houver, AAD. |
-| O dispositivo que abre a cópia é confiável? | A cifra do arquivo não responde; proteção e resposta do endpoint continuam necessárias. |
+1. **Chave:** segredo necessário para cifrar e abrir.
+2. **Nonce:** valor usado uma única vez por operação sob a mesma chave.
+3. **Texto legível:** conteúdo que será ocultado.
+4. **AAD, se houver:** dado associado que permanece visível, mas deve ficar vinculado ao conteúdo.
+
+Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD, texto cifrado e tag. O mecanismo verifica a correspondência **antes de entregar o texto legível**. Se uma entrada protegida não corresponder, a abertura falha. A [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+
+**CBC e GCM são modos diferentes para usar AES:**
+
+| Modo | Como participa da cifragem | O que este modo entrega sozinho |
+|---|---|---|
+| CBC | Encadeia blocos; o primeiro usa um valor inicial chamado **IV**. | Sigilo, sem tag de autenticação própria. |
+| GCM | Usa nonce e calcula a tag sobre o conjunto protegido. | Sigilo e rejeição de alteração antes de aceitar o texto. |
+
+Por isso, o exercício com `openssl enc -aes-256-cbc` mostra cifragem e abertura, enquanto o painel AES-GCM testa a verificação da tag. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
 
 ```mermaid
 flowchart LR
@@ -103,13 +156,17 @@ O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo
 | Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | Pode ser armazenado com o nonce; o conteúdo original não deve ser inferido pela aparência desses bytes. |
 | Tag | Valor de verificação produzido pela operação. | Alterar um bit do conjunto protegido deve fazer a abertura falhar. Não trate falha como texto parcialmente válido. |
 
-O requisito de unicidade do nonce é **por chave e operação**. Reuso do mesmo par em GCM compromete garantias de segurança; sortear 96 bits ajuda neste ensaio curto, mas um sistema real precisa especificar geração, volume de mensagens, reinício e coordenação entre dispositivos. A chave precisa de geração, armazenamento, autorização, rotação e recuperação próprios, temas retomados ao longo do bloco. Esses limites constam da [NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf).
+O requisito de unicidade do nonce vale **por chave e operação**. Reutilizar o mesmo par em GCM compromete suas garantias de segurança. Sortear 96 bits ajuda neste ensaio curto.
+
+Num sistema real, é preciso especificar geração, volume de mensagens, reinício e coordenação entre dispositivos. A chave também exige guarda, acesso, troca e recuperação próprios ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
 
 **Antes de operar:** o painel mostra bytes em **hexadecimal**, uma forma compacta de escrever cada byte com dois caracteres. Você não precisa decifrar essa representação visualmente. Procure os nomes dos campos, compare o que mudou e leia se a abertura entregou texto ou falhou.
 
 ## Demonstração: cifrar, abrir e rejeitar {#demonstracao}
 
-**Estado inicial:** nenhum arquivo será enviado ou salvo. O painel abaixo usa a frase e o rótulo fictícios indicados. Todas as operações ocorrem na memória do navegador; o código está no [arquivo da demonstração](../javascripts/a14-aead.js). Cada dupla pode operar o painel em seu navegador. Se isso não for possível, acompanhe a projeção ou use o quadro alternativo; em todos os casos, faça sua própria previsão e interpretação. Uma pessoa anuncia a previsão, a outra registra o resultado; troquem as funções após F1. Espere a comparação coletiva antes de avançar para o próximo caso.
+**Estado inicial:** nenhum arquivo será enviado ou salvo. O painel usa a frase e o rótulo fictícios indicados e opera apenas na memória do navegador; o [código da demonstração](../javascripts/a14-aead.js) pode ser consultado.
+
+A dupla pode clicar ou acompanhar a projeção. Em ambos os casos, preveja a saída, leia o resultado e marque sua fonte. Espere a comparação coletiva de V1 e F1 antes de avançar.
 
 <div id="a14-aead" class="a14-panel" aria-label="Demonstração de cifra autenticada">
   <p id="a14-status" role="status">Preparando a demonstração. Se ela não abrir, use o quadro de resultados logo abaixo.</p>
@@ -124,7 +181,9 @@ O requisito de unicidade do nonce é **por chave e operação**. Reuso do mesmo 
 4. **Compare outras entradas.** Clique nos botões 4 e 5, um de cada vez. Em 4, muda apenas o AAD; em 5, usa outra chave descartável. **Resultado esperado:** falha em ambos. Registre F2/F3 e explique por que AAD ser legível não significa que sua alteração passe despercebida.
 5. **Novo registro.** Clique novamente em 1. Compare o nonce anterior com o novo; depois clique em 2 para abrir a nova versão. **Resultado esperado:** outro nonce, outros bytes de saída para a mesma frase e abertura válida (V2). Não infira segurança apenas porque duas saídas são diferentes; a regra necessária é impedir reuso do par chave–nonce. **Pare aqui:** não use o painel para dados reais nem tente forçar reuso de nonce.
 
-**Desafio de diagnóstico em dupla:** sem clicar de novo, uma pessoa escolhe F1, F2 ou F3 e diz somente a entrada que mudou. A outra prevê o resultado e formula uma explicação que a falha **não** autoriza, por exemplo atribuir a alteração a uma pessoa específica. Confira o caso no painel ou quadro; troquem de função com outro F. Registrem `ID → previsão → resultado observado ou referência → interpretação → limite`. Se o resultado diferir do esperado, interrompam a conclusão e anotem ação, navegador e saída textual sem dados sensíveis. A comparação entre duplas deve corrigir uma inferência, não apenas conferir que apareceu “falha”.
+**Diagnóstico em dupla:** uma pessoa escolhe F1, F2 ou F3 e informa somente a entrada alterada. A outra prevê o resultado e diz uma conclusão que a falha **não** autoriza, como atribuir a alteração a uma pessoa específica. Troquem de função.
+
+Registrem `ID → previsão → resultado observado ou fornecido → interpretação → limite`. Se a saída diferir do esperado, suspendam a conclusão e anotem ação, navegador e mensagem sem dados sensíveis.
 
 **Quadro alternativo de leitura**, caso Web Crypto não esteja disponível ou você esteja apenas acompanhando a projeção. Os valores de nonce e texto cifrado do painel mudam a cada execução; esta tabela registra somente relações esperadas, sem fingir uma coleta local.
 
@@ -138,30 +197,142 @@ O requisito de unicidade do nonce é **por chave e operação**. Reuso do mesmo 
 
 Se o botão 1 falhar, confira se a página está em HTTPS ou `localhost` e se o navegador permite Web Crypto. Use o quadro V1–V2/F1–F3 para a mesma análise; não instale extensões nem envie conteúdo a um serviço externo. Se a mensagem aparecer como erro genérico, registre **qual entrada foi mudada**: a falha de autenticação sozinha não identifica se o problema foi chave, nonce, AAD, texto ou tag.
 
-## Aplicação: decidir como guardar a cópia {#aplicacao}
+## Síntese: guardar a cópia {#aplicacao}
 
-**Exemplo trabalhado.** Uma cópia contém `ordem=7;estado=aprovado`; o cabeçalho `tipo=ordem;versao=1` pode ser público, mas precisa estar vinculado ao conteúdo. Guarde cabeçalho como AAD, nonce e conjunto texto cifrado+tag com a cópia; mantenha K1 sob acesso separado. Na abertura, forneça os mesmos campos e **só use o texto após a verificação**. Se a abertura falhar, pare o uso da cópia e investigue o conjunto de entradas. A cifra não substitui uma cópia recuperável nem impede um processo autorizado de ler o texto depois da abertura.
+Para `ordem=7;estado=aprovado`, guarde nonce, AAD público e texto cifrado com tag junto da cópia; proteja K1 separadamente. Se o rótulo contiver informação sigilosa, inclua-o no texto cifrado. Uma abertura válida permite usar o conteúdo **somente após a verificação**. A cifra não substitui proteção do endpoint nem recuperação da chave.
 
-**Sua extensão:** para uma cópia com conteúdo confidencial e rótulo que inclui o nome fictício `Pessoa A`, decida se esse rótulo deve ficar em AAD ou dentro do texto cifrado. Registre a propriedade que orientou a escolha, onde ficariam chave e nonce, um teste válido, um teste de alteração e uma limitação no endpoint. Compare com outra dupla: se discordarem, identifiquem qual requisito de visibilidade explica a divergência. Não é preciso cifrar dados pessoais de verdade.
+## Hash e digest: comparar o conteúdo exato {#digest}
 
-### Checkpoint
+Uma **função hash criptográfica** recebe uma sequência de bytes e produz um valor de tamanho fixo chamado **digest** ou resumo. SHA-256 produz 256 bits (32 bytes). Entradas idênticas produzem o mesmo digest; alterar a entrada quase certamente produz outro. A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest, mas igualdade de digests não identifica a origem do arquivo. Hash não cifra: o conteúdo pode continuar legível.
 
-Complete uma linha para o [registro da atividade](#atividade): `objeto → propriedade → campos visíveis/secretos → V1 → F1/F2 → limite → próxima decisão`. A próxima aula distinguirá **hash, HMAC e senha**: quando queremos identificar alteração sem esconder conteúdo, o que deve ser segredo e o que não deve?
+Para conferir uma cópia, calcule seu digest e compare com um valor publicado pelo fornecedor **por um canal confiável**. Se alguém puder substituir tanto a cópia quanto a referência, a igualdade não demonstra legitimidade. Essa distinção entre comparação de bytes e confiança na origem será usada novamente em assinaturas e certificados.
+
+O exemplo `abc` tem um digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad` ([exemplo NIST](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/examples/sha256.pdf)).
+
+A entrada são exatamente três bytes ASCII, sem aspas, espaço ou quebra de linha. Uma comparação exige os mesmos bytes e a mesma codificação; aparência semelhante não basta.
+
+**Prática curta no WSL:** preveja os dois resumos e execute `printf 'abc' > hash-a.txt`, `printf 'abd' > hash-b.txt` e `sha256sum hash-a.txt hash-b.txt` no diretório `~/cripto-a14`. O primeiro deve corresponder ao valor NIST acima; o segundo deve diferir. Registre bytes exatos e fonte da referência. Se `sha256sum` faltar, use o valor NIST como dado fornecido. **Pare:** a comparação sozinha não atribui autoria.
+
+**Registre D1:** `abc` coincide com o valor de referência; `abd` difere. A conclusão se refere aos bytes comparados, não à autoria. **Pare** antes de aceitar uma referência sem procedência confiável.
+
+## HMAC: verificar mensagem com segredo compartilhado {#hmac}
+
+Um **código de autenticação de mensagem** (*MAC*) é calculado com uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)).
+
+- O emissor calcula o código sobre os bytes da mensagem.
+- O receptor calcula ou verifica o código com a **mesma chave**.
+- A mensagem continua legível: HMAC detecta alteração, mas não oferece sigilo.
+
+Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
+
+| Entrada | Teste nesta aula | Leitura permitida |
+|---|---|---|
+| Mensagem original + chave K2 + HMAC original | Verificar | Aceito sob K2, para estes bytes. |
+| Mensagem alterada + K2 + HMAC original | Verificar | Rejeitado; os bytes enviados não correspondem ao código. |
+| Mensagem original + outra chave + HMAC original | Verificar | Rejeitado; a chave testada não corresponde. |
+
+**Prática curta no WSL:** no mesmo diretório, execute:
+
+```bash
+printf 'pedido=7;valor=10' > msg-a.txt
+printf 'pedido=7;valor=11' > msg-b.txt
+openssl dgst -sha256 -hmac 'chave-aula-descartavel' msg-a.txt msg-b.txt
+```
+
+Os códigos devem diferir. A chave literal é pública nesta página e serve apenas para observar a operação; não representa segredo protegido. Registre mensagem, chave e resultado. Se OpenSSL faltar, use M1–M3 abaixo como dados fornecidos. **Pare** antes de afirmar qual pessoa produziu a mensagem.
+
+Para conferir a mensagem original, repita o comando com `msg-a.txt` e a mesma chave: o código deve coincidir. Repita com `msg-b.txt` ou outra chave: o código deve diferir. Registre M1–M3 como **comparação de códigos**; a página não executa um protocolo de verificação. **Pare** sem atribuir autoria individual.
+
+### Quadro de resultados para acompanhar ou substituir o painel
+
+Estas linhas são **referência de comportamento esperado**. O valor calculado no terminal depende exatamente dos bytes da mensagem e da chave literal de teste.
+
+| ID | Entradas | Resultado esperado | O que ainda não foi provado |
+|---|---|---|---|
+| D1 | SHA-256 de `abc` contra a referência NIST; depois `abd` | Coincide; depois difere | Autoria e procedência de qualquer arquivo externo. |
+| M1 | Mensagem original e mesma chave de teste | Código coincide ao recalcular | Qual detentor da chave produziu a primeira versão. |
+| M2 | Mensagem com `valor=11`, mesma chave | Código difere do M1 | Qual campo mudou fora deste teste controlado. |
+| M3 | Mensagem original, outra chave | Código difere do M1 | Se a chave real está protegida no sistema. |
+
+Se `sha256sum` ou OpenSSL não funcionar, leia o quadro na ordem D1–M3 e identifique-o como resultado fornecido. Se houver outro erro, anote comando e mensagem sem dados sensíveis. Espaços, acentos, quebras de linha e codificação mudam os bytes; confira a entrada exata antes de atribuir divergência a adulteração. A aceitação e rejeição do HMAC dependem da chave correta, mas não entregam diagnóstico causal de um evento real por si só.
+
+## Senhas: verificar sem guardar o texto secreto {#senhas}
+
+Uma senha é um segredo escolhido ou conhecido pelo usuário. O serviço precisa verificar a senha digitada sem armazená-la em texto legível. Se a base de **verificadores** vazar, um atacante poderá testar palpites fora do serviço. SHA-256 direto é rápido demais para essa finalidade, mesmo quando se acrescenta sal sem um esquema de custo adequado.
+
+Um **esquema de armazenamento de senhas** recebe senha, **sal** e parâmetros de **custo**:
+
+- O **sal**, diferente por conta, separa registros mesmo quando as senhas coincidem; não precisa ser secreto.
+- O **custo** torna mais caro cada palpite após vazamento da base.
+- O **verificador** é o valor armazenado para conferência no login, junto com esquema, versão, parâmetros e sal.
+
+Argon2id em biblioteca mantida e parametrizada para o ambiente é uma opção recomendada pela [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Um *pepper*, se adotado, fica fora da base e não substitui sal ou custo.
+
+O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) exige sal e esquema adequado com fator de custo. A [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) detalha Argon2id e alternativas.
+
+O custo precisa ser medido no serviço real para não inviabilizar o login. Aqui, as linhas seguintes são **configurações fictícias**; nenhum verificador será derivado e nenhum login será executado.
+
+**Exemplo trabalhado:** guardar `SHA-256(senha)` permite palpites rápidos após vazamento; contas com a mesma senha têm o mesmo digest.
+
+A proposta revisada usa `Argon2id(senha, sal individual, parâmetros medidos)` e guarda versão, parâmetros, sal e verificador. O serviço deve aceitar a senha correta e rejeitar a incorreta em teste funcional. Isso dificulta o ataque offline, sem corrigir uma senha fraca ou dispensar limite de tentativas online.
+
+### Oficina de configuração: localizar o que falta
+
+**Estado inicial:** estas três linhas são propostas fictícias de armazenamento. Os valores `S-A`, `S-B` e `V-A` são rótulos, não sais nem verificadores reais. Não há login ou derivação de senha executados nesta oficina.
+
+| Proposta | Campos previstos na base | Decisão a investigar |
+|---|---|---|
+| P-A | `conta=7; esquema=SHA-256; verificador=V-A` | O que facilita palpites após vazamento? |
+| P-B | `conta=7; esquema=Argon2id; sal=S-A; custo=medido; verificador=V-A` e `conta=8; esquema=Argon2id; sal=S-A; custo=medido; verificador=V-B` | O que está incorreto mesmo com esquema e custo adequados? |
+| P-C | `conta=7; esquema=Argon2id; versão=registrada; sal=S-A; custo=medido; verificador=V-A` e `conta=8; esquema=Argon2id; versão=registrada; sal=S-B; custo=medido; verificador=V-B` | Que teste funcional ainda falta realizar no serviço? |
+
+Em dupla, trabalhe na ordem:
+
+1. Preveja qual proposta rejeitar, corrigir ou aceitar condicionalmente; marque os campos que sustentam a decisão.
+2. Reescreva apenas a linha de P-B que precisa de outro sal.
+3. Para P-C, proponha `senha correta → aceita` e `senha incorreta → rejeitada`, ambos **pendentes de teste**.
+
+Troque a revisão com outra dupla e confira a resposta. **Pare** quando as três decisões tiverem motivo; não marque login como executado.
+
+<details>
+<summary>Conferir a análise após registrar sua decisão</summary>
+
+P-A é inadequada porque SHA-256 direto é rápido para palpites offline. P-B precisa de sal individual: reutilizar `S-A` entre contas elimina a diferenciação esperada. P-C contém os campos necessários para uma proposta, mas os rótulos não demonstram parametrização real, execução do esquema nem aceitação/rejeição no login; esses resultados precisam de teste funcional posterior.
+
+</details>
+
+**Sua decisão C1:** escolha o mecanismo para três finalidades:
+
+- Conferir um pacote público contra o valor publicado pelo fornecedor: indique **de onde vem a referência**.
+- Rejeitar alteração de mensagem entre serviços com segredo compartilhado: indique **quem conhece a chave**.
+- Guardar verificador de senha: indique **sal individual, custo e campos armazenados**.
+
+Para cada uma, registre entrada, caso válido, contraprova e limite. Não reutilize a chave literal de teste do terminal como segredo de produção.
+
+### Checkpoint: separar evidência de proposta
+
+Preencha C1 no [registro único](../atividades/A14-A18-criptografia-confianca.md#atividade): `finalidade → mecanismo → entrada/segredo/referência → D1 ou M1–M3 → caso negado → limite → decisão`.
+
+Marque **observado** apenas o que o terminal ou painel executou; quadro e configuração de senha são referências e propostas. Compare uma linha com outra dupla. A A15 retomará a verificação com um par de chaves.
 
 ## Atividade {#atividade}
 
-Abra a [atividade única de criptografia e confiança](../atividades/A14-A18-criptografia-confianca.md#atividade). Hoje, preencha apenas a seção **C1 — fundamentos e cifra autenticada**. Ela começa pelo percurso do texto e da chave, depois usa os resultados V1–V2/F1–F3 da demonstração ou do quadro alternativo; a entrega final ocorrerá após o bloco, conforme prazo definido no Classroom.
+Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) em pequenos passos: T1–T2 após a cifra; V1/F1–F2 após GCM; D1/M1–M3 após hash e HMAC; P-A–P-C após senhas. Marque cada resultado como observado, fornecido ou proposto. A entrega será após A16.
 
 ## Revisão rápida
 
-1. O que torna a cifra **simétrica**? O que se perde quando K1 desaparece?
-2. Por que dizer apenas “use AES” não especifica como proteger e verificar um arquivo?
-3. Se um cabeçalho está em AAD, ele fica oculto? O que ocorre quando seus bytes mudam?
+1. Por que AES precisa de um modo e por que CBC não equivale a GCM?
+2. Que diferença há entre digest, HMAC e cifra autenticada?
+3. Por que um sal individual sem custo adequado não resolve o armazenamento de senhas?
+
+## Ilustração opcional — Imagem 16
+
+O [prompt numerado da Imagem 16](../assets/a14-a17/prompts-ilustrativos.md#imagem-16) está pronto para geração posterior. O conteúdo desta página já pode ser estudado e praticado sem a imagem.
 
 ## Referências
 
-- [NIST FIPS 197 — AES](https://csrc.nist.gov/pubs/fips/197/final): especificação da cifra simétrica AES.
-- [NIST SP 800-38A — modos de confidencialidade](https://csrc.nist.gov/pubs/sp/800/38/a/final): função de modos como CBC.
-- [NIST SP 800-38D — GCM e GMAC](https://csrc.nist.gov/pubs/sp/800/38/d/final): funções, propriedades, entradas e unicidade de nonce.
-- [W3C Web Cryptography API — AES-GCM](https://www.w3.org/TR/webcrypto/#aes-gcm): comportamento da operação do navegador e formato da saída.
-- [Referência de cifras simétricas do curso](../criptografia/simetricos.md): comparação de mecanismos para consulta após a aula.
+- [NIST FIPS 197](https://csrc.nist.gov/pubs/fips/197/final), [SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final), [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final).
+- [OpenSSL `enc`](https://docs.openssl.org/3.5/man1/openssl-enc/) e [`dgst`](https://docs.openssl.org/3.5/man1/openssl-dgst/).
+- [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [RFC 2104](https://www.rfc-editor.org/info/rfc2104/), [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+
+<script src="../../javascripts/a14-aead.js" defer></script>
