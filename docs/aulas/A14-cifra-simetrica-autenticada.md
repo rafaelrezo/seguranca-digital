@@ -1,28 +1,45 @@
-# A14 (provisória) — Cifrar e detectar alterações
+# A14 (provisória) — Cifra simétrica e AES-GCM
 
-Considere uma cópia de um arquivo fora do dispositivo: **como impedir sua leitura e perceber uma alteração antes de usá-lo?** A proteção precisa funcionar mesmo quando os bytes cifrados são copiados ou modificados. Ela não corrige um endpoint comprometido que já vê a chave e o texto legível.
+**Cifrar** restringe a leitura de um dado a quem possui a chave. **Verificar a integridade** permite rejeitar dados modificados. Esta aula ensina as duas propriedades e mostra como AES-GCM as combina. O texto curto `ordem=7;estado=aprovado` serve apenas como entrada da demonstração.
 
-**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada: previsão, operação, leitura de resultados e decisão). **Recursos:** esta página em navegador com JavaScript e Web Crypto disponível por HTTPS ou `localhost`; o quadro de resultados permite acompanhar sem executar o painel. **Base:** confidencialidade, integridade e a distinção entre arquivo e processo apresentada na [A13](A13-protecao-de-endpoints.md), se já estudada. Use somente a frase fictícia do exercício; não digite dados reais ou senhas.
+**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** navegador com JavaScript e Web Crypto em HTTPS ou `localhost`; há um quadro equivalente para leitura sem o painel. Os termos criptográficos são definidos nesta página. Use apenas o texto fictício; não digite dados reais ou senhas.
 
 **Objetivos de aprendizagem**
 
-1. Explicar que propriedade a cifra simétrica autenticada oferece ao texto, aos metadados e ao dispositivo que usa a chave.
-2. Identificar chave, nonce, texto cifrado, dados associados e etiqueta de autenticação em uma operação AES-GCM.
+1. Descrever o percurso do texto legível ao texto cifrado e de volta, explicando a função da chave secreta.
+2. Distinguir sigilo do conteúdo de detecção de alteração e identificar as entradas usadas na verificação.
 3. Comparar uma abertura válida com alterações controladas e justificar uma decisão de armazenamento e verificação.
 
-Esta aula inicia o [registro único de criptografia e confiança](#atividade), que continuará nos encontros seguintes. As respostas curtas de hoje são checkpoints, sem entrega separada.
+Esta aula inicia o [registro único de criptografia e confiança](#atividade), que continuará nos encontros seguintes. O preenchimento de hoje não exige entrega separada.
 
-## Propriedades: decidir o que proteger {#propriedades}
+## Cifra simétrica: transformar e recuperar dados {#fundamentos}
 
-Imagine um arquivo de teste com o conteúdo `ordem=7;estado=aprovado`. Uma cópia será guardada fora da pasta de trabalho. Três perguntas vêm antes de escolher o mecanismo:
+**Criptografia** reúne técnicas matemáticas para proteger informações. Na **cifragem**, o **texto legível** (ou *texto claro*) é transformado em **texto cifrado**, que não expõe diretamente o conteúdo. **Decifrar** é recuperar o conteúdo com a chave adequada. A palavra *texto* inclui qualquer sequência de bytes, como os de um arquivo; não se limita a frases.
 
-| Pergunta | Decisão para o arquivo de teste |
+Uma **chave** é o valor usado pela operação para controlar essa transformação. A regra do algoritmo pode ser conhecida; a proteção depende de manter a chave adequada em segredo e de usá-la corretamente. Em **criptografia simétrica**, a mesma chave secreta serve para cifrar e decifrar. Chamaremos a chave temporária do exemplo de **K1**. [O padrão AES do NIST](https://csrc.nist.gov/pubs/fips/197/final) define uma cifra simétrica; ainda precisaremos escolher como usá-la para proteger o arquivo.
+
+```text
+Texto legível + chave K1 → cifrar → texto cifrado
+Texto cifrado + chave K1 → decifrar → texto legível
+```
+
+**Exemplo:** um serviço cifra `ordem=7;estado=aprovado` com K1 antes de guardar uma cópia. Quem possui K1 pode recuperar o conteúdo; quem possui somente a cópia não deve conseguir fazê-lo, sob as premissas do mecanismo. Se K1 se perder, a recuperação fica comprometida. Se K1 vazar, o sigilo fica comprometido. Registre os dois efeitos separadamente.
+
+Essa proteção diz respeito à **confidencialidade** da cópia. Ela não torna a chave inacessível ao processo que precisa usá-la, nem protege o texto depois de aberto no endpoint. O processo autorizado ainda pode ler o texto e, conforme suas permissões, alterá-lo — limite relacionado à [A13](A13-protecao-de-endpoints.md). Também não basta ver bytes ilegíveis para concluir que a cópia não foi modificada.
+
+## Cifra autenticada: sigilo e detecção de alteração {#propriedades}
+
+**Confidencialidade** restringe a leitura. **Integridade**, neste contexto, é detectar alteração nos dados protegidos antes de aceitá-los. Bytes ilegíveis não demonstram integridade. Uma **cifra autenticada** combina sigilo do texto e verificação do conjunto recebido. A abertura entrega o texto legível somente quando essa verificação passa; se falhar, o texto não deve ser usado. A verificação não identifica a pessoa que criou ou modificou a cópia.
+
+**AES-GCM** concretiza essa combinação: AES é a cifra simétrica; GCM é o modo de operação que acrescenta a verificação. Além do texto e da chave, usa um **nonce**, valor que precisa ser novo em cada cifragem sob a mesma chave. O resultado contém texto cifrado e uma **tag**, usada na verificação. Também pode receber **AAD** (*dado associado*): informação que continua visível, mas cuja alteração é detectada. [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+
+**Síntese das propriedades:**
+
+| Pergunta | Mecanismo ou limite |
 |---|---|
-| Quem pode ler o conteúdo da cópia? | Só quem obtiver a chave correta deve recuperá-lo. Isso é **confidencialidade do texto**. |
-| Como reconhecer bytes alterados? | A abertura deve falhar se texto cifrado, metadados autenticados ou etiqueta forem alterados. Isso é **autenticidade/integridade da mensagem** dentro das premissas da chave. |
-| Quem pode usar a chave e o texto aberto? | O processo autorizado ainda os acessa no endpoint. Cifra do arquivo não substitui controle de execução, permissões ou resposta da A13. |
-
-**Cifra simétrica** usa a mesma chave secreta para cifrar e decifrar. Em uma cifra autenticada como **AES-GCM**, a operação recebe texto legível, chave, nonce e, opcionalmente, dados associados (*AAD*). Ela produz texto cifrado e uma **etiqueta de autenticação** (*tag*). A abertura só deve entregar o texto quando a verificação tiver sucesso. [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/WebCryptoAPI/#aes-gcm) define a operação usada no painel.
+| Quem pode ler a cópia? | A cifra mantém o texto legível fora da cópia; a chave K1 permite recuperá-lo. |
+| A cópia recebida foi aceita sem alteração detectada? | A verificação da cifra autenticada considera texto cifrado, tag e, quando houver, AAD. |
+| O dispositivo que abre a cópia é confiável? | A cifra do arquivo não responde; proteção e resposta do endpoint continuam necessárias. |
 
 ```mermaid
 flowchart LR
@@ -39,18 +56,20 @@ flowchart LR
     V -->|alterado ou entrada errada| F[Falha: nenhum texto entregue]
 ```
 
-O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo=ordem;versao=1`. Ele participa da autenticação, mas **permanece legível**. Se o rótulo for confidencial, deverá ficar dentro do texto cifrado. A etiqueta verifica a combinação recebida; ela não diz quem, entre várias pessoas que conhecem a mesma chave, produziu a mensagem.
+O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo=ordem;versao=1`. Ele participa da verificação, mas **permanece legível**. Se o rótulo for confidencial, deverá ficar dentro do texto cifrado. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem. **Decida antes do painel:** esse rótulo de tipo e versão precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com uma das duas propriedades.
 
 ## Chave e nonce: registrar funções diferentes {#chave-nonce}
 
 | Campo | Função | Cuidados neste exercício |
 |---|---|---|
 | Chave K1 | Segredo usado para cifrar e abrir. | O painel a gera no navegador e não a exporta. Recarregar a página elimina K1; não há recuperação do exemplo anterior. |
-| Nonce N1 | Valor por operação para a mesma chave; não é segredo. | O painel sorteia 96 bits novos a cada cifragem. **Não reutilize o par chave–nonce.** |
+| Nonce N1 | Valor por operação para a mesma chave; não é segredo e não substitui K1. | O painel sorteia 96 bits novos a cada cifragem. **Não reutilize o par chave–nonce.** |
 | Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | Pode ser armazenado com o nonce; o conteúdo original não deve ser inferido pela aparência desses bytes. |
 | Tag | Valor de verificação produzido pela operação. | Alterar um bit do conjunto protegido deve fazer a abertura falhar. Não trate falha como texto parcialmente válido. |
 
 O requisito de unicidade do nonce é **por chave e operação**. Reuso do mesmo par em GCM compromete garantias de segurança; sortear 96 bits ajuda neste ensaio curto, mas um sistema real precisa especificar geração, volume de mensagens, reinício e coordenação entre dispositivos. A chave precisa de geração, armazenamento, autorização, rotação e recuperação próprios, temas retomados ao longo do bloco. Esses limites constam da [NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf).
+
+**Antes de operar:** o painel mostra bytes em **hexadecimal**, uma forma compacta de escrever cada byte com dois caracteres. Você não precisa decifrar essa representação visualmente. Procure os nomes dos campos, compare o que mudou e leia se a abertura entregou texto ou falhou.
 
 ## Demonstração: cifrar, abrir e rejeitar {#demonstracao}
 
@@ -95,7 +114,7 @@ Complete uma linha para o [registro da atividade](#atividade): `objeto → propr
 
 ## Atividade {#atividade}
 
-Abra a [atividade única de criptografia e confiança](../atividades/A14-A18-criptografia-confianca.md#atividade). Hoje, preencha apenas a seção **C1 — cifra autenticada**. Ela usa os resultados V1–V2/F1–F3 da demonstração ou do quadro alternativo; a entrega final ocorrerá após o bloco, conforme prazo definido no Classroom.
+Abra a [atividade única de criptografia e confiança](../atividades/A14-A18-criptografia-confianca.md#atividade). Hoje, preencha apenas a seção **C1 — fundamentos e cifra autenticada**. Ela começa pelo percurso do texto e da chave, depois usa os resultados V1–V2/F1–F3 da demonstração ou do quadro alternativo; a entrega final ocorrerá após o bloco, conforme prazo definido no Classroom.
 
 ## Revisão rápida
 
@@ -105,6 +124,7 @@ Abra a [atividade única de criptografia e confiança](../atividades/A14-A18-cri
 
 ## Referências
 
+- [NIST FIPS 197 — AES](https://csrc.nist.gov/pubs/fips/197/final): especificação da cifra simétrica AES.
 - [NIST SP 800-38D — GCM e GMAC](https://csrc.nist.gov/pubs/sp/800/38/d/final): funções, propriedades, entradas e unicidade de nonce.
-- [W3C Web Cryptography API — AES-GCM](https://www.w3.org/TR/WebCryptoAPI/#aes-gcm): comportamento da operação do navegador e formato da saída.
+- [W3C Web Cryptography API — AES-GCM](https://www.w3.org/TR/webcrypto/#aes-gcm): comportamento da operação do navegador e formato da saída.
 - [Referência de cifras simétricas do curso](../criptografia/simetricos.md): comparação de mecanismos para consulta após a aula.

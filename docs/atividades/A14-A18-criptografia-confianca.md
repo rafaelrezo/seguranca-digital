@@ -2,11 +2,11 @@
 
 ## Atividade {#atividade}
 
-**Missão:** em dupla, construir um registro de decisões sobre uma cópia de dados fictícia e seu acesso. O registro começa em A14 com cifra autenticada e será ampliado até A18 com hash/senhas, chaves assimétricas, certificados/TLS e ciclo de chaves. A entrega é **única**, após o último encontro do bloco; os preenchimentos presenciais são checkpoints, sem tarefas adicionais no Classroom.
+**Objetivo:** em dupla, produzir um registro que distinga o que cada mecanismo criptográfico protege, como verificar seu funcionamento e quais limites permanecem. Acrescente uma parte por encontro: cifra autenticada (C1), hash/HMAC/senhas (C2), assinatura (C3), certificado/TLS (C4) e ciclo de chaves (C5). Haverá **uma única entrega** após A18; os registros feitos em aula não geram tarefas separadas.
 
-**Insumo comum:** o conteúdo fictício é `ordem=7;estado=aprovado`. Uma cópia precisa ser guardada, conferida e aberta por um serviço autorizado. O rótulo inicial é `tipo=ordem;versao=1`. Não há pessoa, empresa ou incidente real por trás desses dados. Não suponha que a cifra elimina os riscos do endpoint vistos na A13.
+**Dados de teste:** A14 usa `ordem=7;estado=aprovado` como texto legível e `tipo=ordem;versao=1` como rótulo visível. São bytes de demonstração, sem pessoa, empresa ou incidente associado. A cifra de uma cópia não elimina os riscos do dispositivo que a abre.
 
-Os textos `abc`/`abd` e `pedido=7;valor=10` da A15 são vetores locais para comparar mecanismos; `relatorio=7;resultado=aprovado` da A16 testa assinatura. Eles **não são versões cifradas da ordem**. Os IDs K1/K2 dessas demonstrações valem apenas dentro da respectiva aula. Em A18, `C-01` e `C-02` representam cópias fictícias da ordem e `K-A`/`K-B` são identificadores de chaves em um inventário didático. Não transfira material de chave de um painel para outro.
+As entradas `abc`/`abd` e `pedido=7;valor=10` da A15 servem para comparar hash e HMAC; `relatorio=7;resultado=aprovado` da A16 serve para testar assinatura. **São exercícios independentes**, não versões cifradas do texto da A14. Os IDs K1/K2 são locais a cada aula. Em A18, `C-01`/`C-02` identificam cópias de teste e `K-A`/`K-B` identificam chaves em um inventário didático. Não transfira chaves entre painéis.
 
 **Formato e envio:** um PDF legível, `cripto_sobrenome1_sobrenome2.pdf`, com C1–C5 e uma decisão final. Uma pessoa envia pelo Classroom, identificando a dupla. O docente informará o prazo. Use tabelas ou texto, mantendo os identificadores para permitir revisão. Se usar IA, registre pedido, sugestões aceitas/rejeitadas e motivos; não envie dados reais ou segredos.
 
@@ -14,7 +14,7 @@ Os textos `abc`/`abd` e `pedido=7;valor=10` da A15 são vetores locais para comp
 
 | Parte | Decisão a registrar no mesmo PDF | Evidência mínima |
 |---|---|---|
-| C1 — cifra autenticada | Propriedade, campos visíveis/secretos, local da chave, regra de nonce, abertura e rejeição de alteração. | V1 e pelo menos F1/F2 da [A14](../aulas/A14-cifra-simetrica-autenticada.md#demonstracao), coletados ou lidos no quadro alternativo; limite no endpoint. |
+| C1 — fundamentos e cifra autenticada | Percurso texto legível → cifragem → texto cifrado → decifragem, propriedade, campos visíveis/secretos, local da chave, regra de nonce, abertura e rejeição de alteração. | Efeito previsto de perda/exposição de K1; V1 e pelo menos F1/F2 da [A14](../aulas/A14-cifra-simetrica-autenticada.md#demonstracao), coletados ou lidos no quadro alternativo; limite no endpoint. |
 | C2 — hash, HMAC e senha | Escolher o mecanismo adequado para verificar bytes, autenticar mensagem e guardar um verificador de senha, distinguindo suas chaves ou sal. | Caso válido/alterado e justificativa que não confunda digest com sigilo. |
 | C3 — chaves assimétricas e assinatura | Distinguir cifrar, assinar e acordar segredo; verificar uma assinatura e explicitar o limite da chave pública ainda não vinculada à identidade. | Original aceito, mensagem alterada e chave pública errada recusadas, com motivo. |
 | C4 — certificado e canal TLS | Verificar o vínculo entre identidade e chave pública; avaliar proteção do trânsito e separar canal aceito de autorização ao objeto. | Certificado/canal aceito e recusado com motivo; fluxo e limite da autorização. |
@@ -28,8 +28,8 @@ Cada encontro acrescenta apenas sua linha ao mesmo arquivo de trabalho. Antes de
 
 ### Comece agora: C1
 
-1. Faça a previsão de V1 e F1 antes da demonstração. Acompanhe os botões ou use o quadro alternativo da A14. Registre a **fonte** (“painel observado” ou “quadro de referência”) e o resultado.
-2. Preencha a linha `objeto → propriedade → campos visíveis/secretos → V1 → F1/F2 → limite → próxima decisão` para a cópia fictícia. Explique por que o rótulo `tipo=ordem;versao=1` pode ser AAD; decida o que mudaria se ele contivesse um nome pessoal.
+1. Escreva o percurso do arquivo fictício em uma linha: texto legível → cifragem com K1 → texto cifrado → decifragem com K1. Preveja o efeito da perda e da exposição de K1. Em seguida, faça a previsão de V1 e F1 antes da demonstração. Acompanhe os botões ou use o quadro alternativo da A14. Registre a **fonte** (“painel observado” ou “quadro de referência”) e o resultado.
+2. Preencha a linha `objeto → propriedade → campos visíveis/secretos → V1 → F1/F2 → limite → próxima decisão` para a cópia fictícia. Explique por que sigilo da cópia não responde sozinho à pergunta sobre alteração. Depois, explique por que o rótulo `tipo=ordem;versao=1` pode ser AAD; decida o que mudaria se ele contivesse um nome pessoal.
 3. Proponha onde ficariam K1, nonce e arquivo cifrado. Indique quem precisa da chave para abrir e o que acontece se ela se perder. Sua proposta não constitui configuração executada.
 4. Faça uma revisão cruzada: cada integrante lê uma conclusão do outro e registra uma correção ou divergência resolvida. Pare após C1; os mecanismos C2–C5 serão instrumentados nos encontros seguintes.
 
@@ -48,7 +48,7 @@ Após C5, escreva **uma decisão final** em quatro linhas, uma para repouso, tr�
 
 | Critério | Peso | Evidência de atendimento |
 |---|---:|---|
-| C1 — propriedades e AEAD | 20% | Campos, chave/nonce, caso válido e rejeição, limite do endpoint. |
+| C1 — fundamentos e cifra autenticada | 20% | Percurso do texto, efeito da chave, distinção entre sigilo e alteração, campos, caso válido e rejeição, limite do endpoint. |
 | C2 — funções criptográficas | 20% | Escolha coerente entre hash, HMAC e tratamento de senhas, com teste/contraprova. |
 | C3 — chave pública e assinatura | 20% | Funções de cifra, assinatura e acordo, verificação válida e contraprovas com limite de identidade. |
 | C4 — certificado, canal e autorização | 20% | Decisão de aceitação/recusa de certificado, fluxo protegido e limite de autorização. |

@@ -1,5 +1,7 @@
 # A17 (provisória) — Certificados e TLS
 
+**Revisão de 8 out. 2026:** expor certificado, emissor, cadeia, âncora e critérios de validação antes da inspeção. Explicar handshake, autenticação e chaves de tráfego antes dos cartões de decisão. Os cartões são dados de teste curtos, não um cenário a reconstruir. A Imagem 15 é opcional. Preservar C4 e 50 T/50 P planejados.
+
 **Estado:** material prospectivo; a existência de A14–A16 não comprova sua realização. A numeração posterior a A13 é provisória. **Carga:** 100 minutos efetivos, **50 teóricos e 50 práticos guiados**. **Atividade:** checkpoint C4 do registro único A14–A18; sem tarefa adicional no Classroom.
 
 ## Ficha-base

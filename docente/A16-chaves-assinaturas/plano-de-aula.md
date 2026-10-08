@@ -1,5 +1,7 @@
 # A16 (provisória) — Chaves assimétricas e assinaturas
 
+**Revisão de 8 out. 2026:** iniciar pela definição e pelos papéis do par de chaves. Separar cifra, assinatura e acordo antes da demonstração ECDSA. V1–V3 verificam correspondência matemática; o vínculo entre identidade e chave é a decisão posterior. A Imagem 14 é opcional. Preservar C3 e 50 T/50 P planejados.
+
 **Estado:** material prospectivo; produção não comprova realização de A13–A15. **Carga:** 100 minutos efetivos, 50 de teoria e 50 de prática guiada, com operação direta dos estudantes quando houver navegador compatível. **Atividade:** C3 do registro único A14–A18; sem tarefa adicional no Classroom.
 
 ## Ficha-base

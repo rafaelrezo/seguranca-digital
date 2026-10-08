@@ -1,18 +1,20 @@
-# A17 (provisória) — Certificados e TLS: aceitar o servidor e delimitar o canal
+# A17 (provisória) — Certificados digitais e TLS
 
-Na A16, uma assinatura válida com K1 não bastou para saber a quem K1 pertence. Agora um navegador recebe uma chave pública em um certificado ao abrir uma página HTTPS. **Que evidências permitem aceitar o servidor, e o que continua sendo decisão da aplicação?**
+Um **certificado digital** associa uma chave pública a uma identidade declarada. O navegador avalia esse vínculo antes de aceitar a conexão HTTPS. **TLS** é o protocolo que autentica o servidor no fluxo estudado aqui, estabelece chaves para a conexão e protege os dados transmitidos. Esta aula explica as verificações necessárias e o alcance dessa proteção.
 
-**Tempo:** 100 minutos (50 de conceitos e 50 de prática guiada). **Base:** assinatura, chave pública e acordo de chaves da [A16](A16-chaves-assinaturas.md). **Recursos:** esta página, navegador e, se o material do curso estiver em HTTPS, o visualizador de certificado do próprio navegador. O pacote fictício abaixo permite realizar todas as decisões sem rede. Não instale software, não modifique a configuração de confiança, não ignore avisos do navegador e não digite dados reais. O registro de hoje é **C4 da [atividade única de criptografia e confiança](../atividades/A14-A18-criptografia-confianca.md#atividade)**, sem entrega separada.
+**Tempo:** 100 minutos (50 de conceitos e 50 de prática guiada). **Base:** chave pública, assinatura e acordo de chaves da [A16](A16-chaves-assinaturas.md); as funções são retomadas abaixo. **Recursos:** navegador e, se o curso estiver em HTTPS, seu visualizador de certificados. Os dados fornecidos nesta página bastam para a análise sem conexão externa. Não altere a configuração de confiança nem ignore avisos do navegador. C4 integra a [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade).
 
 **Objetivos de aprendizagem**
 
-1. Localizar e interpretar nome DNS, período de validade, caminho até uma âncora de confiança e finalidade de um certificado de servidor, distinguindo campos exibidos de validação efetiva.
-2. Classificar um canal aceito e casos recusados a partir de evidências de certificado e TLS, registrando qual condição falhou e o limite da informação sobre revogação.
+1. Localizar o nome do serviço, o prazo, a cadeia de confiança e a finalidade de um certificado de servidor.
+2. Decidir quando aceitar ou recusar um canal e indicar a condição que sustenta a decisão.
 3. Explicar como a autenticação do servidor, o estabelecimento de chaves e a proteção do tráfego se relacionam no TLS 1.3, sem confundir canal autenticado com autorização para um objeto.
 
-## Certificado: vincular nome e chave pública {#certificado}
+## Certificado: vincular nome, chave e emissor {#certificado}
 
-Um certificado X.509 inclui uma chave pública e dados assinados pelo emissor. A assinatura do emissor permite verificar o vínculo **se** o caminho de certificados terminar numa âncora que o cliente já confia e se as demais verificações passarem. O certificado não carrega sua própria prova final de confiança: importar uma raiz desconhecida apenas porque ela veio junto com o servidor anularia a pergunta da A16. A validação de caminho da [RFC 5280](https://www.rfc-editor.org/rfc/rfc5280) trata assinatura, validade, restrições e âncora de confiança; a [RFC 9525](https://www.rfc-editor.org/rfc/rfc9525) descreve a correspondência da identidade do serviço com o nome apresentado no certificado.
+Um certificado no formato **X.509** contém uma chave pública, nomes e outros campos assinados por uma **autoridade certificadora** (*emissor*). O cliente verifica uma **cadeia** de certificados: cada emissor valida o seguinte até chegar a uma **âncora de confiança**, raiz já aceita pelo cliente. Uma raiz enviada pelo próprio servidor não se torna confiável apenas por ter sido recebida. Além da cadeia, o cliente confere o nome do serviço, o período de validade e a finalidade permitida. A [RFC 5280](https://www.rfc-editor.org/rfc/rfc5280) define a validação de caminho; a [RFC 9525](https://www.rfc-editor.org/rfc/rfc9525) trata da identidade do serviço.
+
+**Síntese:** o certificado apresenta a chave; a cadeia e a âncora sustentam o vínculo; o nome precisa corresponder ao endereço solicitado; o período e a finalidade precisam permitir o uso. Uma verificação de assinatura isolada não substitui essas condições.
 
 | Evidência | Pergunta de decisão | Interpretação cuidadosa |
 |---|---|---|
@@ -22,7 +24,7 @@ Um certificado X.509 inclui uma chave pública e dados assinados pelo emissor. A
 | `Extended Key Usage` e restrições de uso | O certificado serve para autenticação de servidor TLS? | Um certificado limitado a autenticação de cliente não serve para esse papel. |
 | Estado de revogação | Há evidência de revogação ou de consulta válida? | A ausência de aviso não é prova universal de “não revogado”; políticas e mecanismos do cliente variam. |
 
-O visualizador ajuda a **ler campos**, mas a aceitação da conexão depende das verificações implementadas pelo navegador. Se um caso exigir confirmação de revogação e a evidência não a fornecer, registre **indeterminado quanto à revogação**, sem inventar uma consulta. Certificados podem ser revogados antes do fim da validade; CRL e OCSP são mecanismos descritos na [RFC 5280, seção 3.3 e seção 5](https://www.rfc-editor.org/rfc/rfc5280) e na [RFC 6960](https://www.rfc-editor.org/rfc/rfc6960). O comportamento de falha e o uso de respostas em cache dependem do cliente e da configuração. Nesta aula, uma **resposta confiável de revogação** é evidência para recusar; ausência de resposta no pacote não vira aprovação de revogação.
+O visualizador mostra **campos**; a aceitação da conexão depende do navegador e de sua política. **Revogação** é a invalidação de um certificado antes do fim do prazo, por exemplo após comprometimento da chave. CRL e OCSP são meios de publicar ou consultar esse estado ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280), [RFC 6960](https://www.rfc-editor.org/rfc/rfc6960)). Uma resposta confiável que indique revogação exige recusa. Sem informação de estado no material, registre **revogação não comprovada**; o comportamento do navegador pode variar conforme a configuração.
 
 ### Inspeção no navegador: colher evidência real {#inspecao}
 
@@ -39,9 +41,9 @@ No **Firefox**, abra o ícone de informações da conexão ao lado do endereço 
 
 Você abriu `https://curso.exemplo.invalid`, mas o SAN apresentado cobre apenas `portal.exemplo.invalid`. Mesmo que o certificado esteja no prazo e tenha uma cadeia confiável, **recuse**: a chave foi vinculada a outro nome. Uma aparência semelhante na tela não modifica o endereço que o navegador pediu. Os domínios `.invalid` desta página são **fictícios e não devem ser acessados**.
 
-## TLS 1.3: autenticar, estabelecer chaves, proteger registros {#tls}
+## TLS 1.3: autenticação, chaves e tráfego {#tls}
 
-No uso comum de HTTPS com certificado de servidor, três relações importam:
+**HTTPS** é HTTP transportado sobre TLS. Antes de transmitir os dados da aplicação, cliente e servidor realizam uma negociação inicial chamada **handshake**. No fluxo usual com certificado de servidor, três etapas explicam sua função:
 
 ```text
 nome solicitado + certificado/cadeia + prova da chave privada
@@ -53,13 +55,13 @@ requisições e respostas HTTP protegidas por AEAD no canal TLS
 aplicação decide se esta conta pode acessar este objeto
 ```
 
-No [TLS 1.3, RFC 8446](https://www.rfc-editor.org/rfc/rfc8446), as partes negociam parâmetros e estabelecem material de chave; no fluxo típico com certificado, o servidor apresenta o certificado e assina o contexto do handshake com a chave privada correspondente. A validação do certificado e essa prova vinculam o handshake ao servidor esperado. Chaves de tráfego derivadas protegem os registros com cifra autenticada. A chave pública do certificado **não cifra cada resposta HTTP**, e a conexão não reutiliza diretamente a chave AES-GCM do arquivo da A14. Há modos TLS com chave previamente compartilhada e retomada; o diagrama descreve o fluxo didático com autenticação por certificado, não todos os modos do protocolo.
+No [TLS 1.3, RFC 8446](https://www.rfc-editor.org/rfc/rfc8446), as partes negociam parâmetros e estabelecem material de chave. No fluxo com certificado, o servidor apresenta o certificado e usa a chave privada correspondente para assinar o contexto do handshake. Com o certificado validado, o cliente associa essa prova ao nome solicitado. As partes derivam **chaves de tráfego** para proteger os registros da conexão com cifra autenticada. A chave pública do certificado não cifra cada resposta HTTP. Retomada de conexão e outros modos existem; este é o fluxo de ensino com certificado de servidor.
 
 **Limite:** TLS protege dados em trânsito entre os pontos finais da conexão sob suas premissas; dados podem estar legíveis nos endpoints autorizados. Uma resposta `403` recebida por HTTPS indica que o canal foi estabelecido e a **aplicação recusou acesso**. Um `200` não prova, por si, que a aplicação autorizou corretamente cada objeto. Retome a pergunta de A04–A05: `identidade → ação → recurso` continua exigindo decisão do servidor de aplicação.
 
-## Oficina de decisão: sete cartões e uma contraprova {#oficina}
+## Aplicação: aceitar ou recusar um certificado {#oficina}
 
-**Estado comum do pacote:** em 6 out. 2026, um navegador solicita `https://curso.exemplo.invalid/ordens/7`. Os dados a seguir são **insumos fictícios de análise**, não certificados reais, capturas de execução nem resultados do navegador. Em cada cartão, considere corretos apenas os campos explicitamente declarados; “demais condições iguais a B” significa SAN `curso.exemplo.invalid`, validade 1 jan. 2026–1 jan. 2027, cadeia assinada até raiz confiável, uso `serverAuth`, prova da chave privada no handshake TLS 1.3 e proteção AEAD do tráfego. A informação de revogação de B **não foi fornecida**. Não tente acessar os endereços fictícios.
+**Dados de teste:** nome solicitado `curso.exemplo.invalid`, data de análise 6 out. 2026. O registro B contém SAN `curso.exemplo.invalid`, validade 1 jan. 2026–1 jan. 2027, cadeia assinada até raiz confiável, uso `serverAuth`, prova da chave privada no handshake TLS 1.3 e proteção autenticada do tráfego. A informação de revogação **não foi fornecida**. Cada linha abaixo muda apenas a condição indicada; as demais são iguais às de B. São dados fornecidos para análise, não certificados reais nem resultados observados. Não acesse os endereços `.invalid`.
 
 | Cartão | Diferença em relação a B | Decisão inicial e motivo a preencher |
 |---|---|---|
@@ -71,11 +73,11 @@ No [TLS 1.3, RFC 8446](https://www.rfc-editor.org/rfc/rfc8446), as partes negoci
 | R — revogação | Resposta de status válida informa **revogado** antes da data da análise. |  |
 | A — autorização | Certificado e TLS iguais a B; resposta HTTP `403` para `/ordens/8` da mesma conta. |  |
 
-**Faça em dupla:** uma pessoa representa o navegador e anuncia **aceitar, recusar ou não concluir** para cada cartão; a outra aponta o campo que sustenta ou limita a decisão. Troquem os papéis após V. Para cada cartão, registrem `ID → evidência → decisão sobre certificado/canal → resultado da aplicação, se houver → limite`. Prevejam antes de conferir as respostas de referência abaixo. Em B, anotem explicitamente que a revogação não foi comprovada pelo pacote; em A, separem a aceitação do canal da recusa da aplicação.
+Para cada linha, registre `ID → campo relevante → aceitar, recusar ou não concluir → motivo → limite`. Depois confira as respostas de referência. Em B, explicite que o pacote não comprova o estado de revogação; em A, separe a aceitação do canal da recusa da aplicação.
 
-Se a inspeção real não estiver disponível, use B como **ensaio de localização de campos** antes da classificação: sublinhe o DNS solicitado; circule SAN, intervalo, âncora e `serverAuth` nas condições comuns; anote “revogação: não fornecida”; só então marque o estado do canal e o `200` da aplicação em colunas distintas. A saída desse ensaio é a ficha de campos fornecidos, não uma inspeção de certificado real. Pare quando a dupla conseguir apontar a origem de cada campo sem inferir um valor ausente.
+Se a inspeção real não estiver disponível, localize os campos de B nesta página: nome solicitado, SAN, prazo, âncora e finalidade. Anote “revogação: não fornecida”. Essa leitura substitui a navegação no visualizador, mas sua fonte é **dado fornecido**, não observação de uma conexão.
 
-**Checkpoint:** todos devem conseguir justificar B, ao menos dois motivos distintos de recusa entre N/V/C/F/R e a diferença de A. Se uma condição não tiver evidência, não a preencham por suposição. Para testar a decisão, retirem mentalmente o SAN de B: o que deixa de ser possível concluir? Depois comparem o resultado com outra dupla e revisem uma linha.
+**Verificação:** justifique B, dois motivos diferentes de recusa entre N/V/C/F/R e a decisão de A. Se o SAN for retirado de B, a correspondência do nome deixa de estar demonstrada. Não preencha campos ausentes por suposição.
 
 <details>
 <summary>Conferir decisões de referência após preencher os cartões</summary>

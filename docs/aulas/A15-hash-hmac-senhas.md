@@ -1,22 +1,24 @@
-# A15 (provisória) — Hash, HMAC e senhas: escolher a verificação certa
+# A15 (provisória) — Hash, HMAC e armazenamento de senhas
 
-Na A14, AES-GCM ocultou o texto de uma cópia e rejeitou uma alteração. Agora considere três pedidos distintos: **comparar uma cópia com um valor publicado por uma fonte confiável**, **aceitar uma mensagem de quem compartilha uma chave** e **verificar a senha de uma conta**. Todos produzem valores que parecem sequências de bytes, mas as entradas, as premissas e as decisões são diferentes.
+Esta aula apresenta três mecanismos com finalidades diferentes. **Hash** produz um resumo dos bytes para comparação. **HMAC** acrescenta uma chave secreta à verificação de mensagens. Um **esquema de armazenamento de senhas** torna mais caro testar palpites após o vazamento de uma base. A distinção central é o que cada mecanismo verifica, quais entradas usa e de onde vem a confiança no resultado.
 
-**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** esta página em navegador com JavaScript e Web Crypto disponível em HTTPS ou `localhost`; o quadro de resultados permite participar sem executar o painel. Use somente os textos fictícios apresentados aqui. Não digite senhas, chaves ou arquivos reais. **Base:** integridade e limite da chave compartilhada vistos na [A14](A14-cifra-simetrica-autenticada.md). Esta aula continua a [atividade única de criptografia e confiança](../atividades/A14-A18-criptografia-confianca.md#atividade); o checkpoint de hoje não é uma entrega separada.
+**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** navegador com JavaScript e Web Crypto em HTTPS ou `localhost`, ou o quadro de resultados desta página. Use somente as entradas fictícias. Não digite senhas, chaves ou arquivos reais. A [A14](A14-cifra-simetrica-autenticada.md) apresentou cifra autenticada; aqui estudaremos funções que não têm a mesma finalidade. O registro C2 integra a [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade), sem entrega separada.
 
 **Objetivos de aprendizagem**
 
-1. Calcular e comparar um digest SHA-256, indicando de onde veio o valor de referência e o que a comparação permite concluir.
-2. Verificar um HMAC-SHA-256 para mensagem original, mensagem alterada e chave diferente, distinguindo segredo compartilhado de identidade individual.
-3. Escolher um esquema adequado para verificação de senha com sal e custo, explicando por que SHA-256 direto e HMAC de mensagem não substituem esse esquema.
+1. Comparar resumos calculados de duas entradas e explicar por que a origem da referência importa.
+2. Verificar uma mensagem com chave compartilhada e distinguir essa prova da identidade individual.
+3. Escolher um esquema de armazenamento de senhas que dificulte palpites após vazamento da base.
 
-## Digest: comparar bytes com uma referência confiável {#digest}
+## Hash e digest: comparar o conteúdo exato {#digest}
 
-**Síntese:** um hash criptográfico transforma bytes de entrada em um digest de tamanho fixo. O SHA-256 produz 256 bits. A mesma sequência de bytes produz o mesmo digest; uma mudança na entrada tende a produzir outro. O digest **não oculta** a entrada, não identifica quem publicou o arquivo e não prova sozinho que a cópia é legítima. Para verificar uma distribuição, compare com um valor de referência obtido **por um canal confiável e separado da cópia**. Se atacante puder substituir arquivo e valor de referência juntos, a comparação pode concordar com o arquivo adulterado.
+Uma **função hash criptográfica** recebe uma sequência de bytes e produz um valor de tamanho fixo chamado **digest** ou resumo. SHA-256 produz 256 bits (32 bytes). Entradas idênticas produzem o mesmo digest; alterar a entrada quase certamente produz outro. A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest, mas igualdade de digests não identifica a origem do arquivo. Hash não cifra: o conteúdo pode continuar legível.
+
+Para conferir uma cópia, calcule seu digest e compare com um valor publicado pelo fornecedor **por um canal confiável**. Se alguém puder substituir tanto a cópia quanto a referência, a igualdade não demonstra legitimidade. Essa distinção entre comparação de bytes e confiança na origem será usada novamente em assinaturas e certificados.
 
 O exemplo `abc` é uma entrada de teste com digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad`. São os três bytes ASCII `61 62 63`, sem aspas, espaço ou quebra de linha. A [NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) especifica SHA-256; o [exemplo oficial da NIST](https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/examples/sha256.pdf) fornece esse valor. Uma comparação exige mesma codificação e mesmos bytes; visualmente parecido não basta.
 
-**Previsão:** ao trocar `abc` por `abd`, o digest será igual ou diferente? Isso prova autoria? Registre a previsão antes do clique.
+**Verificação curta:** preveja o efeito de trocar `abc` por `abd`. Depois compare os resultados no painel. A divergência mostra que os bytes usados nos dois cálculos diferem; não atribui autoria.
 
 <div id="a15-checks" aria-label="Laboratório local de digest e HMAC">
   <p id="a15-status" role="status">Preparando operações locais. Se o painel não abrir, use o quadro de resultados abaixo.</p>
@@ -29,7 +31,7 @@ O exemplo `abc` é uma entrada de teste com digest SHA-256 conhecido: `ba7816bf8
 
 ## HMAC: verificar mensagem com segredo compartilhado {#hmac}
 
-Um **HMAC** combina hash e chave secreta para produzir um código de autenticação da mensagem. Quem verifica precisa da mesma chave. A chave desta demonstração é gerada na aba, não é exibida nem exportada. O HMAC não cifra a mensagem: `pedido=7;valor=10` permanece legível. Quem souber a chave pode criar códigos válidos; por isso uma verificação válida **não distingue dois detentores da mesma chave** e não prova a identidade individual do autor. Uma chave copiada ou um endpoint comprometido muda essa premissa. [RFC 2104](https://www.rfc-editor.org/info/rfc2104/) define a construção; a [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/#hmac) fornece `sign()` e `verify()` no navegador.
+Um **código de autenticação de mensagem** (*MAC*) é calculado com uma chave secreta compartilhada. **HMAC** é uma construção de MAC baseada em hash. O emissor calcula o código sobre os bytes da mensagem; o receptor o verifica com a mesma chave. A mensagem `pedido=7;valor=10` continua legível: HMAC detecta alteração e demonstra conhecimento da chave, mas não oferece sigilo. Se duas partes conhecem a mesma chave, o código válido não distingue qual delas o criou. [RFC 2104](https://www.rfc-editor.org/info/rfc2104/) define HMAC; a [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/#hmac) fornece as operações do painel.
 
 | Entrada | Teste nesta aula | Leitura permitida |
 |---|---|---|
@@ -54,7 +56,9 @@ Se o painel disser “Web Crypto indisponível”, confira HTTPS ou `localhost` 
 
 ## Senhas: verificar sem guardar o texto secreto {#senhas}
 
-O verificador de senha enfrenta outro problema: se a base de verificadores vazar, o atacante pode testar palpites **fora do serviço**, sem limite de tentativas online. SHA-256 é rápido por projeto e, mesmo com um sal acrescentado ingenuamente, permite muitos palpites baratos. HMAC de mensagem depende de um segredo compartilhado e resolve outra pergunta. Para senhas, use um **esquema de derivação/verificação de senha** com sal individual aleatório e custo configurado, como Argon2id quando disponível, em uma biblioteca mantida. O registro guarda identificador do esquema, parâmetros de custo, sal e verificador; o texto da senha não é armazenado. O sal não é secreto; seu papel é diferenciar registros e dificultar tabelas pré-computadas. Um segredo adicional do verificador (*pepper*), se adotado, fica separado da base e não substitui sal nem custo.
+Uma senha é um segredo escolhido ou conhecido pelo usuário. O serviço precisa verificar a senha digitada sem armazená-la em texto legível. Se a base de **verificadores** vazar, um atacante poderá testar palpites fora do serviço. SHA-256 direto é rápido demais para essa finalidade, mesmo quando se acrescenta sal sem um esquema de custo adequado.
+
+Um **esquema de armazenamento de senhas** recebe senha, **sal** e parâmetros de **custo**. O sal é um valor individual que diferencia os registros; não precisa ser secreto. O custo torna cada palpite mais caro. O serviço guarda o identificador do esquema, sua versão, parâmetros, sal e verificador, e usa a rotina de verificação no login. Argon2id, em biblioteca mantida e com parâmetros medidos para o ambiente, é uma opção indicada pela [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html). Um segredo adicional do servidor (*pepper*), se adotado, fica separado da base e não substitui sal nem custo.
 
 O [NIST SP 800-63B-4, seção sobre verificadores](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) exige sal e esquema adequado com fator de custo; a [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recomenda Argon2id e detalha parametrização e alternativas. O custo precisa ser medido no sistema real para não tornar o login inviável. Aqui **não digitaremos senhas nem simularemos um KDF fraco**: a decisão é arquitetural e pode ser verificada na configuração fictícia abaixo.
 

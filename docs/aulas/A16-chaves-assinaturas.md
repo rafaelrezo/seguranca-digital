@@ -1,30 +1,34 @@
-# A16 (provisória) — Assinar e verificar: de quem é esta chave?
+# A16 (provisória) — Chaves assimétricas e assinaturas digitais
 
-Uma equipe recebeu `relatorio=7;resultado=aprovado` e uma assinatura. Precisa decidir se os bytes são os mesmos que foram assinados e se a chave pública usada pertence à fonte esperada. **Uma verificação matemática responde às duas perguntas?**
+Na **criptografia assimétrica**, cada participante pode ter duas chaves relacionadas: uma **privada**, mantida em segredo, e uma **pública**, distribuída para funções específicas. Esta aula explica o que significa assinar e verificar uma mensagem, como pares de chaves participam do acordo de segredos e por que uma chave pública precisa ter origem confiável. O texto `relatorio=7;resultado=aprovado` serve apenas para testar a verificação.
 
-**Tempo:** 100 minutos (50 de conceitos e 50 de prática guiada). **Base:** hash e HMAC da A15; não é necessário lembrar um caso ou empresa. **Recursos:** navegador com JavaScript e Web Crypto em HTTPS ou `localhost`, ou o quadro de evidências desta página. Use apenas a mensagem fictícia. Não insira nomes, documentos ou chaves reais. O registro de hoje é o **C3 da atividade única de criptografia e confiança**, sem entrega separada.
+**Tempo:** 100 minutos (50 de conceitos e 50 de prática guiada). **Base:** hash e HMAC da [A15](A15-hash-hmac-senhas.md); seus papéis são retomados abaixo. **Recursos:** navegador com JavaScript e Web Crypto em HTTPS ou `localhost`, ou o quadro de resultados. Use apenas a mensagem fictícia; não insira documentos ou chaves reais. O registro C3 integra a [atividade única](../atividades/A14-A18-criptografia-confianca.md#atividade).
 
 **Objetivos de aprendizagem**
 
-1. Distinguir as funções de cifra, assinatura e acordo de chaves, indicando qual chave e qual propriedade entram em cada operação.
+1. Distinguir as funções de cifrar, assinar e estabelecer um segredo comum, indicando as chaves usadas.
 2. Gerar pares de teste, assinar uma mensagem e verificar os resultados com mensagem íntegra, mensagem alterada e chave pública diferente.
 3. Justificar a aceitação condicional de uma assinatura, separando validade matemática da confiança na identidade vinculada à chave.
 
-## Funções das chaves: escolher o mecanismo {#funcoes}
+## Par de chaves: segredo privado e informação pública {#funcoes}
+
+As duas chaves de um par são geradas juntas, mas têm papéis distintos. A chave **privada** deve permanecer sob controle do titular. A chave **pública** pode ser distribuída; sua divulgação não é uma falha. Isso não significa que qualquer chave pública recebida seja confiável: para associá-la a uma pessoa ou serviço, é preciso verificar sua origem. Um par de chaves não substitui a chave simétrica compartilhada da A14; mecanismos diferentes usam chaves diferentes.
+
+Três operações precisam ser separadas:
 
 | Necessidade | Mecanismo e chaves | O que se observa | Limite |
 |---|---|---|---|
 | Impedir leitura da cópia | Cifra autenticada, como AES-GCM da A14: a mesma chave secreta cifra e abre. | Sem chave, não se recupera o texto; alteração autenticada é rejeitada. | O processo que usa a chave vê o texto. |
-| Atestar autoria da chave e integridade dos bytes | Assinatura: a chave **privada** assina; a **pública** correspondente verifica. | Verificação válida ou inválida para mensagem, assinatura e chave recebidas. | Não oculta a mensagem nem prova, sozinha, quem controla a chave. |
+| Verificar mensagem e chave usada | Assinatura: a chave **privada** assina; a **pública** correspondente verifica. | Verificação válida ou inválida para mensagem, assinatura e chave recebidas. | Não oculta a mensagem nem prova, sozinha, a identidade do titular. |
 | Chegar a material secreto comum | Acordo de chaves: participantes combinam material público e suas próprias chaves privadas. | Ambos derivam um segredo sob as premissas do protocolo. | Precisa autenticar os participantes para evitar troca de chaves por terceiro. |
 
-**Assinar não é “cifrar com a chave privada”.** A assinatura é um valor verificável sobre os bytes da mensagem segundo um algoritmo próprio. A mensagem permanece legível. A operação da página usa ECDSA com curva P-256 e SHA-256, definidos pela [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/#ecdsa) e pela [FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final). SHA-256 participa do algoritmo de assinatura; não substitui a assinatura, nem transforma um digest sem segredo em prova de autoria.
+Uma **assinatura digital** é um valor calculado sobre os bytes de uma mensagem com a chave privada. A verificação usa a mensagem, a assinatura e a chave pública correspondente. Se qualquer uma dessas entradas não corresponder, a verificação falha. Assinar não é “cifrar com a chave privada”: a mensagem pode permanecer legível, e assinatura não oferece confidencialidade. O painel usa **ECDSA**, algoritmo de assinatura com curva P-256 e SHA-256. SHA-256 participa do cálculo, mas um digest isolado não é assinatura. Consulte [Web Crypto API](https://www.w3.org/TR/WebCryptoAPI/#ecdsa) e [FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final).
 
-No acordo de chaves, como ECDH, cada lado contribui para chegar a um segredo; não há uma assinatura automática do parceiro. Essa função aparecerá no canal TLS na A17. A [NIST SP 800-56A Rev. 3](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) descreve esquemas de estabelecimento de chaves. Aqui não geraremos nem exportaremos um segredo compartilhado: a prática se concentra na decisão verificável de assinatura.
+No **acordo de chaves**, duas partes combinam informações públicas com suas próprias chaves privadas para derivar um segredo comum. **ECDH** é um exemplo. O acordo, sozinho, não autentica a identidade da outra parte; isso exige mecanismo adicional. O TLS da A17 combinará essas funções. A [NIST SP 800-56A Rev. 3](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) descreve esquemas de estabelecimento de chaves. Nesta aula, a operação prática concentra-se na assinatura.
 
-## Par de chaves: localizar o que pode circular {#par}
+## Origem da chave pública: o limite da verificação {#par}
 
-Nesta página, o par **K1** tem uma parte privada, guardada pelo assinante, e uma parte pública, que pode circular para verificação. O par independente **K2** servirá como contraprova. Esses IDs são locais à A16: K1 não é a chave AES-GCM da A14, e K2 não é a chave HMAC da A15. A chave pública não precisa de sigilo, mas precisa de **origem confiável e proteção contra substituição**. Se alguém trocar a chave pública anunciada pela sua própria, conseguirá apresentar uma assinatura matematicamente válida para outra identidade alegada.
+Nesta página, **K1** é o par que assina e **K2** é outro par, usado como contraprova. Os IDs valem apenas aqui. A parte pública de K1 não precisa de sigilo, mas precisa de **origem confiável e proteção contra substituição**. Se um terceiro substituir a chave pública anunciada pela sua, poderá apresentar uma assinatura válida sob essa outra chave e alegar uma identidade que não demonstrou possuir.
 
 Neste painel, as chaves privadas são geradas como **não exportáveis** pela Web Crypto e ficam apenas na memória da página. A chave pública aparece como coordenadas `x` e `y` em formato JWK para diferenciar K1 de K2; esses valores não são uma identidade pessoal. Recarregar a página cria um novo estado. Não use o painel para proteger arquivos ou assinar documentos reais.
 

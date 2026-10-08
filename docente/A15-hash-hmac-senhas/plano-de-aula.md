@@ -1,5 +1,7 @@
 # Plano docente — hash, HMAC e senhas (A15 provisória)
 
+**Revisão de 8 out. 2026:** explicar diretamente função hash e digest, depois MAC/HMAC, depois sal, custo e verificador de senha. Usar D1, M1–M3 e P-A–P-C como aplicações das distinções já ensinadas. Preservar C2 e 55 T/45 P planejados.
+
 **Estado:** produção prospectiva em 6 out. 2026; a realização da A13 não foi confirmada documentalmente. A15 só deve ser numerada e distribuída após conciliar calendário e sequência. Página: `docs/aulas/A15-hash-hmac-senhas.md`. Atividade única: `docs/atividades/A14-A18-criptografia-confianca.md`, seção C2. Nenhuma execução ou entrega estudantil é presumida.
 
 ## Ficha-base
