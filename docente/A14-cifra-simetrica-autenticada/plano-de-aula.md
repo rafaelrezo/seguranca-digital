@@ -4,6 +4,8 @@
 
 **Correção posterior no mesmo dia:** começar pela definição de cifra simétrica e pelo esquema em que **a mesma K1** entra na cifragem e na decifragem. Explicar AES como cifra de blocos de 128 bits e distinguir algoritmo de modo de operação. Comparar CBC (confidencialidade sem autenticação própria) e GCM somente depois desse fundamento; então introduzir nonce, AAD e tag. A Imagem 16 é opcional, pois o esquema da página já ilustra a relação. A exposição e a prática permanecem em 55 T/45 P planejados.
 
+**Precisão docente seguinte:** explicar *modo de operação* a partir da diferença entre um bloco de 16 bytes e uma mensagem completa, antes de nomear CBC ou GCM. Definir autenticação da mensagem como conferência do conjunto protegido sob a chave compartilhada, distinta de login e de atribuição individual. Só então apresentar GCM; CBC entra depois como comparação breve de um modo sem tag própria. O roteiro `openssl enc -aes-256-cbc`, se usado futuramente, demonstra somente cifragem e abertura, não a verificação GCM.
+
 **Estado:** produção prospectiva em 6 out. 2026. A realização da A13, a versão usada e a entrega A11–A13 ainda aguardam confirmação. Não atribuir à turma os checkpoints da A13. A numeração após A13 depende de conciliação com o calendário. Página: `docs/aulas/A14-cifra-simetrica-autenticada.md`.
 
 ## Ficha-base
@@ -31,8 +33,8 @@ O caso é um texto artificial curto, independente de empresa ou incidente. Não 
 | Minutos | T/P | Ação e participação | Parada/critério |
 |---|---:|---|---|
 | 0–20 | 14/6 | Definir texto legível/cifrado e cifra simétrica pelo esquema da mesma K1. Trabalhar o exemplo de teste e os efeitos distintos de perda e exposição da chave. Se A13 não ocorreu, explicar arquivo versus processo em duas frases. | Antes de prosseguir, turma aponta onde K1 entra em cada operação e o que ocorre se ela se perder. Não afirmar que A13 foi ministrada. |
-| 20–35 | 12/3 | Explicar AES como algoritmo de blocos de 128 bits, tamanhos possíveis de chave e função do modo de operação. Comparar AES, CBC e GCM apenas quanto às propriedades necessárias. | “AES-256” indica tamanho de chave; AES sozinho não especifica proteção de arquivo nem autenticação. |
-| 35–47 | 10/2 | Distinguir sigilo de detecção de alteração. Apresentar GCM, nonce, AAD e tag; localizar entradas e saídas no fluxo. Explicar hexadecimal antes da saída. | AAD autenticado não é oculto; nonce não é chave e não se reutiliza com K1. |
+| 20–35 | 12/3 | Explicar AES como algoritmo de blocos de 128 bits; usar mensagem maior que um bloco para definir modo de operação antes de nomear exemplos. Duplas explicam a diferença entre algoritmo e regras para a mensagem completa. | “AES-256” indica tamanho de chave; AES sozinho não especifica como tratar o arquivo. |
+| 35–47 | 10/2 | Distinguir sigilo de alteração e definir autenticação da mensagem, tag e limite de identidade. Apresentar GCM, nonce e AAD; comparar CBC apenas depois, como modo sem tag própria. Explicar hexadecimal antes da saída. | Autenticação da mensagem não é login; AAD autenticado não é oculto; nonce não é chave e não se reutiliza com K1. |
 | 47–75 | 5/23 | Conduzir botões 1–5 e novo 1→2 para V2. Pausar após V1, F1 e F2/F3. Cada dupla pode clicar; quem acompanha projeção ou quadro registra previsão, fonte, resultado, interpretação e limite. | Antes de avançar, toda dupla localiza a entrada alterada e o resultado. Erro genérico não identifica a causa; falha não entrega texto. |
 | 75–90 | 10/5 | Trabalhar armazenamento da cópia e extensão com rótulo `Pessoa A`. Duplas preenchem C1 e confrontam o requisito de visibilidade. | Distinguir resultado observado, referência e proposta; chave separada; nonce junto da cópia. |
 | 90–100 | 4/6 | Comparar propostas, corrigir uma inferência excessiva, fechar C1 e enunciar pergunta hash/HMAC/senha. | Checkpoint presencial; sem nova tarefa no Classroom. |

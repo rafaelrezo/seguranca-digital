@@ -38,20 +38,36 @@ A propriedade obtida aqui é **confidencialidade**: restringir a leitura da cóp
 
 **AES** (*Advanced Encryption Standard*) é um algoritmo de cifra simétrica padronizado pelo NIST. Ele transforma um **bloco de 128 bits**, isto é, 16 bytes, usando uma chave de 128, 192 ou 256 bits. Em **AES-256**, o número 256 descreve o tamanho da chave; o bloco continua tendo 128 bits. O algoritmo é público: o segredo necessário para abrir o conteúdo é a chave. Esses tamanhos e funções são definidos na [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final).
 
-Um arquivo pode ter muito mais de 16 bytes. Para cifrar uma mensagem inteira, não basta dizer “usar AES”: é preciso escolher um **modo de operação**, que define como o algoritmo trata os blocos e quais valores adicionais a operação exige. Modos diferentes oferecem propriedades diferentes. Por exemplo, **CBC** cifra o conteúdo, mas sozinho não autentica os dados recebidos; **GCM** combina cifragem e verificação de alteração. A comparação nesta aula trata dessas propriedades, sem exigir que você calcule os blocos à mão. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) classifica CBC entre os modos de confidencialidade.
+Um arquivo pode ter centenas ou milhões de bytes, enquanto AES transforma um bloco de 16 bytes por operação. Uma mensagem de 40 bytes, por exemplo, ocupa duas partes de 16 bytes e uma parte final de 8 bytes. Surge então uma pergunta prática: **como aplicar o algoritmo à mensagem inteira, inclusive à parte final?** Um **modo de operação** é o conjunto de regras para esse uso. Ele define como processar as partes, como iniciar a operação e quais valores adicionais devem acompanhar o resultado. É por isso que “cifrado com AES” ainda não descreve um procedimento completo.
+
+```text
+Mensagem completa → partes processadas segundo um modo → resultado da mensagem
+                         ↑
+                 AES transforma blocos
+```
+
+O modo também determina **quais propriedades são oferecidas**. Alguns modos foram definidos para manter o conteúdo secreto; outros combinam esse sigilo com verificação de alteração. Por isso, antes de escolher um modo, precisamos distinguir as duas perguntas: “quem consegue ler?” e “posso aceitar estes dados como não alterados?”. Não será necessário calcular blocos à mão.
 
 | Camada | O que define | O que ainda falta decidir |
 |---|---|---|
 | AES | Como transformar um bloco com uma chave. | Como tratar a mensagem completa. |
 | Modo de operação | Como usar AES ao longo da mensagem. | Quais propriedades o modo oferece e como gerenciar seus parâmetros. |
 
-## Cifra autenticada: sigilo e detecção de alteração {#propriedades}
+## Integridade e autenticação: verificar antes de aceitar {#propriedades}
 
-**Confidencialidade** restringe a leitura. **Integridade**, neste contexto, é detectar alteração nos dados protegidos antes de aceitá-los. Bytes ilegíveis não demonstram integridade. Uma **cifra autenticada** combina sigilo do texto e verificação do conjunto recebido. A abertura entrega o texto legível somente quando essa verificação passa; se falhar, o texto não deve ser usado. A verificação não identifica a pessoa que criou ou modificou a cópia.
+**Confidencialidade** restringe a leitura. **Integridade**, neste contexto, é detectar alterações nos dados protegidos antes de aceitá-los. O fato de uma cópia parecer ilegível mostra apenas que ela está cifrada; não mostra se seus bytes foram modificados. Uma operação de decifragem sem verificação própria pode até produzir uma saída após uma alteração, e essa saída não deve ser tratada como prova de integridade.
 
-**GCM** significa *Galois/Counter Mode*. É um modo de operação que combina a cifragem dos dados com um cálculo de autenticação. **AES-GCM** significa usar AES nesse modo; não é uma segunda cifra independente. Na cifragem, o mecanismo recebe o texto legível, a chave e um **nonce** (valor usado uma vez por operação sob a mesma chave). Pode receber também **AAD** (*dado associado*): informação que permanece visível, mas deve ficar vinculada ao conteúdo. A saída traz texto cifrado e uma **tag** (*etiqueta de autenticação*), valor calculado para conferir a combinação protegida.
+**Autenticar uma mensagem**, aqui, significa conferir se os dados recebidos correspondem ao conjunto protegido por quem conhecia a chave secreta. Para isso, a cifragem autenticada produz uma **tag**, valor de verificação calculado com a chave e os dados protegidos. Na abertura, a tag é conferida junto com esses dados. Se a conferência falhar, a operação rejeita o conjunto sem entregar texto legível para uso. “Autenticação” neste ponto **não é login** e não identifica uma pessoa: se várias pessoas possuem a mesma chave, qualquer uma delas pode produzir um conjunto válido.
+
+**Exemplo de leitura:** texto cifrado e tag originais são aceitos com K1. Se um bit do texto cifrado for trocado e a tag original for mantida, a conferência falha. Isso permite rejeitar a cópia alterada; não permite descobrir quem fez a troca.
+
+Uma **cifra autenticada** reúne as duas funções: restringe a leitura e rejeita alterações detectadas. Agora podemos examinar um modo concreto que faz isso.
+
+**GCM** significa *Galois/Counter Mode*. É um modo de operação que usa a cifra para ocultar o conteúdo e calcula a tag para verificar o conjunto protegido. **AES-GCM** significa usar AES nesse modo; não é uma segunda cifra independente. Na cifragem, o mecanismo recebe o texto legível, a chave e um **nonce** (valor usado uma vez por operação sob a mesma chave). Pode receber também **AAD** (*dado associado*): informação que permanece visível, mas deve ficar vinculada ao conteúdo. A saída traz texto cifrado e a tag de verificação.
 
 Na abertura, o programa fornece a mesma chave, o nonce, o AAD quando houver, o texto cifrado e a tag. O mecanismo **verifica antes de entregar o texto legível**. Se alguma entrada protegida não corresponder, a abertura falha. Assim, AES-GCM reúne **confidencialidade do texto** e **detecção de alteração**. Essa verificação depende do segredo da chave e não identifica qual pessoa, entre os possíveis detentores dela, produziu os dados. A [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+
+**Comparação posterior: CBC e GCM são modos diferentes para usar AES.** No **CBC** (*Cipher Block Chaining*), cada bloco da mensagem é combinado com o bloco cifrado anterior antes de passar pelo AES; o primeiro usa um valor inicial chamado **IV**. CBC oferece cifragem, mas **não produz uma tag de autenticação por si só**. No **GCM**, um nonce entra na operação e a saída inclui a tag, que permite rejeitar alterações antes de usar o texto. Por isso, uma prática com `openssl enc -aes-256-cbc` pode mostrar cifragem e decifragem, mas não demonstra a verificação oferecida por AES-GCM. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) descreve CBC como modo de confidencialidade.
 
 **Síntese das propriedades:**
 

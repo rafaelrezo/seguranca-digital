@@ -87,6 +87,8 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 
 **Correção docente posterior de 8 out. 2026 — fundamento da A14:** a introdução direta de AES-GCM ainda não ensinava o que torna uma cifra simétrica nem por que AES precisa de um modo. A página passa a definir a mesma chave secreta nos dois sentidos, ilustrar esse percurso, explicar AES como cifra de blocos e distinguir algoritmo de modo antes de apresentar CBC e GCM. A Imagem 16 fica como prompt opcional; o esquema nativo já deve sustentar a leitura. O registro C1 inclui a distinção AES/modo, sem nova entrega. A distribuição planejada permanece 55 T/45 P.
 
+**Precisão seguinte do docente — modos e autenticação na A14:** não nomear CBC ao definir modo. Explicar primeiro a diferença entre o bloco de AES e a mensagem completa, depois o que as regras de um modo fazem. Definir autenticação de mensagem como verificação sob a chave compartilhada, distinta de login e de identidade individual; em seguida explicar tag e GCM. CBC entra somente como comparação posterior, identificado como modo de confidencialidade sem tag própria. A demonstração V1/F1–F3/V2 e a carga permanecem.
+
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |
