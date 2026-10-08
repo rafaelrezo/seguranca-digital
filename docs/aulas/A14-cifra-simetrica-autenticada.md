@@ -162,7 +162,7 @@ Este exercício usa a biblioteca Python [`cryptography`](https://cryptography.io
 3. Crie `aes_gcm_a14.py` nessa pasta, copie **somente o código Python abaixo** e salve. O [arquivo `.py` pronto para baixar](../assets/a14-a17/aes_gcm_a14.py) contém o mesmo código, se preferir abri-lo no editor.
 4. Leia as seções numeradas do arquivo. Antes de executar, preveja o que acontecerá com a tag original, a tag alterada e o AAD alterado.
 
-**Estado inicial:** o programa usa bytes fictícios e cria uma chave e um nonce novos em memória. `encrypt` devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores hexadecimais mudam a cada execução; compare os valores **dentro da mesma execução**.
+**Estado inicial:** o programa usa dados fictícios e cria uma chave e um nonce novos em memória. `encrypt` devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores aleatórios mudam a cada execução; compare os valores **dentro da mesma execução**. A chave será impressa apenas para estudo neste laboratório: ela é secreta em uso real e não deve entrar na entrega.
 
 ```python
 from os import urandom
@@ -176,11 +176,26 @@ aad = b'tipo=ordem;versao=1'                     # rótulo visível, mas autenti
 text = b'ordem=7;estado=aprovado'                 # conteúdo a cifrar
 sealed = AESGCM(key).encrypt(nonce, text, aad)   # texto cifrado + tag
 
-# 2. Abrir o conjunto original
+# 2. Mostrar entradas e separar as partes da saída
+print("Key:   ", key.hex())
+print("Nonce: ", nonce.hex())
+print("AAD:   ", aad.hex())
+print("Text:  ", text.hex())
+print("Sealed:", sealed.hex())
+
+print("\nRepresentação textual:")
+print("AAD:   ", aad.decode("utf-8"))
+print("Text:  ", text.decode("utf-8"))
+
+print("\nComponentes AES-GCM:")
+print("Ciphertext:", sealed[:-16].hex())
+print("Tag:       ", sealed[-16:].hex())
+
+# 3. Abrir o conjunto original
 print('G1 tag:', sealed[-16:].hex())              # mostra a tag original
 print('G1 texto:', AESGCM(key).decrypt(nonce, sealed, aad).decode())
 
-# 3. Alterar um bit da tag e tentar abrir
+# 4. Alterar um bit da tag e tentar abrir
 tampered = sealed[:-1] + bytes([sealed[-1] ^ 1]) # muda um bit da tag
 print('G2 tag:', tampered[-16:].hex())            # mostra a tag alterada
 try:
@@ -189,7 +204,7 @@ try:
 except InvalidTag:
     print('G2: rejeitado; texto não entregue')
 
-# 4. Manter a tag original e alterar somente o AAD
+# 5. Manter a tag original e alterar somente o AAD
 altered_aad = b'tipo=ordem;versao=2'           # muda só AAD
 try:
     AESGCM(key).decrypt(nonce, sealed, altered_aad)
@@ -208,7 +223,9 @@ python3 aes_gcm_a14.py
 
 - As linhas `from` carregam AES-GCM, a fonte de bytes aleatórios e o nome do erro de tag.
 - `b'...'` representa bytes; `generate_key` cria a chave e `urandom(12)` cria um nonce de 12 bytes. `encrypt` devolve texto cifrado **seguido da tag**.
-- `sealed[-16:]` seleciona os 16 bytes finais da tag; `.hex()` os mostra em hexadecimal. Em **G1**, `decrypt` recebe as mesmas entradas e `.decode()` mostra o texto recuperado.
+- `.hex()` mostra bytes em hexadecimal: cada par de caracteres representa um byte. `.decode("utf-8")` mostra como texto legível o AAD e a mensagem de teste. São duas representações dos **mesmos bytes**, não duas mensagens diferentes.
+- `Sealed` é o conjunto completo devolvido por `encrypt`. `sealed[:-16]` mostra apenas o **ciphertext**; `sealed[-16:]` mostra a **tag**. Junte essas duas sequências, na mesma ordem, e você obtém os bytes exibidos em `Sealed`.
+- Em **G1**, `decrypt` recebe as mesmas entradas usadas na cifragem e `.decode()` mostra o texto recuperado.
 - `sealed[:-1]` conserva tudo menos o último byte; `^ 1` inverte um bit desse byte da tag. Em **G2**, `try/except InvalidTag` mostra a rejeição sem usar texto não autenticado. Em **G3**, os bytes cifrados e a tag voltam a ser os originais, mas o AAD muda de `versao=1` para `versao=2`.
 
 | Caso | Saída esperada | O que concluir |
@@ -217,7 +234,7 @@ python3 aes_gcm_a14.py
 | G2 — um bit da tag alterado | `G2: rejeitado; texto não entregue` | A tag recebida não corresponde ao conjunto protegido. |
 | G3 — somente AAD alterado | `G3: rejeitado; AAD alterado` | O AAD permanece visível, mas sua mudança também é detectada. |
 
-**Registre G1–G3:** compare as duas tags mostradas e indique o byte que mudou. A biblioteca confere a tag internamente: entrega o texto em G1 e lança `InvalidTag`, capturado pelo código, em G2 e G3. A falha demonstra a rejeição **neste teste controlado**, sem identificar quem mudou o arquivo.
+**Registre G1–G3:** localize `Key`, `Nonce`, `AAD`, `Text`, `Ciphertext` e `Tag` na saída. Compare `Sealed` com suas duas partes e as tags de G1/G2 para indicar o byte que mudou. A biblioteca confere a tag internamente: entrega o texto em G1 e lança `InvalidTag`, capturado pelo código, em G2 e G3. A falha demonstra a rejeição **neste teste controlado**, sem identificar quem mudou o arquivo. Não copie `Key` para o registro entregue.
 
 **Pare** após G3, sem reutilizar a chave ou o nonce de teste. Se a saída diferir, registre a mensagem de erro e use o quadro acima como resultado **fornecido**, não observado.
 

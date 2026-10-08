@@ -9,11 +9,26 @@ aad = b'tipo=ordem;versao=1'                     # rótulo visível, mas autenti
 text = b'ordem=7;estado=aprovado'                 # conteúdo a cifrar
 sealed = AESGCM(key).encrypt(nonce, text, aad)   # texto cifrado + tag
 
-# 2. Abrir o conjunto original
+# 2. Mostrar entradas e separar as partes da saída
+print("Key:   ", key.hex())
+print("Nonce: ", nonce.hex())
+print("AAD:   ", aad.hex())
+print("Text:  ", text.hex())
+print("Sealed:", sealed.hex())
+
+print("\nRepresentação textual:")
+print("AAD:   ", aad.decode("utf-8"))
+print("Text:  ", text.decode("utf-8"))
+
+print("\nComponentes AES-GCM:")
+print("Ciphertext:", sealed[:-16].hex())
+print("Tag:       ", sealed[-16:].hex())
+
+# 3. Abrir o conjunto original
 print('G1 tag:', sealed[-16:].hex())              # mostra a tag original
 print('G1 texto:', AESGCM(key).decrypt(nonce, sealed, aad).decode())
 
-# 3. Alterar um bit da tag e tentar abrir
+# 4. Alterar um bit da tag e tentar abrir
 tampered = sealed[:-1] + bytes([sealed[-1] ^ 1]) # muda um bit da tag
 print('G2 tag:', tampered[-16:].hex())            # mostra a tag alterada
 try:
@@ -22,7 +37,7 @@ try:
 except InvalidTag:
     print('G2: rejeitado; texto não entregue')
 
-# 4. Manter a tag original e alterar somente o AAD
+# 5. Manter a tag original e alterar somente o AAD
 altered_aad = b'tipo=ordem;versao=2'           # muda só AAD
 try:
     AESGCM(key).decrypt(nonce, sealed, altered_aad)

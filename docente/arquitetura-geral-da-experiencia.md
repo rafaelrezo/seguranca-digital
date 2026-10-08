@@ -97,6 +97,8 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 
 **Ajuste de apresentação da prática GCM na A14 — 8 out. 2026:** disponibilizar o exemplo AES-GCM como arquivo Python copiável para o VS Code e como download, com comando WSL de execução separado. O arquivo explicita preparação, abertura válida, tag alterada e AAD alterado; G1–G3 e a evidência de C1 permanecem. Evitar heredoc e código multilinha no comando de terminal para iniciantes.
 
+**Ampliação da saída observável do GCM na A14 — 8 out. 2026:** mostrar, no arquivo Python, chave e nonce descartáveis, AAD e texto em hexadecimal, o conjunto cifrado completo, AAD e texto legíveis e a separação `ciphertext | tag`. Esses valores pertencem à mesma execução de G1–G3 para que o estudante localize a parte alterada e relacione entrada, verificação e resultado. A chave é exibida somente no laboratório com dados fictícios e não integra a entrega.
+
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |
