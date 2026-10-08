@@ -1,37 +1,57 @@
-# A14 (provisória) — Cifra simétrica e AES-GCM
+# A14 (provisória) — Como funciona a cifra simétrica
 
-**Cifrar** restringe a leitura de um dado a quem possui a chave. **Verificar a integridade** permite rejeitar dados modificados. Esta aula ensina as duas propriedades e mostra como AES-GCM as combina. O texto curto `ordem=7;estado=aprovado` serve apenas como entrada da demonstração.
+Na **cifra simétrica**, a mesma chave secreta participa das duas operações: transformar dados legíveis em dados cifrados e recuperar os dados legíveis. Começaremos por esse funcionamento básico. Depois veremos o algoritmo AES, por que ele precisa de um modo de operação para proteger uma mensagem e como detectar alterações antes de aceitar o resultado.
 
-**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** navegador com JavaScript e Web Crypto em HTTPS ou `localhost`; há um quadro equivalente para leitura sem o painel. Os termos criptográficos são definidos nesta página. Use apenas o texto fictício; não digite dados reais ou senhas.
+**Tempo:** 100 minutos (55 de conceitos e 45 de prática guiada). **Recursos:** esta página, navegador com JavaScript e Web Crypto em HTTPS ou `localhost`; há um quadro de resultados para quem não usar o painel. Use apenas os dados de teste indicados; não digite dados reais ou senhas.
 
 **Objetivos de aprendizagem**
 
-1. Descrever o percurso do texto legível ao texto cifrado e de volta, explicando a função da chave secreta.
+1. Descrever o percurso do texto legível ao cifrado e de volta com a mesma chave, distinguindo o algoritmo AES do modo de operação.
 2. Distinguir sigilo do conteúdo de detecção de alteração e identificar as entradas usadas na verificação.
 3. Comparar uma abertura válida com alterações controladas e justificar uma decisão de armazenamento e verificação.
 
 Esta aula inicia o [registro único de criptografia e confiança](#atividade), que continuará nos encontros seguintes. O preenchimento de hoje não exige entrega separada.
 
-## Cifra simétrica: transformar e recuperar dados {#fundamentos}
+## Cifra simétrica: a mesma chave nas duas operações {#fundamentos}
 
-**Criptografia** reúne técnicas matemáticas para proteger informações. Na **cifragem**, o **texto legível** (ou *texto claro*) é transformado em **texto cifrado**, que não expõe diretamente o conteúdo. **Decifrar** é recuperar o conteúdo com a chave adequada. A palavra *texto* inclui qualquer sequência de bytes, como os de um arquivo; não se limita a frases.
+**Criptografia** reúne técnicas matemáticas para proteger informações. Na **cifragem**, dados legíveis são transformados em dados cifrados, que não revelam diretamente o conteúdo. **Decifrar** é fazer a operação inversa e recuperar os dados legíveis. Os nomes técnicos **texto claro** e **texto cifrado** se aplicam também aos bytes de um arquivo, mesmo quando ele não contém frases.
 
-Uma **chave** é o valor usado pela operação para controlar essa transformação. A regra do algoritmo pode ser conhecida; a proteção depende de manter a chave adequada em segredo e de usá-la corretamente. Em **criptografia simétrica**, a mesma chave secreta serve para cifrar e decifrar. Chamaremos a chave temporária do exemplo de **K1**. [O padrão AES do NIST](https://csrc.nist.gov/pubs/fips/197/final) define uma cifra simétrica; ainda precisaremos escolher como usá-la para proteger o arquivo.
+Uma **chave criptográfica** é um valor usado pelo algoritmo para controlar o resultado. Ela não é o próprio algoritmo: podemos conhecer todas as regras da operação sem conhecer a chave. Na **cifra simétrica**, quem cifra e quem decifra precisam da **mesma chave secreta**. Chamaremos a chave de teste de **K1**. O nome *simétrica* descreve esse uso da mesma chave nos dois sentidos.
 
-```text
-Texto legível + chave K1 → cifrar → texto cifrado
-Texto cifrado + chave K1 → decifrar → texto legível
+```mermaid
+flowchart LR
+    P[Dados legíveis] --> E[Cifrar]
+    K[Chave secreta K1] --> E
+    E --> C[Dados cifrados]
+    C --> D[Decifrar]
+    K --> D
+    D --> R[Dados legíveis recuperados]
 ```
 
-**Exemplo:** um serviço cifra `ordem=7;estado=aprovado` com K1 antes de guardar uma cópia. Quem possui K1 pode recuperar o conteúdo; quem possui somente a cópia não deve conseguir fazê-lo, sob as premissas do mecanismo. Se K1 se perder, a recuperação fica comprometida. Se K1 vazar, o sigilo fica comprometido. Registre os dois efeitos separadamente.
+**Leia o esquema da esquerda para a direita:** K1 entra tanto na cifragem quanto na decifragem. Os dados cifrados podem ser copiados ou transportados, mas K1 deve ficar sob acesso controlado. Sem K1, a operação de decifragem não consegue recuperar o conteúdo nas condições previstas pelo mecanismo.
 
-Essa proteção diz respeito à **confidencialidade** da cópia. Ela não torna a chave inacessível ao processo que precisa usá-la, nem protege o texto depois de aberto no endpoint. O processo autorizado ainda pode ler o texto e, conforme suas permissões, alterá-lo — limite relacionado à [A13](A13-protecao-de-endpoints.md). Também não basta ver bytes ilegíveis para concluir que a cópia não foi modificada.
+**Exemplo trabalhado:** o dado de teste é `ordem=7;estado=aprovado`. Primeiro, um programa combina esses bytes com K1 e grava a saída cifrada. Mais tarde, outro programa fornece **essa mesma K1** e a saída cifrada à operação inversa; o texto original reaparece. Se K1 se perder, a cópia cifrada pode ficar irrecuperável. Se K1 for exposta, quem obtiver a cópia poderá tentar abri-la. Registre o efeito de cada situação: perda afeta a recuperação; exposição afeta o sigilo.
+
+A propriedade obtida aqui é **confidencialidade**: restringir a leitura da cópia. O programa autorizado ainda precisa acessar K1 e o texto depois de aberto; por isso a cifra não substitui a proteção do dispositivo discutida na [A13](A13-protecao-de-endpoints.md). Ver bytes ilegíveis também não prova que a cópia recebida não foi modificada.
+
+## AES: algoritmo de blocos e modo de operação {#aes}
+
+**AES** (*Advanced Encryption Standard*) é um algoritmo de cifra simétrica padronizado pelo NIST. Ele transforma um **bloco de 128 bits**, isto é, 16 bytes, usando uma chave de 128, 192 ou 256 bits. Em **AES-256**, o número 256 descreve o tamanho da chave; o bloco continua tendo 128 bits. O algoritmo é público: o segredo necessário para abrir o conteúdo é a chave. Esses tamanhos e funções são definidos na [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final).
+
+Um arquivo pode ter muito mais de 16 bytes. Para cifrar uma mensagem inteira, não basta dizer “usar AES”: é preciso escolher um **modo de operação**, que define como o algoritmo trata os blocos e quais valores adicionais a operação exige. Modos diferentes oferecem propriedades diferentes. Por exemplo, **CBC** cifra o conteúdo, mas sozinho não autentica os dados recebidos; **GCM** combina cifragem e verificação de alteração. A comparação nesta aula trata dessas propriedades, sem exigir que você calcule os blocos à mão. A [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) classifica CBC entre os modos de confidencialidade.
+
+| Camada | O que define | O que ainda falta decidir |
+|---|---|---|
+| AES | Como transformar um bloco com uma chave. | Como tratar a mensagem completa. |
+| Modo de operação | Como usar AES ao longo da mensagem. | Quais propriedades o modo oferece e como gerenciar seus parâmetros. |
 
 ## Cifra autenticada: sigilo e detecção de alteração {#propriedades}
 
 **Confidencialidade** restringe a leitura. **Integridade**, neste contexto, é detectar alteração nos dados protegidos antes de aceitá-los. Bytes ilegíveis não demonstram integridade. Uma **cifra autenticada** combina sigilo do texto e verificação do conjunto recebido. A abertura entrega o texto legível somente quando essa verificação passa; se falhar, o texto não deve ser usado. A verificação não identifica a pessoa que criou ou modificou a cópia.
 
-**AES-GCM** concretiza essa combinação: AES é a cifra simétrica; GCM é o modo de operação que acrescenta a verificação. Além do texto e da chave, usa um **nonce**, valor que precisa ser novo em cada cifragem sob a mesma chave. O resultado contém texto cifrado e uma **tag**, usada na verificação. Também pode receber **AAD** (*dado associado*): informação que continua visível, mas cuja alteração é detectada. [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
+**GCM** significa *Galois/Counter Mode*. É um modo de operação que combina a cifragem dos dados com um cálculo de autenticação. **AES-GCM** significa usar AES nesse modo; não é uma segunda cifra independente. Na cifragem, o mecanismo recebe o texto legível, a chave e um **nonce** (valor usado uma vez por operação sob a mesma chave). Pode receber também **AAD** (*dado associado*): informação que permanece visível, mas deve ficar vinculada ao conteúdo. A saída traz texto cifrado e uma **tag** (*etiqueta de autenticação*), valor calculado para conferir a combinação protegida.
+
+Na abertura, o programa fornece a mesma chave, o nonce, o AAD quando houver, o texto cifrado e a tag. O mecanismo **verifica antes de entregar o texto legível**. Se alguma entrada protegida não corresponder, a abertura falha. Assim, AES-GCM reúne **confidencialidade do texto** e **detecção de alteração**. Essa verificação depende do segredo da chave e não identifica qual pessoa, entre os possíveis detentores dela, produziu os dados. A [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) especifica GCM; a [Web Cryptography API](https://www.w3.org/TR/webcrypto/#aes-gcm) define a operação usada no painel.
 
 **Síntese das propriedades:**
 
@@ -118,13 +138,14 @@ Abra a [atividade única de criptografia e confiança](../atividades/A14-A18-cri
 
 ## Revisão rápida
 
-1. Se um cabeçalho está em AAD, ele fica oculto? O que ocorre quando seus bytes mudam?
-2. Por que K1 e N1 não têm a mesma função, mesmo que ambos entrem na operação?
-3. A abertura válida prova que o endpoint estava limpo ou que uma pessoa específica escreveu o arquivo? Justifique.
+1. O que torna a cifra **simétrica**? O que se perde quando K1 desaparece?
+2. Por que dizer apenas “use AES” não especifica como proteger e verificar um arquivo?
+3. Se um cabeçalho está em AAD, ele fica oculto? O que ocorre quando seus bytes mudam?
 
 ## Referências
 
 - [NIST FIPS 197 — AES](https://csrc.nist.gov/pubs/fips/197/final): especificação da cifra simétrica AES.
+- [NIST SP 800-38A — modos de confidencialidade](https://csrc.nist.gov/pubs/sp/800/38/a/final): função de modos como CBC.
 - [NIST SP 800-38D — GCM e GMAC](https://csrc.nist.gov/pubs/sp/800/38/d/final): funções, propriedades, entradas e unicidade de nonce.
 - [W3C Web Cryptography API — AES-GCM](https://www.w3.org/TR/webcrypto/#aes-gcm): comportamento da operação do navegador e formato da saída.
 - [Referência de cifras simétricas do curso](../criptografia/simetricos.md): comparação de mecanismos para consulta após a aula.

@@ -2,25 +2,27 @@
 
 **Revisão de 8 out. 2026:** conduzir pela exposição direta de texto legível, cifra, chave, sigilo, integridade e AES-GCM. O texto curto da demonstração é apenas um vetor de teste. Apresentar cada termo antes dos botões; usar V1/F1–F3/V2 para verificar as propriedades. Preservar 55 T/45 P planejados.
 
+**Correção posterior no mesmo dia:** começar pela definição de cifra simétrica e pelo esquema em que **a mesma K1** entra na cifragem e na decifragem. Explicar AES como cifra de blocos de 128 bits e distinguir algoritmo de modo de operação. Comparar CBC (confidencialidade sem autenticação própria) e GCM somente depois desse fundamento; então introduzir nonce, AAD e tag. A Imagem 16 é opcional, pois o esquema da página já ilustra a relação. A exposição e a prática permanecem em 55 T/45 P planejados.
+
 **Estado:** produção prospectiva em 6 out. 2026. A realização da A13, a versão usada e a entrega A11–A13 ainda aguardam confirmação. Não atribuir à turma os checkpoints da A13. A numeração após A13 depende de conciliação com o calendário. Página: `docs/aulas/A14-cifra-simetrica-autenticada.md`.
 
 ## Ficha-base
 
 | Campo | Definição |
 |---|---|
-| Ementa | Texto legível/cifrado, cifragem/decifragem e chave simétrica; confidencialidade e seu limite diante de alteração; cifra autenticada; AES-GCM, nonce, AAD, tag, abertura e falha; limites do endpoint e gestão operacional. |
-| Objetivos | Descrever o percurso de cifragem e a função da chave; distinguir sigilo de verificação de alteração; identificar entradas/saídas e interpretar caso válido e contraprovas, propondo armazenamento. |
+| Ementa | Texto legível/cifrado, cifragem/decifragem com a mesma chave; AES como cifra de blocos e necessidade de modo de operação; confidencialidade e seu limite diante de alteração; cifra autenticada; GCM, nonce, AAD, tag, abertura e falha; limites do endpoint e gestão operacional. |
+| Objetivos | Descrever a mesma chave nos dois sentidos e distinguir AES de modo; separar sigilo de verificação de alteração; identificar entradas/saídas e interpretar caso válido e contraprovas, propondo armazenamento. |
 | Carga | 100 minutos planejados: 55 T / 45 P guiados. Prática inclui previsão, operação opcional pela dupla, leitura, diagnóstico, decisão e revisão. Sem assumir que esse valor foi ministrado. |
 | Ganho novo | Os conceitos de arquivo, processo e acesso associados à A13 servem de base, sem presumir sua realização; este encontro verifica proteção e alteração de uma cópia fora do dispositivo. |
 | Pré-requisito | Confidencialidade/integridade de A11–A12 e limite de processo/arquivo de A13 como conceitos; nenhum produto individual é exigido. |
 | Ferramenta | Página HTTPS com Web Crypto; exemplos fixos na página como alternativa integral. Sem instalação, rede externa de teste, dado real ou chave persistida. |
 | Produto | C1 do registro único de criptografia e confiança, ainda sem entrega no Classroom. |
-| Critério | Explicar função de K1/N1/AAD/tag, rejeitar alteração sem tratar erro genérico como diagnóstico causal, localizar limite do endpoint. |
-| Fontes | NIST SP 800-38D e W3C Web Cryptography API, vinculadas na página. |
+| Critério | Explicar por que a cifra é simétrica e por que AES precisa de modo de operação; distinguir K1/N1/AAD/tag; rejeitar alteração sem tratar erro genérico como diagnóstico causal; localizar limite do endpoint. |
+| Fontes | NIST FIPS 197, SP 800-38A e SP 800-38D, além da W3C Web Cryptography API, vinculadas na página. |
 
 ## Cadeia e ponte
 
-Herança conceitual de arquivo e processo planejada na A13, sem afirmar sua execução → pergunta sobre leitura da cópia → distinção entre texto legível/cifrado, cifragem/decifragem e chave simétrica → previsão de perda ou exposição da chave → pergunta sobre alteração da cópia → cifra autenticada e campos de AES-GCM → operação em memória conduzida e opcionalmente reproduzida pela dupla → V1/F1/F2/F3/V2 → leitura de aceitação/rejeição e de campos visíveis → decisão de armazenamento e posicionamento do rótulo → validação com abertura válida e alteração de um bit → C1 do registro único → pergunta para o encontro seguinte sobre hash, HMAC e senha sem sigilo do conteúdo.
+Herança conceitual de arquivo e processo planejada na A13, sem afirmar sua execução → texto legível/cifrado e mesma chave K1 nas duas operações → efeitos da perda/exposição da chave → AES como algoritmo de blocos e função do modo de operação → distinção entre confidencialidade e detecção de alteração → GCM e seus campos → operação em memória conduzida e opcionalmente reproduzida pela dupla → V1/F1/F2/F3/V2 → leitura de aceitação/rejeição e de campos visíveis → decisão de armazenamento e posicionamento do rótulo → validação com abertura válida e alteração de um bit → C1 do registro único → pergunta para o encontro seguinte sobre hash, HMAC e senha sem sigilo do conteúdo.
 
 O caso é um texto artificial curto, independente de empresa ou incidente. Não há exigência de continuidade de matriz industrial. A demonstração não representa implantação, recuperação de chave, assinatura digital, identidade de autor ou proteção do endpoint que já acessa a chave.
 
@@ -28,12 +30,12 @@ O caso é um texto artificial curto, independente de empresa ou incidente. Não 
 
 | Minutos | T/P | Ação e participação | Parada/critério |
 |---|---:|---|---|
-| 0–18 | 13/5 | Apresentar a cópia fictícia. Explicar texto legível/cifrado, cifragem, decifragem e chave K1. Duplas preveem efeitos de perda e exposição da chave. Se A13 não ocorreu, explicar arquivo versus processo em duas frases. | Antes de prosseguir, turma consegue apontar o que a cópia contém, quem precisa de K1 e o que deixa de ser possível se ela se perder. Não afirmar que A13 foi ministrada. |
-| 18–32 | 11/3 | Perguntar se esconder o conteúdo basta para aceitar uma cópia alterada. Explicar verificação antes da abertura e o limite de atribuição de autoria. Duplas distinguem sigilo e alteração. | Não tratar bytes ilegíveis como evidência de integridade. |
-| 32–43 | 9/2 | Apresentar AES-GCM somente depois das duas perguntas; localizar K1, nonce, texto cifrado, AAD e tag no fluxo. Duplas decidem se o rótulo inicial precisa de sigilo ou vínculo. Explicar hexadecimal antes da saída. | AAD autenticado não é oculto; nonce não é chave e não se reutiliza com K1. |
-| 43–75 | 5/27 | Conduzir botões 1–5 e novo 1→2 para V2. Abrir pausas após V1, F1 e F2/F3. Cada dupla pode clicar no próprio navegador; quem só acompanha projeção ou quadro registra previsão, fonte, resultado, interpretação e limite. Encerrar com diagnóstico em duplas trocando funções. | Antes de avançar, toda dupla localiza a entrada alterada e o resultado. Nenhum erro genérico identifica sozinho a causa; nenhuma falha entrega texto. |
-| 75–90 | 12/3 | Trabalhar armazenamento da cópia e extensão com rótulo `Pessoa A`. Duplas preenchem C1 e confrontam requisito de visibilidade com outra dupla. | Distinguir resultado observado, referência e proposta; chave separada; nonce junto da cópia. |
-| 90–100 | 5/5 | Comparar duas propostas, corrigir uma inferência excessiva, fechar C1 e enunciar pergunta hash/HMAC/senha. | Checkpoint presencial; sem nova tarefa no Classroom. |
+| 0–20 | 14/6 | Definir texto legível/cifrado e cifra simétrica pelo esquema da mesma K1. Trabalhar o exemplo de teste e os efeitos distintos de perda e exposição da chave. Se A13 não ocorreu, explicar arquivo versus processo em duas frases. | Antes de prosseguir, turma aponta onde K1 entra em cada operação e o que ocorre se ela se perder. Não afirmar que A13 foi ministrada. |
+| 20–35 | 12/3 | Explicar AES como algoritmo de blocos de 128 bits, tamanhos possíveis de chave e função do modo de operação. Comparar AES, CBC e GCM apenas quanto às propriedades necessárias. | “AES-256” indica tamanho de chave; AES sozinho não especifica proteção de arquivo nem autenticação. |
+| 35–47 | 10/2 | Distinguir sigilo de detecção de alteração. Apresentar GCM, nonce, AAD e tag; localizar entradas e saídas no fluxo. Explicar hexadecimal antes da saída. | AAD autenticado não é oculto; nonce não é chave e não se reutiliza com K1. |
+| 47–75 | 5/23 | Conduzir botões 1–5 e novo 1→2 para V2. Pausar após V1, F1 e F2/F3. Cada dupla pode clicar; quem acompanha projeção ou quadro registra previsão, fonte, resultado, interpretação e limite. | Antes de avançar, toda dupla localiza a entrada alterada e o resultado. Erro genérico não identifica a causa; falha não entrega texto. |
+| 75–90 | 10/5 | Trabalhar armazenamento da cópia e extensão com rótulo `Pessoa A`. Duplas preenchem C1 e confrontam o requisito de visibilidade. | Distinguir resultado observado, referência e proposta; chave separada; nonce junto da cópia. |
+| 90–100 | 4/6 | Comparar propostas, corrigir uma inferência excessiva, fechar C1 e enunciar pergunta hash/HMAC/senha. | Checkpoint presencial; sem nova tarefa no Classroom. |
 | **Total** | **55/45** | | |
 
 ## Respostas, contingência e avaliação
