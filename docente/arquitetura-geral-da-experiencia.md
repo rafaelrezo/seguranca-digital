@@ -99,6 +99,8 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 
 **Ampliação da saída observável do GCM na A14 — 8 out. 2026:** mostrar, no arquivo Python, chave e nonce descartáveis, AAD e texto em hexadecimal, o conjunto cifrado completo, AAD e texto legíveis e a separação `ciphertext | tag`. Esses valores pertencem à mesma execução de G1–G3 para que o estudante localize a parte alterada e relacione entrada, verificação e resultado. A chave é exibida somente no laboratório com dados fictícios e não integra a entrega.
 
+**Precisão conceitual posterior — nonce e AAD na A14:** antes de listá-los como entradas da função, explicar a necessidade de distinguir operações feitas com a mesma chave: um nonce público e novo por cifragem, cujo reuso com a mesma chave compromete GCM. Explicar AAD como metadado que precisa continuar visível, mas deve ficar vinculado à mensagem pela tag; usar `tipo=ordem;versao=1` e sua mudança para `versao=2` como exemplo direto. Distinguir nonce de chave e do sal usado por PBKDF2, sem exigir o cálculo interno de GCM. Reorganizar a página para que G3 aplique uma propriedade já definida.
+
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |

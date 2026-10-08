@@ -20,7 +20,7 @@ A13: conceitos de arquivo, processo e dado, sem atribuir execução não confirm
 
 ## Condução por blocos
 
-0–15 definição simétrica + T1 (8T/7P); 15–32 AES/modos, senha versus chave, PBKDF2/sal e T2 CBC (8T/9P); 32–60 autenticação/GCM + arquivo `aes_gcm_a14.py` editado no VS Code e G1–G3 no terminal (13T/15P); 60–76 hash + D1 (8T/8P); 76–90 HMAC + M1–M3 (7T/7P); 90–100 senhas + P-A–P-C e C1 (6T/4P). Conferir o tempo real e não eliminar a leitura do resultado para cumprir a tabela.
+0–15 definição simétrica + T1 (8T/7P); 15–32 AES/modos, senha versus chave, PBKDF2/sal e T2 CBC (8T/9P); 32–60 autenticação/GCM, nonce por operação sob a mesma chave, AAD visível e vinculado à tag, depois arquivo `aes_gcm_a14.py` editado no VS Code e G1–G3 no terminal (13T/15P); 60–76 hash + D1 (8T/8P); 76–90 HMAC + M1–M3 (7T/7P); 90–100 senhas + P-A–P-C e C1 (6T/4P). Conferir o tempo real e não eliminar a leitura do resultado para cumprir a tabela.
 
 Em cada prática: indicar estado inicial, separar código-fonte do comando de execução, demonstrar comando, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
 

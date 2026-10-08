@@ -144,14 +144,28 @@ Uma **cifra autenticada** reúne duas funções:
 
 **GCM** (*Galois/Counter Mode*) é um modo de operação que oferece essas funções. **AES-GCM** significa usar AES no modo GCM. Não se trata de outra cifra independente ([NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final)).
 
-Na cifragem com AES-GCM, entram:
+### Nonce: distinguir uma cifragem da seguinte
 
-1. **Chave:** segredo necessário para cifrar e abrir.
-2. **Nonce:** valor usado uma única vez por operação sob a mesma chave.
-3. **Texto legível:** conteúdo que será ocultado.
-4. **AAD, se houver:** dado associado que permanece visível, mas deve ficar vinculado ao conteúdo.
+Imagine duas cópias protegidas com a **mesma chave K1**. Cada cifragem precisa receber um **nonce novo**: N1 para a primeira, N2 para a segunda. *Nonce* significa “número usado uma vez”. No GCM, a regra essencial é **não repetir o par chave–nonce**. Reutilizar K1 com N1 em outra cifragem compromete as garantias de sigilo e integridade ([NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final)).
 
-Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD, texto cifrado e tag. O mecanismo verifica a correspondência **antes de entregar o texto legível**. Se uma entrada protegida não corresponder, a abertura falha. A biblioteca `cryptography` executa e verifica essa operação na prática de terminal abaixo.
+O nonce não é uma senha nem substitui a chave. Ele pode ser guardado junto do texto cifrado para que a abertura use o mesmo valor. O **sal** da prática CBC tinha outra função: participar da derivação da chave e do IV a partir de uma senha. Aqui, o programa já gera diretamente uma chave AES; `urandom(12)` cria um nonce de 12 bytes para aquela operação.
+
+### AAD: vincular um dado que continua visível
+
+Uma cópia pode trazer um rótulo público, como `tipo=ordem;versao=1`. O sistema pode precisar ler `tipo` e `versao` **antes** de abrir o conteúdo. Esse rótulo é **AAD** (*additional authenticated data*, ou dados adicionais autenticados): permanece legível, mas entra na verificação da tag junto com o texto cifrado ([glossário NIST](https://csrc.nist.gov/glossary/term/AAD)).
+
+Se alguém trocar `versao=1` por `versao=2` sem a chave, a abertura com a tag original falha. Assim, o rótulo não pode ser mudado silenciosamente. AAD oferece **verificação de alteração**, não sigilo: se o rótulo contiver informação confidencial, coloque-o dentro do texto a cifrar.
+
+Agora identifique as entradas de uma operação AES-GCM:
+
+| Entrada | Neste exercício | Função |
+|---|---|---|
+| Chave | Gerada pelo programa | Segredo usado para cifrar e abrir. |
+| Nonce | 12 bytes novos | Distingue esta operação das demais feitas com a chave. |
+| Texto legível | `ordem=7;estado=aprovado` | Conteúdo que será ocultado. |
+| AAD | `tipo=ordem;versao=1` | Rótulo visível cuja alteração deve ser detectada. |
+
+Saem **texto cifrado e tag**. Para abrir, o programa usa a mesma chave, o mesmo nonce e o mesmo AAD, além do texto cifrado e da tag recebidos. Ele verifica o conjunto **antes de entregar o texto legível**. G1 usa as entradas originais; G3 troca apenas o AAD para testar a regra. A biblioteca `cryptography` executa essa verificação na prática abaixo.
 
 ### Prática curta no WSL: conferir a tag de AES-GCM {#gcm-terminal}
 
@@ -264,18 +278,18 @@ flowchart LR
     V -->|alterado ou entrada errada| F[Falha: nenhum texto entregue]
 ```
 
-O **AAD** pode ser um rótulo necessário para interpretar o arquivo, como `tipo=ordem;versao=1`. Ele participa da verificação, mas **permanece legível**. Se o rótulo for confidencial, deverá ficar dentro do texto cifrado. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem. Esse rótulo de tipo e versão precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com uma das duas propriedades.
+**Decida:** o rótulo de tipo e versão do exercício precisa ficar secreto ou apenas vinculado ao conteúdo? Justifique com a propriedade correspondente. A tag não diz quem, entre várias pessoas que conhecem K1, produziu a mensagem.
 
 ## Chave e nonce: registrar funções diferentes {#chave-nonce}
 
 | Campo | Função | Onde aparece na prática |
 |---|---|---|
-| Chave | Segredo usado para cifrar e abrir. | `generate_key` a cria em memória; o código não a imprime. |
+| Chave | Segredo usado para cifrar e abrir. | `generate_key` a cria em memória; o código a imprime somente para observação com dados fictícios. |
 | Nonce | Valor por operação sob a mesma chave; não é segredo. | `urandom(12)` cria 12 bytes novos a cada execução. |
 | Texto cifrado | Bytes que substituem o conteúdo legível fora do limite de confiança. | `sealed` contém esses bytes seguidos da tag. |
 | Tag | Valor de verificação da operação. | `sealed[-16:]` seleciona os 16 bytes finais; G2 altera um bit deles. |
 
-O nonce precisa ser único **para cada operação com a mesma chave**. Repetir o par chave–nonce em GCM compromete a proteção. Nesta prática, a chave e o nonce são criados de novo a cada execução; no sistema real, geração, reinício e volume de mensagens exigem planejamento ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
+Nesta prática, a chave e o nonce são criados de novo a cada execução. No sistema real, geração, reinício e volume de mensagens exigem planejamento para preservar a unicidade do par chave–nonce ([NIST SP 800-38D, seções 8–9](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf)).
 
 ## Síntese: guardar a cópia {#aplicacao}
 
