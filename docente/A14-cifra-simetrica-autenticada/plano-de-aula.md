@@ -24,7 +24,7 @@ A13: conceitos de arquivo, processo e dado, sem atribuir execução não confirm
 
 Em cada prática: indicar estado inicial, separar código-fonte do comando de execução, demonstrar comando, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
 
-Na exposição, usar os esquemas no momento em que cada relação entra: mesma chave na abertura, AES/blocos/modo, senha + sal → PBKDF2 → chave/IV, e entradas de GCM → texto cifrado/tag. Ler entradas e saída antes de mostrar parâmetros ou código. A tabela chave/sal/nonce/AAD responde diretamente ao que é secreto e ao ponto em que cada valor atua. Os prompts opcionais de imagem apenas refinam esses esquemas nativos quando o docente fornecer as figuras.
+Na exposição, usar os esquemas no momento em que cada relação entra: mesma chave na abertura, AES/blocos/modo, IV como ponto de partida do encadeamento CBC, senha + sal → PBKDF2 → chave/IV, e entradas de GCM → texto cifrado/tag. Expandir IV como vetor de inicialização, pronúncia “i-vê”, e distinguir seus 16 bytes públicos e imprevisíveis do segredo da chave e do sal usado na derivação. A abertura precisa do mesmo IV; no comando de T2, ele é reconstruído pela derivação. Ler entradas e saída antes de mostrar parâmetros ou código. A tabela chave/sal/nonce/AAD responde diretamente ao que é secreto e ao ponto em que cada valor atua. Os prompts opcionais de imagem apenas refinam esses esquemas nativos quando o docente fornecer as figuras.
 
 ## Respostas e contingência
 
