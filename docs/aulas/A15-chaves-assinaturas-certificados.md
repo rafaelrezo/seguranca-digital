@@ -14,7 +14,16 @@ A A14 mostrou mecanismos com segredo compartilhado. Agora, uma chave **privada**
 
 ## Par de chaves: segredo privado e informação pública {#funcoes}
 
-As duas chaves de um par são geradas juntas, mas têm papéis distintos. A chave **privada** deve permanecer sob controle do titular. A chave **pública** pode ser distribuída; sua divulgação não é uma falha. Isso não significa que qualquer chave pública recebida seja confiável: para associá-la a uma pessoa ou serviço, é preciso verificar sua origem. Um par de chaves não substitui a chave simétrica compartilhada da A14; mecanismos diferentes usam chaves diferentes.
+**Uso real — acesso a servidores por SSH:** SSH é um protocolo de acesso remoto protegido. Na autenticação por chave pública, o administrador registra a pública autorizada no servidor; o cliente usa a privada correspondente para provar seu controle. A privada permanece no cliente.
+
+O servidor verifica a prova e suas regras de acesso. ([Manual do OpenSSH](https://man.openbsd.org/ssh).)
+
+As duas chaves de um par são geradas juntas, mas têm papéis distintos:
+
+- A chave **privada** deve permanecer sob controle do titular.
+- A chave **pública** pode ser distribuída; sua divulgação não é uma falha.
+
+Para associar uma chave pública a uma pessoa ou serviço, é preciso verificar sua origem. Um par de chaves não substitui a chave simétrica compartilhada da A14; mecanismos diferentes usam chaves diferentes.
 
 Três operações precisam ser separadas:
 
@@ -35,6 +44,8 @@ No **acordo de chaves**, duas partes combinam informações públicas com suas p
 
 ### Prática curta no WSL: separar as chaves
 
+Gerar e extrair o par permite observar essa separação sem abrir acesso remoto: `privada.pem` fica com quem assina; `publica.pem` pode chegar a quem verifica. Os arquivos deste exercício não configuram uma conta SSH.
+
 **Estado inicial:** use somente `~/cripto-a15`. `umask 077` limita as permissões dos arquivos novos; `genpkey` cria uma chave privada descartável de curva P-256; `pkey -pubout` extrai a chave pública. Não publique nem reutilize a privada.
 
 ```bash
@@ -50,11 +61,19 @@ ls -l privada.pem publica.pem
 
 ## Origem da chave pública: o limite da verificação {#par}
 
+**Na administração de servidores:** o cliente SSH mantém chaves de servidores conhecidos em `known_hosts` e pode avisar quando a chave apresentada muda. Isso ajuda a detectar uma troca inesperada, mas a primeira associação também precisa ser conferida. Reconhecer um nome na tela não demonstra que a chave veio do servidor correto. ([Manual do OpenSSH](https://man.openbsd.org/ssh).)
+
 Nesta página, **K1** é o par que assina e **K2** é outro par, usado como contraprova. Os IDs valem apenas aqui. A parte pública de K1 não precisa de sigilo, mas precisa de **origem confiável e proteção contra substituição**. Se um terceiro substituir a chave pública anunciada pela sua, poderá apresentar uma assinatura válida sob essa outra chave e alegar uma identidade que não demonstrou possuir.
 
 No exercício de terminal, `privada.pem` e `outra-privada.pem` são chaves descartáveis. `publica.pem` e `outra-publica.pem` podem ser lidas por verificadores, mas seu conteúdo, por si, não informa a identidade do titular. Não use essas chaves para documentos reais.
 
 ## Assinatura: verificar os mesmos bytes {#demonstracao}
+
+**Uso real — atualização de programas Linux:** o APT, gerenciador de pacotes de Debian e Ubuntu, verifica a assinatura dos metadados do repositório. Esses metadados se ligam aos arquivos de pacotes por resumos criptográficos. A assinatura ajuda a rejeitar conteúdo substituído no caminho até o computador.
+
+Não significa que cada pacote seja assinado individualmente nesse fluxo. ([Manual `apt-secure`](https://manpages.debian.org/bookworm/apt/apt-secure.8.en.html).)
+
+O arquivo pequeno `relatorio.txt` permite observar a mesma propriedade: uma assinatura aceita para uma versão deixa de corresponder quando seus bytes mudam. Não vamos instalar pacotes nem alterar os repositórios do WSL.
 
 `openssl dgst -sha256 -sign` cria a assinatura de um arquivo com a chave privada; `-verify` confere assinatura, conteúdo e chave pública. Preveja o resultado antes de cada verificação. O texto permanece legível.
 
@@ -86,11 +105,19 @@ openssl dgst -sha256 -verify outra-publica.pem -signature assinatura.bin relator
 
 ## Confiança: decidir quando aceitar {#confianca}
 
+**No uso de um repositório de software:** a verificação depende de uma chave pública aceita para aquela origem. Obter um arquivo e uma chave de uma fonte desconhecida não estabelece confiança.
+
+Além disso, uma assinatura válida não prova que o programa está livre de vulnerabilidades ou de código malicioso. Ela sustenta uma relação de procedência sob a chave aceita. ([Manual `apt-secure`](https://manpages.debian.org/bookworm/apt/apt-secure.8.en.html).)
+
 V1 confirma a correspondência matemática entre mensagem, assinatura e K1 pública. **Não confirma que K1 pertença à pessoa ou serviço alegado.**
 
 Antes de aceitar uma origem específica, obtenha a chave pública por canal confiável ou valide um vínculo verificável. A seção seguinte apresenta o certificado como esse vínculo; a A16 mostra seu uso em TLS.
 
 ## Certificado: vincular nome, chave e emissor {#certificado}
+
+**Uso real — acessar este material por HTTPS:** o navegador pede `rafaelrezo.github.io` e recebe um certificado do servidor. Antes de confiar no vínculo entre esse nome e a chave apresentada, verifica nome, prazo, finalidade e cadeia.
+
+O site não se torna confiável apenas por enviar uma chave pública. O terminal permitirá examinar parte dessa mesma verificação. ([RFC 9525](https://www.rfc-editor.org/rfc/rfc9525).)
 
 Um certificado **X.509** reúne chave pública, nomes e outros campos assinados por uma **autoridade certificadora** (*emissor*). Ele apresenta um vínculo entre nome e chave, sujeito a verificações.
 
@@ -111,6 +138,8 @@ Também é preciso conferir nome solicitado, prazo e finalidade ([RFC 5280](http
 O comando `openssl x509` apresenta **campos**; a decisão de aceitar a conexão depende também da verificação do nome e da cadeia pelo cliente. **Revogação** invalida um certificado antes do fim do prazo, por exemplo após suspeita de comprometimento da chave.
 
 CRL e OCSP são meios de publicar ou consultar esse estado ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280); [RFC 6960](https://www.rfc-editor.org/rfc/rfc6960)). Evidência confiável de revogação exige recusa. Sem informação, registre **estado não comprovado**; não deduza “não revogado” apenas porque a página abriu.
+
+**Na operação de um site:** renovar o certificado antes do vencimento mantém seu uso dentro do prazo. Se a chave privada tiver sido comprometida, apenas prolongar o prazo não resolve: é necessário tratar a exposição, substituir a chave e o certificado e providenciar a revogação conforme a autoridade emissora. Prazo e comprometimento são condições distintas.
 
 ### Inspeção no terminal: ler o certificado real {#inspecao}
 

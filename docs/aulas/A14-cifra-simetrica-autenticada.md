@@ -16,6 +16,8 @@ Esta aula inicia o [registro único de criptografia e confiança](#atividade), p
 
 ## Cifra simétrica: a mesma chave nas duas operações {#fundamentos}
 
+**Uso real — proteger o disco de um notebook:** o [BitLocker do Windows](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/) cifra volumes para reduzir a exposição dos arquivos quando o dispositivo é perdido ou roubado. O Windows usa material secreto para gravar os dados cifrados e recuperar os dados na leitura. A proteção depende de controlar esse material.
+
 **Cifrar** transforma dados legíveis em bytes que não revelam diretamente o conteúdo. **Decifrar** recupera os dados legíveis. Os nomes **texto claro** e **texto cifrado** também se aplicam a arquivos que não contêm frases.
 
 Uma **chave criptográfica** é um valor usado pelo algoritmo para controlar o resultado. Ela não é o próprio algoritmo: podemos conhecer todas as regras da operação sem conhecer a chave. Na **cifra simétrica**, quem cifra e quem decifra precisam da **mesma chave secreta**. Chamaremos a chave de teste de **K1**. O nome *simétrica* descreve esse uso da mesma chave nos dois sentidos.
@@ -43,6 +45,8 @@ A propriedade obtida aqui é **confidencialidade**: restringir a leitura da cóp
 
 
 ### Prática curta no WSL: observar o percurso da cifra
+
+Aqui vamos observar a proteção de **um arquivo**, em vez de um disco inteiro. `claro.txt` representa o conteúdo que um programa precisa ler; na prática seguinte, produziremos uma cópia cifrada e recuperaremos seus bytes.
 
 **Estado inicial:** abra o terminal Ubuntu do WSL. `openssl version` deve informar a versão; `printf` cria um arquivo com bytes fictícios. Os comandos escrevem somente em `~/cripto-a14`. Preveja o conteúdo de cada arquivo antes de executá-los.
 
@@ -88,6 +92,8 @@ flowchart LR
 | AES | Como transformar um bloco com uma chave. | Como tratar a mensagem completa. |
 | Modo de operação | Como usar AES ao longo da mensagem. | Quais propriedades o modo oferece e como gerenciar seus parâmetros. |
 
+**Onde essa escolha aparece:** a cifragem de dispositivos Windows usa, por padrão, **XTS-AES**, um modo destinado à proteção de discos. Já uma conexão HTTPS pode negociar **AES-GCM**, apresentado adiante. Ambos usam AES, mas organizam a proteção de dados de maneiras diferentes. Por isso, identificar somente “AES” não informa todas as propriedades do sistema. ([Microsoft](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/), [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446.html#section-9.1).)
+
 
 ### CBC e IV: iniciar o encadeamento {#iv}
 
@@ -114,6 +120,10 @@ flowchart TB
 
 O IV também precisa ser protegido contra alteração; CBC sozinho não oferece essa verificação ([NIST SP 800-38A, seção 6.2 e apêndice C](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf)).
 
+**Uso real — um cofre de senhas:** o KeePass guarda credenciais em um arquivo `.kdbx`. Seu formato admite AES-256-CBC e guarda um IV de 16 bytes no cabeçalho, renovado ao salvar.
+
+O formato KDBX 4 também verifica autenticidade com um mecanismo separado; essa verificação não vem do CBC. A prática abaixo isola a cifragem e a abertura, sem reproduzir todas as proteções do cofre. ([Especificação KDBX](https://keepass.info/help/kb/kdbx.html).)
+
 ### Senha e sal: obter material para AES-CBC
 
 Nesta prática, digitaremos uma senha de teste para cifrar e abrir uma cópia. A senha digitada **não é** a chave AES pronta.
@@ -133,6 +143,10 @@ flowchart TB
 **Leia o esquema:** o **sal** muda a derivação. Mesmo com a mesma senha, outro sal produz outro material. O sal não precisa ser secreto; o OpenSSL o grava no início de `copia.cbc`. Para abrir a cópia, o programa lê esse sal e repete PBKDF2 com a mesma senha e os mesmos parâmetros.
 
 O parâmetro `-pbkdf2` escolhe a KDF; `-salt` pede um sal novo; `-iter 10000` fixa o custo deste ensaio. **10.000 não é recomendação de produção.** Repetições tornam cada palpite mais caro, mas não consertam uma senha fraca. Veja a [RFC 8018](https://www.rfc-editor.org/rfc/rfc8018.html#section-4) e o [manual do OpenSSL](https://docs.openssl.org/3.5/man1/openssl-enc/).
+
+**Aplicação prática — proteger um arquivo com senha:** ao usar `openssl enc -pbkdf2`, quem abre o arquivo precisa da senha, do sal e dos parâmetros usados na proteção. O sal acompanha a cópia; a senha precisa ser conhecida por outro meio.
+
+Esse recurso permite estudar o papel de uma senha na cifragem, mas o comando CBC desta aula não autentica o arquivo. Não é uma solução completa para enviar documentos sensíveis.
 
 ### Prática curta no WSL: cifrar e abrir com AES-CBC
 
@@ -164,6 +178,8 @@ cat aberto.txt
 
 ## Integridade e autenticação: verificar antes de aceitar {#propriedades}
 
+**Uso real — receber dados por HTTPS:** além de impedir a leitura do tráfego por terceiros, o canal precisa rejeitar registros modificados. Quando uma conexão negocia AES-GCM, a verificação de autenticidade faz parte da proteção desses registros. A [A16](A16-tls-ciclo-de-chaves.md#tls) explicará como o canal estabelece suas chaves. ([RFC 8446, proteção dos registros](https://www.rfc-editor.org/rfc/rfc8446.html#section-5.2).)
+
 **Confidencialidade** restringe a leitura. **Integridade**, aqui, significa detectar mudança nos dados protegidos antes de usá-los. Uma cópia ilegível pode estar cifrada e, ainda assim, ter sido alterada. A aparência dos bytes não responde à pergunta sobre alteração.
 
 **Autenticar uma mensagem** é conferir, com a chave compartilhada, se o conjunto recebido corresponde ao que foi protegido. A cifragem autenticada produz uma **tag**: valor de verificação calculado sobre os dados protegidos. Na abertura, uma tag incompatível causa rejeição, sem entregar texto legível para uso.
@@ -182,6 +198,10 @@ Uma **cifra autenticada** reúne duas funções:
 ### Exemplo: proteger uma mensagem de transferência {#mensagem-gcm}
 
 O conteúdo deste teste é uma mensagem com **contas e valor fictícios**:
+
+Em um aplicativo bancário, contas e valor podem integrar uma requisição enviada ao servidor por HTTPS. O servidor ainda precisa conferir login, autorização e regras da transação.
+
+Nosso programa usa esses campos para observar **a proteção dos bytes**; não reproduz um aplicativo bancário nem sua decisão de executar uma transferência.
 
 ```json
 {
@@ -216,6 +236,8 @@ O nonce pode acompanhar o texto cifrado: ele não é secreto. Usaremos **12 byte
 
 **Nova cifragem e nova leitura são operações diferentes:** o receptor usa o nonce original para abrir aquela mensagem. O nonce não impede que alguém copie e reapresente o envelope inteiro; testaremos esse limite na extensão G5.
 
+**No tráfego real:** o TLS 1.3 calcula o nonce de cada registro usando um valor da conexão e uma sequência de registros. A biblioteca do protocolo controla essa sequência; o usuário não digita um nonce para cada página. `urandom(12)` torna esse parâmetro visível no nosso ensaio. ([RFC 8446, seção 5.3](https://www.rfc-editor.org/rfc/rfc8446.html#section-5.3).)
+
 ### AAD: proteger um cabeçalho que continua legível
 
 A mensagem também traz um **cabeçalho da aplicação**, com o tipo de conteúdo e a versão de seu formato:
@@ -234,6 +256,8 @@ Trocar `versao=1` por `versao=2`, mantendo a tag original, faz a abertura falhar
 
 Se um dado precisa ficar secreto, inclua-o no texto a cifrar. O AAD deste exemplo é um cabeçalho definido pela aplicação; não representa os cabeçalhos de roteamento IP da rede.
 
+**Uso real de AAD:** no TLS 1.3, o cabeçalho externo do registro fica visível e entra na verificação como AAD. Ele informa, entre outros campos, o tamanho do registro protegido. Isso vincula o cabeçalho aos bytes cifrados. O nosso `tipo=transferencia;versao=1` ilustra a mesma separação, com campos próprios do exercício. ([RFC 8446, seção 5.2](https://www.rfc-editor.org/rfc/rfc8446.html#section-5.2).)
+
 ### Chave, sal, nonce e AAD: funções diferentes {#chave-nonce}
 
 | Valor | Onde atua | Precisa ficar secreto? |
@@ -246,6 +270,8 @@ Se um dado precisa ficar secreto, inclua-o no texto a cifrar. O AAD deste exempl
 **AES-GCM precisa de sal?** A operação GCM recebe chave, nonce, texto e AAD; sal não é um de seus parâmetros. Se a chave vier de uma senha, o sal entra **antes**, na KDF. Se a chave já tiver sido gerada aleatoriamente, como por `AESGCM.generate_key`, essa derivação por senha não é necessária.
 
 Nesta prática, vamos conectar as duas etapas: **PBKDF2 deriva a chave; AES-GCM cifra a mensagem**. O sal irá no envelope para que o receptor refaça a derivação. Não substitui o nonce nem torna uma senha fraca segura.
+
+**Ao ler um arquivo protegido:** encontrar sal, IV ou nonce no cabeçalho não significa encontrar o segredo. Esses campos permitem refazer a operação com a chave correta. Uma investigação precisa perguntar **qual valor abre os dados e onde ele está protegido**, em vez de tratar todos os números visíveis como chaves.
 
 ### Como o receptor obtém a mesma chave? {#mesma-chave}
 
@@ -266,6 +292,10 @@ flowchart TB
 A senha estará escrita no programa somente por ser descartável e fictícia. Ela funciona como um segredo pré-combinado para derivar a chave. A [verificação de senha de login na A16](A16-tls-ciclo-de-chaves.md#senhas) tem outra finalidade: conferir uma tentativa contra um registro guardado.
 
 Este ensaio não implementa distribuição segura do segredo. Se uma senha fraca fosse usada em comunicação real, quem capturasse o envelope poderia testar palpites localmente e usar a tag para conferir cada tentativa.
+
+**Aplicação direta:** ao abrir em outro computador uma cópia protegida por senha, o destinatário pode receber o sal no próprio arquivo, mas precisa conhecer a senha separadamente. No programa, `senha_emissor` e `senha_receptor` tornam esse requisito explícito.
+
+Um navegador usa um protocolo de estabelecimento de chaves, apresentado ao final da aula, em vez dessa senha fixa.
 
 ### Prática no VS Code e WSL: preparar, receber e verificar {#gcm-terminal}
 
@@ -450,6 +480,8 @@ Em **G4**, `while` repete a geração caso o novo nonce seja igual ao primeiro. 
 
 **Retransmissão ou replay** é reapresentar uma mensagem antiga. Para evitar processá-la duas vezes, a aplicação precisa de regras adicionais, como identificador ou sequência protegidos e registro de mensagens já processadas. Um identificador no AAD só ajuda se o receptor verificar a tag **e conferir seu histórico** ([RFC 5116, seção 1.2](https://www.rfc-editor.org/rfc/rfc5116.html#section-1.2)).
 
+**Por que isso importa:** uma integração que recebe ordens precisa distinguir “mensagem íntegra” de “ordem ainda não processada”. G5 entrega o conteúdo válido novamente; uma aplicação que executasse a ordem a cada abertura poderia repetir a operação. O controle de duplicidade pertence ao processamento da mensagem.
+
 **Registre a extensão**, se executada, em uma frase por limite observado; ela não cria outra entrega. Pare após G6. A leitura repetida usa o nonce original para decifrar; não é uma nova cifragem com nonce reutilizado.
 
 ### Diagnóstico e alternativa
@@ -467,6 +499,8 @@ Se o ambiente falhar, use os quadros G1–G6 como **resultados fornecidos**, sem
 
 T2 mostrou cifragem e abertura em CBC; G1–G3 mostraram também a verificação do cabeçalho e da tag. AES-GCM pressupõe uma chave correta nos dois lados. Não estabelece essa chave nem identifica, sozinho, quem conhece o segredo.
 
+O cofre KeePass exemplifica **CBC combinado com verificação separada**; o canal TLS exemplifica **GCM como cifra autenticada**. A segurança depende da composição completa, da gestão das chaves e do uso correto dos parâmetros. Escolher um nome de algoritmo não substitui essas verificações.
+
 ## Distribuição da chave: estabelecer o segredo antes da mensagem {#distribuicao-chave}
 
 Na prática, a senha já estava nos dois extremos. Em sistemas separados, é necessário **resolver esse compartilhamento antes de proteger a comunicação**. Há três situações diferentes:
@@ -478,6 +512,14 @@ Na prática, a senha já estava nos dois extremos. Em sistemas separados, é nec
 | **Acordo de chaves autenticado** | Par de chaves e informação pública do outro lado. | Autenticar o participante e derivar as chaves. |
 
 **Uma chave criada só no emissor não aparece automaticamente no receptor.** Enviá-la em texto legível junto do conteúdo cifrado permitiria a quem copiasse o envelope abrir a mensagem. Sal, nonce e AAD podem acompanhar o envelope; o segredo precisa de outro caminho ou de um protocolo que o estabeleça.
+
+**Uso real — chaves para arquivos na nuvem:** o AWS Key Management Service (KMS) é um serviço de gestão de chaves. A **cifragem de envelope** protege uma chave com outra chave: ([Documentação do AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#enveloping).)
+
+1. Uma **chave de dados** cifra o arquivo.
+2. Outra chave protege a chave de dados, que pode ser guardada **cifrada** junto da cópia.
+3. Uma operação autorizada no KMS permite recuperar a chave de dados para abrir o arquivo.
+
+Assim, o arquivo não carrega sua chave em texto legível. Esse envelope contém uma chave cifrada; o nosso JSON carrega sal para derivar uma chave de senha já conhecida. São formas diferentes de resolver o acesso ao segredo.
 
 ### Acordo de chaves: uma ponte para A15 e A16
 
@@ -501,6 +543,8 @@ sequenceDiagram
 Uma KDF, como **HKDF**, deriva as chaves que serão usadas na cifra a partir desse material. HKDF trata material criptográfico e não substitui uma KDF com custo para senhas ([RFC 5869](https://www.rfc-editor.org/rfc/rfc5869.html)).
 
 **O acordo sozinho não confirma a identidade:** alguém poderia substituir as informações públicas trocadas e intermediar a comunicação. No TLS 1.3 com certificados, a validação do certificado e a prova da chave privada autenticam o servidor. A [A16](A16-tls-ciclo-de-chaves.md) reúne esse estabelecimento de confiança e a proteção do tráfego; o protocolo deriva chaves distintas para cada direção ([RFC 8446, seções 2 e 7](https://www.rfc-editor.org/rfc/rfc8446.html#section-2)).
+
+**Ao abrir um site HTTPS:** navegador e servidor podem fazer esse acordo durante o início da conexão. O visitante não precisa receber uma senha AES do administrador. O certificado ajuda a autenticar o servidor; o acordo fornece material para as chaves que protegem aquela conexão.
 
 ## Síntese: o que conservar e o que proteger {#aplicacao}
 

@@ -24,6 +24,10 @@ A15: certificado e assinatura com chave pública verificada. → definição dir
 
 Em cada prática: indicar estado inicial, demonstrar comando ou clique, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
 
+## Contextos de uso integrados à exposição
+
+TLS: transporte de senha até o ponto que termina HTTPS, separado de armazenamento e autorização. Certificados: erros de nome/prazo na operação de sites. Ciclo e inventário: rotação AWS KMS e dependência de cópias antigas, distinguindo versões internas sob o mesmo ID lógico de K-A/K-B como chaves diferentes no quadro. Hash: conferência de imagens Ubuntu com referência autenticada. HMAC: webhook GitHub e cabeçalho `X-Hub-Signature-256`, definindo webhook antes do exemplo. Senhas: registro de algoritmo/custo/sal/derivado no Django 5.2. Não instalar serviços nem reenviar eventos reais; os programas locais isolam as propriedades. Integrar os contextos à exposição prevista, sem aumentar a entrega C3.
+
 ## Respostas e contingência
 
 TLS protege o canal sob suas premissas; 403 é aplicação; K-B não abre C-01; recuperação condicional exige autorização e teste funcional. Não chamar política simulada de implantação.

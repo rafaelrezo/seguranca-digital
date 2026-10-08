@@ -24,6 +24,10 @@ A14: mesma chave nos dois extremos, autenticação da mensagem e limite do acord
 
 Em cada prática: indicar estado inicial, demonstrar comando ou clique, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
 
+## Contextos de uso integrados à exposição
+
+Par de chaves e procedência: autenticação SSH e chaves de servidor em `known_hosts`. Assinatura e confiança: metadados assinados do APT e seus vínculos de hash até os pacotes, sem alegar assinatura individual de cada pacote nem ausência de vulnerabilidades. Certificado: domínio HTTPS do curso e operação de renovação/revogação. A assinatura local isola a propriedade; não instala pacotes nem configura acesso remoto. Explicar os contextos nos blocos expositivos existentes; preservar os resultados e a entrega C2.
+
 ## Respostas e contingência
 
 Assinatura não oculta bytes; original verifica, alterado/chave errada falham; chave pública sem origem não prova titular; certificado requer nome, validade, finalidade e cadeia.

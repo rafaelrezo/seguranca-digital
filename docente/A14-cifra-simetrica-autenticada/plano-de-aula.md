@@ -26,6 +26,10 @@ Em cada prática: indicar estado inicial, separar código-fonte do comando de ex
 
 Na exposição, usar os esquemas no momento em que cada relação entra: mesma chave na abertura, AES/blocos/modo, IV como ponto de partida do encadeamento CBC, senha + sal → PBKDF2 → chave/IV, e entradas de GCM → texto cifrado/tag. Expandir IV como vetor de inicialização, pronúncia “i-vê”, e distinguir seus 16 bytes públicos e imprevisíveis do segredo da chave e do sal usado na derivação. A abertura precisa do mesmo IV; no comando de T2, ele é reconstruído pela derivação. Ler entradas e saída antes de mostrar parâmetros ou código. A tabela chave/sal/nonce/AAD responde diretamente ao que é secreto e ao ponto em que cada valor atua. Os prompts opcionais de imagem apenas refinam esses esquemas nativos quando o docente fornecer as figuras.
 
+## Contextos de uso integrados à exposição
+
+Relacionar cifra simétrica à proteção de volumes BitLocker; AES/modo à diferença entre disco e tráfego; CBC/IV ao formato de cofre KeePass; PBKDF2/sal ao arquivo protegido por senha; GCM/nonce/AAD ao registro HTTPS; distribuição à cifragem de envelope no KMS; acordo à abertura de uma conexão HTTPS. Definir XTS como modo para disco, sem desenvolver outro laboratório. KeePass autentica separadamente e o ensaio CBC não reproduz esse mecanismo; nonce e AAD do TLS não usam o formato JSON da prática. G5 motiva controle de duplicidade da aplicação. Os usos entram nos minutos expositivos já previstos, sem nova instalação ou entrega.
+
 ## Respostas e contingência
 
 T1/T2 mostram transformação e abertura, sem integridade. IV é o ponto de partida do CBC; no AES tem 16 bytes. A senha não é a chave AES: PBKDF2 usa senha, sal e custo para derivar chave e IV em T2. No exemplo GCM, deriva somente a chave de 32 bytes; nonce de 12 bytes continua separado. Sal público não torna a senha forte.

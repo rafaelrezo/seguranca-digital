@@ -16,6 +16,10 @@ Primeiro veremos o canal e a gestão de suas chaves. No bloco final, compararemo
 
 ## TLS 1.3: autenticação, chaves e tráfego {#tls}
 
+**Uso real — enviar uma senha em um site:** ao fazer login por HTTPS, o navegador protege a requisição até o ponto que termina a conexão TLS. Ali, o programa autorizado recebe a senha para conferi-la.
+
+HTTPS protege o percurso; o armazenamento da senha e a permissão para acessar dados continuam sendo responsabilidades da aplicação. ([Django: senhas e HTTPS](https://docs.djangoproject.com/en/5.2/topics/auth/passwords/).)
+
 **HTTPS** é HTTP transportado sobre TLS. Antes de transmitir os dados da aplicação, cliente e servidor realizam uma negociação inicial chamada **handshake**. No fluxo usual com certificado de servidor, três etapas explicam sua função:
 
 ```text
@@ -35,6 +39,10 @@ Após validar o certificado e o nome, o cliente pode associar essa prova ao serv
 **Limite:** TLS protege dados em trânsito entre os pontos finais da conexão sob suas premissas; dados podem estar legíveis nos endpoints autorizados. Uma resposta `403` recebida por HTTPS indica que o canal foi estabelecido e a **aplicação recusou acesso**. Um `200` não prova, por si, que a aplicação autorizou corretamente cada objeto. Retome a pergunta de A04–A05: `identidade → ação → recurso` continua exigindo decisão do servidor de aplicação.
 
 ## Aplicação: aceitar ou recusar um certificado {#oficina}
+
+**Quando esses campos são usados:** ao acessar um site, o cliente precisa conferir se a chave apresentada está vinculada ao nome solicitado e se o certificado pode ser usado naquele momento e finalidade. Um certificado vencido ou de outro nome impede essa aceitação, mesmo que a página tenha a aparência esperada.
+
+Os cartões isolam essas condições; o comando seguinte examina a conexão real do curso.
 
 **Pacote de teste:** nome solicitado `curso.exemplo.invalid`; data de análise: 6 out. 2026. O cartão B contém:
 
@@ -97,9 +105,19 @@ Registre a **saída real**, inclusive erro. `Verification: OK` não demonstra au
 
 ## Gestão das chaves: manter leitura e reduzir exposição {#ciclo}
 
+**Uso real — arquivos cifrados na nuvem:** o AWS KMS centraliza o controle de chaves usadas por aplicações. Na rotação de uma chave simétrica gerida pelo serviço, novo material passa a proteger novas operações; o material anterior é conservado para abrir dados antigos.
+
+Rotação não reescreve automaticamente os arquivos. ([Documentação de rotação do AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html).)
+
 Uma chave precisa ter **finalidade, responsável, local, período de uso e estado**. Trocar a chave usada para **novas** cifras não recifra automaticamente cópias antigas. Recuperar uma chave perdida é diferente de continuar usando uma chave suspeita de exposição ([NIST SP 800-57](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)).
 
 ## Inventário: localizar dependências antes da troca {#inventario}
+
+**Para que o inventário serve:** antes de trocar ou retirar uma chave, a equipe precisa localizar os arquivos que ainda dependem dela e os serviços autorizados a usá-la. Um backup pode continuar íntegro, mas ficar inutilizável se a chave necessária for perdida ou eliminada.
+
+Identificador, responsável e procedimento de recuperação ajudam a preservar essa dependência; nenhum deles substitui o segredo.
+
+No KMS, a rotação pode preservar **o mesmo identificador lógico**, com versões internas do material. No quadro abaixo, K-A e K-B são duas chaves distintas, para deixar visível a dependência de cada cópia. Não são uma reprodução da interface do serviço. ([AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html).)
 
 O pacote tem identificadores estáveis. `K-A` e `K-B` são **rótulos**, nunca material secreto. “Selada” descreve a política proposta de guarda da cópia da chave, não uma operação executada nesta página. `C-01` e `C-02` são cópias fictícias da ordem `ordem=7;estado=aprovado`; os metadados `tipo=ordem;versao=1` são públicos neste exercício. O quadro mostra a situação **antes de E-1**. As decisões P1–P3/N1–N3 são análise de política; nenhuma cifra ou abertura é executada nesse quadro.
 
@@ -138,6 +156,10 @@ A partir de E-1 (troca planejada), preveja e confira estas relações **fornecid
 
 ## Hash e digest: comparar o conteúdo exato {#digest}
 
+**Uso real — conferir um download do Ubuntu:** a distribuição publica `SHA256SUMS`, com resumos das imagens de instalação, e uma assinatura desse arquivo. Primeiro se verifica a origem da referência; depois se calcula o resumo da imagem baixada e se compara.
+
+Isso ajuda a detectar download incompleto ou conteúdo modificado. ([Tutorial oficial do Ubuntu](https://ubuntu.com/tutorials/how-to-verify-ubuntu).)
+
 Uma **função hash criptográfica** recebe bytes e produz um resumo de tamanho fixo, chamado **digest**. SHA-256 produz 256 bits (32 bytes). Os mesmos bytes produzem o mesmo digest; alterar os bytes quase certamente muda o resultado. Hash não cifra: o conteúdo pode continuar legível.
 
 A função é projetada para dificultar encontrar duas entradas diferentes com o mesmo digest. Ainda assim, um digest igual não identifica quem criou ou publicou o arquivo.
@@ -149,6 +171,8 @@ O exemplo `abc` tem um digest SHA-256 conhecido: `ba7816bf8f01cfea414140de5dae22
 A entrada são exatamente três bytes ASCII, sem aspas, espaço ou quebra de linha. Uma comparação exige os mesmos bytes e a mesma codificação; aparência semelhante não basta.
 
 **Prática curta no WSL:** abra uma pasta própria para a A16. `mkdir -p` cria a pasta se necessário; `cd` entra nela. Preveja os dois resumos e execute:
+
+Os arquivos de três bytes tornam essa comparação rápida, sem baixar uma imagem de instalação. A operação de calcular o resumo é a mesma; a referência conhecida vem do exemplo NIST.
 
 ```bash
 mkdir -p ~/cripto-a16
@@ -166,6 +190,10 @@ As duas linhas com `printf` criam arquivos de três bytes, sem quebra de linha; 
 
 Um **código de autenticação de mensagem** (*MAC*) depende de uma chave secreta compartilhada. **HMAC** é um MAC construído a partir de hash ([RFC 2104](https://www.rfc-editor.org/info/rfc2104/)). Quem recebe a mensagem confere o código com a **mesma chave** usada para produzi-lo.
 
+**Uso real — notificações automáticas do GitHub:** um **webhook** envia uma mensagem HTTP quando ocorre um evento, como uma alteração no repositório. Quando configurado com um segredo, o GitHub calcula HMAC-SHA256 do corpo enviado e inclui o resultado em `X-Hub-Signature-256`, um cabeçalho da requisição. ([Documentação do GitHub](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries).)
+
+O programa receptor recalcula o código com o segredo que já possui e compara antes de processar o evento. Uma divergência exige rejeição. O corpo continua legível no receptor; o HMAC verifica sua correspondência sob o segredo, enquanto HTTPS protege o transporte.
+
 | Operação | Entrada necessária | Resultado | O conteúdo fica secreto? |
 |---|---|---|---|
 | SHA-256 de D1 | Bytes do arquivo. | Digest para comparar com uma referência confiável. | Não. |
@@ -174,6 +202,8 @@ Um **código de autenticação de mensagem** (*MAC*) depende de uma chave secret
 Um código válido demonstra correspondência sob a chave. Se duas partes a conhecem, não distingue qual delas criou a mensagem.
 
 **Prática curta no WSL:** no mesmo diretório, execute:
+
+`msg-a.txt` representa um corpo recebido; mudar `valor=10` para `valor=11` altera seus bytes. Recalcular o HMAC permite observar a divergência que um receptor precisaria detectar. O ensaio não envia um webhook e usa um segredo descartável.
 
 ```bash
 printf 'pedido=7;valor=10' > msg-a.txt
@@ -212,6 +242,8 @@ Se `sha256sum` ou OpenSSL não funcionar, leia o quadro na ordem D1–M3 e ident
 
 ## Senhas: conferir uma tentativa sem guardar a senha {#senhas}
 
+**Uso real — cadastro e login no Django:** Django é um framework para desenvolver aplicações web. Na versão 5.2, seu esquema padrão usa PBKDF2 e guarda uma representação com **algoritmo, iterações, sal e valor derivado**. A aplicação pode conferir a senha digitada usando esse registro, sem guardar a senha legível. ([Documentação do Django 5.2](https://docs.djangoproject.com/en/5.2/topics/auth/passwords/).)
+
 Na prática D1 acima, SHA-256 permitiu comparar os bytes de **arquivos**. Agora a pergunta é outra: quando alguém cria uma conta e depois digita uma senha, como um programa confere essa tentativa sem manter uma cópia da senha na base de contas? Aqui, **serviço** significa o programa que recebe e confere a senha, como o responsável pelo login de um site. Nesta aula, vamos executar somente as operações locais, sem criar um site ou contas reais.
 
 Guardar a senha em texto legível expõe todas as contas se a base for copiada. Guardar apenas `SHA-256(senha)` também é inadequado: SHA-256 é rápido, e uma base vazada permite testar muitos palpites fora do serviço. O hash de D1 continua útil para comparar arquivos; a finalidade de **verificar senhas** pede um esquema próprio, com sal e custo ([OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)).
@@ -234,6 +266,14 @@ flowchart TB
 No **cadastro**, o programa gera um sal para aquela conta, deriva um **verificador** da senha e guarda `esquema + custo + sal + verificador`. A senha legível não entra nesse registro. O sal pode ser público; sua função é separar contas, inclusive quando duas pessoas escolhem a mesma senha.
 
 Na **conferência**, o programa recebe uma tentativa, usa o **sal e o custo guardados para aquela conta** e calcula outro valor. Se ele corresponder ao verificador, a tentativa é aceita. Não existe operação de “decifrar o verificador” para recuperar a senha.
+
+**No fluxo de login, cada mecanismo tem uma função:**
+
+- **HTTPS:** protege a senha em trânsito até o servidor.
+- **Derivação e comparação:** conferem a tentativa usando o registro da conta.
+- **Autorização:** decide o que a conta pode fazer após entrar.
+
+A base de contas guarda o registro necessário à conferência. Essas proteções atuam em pontos diferentes do mesmo fluxo.
 
 O **custo** define trabalho repetido para cada derivação. Isso também torna mais caras as tentativas de um atacante que obteve a base. Não torna uma senha fraca segura nem substitui a limitação de tentativas no serviço. O [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/) descreve sal, custo e registro do esquema para verificadores de senha.
 
