@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Saída completa e fundamentação de nonce/AAD na A14 — 8 out. 2026
+
+O programa Python da A14 passou a mostrar chave e nonce descartáveis, AAD e texto em hexadecimal e como texto legível, o conjunto `Sealed`, `Ciphertext` e `Tag`, antes das verificações G1–G3. A página agora explica nonce e AAD antes de apresentá-los como parâmetros: nonce público e novo por operação sob a mesma chave; AAD como rótulo visível vinculado ao conteúdo pela tag. Distingue nonce do sal de PBKDF2 e usa `versao=1`/`versao=2` para explicar G3. A chave exibida serve somente ao laboratório e não deve entrar na entrega. Plano docente, atividade e arquitetura foram alinhados.
+
+Commits `b250da92a7365735e30c72d963cfcbaf6996b1f3` e `0bd49a41cdce7ed97a4329449113b9a00b13dec9` enviados à `main`. A [validação 37824844844](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37824844844), o [deploy 37824844835](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37824844835), a [validação 37825206918](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37825206918) e o [deploy 37825206901](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37825206901) concluíram com sucesso. A execução confirmou `Sealed = Ciphertext + Tag`, G1 válido e rejeição de G2/G3. A [A14 pública](https://rafaelrezo.github.io/seguranca-digital/aulas/A14-cifra-simetrica-autenticada/#propriedades) e o [arquivo Python](https://rafaelrezo.github.io/seguranca-digital/assets/a14-a17/aes_gcm_a14.py) retornaram HTTP 200 com os novos marcadores. Google Drive e Classroom não foram alterados. Publicação não comprova realização da aula.
+
 ## Código AES-GCM copiável no VS Code — 8 out. 2026
 
 Por correção docente, a prática G1–G3 da A14 passou de código embutido em comando Bash para arquivo Python `aes_gcm_a14.py`, mostrado em bloco próprio e oferecido para download. A página orienta abrir `~/cripto-a14` no VS Code via WSL, salvar o arquivo e executá-lo com `python3 aes_gcm_a14.py`; também explica erros de caminho e dependência. O plano docente, a arquitetura e o `AGENTS.md` foram alinhados. A comparação entre tag original, tag alterada e AAD alterado permanece igual.
