@@ -95,6 +95,8 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 
 **Precisão docente de 8 out. 2026 — práticas diretas no terminal:** na A14, substituir o painel Web Crypto de cliques por execução estudantil no WSL. O exercício AES-GCM com Python `cryptography` mostra a tag original (G1), um bit alterado na tag (G2) e AAD alterado (G3); em cada caso o estudante compara entrada e resultado da abertura. Manter CBC, hash e HMAC no terminal. A15 usa OpenSSL para chaves, assinatura e inspeção do certificado real; a A16 usa `s_client` para ler o canal TLS. Quadros de saída servem apenas de alternativa declarada quando a ferramenta falhar. C1 aceita G1–G3 e o 50 T/50 P continua como planejamento.
 
+**Ajuste de apresentação da prática GCM na A14 — 8 out. 2026:** disponibilizar o exemplo AES-GCM como arquivo Python copiável para o VS Code e como download, com comando WSL de execução separado. O arquivo explicita preparação, abertura válida, tag alterada e AAD alterado; G1–G3 e a evidência de C1 permanecem. Evitar heredoc e código multilinha no comando de terminal para iniciantes.
+
 | Bloco | Produto cumulativo | Ponte que deve aparecer no encontro seguinte |
 |---|---|---|
 | A08–A09 | Atividade única encerrada na A09; registro de SGSI, riscos e decisão. | A10 retoma o **método** de risco, sem herdar resultados não confirmados. |

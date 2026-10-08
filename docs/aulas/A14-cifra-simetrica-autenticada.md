@@ -4,7 +4,7 @@ Na **cifra simétrica**, a mesma chave secreta cifra e decifra. A aula parte des
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
-**Recursos:** terminal Ubuntu no WSL com OpenSSL e Python 3; a prática AES-GCM usa a biblioteca Python `cryptography`, verificada antes de executar. Os resultados esperados na página servem de alternativa se o ambiente falhar. Use somente dados de teste e senha descartável.
+**Recursos:** terminal Ubuntu no WSL, VS Code, OpenSSL e Python 3 com a biblioteca `cryptography`. Os resultados esperados na página servem de alternativa se o ambiente falhar. Use somente dados de teste e senha descartável.
 
 **Objetivos de aprendizagem**
 
@@ -155,28 +155,32 @@ Saem **texto cifrado e tag**. Na abertura, o programa fornece chave, nonce, AAD,
 
 ### Prática curta no WSL: conferir a tag de AES-GCM {#gcm-terminal}
 
-Este exercício usa a biblioteca Python [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM), que implementa AES-GCM. No terminal WSL, **verifique primeiro** se ela está disponível:
+Este exercício usa a biblioteca Python [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM), que implementa AES-GCM. **Crie um arquivo Python no VS Code** e execute-o no terminal WSL. O código fica separado dos comandos, para que você possa ler e alterar cada parte.
 
-```bash
-python3 -c 'from cryptography.hazmat.primitives.ciphers.aead import AESGCM; print("AES-GCM disponível")'
-```
+1. No terminal WSL, entre na pasta da A14 com `cd ~/cripto-a14`. Se ela ainda não existir, crie-a com `mkdir -p ~/cripto-a14` e repita o `cd`.
+2. Digite `code .` no WSL para abrir essa pasta no VS Code. O ponto significa **pasta atual**. Se `code` não estiver disponível, no VS Code use **Conectar ao WSL** e abra `~/cripto-a14`.
+3. Crie `aes_gcm_a14.py` nessa pasta, copie **somente o código Python abaixo** e salve. O [arquivo `.py` pronto para baixar](../assets/a14-a17/aes_gcm_a14.py) contém o mesmo código, se preferir abri-lo no editor.
+4. Leia as seções numeradas do arquivo. Antes de executar, preveja o que acontecerá com a tag original, a tag alterada e o AAD alterado.
 
-`python3 -c` executa o trecho entre aspas e sai. Se aparecer `AES-GCM disponível`, continue. Se aparecer `ModuleNotFoundError`, acompanhe a execução no terminal do professor ou use o quadro G1–G3 abaixo como dados fornecidos; não é necessário instalar nada durante a aula.
+**Estado inicial:** o programa usa bytes fictícios e cria uma chave e um nonce novos em memória. `encrypt` devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores hexadecimais mudam a cada execução; compare os valores **dentro da mesma execução**.
 
-**Estado inicial:** o código abaixo usa somente bytes fictícios e cria uma chave e um nonce novos em memória. A biblioteca devolve **texto cifrado com a tag nos últimos 16 bytes**. Os valores hexadecimais mudam a cada execução; compare o resultado **dentro da mesma execução**.
-
-```bash
-python3 - <<'PY'
+```python
 from os import urandom
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.exceptions import InvalidTag
+
+# 1. Preparar entradas e cifrar
 key = AESGCM.generate_key(bit_length=256)       # chave descartável de 256 bits
 nonce = urandom(12)                               # nonce novo de 12 bytes
 aad = b'tipo=ordem;versao=1'                     # rótulo visível, mas autenticado
 text = b'ordem=7;estado=aprovado'                 # conteúdo a cifrar
 sealed = AESGCM(key).encrypt(nonce, text, aad)   # texto cifrado + tag
+
+# 2. Abrir o conjunto original
 print('G1 tag:', sealed[-16:].hex())              # mostra a tag original
 print('G1 texto:', AESGCM(key).decrypt(nonce, sealed, aad).decode())
+
+# 3. Alterar um bit da tag e tentar abrir
 tampered = sealed[:-1] + bytes([sealed[-1] ^ 1]) # muda um bit da tag
 print('G2 tag:', tampered[-16:].hex())            # mostra a tag alterada
 try:
@@ -184,17 +188,25 @@ try:
     print('G2: aceito (inesperado)')
 except InvalidTag:
     print('G2: rejeitado; texto não entregue')
+
+# 4. Manter a tag original e alterar somente o AAD
+altered_aad = b'tipo=ordem;versao=2'           # muda só AAD
 try:
-    AESGCM(key).decrypt(nonce, sealed, b'tipo=ordem;versao=2') # muda só AAD
+    AESGCM(key).decrypt(nonce, sealed, altered_aad)
     print('G3: aceito (inesperado)')
 except InvalidTag:
     print('G3: rejeitado; AAD alterado')
-PY
 ```
 
-**Leia as operações:**
+**Execute no terminal WSL**, dentro da pasta onde salvou o arquivo:
 
-- `python3 - <<'PY'` executa o código até a linha final `PY`, sem criar arquivo. As linhas `from` carregam AES-GCM, a fonte de bytes aleatórios e o nome do erro de tag.
+```bash
+python3 aes_gcm_a14.py
+```
+
+`python3` executa o arquivo indicado; o nome `aes_gcm_a14.py` deve corresponder ao arquivo salvo no VS Code. **Leia as operações do programa:**
+
+- As linhas `from` carregam AES-GCM, a fonte de bytes aleatórios e o nome do erro de tag.
 - `b'...'` representa bytes; `generate_key` cria a chave e `urandom(12)` cria um nonce de 12 bytes. `encrypt` devolve texto cifrado **seguido da tag**.
 - `sealed[-16:]` seleciona os 16 bytes finais da tag; `.hex()` os mostra em hexadecimal. Em **G1**, `decrypt` recebe as mesmas entradas e `.decode()` mostra o texto recuperado.
 - `sealed[:-1]` conserva tudo menos o último byte; `^ 1` inverte um bit desse byte da tag. Em **G2**, `try/except InvalidTag` mostra a rejeição sem usar texto não autenticado. Em **G3**, os bytes cifrados e a tag voltam a ser os originais, mas o AAD muda de `versao=1` para `versao=2`.
@@ -208,6 +220,8 @@ PY
 **Registre G1–G3:** compare as duas tags mostradas e indique o byte que mudou. A biblioteca confere a tag internamente: entrega o texto em G1 e lança `InvalidTag`, capturado pelo código, em G2 e G3. A falha demonstra a rejeição **neste teste controlado**, sem identificar quem mudou o arquivo.
 
 **Pare** após G3, sem reutilizar a chave ou o nonce de teste. Se a saída diferir, registre a mensagem de erro e use o quadro acima como resultado **fornecido**, não observado.
+
+Se aparecer `ModuleNotFoundError: No module named 'cryptography'`, o Python usado no terminal não possui a biblioteca. Confira que o terminal é o do WSL e informe ao professor; acompanhe a execução projetada ou use o quadro G1–G3 como dado fornecido. Se aparecer “can't open file”, confirme a pasta com `pwd` e o nome do arquivo com `ls`. Não trate erro de instalação ou de caminho como falha de autenticação.
 
 **CBC e GCM são modos diferentes para usar AES:**
 
