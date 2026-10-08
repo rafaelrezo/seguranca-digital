@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## Referências de produção retiradas das páginas A14–A16 — 8 out. 2026
+
+Por orientação docente durante a entrega da Imagem 16, foram removidos das páginas de estudo os blocos de “ilustração opcional” e os links para prompts. O catálogo separado de prompts e sua numeração permanecem acessíveis. `AGENTS.md` passa a exigir validação conceitual e de legibilidade antes da incorporação, com novo prompt da mesma numeração quando necessário. A Imagem 16 ainda não foi validada nem inserida: o arquivo anunciado não foi localizado no repositório ou nas pastas locais consultadas, e seu caminho foi solicitado ao docente.
+
+Commit `5e430d616d51e80479ed949dd6cba710c1c6f9ea` enviado à `main`. [Validação 37835513402](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37835513402) e [deploy 37835513305](https://github.com/rafaelrezo/seguranca-digital/actions/runs/37835513305) concluíram com sucesso. Validador editorial, build estrito e `git diff --check` passaram. As páginas públicas A14–A16 responderam HTTP 200 sem links para o catálogo de produção. Google Drive e Classroom não foram alterados; publicação não comprova realização das aulas.
+
 ## Usos reais documentados integrados a A14–A16 — 8 out. 2026
 
 Por solicitação docente, os núcleos conceituais receberam contexto de aplicação próximo às definições e às práticas: BitLocker para proteção de volumes; KeePass para CBC/IV e verificação separada; OpenSSL para senha/sal; HTTPS para GCM/nonce/AAD e acordo; SSH para separação e procedência de chaves; APT para assinatura de metadados; certificado do domínio do curso; AWS KMS para cifragem de envelope, rotação e dependência de cópias; imagens Ubuntu para hash; webhooks GitHub para HMAC; Django 5.2 para registro de senhas. As fontes primárias foram consultadas e vinculadas no ponto de uso. O material distingue os formatos reais dos arquivos didáticos, versões internas do KMS de chaves distintas no quadro e proteção criptográfica de autorização e duplicidade. `AGENTS.md`, arquitetura e planos docentes foram alinhados; não há nova instalação, prática obrigatória ou entrega. Códigos, comandos, âncoras e distribuição de hash/HMAC/senhas no final da A16 permanecem.
