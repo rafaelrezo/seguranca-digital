@@ -110,8 +110,8 @@
       "title": "A14 — Cifra simétrica e compartilhamento de chaves",
       "activity": "atividade",
       "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
-      "status": "material_consolidado_localmente_realizacao_nao_declarada",
-      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Edição de 15 out. 2026 publicada no GitHub Pages. Publicação não confirma execução das práticas pela turma nem implantação AWS/Windows."
     },
     {
       "id": "A15",
@@ -119,8 +119,8 @@
       "title": "A15 — Chaves, assinaturas e certificados",
       "activity": "atividade",
       "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
-      "status": "material_consolidado_localmente_realizacao_nao_declarada",
-      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Edição de 15 out. 2026 publicada no GitHub Pages. Publicação não confirma execução das práticas pela turma nem implantação AWS/Windows. Docente confirmou exposição matemática de RSA; demais checkpoints não foram confirmados."
     },
     {
       "id": "A16",
@@ -128,8 +128,8 @@
       "title": "A16 — Hash, HMAC, senhas e TLS",
       "activity": "atividade",
       "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
-      "status": "material_consolidado_localmente_realizacao_nao_declarada",
-      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Edição de 15 out. 2026 publicada no GitHub Pages. Publicação não confirma execução das práticas pela turma nem implantação AWS/Windows."
     },
     {
       "id": "A17",
@@ -137,8 +137,8 @@
       "title": "A17 — OpenVPN e máquina interna na VPC",
       "activity": "atividade",
       "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
-      "status": "material_consolidado_localmente_realizacao_nao_declarada",
-      "note": "Ampliação de 15 out. 2026: gateway público e interna sem Internet na mesma VPC, rotas de ida/retorno sem NAT. Preparação local não comprova implantação AWS ou execução Windows/turma."
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Edição de 15 out. 2026 publicada no GitHub Pages. Publicação não confirma execução das práticas pela turma nem implantação AWS/Windows."
     }
   ],
   "practice_repository": {
@@ -152,5 +152,12 @@
       "A17"
     ],
     "access": "public_https_or_zip"
+  },
+  "publication": {
+    "date": "2026-10-15",
+    "commit": "697fbd89598599e210bf8e0132878beeeb4489db",
+    "url": "https://rafaelrezo.github.io/seguranca-digital/",
+    "validation_run": 38815048156,
+    "deploy_run": 38815048134
   }
 }

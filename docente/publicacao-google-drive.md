@@ -1,5 +1,13 @@
 # Registro de publicação no Google Drive
 
+## A14–A17 publicadas no GitHub Pages — 15 out. 2026
+
+Publicado o commit `697fbd89598599e210bf8e0132878beeeb4489db` na main a partir de cópia isolada, preservando alterações locais e materiais históricos. A edição reúne arquivos prontos no repositório de práticas, blocos/padding da A14, comparação matemática RSA/ECDSA na A15, hash/HMAC/senhas antes de TLS na A16 e A17 com gateway público e máquina interna sem Internet na VPC. C1–C4 formam entrega única; navegação, planos e referências foram alinhados.
+
+[Validação 38815048156](https://github.com/rafaelrezo/seguranca-digital/actions/runs/38815048156) e [deploy 38815048134](https://github.com/rafaelrezo/seguranca-digital/actions/runs/38815048134) concluídos com sucesso. Build estrito e validador passaram na cópia isolada. Artefato renderizado em1440/390px e sem arquivos docentes no site. As páginas públicas A14/A15/A16/[A17](https://rafaelrezo.github.io/seguranca-digital/aulas/A17-openvpn-ec2/) e a atividade responderam HTTP200 com os marcadores novos; seis downloads públicos foram comparados byte a byte com as fontes e coincidiram. Relatório temporário em `/tmp/seguranca-pages-public-verification.json`.
+
+Google Drive e Classroom não foram alterados. A publicação não confirma implantação AWS, execução Windows ou realização das práticas pela turma. Permanecem os limites de ensaio e tempo descritos nos planos e na validação da nova topologia.
+
 ## A17 com máquina interna sem Internet na VPC — 15 out. 2026
 
 Revisada localmente a A17 para duas EC2: gateway OpenVPN público e máquina interna sem IP público/Internet, na mesma VPC e em sub-redes separadas. Rota enviada ao cliente, forwarding com filtro, source/destination check e retorno pela ENI foram explicados, sem NAT. Serviço preparado por user data sem downloads; V0/V1, SSH interno, isolamento e V2/V3 integram a mesma C4. Arquitetura, roadmap, plano, navegação, percurso e manifesto alinhados; preparação adicional estimada, sem confirmar a nova duração executada.
