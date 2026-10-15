@@ -12,7 +12,36 @@
 2. Comparar CBC e AES-GCM usando abertura original e rejeição de alteração na tag ou no AAD.
 3. Distinguir chave, IV, sal, nonce e AAD e explicar o segredo que o receptor precisa possuir previamente.
 
-Esta aula inicia o [registro único de criptografia e confiança](#atividade), preenchido após cada observação e continuado na A15–A16. O preenchimento de hoje não exige entrega separada.
+Esta aula inicia o [registro único de criptografia e confiança](#atividade), preenchido após cada observação e continuado na A15–A17. O preenchimento de hoje não exige entrega separada.
+
+## Arquivos da prática: baixar uma vez {#arquivos}
+
+Os arquivos completos estão no [repositório de práticas A14–A17](https://github.com/rafaelrezo/seguranca-digital-praticas). Você usará as mesmas pastas nas quatro aulas; não precisa montar os programas por copiar e colar nem criar conta no GitHub.
+
+No terminal **Linux ou Ubuntu/WSL**, confira Git, OpenSSL e Python. Se faltar alguma ferramenta no Ubuntu/Debian, a preparação demonstrada usa `sudo apt update` e `sudo apt install git openssl python3-venv`. Em outro Linux, confira o pacote equivalente antes de continuar.
+
+```bash
+cd ~
+git clone https://github.com/rafaelrezo/seguranca-digital-praticas.git
+cd seguranca-digital-praticas
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+cd a14
+code .
+```
+
+`git clone` baixa a pasta inteira; `venv` cria um ambiente Python local; `source` o ativa e `pip` instala a versão da biblioteca registrada em `requirements.txt`. `cd a14` entra na prática e `code .` abre os arquivos no VS Code. Se o editor não abrir por comando, abra essa pasta manualmente.
+
+**Sem Git:** no repositório, escolha **Code → Download ZIP**, extraia e renomeie a pasta para `seguranca-digital-praticas`. Coloque-a na pasta pessoal do Linux/WSL e siga o [README de preparação](https://github.com/rafaelrezo/seguranca-digital-praticas#preparar-uma-vez) a partir da criação do ambiente. No Windows, `explorer.exe ~` no WSL abre a pasta pessoal para receber a pasta extraída.
+
+Em um novo terminal, reative o ambiente antes dos programas Python:
+
+```bash
+source ~/seguranca-digital-praticas/.venv/bin/activate
+```
+
+**Checkpoint:** a pasta `a14` contém `claro.txt`, `cbc.sh` e `aes_gcm_a14.py`. Os comandos curtos executam uma etapa por vez; abra o arquivo para ler a operação e preveja a saída antes de executar. As saídas são locais, excluídas do versionamento; não entregue nem publique segredos.
 
 ## Cifra simétrica: a mesma chave nas duas operações {#fundamentos}
 
@@ -42,33 +71,36 @@ A propriedade obtida aqui é **confidencialidade**: restringir a leitura da cóp
 
 Aqui vamos observar a proteção de **um arquivo**, em vez de um disco inteiro. `claro.txt` representa o conteúdo que um programa precisa ler; na prática seguinte, produziremos uma cópia cifrada e recuperaremos seus bytes.
 
-**Estado inicial:** abra o terminal Ubuntu do WSL. `openssl version` deve informar a versão; `printf` cria um arquivo com bytes fictícios. Os comandos escrevem somente em `~/cripto-a14`. Preveja o conteúdo de cada arquivo antes de executá-los.
+**Estado inicial:** abra o terminal Ubuntu do WSL. `openssl version` deve informar a versão; `claro.txt` já contém os bytes fictícios da prática. Os comandos escrevem somente em `~/seguranca-digital-praticas/a14`. Preveja o conteúdo de cada arquivo antes de executá-los.
 
 ```bash
-mkdir -p ~/cripto-a14
-cd ~/cripto-a14
-printf 'ordem=7;estado=aprovado' > claro.txt
-cat claro.txt
-openssl version
+cd ~/seguranca-digital-praticas/a14
+bash cbc.sh preparar
+wc -c claro.txt
 ```
 
-**Leia cada linha antes de executar:**
+**Leia o arquivo e o comando:**
 
-| Comando | O que faz |
+| Entrada ou comando | O que faz |
 |---|---|
-| `mkdir -p ~/cripto-a14` | Cria a pasta de teste na área pessoal; `-p` evita erro se ela já existir. |
-| `cd ~/cripto-a14` | Entra nessa pasta; os próximos arquivos serão criados nela. |
-| `printf ... > claro.txt` | Escreve o texto entre aspas em `claro.txt`; `>` cria ou substitui esse arquivo, sem acrescentar quebra de linha. |
-| `cat claro.txt` | Mostra o conteúdo legível do arquivo. |
-| `openssl version` | Mostra a versão do OpenSSL disponível no WSL; ainda não cifra nada. |
+| `claro.txt` | Já vem com `ordem=7;estado=aprovado`, sem quebra de linha. |
+| `cd .../a14` | Entra na pasta obtida do repositório. |
+| `bash cbc.sh preparar` | Mostra o conteúdo com `cat` e confere `openssl version`; ainda não cifra nada. |
+| `wc -c claro.txt` | Conta os bytes do arquivo; `-c` pede bytes, não palavras nem caracteres. |
 
-**Resultado esperado:** `cat` mostra a frase exata; `openssl version` identifica a ferramenta. Registre `T1 → entrada legível → chave ainda não usada`. Se OpenSSL não existir, acompanhe a projeção e registre o resultado como **fornecido**. **Pare** para explicar onde a mesma chave entrará nos dois sentidos.
+**Resultado esperado:** `cat` mostra a frase exata; `openssl version` identifica a ferramenta; `wc -c` mostra **23 bytes**, sem quebra de linha no arquivo. Registre `T1 → entrada legível → 23 bytes → chave ainda não usada`. Se a ferramenta faltar, acompanhe a projeção e registre o resultado como **fornecido**. **Pare** para explicar onde a mesma chave entrará nos dois sentidos.
 
 ## AES: algoritmo de blocos e modo de operação {#aes}
 
-**AES** (*Advanced Encryption Standard*) é um algoritmo de cifra simétrica padronizado pelo NIST. Ele transforma um **bloco de 128 bits**, isto é, 16 bytes, usando uma chave de 128, 192 ou 256 bits. Em **AES-256**, o número 256 descreve o tamanho da chave; o bloco continua tendo 128 bits. O algoritmo é público: o segredo necessário para abrir o conteúdo é a chave. Esses tamanhos e funções são definidos na [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final).
+**AES** (*Advanced Encryption Standard*) é um algoritmo de cifra simétrica padronizado pelo NIST. Ele processa dados em blocos de tamanho fixo; o algoritmo é público, e o segredo necessário para abrir o conteúdo é a chave.
 
-Um arquivo pode ter centenas ou milhões de bytes, enquanto AES transforma um bloco de 16 bytes por operação. Uma mensagem de 40 bytes, por exemplo, ultrapassa dois blocos completos e ainda tem uma parte final.
+**Um bloco é um grupo de bytes processado por vez pela cifra.** Um byte tem 8 bits; no AES, cada bloco tem **16 bytes, ou 128 bits**. A divisão segue a sequência de bytes, sem respeitar palavras, linhas ou campos do arquivo.
+
+**Bytes e caracteres não são a mesma unidade:** na codificação de texto UTF-8, `A` ocupa um byte e `á` ocupa dois. Portanto, 16 caracteres nem sempre cabem em um bloco de 16 bytes. Os textos sem acento desta prática usam um byte por caractere.
+
+Um arquivo pode ter centenas ou milhões de bytes. Uma mensagem de **20 bytes**, por exemplo, contém um bloco completo de 16 bytes e uma parte final de 4 bytes. O tratamento dessa parte depende do modo; no CBC desta prática, veremos o preenchimento chamado *padding*.
+
+**Tamanho do bloco e tamanho da chave são diferentes.** AES admite chaves de 128, 192 ou 256 bits. Em **AES-256**, a chave tem 32 bytes, mas cada bloco continua tendo **16 bytes**. Esses tamanhos são definidos na [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final).
 
 **Modo de operação** é o conjunto de regras que aplica a cifra à mensagem inteira. Ele define como as partes são processadas, como iniciar a operação e quais valores precisam acompanhar o resultado. Por isso, “cifrado com AES” ainda não descreve o procedimento completo.
 
@@ -91,19 +123,21 @@ flowchart LR
 
 ### CBC e IV: iniciar o encadeamento {#iv}
 
-**CBC** é um modo que encadeia blocos: antes de cifrar cada bloco, combina seus bytes com o bloco cifrado anterior. O primeiro bloco ainda não tem um anterior; por isso, usa um **IV** como ponto de partida.
+**CBC** significa *Cipher Block Chaining*, encadeamento de blocos cifrados. Antes de cifrar cada bloco de 16 bytes, combina seus bytes com o **bloco cifrado anterior**. O primeiro bloco ainda não tem um anterior; por isso, usa um **IV** como ponto de partida.
 
 **IV** significa *Initialization Vector*, ou **vetor de inicialização**. Em português, pronuncie as letras: **“i-vê”**. É um valor adicional à chave, usado para iniciar a operação.
 
+A combinação usa **XOR**, uma operação bit a bit: cada posição resulta em 1 quando os dois bits são diferentes e em 0 quando são iguais. Os dois conjuntos combinados têm o mesmo tamanho; o resultado de 16 bytes entra no AES com a chave.
+
 ```mermaid
 flowchart TB
-    P[Primeiro bloco<br/>de dados] --> B[Combinar os bytes]
+    P[Primeiro bloco<br/>16 bytes de dados] --> B[Combinar por XOR]
     V[IV: ponto<br/>de partida] --> B
     B --> E[AES com<br/>a chave secreta]
     E --> C[Primeiro bloco cifrado]
 ```
 
-**Leia o esquema:** o IV participa da combinação inicial; a chave controla a transformação feita pelo AES. O bloco cifrado produzido será usado na combinação do próximo bloco.
+**Leia o esquema:** o IV participa da combinação inicial; a chave controla a transformação feita pelo AES. A saída também é um bloco de **16 bytes**. Para o bloco seguinte, essa saída ocupa o lugar do IV na combinação por XOR; a mesma chave AES continua sendo usada.
 
 - **Tamanho:** no AES-CBC, o IV tem 16 bytes, o mesmo tamanho de um bloco AES.
 - **Geração:** cada nova cifragem precisa de um IV imprevisível, normalmente obtido com um gerador criptográfico de valores aleatórios.
@@ -117,6 +151,25 @@ O IV também precisa ser protegido contra alteração; CBC sozinho não oferece 
 **Uso real — um cofre de senhas:** o KeePass guarda credenciais em um arquivo `.kdbx`. Seu formato admite AES-256-CBC e guarda um IV de 16 bytes no cabeçalho, renovado ao salvar.
 
 O formato KDBX 4 também verifica autenticidade com um mecanismo separado; essa verificação não vem do CBC. A prática abaixo isola a cifragem e a abertura, sem reproduzir todas as proteções do cofre. ([Especificação KDBX](https://keepass.info/help/kb/kdbx.html).)
+
+### Padding: completar o último bloco do CBC {#padding}
+
+**Como cifrar uma mensagem que não ocupa blocos completos?** O AES-CBC precisa receber blocos de 16 bytes. O comando OpenSSL da prática acrescenta **padding**, bytes de preenchimento, antes da cifragem.
+
+Considere `ABCDEFGHIJKLMNOPQRST`: são **20 bytes**, pois cada letra ASCII ocupa um byte. O preenchimento organiza a entrada da cifra assim:
+
+| Bloco | Bytes da mensagem | Preenchimento | Tamanho entregue à cifra |
+|---|---|---|---:|
+| 1 | `ABCDEFGHIJKLMNOP` — 16 bytes | Nenhum | 16 bytes |
+| 2 | `QRST` — 4 bytes | 12 bytes de padding | 16 bytes |
+
+O OpenSSL usa **PKCS#7**: cada byte acrescentado informa a quantidade de bytes de preenchimento. Nesse exemplo, os 12 bytes adicionados têm valor **12**, escrito `0C` em hexadecimal. Não são espaços nem o texto “12”. Na decifragem, o programa confere e remove esse preenchimento para recuperar os 20 bytes originais.
+
+Mesmo quando a mensagem já ocupa um número exato de blocos, PKCS#7 acrescenta **um bloco inteiro de preenchimento**. Isso permite distinguir o fim da mensagem do padding sem depender do conteúdo dos seus últimos bytes. ([OpenSSL: preenchimento de blocos](https://docs.openssl.org/3.5/man1/openssl-enc/#notes).)
+
+**Na prática T1:** `claro.txt` tem 23 bytes, portanto ocupa **16 + 7 bytes**. Antes de cifrar, o comando acrescentará **9 bytes de padding**, formando dois blocos, com 32 bytes de dados cifrados. O marcador e o sal do formato OpenSSL ficam fora desses blocos; não confunda o tamanho de `copia.cbc` inteiro com o tamanho apenas do conteúdo cifrado.
+
+**Checkpoint:** preveja o que deve aparecer em `aberto.txt`: 23 ou 32 bytes? A abertura normal remove o padding e recupera os **23 bytes**. Aceitar o preenchimento não autentica o arquivo; CBC continua sem tag própria. Não generalize essa regra de padding para GCM, que será apresentado adiante.
 
 ### Senha e sal: obter material para AES-CBC
 
@@ -140,17 +193,15 @@ Esse recurso permite estudar o papel de uma senha na cifragem, mas o comando CBC
 
 ### Prática curta no WSL: cifrar e abrir com AES-CBC
 
-A primeira linha abaixo solicita uma senha descartável duas vezes; a linha de abertura pede a mesma senha. Os caracteres digitados não aparecem na tela. Use apenas a pasta e o arquivo fictício preparados em T1.
+Execute uma linha por vez. `cifrar` solicita uma senha descartável duas vezes; `abrir` pede a mesma senha. `inspecionar` só mostra bytes. O script também compara os bytes recuperados com o original. Os caracteres digitados não aparecem na tela. Use apenas a pasta e o arquivo fictício preparados em T1.
 
 ```bash
-openssl enc -aes-256-cbc -salt -pbkdf2 -iter 10000 -in claro.txt -out copia.cbc
-od -An -tx1 -N32 copia.cbc
-od -An -tc -N8 copia.cbc
-openssl enc -d -aes-256-cbc -pbkdf2 -iter 10000 -in copia.cbc -out aberto.txt
-cat aberto.txt
+bash cbc.sh cifrar
+bash cbc.sh inspecionar
+bash cbc.sh abrir
 ```
 
-**Leia cada linha:**
+**Dentro de `cbc.sh`, localize os comandos explicados abaixo:**
 
 | Linha | O que faz |
 |---|---|
@@ -289,23 +340,22 @@ Um navegador usa um protocolo de estabelecimento de chaves, apresentado ao final
 
 ### Prática no VS Code e WSL: preparar, receber e verificar {#gcm-terminal}
 
-Use o mesmo arquivo `aes_gcm_a14.py`. Os blocos abaixo são **partes consecutivas desse arquivo**: copie-os na ordem, salve e execute após cada etapa. O [arquivo completo para download](../assets/a14-a17/aes_gcm_a14.py) reúne as etapas 1–3 e a extensão opcional.
+Abra o **`aes_gcm_a14.py` já incluído na pasta a14**. Os trechos a seguir explicam o arquivo pronto; não copie nem acrescente blocos. A opção `--etapa` executa até o ponto indicado: 1 cifra, 2 inclui receptor, 3 inclui contraprovas e 4 inclui a extensão.
 
-1. No WSL, entre em `~/cripto-a14` com `cd ~/cripto-a14`. Se faltar a pasta, crie-a com `mkdir -p ~/cripto-a14` e repita o `cd`.
-2. Abra a pasta no VS Code com `code .`. O ponto significa **pasta atual**. Se `code` faltar, use **Conectar ao WSL** no VS Code e abra essa pasta.
-3. Crie ou abra `aes_gcm_a14.py`. Use somente a senha e as contas fictícias do código.
-
-Em cada etapa, salve o arquivo e execute este comando no terminal WSL da mesma pasta:
-
-```bash
-python3 aes_gcm_a14.py
-```
-
-`python3` executa o arquivo salvo. Cada execução refaz o ensaio com sal e nonce novos; compare os valores **dentro da mesma execução**. A partir da etapa 2, `mensagem_gcm.json` será criado ou substituído nessa pasta.
+Cada execução refaz o ensaio com sal e nonce novos; compare os valores **dentro da mesma execução**. A partir da etapa 2, `mensagem_gcm.json` será criado ou substituído na pasta. O [download anterior](../assets/a14-a17/aes_gcm_a14.py) permanece disponível, com a mesma seleção de etapas.
 
 #### 1. Emissor: derivar a chave e cifrar
 
 PBKDF2 usa a senha, um sal de 16 bytes e 100.000 repetições para gerar **32 bytes de chave: 256 bits**. São parâmetros didáticos, não uma configuração recomendada para produção. A biblioteca [`cryptography`](https://cryptography.io/en/stable/hazmat/primitives/aead/#cryptography.hazmat.primitives.ciphers.aead.AESGCM) faz a operação AES-GCM.
+
+**Execute até a etapa 1:**
+
+```bash
+python3 aes_gcm_a14.py --etapa 1
+```
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 from hashlib import pbkdf2_hmac
@@ -341,6 +391,8 @@ print("Ciphertext:", sealed[:-16].hex())
 print("Tag:       ", sealed[-16:].hex())
 ```
 
+</details>
+
 **Leia o código e a saída:**
 
 - `from` e `import` carregam derivação, bytes aleatórios, arquivos, JSON, AES-GCM e o erro de autenticação.
@@ -353,7 +405,16 @@ print("Tag:       ", sealed[-16:].hex())
 
 #### 2. Envelope e receptor: guardar campos públicos e reconstruir a chave
 
-Acrescente o bloco abaixo ao final do mesmo arquivo. **Preveja:** o envelope precisa conter a senha? O receptor conseguirá derivar uma chave igual usando seu próprio segredo e o sal recebido?
+A etapa 2 já está no arquivo pronto. **Preveja:** o envelope precisa conter a senha? O receptor conseguirá derivar uma chave igual usando seu próprio segredo e o sal recebido?
+
+**Execute até a etapa 2:**
+
+```bash
+python3 aes_gcm_a14.py --etapa 2
+```
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 # 2. Envelope: gravar apenas os campos públicos, depois ler como receptor
@@ -384,6 +445,8 @@ print('G1 texto:', AESGCM(receiver_key).decrypt(
 ).decode('utf-8'))
 ```
 
+</details>
+
 Salve, execute novamente e veja o arquivo criado:
 
 ```bash
@@ -402,7 +465,16 @@ cat mensagem_gcm.json
 
 #### 3. Contraprovas: alterar a tag e depois o cabeçalho
 
-Acrescente o bloco abaixo. **Preveja:** o que muda quando só um bit da tag é alterado? E quando só a versão do AAD muda?
+A etapa 3 já está no arquivo pronto. **Preveja:** o que muda quando só um bit da tag é alterado? E quando só a versão do AAD muda?
+
+**Execute até a etapa 3:**
+
+```bash
+python3 aes_gcm_a14.py --etapa 3
+```
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 # 3. Contraprovas: alterar tag ou AAD do conjunto recebido
@@ -422,6 +494,8 @@ except InvalidTag:
     print('G3: rejeitado; AAD alterado')
 ```
 
+</details>
+
 `receiver_sealed[:-1]` conserva todos os bytes menos o último; `^ 1` inverte um bit desse último byte da tag. `try/except InvalidTag` captura a rejeição. Em G3, ciphertext e tag são originais; apenas o cabeçalho muda para `versao=2`.
 
 | Caso | Saída esperada | O que demonstra |
@@ -436,7 +510,10 @@ except InvalidTag:
 
 ### Extensão: segunda mensagem, retransmissão e segredo diferente {#gcm-extensao}
 
-Acrescente este último bloco ao mesmo arquivo. Antes de executá-lo, preveja três resultados: mesma mensagem com outro nonce; nova abertura do envelope original; abertura com chave derivada de outra senha.
+O bloco de extensão já está no arquivo. Antes de executar `python3 aes_gcm_a14.py --etapa 4`, preveja três resultados: mesma mensagem com outro nonce; nova abertura do envelope original; abertura com chave derivada de outra senha.
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 # 4. Extensões: novo nonce, repetição do envelope e senha diferente
@@ -459,6 +536,8 @@ try:
 except InvalidTag:
     print('G6: rejeitado; senha diferente gera outra chave')
 ```
+
+</details>
 
 Em **G4**, `while` repete a geração caso o novo nonce seja igual ao primeiro. `encrypt` cifra de novo o mesmo conteúdo com a mesma chave e um nonce diferente. Em **G5**, só ocorre outra leitura do conjunto já cifrado. Em **G6**, sal e parâmetros permanecem iguais, mas a senha muda.
 
@@ -542,11 +621,11 @@ Uma KDF, como **HKDF**, deriva as chaves que serão usadas na cifra a partir des
 - **Para aceitar uma operação:** verificar a tag antes de usar o conteúdo e aplicar as regras da aplicação, inclusive contra repetição.
 - **Para comunicar entre sistemas:** estabelecer as chaves com autenticação e proteção adequadas; o ensaio local não é um protocolo pronto para comunicação segura.
 
-A [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls) mostrará esse acordo junto à autenticação por certificado. O [percurso do OpenVPN](A16-tls-ciclo-de-chaves.md#topologia-vpn) aplicará a cifra autenticada ao transporte de pacotes entre duas redes.
+A [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls) mostrará esse acordo junto à autenticação por certificado. O [percurso do OpenVPN](A17-openvpn-ec2.md#vpn) aplicará a cifra autenticada ao transporte de pacotes entre duas redes.
 
 ## Atividade {#atividade}
 
-Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade): use T1–T2 e G1–G3 para explicar a cifra, a rejeição da tag alterada e o segredo necessário no receptor. G4–G6 são extensões opcionais. Identifique resultados executados ou fornecidos. Continue C2 na A15 e C3 na A16; a entrega é única.
+Preencha **C1** na [atividade única de A14–A17](../atividades/A14-A18-criptografia-confianca.md#atividade): use T1–T2 e G1–G3 para explicar a cifra, a rejeição da tag alterada e o segredo necessário no receptor. G4–G6 são extensões opcionais. Identifique resultados executados ou fornecidos. Continue C2 na A15, C3 na A16 e C4 na A17; a entrega é única.
 
 ## Revisão rápida
 
@@ -558,7 +637,7 @@ Preencha **C1** na [atividade única de A14–A16](../atividades/A14-A18-criptog
 <span id="hmac"></span>
 <span id="senhas"></span>
 
-Hash, HMAC e verificação de senhas continuam no [bloco final da A16](A16-tls-ciclo-de-chaves.md#digest).
+Hash, HMAC e verificação de senhas continuam no [bloco inicial da A16](A16-tls-ciclo-de-chaves.md#digest).
 
 
 ## Referências

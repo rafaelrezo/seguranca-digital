@@ -1,3 +1,9 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='A15: limite OAEP e composição RSA/AES-GCM.')
+parser.add_argument('--etapa', type=int, choices=(1, 2), default=2)
+args = parser.parse_args()
+
 import json
 from os import urandom
 from pathlib import Path
@@ -24,6 +30,9 @@ try:
     print('R2 — 191 bytes aceitos (inesperado)')
 except ValueError:
     print('R2 — 191 bytes rejeitados: ultrapassam o limite de 190')
+
+if args.etapa == 1:
+    raise SystemExit(0)
 
 # 2. Emissor: AES-GCM protege o texto; RSA-OAEP protege somente a chave AES.
 key = AESGCM.generate_key(bit_length=256)

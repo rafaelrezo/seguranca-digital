@@ -1,3 +1,9 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='A14: executar até a etapa indicada, sem montar o código.')
+parser.add_argument('--etapa', type=int, choices=(1, 2, 3, 4), default=3)
+args = parser.parse_args()
+
 from hashlib import pbkdf2_hmac
 from os import urandom
 from pathlib import Path
@@ -30,6 +36,9 @@ print("\nComponentes AES-GCM:")
 print("Ciphertext:", sealed[:-16].hex())
 print("Tag:       ", sealed[-16:].hex())
 
+if args.etapa == 1:
+    raise SystemExit(0)
+
 # 2. Envelope: gravar apenas os campos públicos, depois ler como receptor
 packet = {
     'salt': salt.hex(),
@@ -57,6 +66,9 @@ print('G1 texto:', AESGCM(receiver_key).decrypt(
     receiver_nonce, receiver_sealed, receiver_aad
 ).decode('utf-8'))
 
+if args.etapa == 2:
+    raise SystemExit(0)
+
 # 3. Contraprovas: alterar tag ou AAD do conjunto recebido
 tampered = receiver_sealed[:-1] + bytes([receiver_sealed[-1] ^ 1])
 print('G2 tag:', tampered[-16:].hex())
@@ -72,6 +84,9 @@ try:
     print('G3: aceito (inesperado)')
 except InvalidTag:
     print('G3: rejeitado; AAD alterado')
+
+if args.etapa == 3:
+    raise SystemExit(0)
 
 # 4. Extensões: novo nonce, repetição do envelope e senha diferente
 nonce2 = urandom(12)

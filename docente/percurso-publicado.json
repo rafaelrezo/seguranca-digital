@@ -103,6 +103,54 @@
       "status": "material_revisado_localmente_realizacao_nao_declarada",
       "shared_activity": "atividades/A11-A12-parecer.html#atividade",
       "note": "Revisão de 1º out. 2026 com Stuxnet e ataque à rede elétrica ucraniana de 2015 como exemplos documentados; rastros didáticos permanecem separados dos incidentes. Figura 5 incorporada, prompts 6–8 pendentes. URL da atividade preservada."
+    },
+    {
+      "id": "A14",
+      "page": "aulas/A14-cifra-simetrica-autenticada.md",
+      "title": "A14 — Cifra simétrica e compartilhamento de chaves",
+      "activity": "atividade",
+      "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
+      "status": "material_consolidado_localmente_realizacao_nao_declarada",
+      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+    },
+    {
+      "id": "A15",
+      "page": "aulas/A15-chaves-assinaturas-certificados.md",
+      "title": "A15 — Chaves, assinaturas e certificados",
+      "activity": "atividade",
+      "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
+      "status": "material_consolidado_localmente_realizacao_nao_declarada",
+      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+    },
+    {
+      "id": "A16",
+      "page": "aulas/A16-tls-ciclo-de-chaves.md",
+      "title": "A16 — Hash, HMAC, senhas e TLS",
+      "activity": "atividade",
+      "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
+      "status": "material_consolidado_localmente_realizacao_nao_declarada",
+      "note": "Decisão docente de 15 out. 2026. Preparação local não comprova publicação, execução na EC2 ou realização pela turma."
+    },
+    {
+      "id": "A17",
+      "page": "aulas/A17-openvpn-ec2.md",
+      "title": "A17 — OpenVPN e máquina interna na VPC",
+      "activity": "atividade",
+      "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
+      "status": "material_consolidado_localmente_realizacao_nao_declarada",
+      "note": "Ampliação de 15 out. 2026: gateway público e interna sem Internet na mesma VPC, rotas de ida/retorno sem NAT. Preparação local não comprova implantação AWS ou execução Windows/turma."
     }
-  ]
+  ],
+  "practice_repository": {
+    "url": "https://github.com/rafaelrezo/seguranca-digital-praticas",
+    "initial_commit": "c54d2657c39cf4deba062182df07579e4a5fb590",
+    "updated_commit": "579ff633ccb7b7784357a4a1a5c3fbf5362ea4b4",
+    "lessons": [
+      "A14",
+      "A15",
+      "A16",
+      "A17"
+    ],
+    "access": "public_https_or_zip"
+  }
 }

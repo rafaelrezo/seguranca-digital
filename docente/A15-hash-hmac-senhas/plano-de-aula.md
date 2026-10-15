@@ -1,39 +1,49 @@
-# Plano docente — A15 — chaves, assinaturas e certificados (provisória)
+# Plano docente — A15 — chaves públicas, assinaturas e certificados
 
-**Estado:** revisão prospectiva de 8 out. 2026. A13 não tem realização documental confirmada. O plano anterior permanece no histórico Git; a numeração posterior exige conciliação do calendário.
+**Estado:** edição consolidada em 15 out. 2026, aprovada para produção local. Não confirma realização, versão usada pela turma nem publicação remota. A numeração posterior/calendário e carga global continuam pendentes.
 
 ## Ficha-base
 
-| Campo | Decisão |
+| Campo | Definição |
 |---|---|
-| Ementa e ganho | Explicar RSA, inverso/totiente e limite OAEP; combinar RSA/AES-GCM, distinguir assinatura e acordo, verificar assinatura e vincular a pública a nome/cadeia. |
-| Herança | A14: mesma chave nos dois extremos, autenticação da mensagem e limite do acordo sem identidade verificada. |
-| Carga | 100 minutos, 50 T/50 P planejados; prática guiada intercalada, não bloco final. |
-| Infraestrutura | WSL/Ubuntu, OpenSSL, VS Code, Python 3 com `cryptography` no ambiente já preparado para A14 e navegador; quadro alternativo fornecido na página. Dados artificiais e chaves descartáveis. |
-| Evidência/produto | Uma parte de C1–C3 na atividade única; sem entrega separada por encontro. |
-| Critério | Mecanismo, resultado válido, contraprova, limite e fonte da evidência. |
-| Ponte | A16: certificado e par de chaves entram na autenticação TLS. |
+| Ementa/ganho | Explicar funções assimétricas, executar limite OAEP/envelope híbrido e assinatura e verificar certificado emitido localmente. |
+| Herança confirmável | A14: cifra, requisito do segredo prévio e limite do acordo sem autenticação; não presumir execução individual. |
+| Carga | 100 minutos, 40 T/60 P planejados; confirmar tempo realizado. |
+| Infraestrutura | Linux/WSL, VS Code, OpenSSL e Python com cryptography da A14; não precisa de Internet para a PKI local. |
+| Evidência | Parte correspondente C1–C4 da atividade única A14–A17; uma entrega após A17. |
+| Critério | Mecanismo, previsão, execução ou dado fornecido, resultado, contraprova e limite. |
+| Página e fontes | [Página integral](../../docs/aulas/A15-chaves-assinaturas-certificados.md); fontes primárias no ponto de uso. |
 
 ## Cadeia de aprendizagem
 
-A14: mesma chave nos dois extremos, autenticação da mensagem e limite do acordo sem identidade verificada. → definição direta → previsão de resultado → comando/programa ou pacote fornecido → leitura da saída → explicação do mecanismo → decisão → contraprova → registro C1–C3 → A16: certificado e par de chaves entram na autenticação TLS.
+A14: cifra, requisito do segredo prévio e limite do acordo sem autenticação; não presumir execução individual. → conferir ambiente → prever → executar comando/programa ou ler alternativa identificada → localizar rastro → explicar propriedade → decidir → confrontar caso negativo → registrar C correspondente → A16 reabre ca-a15.pem, servidor-a15.pem e servidor-chave-a15.pem em TLS local. Prazo de dois dias exige reemissão se necessário.
 
-## Condução por blocos
+## Condução e tempo
 
-0–10 papéis do par + T3 (4T/6P); 10–40 RSA, exemplo numérico, representação, limite OAEP e envelope híbrido R0–R2/H1–H3 (16T/14P); 40–65 assinatura ECDSA e V1–V3/T4, reutilizando a definição de hash de OAEP (12T/13P); 65–75 origem da pública e exemplo trabalhado (6T/4P); 75–95 certificado + inspeção ou pacote (10T/10P); 95–100 C2 e revisão (2T/3P). Total 100 minutos, 50 T/50 P planejados. A seção extensa apoia estudo; na condução, trabalhar p=5/q=11/M=7, a contagem breve do totiente e o resto 1, depois comparar R1/R2 e H1/H2. A extensão M=4/M=55 e H3 podem ser selecionadas pelo tempo, preservando as evidências centrais. Não acrescentar outra entrega; conferir a duração real.
+0–10 papéis do par/T3 (4T/6P); 10–35 RSA, representação, OAEP e híbrida (12T/13P); 35–55 assinatura V1–V3 (7T/13P); 55–65 origem da pública (6T/4P); 65–95 emissão e P1–P3 (10T/20P); 95–100 C2/revisão (1T/4P). Total 100, 40T/60P. Preservar a matemática completa como estudo; extensões M=4/M=55 e H3 são seletivas. A prática de certificado local substitui a dependência presencial de inspeção externa; a inspeção do site permanece consulta.
 
-Em cada prática: indicar estado inicial, separar código copiável do comando e demonstrar a execução, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
+Demonstrar ferramenta e explicar parâmetro antes da interpretação. Em cada parada, pedir previsão curta; esperar estado correto; localizar saída e pedir uma justificativa. Reprodução é permitida e guiada, sem condicionar participação ao funcionamento individual. Manter fonte e comando separados, diagnóstico e alternativa da página disponíveis.
 
-## Contextos de uso integrados à exposição
+## Respostas e limites
 
-RSA/híbrida: AWS Encryption SDK com RSA protegendo a chave de dados; a prática local não reproduz o formato do SDK nem oferece distribuição de identidade. Par de chaves e procedência: autenticação SSH e chaves de servidor em `known_hosts`. Assinatura e confiança: metadados assinados do APT e seus vínculos de hash até os pacotes, sem alegar assinatura individual de cada pacote nem ausência de vulnerabilidades. Certificado: domínio HTTPS do curso e operação de renovação/revogação. A assinatura local isola a propriedade; não instala pacotes nem configura acesso remoto. Explicar os contextos nos blocos expositivos existentes; preservar os resultados e a entrega C2.
+R0: n55/phi40/e3/d27, M7 → C13 → M7; representação OLA=5196865 não cabe em 55. OAEP/SHA256/RSA2048 aceita190, recusa191; AES protege4800 bytes e RSA só a chave32. Original verifica; mensagem/chave erradas falham, sem diagnosticar autoria. P1 aceita CA explícita/finalidade/nome; P2 recusa nome; P3 recusa cadeia sem âncora. Erro de arquivo não é recusa criptográfica. CA local não vai ao sistema; não publicar privadas.
 
-## Respostas e contingência
+Não apresentar erro de caminho, dependência ou rede como falha de autenticação. Preservar teoria completa para estudo; não eliminar explicações para caber no tempo. Para estudantes já fluentes no terminal, reduzir repetição de navegação e manter decisões/contraprovas. Para iniciantes, usar o exemplo trabalhado antes da mudança de uma condição.
 
-RSA: φ(10)=4; p=5/q=11 dão n=55, φ=40, e=3, d=27 porque 81 mod 40=1; M=7 vira C=13 e volta a 7. Distinguir módulo 40 na inversão e 55 na cifragem. A condição por φ adotada no exemplo é suficiente; a RFC também formula a relação usando λ(n), sem exigir sua introdução na aula. OLA é 0x4F4C41=5196865, fora do intervalo do exemplo; representação não é cifra. RSA-2048/OAEP-SHA256 aceita 190 e recusa 191 bytes; o resultado RSA tem 256 bytes. H1 cifra apenas K de 32 bytes por RSA; H2 abre 4.800 bytes por AES-GCM; H3 rejeita a tag alterada. A geração real usa e=65537 e biblioteca, nunca o programa numérico. Qualquer portador da pública pode criar um novo envelope; isso não identifica o emissor. TLS 1.3 não usa transporte de chave RSA.
+## Preparação, contingência e verificação
 
-Assinatura não oculta bytes; original verifica, alterado/chave errada falham; chave pública sem origem não prova titular; certificado requer nome, validade, finalidade e cadeia.
+Ensaiar o percurso mínimo antes da aula e conferir downloads/código/saídas. Registrar separadamente verificação local, implantação em conta AWS, teste Windows e realização em sala; nenhum comprova os outros. Se a ferramenta falhar, registrar erro e usar quadros como dados fornecidos. Não enviar privadas, frases ou perfis para a entrega ou IA.
 
-Antes da condução, executar os dois programas completos e seus primeiros blocos separadamente; conferir sua correspondência aos downloads. Distinguir o ensaio local com os dois papéis de um protocolo de rede. A privada RSA não é impressa nem gravada; a chave AES descartável impressa não entra na entrega. Os valores aleatórios não são referências fixas.
+## Ponte
 
-Se OpenSSL, Python, biblioteca ou rede falhar, usar o resultado fornecido na mesma página e marcar a fonte. Comando falho não vira evidência positiva. Não transmitir segredos, usar certificados institucionais nem publicar a chave privada descartável. Verificar o tempo real em aula antes de considerar o 50/50 efetivamente cumprido.
+A16 reabre ca-a15.pem, servidor-a15.pem e servidor-chave-a15.pem em TLS local. Prazo de dois dias exige reemissão se necessário.
+
+## Distribuição por repositório — 15 out. 2026
+
+Fonte operacional: https://github.com/rafaelrezo/seguranca-digital-praticas, com README simples e pastas a14–a17. Preparação Python única na raiz; reativar ambiente em cada terminal. Clone HTTPS ou ZIP, sem conta estudantil/fork. Arquivos e entradas vêm prontos; trechos no MkDocs são leitura, não montagem. Usar comandos por etapa e preservar pausas de previsão/interpretação. Dados de saída, chaves e perfis são gerados localmente e ignorados pelo Git. Na A17, enviar scripts ao servidor por SCP; continuam console EC2 e cliente nativo Windows/Linux, sem provisionamento pelo agente. Download histórico da página é compatível. Testar as interfaces dos scripts em cópia temporária, sem publicar segredos ou supor ensaio EC2/Windows.
+
+## Comparativo matemático RSA/ECDSA — 15 out. 2026
+
+Docente relatou explicação matemática de RSA aos alunos; versão usada e demais tópicos/entregas não foram informados. Acrescentar #rsa-ecdsa à página: distinguir OAEP/PSS/ECDSA/ECDHE; comparar potência modular e soma/multiplicação de pontos; curva didática y²=x³+2x+2 mod17, G(5,1), ordem19, d7/Q(0,6), k3/z11 e assinatura(10,8). Verificação w12/u1=18/u2=6/X(10,6); z12 muda X para(3,16) e recusa. As contas numéricas são aprofundamento de estudo/seleção na exposição, sem alongar automaticamente o encontro de100min. No bloco35–55, usar a tabela e selecionar uma etapa do arquivo pronto; demais demonstrações são extensão. P1–P3 e assinatura V1–V3 continuam no percurso mínimo. Não exigir outro produto ou inferir que nova prática foi ministrada.
+
+Arquivo comparar_rsa_ecdsa_a15.py no repositório de práticas, etapa1 didática e etapa2 real. RSA-PSS/3072 e ECDSA/P256 são referências clássicas128bits; RSA2048 referência112. Medir assinatura384bytes RSA e DER variável ECDSA, distinguindo par r/s64bytes e codificação. Não medir desempenho nem afirmar equivalência por bit de chave. Privadas reais não são impressas/salvas; k visível é somente do modelo pequeno. Fonte e validação NIST/RFC/biblioteca na página.

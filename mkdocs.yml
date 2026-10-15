@@ -91,8 +91,9 @@ nav:
       - "A12 — Proteção de dados (continuação)": aulas/A12-protecao-de-dados-continuacao.md
       - "A13 — Proteção de endpoints": aulas/A13-protecao-de-endpoints.md
       - "A14 — Cifra simétrica e compartilhamento de chaves": aulas/A14-cifra-simetrica-autenticada.md
-      - "A15 (provisória) — Chaves, assinaturas e certificados": aulas/A15-chaves-assinaturas-certificados.md
-      - "A16 (provisória) — TLS, gestão de chaves, hash e senhas": aulas/A16-tls-ciclo-de-chaves.md
+      - "A15 — Chaves, assinaturas e certificados": aulas/A15-chaves-assinaturas-certificados.md
+      - "A16 — Hash, HMAC, senhas e TLS": aulas/A16-tls-ciclo-de-chaves.md
+      - "A17 — OpenVPN e máquina interna": aulas/A17-openvpn-ec2.md
   - Referencial de consulta:
       - Fundamentos de Segurança:
           - Visão geral: fundamentos_de_seguranca_digital/index.md

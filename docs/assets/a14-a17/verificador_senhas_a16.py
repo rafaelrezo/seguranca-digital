@@ -1,3 +1,9 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='A16: cadastro/conferência com senha fictícia.')
+parser.add_argument('--repetir-sal', action='store_true', help='S4: repetir sal somente na contraprova.')
+args = parser.parse_args()
+
 from hashlib import pbkdf2_hmac
 from hmac import compare_digest
 from os import urandom
@@ -13,7 +19,7 @@ def derivar(senha_digitada, sal):
 
 # Cadastro: duas contas usam a mesma senha, mas recebem sais próprios.
 sal_7 = urandom(16)
-sal_8 = urandom(16)
+sal_8 = sal_7 if args.repetir_sal else urandom(16)
 verificador_7 = derivar(senha_de_teste, sal_7)
 verificador_8 = derivar(senha_de_teste, sal_8)
 

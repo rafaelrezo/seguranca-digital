@@ -1,16 +1,30 @@
-# A15 (provisória) — Chaves públicas, assinaturas e certificados
+# A15 — Chaves públicas, assinaturas e certificados
 
 A A14 mostrou cifra simétrica e o requisito de uma chave nos dois extremos. Agora, o RSA permitirá compreender como uma chave pública protege um valor que a privada recupera. Combinaremos RSA e AES-GCM para um texto longo, depois distinguiremos cifragem, assinatura e confiança por certificado.
 
 **Tempo:** 100 minutos, com exposição e prática guiada intercaladas.
 
-**Recursos:** WSL/Ubuntu com OpenSSL, VS Code, Python 3 com a biblioteca `cryptography` já usada na A14 e acesso à página HTTPS do curso. Use chaves descartáveis e dados da página; os resultados fornecidos servem de alternativa. Não use arquivos ou certificados pessoais.
+**Recursos:** WSL/Ubuntu com OpenSSL, VS Code, Python 3 com a biblioteca `cryptography` já usada na A14 e os insumos locais desta página. A inspeção HTTPS do curso é complementar. Use chaves descartáveis e dados da página; os resultados fornecidos servem de alternativa. Não use arquivos ou certificados pessoais.
 
 **Objetivos de aprendizagem**
 
 1. Explicar o exemplo RSA, o limite RSA-OAEP e a combinação com AES-GCM, distinguindo cifragem, assinatura e acordo.
 2. Verificar assinatura original e alterada sem atribuir identidade apenas ao resultado matemático.
 3. Identificar nome, validade, finalidade e cadeia que sustentam o uso de um certificado.
+
+## Arquivos prontos da prática {#arquivos}
+
+Use a pasta **a15** do [repositório de práticas](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a15), baixado na A14. Se ainda não o tiver, siga a [preparação única](https://github.com/rafaelrezo/seguranca-digital-praticas#preparar-uma-vez), por clone ou ZIP. Não crie os arquivos por copiar e colar: abra as fontes prontas e execute a etapa indicada.
+
+No terminal **Linux ou Ubuntu/WSL**:
+
+```bash
+source ~/seguranca-digital-praticas/.venv/bin/activate
+cd ~/seguranca-digital-praticas/a15
+code .
+```
+
+`source` reativa o ambiente Python; `cd` escolhe a pasta da aula; `code .` abre os arquivos existentes. Se o editor não abrir, use o menu de abertura de pasta. O [README de a15](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a15) lista os comandos por etapa. Os trechos na página servem à leitura, sem montagem incremental dos arquivos.
 
 ## Par de chaves: segredo privado e informação pública {#funcoes}
 
@@ -43,15 +57,11 @@ Gerar e extrair o par permite observar essa separação sem abrir acesso remoto:
 
 **Para a assinatura posterior:** estes comandos geram um par de curvas elípticas (**EC**) com os parâmetros da curva **P-256**. A assinatura será ECDSA. Os programas de RSA usam outro par, criado por eles para a cifragem; não reutilizam estes arquivos.
 
-**Estado inicial:** use somente `~/cripto-a15`. `umask 077` limita as permissões dos arquivos novos; `genpkey` cria uma chave privada descartável de curva P-256; `pkey -pubout` extrai a chave pública. Não publique nem reutilize a privada.
+**Estado inicial:** use os arquivos prontos em `~/seguranca-digital-praticas/a15`. `umask 077` limita as permissões dos arquivos novos; `genpkey` cria uma chave privada descartável de curva P-256; `pkey -pubout` extrai a chave pública. Não publique nem reutilize a privada. `chaves.sh` executa essas operações e para se o par já existir, preservando-o.
 
 ```bash
-mkdir -p ~/cripto-a15
-cd ~/cripto-a15
-umask 077
-openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out privada.pem
-openssl pkey -in privada.pem -pubout -out publica.pem
-ls -l privada.pem publica.pem
+cd ~/seguranca-digital-praticas/a15
+bash chaves.sh
 ```
 
 **Resultado esperado:** dois arquivos diferentes; somente o titular deve ter acesso à privada. `ls -l` mostra permissões, não prova proteção fora desta pasta. Registre `T3 → arquivo privado → arquivo distribuível → limite`. Se OpenSSL faltar, use a relação como dado fornecido. **Pare** antes de assinar e diga qual arquivo deve entrar em cada operação.
@@ -138,17 +148,10 @@ Para mensagens coprimas com `n`, o teorema de Euler estabelece \(M^{\varphi(n)}\
 
 ### Prática curta: executar a matemática no VS Code e WSL {#rsa-numeros}
 
-No WSL, prepare a pasta e abra o editor:
+Abra **`rsa_numeros_a15.py`**, já incluído na pasta a15. Não monte o arquivo. Leia o trecho numérico abaixo e execute a etapa 1. `gcd` calcula o MDC; `pow(e, -1, phi)` encontra o inverso modular; `pow(M, e, n)` calcula a potência reduzida módulo `n`. No arquivo, `args.mensagem` recebe a opção `--mensagem`, cujo padrão é 7.
 
-```bash
-mkdir -p ~/cripto-a15
-cd ~/cripto-a15
-code .
-```
-
-`mkdir -p` cria a pasta se necessário; `cd` entra nela; `code .` abre essa pasta no VS Code. Se o comando do editor faltar, use **Conectar ao WSL** no VS Code e abra `~/cripto-a15`.
-
-Crie **`rsa_numeros_a15.py`**. Copie o primeiro bloco e salve. `gcd` calcula o MDC; `pow(e, -1, phi)` encontra o inverso modular; `pow(M, e, n)` calcula a potência já reduzida módulo `n`.
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 from math import gcd
@@ -161,7 +164,7 @@ phi = (p - 1) * (q - 1)
 e = 3
 d = pow(e, -1, phi)
 
-M = 7
+M = args.mensagem  # opção --mensagem; padrão 7
 if not 0 <= M < n:
     raise ValueError('M precisa estar entre 0 e n - 1 neste exemplo')
 
@@ -175,15 +178,17 @@ print('M:', M, '| C:', C, '| recuperado:', recuperado)
 print('R0 — número recuperado?', recuperado == M)
 ```
 
+</details>
+
 Execute no terminal WSL:
 
 ```bash
-python3 rsa_numeros_a15.py
+python3 rsa_numeros_a15.py --etapa 1
 ```
 
 `python3` executa o arquivo salvo na pasta atual. **R0:** devem aparecer `n: 55`, `phi: 40`, `e: 3`, `d: 27`, `M: 7`, `C: 13`, `recuperado: 7` e comparação `True`.
 
-**Experimente:** mude somente `M = 7` para `M = 4`, salve e preveja `C` antes de executar. Depois tente `M = 55`: o programa deve recusar a entrada, pois este exemplo exige `0 ≤ M < n`. Restaure `M = 7`. Isso verifica a matemática e o intervalo; não demonstra proteção de arquivos reais.
+**Experimente:** execute `python3 rsa_numeros_a15.py --mensagem 4` e preveja C. Depois execute com `--mensagem 55`: o programa deve recusar, pois este exemplo exige `0 ≤ M < n`. Sem essa opção, M volta a 7; não é necessário editar o arquivo. Isso verifica a matemática e o intervalo; não demonstra proteção de arquivos reais.
 
 ## Texto em bytes: por que a mensagem precisa caber {#rsa-tamanho}
 
@@ -199,7 +204,10 @@ Para o texto `OLA`, os valores são:
 
 A sequência `4F 4C 41`, interpretada com o byte mais significativo primeiro (*big-endian*), corresponde ao inteiro **5.196.865**. Esse inteiro não cabe no exemplo `n = 55`; até o byte da letra `O`, que vale 79, ultrapassa o intervalo.
 
-Acrescente este bloco **ao final do mesmo arquivo**, salve e execute novamente. O [arquivo completo para download](../assets/a14-a17/rsa_numeros_a15.py) reúne os dois blocos.
+A conversão já está na segunda parte do arquivo. Execute `python3 rsa_numeros_a15.py --etapa 2` para incluí-la e leia o trecho abaixo. O [download anterior](../assets/a14-a17/rsa_numeros_a15.py) contém o mesmo programa.
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 # 2. Representar um texto em bytes e inteiro: ainda não é cifragem.
@@ -213,6 +221,8 @@ print('Bytes:', list(dados), '| hexadecimal:', dados.hex())
 print('Inteiro:', numero, '| cabe em n=55?', numero < n)
 print('Texto recuperado da representação:', volta.decode('utf-8'))
 ```
+
+</details>
 
 | Trecho | O que faz |
 |---|---|
@@ -254,7 +264,7 @@ Esses valores não são um limite universal de RSA: mudam com o módulo e o hash
 
 ### Prática curta: aceitar 190 bytes e recusar 191 {#rsa-limite-terminal}
 
-Crie **`rsa_hibrido_a15.py`** na mesma pasta do VS Code. A biblioteca `cryptography` é a usada no AES-GCM da A14; execute no mesmo ambiente Python preparado para aquela prática.
+Abra **`rsa_hibrido_a15.py`**, pronto na pasta a15; não copie o código para criá-lo. A biblioteca `cryptography` é a usada no AES-GCM da A14; execute no mesmo ambiente Python preparado para aquela prática.
 
 Antes do código, localize os parâmetros:
 
@@ -268,7 +278,10 @@ Antes do código, localize os parâmetros:
 | `algorithm=SHA256()` | Seleciona o hash principal do OAEP; seu digest de 32 bytes entra no cálculo do limite. |
 | `label=None` | Usa o rótulo opcional vazio do OAEP. Não é o AAD do AES-GCM. |
 
-Copie este primeiro bloco e salve:
+Leia as operações da primeira etapa do arquivo:
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 import json
@@ -299,10 +312,12 @@ except ValueError:
     print('R2 — 191 bytes rejeitados: ultrapassam o limite de 190')
 ```
 
+</details>
+
 Execute no terminal:
 
 ```bash
-python3 rsa_hibrido_a15.py
+python3 rsa_hibrido_a15.py --etapa 1
 ```
 
 `b'A' * 190` cria 190 bytes iguais ao byte da letra `A`. `encrypt` cifra com a pública e OAEP; `decrypt` abre com a privada e os mesmos parâmetros. O segundo teste acrescenta apenas um byte à entrada e captura a recusa `ValueError`.
@@ -352,11 +367,14 @@ sequenceDiagram
 
 ### Prática curta: abrir um texto de 4.800 bytes {#rsa-hibrido-terminal}
 
-Acrescente o próximo bloco **ao final de `rsa_hibrido_a15.py`**, salve e execute novamente com o mesmo comando. O [arquivo completo para download](../assets/a14-a17/rsa_hibrido_a15.py) reúne os dois blocos.
+O envelope já está na segunda parte do arquivo. Execute `python3 rsa_hibrido_a15.py --etapa 2`; não acrescente código. O [download anterior](../assets/a14-a17/rsa_hibrido_a15.py) contém o mesmo programa. Leia as operações abaixo antes de observar H1–H3.
 
 Esta parte reutiliza nonce, AAD, texto cifrado e tag da A14. A novidade é a origem da chave no receptor: ele a recupera por **RSA**, em vez de derivá-la de uma senha já compartilhada.
 
 O programa reúne emissor e receptor na mesma execução e usa um arquivo local como transporte. A origem da pública é aceita neste ensaio; a seção de confiança desenvolverá sua verificação. O teste não configura uma rede nem um protocolo de produção.
+
+<details markdown="1">
+<summary>Ler o trecho do programa pronto</summary>
 
 ```python
 # 2. Emissor: AES-GCM protege o texto; RSA-OAEP protege somente a chave AES.
@@ -402,6 +420,8 @@ try:
 except InvalidTag:
     print('H3 — tag alterada rejeitada; texto não entregue')
 ```
+
+</details>
 
 **Leia o percurso do código:**
 
@@ -455,22 +475,17 @@ Não significa que cada pacote seja assinado individualmente nesse fluxo. ([Manu
 
 O arquivo pequeno `relatorio.txt` permite observar a mesma propriedade: uma assinatura aceita para uma versão deixa de corresponder quando seus bytes mudam. Não vamos instalar pacotes nem alterar os repositórios do WSL.
 
-`openssl dgst -sha256 -sign` cria a assinatura de um arquivo com a chave privada; `-verify` confere assinatura, conteúdo e chave pública. Preveja o resultado antes de cada verificação. O texto permanece legível.
+`openssl dgst -sha256 -sign` cria a assinatura de um arquivo com a chave privada; `-verify` confere assinatura, conteúdo e chave pública. Preveja o resultado antes de cada verificação. O texto permanece legível. `relatorio.txt` e `alterado.txt` já estão prontos; `assinatura.sh` executa os comandos de assinatura/verificação por etapa.
 
 ```bash
-printf 'relatorio=7;resultado=aprovado' > relatorio.txt
-openssl dgst -sha256 -sign privada.pem -out assinatura.bin relatorio.txt
-openssl dgst -sha256 -verify publica.pem -signature assinatura.bin relatorio.txt
-printf 'relatorio=7;resultado=recusado' > alterado.txt
-openssl dgst -sha256 -verify publica.pem -signature assinatura.bin alterado.txt
+bash assinatura.sh original
+bash assinatura.sh alterado
 ```
 
-**Resultado esperado:** `Verified OK` no original e `Verification failure` no alterado. A segunda linha de verificação retorna erro ao shell; isso é a rejeição esperada. Registre `T4 → bytes → chave → resultado → limite`. Para a terceira contraprova, gere outro par de teste e verifique o original com a outra chave pública:
+**Resultado esperado:** `Verified OK` no original e `Verification failure` no alterado. Na etapa alterada, o OpenSSL retorna falha; o script a identifica como contraprova esperada e preserva a mensagem de verificação. Registre `T4 → bytes → chave → resultado → limite`. Para a terceira contraprova, o script gera outro par descartável e verifica o original com sua pública:
 
 ```bash
-openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 -out outra-privada.pem
-openssl pkey -in outra-privada.pem -pubout -out outra-publica.pem
-openssl dgst -sha256 -verify outra-publica.pem -signature assinatura.bin relatorio.txt
+bash assinatura.sh outra-chave
 ```
 
 **Resultado esperado:** `Verification failure`. Se OpenSSL faltar, use o quadro como **dados fornecidos**:
@@ -482,6 +497,144 @@ openssl dgst -sha256 -verify outra-publica.pem -signature assinatura.bin relator
 | V3 | Original, S1, K2 pública | Inválida | A chave testada não corresponde à assinatura. |
 
 **Exemplo trabalhado:** V2 falha porque `resultado=recusado` não são os bytes `resultado=aprovado` assinados. A falha não revela se houve fraude, erro de transporte ou seleção do arquivo errado. **Pare** antes de concluir que a assinatura válida identifica uma pessoa ou organização: isso depende da origem confiável de K1 pública.
+
+## RSA e ECDSA: comparar a matemática e a assinatura {#rsa-ecdsa}
+
+**A mesma propriedade pode usar matemáticas diferentes.** A prática anterior assinou com ECDSA; o exemplo de RSA usou cifragem. Para comparar assinaturas, vamos colocar **RSA-PSS e ECDSA** lado a lado.
+
+- **RSA-OAEP:** cifra um valor curto para a privada do receptor recuperar.
+- **RSA-PSS:** assina com RSA; usa uma preparação própria para o hash, com sal.
+- **ECDSA:** assina usando operações sobre pontos de uma curva elíptica; não é um esquema de cifragem.
+- **ECDHE:** faz acordo de chaves; compartilha fundamentos de curvas, mas tem outra função.
+
+PSS e OAEP não são intercambiáveis. O sal da preparação PSS também não é o sal de uma conta de senha. ([RFC 8017, esquemas RSA](https://www.rfc-editor.org/rfc/rfc8017.html#section-8.1).)
+
+### Da potência modular à multiplicação de pontos
+
+No RSA numérico, calculamos potências de inteiros módulo `n = p × q`. No ECDSA, a chave pública vem da **multiplicação de um ponto G por um inteiro secreto d**. A escrita `Q = dG` significa somar G a ele mesmo d vezes segundo as regras da curva; não é multiplicar separadamente as coordenadas por d.
+
+| Relação | RSA estudado nesta aula | ECDSA |
+|---|---|---|
+| Estrutura matemática | Inteiros e potências módulo `n = p × q`. | Pontos de uma curva e soma de pontos em um conjunto finito. |
+| Pública | Módulo `n` e expoente `e`. | Ponto `Q = dG`, com curva e ponto G conhecidos. |
+| Privada | Expoente d e, normalmente, fatores/valores auxiliares. | Inteiro secreto d. |
+| Cálculo público eficiente | Potência modular. | Multiplicar um ponto por um inteiro conhecido. |
+| Recuperação que precisa ser difícil | Fatorar n permitiria reconstruir o material privado; os parâmetros precisam impedir esse caminho na prática. | Descobrir d conhecendo G e Q: problema do logaritmo discreto em curvas elípticas. |
+
+Os símbolos têm significado local: o d do RSA não é a mesma chave d do ECDSA. O tamanho dos parâmetros precisa ser escolhido para cada problema matemático. A [RFC 6090](https://www.rfc-editor.org/rfc/rfc6090.html#section-3) apresenta as operações de curvas em campos finitos.
+
+**Na assinatura RSA-PSS**, primeiro se prepara o hash da mensagem com o esquema PSS. Chamando essa representação de EM, a operação privada produz `S = EM^d mod n`. A operação pública recupera uma representação com `S^e mod n` e verifica sua estrutura PSS e sua correspondência com a mensagem. Assinar diretamente o número M pela fórmula do exemplo não implementa PSS.
+
+### ECDSA com números pequenos: chave pública e assinatura {#ecdsa-numeros}
+
+Para enxergar os cálculos, usaremos a curva **didática**:
+
+\[
+y^2 \equiv x^3 + 2x + 2 \pmod {17}
+\]
+
+Um ponto é um par `(x, y)` que satisfaz essa equação. As coordenadas são calculadas módulo **p_c = 17**. Escolhemos **G = (5, 1)**, pois `1²` e `5³ + 2×5 + 2` deixam o mesmo resto, 1, na divisão por 17.
+
+O ponto G tem **ordem n_c = 19**: somando-o 19 vezes, chegamos ao ponto neutro **O**, chamado ponto no infinito. O funciona como identidade da soma de pontos. Não é o número zero nem o ponto `(0, 0)`.
+
+**Aqui há dois módulos distintos:** as coordenadas usam **17**; os cálculos dos inteiros da assinatura usam a ordem **19**. O `n_c` não é o produto de primos n do exemplo RSA.
+
+<details markdown="1">
+<summary>Como a soma de pontos produz 2G e 3G</summary>
+
+Para dobrar `P = (x₁, y₁)`, calculamos uma inclinação λ pela aritmética modular:
+
+\[
+\lambda = (3x_1^2 + a)(2y_1)^{-1} \bmod p_c
+\]
+
+O parâmetro **a = 2** é o coeficiente de x na curva. O expoente −1 representa **inverso multiplicativo modular**, a mesma ideia usada para obter d no exemplo RSA; não é divisão comum com números decimais.
+
+As coordenadas do resultado são:
+
+\[
+\begin{aligned}
+x_3 &= \lambda^2 - 2x_1 \bmod p_c \\
+y_3 &= \lambda(x_1-x_3)-y_1 \bmod p_c
+\end{aligned}
+\]
+
+Para G, `λ = 77 × 2⁻¹ mod 17 = 77 × 9 mod 17 = 13`. Assim, **2G = (6, 3)**. Para somar pontos distintos, usa-se `λ = (y₂ − y₁)(x₂ − x₁)⁻¹ mod p_c` e `x₃ = λ² − x₁ − x₂ mod p_c`; a fórmula de y₃ permanece. Isso dá **3G = (10, 6)**.
+
+O programa pronto trata também o ponto neutro e pontos opostos. Essas fórmulas explicam o exemplo; implementação real exige parâmetros, validações e proteção contra canais laterais que esse código didático não oferece.
+
+</details>
+
+Escolha **d = 7**. A pública é **Q = 7G = (0, 6)**. Para a assinatura, tome **z = 11** como resumo numérico fornecido e **k = 3** como segredo por assinatura deste exemplo. Os números foram escolhidos para permitir conferência; não são parâmetros seguros nem um cálculo de SHA-256.
+
+O ECDSA calcula:
+
+\[
+\begin{aligned}
+R &= kG \\
+r &= x_R\bmod n_c \\
+s &= k^{-1}(z+rd)\bmod n_c
+\end{aligned}
+\]
+
+| Etapa | Cálculo didático | Resultado |
+|---|---|---|
+| Obter o ponto temporário | `R = 3G` | `(10, 6)` |
+| Obter r | `10 mod 19` | `10` |
+| Inverter k | `3 × 13 mod 19 = 1` | `k⁻¹ = 13` |
+| Obter s | `13 × (11 + 10 × 7) mod 19` | `8` |
+
+A assinatura é o **par `(r, s) = (10, 8)`**. A mensagem não ficou secreta. O valor k é secreto em uma implementação real; não é o nonce público do AES-GCM. Aqui ele está visível somente para explicar a conta.
+
+Se r ou s resultar em zero, esse par não é uma assinatura válida: a geração precisa escolher outro k e refazer o cálculo. A biblioteca cuida desses casos na prática real.
+
+### Verificação: por que o par corresponde à mensagem? {#ecdsa-verificacao}
+
+O verificador conhece G, Q, a ordem n_c, a mensagem/resumo e a assinatura. Ele não precisa de d ou k. Depois de verificar que r e s estão entre 1 e `n_c − 1` — aqui, 1 a 18 —, calcula:
+
+\[
+\begin{aligned}
+w &= s^{-1}\bmod n_c \\
+u_1 &= zw\bmod n_c \\
+u_2 &= rw\bmod n_c \\
+X &= u_1G+u_2Q
+\end{aligned}
+\]
+
+Se X for o ponto neutro O, a verificação recusa. Nos demais casos, compara `x_X mod n_c` com r.
+
+Para o exemplo, `w = 12`, `u₁ = 18` e `u₂ = 6`. Como `Q = 7G`, temos `X = 18G + 6×7G = 60G = 3G = (10, 6)`. A redução de 60 para 3 usa a ordem 19. O valor `x_X mod 19 = 10` coincide com r: **aceita**.
+
+Mude somente o resumo fornecido para **z = 12**. Agora `u₁ = 11`, `u₂ = 6` e `X = (3, 16)`. O resultado 3 não coincide com r = 10: **recusa**. A correspondência foi quebrada; a falha não identifica quem alterou os bytes. As equações de assinatura/verificação estão na [FIPS 186-5, seções 6.4.1–6.4.2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=33).
+
+**Cuidado com k:** reutilizá-lo para mensagens diferentes sob a mesma privada pode permitir recuperar essa privada. Bibliotecas podem gerar k com aleatoriedade segura ou derivá-lo por um método determinístico apropriado; não escolha k manualmente para dados reais. Veja a [RFC 6979](https://www.rfc-editor.org/rfc/rfc6979.html#section-3).
+
+### Terminal: conferir a conta e comparar assinaturas reais {#comparar-assinaturas-terminal}
+
+Na pasta a15 do [repositório de práticas](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a15), abra **`comparar_rsa_ecdsa_a15.py`**, já pronto. Se baixou o repositório antes desta inclusão e não editou seus arquivos, atualize na raiz com `git pull --ff-only`; por ZIP, obtenha uma cópia nova sem substituir as chaves geradas no ensaio anterior.
+
+Execute **uma etapa por vez**, com o ambiente Python ativo:
+
+```bash
+python3 comparar_rsa_ecdsa_a15.py --etapa 1
+python3 comparar_rsa_ecdsa_a15.py --etapa 2
+```
+
+- **Etapa 1:** confere G, 2G, 3G, Q, `(10, 8)` e aceitação para z = 11/recusa para z = 12. Esse bloco não calcula um hash de mensagem nem protege dados reais.
+- **Etapa 2:** gera pares descartáveis **RSA-3072** e **ECDSA/P-256**, assina o mesmo conteúdo com SHA-256 e verifica original/alterado. As privadas reais não são mostradas nem salvas. A biblioteca realiza a preparação PSS e o cálculo ECDSA.
+
+**Por que RSA-3072 e P-256?** São referências para cerca de **128 bits de força de segurança clássica**. Isso estima resistência ao ataque; não é o tamanho do arquivo da chave. RSA-2048, usado no ensaio OAEP, fica na referência de 112 bits; não é equivalente a P-256 apenas por ter um número maior. ([NIST SP 800-57 Parte 1 Rev. 5, tabela 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf#page=67).)
+
+| Opção | Melhor uso nesta comparação | Esforço/custo observado | Evidência esperada | Limite |
+|---|---|---|---|---|
+| RSA-PSS / 3072 | Assinar quando o protocolo e os pares suportam esse esquema RSA. | Assinatura de **384 bytes**. O ensaio não mede velocidade. | Original aceito e alterado recusado. | Usar PSS corretamente e confirmar a origem da pública; não aplicar o limite OAEP a assinaturas. |
+| ECDSA / P-256 | Assinar com parâmetros e assinaturas menores, quando houver suporte. | O par r/s em largura fixa ocupa **64 bytes**; a assinatura DER da biblioteca tem tamanho variável. | Original aceito e alterado recusado; tamanho DER impresso na execução. | Gerenciar o segredo por assinatura pela biblioteca e validar parâmetros/chave; não confundir ECDSA com ECDHE. |
+
+**Leia o resultado:** a codificação **DER** guarda r e s em uma estrutura binária; por isso seu comprimento difere dos 64 bytes da representação com dois inteiros de 32 bytes. Não compare tamanhos de arquivos PEM/certificados com tamanho matemático da chave. A [biblioteca `cryptography`](https://cryptography.io/en/stable/hazmat/primitives/asymmetric/ec/#elliptic-curve-signature-algorithms) documenta essa codificação.
+
+**Decisão:** quando assinatura menor e suporte compatível forem requisitos, ECDSA/P-256 é uma opção; quando o ambiente exigir RSA, use o esquema de assinatura aceito pelo protocolo, como PSS. Não há vencedor universal de desempenho neste ensaio. Ambos ainda dependem da origem da chave pública para atribuir identidade.
+
+Se aparecer erro de arquivo, ambiente ou dependência, pare e confira pasta/venv; isso não é uma recusa de assinatura. Sem execução, use as contas e os resultados esperados como **dados fornecidos**. Essa comparação aprofunda C2 e não cria nova entrega.
 
 ## Confiança: decidir quando aceitar {#confianca}
 
@@ -521,7 +674,66 @@ CRL e OCSP são meios de publicar ou consultar esse estado ([RFC 5280](https://w
 
 **Na operação de um site:** renovar o certificado antes do vencimento mantém seu uso dentro do prazo. Se a chave privada tiver sido comprometida, apenas prolongar o prazo não resolve: é necessário tratar a exposição, substituir a chave e o certificado e providenciar a revogação conforme a autoridade emissora. Prazo e comprometimento são condições distintas.
 
-### Inspeção no terminal: ler o certificado real {#inspecao}
+### Prática local: emitir e verificar um certificado {#pki-local}
+
+**Pergunta:** uma assinatura válida basta para aceitar um servidor? Compare três verificações do mesmo certificado: CA aceita e nome correto; nome errado; CA ausente. A decisão muda sem alterar a chave do servidor.
+
+**Estado inicial:** no terminal Linux/WSL, entre em `~/seguranca-digital-praticas/a15`. Confirme `openssl version`. Os arquivos abaixo são novos e não substituem `privada.pem` da assinatura. Não importe a CA no Windows, no navegador nem no sistema.
+
+Execute `certificados.sh emitir` para criar uma **CA de laboratório** e o certificado de servidor. Abra o script para localizar as operações explicadas na tabela. Sua privada assina certificados; `ca-a15.pem` contém o certificado público que o cliente aceitará explicitamente.
+
+```bash
+bash certificados.sh emitir
+```
+
+| Trecho | Função |
+|---|---|
+| `genpkey ... P-256` | Gera uma privada EC descartável; CA e servidor usam pares distintos. |
+| `req -new -x509` | Emite o certificado autoassinado da CA, sem torná-lo automaticamente confiável. |
+| `-days 2 -sha256` | Limita o prazo a dois dias e escolhe SHA-256 para a assinatura. |
+| `CA:TRUE` e `keyCertSign,cRLSign` | Declaram o papel da CA e os usos de assinar certificados/listas de revogação. |
+| `req -new ... -out servidor-pedido-a15.pem` | Cria um pedido de certificado (CSR) com a pública do servidor; não inclui sua privada. |
+
+**No VS Code**, abra `servidor-a15.ext`, já incluído no repositório. Não precisa criar nem alterar o arquivo. Seu conteúdo é configuração, não comando:
+
+```ini
+basicConstraints=critical,CA:FALSE
+keyUsage=critical,digitalSignature
+extendedKeyUsage=serverAuth
+subjectAltName=DNS:servidor.aula.invalid
+```
+
+`CA:FALSE` impede usar o certificado como CA. `digitalSignature` permite a prova por assinatura; `serverAuth` declara autenticação de servidor. O SAN vincula a pública ao nome fictício **servidor.aula.invalid**, comparado localmente sem consultar DNS.
+
+A CA assina o pedido; depois, o cliente verifica o certificado:
+
+```bash
+bash certificados.sh inspecionar
+bash certificados.sh verificar
+```
+
+`x509 -req` emite usando a privada da CA; `-CAcreateserial` mantém um arquivo de sequência da emissão. `-extfile` incorpora as restrições salvas. `x509 -noout` apenas inspeciona campos; **`verify` valida** cadeia, finalidade e nome.
+
+**Resultado esperado P1:** `servidor-a15.pem: OK`. A CA foi aceita por `-CAfile` somente nesse comando. Isso não prova reconhecimento por uma autoridade pública nem que um servidor está em execução.
+
+Preveja o motivo da recusa antes de executar separadamente:
+
+```bash
+bash certificados.sh nome-errado
+bash certificados.sh sem-ca
+```
+
+| Teste | Resultado esperado | Decisão |
+|---|---|---|
+| P1 — CA explícita, nome correto | `OK` | Aceitar nas condições verificadas. |
+| P2 — mesma CA, nome diferente | `hostname mismatch`, saída diferente de zero | Recusar o nome não coberto. |
+| P3 — CA local não fornecida | Erro como `unable to get local issuer certificate` | Recusar a cadeia sem âncora aceita. |
+
+**Registre P1–P3:** `CA aceita → nome esperado → resultado → motivo`. Não envie privadas. Os comandos não consultam revogação; a [A17](A17-openvpn-ec2.md#revogacao) testará esse controle. Mensagens podem variar; erro de arquivo não é recusa por confiança.
+
+**Pare** se P1 não passar. Confira `pwd`, `ls`, nomes e relógio. Se OpenSSL faltar, use a tabela como **resultado fornecido**. Preserve a pasta para o TLS da A16. Os certificados expiram em dois dias; se vencerem, use uma cópia nova da pasta a15 para reemitir o conjunto antes da A16.
+
+### Inspeção complementar no terminal: ler o certificado real {#inspecao}
 
 Use somente `rafaelrezo.github.io`, domínio público do próprio curso. `openssl s_client` abre uma conexão TLS, envia o nome com `-servername` e verifica se o certificado cobre esse nome com `-verify_hostname`. `-verify_return_error` faz a conexão falhar quando a verificação não passa; `-brief` reduz a saída. Não informe credenciais nem contorne um erro de certificado.
 
@@ -549,13 +761,13 @@ Você abriu `https://curso.exemplo.invalid`, mas o SAN apresentado cobre apenas 
 
 No handshake TLS, o servidor apresenta o certificado e usa sua chave privada para **assinar a negociação atual**. O par temporário ECDHE tem outra função: produzir o segredo do acordo. As chaves simétricas derivadas desse processo protegem a conexão.
 
-Na [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls), localize `Certificate` e `CertificateVerify` para distinguir o vínculo da identidade de sua prova nesta conexão. No [OpenVPN](A16-tls-ciclo-de-chaves.md#sequencia-vpn), o exemplo também exige certificado e prova do cliente para admitir o túnel.
+Na [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls), localize `Certificate` e `CertificateVerify` para distinguir o vínculo da identidade de sua prova nesta conexão. No [OpenVPN](A17-openvpn-ec2.md#sequencia-vpn), o exemplo também exige certificado e prova do cliente para admitir o túnel.
 
 ## Atividade {#atividade}
 
 Em C2, explique em uma frase por que o RSA protege a chave AES curta enquanto o AES-GCM protege o texto longo; cite R1/R2 e H1/H2 como observados ou fornecidos.
 
-Atualize **C2** no [registro único de A14–A16](../atividades/A14-A18-criptografia-confianca.md#atividade) após T3, V1–V3 e inspeção de certificado: `chave → operação → resultado → origem da chave pública → condição para confiar → limite`. Não há entrega separada.
+Atualize **C2** no [registro único de A14–A17](../atividades/A14-A18-criptografia-confianca.md#atividade) após T3, V1–V3 e P1–P3 da prática local: `chave → operação → resultado → origem da chave pública → condição para confiar → limite`. Não há entrega separada; o registro termina na A17.
 
 ## Revisão rápida
 

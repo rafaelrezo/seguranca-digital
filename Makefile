@@ -1,4 +1,6 @@
-.PHONY: install-material-tools templates export-templates a01 export-a01 validate-course build
+.PHONY: install-material-tools templates export-templates a01 export-a01 validate-course build serve
+
+DEV_ADDR ?= 127.0.0.1:8000
 
 install-material-tools:
 	npm install --prefix tools/materials
@@ -26,3 +28,8 @@ validate-course:
 
 build:
 	./.venv/bin/mkdocs build --clean
+
+# Inspeção local com recarga automática: make serve (encerrar com Ctrl+C).
+# Outra porta: make serve DEV_ADDR=127.0.0.1:8001
+serve:
+	./.venv/bin/mkdocs serve --dev-addr "$(DEV_ADDR)"

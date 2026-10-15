@@ -20,12 +20,13 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A12 — Proteção de dados (continuação)](aulas/A12-protecao-de-dados-continuacao.md) | Segundo encontro de proteção de dados; consulte o material de estudo compartilhado com A11 | [Mesma atividade integrada](atividades/A11-A12-parecer.html#atividade) |
 | [A13 — Proteção de endpoints](aulas/A13-protecao-de-endpoints.md) | Execução, incidentes industriais ilustrativos, telemetria, contenção e retorno | [Concluir a atividade integrada](atividades/A11-A12-parecer.html#atividade) |
 | [A14 — Cifra simétrica e compartilhamento de chaves](aulas/A14-cifra-simetrica-autenticada.md) | AES/CBC/GCM, envelope e segredo do receptor; comandos e programa no WSL | [Preencher C1 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A15 — Chaves, assinaturas e certificados (provisória)](aulas/A15-chaves-assinaturas-certificados.md) | RSA e cifra híbrida, assinatura verificável e vínculo de certificado | [Preencher C2 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A16 — TLS, gestão de chaves, hash e senhas (provisória)](aulas/A16-tls-ciclo-de-chaves.md) | Sequências TLS/OpenVPN e gestão de chaves; hash, HMAC e verificação de senhas no bloco final | [Concluir C3 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A15 — Chaves, assinaturas e certificados](aulas/A15-chaves-assinaturas-certificados.md) | RSA e cifra híbrida, assinatura verificável e vínculo de certificado | [Preencher C2 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A16 — Hash, HMAC, senhas e TLS](aulas/A16-tls-ciclo-de-chaves.md) | Hash, HMAC e verificação de senhas; conexão TLS local aceita e recusada | [Preencher C3 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
+| [A17 — OpenVPN em EC2](aulas/A17-openvpn-ec2.md) | Duas EC2 na VPC, acesso roteado à interna sem Internet, cliente Windows/Linux e revogação | [Concluir C4 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
-A atividade de **criptografia e confiança** reúne A14–A16 em um único registro. Cada encontro acrescenta uma decisão e uma contraprova; a entrega é feita uma vez, após o bloco e conforme convocação do docente no Classroom.
+A atividade de **criptografia e confiança** reúne A14–A17 em um único registro. Os [arquivos prontos das quatro práticas](https://github.com/rafaelrezo/seguranca-digital-praticas) podem ser obtidos por clone ou ZIP, com preparação única. Cada encontro acrescenta uma decisão e uma contraprova; a entrega é feita uma vez, após o bloco e conforme convocação do docente no Classroom.
 
 ## Como preparar sua evidência
 

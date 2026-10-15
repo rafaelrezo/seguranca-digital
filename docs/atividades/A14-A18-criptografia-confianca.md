@@ -1,35 +1,46 @@
-# Criptografia e confiança — registro único de A14–A16
+# Criptografia e confiança — registro único de A14–A17
 
 ## Atividade {#atividade}
 
-**Missão:** em dupla, construir um registro que explique qual propriedade cada mecanismo oferece, que resultado a sustenta e qual limite permanece. Preencha a mesma tabela **durante** as práticas curtas das três aulas. Há uma única entrega após A16, no prazo definido pelo docente no Classroom; não existe prática final independente.
+**Missão:** em dupla, construir um registro que explique a propriedade de cada mecanismo, a evidência, a contraprova e seu limite. Preencha C1–C4 durante as práticas. Há **uma única entrega após A17**, no prazo definido pelo docente no Classroom; checkpoints não criam novas tarefas.
 
-**Escopo e preparação:** use apenas os textos, chaves descartáveis e resultados desta página e das aulas. No WSL, trabalhe em `~/cripto-a14`, `~/cripto-a15` e `~/cripto-a16`. Não inclua no PDF senha de teste, chave privada, dados pessoais, certificado institucional nem saída sensível. Se não puder executar, use o quadro correspondente e marque a fonte como **fornecida**. Resultado previsto ou configuração proposta não são teste executado.
+**Arquivos:** baixe uma vez o [repositório de práticas A14–A17](https://github.com/rafaelrezo/seguranca-digital-praticas) e prepare o ambiente pelo README. Use as pastas a14–a17 e os scripts por etapa; não é necessário montar arquivos por copiar e colar, fazer fork ou entregar código.
 
-**Formato:** PDF legível `cripto_sobrenome1_sobrenome2.pdf`, enviado por uma pessoa da dupla. Identifique os integrantes e inclua C1–C3 e a decisão final. Se usar IA, registre o pedido, o que aceitou ou rejeitou e por quê, sem enviar dados sensíveis.
+**Escopo:** arquivos e chaves descartáveis das aulas, as duas EC2 e a VPC dedicadas da dupla no AWS Academy e cliente local Windows/Linux. Prepare os ambientes conforme cada página antes da etapa correspondente. A operação necessária será demonstrada; se não executar, use a alternativa na mesma página e marque a fonte **fornecida**. Previsão, proposta e dado fornecido não são execução.
 
-| Registro | Momento de preencher | Evidência mínima e decisão |
+**Formato:** um PDF `cripto_sobrenome1_sobrenome2.pdf`, enviado por uma pessoa, identificando integrantes. Inclua C1–C4 e decisão final, com recortes curtos legíveis e explicação. Não anexe perfis `.ovpn`, privadas, frases, chave SSH, IP público, dados pessoais ou logs brutos.
+
+| Registro | Quando preencher | Evidência e decisão mínima |
 |---|---|---|
-| **C1 — A14** | Após T2 e G1–G3. G4–G6 são extensões opcionais. | Anexe um recorte curto de G1/G2 sem senha nem chave. Em até quatro frases, explique a rejeição de G2, os campos públicos do envelope e o segredo que o receptor já precisava ter. Cite CBC como cifra sem tag própria. |
-| **C2 — A15** | Após RSA/híbrida, T3, T4, V1–V3 e inspeção do certificado. | Uma frase relacionando o limite RSA observado/fornecido em R1/R2 à chave curta e ao texto longo de H1/H2. Papel das chaves, assinatura válida e alterada, origem da chave pública; nome SAN, prazo, finalidade e cadeia como condições de confiança. |
-| **C3 — A16** | Após canal/ciclo e bloco final D1, M1–M3 e S1–S4. | Registre um caso de canal aceito/recusado, a função de `CertificateVerify` e `Finished` e uma decisão de troca/recuperação de chave, com seu limite. Em duas frases, diferencie controle/dados no OpenVPN e indique onde a proteção VPN termina. Acrescente os valores lógicos de S1–S4. Em até quatro frases, explique S1 versus S4, os campos necessários ao verificador sem senha e a diferença de finalidade entre SHA-256 e HMAC. |
+| **C1 — A14** | T2 e G1–G3. G4–G6 são extensões. | Recorte G1/G2 sem segredo; explique a rejeição, os campos públicos e o segredo prévio do receptor. Distinga CBC de GCM e sal de nonce. |
+| **C2 — A15** | RSA/híbrida, assinatura V1–V3 e certificados P1–P3. | Relacione R1/R2 ao limite da entrada RSA e H1/H2 à chave curta/conteúdo longo. Compare assinatura válida/alterada e certificado aceito/recusado por nome ou CA ausente. Explique a origem da pública. |
+| **C3 — A16** | D1, M1–M3, S1–S4 e TLS L1–L3. | Compare finalidade de hash/HMAC; registre valores lógicos do verificador de senha e campos necessários ao cadastro. Compare TLS aceito/recusado e explique CertificateVerify versus Finished, sem deduzir autorização do HTTP. |
+| **C4 — A17** | Topologia, V0/V1, isolamento, V2/V3 e encerramento. | Topologia e ida/retorno, acesso sem/com túnel, ausência de Internet e recusas por nome/revogação. Justifique a configuração e o limite do túnel no gateway. Inclua estado final das duas EC2/EBS, conforme o detalhamento abaixo. |
 
-Mostre somente os recortes e as explicações pedidos acima. Para decisões de C2/C3, use `ID → evidência → interpretação → limite/decisão`. Para resultados executados no terminal, escreva **observado** e o comando; para tabelas da página, **fornecido**; para configuração ou teste futuro, **proposto**. Não invente valores de nonce, assinatura, digest ou certificado.
+### C4: acesso roteado e isolamento
 
-**Exemplo trabalhado:** `G2: rejeitado; texto não entregue` é evidência observada de que a tag alterada não passou na abertura deste teste. G1, na mesma execução, abre o conjunto original. A comparação não identifica quem fez a alteração. Se você usou o quadro, marque a evidência como **fornecida**.
+- Desenhe **cliente → gateway → interna**; indique rota enviada, forwarding, filtros e retorno para o pool VPN, sem NAT.
+- Compare V0/V1 e a origem `10.8.0.x` no serviço interno. Relacione ausência de Internet à tabela VPC, SG e IP, além da tentativa externa.
+- Comente identidade/CA, controle TLS, cifra de dados e CRL. Explique V2/V3, diferencie chave SSH, privadas, segredo adicional e chaves de sessão e indique onde a proteção do túnel termina.
+- Registre terminação das **duas EC2**, remoção dos EBS exclusivos e horários, sem identificadores sensíveis.
 
-**Extensão opcional:** execute G4–G6 na A14 e escolha um dos resultados. Explique por que novo nonce, abertura repetida e segredo correto são condições diferentes. Não crie outra entrega nem copie `Key` ou a senha. Na A16, S4 altera somente o sal da segunda conta; restaure a linha original depois de observar o efeito.
+**Como registrar:** para cada comparação use `fonte → ação ou entrada → resultado → interpretação → limite`. Se usar a alternativa, mantenha a mesma decisão, declare a falha operacional e não invente IDs ou logs AWS. Se chegou a lançar recurso antes da falha, encerre-o e registre o encerramento real.
 
-**Decisão final:** uma linha para **repouso, trânsito, backup e endpoint/identidade**, cada qual com `propriedade → mecanismo → evidência favorável → contraprova → limite/responsável`. Faça revisão cruzada: cada integrante comenta uma inferência do outro e registre ao menos uma correção ou divergência resolvida. Entregue somente após conferir que proposta, dado fornecido e observação estão distinguidos.
+**Decisão final:** em até um parágrafo, relacione proteção em repouso, transporte, guarda/recuperação de chaves e endpoint. Explique por que TLS/VPN não autorizam qualquer operação e por que trocar uma chave não recifra automaticamente cópias antigas. Nomeie o responsável por uma ação de ciclo de vida e a evidência que você exigiria para validá-la.
 
-**Encerramento:** encerre o terminal, não envie arquivos `.pem` nem `copia.cbc`, e remova os diretórios de teste apenas se desejar; eles contêm somente dados artificiais, mas a chave privada de demonstração não deve ser reutilizada. Se um comando der resultado inesperado, pare, anote comando e erro sem segredo e use a alternativa fornecida.
+**Revisão cruzada:** cada integrante comenta uma interpretação do outro; registre uma correção ou divergência resolvida. Se usar IA, registre o pedido, decisões aceitas/rejeitadas e sua justificativa. Não envie segredos à IA e explique o resultado com suas palavras.
 
 ### Critérios da entrega única
 
 | Critério | Peso | Evidência de atendimento |
 |---|---:|---|
-| C1 — cifra e requisito do segredo compartilhado | 30% | G1/G2 interpretados; envelope público separado de senha/chave; limite de CBC e necessidade do segredo prévio no receptor. |
-| C2 — assinatura e certificado | 30% | RSA reservado à chave curta, AES-GCM ao conteúdo; papéis e verificações corretos, distinção entre resultado matemático e vínculo de identidade. |
-| C3 — TLS, gestão, hash e senhas | 40% | Sequência TLS, canais VPN e ciclo situados; S1–S4 interpretados, verificador sem senha e finalidade de SHA-256/HMAC; integração e fontes. |
+| C1 — cifra e obtenção do segredo | 25% | G1/G2 interpretados; campos públicos separados da chave/senha; limites de CBC e GCM. |
+| C2 — chaves, assinatura e confiança | 25% | Funções RSA/AES distintas; assinatura não confundida com sigilo/identidade; P1–P3 explicados. |
+| C3 — verificações e TLS | 25% | Hash/HMAC/senha separados; sal/custo e S1–S4 interpretados; L1/L2 e provas do handshake explicados. |
+| C4 — integração e operação | 25% | Configuração justificada; Acesso roteado/isolamento e V2/V3 com fontes e limites; ciclo e encerramento das duas EC2 verificáveis. |
 
-**Completo** apresenta mecanismo, evidência, contraprova e limite; **parcial** omite um desses elementos; **insuficiente** apenas nomeia a ferramenta ou afirma um teste que não ocorreu. O prazo e a submissão são definidos pelo docente.
+**Completo:** mecanismo, evidência, contraprova e limite. **Parcial:** omite um desses elementos. **Insuficiente:** só nomeia ferramenta ou afirma teste que não ocorreu. A alternativa identificada permite demonstrar a análise; não é execução autônoma.
+
+**Encerramento:** siga o [procedimento EC2/EBS da A17](../aulas/A17-openvpn-ec2.md#encerramento), desconecte o cliente e descarte os segredos de teste sem reutilizá-los. Não apague arquivos/recursos de terceiros. A dupla entrega somente o PDF sanitizado.
+
+**Extensão:** compare outra condição mantendo as demais constantes e declare sua nova pergunta. Só execute após o percurso mínimo e com tempo para encerrar; não gera outra entrega.

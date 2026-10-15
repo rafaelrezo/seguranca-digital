@@ -1,5 +1,21 @@
 # Registro de publicação no Google Drive
 
+## A17 com máquina interna sem Internet na VPC — 15 out. 2026
+
+Revisada localmente a A17 para duas EC2: gateway OpenVPN público e máquina interna sem IP público/Internet, na mesma VPC e em sub-redes separadas. Rota enviada ao cliente, forwarding com filtro, source/destination check e retorno pela ENI foram explicados, sem NAT. Serviço preparado por user data sem downloads; V0/V1, SSH interno, isolamento e V2/V3 integram a mesma C4. Arquitetura, roadmap, plano, navegação, percurso e manifesto alinhados; preparação adicional estimada, sem confirmar a nova duração executada.
+
+Arquivos de práticas publicados no commit `579ff633ccb7b7784357a4a1a5c3fbf5362ea4b4`, em [seguranca-digital-praticas](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a17). Testes funcionais em namespaces Linux e OpenVPN real2.6.19/TUN aprovados, incluindo acesso à segunda máquina com origem preservada e recusas de nome/revogação. Build estrito, validador e revisão visual1440/390px aprovados. [Registro detalhado e limites](A17-openvpn-ec2/validacao-vpc-2026-10-15.md). Não houve implantação AWS, execução Windows, publicação do site ou alteração no Drive/Classroom.
+
+## Blocos CBC na A14 e comparativo RSA/ECDSA na A15 — 15 out. 2026
+
+Reconciliada localmente a A14 com definição de bloco AES de 16 bytes, byte/caractere, XOR e padding PKCS#7. O exemplo de 20 bytes e os 23 bytes de `claro.txt` mostram preenchimento, tamanho cifrado e recuperação original. A A15 recebeu comparação entre RSA-OAEP, RSA-PSS, ECDSA e ECDHE, matemática de curvas com assinatura/verificação numérica e comparação operacional de RSA-PSS/3072 e ECDSA/P-256. O relato docente confirma a explicação matemática de RSA; não confirma os novos exercícios ou outros tópicos da A15.
+
+Publicado no repositório de práticas o arquivo [comparar_rsa_ecdsa_a15.py](https://github.com/rafaelrezo/seguranca-digital-praticas/blob/main/a15/comparar_rsa_ecdsa_a15.py), commit `6b79f456de86bb3c2c5e9a83bd453c87b409d8f4`, agora com 34 arquivos-fonte. Etapa 1 confere a conta pequena; etapa 2 assina e verifica conteúdo original/alterado com a biblioteca. [Registro de verificação](A14-cifra-simetrica-autenticada/repositorio-praticas-2026-10-15.md). Build estrito, validador editorial, testes criptográficos e revisão visual em 1440/390 px aprovados. A edição do MkDocs permanece local; Drive e Classroom preservados.
+
+## Repositório das práticas A14–A17 publicado — 15 out. 2026
+
+Criado por solicitação docente o repositório público [rafaelrezo/seguranca-digital-praticas](https://github.com/rafaelrezo/seguranca-digital-praticas), commit `c54d2657c39cf4deba062182df07579e4a5fb590`, com 33 arquivos-fonte e READMEs simples. Clone público e árvore remota conferidos; execução local e contraprovas aprovadas. As páginas A14–A17, os downloads compatíveis, a atividade e os planos foram ajustados localmente para arquivos prontos e comandos por etapa. [Registro de verificação](A14-cifra-simetrica-autenticada/repositorio-praticas-2026-10-15.md). A edição do site não foi publicada nesta operação; Drive/Classroom preservados. Não houve implantação na AWS nem confirmação de realização em sala.
+
 ## RSA e cifra híbrida reconciliados na A15 — 8 out. 2026
 
 A conversa compartilhada [Roteiro sobre RSA](https://chatgpt.com/share/6ac7fffe-16c0-83e9-a802-fa17342f5b46) foi acessada e lida integralmente como referência explicativa. Após a correção docente, o aprofundamento foi colocado na A15, de chaves assimétricas; a A14 recebeu somente uma ponte curta. A exposição explica primos, módulo, coprimos/totiente e inverso modular, calcula p=5/q=11/e=3/d=27 e acompanha 7 → 13 → 7. Distingue representação UTF-8 de cifra, fundamenta RSA-OAEP e seu limite de 190 bytes com RSA-2048/SHA-256, e mostra RSA protegendo a chave AES de 32 bytes enquanto AES-GCM protege o texto longo. A validação técnica usa RFC 8017, documentação oficial de `cryptography` e o contexto real do RSA keyring do AWS Encryption SDK. Assinatura ECDSA, procedência, certificados e ponte TLS 1.3 foram preservados, com distinção entre RSA-PSS e OAEP e sem atribuir transporte RSA ao TLS 1.3.

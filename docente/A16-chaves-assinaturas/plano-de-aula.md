@@ -1,47 +1,43 @@
-# Plano docente — A16 — TLS, gestão de chaves, hash e senhas (provisória)
+# Plano docente — A16 — hash, HMAC, senhas e TLS
 
-**Estado:** revisão prospectiva de 8 out. 2026. A13 não tem realização documental confirmada. O plano anterior permanece no histórico Git; a numeração posterior exige conciliação do calendário.
+**Estado:** edição consolidada em 15 out. 2026, aprovada para produção local. Não confirma realização, versão usada pela turma nem publicação remota. A numeração posterior/calendário e carga global continuam pendentes.
 
 ## Ficha-base
 
-| Campo | Decisão |
+| Campo | Definição |
 |---|---|
-| Ementa e ganho | Explicar a sequência TLS 1.3 com rastro real e o estabelecimento/manutenção do OpenVPN; separar controle/dados/rotas/autorização, decidir ciclo de chaves e comparar hash, HMAC e verificador de senha. |
-| Herança | A15: certificado e assinatura com chave pública verificada. |
-| Carga | 100 minutos, 50 T/50 P planejados; prática guiada intercalada, não bloco final. |
-| Infraestrutura | WSL/Ubuntu, OpenSSL, VS Code, Python 3 com biblioteca padrão e navegador; quadros alternativos fornecidos na página. Dados artificiais e chaves descartáveis. |
-| Evidência/produto | Uma parte de C1–C3 na atividade única; sem entrega separada por encontro. |
-| Critério | Mecanismo, resultado válido, contraprova, limite e fonte da evidência. |
-| Ponte | OT: proteger acesso remoto e processo físico sem inferir segurança operacional do TLS. |
+| Ementa/ganho | Comparar digest/HMAC/verificador de senha antes de observar TLS; distinguir assinatura de CertificateVerify e HMAC de Finished. |
+| Herança confirmável | A15: papéis das chaves, assinatura e certificados locais. Confirmar os arquivos, sem atribuir execução pela mera publicação. |
+| Carga | 100 minutos, 45 T/55 P planejados; confirmar tempo realizado. |
+| Infraestrutura | Linux/WSL, OpenSSL, Python padrão, VS Code e certificados A15 válidos; duas janelas de terminal no mesmo sistema. |
+| Evidência | Parte correspondente C1–C4 da atividade única A14–A17; uma entrega após A17. |
+| Critério | Mecanismo, previsão, execução ou dado fornecido, resultado, contraprova e limite. |
+| Página e fontes | [Página integral](../../docs/aulas/A16-tls-ciclo-de-chaves.md); fontes primárias no ponto de uso. |
 
 ## Cadeia de aprendizagem
 
-A14: GCM e acordo; A15: certificado e assinatura com chave pública verificada → mensagens e cálculos no diagrama → previsão → `s_client` e consulta de rotas ou dados fornecidos → leitura da saída → identificação da fase e da chave → recusa por nome → distinção controle/dados e limite do gateway → C3 → acesso remoto OT sem inferir autorização sobre o processo.
+A15: papéis das chaves, assinatura e certificados locais. Confirmar os arquivos, sem atribuir execução pela mera publicação. → conferir ambiente → prever → executar comando/programa ou ler alternativa identificada → localizar rastro → explicar propriedade → decidir → confrontar caso negativo → registrar C correspondente → A17 reabre CA confiável, identidade esperada e canal autenticado em servidor EC2 e cliente local Windows/Linux; C3 não encerra a entrega.
 
-## Condução por blocos
+## Condução e tempo
 
-0–25 sequência TLS, mensagens reais e recusa por nome (12T/13P); 25–35 OpenVPN: percurso, dois canais, manutenção e consulta de rota (6T/4P); 35–45 inventário/ciclo, exemplo E-1 e uma decisão P/N (5T/5P); 45–57 hash/SHA-256 e D1 (5T/7P); 57–69 HMAC e M1–M3 (5T/7P); 69–92 cadastro/conferência de senha, `verificador_senhas_a16.py` e S1–S4 (13T/10P); 92–100 C3, integração e revisão (4T/4P). Total 50 T/50 P planejados. O tempo de TLS cresce para permitir explicar cada mensagem antes da leitura real. A VPN é aplicação funcional, sem implantação de servidor. Os cartões completos, pormenores e recuperação E-3 ficam como referência de estudo; retomar B/N/A apenas para esclarecer uma dúvida concreta, sem repetir a validação já observada. Não ler integralmente a página em voz alta; confirmar a duração real.
+0–10 hash/D1 (4T/6P); 10–25 HMAC/M1–M3 (6T/9P); 25–50 senhas/S1–S4 (10T/15P); 50–90 TLS, s_server/s_client e L1–L3 (22T/18P); 90–100 C3/ponte (3T/7P). Total 100, 45T/55P. Contar interpretação/contraprova como prática, exposição como teoria. Não repetir todos os contextos de uso em voz alta. VPN e gestão operacional passam à A17.
 
-Em cada prática: indicar estado inicial, demonstrar comando, esperar a previsão, localizar saída, pedir interpretação e limite, e parar antes do próximo conceito. O aluno pode reproduzir no WSL; acompanhar a projeção com o quadro alternativo preserva a decisão. Não exigir descoberta independente de ferramenta.
+Demonstrar ferramenta e explicar parâmetro antes da interpretação. Em cada parada, pedir previsão curta; esperar estado correto; localizar saída e pedir uma justificativa. Reprodução é permitida e guiada, sem condicionar participação ao funcionamento individual. Manter fonte e comando separados, diagnóstico e alternativa da página disponíveis.
 
-### Pontos de verificação dos protocolos
+## Respostas e limites
 
-1. Após `ServerHello`, pedir a distinção entre segredo já calculável e servidor ainda não autenticado. ECDHE sozinho não prova identidade.
-2. Separar assinatura da autoridade no certificado, assinatura do servidor em `CertificateVerify` e HMAC de `Finished`. Definir o histórico e HMAC brevemente, sem antecipar todo o bloco final.
-3. Antes de `-msg`, prever a ordem e os sentidos. O OpenSSL mostra mensagens que abre localmente; não é captura de todo o handshake em texto aberto na rede. Conferir versão no resumo, não no cabeçalho legado.
-4. Executar a contraprova alterando somente `-verify_hostname`, sem mudar conexão/SNI e sem consultar `.invalid`. Esperar recusa por nome, não uma falha de DNS.
-5. Na VPN, percorrer TUN → proteção → Internet → gateway → serviço; pedir onde termina a proteção e qual rota envia o pacote ao túnel.
-6. Distinguir controle TLS e dados AEAD, ping interno e ICMP, renovação de chaves e validade de certificado. A manutenção não garante disponibilidade.
-7. Consultar a rota real no Linux e identificar `dev`/`via`. Isso não implanta OpenVPN; uma VPN no Windows pode ter outra representação no WSL. Comparação com túnel depende de perfil de laboratório já autorizado e disponível.
+D1 distingue bytes e confiança na referência; M1 repete, M2/M3 diferem, sem sigilo/autoria individual. S1False/S2True/S3False; S4True quando sal se repete. Custo100000 é didático. L1 valida CA e nome; L2 muda só o nome esperado e recusa; L3 envia HTTP e recebe diagnóstico. ECDHE não autentica sozinho. CA assina certificado; servidor assina negociação; Finished confirma histórico sob segredo. Chaves de aplicação/direção distintas. -msg mostra interpretação local, não captura em claro. Parar s_server com Ctrl+C.
 
-## Contextos de uso integrados à exposição
+Não apresentar erro de caminho, dependência ou rede como falha de autenticação. Preservar teoria completa para estudo; não eliminar explicações para caber no tempo. Para estudantes já fluentes no terminal, reduzir repetição de navegação e manter decisões/contraprovas. Para iniciantes, usar o exemplo trabalhado antes da mudança de uma condição.
 
-TLS: conexão real ao site do curso e transporte de senha até o ponto que termina HTTPS, separado de armazenamento e autorização. OpenVPN: acesso remoto à rede interna com certificados, canais e rotas; prepara OT sem liberar operação de equipamentos. Certificados: erros de nome/prazo na operação de sites. Ciclo e inventário: rotação AWS KMS e dependência de cópias antigas, distinguindo versões internas sob o mesmo ID lógico de K-A/K-B como chaves diferentes no quadro. Hash: conferência de imagens Ubuntu com referência autenticada. HMAC: webhook GitHub e cabeçalho `X-Hub-Signature-256`, definindo webhook antes do exemplo. Senhas: registro de algoritmo/custo/sal/derivado no Django 5.2. Não instalar serviços nem reenviar eventos reais; os programas locais isolam as propriedades. Integrar os contextos à exposição prevista, sem aumentar a entrega C3.
+## Preparação, contingência e verificação
 
-## Respostas e contingência
+Ensaiar o percurso mínimo antes da aula e conferir downloads/código/saídas. Registrar separadamente verificação local, implantação em conta AWS, teste Windows e realização em sala; nenhum comprova os outros. Se a ferramenta falhar, registrar erro e usar quadros como dados fornecidos. Não enviar privadas, frases ou perfis para a entrega ou IA.
 
-TLS protege o canal sob suas premissas; 403 é aplicação; K-B não abre C-01; recuperação condicional exige autorização e teste funcional. Não chamar política simulada de implantação.
+## Ponte
 
-Em D1, os bytes `abc` devem coincidir com o digest NIST e `abd` deve diferir; isso não atribui autoria. M1 repete mensagem/chave, M2 muda mensagem e M3 muda chave; o conteúdo continua legível. S1 usa mesma senha e sais distintos (False), S2 aceita a tentativa correta (True), S3 rejeita a incorreta (False); S4 repete o sal e produz verificadores iguais. Restaurar sal próprio ao final. O registro guarda esquema, custo, sal e verificador, nunca senha legível. PBKDF2-HMAC-SHA256 com 100.000 iterações é didático, não configuração de produção.
+A17 reabre CA confiável, identidade esperada e canal autenticado em servidor EC2 e cliente local Windows/Linux; C3 não encerra a entrega.
 
-Antes da aula, executar `python3 verificador_senhas_a16.py` e conferir o código da página com o download. Não reutilizar os segredos do exemplo GCM nem tratar cadastro local como login de produção. Se OpenSSL, Python ou rede falhar, usar o resultado fornecido na mesma página e marcar a fonte. Comando falho não vira evidência positiva. Não transmitir segredos, usar certificados institucionais nem publicar a chave privada descartável. Verificar o tempo real em aula antes de considerar o 50/50 efetivamente cumprido.
+## Distribuição por repositório — 15 out. 2026
+
+Fonte operacional: https://github.com/rafaelrezo/seguranca-digital-praticas, com README simples e pastas a14–a17. Preparação Python única na raiz; reativar ambiente em cada terminal. Clone HTTPS ou ZIP, sem conta estudantil/fork. Arquivos e entradas vêm prontos; trechos no MkDocs são leitura, não montagem. Usar comandos por etapa e preservar pausas de previsão/interpretação. Dados de saída, chaves e perfis são gerados localmente e ignorados pelo Git. Na A17, enviar scripts ao servidor por SCP; continuam console EC2 e cliente nativo Windows/Linux, sem provisionamento pelo agente. Download histórico da página é compatível. Testar as interfaces dos scripts em cópia temporária, sem publicar segredos ou supor ensaio EC2/Windows.
