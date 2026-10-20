@@ -14,4 +14,4 @@ A15 aponta para a aplicação; A16 oferece T1–T3 como alternativa à execuçã
 
 Limites: não houve teste no WSL/Windows, aferição de tempo presencial, observação de aprendizagem, captura de rede, revogação, mTLS ou implantação de VPN. O ensaio de TLS não comprova execução desses itens. Os programas não exportam chaves de sessão. Drive e Classroom não foram alterados.
 
-O resultado remoto do deploy e a conferência HTTP/downloads serão registrados em `docente/publicacao-google-drive.md` após a publicação.
+Deploy e validação GitHub concluídos com sucesso; página, A15/A16, atividade e quatro downloads HTTP200. Downloads públicos idênticos aos arquivos testados. Resultado registrado em `docente/publicacao-google-drive.md`.

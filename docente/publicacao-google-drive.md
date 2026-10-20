@@ -1,5 +1,13 @@
 # Registro de publicação no Google Drive
 
+## TLS com sockets publicado no GitHub Pages — 20 out. 2026
+
+Publicado o commit `dd436fd91ab49aacc877bb4a90f0b5513120e782` na main a partir de cópia isolada, preservando demais alterações locais. A [prática TLS com sockets](https://rafaelrezo.github.io/seguranca-digital/praticas/tls-sockets/) inclui fontes completos, ZIP, mapa das chaves/certificados, preparação, conexão aceita e recusas por nome/CA. A15/A16 apontam para o percurso; T1–T3 substituem a execução TLS L1–L3 em C3, sem nova entrega ou mudança de calendário.
+
+[Validação 39463008295](https://github.com/rafaelrezo/seguranca-digital/actions/runs/39463008295) e [deploy 39463008545](https://github.com/rafaelrezo/seguranca-digital/actions/runs/39463008545) concluídos com sucesso. Build estrito, validador e revisão visual em1440/390px aprovados. O ZIP extraído foi ensaiado em Linux/Python3.14.4/OpenSSL3.5.5: três mensagens na mesma conexão TLS1.3, fingerprint correspondente e recusas antes dos dados. A página, A15, A16, atividade e quatro downloads responderam HTTP200; os downloads públicos coincidem byte a byte com as fontes testadas. Relatório de conferência em `/tmp/tls-pages-public-verification-20261020.json`; [validação docente](A15-hash-hmac-senhas/validacao-pages-2026-10-20.md).
+
+Privadas são geradas localmente e não integram o ZIP. Não houve teste WSL/Windows, aferição de tempo presencial, captura de rede, revogação, mTLS ou VPN. Drive e Classroom não foram alterados. Publicação não comprova realização da prática pela turma.
+
 ## A14–A17 publicadas no GitHub Pages — 15 out. 2026
 
 Publicado o commit `697fbd89598599e210bf8e0132878beeeb4489db` na main a partir de cópia isolada, preservando alterações locais e materiais históricos. A edição reúne arquivos prontos no repositório de práticas, blocos/padding da A14, comparação matemática RSA/ECDSA na A15, hash/HMAC/senhas antes de TLS na A16 e A17 com gateway público e máquina interna sem Internet na VPC. C1–C4 formam entrega única; navegação, planos e referências foram alinhados.
