@@ -24,6 +24,8 @@
 - Comente identidade/CA, controle TLS, cifra de dados e CRL. Explique V2/V3, diferencie chave SSH, privadas, segredo adicional e chaves de sessão e indique onde a proteção do túnel termina.
 - Registre terminação das **duas EC2**, remoção dos EBS exclusivos e horários, sem identificadores sensíveis.
 
+**Alternativa de transporte em C3:** a [prática TLS com sockets](../praticas/tls-sockets.md#atividade) fornece T1–T3: conexão aceita, nome incorreto e CA não confiável. Use esse percurso no lugar da execução L1–L3, com as mesmas explicações do handshake da A16. Compare os três resultados e localize privada, certificado, CA e chaves de tráfego; não duplique testes nem crie outra entrega.
+
 **Como registrar:** para cada comparação use `fonte → ação ou entrada → resultado → interpretação → limite`. Se usar a alternativa, mantenha a mesma decisão, declare a falha operacional e não invente IDs ou logs AWS. Se chegou a lançar recurso antes da falha, encerre-o e registre o encerramento real.
 
 **Decisão final:** em até um parágrafo, relacione proteção em repouso, transporte, guarda/recuperação de chaves e endpoint. Explique por que TLS/VPN não autorizam qualquer operação e por que trocar uma chave não recifra automaticamente cópias antigas. Nomeie o responsável por uma ação de ciclo de vida e a evidência que você exigiria para validá-la.
@@ -36,7 +38,7 @@
 |---|---:|---|
 | C1 — cifra e obtenção do segredo | 25% | G1/G2 interpretados; campos públicos separados da chave/senha; limites de CBC e GCM. |
 | C2 — chaves, assinatura e confiança | 25% | Funções RSA/AES distintas; assinatura não confundida com sigilo/identidade; P1–P3 explicados. |
-| C3 — verificações e TLS | 25% | Hash/HMAC/senha separados; sal/custo e S1–S4 interpretados; L1/L2 e provas do handshake explicados. |
+| C3 — verificações e TLS | 25% | Hash/HMAC/senha separados; sal/custo e S1–S4 interpretados; L1/L2 ou T1–T3 e provas do handshake explicados. |
 | C4 — integração e operação | 25% | Configuração justificada; Acesso roteado/isolamento e V2/V3 com fontes e limites; ciclo e encerramento das duas EC2 verificáveis. |
 
 **Completo:** mecanismo, evidência, contraprova e limite. **Parcial:** omite um desses elementos. **Insuficiente:** só nomeia ferramenta ou afirma teste que não ocorreu. A alternativa identificada permite demonstrar a análise; não é execução autônoma.

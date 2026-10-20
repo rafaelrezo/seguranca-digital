@@ -1,5 +1,7 @@
 # Roadmap vigente — Segurança Digital, A08 em diante
 
+**Publicação autorizada de 20 out.:** [TLS com sockets](../docs/praticas/tls-sockets.md) aplica par/certificado a uma conexão real. T1–T3 substituem a execução L1–L3 de transporte em C3; não são aula ou entrega adicional. A15 fornece o vínculo de confiança; A16 mantém a explicação do handshake. Sem reabrir simétrica ou alterar calendário/carga global.
+
 **Ampliação vigente da A17 — 15 out.:** duas EC2 na mesma VPC, gateway público e máquina interna sem Internet. Cliente remoto nativo Windows/Linux alcança 10.77.2.10 por túnel e rotas de ida/volta, sem NAT; source/destination check desativado somente no gateway. Substitui o serviço no próprio TUN. Rede/cliente em preparação demonstrada adicional estimada em 30–45 min; hipótese de 100 min da A17 exige novo ensaio, sem presumir ajuste aprovado da carga global. C4 inclui acesso antes/depois, retorno, isolamento e encerramento das duas EC2.
 
 **Distribuição operacional de 15 out.:** A14–A17 usam arquivos prontos em `rafaelrezo/seguranca-digital-praticas`, com preparação única e scripts por etapa. Não exigir montagem por copiar/colar, fork ou conta estudantil. A17 mantém console EC2 e cliente local Windows/Linux.

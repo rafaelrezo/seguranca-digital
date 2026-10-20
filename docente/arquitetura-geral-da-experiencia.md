@@ -1,5 +1,11 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Publicação autorizada em 20 out. 2026 — TLS com sockets
+
+O docente solicitou publicar a prática TLS no GitHub Pages. A página `praticas/tls-sockets.md` oferece cliente/servidor Python padrão, fontes explicadas, ZIP e geração local de identidades. T1–T3 verificam conexão aceita, nome incorreto e CA não confiável, somente em loopback. A15 aponta para a aplicação dos certificados; A16 oferece o percurso como substituto da execução L1–L3, mantendo o estudo do handshake. C3 aceita uma das duas execuções, sem nova entrega. Não se altera a numeração nem se acrescenta o módulo aos 100 minutos. Simétrica permanece concluída por decisão docente; o socket TCP é conhecimento prévio relatado, não evidência de domínio individual.
+
+Material temporário e chaves simétricas são estados internos da biblioteca; o programa mostra certificado e versão/cifra, sem alegar exibição de segredos de sessão. Privadas são geradas localmente e não integram o ZIP. Ensaios Linux não comprovam WSL/Windows, duração presencial, captura, revogação ou VPN. Os planos detalham a seleção de tempo; o histórico de propostas permanece preservado.
+
 ## Alteração vigente da A17 — acesso roteado a máquina interna, 15 out. 2026
 
 O docente solicitou que o acesso remoto alcance outra máquina interna sem Internet. Interpretar a rede AWS comum como **VPC**, distinta do túnel VPN: duas EC2 na mesma VPC dedicada, em sub-redes pública e privada. O gateway OpenVPN tem IPv4 público; a máquina interna não tem IPv4 público, IPv6, NAT nem rota padrão na tabela VPC da sub-rede privada. O cliente local Windows/Linux acessa HTTP de teste e SSH no IPv4 privado da segunda EC2 pelo túnel. A máquina interna não executa OpenVPN.

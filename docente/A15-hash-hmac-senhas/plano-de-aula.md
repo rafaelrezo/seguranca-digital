@@ -1,5 +1,7 @@
 # Plano docente — A15 — chaves públicas, assinaturas e certificados
 
+**Integração de 20 out.:** A aplicação [TLS com sockets](../../docs/praticas/tls-sockets.md) foi autorizada para publicação. Usar o mapa de arquivos como ponte após P1–P3; a execução completa pertence à escolha de transporte de C3, sem acréscimo automático aos 100 minutos da A15.
+
 **Estado:** edição consolidada em 15 out. 2026, aprovada para produção local. Não confirma realização, versão usada pela turma nem publicação remota. A numeração posterior/calendário e carga global continuam pendentes.
 
 ## Ficha-base

@@ -337,6 +337,10 @@ Uma resposta HTTP `403` pode chegar por uma conexão TLS válida: a **aplicaçã
 
 ## Prática TLS local: aceitar a identidade esperada {#oficina}
 
+**Percurso com o socket TCP conhecido:** siga a [prática TLS com sockets](../praticas/tls-sockets.md) para localizar os arquivos de identidade, enviar três mensagens e testar nome/CA incorretos. T1–T3 substituem a execução de transporte L1–L3 abaixo no registro C3; não é preciso executar os dois percursos. A explicação do handshake nesta página continua como referência.
+
+O percurso OpenSSL a seguir permite examinar as mensagens da negociação e a resposta HTTP.
+
 **Pergunta:** como o certificado emitido na A15 participa de uma conexão? Um processo será servidor; outro será cliente. Não é preciso abrir uma porta à Internet nem instalar a CA no sistema.
 
 **Estado inicial:** use Linux/WSL com OpenSSL e os arquivos de `~/seguranca-digital-praticas/a15`: `ca-a15.pem`, `servidor-a15.pem` e `servidor-chave-a15.pem`. Confira P1 da A15. Se estiverem vencidos, use uma cópia nova da pasta a15 para reemitir antes de avançar.
@@ -446,7 +450,7 @@ A [gestão das chaves e a revogação](A17-openvpn-ec2.md#ciclo) serão aplicada
 
 ## Atividade {#atividade}
 
-Preencha **C3** após D1, M1–M3, S1–S4 e L1–L3. Registre uma comparação de hash/HMAC, os valores lógicos do verificador de senha e a diferença entre canal TLS aceito e recusado por nome. Explique por que `CertificateVerify` é assinatura e `Finished` usa um segredo. Identifique o que foi observado e o que foi fornecido.
+Preencha **C3** após D1, M1–M3, S1–S4 e o percurso TLS escolhido: L1–L3 ou [T1–T3 com sockets](../praticas/tls-sockets.md#atividade). Registre uma comparação de hash/HMAC, os valores lógicos do verificador de senha e a diferença entre canal TLS aceito e recusado por nome. Explique por que `CertificateVerify` é assinatura e `Finished` usa um segredo. Identifique o que foi observado e o que foi fornecido.
 
 Continue a [mesma atividade na A17](../atividades/A14-A18-criptografia-confianca.md#atividade), com configuração e validação do OpenVPN. O prazo da entrega única será definido no Classroom.
 

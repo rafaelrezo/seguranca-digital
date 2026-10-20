@@ -93,6 +93,7 @@ nav:
       - "A14 — Cifra simétrica e compartilhamento de chaves": aulas/A14-cifra-simetrica-autenticada.md
       - "A15 — Chaves, assinaturas e certificados": aulas/A15-chaves-assinaturas-certificados.md
       - "A16 — Hash, HMAC, senhas e TLS": aulas/A16-tls-ciclo-de-chaves.md
+      - "Prática — TLS com sockets": praticas/tls-sockets.md
       - "A17 — OpenVPN e máquina interna": aulas/A17-openvpn-ec2.md
   - Referencial de consulta:
       - Fundamentos de Segurança:

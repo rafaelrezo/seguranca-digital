@@ -763,6 +763,10 @@ No handshake TLS, o servidor apresenta o certificado e usa sua chave privada par
 
 Na [sequência TLS da A16](A16-tls-ciclo-de-chaves.md#sequencia-tls), localize `Certificate` e `CertificateVerify` para distinguir o vínculo da identidade de sua prova nesta conexão. No [OpenVPN](A17-openvpn-ec2.md#sequencia-vpn), o exemplo também exige certificado e prova do cliente para admitir o túnel.
 
+### Aplicação: reconhecer os arquivos em uma conexão real
+
+Na [prática TLS com sockets](../praticas/tls-sockets.md), localize a privada carregada pelo servidor, o certificado apresentado e a CA aceita pelo cliente. Compare conexão aceita, nome incorreto e CA não confiável. Os arquivos vêm prontos; as chaves são geradas localmente. A evidência de transporte integra C3, sem nova entrega.
+
 ## Atividade {#atividade}
 
 Em C2, explique em uma frase por que o RSA protege a chave AES curta enquanto o AES-GCM protege o texto longo; cite R1/R2 e H1/H2 como observados ou fornecidos.

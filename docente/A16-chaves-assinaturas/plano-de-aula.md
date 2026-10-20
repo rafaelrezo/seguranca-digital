@@ -1,5 +1,7 @@
 # Plano docente — A16 — hash, HMAC, senhas e TLS
 
+**Integração de 20 out.:** A [prática TLS com sockets](../../docs/praticas/tls-sockets.md) substitui a execução de transporte L1–L3 por T1–T3, se esse for o percurso escolhido. Preparar ZIP/identidades antes da aula; selecionar o núcleo de 40 minutos no bloco 50–90, mantendo 22T/18P planejados com explicação do mapa/handshake e observação das três condições. Comparação de fingerprint e leitura integral dos fontes são consulta/extensão. Se a condução exceder o bloco, registrar o tempo real; não somar 50 minutos ao plano. C3 continua exigindo distinguir CertificateVerify de Finished pela referência da A16. O protótipo usa CA própria, não substitui os certificados destinados às demais práticas.
+
 **Estado:** edição consolidada em 15 out. 2026, aprovada para produção local. Não confirma realização, versão usada pela turma nem publicação remota. A numeração posterior/calendário e carga global continuam pendentes.
 
 ## Ficha-base
