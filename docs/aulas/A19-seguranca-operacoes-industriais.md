@@ -455,19 +455,17 @@ Os níveis orientam onde colocar fronteiras. Não são uma prescrição universa
 
 ### Exemplo de percurso remoto limitado
 
-```text
-Cliente remoto
-   ↓ túnel
-Gateway VPN
-   ↓ acesso limitado
-Intermediário na DMZ
-   ↓ sessão autorizada
-Estação de engenharia na OT
-   ↓ operação autorizada
-CLP
-```
+![Acesso remoto em quatro trechos numerados: 1, túnel do cliente remoto ao gateway VPN, fora da empresa; 2, acesso limitado do gateway ao intermediário na DMZ; 3, sessão autorizada do intermediário à estação de engenharia na rede OT; 4, operação autorizada da estação ao CLP. O túnel VPN protege apenas o trecho 1. Uma seta tracejada vermelha do cliente remoto em direção ao CLP é bloqueada no primeiro firewall: caminho direto negado.](../assets/a19-a20/imagem30.png){#figura-30 loading=lazy}
 
-**DMZ** separa serviços e media comunicações entre redes. Uma **estação intermediária** (*jump host*) concentra o acesso ao destino seguinte. Cada seta é uma conexão distinta, com regra própria.
+*Imagem 30 — Percurso remoto limitado.* [Abrir a imagem ampliada](../assets/a19-a20/imagem30.png).
+
+**Leia a figura:** cada seta numerada é uma **conexão distinta**, com regra própria. Chegar ao gateway não libera o trecho seguinte.
+
+- **Três áreas:** fora da empresa, DMZ e rede OT, separadas por firewalls.
+- **Túnel VPN:** cobre só o trecho ①. Depois do gateway, cada passagem depende da proteção do próprio trecho.
+- **Caminho direto:** a seta vermelha mostra o que deve ser negado. O trecho esmaecido indica onde ela chegaria se a fronteira não bloqueasse.
+
+**DMZ** separa serviços e media comunicações entre redes. Uma **estação intermediária** (*jump host*) concentra o acesso ao destino seguinte.
 
 | Camada | O que procura reduzir | O que ainda pode ocorrer |
 |---|---|---|
@@ -488,7 +486,7 @@ O alerta [CISA AA23-335A, atualizado em dezembro de 2024](https://www.cisa.gov/s
 
 O caso ilustra falhas nas camadas 1, 3 e 5 ao mesmo tempo: ninguém decidiu se o caminho externo deveria existir, a rede permitia alcançá-lo e a configuração mantinha a senha padrão. Não atribua a todos os equipamentos do fabricante a mesma exposição. Os dados do tanque não são evidência desse incidente.
 
-**Aplicação:** no percurso remoto, marque onde devem existir identidade, restrição de destino, registro de sessão e autorização de alteração. Escolha um caminho que precisa ser negado e um fluxo legítimo que deve permanecer.
+**Aplicação:** na Imagem 30, associe cada controle a um trecho de ① a ④: identidade, restrição de destino, registro de sessão e autorização de alteração. Um trecho pode receber mais de um controle; justifique em uma frase. Depois escolha um caminho que precisa ser negado e um fluxo legítimo que deve permanecer.
 
 ---
 

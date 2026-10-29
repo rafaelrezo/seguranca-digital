@@ -99,54 +99,68 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Local:** A19, "Zonas, conduítes e níveis"; complementa a tabela de níveis.
 
-**Prompt:**
+**Prompt (revisto em 29 out. 2026 após a imagem 26: estilo da série e trajetos das setas explícitos):**
 
-> Crie um diagrama de arquitetura de rede industrial em português, baseado no modelo Purdue, em camadas horizontais empilhadas. Fundo claro, alto contraste, 16:9 ou vertical 4:5, texto grande.
+> Crie um diagrama didático de arquitetura de rede industrial em português, baseado no modelo Purdue. Use o mesmo estilo de uma ilustração técnica semi-realista com ícones limpos, rótulos em negrito escuro, fundo claro, alto contraste e texto grande legível em projeção. Formato 16:9.
 >
-> De cima para baixo, faixas horizontais com estes rótulos exatos e ícones simples:
-> - "Níveis 4–5 — Rede corporativa" (computadores de escritório, servidor de e-mail)
-> - "DMZ industrial" (servidor intermediário e réplica de historiador)
-> - "Nível 3 — Operações do site" (historiador, estação de engenharia)
-> - "Nível 2 — Supervisão" (IHM, servidor SCADA)
-> - "Nível 1 — Controle básico" (CLP)
-> - "Nível 0 — Processo" (sensor, bomba, tanque)
+> Organize seis faixas horizontais empilhadas, ocupando toda a largura, com o rótulo à esquerda de cada faixa exatamente como escrito:
+> - topo: "Níveis 4–5 — Rede corporativa" (dois computadores de escritório e um servidor)
+> - "DMZ industrial" (um servidor rotulado "intermediário" e outro rotulado "réplica do historiador")
+> - "Nível 3 — Operações do site" (um servidor rotulado "historiador" e uma estação de trabalho rotulada "engenharia")
+> - "Nível 2 — Supervisão" (um monitor rotulado "IHM / SCADA")
+> - "Nível 1 — Controle básico" (um armário de CLP rotulado "CLP")
+> - base: "Nível 0 — Processo" (tanque de água, sensor de nível e bomba)
 >
-> Entre "Níveis 4–5" e "DMZ" e entre "DMZ" e "Nível 3", desenhe um firewall com o rótulo "conduíte". Agrupe os níveis 0–3 em um contorno com o rótulo "Zona OT" e os níveis 4–5 em outro com "Zona corporativa".
+> Desenhe duas barreiras horizontais com ícone de firewall, ambas com o rótulo "conduíte": uma entre a faixa corporativa e a DMZ, outra entre a DMZ e o Nível 3. Contorne os níveis 0 a 3 com uma linha tracejada azul rotulada "Zona OT" e a faixa corporativa com outra linha tracejada cinza rotulada "Zona corporativa".
 >
-> Mostre com uma seta verde contínua o fluxo "dados do historiador → réplica na DMZ → corporativo", e com uma seta vermelha riscada com X o caminho "corporativo → CLP direto".
+> Fluxo permitido: uma seta verde contínua sobe do "historiador" no Nível 3, atravessa o firewall inferior até a "réplica do historiador" na DMZ, e depois atravessa o firewall superior até os computadores corporativos. Rótulo da seta: "dados sobem pela DMZ".
 >
-> Não use marcas, endereços IP ou nomes de produtos. Não desenhe nuvem nem IIoT nesta figura.
+> Fluxo negado: uma seta vermelha tracejada desce dos computadores corporativos em direção ao CLP e para no firewall superior, com um X vermelho grande sobre o firewall. Rótulo: "corporativo → CLP direto: negado".
+>
+> Não use marcas, logotipos, endereços IP, nomes de produtos ou pessoas. Não desenhe nuvem, IIoT ou Internet. Não acrescente faixas, níveis ou rótulos além dos indicados.
 
-**Texto alternativo previsto:** modelo Purdue com processo (nível 0), controle (1), supervisão (2), operações (3), DMZ e rede corporativa (4–5). Firewalls funcionam como conduítes entre zonas; dados sobem do historiador para a DMZ, e o acesso direto do corporativo ao CLP é negado.
+**Texto alternativo previsto:** modelo Purdue com processo (nível 0), controle (1), supervisão (2), operações (3), DMZ e rede corporativa (4–5). Firewalls funcionam como conduítes entre zonas; dados do historiador sobem pela réplica na DMZ até o corporativo, e o acesso direto do corporativo ao CLP é negado no primeiro firewall.
 
-**Conferência:** a DMZ fica entre o nível 3 e o corporativo; a seta permitida não atravessa diretamente até o nível 1.
+**Conferência:** a DMZ fica entre o nível 3 e o corporativo; a seta verde passa pelos firewalls e não alcança o CLP; a seta vermelha para no firewall superior; os seis rótulos de faixa estão exatos.
 
 ---
 
-### Imagem 30 — Percurso remoto limitado e pontos de controle {#imagem-30}
+### Imagem 30 — Percurso remoto limitado com trechos numerados {#imagem-30}
 
 **Local:** A19, "Exemplo de percurso remoto limitado"; substitui o esquema em texto. Reutilizada na A20, em "Proteger: acesso remoto".
 
+**Estado:** imagem recebida, validada e incorporada em 29 out. 2026 (`docs/assets/a19-a20/imagem30.png`, margens recortadas e 256 cores; `#figura-30` na A19 e na A20). Na A19, substitui o esquema e a Aplicação cita os trechos ①–④; na A20, abre a seção de acesso remoto com a tabela trecho → pergunta → controle, e a análise de M-01 pede o trecho de cada evento. Observação: a seta vermelha tem ponta também junto ao cliente e um prolongamento esmaecido até o CLP; a página explica o esmaecido como o alcance caso a fronteira não bloqueasse.
+
+**Revisão de 29 out. 2026:** o prompt anterior colocava selos com os controles de cada trecho, o que entregaria a resposta da Aplicação da A19 ("marque onde devem existir identidade, restrição de destino, registro de sessão e autorização de alteração"). A nova versão numera os trechos ①–④ para o estudante associar os controles. Ao incorporar, ajustar a Aplicação para citar os números.
+
 **Prompt:**
 
-> Crie um diagrama didático horizontal em português de acesso remoto de manutenção a um ambiente industrial. Fundo claro, alto contraste, 16:9, texto grande.
+> Crie um diagrama didático horizontal em português de um acesso remoto de manutenção a um ambiente industrial. Use o mesmo estilo de uma ilustração técnica semi-realista com ícones limpos, rótulos em negrito escuro, fundo claro, alto contraste e texto grande legível em projeção. Formato 16:9.
 >
-> Da esquerda para a direita, cinco nós ligados por setas distintas:
-> "Cliente remoto" (notebook) → "Gateway VPN" → "Intermediário (jump host) — DMZ" → "Estação de engenharia — OT" → "CLP".
+> O fundo é dividido em três áreas verticais com cores suaves e rótulos no topo, exatamente como escrito: à esquerda "Fora da empresa", no centro "DMZ", à direita "Rede OT". Separe as áreas com linhas verticais com ícone de firewall.
 >
-> Sobre cada seta, um pequeno selo com o controle aplicado naquele trecho:
-> - cliente → gateway: "identidade + MFA"
-> - gateway → intermediário: "restrição de destino"
-> - intermediário → estação: "janela aprovada + registro de sessão"
-> - estação → CLP: "autorização de alteração"
+> Da esquerda para a direita, cinco nós alinhados em uma linha horizontal, com estes rótulos exatos:
+> 1. "Cliente remoto" (notebook), na área "Fora da empresa"
+> 2. "Gateway VPN" (equipamento de rede em rack), sobre a fronteira entre "Fora da empresa" e "DMZ"
+> 3. "Intermediário" (servidor), na "DMZ"
+> 4. "Estação de engenharia" (estação de trabalho com monitor), na "Rede OT"
+> 5. "CLP" (armário de CLP), na "Rede OT"
 >
-> Abaixo, uma seta vermelha tracejada saindo do "Cliente remoto" diretamente para o "CLP", com um X grande e o rótulo "caminho direto: negado".
+> Ligue os nós por quatro setas separadas, cada uma com um círculo numerado e um rótulo curto:
+> - Cliente remoto → Gateway VPN: "① túnel"
+> - Gateway VPN → Intermediário: "② acesso limitado"
+> - Intermediário → Estação de engenharia: "③ sessão autorizada"
+> - Estação de engenharia → CLP: "④ operação autorizada"
 >
-> Use um túnel sombreado apenas entre o cliente e o gateway, rotulado "túnel VPN", para mostrar que a VPN protege só esse trecho. Não use marcas, IPs, pessoas ou telas reais.
+> Desenhe um tubo sombreado envolvendo somente a seta ①, rotulado "túnel VPN: protege só este trecho". O tubo começa no cliente e termina no gateway; não o estenda além.
+>
+> Abaixo da linha principal, uma seta vermelha tracejada sai do "Cliente remoto" em direção ao "CLP" e para na primeira linha de firewall, com um X vermelho grande e o rótulo "caminho direto: negado".
+>
+> Não acrescente cadeados, escudos, selos ou textos sobre MFA, senha, registro ou autorização além dos indicados. Não use marcas, logotipos, endereços IP, pessoas ou telas de produtos reais.
 
-**Texto alternativo previsto:** acesso remoto em cinco passos: cliente, gateway VPN, intermediário na DMZ, estação de engenharia e CLP. Cada trecho tem um controle próprio: identidade e MFA, restrição de destino, janela e registro de sessão, autorização de alteração. O túnel VPN cobre só o primeiro trecho; o caminho direto do cliente ao CLP é negado.
+**Texto alternativo previsto:** acesso remoto em quatro trechos numerados: ① túnel do cliente remoto ao gateway VPN, ② acesso limitado do gateway ao intermediário na DMZ, ③ sessão autorizada do intermediário à estação de engenharia na rede OT e ④ operação autorizada da estação ao CLP. O túnel VPN protege apenas o trecho ①; o caminho direto do cliente ao CLP é negado no primeiro firewall.
 
-**Conferência:** o túnel não pode se estender até o CLP; os quatro selos ficam nos trechos corretos.
+**Conferência:** túnel apenas no trecho ①; nós nas áreas corretas, com o gateway na fronteira; quatro setas distintas e numeradas; seta vermelha parando no primeiro firewall; nenhum selo de controle que antecipe a resposta.
 
 ---
 
@@ -261,4 +275,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | Imagem | Estado | Data |
 |---|---|---|
 | 26 | Incorporada na A19 | 29 out. 2026 |
-| 27–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
+| 27–29, 31–34 | Prompt entregue ao docente | 29 out. 2026 |
