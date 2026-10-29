@@ -317,10 +317,10 @@ Um **intertravamento** impede ou interrompe uma ação diante de uma condição.
 
 **Síntese.** A seção 4.1 aplica à OT o ciclo de gestão de risco do NIST. Seus quatro componentes são contínuos.
 
-```text
-Enquadrar → Avaliar → Responder → Monitorar
-    ↑                                  │
-    └──────────────────────────────────┘
+```mermaid
+flowchart LR
+    E[Enquadrar] --> A[Avaliar] --> R[Responder] --> M[Monitorar]
+    M -->|ambiente ou controle mudou| E
 ```
 
 | Componente | Pergunta em OT |
@@ -497,9 +497,17 @@ O caso ilustra falhas nas camadas 1, 3 e 5 ao mesmo tempo: ninguém decidiu se o
 
 Preencha o registro na ordem abaixo. Os quatro últimos campos serão reabertos na A20.
 
-```text
-função → consequência → controle → responsável
-       → caso permitido → caso negado → função preservada → lacuna
+```mermaid
+flowchart LR
+    subgraph A19 [Decisão de proteção — A19]
+        direction LR
+        F[Função] --> C[Consequência] --> K[Controle] --> R[Responsável]
+    end
+    subgraph A20 [Verificação — reaberta na A20]
+        direction LR
+        P[Caso permitido] --> N[Caso negado] --> FP[Função preservada] --> L[Lacuna]
+    end
+    R --> P
 ```
 
 Identifique o que é proposta e o que foi fornecido ou observado. Nenhum teste de rede é solicitado nesta aula.
