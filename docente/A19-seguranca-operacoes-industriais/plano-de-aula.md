@@ -1,6 +1,6 @@
 # Plano docente — A19 — Segurança das operações industriais
 
-**Estado:** produção local de 29 out. 2026; identificador provisório no calendário. Não confirma realização ou publicação remota.
+**Estado:** publicado para avaliação em 29 out. 2026; identificador provisório no calendário. Não confirma realização.
 
 A ficha-base, a cadeia didática, o detalhamento dos blocos, respostas e contingências estão no [planejamento integrado A19–A20](../A19-A20-seguranca-operacoes-industriais/planejamento-integrado.md). A [página integral](../../docs/aulas/A19-seguranca-operacoes-industriais.md) e a [atividade única](../../docs/atividades/A19-A20-protecao-validacao-ot.md#atividade) são os artefatos públicos correspondentes.
 

@@ -1,5 +1,7 @@
 # Validação local — A19–A20, 29 out. 2026
 
+Este registro documenta os checks anteriores à publicação. A etapa posterior está no [registro de publicação e verificação](validacao-pages-2026-10-29.md).
+
 ## Resultado e alcance
 
 Preparadas duas páginas integrais de 100 minutos, uma atividade compartilhada, insumos em texto e planos docentes. Arquitetura, roadmap, navegação, percurso e manifesto alinhados à redução de quatro para dois encontros OT. Os identificadores A19/A20 continuam provisórios para o calendário; os demais materiais históricos foram preservados.

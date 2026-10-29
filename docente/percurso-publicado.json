@@ -146,8 +146,8 @@
       "title": "A19 — Segurança das operações industriais",
       "activity": "atividade",
       "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
-      "status": "publicacao_autorizada_para_avaliacao",
-      "note": "Publicação para avaliação solicitada pelo docente em 29 out. 2026. Dois encontros OT, base SP 800-82 Rev. 3 e ponte para pentest; identificador provisório. Análise de dados didáticos e caso web proposto. Deploy e verificação pública pendentes neste registro; não comprova testes ou realização pela turma."
+      "status": "material_publicado_para_avaliacao_realizacao_nao_declarada",
+      "note": "Publicado no GitHub Pages em 29 out. 2026, commit 5c7874eadac344a1573a2e38140155c97a627eef. Validação e deploy aprovados; conteúdo público conferido. Identificador provisório. Análise de dados didáticos e caso web proposto, sem comprovar execução de testes ou realização pela turma."
     },
     {
       "id": "A20",
@@ -155,8 +155,8 @@
       "title": "A20 — Validar controles OT e preparar pentest",
       "activity": "atividade",
       "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
-      "status": "publicacao_autorizada_para_avaliacao",
-      "note": "Publicação para avaliação solicitada pelo docente em 29 out. 2026. Dois encontros OT, base SP 800-82 Rev. 3 e ponte para pentest; identificador provisório. Análise de dados didáticos e caso web proposto. Deploy e verificação pública pendentes neste registro; não comprova testes ou realização pela turma."
+      "status": "material_publicado_para_avaliacao_realizacao_nao_declarada",
+      "note": "Publicado no GitHub Pages em 29 out. 2026, commit 5c7874eadac344a1573a2e38140155c97a627eef. Validação e deploy aprovados; conteúdo público conferido. Identificador provisório. Análise de dados didáticos e caso web proposto, sem comprovar execução de testes ou realização pela turma."
     }
   ],
   "practice_repository": {
@@ -177,5 +177,17 @@
     "url": "https://rafaelrezo.github.io/seguranca-digital/",
     "validation_run": 38815048156,
     "deploy_run": 38815048134
+  },
+  "ot_publication": {
+    "date": "2026-10-29",
+    "commit": "5c7874eadac344a1573a2e38140155c97a627eef",
+    "url": "https://rafaelrezo.github.io/seguranca-digital/",
+    "validation_run": 40945550859,
+    "deploy_run": 40945551093,
+    "status": "publicado_para_avaliacao_conferido",
+    "lessons": [
+      "A19",
+      "A20"
+    ]
   }
 }

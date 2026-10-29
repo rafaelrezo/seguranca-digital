@@ -1,5 +1,9 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Publicação para avaliação — OT em dois encontros, 29 out. 2026
+
+A solicitação docente de publicar no GitHub Pages foi atendida pelo commit `5c7874eadac344a1573a2e38140155c97a627eef`. A19, A20, atividade única, pacote e modelo estão públicos; validação e deploy concluíram com sucesso e os artigos publicados coincidem com o build conferido. Ver [registro de publicação](A19-A20-seguranca-operacoes-industriais/validacao-pages-2026-10-29.md). Preservados histórico, alterações locais, Drive e Classroom. Esta publicação permite avaliação docente; não confirma realização, pentest ou conciliação do calendário.
+
 ## Direção docente de 29 out. 2026 — OT em dois encontros e ponte para pentest
 
 **Publicação para avaliação autorizada no mesmo dia:** o docente solicitou publicar as duas aulas e a atividade no GitHub Pages. Levar somente o pacote OT e suas dependências à main, preservando alterações locais e históricas; conferir deploy e endereços públicos antes de declarar publicação concluída.

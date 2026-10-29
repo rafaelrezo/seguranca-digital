@@ -1,5 +1,13 @@
 # Registro de publicação no Google Drive
 
+## A19–A20 publicadas para avaliação — 29 out. 2026
+
+Publicadas as duas aulas de segurança das operações industriais, com base na NIST SP 800-82 Rev. 3, ponte para pentest e atividade única. Commit `5c7874eadac344a1573a2e38140155c97a627eef` enviado à main a partir de cópia isolada, preservando alterações locais e o histórico remoto.
+
+[A19](https://rafaelrezo.github.io/seguranca-digital/aulas/A19-seguranca-operacoes-industriais/), [A20](https://rafaelrezo.github.io/seguranca-digital/aulas/A20-validacao-ot-pentest/) e [atividade](https://rafaelrezo.github.io/seguranca-digital/atividades/A19-A20-protecao-validacao-ot/#atividade) responderam HTTP 200. Os seis artigos conferidos, incluindo insumos e percurso, coincidem integralmente com o build validado; CSS público idêntico. [Validação 40945550859](https://github.com/rafaelrezo/seguranca-digital/actions/runs/40945550859) e [deploy 40945551093](https://github.com/rafaelrezo/seguranca-digital/actions/runs/40945551093) concluídos com sucesso.
+
+[Registro de publicação e verificação](A19-A20-seguranca-operacoes-industriais/validacao-pages-2026-10-29.md). Drive/Classroom e artefatos históricos preservados; publicação para avaliação não comprova realização, testes executados ou calendário conciliado.
+
 ## TLS com sockets publicado no GitHub Pages — 20 out. 2026
 
 Publicado o commit `dd436fd91ab49aacc877bb4a90f0b5513120e782` na main a partir de cópia isolada, preservando demais alterações locais. A [prática TLS com sockets](https://rafaelrezo.github.io/seguranca-digital/praticas/tls-sockets/) inclui fontes completos, ZIP, mapa das chaves/certificados, preparação, conexão aceita e recusas por nome/CA. A15/A16 apontam para o percurso; T1–T3 substituem a execução TLS L1–L3 em C3, sem nova entrega ou mudança de calendário.

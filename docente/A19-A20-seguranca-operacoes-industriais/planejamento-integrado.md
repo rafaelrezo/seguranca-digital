@@ -2,7 +2,7 @@
 
 **Direção:** solicitação docente de 29 out. 2026: visão geral de segurança industrial pelo NIST, em até dois encontros, com ponte para validação por pentest e apresentação de referenciais, possivelmente com foco OWASP.
 
-**Estado:** produção local de duas páginas integrais e atividade única. Não comprova publicação remota, realização, entrega estudantil, laboratório industrial ou teste web. Identificadores A19/A20 mantidos provisoriamente, sem conciliação do calendário. A preferência de formato foi perguntada durante a produção; sem resposta recebida, adotou-se exposição com análise de evidências como opção de menor preparação para o limite de dois encontros.
+**Estado:** duas páginas integrais e atividade única publicadas no GitHub Pages para avaliação em 29 out. 2026; ver [verificação](validacao-pages-2026-10-29.md). Não comprova realização, entrega estudantil, laboratório industrial ou teste web. Identificadores A19/A20 mantidos provisoriamente, sem conciliação do calendário. A preferência de formato foi perguntada durante a produção; sem resposta recebida, adotou-se exposição com análise de evidências como opção de menor preparação para o limite de dois encontros.
 
 ## Diagnóstico curricular antes da escolha dos exemplos
 
@@ -98,6 +98,6 @@ Se houver proposta posterior de usar OpenPLC/FUXA, Wireshark ou aplicação real
 - [Página A20](../../docs/aulas/A20-validacao-ot-pentest.md) e [plano A20](../A20-validacao-ot-pentest/plano-de-aula.md).
 - [Atividade única](../../docs/atividades/A19-A20-protecao-validacao-ot.md#atividade), [pacote](../../docs/assets/a19-a20/pacote-evidencias-ot.md) e [modelo](../../docs/assets/a19-a20/modelo-registro-ot.md).
 
-Endereço a distribuir após eventual publicação: `atividades/A19-A20-protecao-validacao-ot/#atividade`. Não houve envio ao Classroom. Navegação/percurso incluem somente os dois novos encontros. Arquitetura/roadmap mantêm explicação dos identificadores e encontros liberados. O manifesto registra material local, sem alterar o comprovante da publicação anterior.
+Endereço a distribuir após eventual publicação: `atividades/A19-A20-protecao-validacao-ot/#atividade`. Não houve envio ao Classroom. Navegação/percurso incluem somente os dois novos encontros. Arquitetura/roadmap mantêm explicação dos identificadores e encontros liberados. O manifesto registra a publicação OT para avaliação em bloco próprio, preservando os registros anteriores.
 
 Ver a [validação local](validacao-local.md) para checks efetivamente executados e seus limites.

@@ -1,0 +1,49 @@
+[
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/aulas/A19-seguranca-operacoes-industriais/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "00692fbcce8f694b8255851c0bbfabd964937faf6bf327efe3fe6013a0cd7448",
+    "has_activity": true
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/aulas/A20-validacao-ot-pentest/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "0f918035f2a41f538d223c129eec16c93d57b0ed7e941c3db3387539e87cac78",
+    "has_activity": true
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/atividades/A19-A20-protecao-validacao-ot/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "795ec59eeedb288c0efe7c17533387e0d5e83f6bf2b20d7607060e700889b295",
+    "has_activity": true
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/assets/a19-a20/pacote-evidencias-ot/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "84a2673a71cf43710d68495e42339456b5997efb7e499a3f86c0c61a948f0e5e",
+    "has_activity": false
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/assets/a19-a20/modelo-registro-ot/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "f3109a131c25e6fd6181bc3ffb7b03147261e8c6c079c82c98af14e9f7c968f2",
+    "has_activity": false
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/percurso/",
+    "status": 200,
+    "article_matches_build": true,
+    "article_sha256": "6d176903bf3642d3a4f825f3d0e51a8e6147b79b31e4ba8bfda42c0cad260720",
+    "has_activity": false
+  },
+  {
+    "url": "https://rafaelrezo.github.io/seguranca-digital/stylesheets/extra.css",
+    "status": 200,
+    "matches_build": true
+  }
+]
