@@ -74,6 +74,24 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 28 — Defesa em profundidade: cinco camadas da SP 800-82 {#imagem-28}
 
+**Estado (29 out. 2026):** primeira versão recebida (`imagem28-real.png`) e **não incorporada**. Rótulos e ordem corretos, mas o ícone de firewall ficou no anel 2 (física) e a engrenagem do software dentro do círculo "Processo"; associação incorreta camada–ícone. Retoque por pixel tentado e descartado por deixar emendas. Usar o prompt corrigido abaixo.
+
+**Prompt corrigido:**
+
+> Crie um diagrama didático em português com cinco anéis concêntricos ao redor de um círculo central rotulado "Processo", com um pequeno tanque e um CLP. Ilustração técnica semi-realista com ícones limpos, rótulos em negrito escuro, fundo claro, alto contraste, formato quadrado 1:1, texto grande.
+>
+> Do anel mais externo para o mais interno, com estes rótulos exatos escritos dentro do próprio anel: 1. "1 — Gestão de segurança", azul-claro; 2. "2 — Segurança física", verde-claro; 3. "3 — Segurança de rede", amarelo-claro; 4. "4 — Segurança de hardware", lilás; 5. "5 — Segurança de software", rosa-claro.
+>
+> Cada anel tem exatamente um ícone, desenhado inteiramente dentro da faixa colorida daquele anel, ao lado do seu rótulo, sem tocar as bordas: anel 1, folha de documento com três silhuetas simples sem rosto; anel 2, porta fechada com fechadura; anel 3, pequena parede de tijolos vermelhos (firewall); anel 4, chave seletora RUN/STOP em um CLP; anel 5, engrenagem com escudo.
+>
+> Uma seta grossa vem de fora pela esquerda e atravessa os anéis em direção ao centro, ficando mais fina e mais clara a cada anel, e termina antes do círculo "Processo", sem tocá-lo. Ao lado da seta, a caixa: "cada camada tem função diferente; uma não prova que a outra funciona". Junto ao anel 1, caixa pequena: "concluir primeiro: orienta as demais".
+>
+> Não desenhe ícones fora do seu anel nem ícones extras. Sem marcas, pessoas reconhecíveis ou hackers.
+
+**Conferência adicional:** cada ícone inteiramente dentro do seu anel; seta não toca o processo.
+
+**Prompt original (histórico):**
+
 **Local:** A19, "Arquitetura: defesa em profundidade em cinco camadas", após os cards.
 
 **Prompt:**
@@ -98,6 +116,19 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 ---
 
 ### Imagem 29 — Modelo Purdue com zonas, conduítes e DMZ {#imagem-29}
+
+**Estado (29 out. 2026):** primeira versão recebida e **não incorporada**. Faixas, DMZ e zonas corretas, mas (1) a seta verde sobe direto do historiador ao corporativo, passando ao lado da réplica — desenha o fluxo atravessando a DMZ, padrão que a DMZ deve impedir; (2) a seta vermelha continua cheia após o X até o CLP, cruzando a fronteira da Zona OT sem conduíte. Corrigir com o bloco de setas abaixo, mantendo o restante do prompt revisto.
+
+**Bloco de setas corrigido (substitui os dois parágrafos de fluxo do prompt):**
+
+> Fluxo permitido, em DUAS setas verdes separadas, que terminam na DMZ: seta 1, do "historiador" (Nível 3) sobe, atravessa o firewall inferior e termina na "réplica do historiador", com a ponta tocando esse servidor; rótulo "1 — historiador envia à réplica". Seta 2, começa na "réplica do historiador", sobe, atravessa o firewall superior e termina nos computadores corporativos; rótulo "2 — corporativo lê a réplica". Nenhuma seta verde vai diretamente do Nível 3 ao corporativo.
+>
+> Fluxo negado: uma seta vermelha tracejada curta desce dos computadores corporativos e termina no firewall superior, com um X vermelho grande sobre o firewall. Abaixo do firewall não existe linha vermelha. Rótulo: "corporativo → CLP direto: negado".
+>
+> Não acrescente faixas, setas ou rótulos além dos indicados. Sem marcas, IPs, nomes de produtos ou pessoas.
+
+**Conferência adicional:** duas setas verdes, cada uma terminando em um servidor; nenhuma linha vermelha abaixo do firewall superior.
+
 
 **Local:** A19, "Zonas, conduítes e níveis"; complementa a tabela de níveis.
 
@@ -279,4 +310,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 26 | Incorporada na A19 | 29 out. 2026 |
 | 27 | Incorporada na A19 | 29 out. 2026 |
 | 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
-| 28–29, 31–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 28–29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
+| 31–34 | Prompt entregue ao docente | 29 out. 2026 |

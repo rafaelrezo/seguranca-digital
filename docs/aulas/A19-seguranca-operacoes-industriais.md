@@ -320,9 +320,35 @@ Um **intertravamento** impede ou interrompe uma ação diante de uma condição.
 
 ---
 
-## Risco: enquadrar, avaliar, responder e monitorar
+## Risco: o que muda quando a consequência é física
 
-**Síntese.** A seção 4.1 aplica à OT o ciclo de gestão de risco do NIST. Seus quatro componentes são contínuos.
+**Síntese.** A seção 4 da SP 800-82 não cria outro conceito de risco: reaproveita o da [A09](A09-decisao-de-riscos.md). O que muda em OT é **onde o dano aparece** e **quem precisa participar** da análise.
+
+- O risco continua sendo a combinação de um evento possível com a perda que ele causaria.
+- Em OT, a perda pode ser física: pessoas, ambiente, equipamento e produção.
+- Avaliar essa perda exige conhecer o processo, não só o sistema digital.
+- Por isso, engenharia de processo e operação entram na análise junto com a segurança.
+
+### Ponto de partida: os elementos que você já conhece
+
+Na A09, cada risco foi descrito pelos elementos da SP 800-30. A tabela aplica os mesmos elementos ao tanque. Leia a coluna da direita de cima para baixo: ela forma uma frase de risco.
+
+| Elemento (A09) | Pergunta | No tanque |
+|---|---|---|
+| **Fonte de ameaça** | Quem ou o que pode iniciar o evento? | Pessoa com acesso indevido à conta da estação de engenharia |
+| **Evento de ameaça** | O que pode acontecer? | Alterar o parâmetro que controla a bomba de entrada |
+| **Vulnerabilidade** | Que fragilidade permite o dano? | A conta pode alterar parâmetros a qualquer hora, sem aprovação |
+| **Condição predisponente** | Que característica aumenta a exposição? | A estação é acessível remotamente para manutenção |
+| **Controle existente** | Que proteção já atua? | Proteção de nível alto-alto em 80% (premissa não ensaiada) |
+| **Impacto possível** | Que perda resultaria? | Entrada de água inadequada; **transbordamento** se a proteção também falhar |
+
+**Frase de risco:** *se alguém usar indevidamente a conta da estação de engenharia, acessível remotamente, para alterar o parâmetro da bomba, o tanque pode transbordar caso a proteção de nível alto-alto não atue.*
+
+**O que é diferente da A09.** Lá, o impacto era perda de autoria ou de dados. Aqui, a última linha é um **efeito físico**. Para estimá-lo, não basta saber que a conta foi usada. É preciso saber se a proteção de 80% é independente do controle, para onde vai a água e quem está perto do tanque. Essas respostas vêm da engenharia de processo, e não da equipe de TI.
+
+### Gerenciar continuamente: o ciclo da seção 4.1
+
+Uma frase de risco não resolve o problema sozinha. O risco precisa ser **gerenciado ao longo do tempo**, porque a planta muda: um novo fornecedor ganha acesso, um equipamento é trocado, um controle deixa de funcionar. A seção 4.1 organiza essa gestão em quatro atividades contínuas.
 
 ```mermaid
 flowchart LR
@@ -330,16 +356,43 @@ flowchart LR
     M -->|ambiente ou controle mudou| E
 ```
 
-| Componente | Pergunta em OT |
-|---|---|
-| **Enquadrar** | Que consequências são inaceitáveis (pessoas, ambiente, produção) e que restrições existem? |
-| **Avaliar** | Que ameaça, vulnerabilidade e condição podem levar a essa consequência? |
-| **Responder** | Que controle reduz o risco sem criar outro problema operacional? |
-| **Monitorar** | O controle continua funcionando e o ambiente mudou? |
+| Atividade | O que faz | No tanque |
+|---|---|---|
+| **Enquadrar** | Define o que é inaceitável e as restrições, **antes** de olhar ameaças | Transbordamento é inaceitável; a bomba não pode ser parada sem aviso à operação |
+| **Avaliar** | Monta e compara frases de risco como a acima | Alteração indevida do parâmetro; perda de supervisão; falha do sensor |
+| **Responder** | Escolhe controle, aceita, transfere ou evita o risco | Restringir a conta a janelas aprovadas; revisar a independência da proteção de 80% |
+| **Monitorar** | Verifica se o controle continua funcionando e se algo mudou | Registros de alteração de parâmetro; teste periódico da proteção |
 
-A seção 4.2 destaca duas áreas especiais. **Cadeia de suprimentos:** firmware, peças, integradores e acesso remoto de fornecedores também são origem de risco. **Sistemas de segurança:** a análise de risco cibernético deve considerar como um ataque pode afetar funções instrumentadas de segurança. A seção 4.3 aplica os sete passos do RMF (*Risk Management Framework*): preparar, categorizar, selecionar, implementar, avaliar, autorizar e monitorar.
+O **enquadramento** é a atividade que mais muda em OT. Os critérios de "inaceitável" incluem segurança de pessoas e ambiente, e as restrições incluem tempo de resposta, janelas de parada e suporte do fornecedor — as considerações da seção 2.4.
+
+### Dois cuidados especiais da seção 4.2
+
+<div class="grid cards" markdown>
+
+-   **Cadeia de suprimentos**
+
+    ---
+
+    O risco também entra por quem fornece: firmware, peças de reposição, integradores e acesso remoto de fornecedores.
+
+    *No tanque:* o integrador que programou o CLP tem uma conta remota? Quem a desativa quando o contrato acaba?
+
+-   **Sistemas de segurança (SIS)**
+
+    ---
+
+    A análise cibernética precisa considerar se um ataque pode desativar ou enganar a função que leva o processo a estado seguro.
+
+    *No tanque:* se a proteção de 80% usa o mesmo sensor e o mesmo CLP do controle, um único evento pode comprometer os dois.
+
+</div>
+
+!!! note "Para aprofundar: RMF na seção 4.3"
+    O **RMF** (*Risk Management Framework*, descrito na NIST SP 800-37) é o processo do NIST para colocar um sistema em operação com risco aceito formalmente: preparar, categorizar, selecionar controles, implementar, avaliar, autorizar e monitorar. A seção 4.3 explica como adaptar cada passo à OT. Ele não é necessário para esta aula; interessa a quem vai trabalhar com conformidade e autorização de sistemas.
 
 ### Inventário: registrar função antes de escolher controle
+
+Nenhuma das atividades do ciclo funciona sem saber **o que existe** na planta. Não dá para enquadrar ou avaliar o risco de um ativo que ninguém registrou. Por isso o inventário vem antes de escolher controles, e em OT ele precisa registrar mais do que endereço e versão.
 
 <div class="grid cards" markdown>
 
@@ -375,6 +428,8 @@ Em protocolos como **Modbus TCP**, há operações de leitura e operações que 
 
 ### Exemplo trabalhado: alteração de parâmetro
 
+O registro abaixo organiza a frase de risco do tanque no formato do registro OT desta atividade. Ele acrescenta o que a frase não tinha: a evidência necessária, os responsáveis e o limite do que se sabe.
+
 | Campo | Registro de exemplo |
 |---|---|
 | Função | Manter o nível do tanque dentro da faixa de operação |
@@ -386,7 +441,7 @@ Em protocolos como **Modbus TCP**, há operações de leitura e operações que 
 | Responsáveis | Operação autoriza; automação verifica a lógica; segurança verifica os acessos |
 | Limite | Não foram fornecidos programa, permissões reais nem testes de intertravamento |
 
-Não atribua probabilidade ou classe de risco sem premissas. A [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) apoia a explicitação dessas incertezas.
+Note que o registro não traz **verossimilhança** nem classe de risco, como a matriz da A09 trazia. Sem programa, permissões reais e ensaio da proteção, qualquer nota seria inventada. A [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) orienta a registrar essa incerteza em vez de escondê-la.
 
 **Aplicação:** registre três ativos do esquema. Para cada um, indique função, dependência, alteração sensível, responsável e uma evidência que ajudaria a conhecê-lo. Use "não informado" quando faltar um dado. Não procure equipamentos na rede da instituição.
 
