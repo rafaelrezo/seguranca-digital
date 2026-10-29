@@ -20,3 +20,7 @@ A inspeção local em desktop e tela estreita foi registrada na [validação ant
 ## Limites
 
 Publicação para avaliação não confirma realização das aulas, execução de testes industriais/web, restauração, domínio individual ou ajuste final do calendário. A19/A20 continuam identificadores provisórios para o calendário. Não houve alteração no Drive/Classroom nem criação de infraestrutura industrial/nuvem. O foco futuro OWASP permanece recomendação editorial, como registrado no planejamento.
+
+## Republicação — revisão com cards (29 out. 2026, tarde)
+
+Publicação solicitada pelo docente. Commit `9c24b395` enviado à main a partir de cópia limpa de `393cbea4`, levando somente a revisão A19–A20 (páginas, atividade, pacote, modelo, percurso, navegação, CSS dos cards e registros docentes correspondentes). Build estrito e validador aprovados na cópia isolada; validação editorial 40952572050 e deploy 40952572173 concluídos com sucesso. As duas aulas, atividade, pacote, modelo e percurso responderam HTTP 200 com os novos títulos e os cards; o caso web foi removido das páginas públicas e preservado em reserva docente. Não confirma realização nem altera Drive/Classroom.
