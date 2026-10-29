@@ -223,6 +223,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Estado (29 out. 2026):** versão gerada recebida e **não incorporada** — escala de tempo incoerente (10:00:02 sobre a marca 09:59:55, amostra de 10:00:00 sobre 09:59:50, janela iniciando antes de 10:00) e erro "autentcação". Substituída por **SVG gerado por script**, com escala calculada (36 px/s) e quebra explícita de 20 s: `docs/assets/a19-a20/figura31-linha-do-tempo-m01.svg`, fonte `tools/materials/figura31_linha_do_tempo_m01.py`. Incorporada na A20 (`#figura-31`). Geradores de imagem não posicionam valores numéricos com precisão; para figuras com escala, preferir SVG.
 
+**Segunda versão gerada (prompt sem eixo, eventos equidistantes):** rótulos, ordem e grafia corretos, mas **não substitui o SVG**. Com as raias alinhadas, a amostra de 10:00:05 aparece antes do evento de 10:00:04, e a de 10:00:10 antes do de 10:00:06, invertendo a correlação que a figura deve ensinar. Aproveitada a lição de legibilidade: fontes e caixas do SVG ampliadas (texto de 16–23 px em 1200 px de largura).
+
 **Local:** A20, depois da tabela da "Função preservada: uma segunda evidência" (une as duas tabelas da aula).
 
 **Prompt:**
