@@ -135,6 +135,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 29 — Modelo Purdue com zonas, conduítes e DMZ {#imagem-29}
 
+**Estado (29 out. 2026, segunda versão gerada):** **não incorporada.** Seta 1 e seta vermelha corretas, mas a seta verde 2 cruza a fronteira ao lado do X, e não pelo firewall, e veio rotulada "1"; o rótulo da seta 1 sumiu. Encaminhamento: gerar a base **sem setas nem rótulos de fluxo** e sobrepor setas e rótulos em SVG, com posição exata.
+
 **Estado (29 out. 2026):** primeira versão recebida e **não incorporada**. Faixas, DMZ e zonas corretas, mas (1) a seta verde sobe direto do historiador ao corporativo, passando ao lado da réplica — desenha o fluxo atravessando a DMZ, padrão que a DMZ deve impedir; (2) a seta vermelha continua cheia após o X até o CLP, cruzando a fronteira da Zona OT sem conduíte. Corrigir com o bloco de setas abaixo, mantendo o restante do prompt revisto.
 
 **Bloco de setas corrigido (substitui os dois parágrafos de fluxo do prompt):**
@@ -218,6 +220,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 ## A20
 
 ### Imagem 31 — Linha do tempo M-01: acesso e processo no mesmo relógio {#imagem-31}
+
+**Estado (29 out. 2026):** versão gerada recebida e **não incorporada** — escala de tempo incoerente (10:00:02 sobre a marca 09:59:55, amostra de 10:00:00 sobre 09:59:50, janela iniciando antes de 10:00) e erro "autentcação". Substituída por **SVG gerado por script**, com escala calculada (36 px/s) e quebra explícita de 20 s: `docs/assets/a19-a20/figura31-linha-do-tempo-m01.svg`, fonte `tools/materials/figura31_linha_do_tempo_m01.py`. Incorporada na A20 (`#figura-31`). Geradores de imagem não posicionam valores numéricos com precisão; para figuras com escala, preferir SVG.
 
 **Local:** A20, depois da tabela da "Função preservada: uma segunda evidência" (une as duas tabelas da aula).
 
@@ -330,4 +334,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
 | 28 | Duas versões recusadas; terceira versão do prompt entregue | 29 out. 2026 |
 | 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
-| 31–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
+| 32–34 | Prompt entregue ao docente | 29 out. 2026 |
