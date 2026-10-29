@@ -17,6 +17,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 26 — Malha de controle do tanque didático {#imagem-26}
 
+**Estado:** imagem recebida, validada e incorporada em 29 out. 2026 (`docs/assets/a19-a20/imagem26.png`, otimizada para 256 cores; `#figura-26` na A19). Substitui o esquema em texto. Critérios de conferência atendidos. Observação: o nível da água desenhado fica perto de 70%, acima da faixa de operação do exemplo; a página declara o nível como ilustrativo. Se uma nova versão for gerada, acrescentar ao prompt: "nível da água em cerca de 50%, entre as marcas de 40% e 60%".
+
 **Local:** A19, "Exemplo: controle de nível"; substitui o esquema em texto.
 
 **Prompt:**
@@ -258,4 +260,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 | Imagem | Estado | Data |
 |---|---|---|
-| 26–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 26 | Incorporada na A19 | 29 out. 2026 |
+| 27–34 | Prompt entregue ao docente | 29 out. 2026 |

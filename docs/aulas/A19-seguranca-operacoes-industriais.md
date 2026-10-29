@@ -115,21 +115,22 @@ Um **sistema de controle industrial**, ou **ICS** (*Industrial Control System*),
 
 ### Exemplo: controle de nível
 
-O esquema é um **modelo didático de tanque de água**, sem planta ou incidente real associado.
+A figura representa um **modelo didático de tanque de água**, sem planta ou incidente real associado.
 
-```text
-Tanque
-   ↓ medição
-Sensor de nível
-   ↓ valor e qualidade
-Controlador ↔ supervisório
-   ↓ comando
-Bomba de entrada
-   ↓ água
-Tanque
-```
+![Malha de controle do tanque: o sensor de nível envia a medição ao CLP, o CLP comanda a bomba de entrada e a água altera o nível. A IHM troca informações de supervisão com o CLP; a estação de engenharia, em área separada, altera programa e parâmetros. O laço sensor, CLP, bomba e tanque está destacado como malha local que continua funcionando sem a IHM.](../assets/a19-a20/imagem26.png){#figura-26 loading=lazy}
 
-A malha local (sensor → controlador → bomba) pode continuar funcionando sem a tela do supervisório. Perder a supervisão e perder o controle são falhas diferentes.
+*Imagem 26 — Malha de controle do tanque didático.* [Abrir a imagem ampliada](../assets/a19-a20/imagem26.png).
+
+**Leia a figura:** siga primeiro as setas contínuas. A **medição** vai do sensor ao CLP, o **comando** vai do CLP à bomba e a **água** entra no tanque. O contorno verde marca esse laço.
+
+As outras duas ligações estão fora do laço:
+
+- **Supervisão (tracejada):** a IHM mostra estados e envia comandos autorizados, mas a malha local pode continuar funcionando sem a tela.
+- **Programa e parâmetros (pontilhada vermelha):** a estação de engenharia não participa do controle a cada ciclo; ela muda **como** o CLP decide.
+
+Perder a supervisão e perder o controle são falhas diferentes. Alterar o programa é uma terceira condição: o laço continua funcionando, mas com outra lógica.
+
+As marcas de 40%, 60% e 80% no tanque são as do exemplo. O nível da água desenhado é apenas ilustrativo, não uma leitura.
 
 | Elemento | Função no exemplo | O que deve ser protegido |
 |---|---|---|
