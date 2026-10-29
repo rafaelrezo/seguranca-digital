@@ -24,6 +24,9 @@
   outline: 3px solid #165da6;
   outline-offset: 2px;
 }
+/* Tabelas OT: a própria região com foco controla a rolagem horizontal. */
+.ot-table .md-typeset__scrollwrap { margin: 0; overflow: visible; }
+.ot-table .md-typeset__table { display: block; padding: 0; }
 .didactic-figure img {
   display: block;
   width: 100%;

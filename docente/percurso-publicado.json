@@ -139,6 +139,24 @@
       "shared_activity": "atividades/A14-A18-criptografia-confianca.md#atividade",
       "status": "material_publicado_realizacao_nao_declarada",
       "note": "Edição de 15 out. 2026 publicada no GitHub Pages. Publicação não confirma execução das práticas pela turma nem implantação AWS/Windows."
+    },
+    {
+      "id": "A19",
+      "page": "aulas/A19-seguranca-operacoes-industriais.md",
+      "title": "A19 — Segurança das operações industriais",
+      "activity": "atividade",
+      "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
+      "status": "publicacao_autorizada_para_avaliacao",
+      "note": "Publicação para avaliação solicitada pelo docente em 29 out. 2026. Dois encontros OT, base SP 800-82 Rev. 3 e ponte para pentest; identificador provisório. Análise de dados didáticos e caso web proposto. Deploy e verificação pública pendentes neste registro; não comprova testes ou realização pela turma."
+    },
+    {
+      "id": "A20",
+      "page": "aulas/A20-validacao-ot-pentest.md",
+      "title": "A20 — Validar controles OT e preparar pentest",
+      "activity": "atividade",
+      "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
+      "status": "publicacao_autorizada_para_avaliacao",
+      "note": "Publicação para avaliação solicitada pelo docente em 29 out. 2026. Dois encontros OT, base SP 800-82 Rev. 3 e ponte para pentest; identificador provisório. Análise de dados didáticos e caso web proposto. Deploy e verificação pública pendentes neste registro; não comprova testes ou realização pela turma."
     }
   ],
   "practice_repository": {

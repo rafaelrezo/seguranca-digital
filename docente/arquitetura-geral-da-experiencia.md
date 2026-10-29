@@ -1,5 +1,26 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Direção docente de 29 out. 2026 — OT em dois encontros e ponte para pentest
+
+**Publicação para avaliação autorizada no mesmo dia:** o docente solicitou publicar as duas aulas e a atividade no GitHub Pages. Levar somente o pacote OT e suas dependências à main, preservando alterações locais e históricas; conferir deploy e endereços públicos antes de declarar publicação concluída.
+
+O docente solicitou produzir uma visão geral de segurança em operações industriais, fundamentada no NIST, em **no máximo dois encontros**, com apresentação de referenciais de pentest e possível aprofundamento em OWASP. Esta direção substitui a expansão prospectiva de OT em quatro encontros. Produzir duas páginas integrais locais, planos e **uma atividade compartilhada**; não implica publicação remota, convocação no Classroom nem confirmação de aulas realizadas.
+
+- **A19 — Segurança das operações industriais:** processo físico, componentes, disponibilidade, integridade, segurança de pessoas, risco, inventário e defesa em profundidade. 100 min, 65 T/35 P planejados.
+- **A20 — Validar controles OT e preparar o pentest:** acesso remoto, monitoração, resposta e recuperação, evidência de controle e de função preservada; comparação de referenciais e ponte para teste web autorizado. 100 min, 55 T/45 P planejados.
+
+Os identificadores A19/A20 conservam a posição inicial do bloco OT no roadmap anterior e continuam **provisórios para o calendário**. A18 e os encontros liberados A21/A22 não recebem destinação por inferência; A23–A31 conservam identificadores prospectivos. As fontes históricas A19–A30 com outros títulos permanecem preservadas e fora do percurso ativo. A redução é de 400 para 200 min de OT (de 190 T/210 P para 120 T/80 P planejados); os 200 min liberados não são automaticamente redistribuídos nem resolvem o balanço institucional de 30 h + 30 h.
+
+**Base:** NIST SP 800-82 Rev. 3, edição final de 2023. Em 29 out. 2026, a Rev. 4 está em rascunho público; não a tratar como edição final. CSF 2.0 é mapa complementar de resultados, distinguindo sua função Govern da organização em cinco funções do CSF 1.1 usada na Rev. 3. ISA/IEC 62443 aparece apenas como referência complementar de arquitetura e responsabilidades, sem alegar cobertura ou conformidade normativa.
+
+Priorizar exposição com exemplos técnicos e análise guiada de evidências, sem empresa ou personagens fictícios. O recorte introdutório não exige instalar OpenPLC/FUXA, configurar rede industrial nem realizar testes ativos em equipamento. Os dados artificiais fornecidos devem ser identificados como tais, com procedência e unidades; sua análise não comprova controle implantado. A alternativa integral fica nas páginas. Uma demonstração em ambiente adicional exige preparação própria e substituição de tempo, não acréscimo automático.
+
+**Produto:** registro curto de proteção e validação OT, com função, consequência, controle, responsável, caso permitido/negado, preservação da função, observação disponível e lacuna. A20 reabre os mesmos campos para formular autorização, escopo, parada e recuperação. A23 recebe o **critério de teste**, sem supor que houve um pentest OT. Não herdar matriz, instalação ou checkpoints de aulas anteriores sem confirmação.
+
+**Ponte metodológica:** NIST SP 800-115 para organizar a avaliação; PTES e OSSTMM para reconhecer abordagens de engajamento e avaliação; OWASP WSTG **4.2** como proposta de foco operacional da continuação web, ASVS **5.0.0** como requisitos e Top 10 **2025** como conscientização/priorização. O foco OWASP é recomendação editorial diante do “talvez” docente, não aprovação presumida de toda a sequência futura. Um teste web no Juice Shop não valida CLP, malha de controle, segmentação industrial ou segurança funcional. Autorização OT não migra para web nem o contrário.
+
+Planos e limites: [planejamento integrado](A19-A20-seguranca-operacoes-industriais/planejamento-integrado.md). As decisões posteriores neste arquivo são histórico quando conflitarem com este recorte.
+
 ## Publicação autorizada em 20 out. 2026 — TLS com sockets
 
 O docente solicitou publicar a prática TLS no GitHub Pages. A página `praticas/tls-sockets.md` oferece cliente/servidor Python padrão, fontes explicadas, ZIP e geração local de identidades. T1–T3 verificam conexão aceita, nome incorreto e CA não confiável, somente em loopback. A15 aponta para a aplicação dos certificados; A16 oferece o percurso como substituto da execução L1–L3, mantendo o estudo do handshake. C3 aceita uma das duas execuções, sem nova entrega. Não se altera a numeração nem se acrescenta o módulo aos 100 minutos. Simétrica permanece concluída por decisão docente; o socket TCP é conhecimento prévio relatado, não evidência de domínio individual.
@@ -164,7 +185,7 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 | A10 | Material com R10-01/R10-02 e checkpoint presencial; realização do encontro confirmada, produtos individuais não confirmados. | A11 retoma acesso e proteção, sem exigir a matriz ou o cenário da A10. |
 | A11–A13 | Uma atividade integrada de classificação, implementação proposta e verificação de controles, regra DLP, leitura de rastros e comparação de controles, a partir de exemplos independentes fornecidos. | O encontro seguinte de criptografia retoma confidencialidade e integridade e os limites da proteção de dados e dispositivos. |
 | Criptografia e confiança | Uma atividade de mecanismos, confiança, canal e ciclo de chaves com casos positivos/negativos. | O bloco OT pergunta como aplicar controles preservando processo físico. |
-| OT e proteção do processo | Uma atividade OT: processo, risco, zonas/conduítes, acesso, observação e recuperação. | Pentest começa delimitando o que pode ser testado com autorização. |
+| OT e proteção do processo — dois encontros | Uma atividade OT: registro de função, consequência, controle, acesso, observação e critérios de resposta/retorno, pela análise de dados didáticos identificados. | Caso permitido/negado, função preservada e lacuna tornam-se critérios do plano de teste autorizado; WSTG é proposta de foco web. |
 | Pentest e defesa | Uma atividade de pentest e defesa: plano, dois achados, correção, reteste, detecção e decisão residual. | Encerrar com relatório e condição de revisão. |
 
 ## Portões contra desvio
