@@ -90,6 +90,24 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Conferência adicional:** cada ícone inteiramente dentro do seu anel; seta não toca o processo.
 
+**Segunda versão (29 out. 2026): também não incorporada.** Engrenagem corrigida e subtítulos úteis acrescentados pelo gerador, mas o firewall voltou a ficar no anel 2 (cores medidas: amarelo à esquerda, verde sob os tijolos, azul à direita) e a seta tocou o processo. O gerador empilha os ícones numa coluna à direita; terceira versão sem ícones nos anéis, aproveitando os subtítulos. Alternativa se falhar: SVG próprio, como as figuras 21–25.
+
+**Prompt — terceira versão:**
+
+> Crie um diagrama didático em português com cinco anéis concêntricos ao redor de um círculo central branco rotulado "Processo", com um pequeno tanque de água e um CLP dentro dele. Ilustração técnica limpa, fundo claro, alto contraste, formato 4:3, texto grande legível em projeção.
+>
+> Do anel mais externo para o mais interno, cada anel com um título e um subtítulo escritos dentro da própria faixa colorida, acompanhando a curva, exatamente como abaixo: 1. azul-claro — "1 — Gestão de segurança" / "Políticas, processos, pessoas e governança"; 2. verde-claro — "2 — Segurança física" / "Instalações, acesso físico e ambiente"; 3. amarelo-claro — "3 — Segurança de rede" / "Segmentação, comunicação e controle"; 4. lilás — "4 — Segurança de hardware" / "Equipamentos, configuração e modo de operação"; 5. rosa-claro — "5 — Segurança de software" / "Aplicações, configurações e dados".
+>
+> Não desenhe nenhum ícone nos anéis. Os únicos desenhos são o tanque e o CLP dentro do círculo "Processo".
+>
+> Uma seta grossa vem de fora pela esquerda e atravessa os anéis em direção ao centro, ficando mais fina e mais clara a cada anel. A ponta da seta para dentro do anel 5, antes da borda do círculo "Processo", deixando um espaço visível entre a ponta e o círculo.
+>
+> No canto inferior esquerdo, a caixa: "cada camada tem função diferente; uma não prova que a outra funciona". No canto superior direito, com uma seta curta apontando para o anel 1: "concluir primeiro: orienta as demais".
+>
+> Sem marcas, pessoas, hackers, cadeados ou escudos.
+
+**Conferência (terceira versão):** nenhum ícone nos anéis; títulos e subtítulos exatos no anel certo; espaço visível entre a ponta da seta e o processo.
+
 **Prompt original (histórico):**
 
 **Local:** A19, "Arquitetura: defesa em profundidade em cinco camadas", após os cards.
@@ -310,5 +328,6 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 26 | Incorporada na A19 | 29 out. 2026 |
 | 27 | Incorporada na A19 | 29 out. 2026 |
 | 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
-| 28–29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
+| 28 | Duas versões recusadas; terceira versão do prompt entregue | 29 out. 2026 |
+| 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
 | 31–34 | Prompt entregue ao docente | 29 out. 2026 |
