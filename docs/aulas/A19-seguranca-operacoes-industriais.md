@@ -158,6 +158,12 @@ Os valores abaixo são **dados artificiais fornecidos para análise**. Observaç
 
 **Conferência:** a última amostra tem dez segundos. A tabela sustenta perda de atualização na IHM; não informa o nível físico atual nem comprova que o CLP parou.
 
+![Tela de IHM do tanque mostrando nível de 47% com o selo Sem atualização. Hora atual 09:00:12, indicada como o que o relógio mostra agora; última aquisição 09:00:02, indicada como quando o valor foi medido. Faixa inferior: idade da amostra igual a 10 segundos; a tela não mostra o nível físico atual.](../assets/a19-a20/imagem27.png){#figura-27 loading=lazy}
+
+*Imagem 27 — A mesma tela, dois relógios.* [Abrir a imagem ampliada](../assets/a19-a20/imagem27.png).
+
+**Leia a figura:** o número grande atrai a atenção, mas a evidência está nos dois campos de baixo. A **hora atual** diz quando você olha; a **última aquisição** diz quando o valor foi medido. A diferença entre eles é a idade do dado que a tela apresenta.
+
 !!! warning "Pare a interpretação"
     Não declare "nível estável", "transbordamento" ou "ataque confirmado". Essas conclusões exigem outras evidências, que serão discutidas na A20.
 

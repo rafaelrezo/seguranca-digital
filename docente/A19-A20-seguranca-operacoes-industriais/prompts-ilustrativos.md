@@ -52,7 +52,9 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 27 — Tela parada: dois relógios na mesma IHM {#imagem-27}
 
-**Local:** A19, "Leitura guiada: uma tela parada", antes da tabela.
+**Estado:** imagem recebida (enviada como `imagem28.png` e renomeada), validada e incorporada em 29 out. 2026 (`docs/assets/a19-a20/imagem27.png`, 256 cores; `#figura-27` na A19). **Local alterado:** depois da Conferência, não antes da tabela, porque a faixa "Idade da amostra = 10 s" antecipa a resposta do passo 2 da leitura guiada. Título "Tanque de Processo" acrescentado pelo gerador; inofensivo.
+
+**Local:** A19, "Leitura guiada: uma tela parada", após a Conferência (ver Estado).
 
 **Prompt:**
 
@@ -275,5 +277,6 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | Imagem | Estado | Data |
 |---|---|---|
 | 26 | Incorporada na A19 | 29 out. 2026 |
+| 27 | Incorporada na A19 | 29 out. 2026 |
 | 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
-| 27–29, 31–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 28–29, 31–34 | Prompt entregue ao docente | 29 out. 2026 |
