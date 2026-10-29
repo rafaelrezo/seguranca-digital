@@ -524,7 +524,7 @@ Os níveis orientam onde colocar fronteiras. Não são uma prescrição universa
 
 - **Três áreas:** fora da empresa, DMZ e rede OT, separadas por firewalls.
 - **Túnel VPN:** cobre só o trecho ①. Depois do gateway, cada passagem depende da proteção do próprio trecho.
-- **Caminho direto:** a seta vermelha mostra o que deve ser negado. O trecho esmaecido indica onde ela chegaria se a fronteira não bloqueasse.
+- **Caminho direto:** a seta vermelha mostra a tentativa de alcançar a rede OT sem passar pelo gateway e pelo intermediário. Ela é bloqueada já na primeira fronteira.
 
 **DMZ** separa serviços e media comunicações entre redes. Uma **estação intermediária** (*jump host*) concentra o acesso ao destino seguinte.
 

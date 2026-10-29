@@ -180,7 +180,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Local:** A19, "Exemplo de percurso remoto limitado"; substitui o esquema em texto. Reutilizada na A20, em "Proteger: acesso remoto".
 
-**Estado:** imagem recebida, validada e incorporada em 29 out. 2026 (`docs/assets/a19-a20/imagem30.png`, margens recortadas e 256 cores; `#figura-30` na A19 e na A20). Na A19, substitui o esquema e a Aplicação cita os trechos ①–④; na A20, abre a seção de acesso remoto com a tabela trecho → pergunta → controle, e a análise de M-01 pede o trecho de cada evento. Observação: a seta vermelha tem ponta também junto ao cliente e um prolongamento esmaecido até o CLP; a página explica o esmaecido como o alcance caso a fronteira não bloqueasse.
+**Estado:** imagem recebida, validada e incorporada em 29 out. 2026 (`docs/assets/a19-a20/imagem30.png`, margens recortadas e 256 cores; `#figura-30` na A19 e na A20). Na A19, substitui o esquema e a Aplicação cita os trechos ①–④; na A20, abre a seção de acesso remoto com a tabela trecho → pergunta → controle, e a análise de M-01 pede o trecho de cada evento. Substituída no mesmo dia por segunda versão do docente, em que a seta vermelha termina no X, sem o prolongamento esmaecido até o CLP da primeira; texto da A19 ajustado. Resta uma ponta de seta junto ao cliente, sem efeito na leitura.
 
 **Revisão de 29 out. 2026:** o prompt anterior colocava selos com os controles de cada trecho, o que entregaria a resposta da Aplicação da A19 ("marque onde devem existir identidade, restrição de destino, registro de sessão e autorização de alteração"). A nova versão numera os trechos ①–④ para o estudante associar os controles. Ao incorporar, ajustar a Aplicação para citar os números.
 
