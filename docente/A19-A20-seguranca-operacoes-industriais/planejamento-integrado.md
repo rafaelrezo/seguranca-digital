@@ -101,3 +101,56 @@ Se houver proposta posterior de usar OpenPLC/FUXA, Wireshark ou aplicação real
 Endereço a distribuir após eventual publicação: `atividades/A19-A20-protecao-validacao-ot/#atividade`. Não houve envio ao Classroom. Navegação/percurso incluem somente os dois novos encontros. Arquitetura/roadmap mantêm explicação dos identificadores e encontros liberados. O manifesto registra a publicação OT para avaliação em bloco próprio, preservando os registros anteriores.
 
 Ver a [validação local](validacao-local.md) para checks efetivamente executados e seus limites.
+
+
+## Revisão de 29 out. 2026 (tarde) — resumo da SP 800-82 com cards
+
+**Solicitação docente:** revisar A19–A20 destacando conceitos em cards; A19 (e A20, se necessário) como resumo da NIST SP 800-82 para engenheiros de controle e automação; ponte para verificação/pentest, com frameworks e ferramentas (OWASP, ZAP) a avaliar depois.
+
+**Decisão: dois encontros são necessários.** A Rev. 3 tem mais de 300 páginas e seis seções. Uma só aula reduziria o guia a lista de títulos ou cortaria a seção 6, que é a mais aplicável. A19 = seções 2–5; A20 = seção 6 + apêndices C e F + gancho de avaliação. Estrutura do guia conferida no PDF oficial em 29 out. 2026 (sumário, seção 2.4, apêndice C.3.4 e discussão OT do CA-8 no apêndice F).
+
+**Mudanças:** grids de cards do Material (`grid cards`, sem CSS de terceiros) para mapa do guia, malha de controle, as dez considerações OT × TI da seção 2.4, conteúdo do programa (seção 3), inventário, cinco camadas (seção 5.2), funções do CSF (seção 6), acesso remoto, detecção, resposta, incidentes do apêndice C e prévia dos referenciais. Tabelas mantidas onde há comparação. Removido o caso web de ordens, a comparação de PTES/OSSTMM/WSTG e o trio WSTG/ASVS/Top 10 da A20 e do pacote público; preservados em [reserva](reserva-ponte-pentest-web.md) e no Git. Etapa 4 da atividade e rubrica (critério 5) passam a plano de avaliação técnica OT.
+
+**Respostas esperadas novas.** A19 checkpoint de reinício: disponibilidade/processo contínuo e *safety* (seção 2.4); a malha local pode continuar; reinício pode produzir outra falha (caso NASA, visto na A20). Revisão 3: camada 1 orienta as demais; sem dono, controle técnico é desativado. A20 revisão 1: Proteger (PR, 6.2.12); sem relógio comum não há correlação entre fontes. Revisão 3: prática de TI aplicada sem considerar tempo/disponibilidade/efeito físico; testar em réplica/simulador, janela planejada, impedir propagação TI→OT. Etapa 4: abordagem mínima esperada = revisão de regras + observação passiva; tentativa ativa somente em réplica.
+
+### Condução A19 revista — 100 min (70 T/30 P)
+
+| Intervalo | Núcleo e ação | T | P |
+|---|---|---:|---:|
+| 0–10 | Tela parada e mapa do guia | 7 | 3 |
+| 10–25 | Malha, tipos de sistema (2.3); leitura guiada da amostra | 8 | 7 |
+| 25–45 | OT × TI (2.4), propriedades e estado seguro; checkpoint do reinício | 15 | 5 |
+| 45–55 | Programa (seção 3) | 10 | 0 |
+| 55–75 | Risco (seção 4), inventário e exemplo; aplicação dos três ativos | 12 | 8 |
+| 75–95 | Cinco camadas, Purdue, percurso remoto, AA23-335A; aplicação no desenho | 15 | 5 |
+| 95–100 | Critério verificável e ponte | 3 | 2 |
+| **Total** | | **70** | **30** |
+
+### Condução A20 revista — 100 min (60 T/40 P)
+
+| Intervalo | Núcleo e ação | T | P |
+|---|---|---:|---:|
+| 0–10 | Mapa da seção 6 e nota CSF 1.1/2.0 | 8 | 2 |
+| 10–30 | Acesso remoto, M-01; correções e tempo | 8 | 12 |
+| 30–45 | Detectar: camadas, função preservada, regra | 7 | 8 |
+| 45–60 | Responder/recuperar: contenção condicionada, retorno | 8 | 7 |
+| 60–70 | Apêndice F e CA-8 | 8 | 2 |
+| 70–80 | Apêndice C: quatro incidentes acidentais | 8 | 2 |
+| 80–95 | Avaliação proporcional, regras de engajamento, prévia dos referenciais | 10 | 5 |
+| 95–100 | Checkpoint IHM web × controlador; fechamento | 3 | 2 |
+| **Total** | | **60** | **40** |
+
+**Bloco:** 130 T/70 P em 200 min, valores de planejamento. As tabelas de condução anteriores ficam como histórico.
+
+### Avaliação preliminar de referenciais para o bloco de pentest (a decidir)
+
+| Opção | Melhor uso | Esforço/custo | Evidência ou entregável | Limitação/risco |
+|---|---|---|---|---|
+| NIST SP 800-115 | Processo: planejar, executar, relatar; regras de engajamento | Baixo; gratuito | Plano e relatório | 2008; sem ferramentas atuais |
+| PTES | Fases do engajamento (pré-acordo → relatório) | Baixo | Escopo e estrutura do relatório | Site oficial instável na consulta; sem versão verificável |
+| OSSTMM 3 | Métricas de superfície operacional | Alto | Medição estruturada | Denso; pouco ganho para 100 min |
+| OWASP WSTG 4.2 (+ ASVS, Top 10) | Casos de teste web reproduzíveis no Juice Shop | Médio | Requisição/resposta, caso e reteste | Só aplicação web |
+| MITRE ATT&CK for ICS | Vocabulário de comportamentos adversários em OT | Baixo | Mapeamento de achados e detecções | Não é método de teste |
+| CISA CSET | Autoavaliação de controles OT por questionário | Médio (Windows) | Relatório de lacunas | Não verificado nesta revisão; avaliar instalação/licença |
+
+Recomendação preliminar: processo pela SP 800-115 (com fases do PTES como vocabulário), prática web com WSTG no Juice Shop local e ATT&CK for ICS para traduzir achados ao contexto OT. Ferramenta: ZAP é viável no lugar do Burp Suite (Apache 2.0, gratuito, proxy + varredura). Desde set. 2023 não é projeto OWASP; desde set. 2024 é "ZAP by Checkmarx", mantido pela equipe original. Citar como ZAP, não "OWASP ZAP". Fonte: <https://www.zaproxy.org/docs/zap-ownership/> (consulta 29 out. 2026).

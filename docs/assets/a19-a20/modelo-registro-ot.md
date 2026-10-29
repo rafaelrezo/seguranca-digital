@@ -58,21 +58,30 @@ Critério de retorno 3 e evidência necessária:
 Por que cópia não comprova recuperação:
 Limite do que foi efetivamente analisado:
 
-## Caso web proposto, não executado
+## Plano de avaliação técnica — proposto, não executado
 
-Violação do exemplo trabalhado:
-Método e versão:
-Autorização e alvo que ainda precisam ser definidos:
+Controle e critério verificável avaliados:
+Abordagem escolhida e justificativa (menor interferência):
+O que essa abordagem não demonstra:
 
-| Caso | Identidade | Ação/objeto | Resultado esperado | Evidência a coletar |
+| Regra de engajamento | Registro |
+|---|---|
+| Objetivo | |
+| Alvo (planta, réplica ou simulador) | |
+| Ação permitida | |
+| Exclusões | |
+| Acompanhamento e janela | |
+| Critério de parada | |
+| Recuperação | |
+| Comunicação | |
+
+| Caso | Origem/identidade | Ação/destino | Resultado esperado | Evidência a coletar |
 |---|---|---|---|---|
-| Permitido | | | | |
 | Negado | | | | |
+| Legítimo preservado | | | | |
 
-Parada e comunicação:
-Função legítima a preservar:
-Limite da conclusão e diferença em relação à validação OT:
-Papéis de WSTG, ASVS e Top 10:
+Relação com CA-8 (apêndice F) e com um incidente do apêndice C:
+Por que um teste na interface web da IHM não valida o controlador nem o processo:
 
 ## Revisão da dupla e fontes
 

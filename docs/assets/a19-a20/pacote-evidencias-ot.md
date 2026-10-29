@@ -2,7 +2,7 @@
 
 ## Procedência e uso
 
-Dados artificiais produzidos para análise em aula em 29 out. 2026. Não há coleta em planta, controlador, VPN ou Juice Shop. Não são resultados de execução pela turma nem reprodução de um incidente documentado.
+Dados artificiais produzidos para análise em aula em 29 out. 2026. Não há coleta em planta, controlador ou VPN. Não são resultados de execução pela turma nem reprodução de um incidente documentado.
 
 Os horários não têm data civil associada e usam o mesmo relógio por premissa. As janelas A19 e M-01 são exemplos separados. Os valores em % representam nível relativo ao volume útil do tanque didático. Nenhum endereço de equipamento real é necessário.
 
@@ -60,16 +60,3 @@ Não foram fornecidos captura de tráfego, lista completa de regras, conteúdo d
 ## Condição adicional — contenção
 
 Tentativa não aprovada de alteração na estação de engenharia; sem confirmação de mudança no CLP. Por premissa, a operação confirma que o controle local está ativo e que pode suspender a sessão remota. Não há registro de uma contenção ou restauração executada.
-
-## Exemplo web — respostas ilustrativas
-
-Aplicação fictícia de ordens de manutenção. Regra: cada conta só pode ler suas próprias ordens. Conta A possui 17; B possui 18. Não é um endpoint do Juice Shop e não há servidor para consultar.
-
-| Fase/caso | Conta | Ação | Resposta fornecida |
-|---|---|---|---|
-| Linha de base | A | GET /api/ordens/17 | 200, ordem 17 de A |
-| Antes da correção | A | GET /api/ordens/18 | 200, ordem 18 de B |
-| Depois da correção | A | GET /api/ordens/18 | 403, sem conteúdo da ordem |
-| Regressão funcional | A | GET /api/ordens/17 | 200, ordem 17 de A |
-
-O método de referência é WSTG 4.2, teste de referências diretas a objetos (WSTG-v42-ATHZ-04). Os estados antes/depois são ilustrações preparadas, não implantação ou reteste observados. A extensão da dupla é um plano sem execução.

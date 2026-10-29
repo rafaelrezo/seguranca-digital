@@ -10,8 +10,8 @@ A solicitação docente de publicar no GitHub Pages foi atendida pelo commit `5c
 
 O docente solicitou produzir uma visão geral de segurança em operações industriais, fundamentada no NIST, em **no máximo dois encontros**, com apresentação de referenciais de pentest e possível aprofundamento em OWASP. Esta direção substitui a expansão prospectiva de OT em quatro encontros. Produzir duas páginas integrais locais, planos e **uma atividade compartilhada**; não implica publicação remota, convocação no Classroom nem confirmação de aulas realizadas.
 
-- **A19 — Segurança das operações industriais:** processo físico, componentes, disponibilidade, integridade, segurança de pessoas, risco, inventário e defesa em profundidade. 100 min, 65 T/35 P planejados.
-- **A20 — Validar controles OT e preparar o pentest:** acesso remoto, monitoração, resposta e recuperação, evidência de controle e de função preservada; comparação de referenciais e ponte para teste web autorizado. 100 min, 55 T/45 P planejados.
+- **A19 — Segurança OT pela NIST SP 800-82 (I):** seções 2–5 — processo físico e sistemas OT, considerações OT × TI, programa, gestão de risco, inventário e defesa em profundidade em cinco camadas. 100 min, 70 T/30 P planejados.
+- **A20 — Segurança OT pela NIST SP 800-82 (II):** seção 6 (CSF aplicado à OT), acesso remoto, monitoração, resposta e recuperação; apêndices C e F como fundamento do cuidado com testes ativos; plano de avaliação técnica proposto. Comparação de referenciais e caso web adiados para o bloco de pentest (revisão de 29 out. 2026, tarde). 100 min, 60 T/40 P planejados.
 
 Os identificadores A19/A20 conservam a posição inicial do bloco OT no roadmap anterior e continuam **provisórios para o calendário**. A18 e os encontros liberados A21/A22 não recebem destinação por inferência; A23–A31 conservam identificadores prospectivos. As fontes históricas A19–A30 com outros títulos permanecem preservadas e fora do percurso ativo. A redução é de 400 para 200 min de OT (de 190 T/210 P para 120 T/80 P planejados); os 200 min liberados não são automaticamente redistribuídos nem resolvem o balanço institucional de 30 h + 30 h.
 

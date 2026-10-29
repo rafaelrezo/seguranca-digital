@@ -95,8 +95,8 @@ nav:
       - "A16 — Hash, HMAC, senhas e TLS": aulas/A16-tls-ciclo-de-chaves.md
       - "Prática — TLS com sockets": praticas/tls-sockets.md
       - "A17 — OpenVPN e máquina interna": aulas/A17-openvpn-ec2.md
-      - "A19 — Segurança das operações industriais": aulas/A19-seguranca-operacoes-industriais.md
-      - "A20 — Validar controles OT e preparar pentest": aulas/A20-validacao-ot-pentest.md
+      - "A19 — Segurança OT pela NIST SP 800-82 (I)": aulas/A19-seguranca-operacoes-industriais.md
+      - "A20 — Segurança OT pela NIST SP 800-82 (II)": aulas/A20-validacao-ot-pentest.md
       - "Atividade — Proteção e validação OT": atividades/A19-A20-protecao-validacao-ot.md
   - Referencial de consulta:
       - Fundamentos de Segurança:

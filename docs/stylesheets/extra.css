@@ -207,3 +207,9 @@ body:has(.theme-summary) .md-nav--secondary .md-nav { display: none; }
 #figura-22 > .mermaid { min-width: 0; }
 .diagrama-protocolo:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 2px; }
 @media print { .diagrama-protocolo > .mermaid { min-width: 0; } }
+
+/* Cards conceituais (grid cards do Material): título destacado e borda de leitura. */
+.md-typeset .grid.cards > ul > li { border-top: .2rem solid #006b68; }
+.md-typeset .grid.cards > ul > li > p:first-child { font-size: 1.02em; }
+.md-typeset .grid.cards > ul > li > hr { margin-block: .5rem; }
+@media print { .md-typeset .grid.cards > ul > li { break-inside: avoid; } }

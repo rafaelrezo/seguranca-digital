@@ -23,8 +23,8 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A15 — Chaves, assinaturas e certificados](aulas/A15-chaves-assinaturas-certificados.md) | RSA e cifra híbrida, assinatura verificável e vínculo de certificado | [Preencher C2 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
 | [A16 — Hash, HMAC, senhas e TLS](aulas/A16-tls-ciclo-de-chaves.md) | Hash, HMAC e verificação de senhas; conexão TLS local aceita e recusada | [Preencher C3 ao longo da aula](atividades/A14-A18-criptografia-confianca.md#atividade) |
 | [A17 — OpenVPN em EC2](aulas/A17-openvpn-ec2.md) | Duas EC2 na VPC, acesso roteado à interna sem Internet, cliente Windows/Linux e revogação | [Concluir C4 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
-| [A19 — Segurança das operações industriais](aulas/A19-seguranca-operacoes-industriais.md) | Processo físico, risco, restrições e controles em camadas com NIST SP 800-82 Rev. 3 | [Iniciar o registro OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
-| [A20 — Validar controles OT e preparar pentest](aulas/A20-validacao-ot-pentest.md) | Acesso, monitoração, resposta/retorno e referenciais de pentest; ponte para OWASP WSTG | [Concluir a mesma atividade OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
+| [A19 — Segurança OT pela NIST SP 800-82 (I)](aulas/A19-seguranca-operacoes-industriais.md) | Seções 2–5 da SP 800-82 Rev. 3: processo físico, OT × TI, programa, risco e defesa em profundidade | [Iniciar o registro OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
+| [A20 — Segurança OT pela NIST SP 800-82 (II)](aulas/A20-validacao-ot-pentest.md) | Seção 6 e apêndices C/F: CSF aplicado à OT, acesso remoto, detecção, resposta, recuperação e planejamento de avaliação técnica | [Concluir a mesma atividade OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
@@ -32,7 +32,7 @@ A atividade de **criptografia e confiança** reúne A14–A17 em um único regis
 
 ## Como preparar sua evidência
 
-A atividade de **proteção e validação OT** reúne dois encontros. Use os dados didáticos fornecidos para distinguir controle, evidência e lacuna; o caso web é um plano de teste, sem execução. A [entrega única](atividades/A19-A20-protecao-validacao-ot.md#atividade) ocorre conforme convocação no Classroom.
+A atividade de **proteção e validação OT** reúne dois encontros. Use os dados didáticos fornecidos para distinguir controle, evidência e lacuna; o plano de avaliação técnica é uma proposta, sem execução. A [entrega única](atividades/A19-A20-protecao-validacao-ot.md#atividade) ocorre conforme convocação no Classroom.
 
 Use apenas o laboratório autorizado e dados fictícios. O resultado esperado ajuda a conferir o estado; ele não substitui o resultado que você observou. Registre falhas de infraestrutura e identifique quando usou o pacote alternativo. Remova senhas, tokens e dados pessoais antes de entregar.
 

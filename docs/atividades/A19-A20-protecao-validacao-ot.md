@@ -6,7 +6,7 @@ Uma recomendação de segurança precisa indicar a função que protege, a conse
 
 **Missão:** elaborar, em dupla, um registro de proteção e validação OT com base nos exemplos de [A19](../aulas/A19-seguranca-operacoes-industriais.md) e [A20](../aulas/A20-validacao-ot-pentest.md). O trabalho é cumulativo: comece na A19 e conclua após a A20. Há **uma única entrega**, conforme convocação e prazo definidos pelo professor no Classroom.
 
-**Escopo:** análise do tanque didático, da autorização M-01, dos registros fornecidos e do exemplo web. Não realize varreduras, consultas a equipamentos, tentativas contra sistemas públicos ou testes em redes industriais. O caso web solicitado é um plano, sem execução.
+**Escopo:** análise do tanque didático, da autorização M-01 e dos registros fornecidos. Não realize varreduras, consultas a equipamentos, tentativas contra sistemas públicos ou testes em redes industriais. O plano de avaliação solicitado é uma proposta, sem execução.
 
 ### Preparação e insumos
 
@@ -15,7 +15,7 @@ Uma recomendação de segurança precisa indicar a função que protege, a conse
 - Use o [modelo em branco](../assets/a19-a20/modelo-registro-ot.md) ou crie um documento com os mesmos campos. Não é necessário instalar ferramenta.
 - Identifique na entrega os dados artificiais fornecidos, as interpretações da dupla, as hipóteses e os testes somente propostos.
 
-Os exemplos não representam uma planta real, um ensaio de CLP ou uma coleta no Juice Shop. A comparação com um incidente documentado serve à análise de limites e controles; não transforma os dados do exercício em evidências desse incidente.
+Os exemplos não representam uma planta real nem um ensaio de CLP. A comparação com um incidente documentado serve à análise de limites e controles; não transforma os dados do exercício em evidências desse incidente.
 
 ### Etapa 1 — Explicar a operação e a perda de visibilidade
 
@@ -47,19 +47,17 @@ Para a tentativa de alteração não aprovada descrita na A20:
 
 **Evidência:** ação, premissa, responsável e verificação. Identifique que não houve restauração nem ensaio de função de segurança no exercício.
 
-### Etapa 4 — Construir a ponte para pentest
+### Etapa 4 — Planejar a avaliação técnica do controle
 
-No exemplo web, cada conta pode ler somente suas próprias ordens. A possui a ordem 17 e B possui a ordem 18.
+Retome o controle proposto na Etapa 2 e o critério verificável que você escreveu na A19.
 
-1. Explique a violação mostrada no exemplo trabalhado da A20, usando identidade, ação e objeto.
-2. Proponha outro par de casos de leitura, com um acesso legítimo e outro que deve ser negado.
-3. Registre método/versão, resultado esperado, evidência a coletar e critério de parada.
-4. Indique o que falta definir para autorizar a execução em uma instância de laboratório específica.
-5. Explique por que o resultado desse teste web não validaria a segurança de um controlador ou de uma planta.
+1. Escolha a abordagem de **menor interferência** que responda à pergunta: revisão de configuração, observação passiva, varredura ou teste ativo. Justifique a escolha e diga o que ela não demonstra.
+2. Preencha as regras de engajamento: objetivo, alvo (planta, réplica ou simulador), ação permitida, exclusões, acompanhamento, critério de parada, recuperação e comunicação.
+3. Descreva um caso que deve ser negado e um caso legítimo que deve continuar funcionando, com a evidência a coletar em cada um.
+4. Relacione o plano à discussão OT do controle CA-8 (apêndice F) e a pelo menos um incidente do apêndice C.
+5. Explique por que um teste bem-sucedido apenas na interface web de uma IHM não validaria o controlador nem a função de segurança do processo.
 
-Use **WSTG 4.2** para orientar o caso. Diferencie seu papel do **ASVS 5.0.0** e do **Top 10 2025** em até três frases. Não é necessário reproduzir catálogos ou declarar conformidade com esses documentos.
-
-**Evidência:** plano marcado como **“proposto, não executado”**. Não inclua tokens, credenciais nem capturas de aplicações externas.
+**Evidência:** plano marcado como **"proposto, não executado"**. Não inclua endereços, credenciais nem capturas de sistemas reais.
 
 ### Formato, envio e revisão
 
@@ -81,7 +79,7 @@ Se usar IA como apoio, registre o pedido, as decisões aceitas e rejeitadas e su
 | Risco e proteção | 2 | Consequência condicionada, controle pertinente e responsabilidade |
 | Avaliação de acesso e função | 2 | Casos permitido/negados, amostras e intervalo/limites explícitos |
 | Contenção e recuperação | 2 | Premissa operacional, coordenação e critérios verificáveis de retorno |
-| Ponte para pentest e qualidade da evidência | 2 | Caso com método/versão, autorização pendente, contraprova e distinção entre proposta e execução |
+| Plano de avaliação e qualidade da evidência | 2 | Abordagem proporcional justificada, regras de engajamento com parada e recuperação, caso negado/legítimo e distinção entre proposta e execução |
 
 </div>
 
@@ -93,4 +91,4 @@ Todo o percurso pode ser feito no navegador e em um editor de texto. Se um downl
 
 Ao terminar, salve o registro, confira que os exemplos estão identificados e feche os arquivos. Não há recursos de nuvem ou serviços para remover.
 
-**Extensão opcional, sem nova entrega:** acrescente uma evidência que faltaria para avaliar a recuperação do programa do CLP. Defina quem a produziria e por que um teste web não a substitui. Não execute o teste.
+**Extensão opcional, sem nova entrega:** acrescente uma evidência que faltaria para avaliar a recuperação do programa do CLP. Defina quem a produziria e em que ambiente (planta, réplica ou simulador) ela seria obtida. Não execute o teste.

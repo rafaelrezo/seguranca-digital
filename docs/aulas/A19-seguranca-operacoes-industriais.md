@@ -1,35 +1,121 @@
-# A19 — Segurança das operações industriais: o que precisa continuar funcionando?
+# A19 — Segurança OT pela NIST SP 800-82 (I): por que a planta muda as regras
 
 Um supervisório continua mostrando **47% de nível**, mas o horário da última medição parou de mudar. O processo está estável ou a tela perdeu contato com ele? Antes de bloquear uma conexão ou reiniciar um equipamento, é preciso saber quem mede, quem decide e quem atua.
 
-Esta aula apresenta a segurança de **tecnologia operacional**, ou **OT** (*Operational Technology*), pela relação entre informação e processo físico. A referência principal é a [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final), guia específico para esse domínio.
-
-Em tela estreita, deslize as tabelas para ler todas as colunas. Pelo teclado, use Tab para selecionar a região da tabela e as setas para percorrê-la.
+Esta é a primeira de duas aulas organizadas pelo guia [NIST SP 800-82 Rev. 3 — *Guide to Operational Technology (OT) Security*](https://csrc.nist.gov/pubs/sp/800/82/r3/final). Aqui você estuda as seções 2 a 5: como a OT funciona, por que sua segurança difere da TI, como montar um programa, avaliar risco e desenhar a arquitetura. A [A20](A20-validacao-ot-pentest.md) cobre a seção 6 e os apêndices de controles e incidentes.
 
 ## Objetivos de aprendizagem
 
-1. Reconstruir um processo de controle, identificando medição, decisão, atuação e supervisão.
-2. Explicar como uma falha digital pode afetar produção, ambiente e pessoas, distinguindo fato e hipótese.
-3. Justificar controles em camadas e definir que evidência permitiria avaliar sua eficácia sem perder a função legítima.
+1. Reconstruir uma malha de controle, identificando medição, decisão, atuação e supervisão, e explicar como uma falha digital pode produzir consequência física.
+2. Usar as considerações da SP 800-82 para justificar por que uma prática comum de TI precisa ser adaptada ou evitada em OT.
+3. Propor controles em camadas, com responsável e critério verificável, sem perder a função legítima do processo.
 
-**Tempo:** 100 minutos. **Recursos:** navegador e editor de texto; planilha é opcional. **Preparação:** reconhecer confidencialidade, integridade, disponibilidade e controle de acesso. As definições necessárias estão nesta página; não é preciso ter instalado um simulador ou realizado a prática de VPN.
+**Tempo:** 100 minutos. **Recursos:** navegador e editor de texto; planilha é opcional. **Preparação:** reconhecer confidencialidade, integridade, disponibilidade e controle de acesso. As definições necessárias estão nesta página; não há instalação de simulador.
 
-**Produto:** primeira parte do registro de proteção e validação OT. Ele será concluído na [A20](A20-validacao-ot-pentest.md), com uma única entrega para os dois encontros.
+**Produto:** primeira parte do registro de proteção e validação OT, concluído na A20, com uma única entrega para os dois encontros.
+
+---
+
+## Mapa do guia: o que a SP 800-82 cobre
+
+**Síntese.** A SP 800-82 Rev. 3 foi publicada pelo NIST em **setembro de 2023**, em coautoria com a MITRE. Ela explica como adaptar a segurança a sistemas que monitoram ou controlam o mundo físico. Não é norma de certificação: é um guia de boas práticas, com recomendações e um catálogo de controles adaptado.
+
+<div class="grid cards" markdown>
+
+-   **Seção 2 — Visão geral de OT** · A19
+
+    ---
+
+    Componentes, arquiteturas (SCADA, DCS, CLP, automação predial, sistemas de segurança, IIoT) e as diferenças entre segurança de OT e de TI.
+
+-   **Seção 3 — Programa de segurança OT** · A19
+
+    ---
+
+    Mandato, caso de negócio, governança, equipe multifuncional, políticas, treinamento, manutenção, resposta e recuperação.
+
+-   **Seção 4 — Gestão de risco em OT** · A19
+
+    ---
+
+    Enquadrar, avaliar, responder e monitorar risco; cadeia de suprimentos, sistemas de segurança e o RMF do NIST aplicado à OT.
+
+-   **Seção 5 — Arquitetura de segurança OT** · A19
+
+    ---
+
+    Defesa em profundidade em cinco camadas, segmentação, considerações de disponibilidade e *safety*, modelos de arquitetura.
+
+-   **Seção 6 — Aplicar o CSF à OT** · A20
+
+    ---
+
+    Recomendações organizadas pelas funções Identificar, Proteger, Detectar, Responder e Recuperar.
+
+-   **Apêndices C, E e F** · A20
+
+    ---
+
+    Fontes de ameaça e incidentes (C), capacidades e ferramentas (E) e o *overlay* OT dos controles da SP 800-53 (F).
+
+</div>
+
+Na data de consulta, **29 out. 2026**, a Rev. 3 é a edição final. A [Rev. 4 está em rascunho público](https://csrc.nist.gov/pubs/sp/800/82/r4/ipd), com comentários abertos até 30 nov. 2026. Um rascunho em consulta não substitui a edição final.
+
+**Como ler o guia.** Ele tem mais de 300 páginas. Use estas aulas como mapa: cada seção abaixo indica o trecho correspondente para consulta seletiva, sem exigir leitura integral.
+
+---
 
 ## Processo: ligar o dado à consequência física
 
-- **Sensor** mede uma grandeza; o número precisa de unidade e instante de aquisição.
-- **Controlador** executa a lógica que decide uma ação.
-- **Atuador** modifica o processo físico.
-- **Supervisório** apresenta estados, alarmes e comandos autorizados; sua tela pode estar desatualizada.
+**Síntese.** OT, *Operational Technology*, é o conjunto de sistemas que **monitoram ou modificam o mundo físico**. Toda análise começa pela malha de controle.
 
-Um **sistema de controle industrial**, ou **ICS** (*Industrial Control System*), integra esses elementos para operar uma instalação. OT é um conjunto mais amplo: inclui também, por exemplo, automação predial e sistemas de transporte. A característica decisiva é monitorar ou modificar o mundo físico.
+<div class="grid cards" markdown>
 
-No tratamento de água, um controlador pode comandar uma bomba com base no nível medido. Um erro na leitura, na lógica ou no comando tem consequências diferentes de um erro em uma cópia de relatório. A seção 2 da [NIST SP 800-82 Rev. 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf) apresenta componentes e topologias de OT.
+-   **Sensor — medir**
+
+    ---
+
+    Converte uma grandeza física em valor. O número precisa de unidade, qualidade e instante de aquisição.
+
+-   **Controlador — decidir**
+
+    ---
+
+    Executa a lógica (CLP, controlador DCS) que compara medição e referência e decide a ação.
+
+-   **Atuador — agir**
+
+    ---
+
+    Bomba, válvula, motor ou resistência: é onde a decisão digital vira efeito físico.
+
+-   **Supervisório — mostrar**
+
+    ---
+
+    IHM e SCADA apresentam estados, alarmes e comandos autorizados. A tela pode estar desatualizada sem que o processo tenha parado.
+
+</div>
+
+Um **sistema de controle industrial**, ou **ICS** (*Industrial Control System*), integra esses elementos para operar uma instalação. OT é mais amplo: inclui também automação predial, controle de acesso físico e transporte.
+
+### Tipos de sistema descritos na seção 2.3
+
+| Sistema | Característica marcante | Pergunta de segurança típica |
+|---|---|---|
+| **SCADA** | Supervisão de ativos geograficamente distribuídos, com comunicação de longa distância | Como proteger enlaces remotos e estações distantes? |
+| **DCS** — sistema de controle distribuído | Controle de processo contínuo em uma mesma planta, com controladores coordenados | Como isolar uma área sem perder a coordenação do processo? |
+| **Topologias com CLP** | Controle discreto ou de máquina, muitas vezes local | Quem pode carregar programa e alterar parâmetros? |
+| **Automação predial e controle de acesso físico** | HVAC, iluminação, portas e catracas | Um sistema "de prédio" alcança a rede de produção? |
+| **Sistemas de segurança (SIS)** | Funções instrumentadas que levam o processo a estado seguro | A proteção depende do mesmo caminho que pode falhar? |
+| **IIoT** | Sensores e serviços conectados, frequentemente com nuvem | Que dado sai da planta e que comando pode entrar? |
+
+**CLP** é o controlador lógico programável (**PLC** em inglês); **IHM** é a interface homem–máquina (**HMI**). Um **historiador** armazena séries temporais. Esses papéis podem estar reunidos em um só produto; analise cada função separadamente.
 
 ### Exemplo: controle de nível
 
-O esquema representa um **modelo didático de tanque de água**, sem planta, equipamento ou incidente real associado. Ele serve para separar funções; não é um projeto de segurança de máquinas.
+O esquema é um **modelo didático de tanque de água**, sem planta ou incidente real associado.
 
 ```text
 Tanque
@@ -43,9 +129,7 @@ Bomba de entrada
 Tanque
 ```
 
-A primeira seta representa a medição. A segunda transporta o valor medido. A terceira leva a decisão de ligar ou desligar a bomba. A última representa a entrada de água que altera o nível. O supervisório troca informações com o controlador; a malha local pode continuar funcionando sem sua tela.
-
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Exemplo: controle de nível — tabela" markdown="1">
+A malha local (sensor → controlador → bomba) pode continuar funcionando sem a tela do supervisório. Perder a supervisão e perder o controle são falhas diferentes.
 
 | Elemento | Função no exemplo | O que deve ser protegido |
 |---|---|---|
@@ -55,17 +139,9 @@ A primeira seta representa a medição. A segunda transporta o valor medido. A t
 | IHM | Permite supervisão local | Informação atual e permissões para comandos |
 | Estação de engenharia | Configura programa e parâmetros | Identidade, ferramentas, alterações e cópias |
 
-</div>
-
-**CLP** significa controlador lógico programável; a sigla inglesa é **PLC**. **IHM** é a interface homem–máquina, também chamada de **HMI**. Um **SCADA**, sistema de supervisão e aquisição de dados, agrega supervisão de equipamentos e locais; um **historiador** armazena séries temporais para consulta. Esses papéis podem estar distribuídos ou reunidos em um produto.
-
-Não atribua uma propriedade somente ao nome do equipamento. Um CLP com IHM integrada ainda tem funções de controle e de apresentação que precisam ser analisadas separadamente.
-
 ### Leitura guiada: uma tela parada
 
-Todos os valores abaixo são **dados artificiais fornecidos para análise**, sem coleta em planta ou simulador. O instante de observação e o de aquisição usam o mesmo relógio neste exemplo.
-
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Leitura guiada: uma tela parada — tabela" markdown="1">
+Os valores abaixo são **dados artificiais fornecidos para análise**. Observação e aquisição usam o mesmo relógio.
 
 | Observação | Horário da aquisição | Nível na IHM | Qualidade informada |
 |---|---|---:|---|
@@ -74,125 +150,307 @@ Todos os valores abaixo são **dados artificiais fornecidos para análise**, sem
 | 09:00:02 | 09:00:02 | 47% | Atual |
 | 09:00:12 | 09:00:02 | 47% | Sem atualização |
 
-</div>
-
 1. Leia as duas primeiras colunas antes de comparar os níveis.
 2. Calcule a idade da última amostra às 09:00:12.
 3. Registre o que a tabela comprova sobre a **visibilidade** do processo.
 4. Separe duas hipóteses para a falha e indique que evidência ajudaria a distingui-las.
 
-**Conferência:** a última amostra tem dez segundos. A tabela sustenta perda de atualização na IHM; não informa o nível físico atual nem comprova que o CLP parou. Uma consulta ao estado local e ao caminho de aquisição seria diferente de simplesmente atualizar a página.
+**Conferência:** a última amostra tem dez segundos. A tabela sustenta perda de atualização na IHM; não informa o nível físico atual nem comprova que o CLP parou.
 
-**Pare a interpretação** antes de declarar “nível estável”, “transbordamento” ou “ataque confirmado”. Essas conclusões exigem outras evidências. Reabra esse limite ao estudar detecção e resposta na A20.
+!!! warning "Pare a interpretação"
+    Não declare "nível estável", "transbordamento" ou "ataque confirmado". Essas conclusões exigem outras evidências, que serão discutidas na A20.
 
-## Prioridades: preservar controle, informação e segurança de pessoas
+---
 
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Prioridades: preservar controle, informação e segurança de pessoas — tabela" markdown="1">
+## OT × TI: as considerações da seção 2.4
+
+**Síntese.** A seção 2.4 lista condições que fazem uma prática comum de TI ser inadequada em OT. Para cada uma, pergunte: **que decisão de segurança isso muda?**
+
+<div class="grid cards" markdown>
+
+-   **Tempo e desempenho**
+
+    ---
+
+    Muitos sistemas exigem resposta determinística; atraso e variação (*jitter*) importam mais que vazão.
+
+    *Muda:* inspeção de tráfego ou autenticação que acrescente atraso a um comando.
+
+-   **Disponibilidade**
+
+    ---
+
+    Processos contínuos não param sem planejamento; paradas são agendadas com dias ou semanas.
+
+    *Muda:* "reiniciar o componente" deixa de ser resposta padrão.
+
+-   **Gestão de risco orientada a *safety***
+
+    ---
+
+    A preocupação principal inclui vida, saúde, ambiente e equipamento. O guia afirma: **qualquer medida de segurança que prejudique a segurança de pessoas é inaceitável**.
+
+    *Muda:* o critério de aceitação de um controle.
+
+-   **Efeitos físicos**
+
+    ---
+
+    Dispositivos de campo controlam diretamente o processo; entender a consequência exige especialistas do domínio físico.
+
+    *Muda:* quem participa da análise.
+
+-   **Operação do sistema**
+
+    ---
+
+    Redes de controle costumam ser administradas por engenheiros de controle, com outras ferramentas e competências.
+
+    *Muda:* quem aprova e executa uma mudança.
+
+-   **Recursos limitados**
+
+    ---
+
+    Equipamentos legados podem não ter criptografia, registro de eventos ou senha, nem capacidade para recebê-los.
+
+    *Muda:* o controle vai para a rede ou para um compensatório.
+
+-   **Comunicações**
+
+    ---
+
+    Protocolos de campo podem ser proprietários ou diferentes dos de TI.
+
+    *Muda:* ferramentas de monitoração e filtragem precisam entendê-los.
+
+-   **Gestão de mudanças**
+
+    ---
+
+    Atualizações exigem teste pelo fornecedor e pelo usuário, janela e às vezes revalidação; há sistemas operacionais sem suporte.
+
+    *Muda:* *patch* imediato vira processo planejado.
+
+-   **Suporte e vida útil**
+
+    ---
+
+    Suporte muitas vezes de um único fornecedor; vida útil de 10 a 15 anos ou mais, contra 3 a 5 em TI.
+
+    *Muda:* instalar software de terceiros pode violar o contrato de suporte.
+
+-   **Localização**
+
+    ---
+
+    Componentes distribuídos podem ser remotos e de difícil acesso físico.
+
+    *Muda:* acesso remoto torna-se necessidade — e superfície de ataque.
+
+</div>
+
+**Explicação.** Essas diferenças não dizem que TI e OT são mundos separados. A seção 2.4 observa o oposto: Ethernet, IP, sistemas operacionais comerciais e acesso remoto aproximaram as duas redes e reduziram o isolamento que protegia os sistemas antigos. Por isso as soluções de TI chegam à OT, mas precisam de precauções.
+
+### Propriedades de segurança no processo
 
 | Propriedade | Pergunta no processo | Exemplo de falha |
 |---|---|---|
-| Disponibilidade | A função necessária está acessível no tempo necessário? | Operador perde visibilidade durante uma manobra |
+| Disponibilidade | A função está acessível no tempo necessário? | Operador perde visibilidade durante uma manobra |
 | Integridade | Medição, lógica e comando correspondem ao estado autorizado? | Parâmetro é alterado sem autorização |
-| Confidencialidade | Quem pode conhecer informações sensíveis? | Cópia do programa e credenciais ficam expostas |
-| Segurança de pessoas e ambiente | A operação evita consequências físicas inaceitáveis? | Uma atuação inadequada expõe pessoas ou provoca vazamento |
+| Confidencialidade | Quem pode conhecer informações sensíveis? | Programa e credenciais ficam expostos |
+| Segurança de pessoas e ambiente | A operação evita consequências físicas inaceitáveis? | Atuação inadequada provoca vazamento |
 
-</div>
+Não existe regra universal de que disponibilidade sempre vence integridade. Uma leitura falsa, mas disponível, pode induzir uma ação perigosa. A prioridade depende da função e da consequência de cada falha.
 
-**Segurança cibernética** protege sistemas e informações contra condições que comprometam suas propriedades. **Segurança funcional** trata funções de proteção destinadas a reduzir riscos de falhas perigosas. Os temas se relacionam, mas instalar firewall ou VPN não demonstra que uma função de proteção física é adequada.
-
-Não existe uma regra universal segundo a qual disponibilidade sempre vence integridade ou confidencialidade. Uma informação falsa disponível pode induzir uma ação perigosa. A prioridade depende da função, da fase de operação e das consequências de cada falha.
-
-Em OT, **tempo de resposta**, **confiabilidade**, **compatibilidade com equipamentos** e **possibilidade de manutenção** influenciam a escolha do controle. Um agente de proteção que consome recursos, uma atualização que exige reinício ou uma autenticação que atrasa um comando precisam ser avaliados nesse contexto.
+**Segurança cibernética** protege sistemas e informações. **Segurança funcional** (*safety*) trata funções de proteção que reduzem o risco de falhas perigosas. Os temas se relacionam, mas instalar firewall ou VPN não demonstra que uma função de proteção física é adequada.
 
 ### Estado seguro: uma decisão de engenharia
 
-No modelo do tanque, considere como premissa uma proteção de nível alto-alto em 80%, com interrupção da entrada de água. A faixa de operação e o limiar são escolhas do exemplo, não recomendações para instalações reais.
+No tanque, considere como premissa uma proteção de nível alto-alto em 80%, que interrompe a entrada de água. Os números são do exemplo, não recomendações.
 
-Desligar a bomba de entrada pode reduzir a alimentação de um transbordamento. Isso não determina o que fazer com saída, pressão, alimentação de outros equipamentos ou produtos perigosos. O **estado seguro** precisa ser definido pela análise do processo e pelos responsáveis pela operação.
+Desligar a bomba de entrada reduz a alimentação de um transbordamento. Isso não define o que fazer com saída, pressão ou outros equipamentos. O **estado seguro** é definido pela análise do processo e pelos responsáveis pela operação.
 
-Um **intertravamento** impede ou interrompe uma ação diante de determinada condição. Se ele usa o mesmo sensor, lógica e alimentação do controle que pode falhar, não presuma independência. Sistemas instrumentados de segurança exigem análise e requisitos próprios, fora do alcance deste exemplo.
+Um **intertravamento** impede ou interrompe uma ação diante de uma condição. Se usa o mesmo sensor, lógica e alimentação do controle que pode falhar, não presuma independência.
 
-**Decisão curta:** diante da tela sem atualização, explique por que “reiniciar imediatamente o CLP” não pode ser a primeira recomendação sem conhecer seu papel e o procedimento operacional.
+**Checkpoint:** diante da tela sem atualização, explique em duas frases por que "reiniciar imediatamente o CLP" não pode ser a primeira recomendação. Use pelo menos um card desta seção.
 
-## Referência NIST: organizar a visão geral sem confundir documentos
+---
 
-**A SP 800-82 orienta a adaptação da segurança ao domínio OT.** O **Cybersecurity Framework**, ou **CSF**, ajuda a organizar resultados de gestão. Já a **SP 800-115** orienta avaliações técnicas de segurança e será retomada na A20.
+## Programa: quem organiza a segurança OT
 
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Referência NIST: organizar a visão geral sem confundir documentos — tabela" markdown="1">
+**Síntese.** A seção 3 trata segurança OT como **programa permanente**, não como projeto de ferramentas. Sem mandato e equipe multifuncional, as camadas técnicas ficam sem dono.
 
-| Referência | Pergunta que ajuda a responder | Limite |
-|---|---|---|
-| NIST SP 800-82 Rev. 3 | Como proteger OT considerando seu funcionamento e suas restrições? | Não substitui análise de engenharia nem projeto específico |
-| NIST CSF 2.0 | Que resultados de segurança precisam ser governados e acompanhados? | Não é roteiro de pentest nem catálogo de comandos |
-| NIST SP 800-115 | Como planejar, executar e comunicar uma avaliação técnica? | Precisa de escopo, autorização e adaptação ao ambiente |
-| ISA/IEC 62443 | Como situar responsabilidades e requisitos de sistemas industriais? | Uma visão geral não demonstra conformidade com a série |
+<div class="grid cards" markdown>
+
+-   **Mandato e caso de negócio**
+
+    ---
+
+    Uma carta (*charter*) aprovada pela liderança define objetivo, alcance e responsáveis. O caso de negócio relaciona investimento a consequências evitadas: segurança, produção, conformidade.
+
+-   **Governança e equipe multifuncional**
+
+    ---
+
+    Engenharia de controle, operação, manutenção, TI, segurança e fornecedores decidem juntos. Nenhuma área conhece sozinha processo e ameaça.
+
+-   **Políticas, treinamento e manutenção**
+
+    ---
+
+    Políticas próprias de OT (acesso remoto, mídia removível, mudanças), treinamento para quem opera e registro rastreável das manutenções.
+
+-   **Resposta e recuperação**
+
+    ---
+
+    Capacidade de responder a incidentes e de restaurar a operação, planejada antes do evento e coordenada com procedimentos operacionais.
 
 </div>
 
-Na data de consulta, **29 out. 2026**, a Rev. 3 é a edição final adotada aqui; a [Rev. 4 está em rascunho público](https://csrc.nist.gov/pubs/sp/800/82/r4/ipd). Uma proposta em consulta não é tratada como norma final.
+**Exemplo.** Uma regra de firewall que bloqueia a estação de engenharia fora da janela de manutenção é técnica. Decidir **quem aprova a janela** e **quem é avisado quando a regra dispara** é decisão do programa. Sem essa parte, a regra é desativada no primeiro atraso de produção.
 
-O [CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final) organiza seis funções que se relacionam continuamente:
+---
 
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Referência NIST: organizar a visão geral sem confundir documentos — tabela" markdown="1">
+## Risco: enquadrar, avaliar, responder e monitorar
 
-| Função | Decisão aplicada à operação |
+**Síntese.** A seção 4.1 aplica à OT o ciclo de gestão de risco do NIST. Seus quatro componentes são contínuos.
+
+```text
+Enquadrar → Avaliar → Responder → Monitorar
+    ↑                                  │
+    └──────────────────────────────────┘
+```
+
+| Componente | Pergunta em OT |
 |---|---|
-| Governar — Govern | Quem aceita o risco, autoriza manutenção e responde pela operação? |
-| Identificar — Identify | Que ativos, dependências e consequências precisam ser conhecidos? |
-| Proteger — Protect | Como limitar acesso e alteração, mantendo os fluxos necessários? |
-| Detectar — Detect | Que mudança, perda de atualização ou acesso precisa ser percebido? |
-| Responder — Respond | Quem age, com qual limite e qual coordenação operacional? |
-| Recuperar — Recover | Como restaurar e comprovar o retorno da função? |
+| **Enquadrar** | Que consequências são inaceitáveis (pessoas, ambiente, produção) e que restrições existem? |
+| **Avaliar** | Que ameaça, vulnerabilidade e condição podem levar a essa consequência? |
+| **Responder** | Que controle reduz o risco sem criar outro problema operacional? |
+| **Monitorar** | O controle continua funcionando e o ambiente mudou? |
+
+A seção 4.2 destaca duas áreas especiais. **Cadeia de suprimentos:** firmware, peças, integradores e acesso remoto de fornecedores também são origem de risco. **Sistemas de segurança:** a análise de risco cibernético deve considerar como um ataque pode afetar funções instrumentadas de segurança. A seção 4.3 aplica os sete passos do RMF (*Risk Management Framework*): preparar, categorizar, selecionar, implementar, avaliar, autorizar e monitorar.
+
+### Inventário: registrar função antes de escolher controle
+
+<div class="grid cards" markdown>
+
+-   **Função e dependência**
+
+    ---
+
+    Um endereço IP não diz se o ativo pode ser reiniciado. Registre o que ele faz e do que depende.
+
+-   **Alteração sensível**
+
+    ---
+
+    A estação de engenharia parece um PC comum, mas pode alterar o programa do CLP.
+
+-   **Responsável**
+
+    ---
+
+    Quem autoriza mudança, quem opera e quem responde quando o ativo falha.
+
+-   **Lacuna**
+
+    ---
+
+    Registre o que ainda se desconhece. "Não informado" é uma resposta válida; suposição não é.
 
 </div>
 
-A SP 800-82 Rev. 3 foi publicada antes do CSF 2.0 e utiliza a organização do **CSF 1.1**, com cinco funções. A coluna Governar acima é uma atualização de leitura pelo CSF 2.0; não é uma sexta função atribuída ao texto de 2023. As funções também não são uma fila em que detectar começa somente depois de proteger.
+O inventário pode começar por documentação, configurações e tráfego existente. **Observação passiva** examina comunicações disponíveis; **descoberta ativa** envia consultas aos equipamentos. A passiva pode não ver dispositivos silenciosos; a ativa pode afetar dispositivos sensíveis. A escolha depende de autorização, compatibilidade e impacto, como discute o apêndice E.
 
-## Inventário e risco: registrar função antes de escolher controle
-
-- Inventário útil registra **função, dependência e responsável**, além de endereço e versão.
-- A consequência física deve ser explicada pelo funcionamento do processo.
-- A exposição cria uma possibilidade; um incidente exige evidência adicional.
-- A avaliação precisa registrar o que ainda se desconhece.
-
-Um endereço IP não informa se o ativo pode ser reiniciado. A estação de engenharia pode parecer um computador comum, mas ter ferramentas e permissões capazes de alterar o programa do controlador. Um servidor de histórico pode depender de comunicação com a supervisão sem precisar enviar comandos ao CLP.
-
-No uso de protocolos industriais, como **Modbus TCP**, é preciso conhecer quais operações transportam medições e quais alteram valores. Não deduza permissão de comando apenas porque um equipamento pode estabelecer uma conexão. Tampouco suponha que todo protocolo ou produto OT tenha as mesmas proteções.
-
-O inventário pode começar por documentação, configurações e tráfego já existente. **Observação passiva** examina comunicações disponíveis; **descoberta ativa** envia consultas. A observação pode perder equipamentos silenciosos; a consulta pode afetar dispositivos sensíveis. A escolha precisa considerar autorização, compatibilidade e impacto, como discute o apêndice E da SP 800-82 Rev. 3.
+Em protocolos como **Modbus TCP**, há operações de leitura e operações que escrevem valores. Poder estabelecer uma conexão não implica permissão para comandar.
 
 ### Exemplo trabalhado: alteração de parâmetro
 
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Exemplo trabalhado: alteração de parâmetro — tabela" markdown="1">
-
 | Campo | Registro de exemplo |
 |---|---|
-| Função | Manter o nível do tanque dentro da faixa definida para operação |
+| Função | Manter o nível do tanque dentro da faixa de operação |
 | Condição | Estação de engenharia com permissão de alterar o parâmetro de controle |
 | Evento considerado | Conta da estação é usada para uma alteração não autorizada |
 | Consequência possível | Entrada de água inadequada; transbordamento se as demais barreiras falharem |
 | Evidência necessária | Identidade, alteração, instante, versão do programa e resposta do processo |
 | Controle proposto | Restringir identidade, destino, janela e alteração; revisar a proteção independente |
-| Responsáveis | Operação autoriza a intervenção; automação verifica a lógica; segurança verifica os acessos |
+| Responsáveis | Operação autoriza; automação verifica a lógica; segurança verifica os acessos |
 | Limite | Não foram fornecidos programa, permissões reais nem testes de intertravamento |
+
+Não atribua probabilidade ou classe de risco sem premissas. A [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) apoia a explicitação dessas incertezas.
+
+**Aplicação:** registre três ativos do esquema. Para cada um, indique função, dependência, alteração sensível, responsável e uma evidência que ajudaria a conhecê-lo. Use "não informado" quando faltar um dado. Não procure equipamentos na rede da instituição.
+
+---
+
+## Arquitetura: defesa em profundidade em cinco camadas
+
+**Síntese.** A seção 5.2 organiza a defesa em profundidade em cinco camadas. O guia recomenda **concluir a camada 1 antes das demais**, porque as decisões de programa e risco orientam todas as outras.
+
+<div class="grid cards" markdown>
+
+-   **1 — Gestão de segurança**
+
+    ---
+
+    Programa, governança e risco (seções 3 e 4).
+
+    *No tanque:* quem aprova alterações no CLP.
+
+-   **2 — Segurança física**
+
+    ---
+
+    Acesso a salas, painéis, armários e portas de programação.
+
+    *No tanque:* quem pode conectar um notebook ao CLP.
+
+-   **3 — Segurança de rede**
+
+    ---
+
+    Segmentação, filtragem entre zonas, acesso remoto e monitoração.
+
+    *No tanque:* o caminho até a estação de engenharia.
+
+-   **4 — Segurança de hardware**
+
+    ---
+
+    Recursos do próprio dispositivo: chave de modo, inicialização confiável, portas desabilitadas.
+
+    *No tanque:* bloqueio de escrita do programa.
+
+-   **5 — Segurança de software**
+
+    ---
+
+    Configuração segura, atualização planejada, lista de aplicações permitidas.
+
+    *No tanque:* o que roda na estação de engenharia.
 
 </div>
 
-Não atribua uma probabilidade ou uma classe de risco a esse exemplo sem premissas. A consequência depende da lógica, das proteções e das condições físicas. A [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) oferece apoio para explicitar essas incertezas na avaliação.
+**Explicação.** Cada camada tem uma função diferente; uma não prova que a outra funciona. Segmentação limita caminhos; controle de acesso limita ações; monitoração revela condições; recuperação recompõe a operação.
 
-### Aplicação: completar o inventário mínimo
+### Zonas, conduítes e níveis
 
-Registre três ativos do esquema de controle. Para cada um, indique função, dependência, alteração sensível, responsável e uma evidência que ajudaria a conhecê-lo. Use “não informado” quando faltar um dado.
+Uma **zona** reúne ativos com necessidades de proteção semelhantes. Um **conduíte** é o canal controlado de comunicação entre zonas. Esses termos vêm da série [ISA/IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards), referência complementar para automação industrial.
 
-Se usar uma planilha, crie uma coluna para cada campo e mantenha uma linha por ativo. Não procure equipamentos na rede da instituição. A atividade se limita ao esquema e aos registros desta página.
+A seção 5 usa como exemplo o **modelo Purdue**, que organiza a planta em níveis:
 
-**Checkpoint:** diferencie a falha do sensor, a perda de comunicação com a IHM e a alteração do programa. Para cada condição, diga qual função pode ser afetada e o que ainda precisaria ser observado.
+| Nível | Conteúdo típico |
+|---|---|
+| 0 | Processo físico, sensores e atuadores |
+| 1 | Controle básico: CLP, controladores |
+| 2 | Supervisão: IHM, SCADA |
+| 3 | Operações do site: historiador, engenharia |
+| DMZ | Zona intermediária entre OT e corporativo |
+| 4–5 | Rede corporativa e empresa |
 
-## Arquitetura: reduzir caminhos e limitar consequências
-
-**Defesa em profundidade** combina barreiras com funções diferentes. Segmentação limita caminhos; controle de acesso limita ações; monitoramento revela condições; recuperação permite recompor a operação. Uma camada não prova que as outras funcionam.
-
-Uma **zona** reúne ativos com necessidades de proteção relacionadas. Um **conduíte** organiza e protege comunicações entre zonas. A segmentação pode utilizar redes e firewalls, mas a fronteira depende também de regras, caminhos alternativos e permissões. A [ISA/IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) é referência complementar para sistemas de automação industrial.
+Os níveis orientam onde colocar fronteiras. Não são uma prescrição universal: IIoT e serviços em nuvem criam caminhos que atravessam vários níveis, e o guia mostra esse modelo ao lado do modelo Purdue.
 
 ### Exemplo de percurso remoto limitado
 
@@ -208,78 +466,75 @@ Estação de engenharia na OT
 CLP
 ```
 
-**DMZ** é uma zona intermediária usada para separar serviços e mediar comunicações entre redes. Uma **estação intermediária**, ou *jump host*, concentra o acesso autorizado ao destino seguinte. As setas representam conexões distintas; não são uma liberação automática de trânsito até o CLP.
-
-O desenho é um exemplo simplificado de arquitetura. Não representa toda uma planta nem determina o posicionamento universal de seus componentes. A seção 5 da [SP 800-82 Rev. 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf) apresenta alternativas de arquitetura e defesa em profundidade.
-
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Exemplo de percurso remoto limitado — tabela" markdown="1">
+**DMZ** separa serviços e media comunicações entre redes. Uma **estação intermediária** (*jump host*) concentra o acesso ao destino seguinte. Cada seta é uma conexão distinta, com regra própria.
 
 | Camada | O que procura reduzir | O que ainda pode ocorrer |
 |---|---|---|
-| VPN com autenticação | Interceptação do trecho e entrada de cliente não autorizado | Cliente autenticado pode estar comprometido |
-| Regras entre zonas | Caminhos diretos e alcance excessivo | Um fluxo permitido pode transportar uma ação indevida |
-| Permissão de manutenção | Alterações por identidade ou janela inadequada | Conta autorizada pode cometer erro |
-| Proteção do processo | Consequência de uma condição perigosa | Dependências comuns podem comprometer barreiras |
-| Monitoramento e cópias | Falha silenciosa e dificuldade de recomposição | Alerta sem resposta ou cópia não restaurável |
+| VPN com autenticação | Interceptação e entrada de cliente não autorizado | Cliente autenticado pode estar comprometido |
+| Regras entre zonas | Caminhos diretos e alcance excessivo | Fluxo permitido pode transportar ação indevida |
+| Permissão de manutenção | Alteração por identidade ou janela inadequada | Conta autorizada pode cometer erro |
+| Proteção do processo | Consequência de condição perigosa | Dependências comuns comprometem barreiras |
+| Monitoração e cópias | Falha silenciosa e dificuldade de recompor | Alerta sem resposta ou cópia não restaurável |
 
-</div>
+!!! note "Três confusões frequentes"
+    - **VLAN** separa domínios de rede, mas não demonstra filtragem entre eles.
+    - **VPN** protege seu trecho; não concede autoridade para alterar o controlador.
+    - Firewall que permite a porta necessária não demonstra autorização dentro da aplicação.
 
-Uma **VLAN** separa domínios de rede, mas não demonstra filtragem entre eles. Uma **VPN** protege seu trecho e autentica conforme a configuração; não concede, por si, autoridade para alterar o controlador. Um firewall permitir a porta necessária também não demonstra autorização dentro da aplicação.
+### Caso documentado: controladores expostos
 
-O mesmo raciocínio vale para **zero trust**: localização na rede e conexão VPN não bastam para confiar em toda ação. Aplicar esse princípio exige considerar dispositivos legados, latência e operação de emergência, evitando interromper funções por uma política incompatível.
+O alerta [CISA AA23-335A, atualizado em dezembro de 2024](https://www.cisa.gov/sites/default/files/2024-12/aa23-335a-irgc-affiliated-cyber-actors-exploit-plcs-in-multiple-sectors.pdf), relata comprometimentos de CLPs Unitronics, incluindo instalações de água, acessíveis pela Internet e com credenciais padrão ou ausentes.
 
-### Caso documentado: exposição de controladores
+O caso ilustra falhas nas camadas 1, 3 e 5 ao mesmo tempo: ninguém decidiu se o caminho externo deveria existir, a rede permitia alcançá-lo e a configuração mantinha a senha padrão. Não atribua a todos os equipamentos do fabricante a mesma exposição. Os dados do tanque não são evidência desse incidente.
 
-O alerta conjunto [AA23-335A, atualizado em dezembro de 2024](https://www.cisa.gov/sites/default/files/2024-12/aa23-335a-irgc-affiliated-cyber-actors-exploit-plcs-in-multiple-sectors.pdf), relata comprometimentos de dispositivos Unitronics, incluindo instalações de água, associados a equipamentos acessíveis pela Internet e credenciais padrão ou ausentes.
+**Aplicação:** no percurso remoto, marque onde devem existir identidade, restrição de destino, registro de sessão e autorização de alteração. Escolha um caminho que precisa ser negado e um fluxo legítimo que deve permanecer.
 
-O caso ajuda a perguntar **por que o caminho externo existia e quem podia utilizá-lo**. Não se deve atribuir a todos os equipamentos do fabricante a mesma exposição, nem inferir um efeito físico específico a partir de uma tela alterada. Os dados do tanque desta aula não são evidências desse incidente.
+---
 
-**Aplicação:** no desenho remoto, marque onde devem existir identidade, restrição de destino, registro de sessão e autorização de alteração. Escolha um caminho que precisa ser negado e um fluxo legítimo que deve permanecer disponível.
+## Validação: da recomendação ao critério verificável
 
-## Validação: transformar uma recomendação em pergunta verificável
+"Usar segmentação" é ampla demais para ser verificada. Um critério verificável seria: **o cliente remoto não alcança diretamente o CLP; a manutenção autorizada alcança somente a estação prevista, durante a janela aprovada**.
 
-“Usar segmentação” é uma recomendação ampla. Um critério verificável seria: **o cliente remoto não estabelece conexão direta com o CLP; a manutenção autorizada alcança somente a estação prevista, durante a janela aprovada**.
+Preencha o registro na ordem abaixo. Os quatro últimos campos serão reabertos na A20.
 
-Para avaliar esse critério, será preciso conhecer origem, destino, ação, janela e resultado. Também será necessário verificar que a restrição não eliminou supervisão ou controle legítimos. Revisão de configuração, evidência de tráfego e teste controlado oferecem tipos diferentes de evidência.
+```text
+função → consequência → controle → responsável
+       → caso permitido → caso negado → função preservada → lacuna
+```
 
-Preencha um registro com: **função → consequência → controle → responsável → caso permitido → caso negado → função preservada → evidência disponível → lacuna**. Identifique o que é proposta e o que foi fornecido ou observado; nenhum teste de rede é solicitado nesta aula.
+Identifique o que é proposta e o que foi fornecido ou observado. Nenhum teste de rede é solicitado nesta aula.
 
 ## Atividade {#atividade}
 
 Inicie o **registro de proteção e validação OT**, atividade única dos dois encontros. Use o [modelo em branco](../assets/a19-a20/modelo-registro-ot.md) ou um documento com os mesmos campos.
 
-Nesta etapa, registre os três ativos, analise a amostra sem atualização e desenvolva uma decisão de proteção. Na A20, acrescente acesso, resposta, recuperação e o plano de avaliação. O [enunciado completo e a rubrica](../atividades/A19-A20-protecao-validacao-ot.md#atividade) definem a entrega, sem tarefa adicional por checkpoint.
+Nesta etapa, registre os três ativos, analise a amostra sem atualização e desenvolva uma decisão de proteção. Na A20, acrescente acesso, resposta, recuperação e o plano de avaliação técnica. O [enunciado completo e a rubrica](../atividades/A19-A20-protecao-validacao-ot.md#atividade) definem a entrega.
 
 ## Diagnóstico e alternativa
 
-<div class="didactic-scroll ot-table" role="region" tabindex="0" aria-label="Diagnóstico e alternativa — tabela" markdown="1">
-
 | Dificuldade | Como prosseguir |
 |---|---|
-| Não conheço automação | Refaça o esquema com os verbos medir, decidir, atuar e mostrar; use a tabela de componentes |
-| Não consigo abrir a planilha | Registre os mesmos campos em texto; todos os dados necessários estão na página |
+| Não conheço automação | Refaça o esquema com os verbos medir, decidir, atuar e mostrar |
+| Não consigo abrir a planilha | Registre os mesmos campos em texto; todos os dados estão na página |
 | Não há laboratório industrial | Analise o esquema e os registros fornecidos; identifique a análise como documental |
-| Falta evidência para concluir | Registre a lacuna e a próxima coleta; não preencha com uma suposição |
-
-</div>
+| Falta evidência para concluir | Registre a lacuna e a próxima coleta; não preencha com suposição |
 
 Ao encerrar, salve o registro. Não há instalação, serviço de rede ou recurso de nuvem para remover. Não use dados ou endereços de plantas reais.
 
 ## Revisão rápida e continuidade
 
 1. Por que uma leitura de 47% sem atualização não comprova estabilidade física?
-2. Que diferença existe entre restringir uma conexão e autorizar uma alteração?
-3. Qual caso legítimo precisa ser preservado para avaliar seu controle?
+2. Escolha uma consideração da seção 2.4 e explique como ela muda uma prática comum de TI.
+3. Por que o guia recomenda concluir a camada de gestão antes das camadas técnicas?
 
-Leve para a [A20](A20-validacao-ot-pentest.md) os campos **caso permitido, caso negado, função preservada e lacuna**. Eles serão usados para distinguir controle proposto, evidência disponível e teste autorizado.
+Leve para a [A20](A20-validacao-ot-pentest.md) os campos **caso permitido, caso negado, função preservada e lacuna**. Eles serão confrontados com registros de acesso e de processo.
 
 ## Fontes de referência
 
-- [NIST SP 800-82 Rev. 3 — Guide to OT Security](https://csrc.nist.gov/pubs/sp/800/82/r3/final): base principal; seções 2–5 e apêndice E para consulta seletiva.
+- [NIST SP 800-82 Rev. 3 — Guide to OT Security](https://csrc.nist.gov/pubs/sp/800/82/r3/final) ([PDF](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf)): seções 2.3–2.4 (sistemas e OT × TI), 3 (programa), 4 (risco), 5.2–5.4 (camadas e arquiteturas).
 - [NIST SP 800-82 Rev. 4 — rascunho público](https://csrc.nist.gov/pubs/sp/800/82/r4/ipd): estado de revisão, não base final desta aula.
-- [NIST CSF 2.0](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final): resultados de gestão e seis funções.
 - [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final): avaliação de riscos e incertezas.
-- [ISA/IEC 62443 — apresentação oficial da série](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards): referência complementar; não exige acesso ao texto pago.
-- [CISA e parceiros — AA23-335A, edição atualizada em 2024](https://www.cisa.gov/sites/default/files/2024-12/aa23-335a-irgc-affiliated-cyber-actors-exploit-plcs-in-multiple-sectors.pdf): exemplo documentado de exposição de controladores.
+- [ISA/IEC 62443 — apresentação oficial da série](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards): zonas, conduítes e requisitos; referência complementar.
+- [CISA e parceiros — AA23-335A, edição de 2024](https://www.cisa.gov/sites/default/files/2024-12/aa23-335a-irgc-affiliated-cyber-actors-exploit-plcs-in-multiple-sectors.pdf): exemplo documentado de exposição de controladores.
 
 Referências consultadas em **29 out. 2026**.
