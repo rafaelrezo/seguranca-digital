@@ -355,6 +355,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Função didática:** mostrar de relance a fronteira entre onde a decisão por requisição se aplica e onde a proteção vem de compensatórios.
 
+**Estado:** imagem recebida em `/tmp/imagem36.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem36.png`, 256 cores; `#figura-36` na A20, entre a frase sobre compensatórios e a tabela por nível, com "Leia a figura"). Todos os critérios atendidos: ordem das faixas, colchete de zero trust restrito a 4–5/DMZ/3, nível 2 parcial, chave RUN/PROG no CLP, funil na fronteira 2/1 e monitoração passiva cobrindo 2–0.
+
 **Prompt:**
 
 > Crie um diagrama vertical em português, com seis faixas horizontais empilhadas, de cima para baixo, com estes rótulos exatos à esquerda de cada faixa:
@@ -450,4 +452,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
 | 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
 | 35 | Incorporada na A20 (rótulo do firewall do painel Zero trust corrigido) | 5 nov. 2026 |
+| 36 | Incorporada na A20 | 5 nov. 2026 |
 | 38 | Incorporada na A20 | 5 nov. 2026 |
