@@ -520,6 +520,13 @@ A seção 5 usa como exemplo o **modelo Purdue**, que organiza a planta em níve
 
 Os níveis orientam onde colocar fronteiras. Não são uma prescrição universal: IIoT e serviços em nuvem criam caminhos que atravessam vários níveis, e o guia mostra esse modelo ao lado do modelo Purdue.
 
+
+![Modelo Purdue em seis faixas: níveis 4–5 rede corporativa, DMZ industrial com intermediário e réplica do historiador, nível 3 operações do site com engenharia e historiador, nível 2 supervisão com IHM/SCADA, nível 1 controle básico com CLP e nível 0 processo com tanque, sensor de nível e bomba. Dois firewalls rotulados conduíte separam o corporativo da DMZ e a DMZ do nível 3. A zona OT contorna os níveis 0 a 3 e a zona corporativa contorna os níveis 4–5. Seta verde 1: o historiador envia dados à réplica, passando pelo firewall inferior. Seta verde 2: o corporativo lê a réplica, passando pelo firewall superior. Seta vermelha tracejada: o acesso direto do corporativo ao CLP é negado na fronteira superior.](../assets/a19-a20/imagem29.png){#figura-29 loading=lazy}
+
+*Imagem 29 — Modelo Purdue com zonas, conduítes e DMZ.* [Abrir a imagem ampliada](../assets/a19-a20/imagem29.png).
+
+**Leia a figura:** os dados do historiador sobem em **dois passos** (setas 1 e 2), e cada passo atravessa um conduíte. Nenhum fluxo vai direto do nível 3 ao corporativo: o corporativo lê a **réplica** na DMZ. O caminho direto do corporativo ao CLP para já na primeira fronteira.
+
 ### Exemplo de percurso remoto limitado
 
 ![Acesso remoto em quatro trechos numerados: 1, túnel do cliente remoto ao gateway VPN, fora da empresa; 2, acesso limitado do gateway ao intermediário na DMZ; 3, sessão autorizada do intermediário à estação de engenharia na rede OT; 4, operação autorizada da estação ao CLP. O túnel VPN protege apenas o trecho 1. Uma seta tracejada vermelha do cliente remoto em direção ao CLP é bloqueada no primeiro firewall: caminho direto negado.](../assets/a19-a20/imagem30.png){#figura-30 loading=lazy}

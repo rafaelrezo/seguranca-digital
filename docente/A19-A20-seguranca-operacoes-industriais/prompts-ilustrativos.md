@@ -139,6 +139,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 29 — Modelo Purdue com zonas, conduítes e DMZ {#imagem-29}
 
+**Estado (5 nov. 2026):** base sem setas recebida em `/tmp/imagem29.png` e validada (seis faixas na ordem, DMZ entre nível 3 e corporativo, dois conduítes, nenhuma seta, réplica e historiador alinhados). Setas e legenda sobrepostas por script (`tools/materials/imagem29_setas_purdue.py`): verde 1 historiador → réplica pelo ícone do firewall inferior; verde 2 réplica → corporativo pelo ícone do firewall superior; vermelha tracejada do servidor corporativo até a linha da fronteira superior, com X. Incorporada na A19 (`docs/assets/a19-a20/imagem29.png`, 256 cores; `#figura-29`, após a explicação dos níveis, com "Leia a figura") como apoio de estudo; a A19 já foi aplicada.
+
 **Estado (29 out. 2026, segunda versão gerada):** **não incorporada.** Seta 1 e seta vermelha corretas, mas a seta verde 2 cruza a fronteira ao lado do X, e não pelo firewall, e veio rotulada "1"; o rótulo da seta 1 sumiu. Encaminhamento: gerar a base **sem setas nem rótulos de fluxo** e sobrepor setas e rótulos em SVG, com posição exata.
 
 **Estado (29 out. 2026):** primeira versão recebida e **não incorporada**. Faixas, DMZ e zonas corretas, mas (1) a seta verde sobe direto do historiador ao corporativo, passando ao lado da réplica — desenha o fluxo atravessando a DMZ, padrão que a DMZ deve impedir; (2) a seta vermelha continua cheia após o X até o CLP, cruzando a fronteira da Zona OT sem conduíte. Corrigir com o bloco de setas abaixo, mantendo o restante do prompt revisto.
@@ -479,6 +481,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 28 | Duas versões recusadas; terceira versão do prompt entregue | 29 out. 2026 |
 | 28 | Terceira versão incorporada na A19 (apoio de estudo) | 5 nov. 2026 |
 | 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
+| 29 | Base sem setas + sobreposição por script; incorporada na A19 (apoio de estudo) | 5 nov. 2026 |
 | 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
 | 32–34 | Incorporadas na A20 | 5 nov. 2026 |
