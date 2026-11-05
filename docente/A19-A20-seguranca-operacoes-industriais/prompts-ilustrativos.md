@@ -389,6 +389,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Função didática:** fixar "conexão ≠ permissão" com o caso da C-01, comparando o que um firewall comum e um firewall com inspeção de protocolo deixam passar.
 
+**Estado:** imagem recebida em `/tmp/imagem37.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem37.png`, 256 cores; `#figura-37` na A20, após "Relação com zero trust", com "Leia a figura"). Critérios atendidos: escrita vinda da estação de engenharia, duas requisições chegando ao CLP na faixa de cima e só a leitura na de baixo. O gerador acrescentou a etiqueta "Passou: leitura permitida", coerente.
+
 **Prompt:**
 
 > Crie um diagrama didático em português com duas faixas horizontais de mesmo layout, uma acima da outra. Estilo de ilustração técnica plana, fundo claro, alto contraste, texto grande legível em projeção. Formato 16:9.
@@ -453,4 +455,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
 | 35 | Incorporada na A20 (rótulo do firewall do painel Zero trust corrigido) | 5 nov. 2026 |
 | 36 | Incorporada na A20 | 5 nov. 2026 |
+| 37 | Incorporada na A20 | 5 nov. 2026 |
 | 38 | Incorporada na A20 | 5 nov. 2026 |
