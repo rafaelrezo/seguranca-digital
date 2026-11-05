@@ -329,6 +329,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Função didática:** tornar visível, em uma só comparação, o movimento lateral dentro da zona e a decisão tomada na frente de cada recurso.
 
+**Estado:** imagem recebida em `/tmp/imagem35.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem35.png`, 256 cores; `#figura-35` na A20, após a tabela de "A ideia central", com "Leia a figura"). Todos os critérios de conferência atendidos. Um ajuste: o gerador repetiu no painel Zero trust o rótulo "verificação só na entrada", que contradiz o painel; o texto foi substituído por "fronteira mantida" (sobreposição em fundo branco liso, sem emenda visível). Se houver nova geração, acrescentar ao prompt: "no painel Zero trust, o portão do firewall tem o rótulo 'fronteira mantida'".
+
 **Prompt:**
 
 > Crie uma comparação lado a lado em português, com dois painéis de mesmo layout e mesmo estilo de ilustração técnica plana: fundo claro, alto contraste, linhas finas, ícones simples, texto grande legível em projeção. Formato 16:9.
@@ -445,3 +447,4 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
 | 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
+| 35 | Incorporada na A20 (rótulo do firewall do painel Zero trust corrigido) | 5 nov. 2026 |
