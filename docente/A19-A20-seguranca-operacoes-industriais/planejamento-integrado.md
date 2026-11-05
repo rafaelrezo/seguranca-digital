@@ -201,3 +201,13 @@ Recomendação preliminar: processo pela SP 800-115 (com fases do PTES como voca
 ### Complemento de 5 nov. 2026 — como o DPI distingue função 3 e 6
 
 Pergunta docente: como um firewall permite a função 3 e bloqueia a 6; isso exige firewall de aplicação? Resposta incorporada na A20 como subseção "Como o firewall distingue ler de escrever", após a Imagem 37: DPI de protocolo industrial (E.1.1), distinção de WAF, tabela L3/L4 idêntica nos pacotes 25 e 34, bytes reais do conteúdo TCP extraídos com tshark (`000100000006010300000002` e `000200000006010600010055`), regra por origem/função/registrador/janela, verificação de faixa de valor e custos (inline, latência, IPS automático §5.2.3.3, TLS, integração da janela). Quadro de mercado de firewalls com DPI separado do quadro de NDR; Suricata como alternativa aberta. Condução: +3 min no bloco 45–60 (absorvidos no bloco 80–95 se necessário). Resposta esperada: o filtro L3/L4 decide quem conversa; o DPI decide o que pode ser dito, pelo oitavo byte do conteúdo Modbus.
+
+### Reorganização de 5 nov. 2026 — sequência a partir de M-01
+
+Relato docente: difícil acompanhar a partir de "Função preservada: uma segunda evidência" — o trecho reabria M-01 dentro de Detectar, depois da C-01 e do DPI, e abria por uma ressalva, não pelo propósito. Nova ordem da página:
+
+1. **Zero trust → M-01 → "Função preservada: o processo continuou funcionando?"** O trecho abre pela pergunta do terceiro campo do registro da A19, traz amostras, Imagem 31 e nota de sincronização; nova Ação (associar o acesso das 10:00:04 a uma amostra) e o checkpoint "acesso remoto seguro" passam para o fim, depois das três evidências.
+2. **Detectar** fica só com monitoração passiva, Modbus, C-01, interpretação, Aplicação, regra de detecção e mercado de NDR; aviso de que C-01 é exemplo separado de M-01.
+3. **Nova seção "Bloquear a escrita: inspeção de protocolo"** (Proteger): pergunta "dá para impedir antes?", Imagem 37, DPI e mercado de firewalls.
+
+Condução revista (total inalterado, 57 T/43 P): 35–50 M-01 e função preservada (4 T/11 P); 50–62 Detectar com C-01, aplicação e regra (5 T/7 P); 62–70 Bloquear a escrita (5 T/3 P). Os blocos seguintes mantêm a duração; ajustar no bloco de avaliação se a demonstração do Wireshark atrasar.
