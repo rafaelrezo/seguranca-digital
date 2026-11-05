@@ -158,3 +158,42 @@ Recomendação preliminar: processo pela SP 800-115 (com fases do PTES como voca
 **Figura 30 (29 out. 2026):** respostas esperadas da Aplicação da A19 por trecho — ① identidade individual/MFA; ② restrição de destino; ③ janela e registro de sessão; ④ autorização de alteração. Aceitar justificativas que coloquem registro também em ④. Na A20, eventos de M-01 por trecho: 09:59:30 ①; 09:59:35 ③ (negado por janela); 10:00:02 caminho direto, bloqueado na primeira fronteira; 10:00:04 ③; 10:00:06 ④ (diagnóstico, sem alteração).
 
 **Seção de risco da A19 reorganizada (29 out. 2026), a pedido do docente — informações antecipadas sem contextualização.** Nova ordem: síntese (risco é o da A09; muda o local do dano e quem participa) → elementos da SP 800-30 usados na A09 aplicados ao tanque, formando uma frase de risco → diferença em relação à A09 (impacto físico; estimativa depende da engenharia de processo) → ciclo da seção 4.1 com coluna aplicada ao tanque → cards da seção 4.2 (cadeia de suprimentos, SIS) com exemplo no tanque → RMF rebaixado a nota opcional → inventário com frase de transição → exemplo trabalhado apresentado como forma de registro da frase de risco; ausência de verossimilhança justificada com referência à matriz da A09. Mediação: pedir que a turma leia a coluna "No tanque" como frase antes de mostrar a frase pronta.
+
+
+## Revisão de 5 nov. 2026 — A20 com zero trust, mercado e captura Modbus
+
+**Origem:** relato docente após aplicar a A19 — faltou explicar zero trust segundo a SP 800-82 e faltaram ilustrações práticas, ferramentas e soluções de mercado; pedido de tornar a A20 menos monótona e mais próxima do dia a dia do profissional de automação. Análise e confronto de ideias apresentados ao docente e aprovados no mesmo dia. Decisão registrada na [arquitetura](../arquitetura-geral-da-experiencia.md).
+
+**Diagnóstico da versão anterior:** sete grades de cards alternadas com tabelas; quase metade da aula sobre um único conjunto artificial (M-01); ressalvas "não demonstra" em quase todo parágrafo; nenhuma tela, ferramenta ou produto; apêndice E citado no mapa da A19, mas não usado.
+
+**Fontes conferidas no texto oficial em 5 nov. 2026:** SP 800-82r3 5.2.3.1 (gateway unidirecional), 5.2.3.3 (tráfego determinístico, modo passivo, SPAN/TAP, IPS em níveis superiores), 5.2.3.4 (ZTA: definição, aplicar nos níveis 3–5 e DMZ, latência, redundância, credenciais compartilhadas), 6.2.10 (acesso remoto justificado, MFA, remoção de acesso), apêndice C (Colonial: perfil legado de VPN, sem evidência de impacto direto em OT na data, parada para conter; Norsk Hydro: operação manual), apêndice E (E.1–E.3), apêndice F (CA-8; CM-3(8) chave física). SP 800-207 seção 2.1 (sete princípios) e componentes PE/PA/PEP. Os PDFs da CISA (fact sheet de mitigações OT de 2025 e HatMan) não puderam ser lidos pela ferramenta de consulta; não foram usados. Oldsmar não entrou: autoria da intrusão contestada desde 2023 (o FBI declarou não ter confirmado intrusão direcionada).
+
+**Captura C-01:** `docs/assets/a19-a20/a20-modbus-c01.pcap`, gerada por `tools/materials/generate_a20_modbus_c01.py`. 45 pacotes, duas conexões TCP com handshake; IHM 10.10.2.20 lê registradores 0–1 a cada 1 s; estação 10.10.3.30 lê em 5,4 s e escreve 85 no registrador 1 em 7,2 s; IHM passa a ler 85. Decodificada com tshark 4.6.4 sem alertas do sistema especialista; a tabela da página reproduz essa saída.
+
+**Produtos citados (exemplos, sem endosso):** SRA/ZTNA OT (Claroty SRA, Cyolo, Xage, SINEMA RC, TOSIBOX; Guacamole); NDR OT (Claroty, Nozomi Guardian, Dragos, Defender for IoT, Cyber Vision, Tenable OT; Zeek+ICSNPP, Malcolm, Wireshark); firewalls com DPI (Tofino Xenon, mGuard, FortiGate Rugged, ISA3000); proteções nativas (níveis de acesso S7-1200/1500, chave ControlLogix, CIP Security, OPC UA, Modbus/TCP Security); versões/backup (octoplant, AssetCentre, comparação TIA/Studio 5000); simulação (PLCSIM, Logix Emulate, OpenPLC). Revisar nomes a cada oferta da disciplina.
+
+### Condução A20 revista — 100 min (57 T/43 P)
+
+| Intervalo | Núcleo e ação | T | P |
+|---|---|---:|---:|
+| 0–8 | Quatro demandas × CSF; nota CSF 1.1/2.0 | 6 | 2 |
+| 8–25 | Zero trust: perímetro × requisição; princípios; PE/PA/PEP; Imagem 30 relida; box SRA | 12 | 5 |
+| 25–35 | Até onde o ZT chega (Purdue); proteções nativas; checkpoint MFA na IHM | 7 | 3 |
+| 35–45 | M-01: trecho, componente, permitido/negados | 3 | 7 |
+| 45–60 | Modbus em tabela; demonstração C-01 no Wireshark; interpretação; box NDR; função preservada e figura 31 | 5 | 10 |
+| 60–67 | Regra de detecção com contexto; aplicação de três linhas | 3 | 4 |
+| 67–80 | Responder/recuperar: Colonial, Norsk Hydro, contenção, retorno, E.3, box versões | 8 | 5 |
+| 80–95 | CA-8, apêndice C, passiva/ativa/réplica, regras de engajamento | 10 | 5 |
+| 95–100 | Checkpoint IHM web × controlador; atividade | 3 | 2 |
+| **Total** | | **57** | **43** |
+
+**Bloco OT:** 127 T/73 P planejados (A19 70/30 + A20 57/43). Valores de planejamento; a A19 realizada não teve distribuição informada.
+
+**Respostas esperadas novas.**
+
+- *Checkpoint MFA na IHM:* a seção 5.2.3.4 alerta para latência e para a indisponibilidade de componentes da ZTA; exigir MFA por comando atrasa resposta operacional e cria ponto único de falha; muitas IHMs não suportam. MFA cabe no trecho ① (VPN) e no ③ (intermediário/estação de engenharia); na IHM, permissões por função e monitoração.
+- *M-01 com componentes:* 09:59:30 gateway (identidade, trecho ①); 09:59:35 PEP no intermediário negou por janela (trecho ③); 10:00:02 firewall de fronteira negou caminho direto; 10:00:04 PEP concedeu; 10:00:06 autorização na aplicação (trecho ④).
+- *C-01:* origem 10.10.3.30, pacote 34, 7,2 s, função 6, registrador 1, valor 85; antes 60, depois 85 (pacote 38). Consequência possível: controle normal permite nível acima de 80%, a proteção alto-alto vira barreira única. Não sustenta autoria, autorização nem efeito físico; falta ordem de serviço e sessão.
+- *Revisão 1:* compatibilidade, latência e redundância; nível 1 protegido por chave/senha da CPU, DPI e monitoração. *Revisão 2:* ordem de serviço/janela e registro de sessão da estação. *Revisão 3:* prática de TI sem considerar tempo/disponibilidade/efeito físico; réplica, parada planejada, não propagar TI→OT.
+
+**Contingência:** sem Wireshark na máquina do professor, projetar a tabela decodificada e o pacote no navegador; o raciocínio é o mesmo. Se o tempo apertar, reduzir o bloco 80–95 aos casos do apêndice C e ao preenchimento do campo "parada" das regras de engajamento.

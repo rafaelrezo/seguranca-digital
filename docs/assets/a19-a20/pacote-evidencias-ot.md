@@ -55,7 +55,24 @@ Faixa operacional de referência: 40–60%. Proteção de nível alto-alto em 80
 | 10:00:05 | 51% | Atual | Automático |
 | 10:00:10 | 52% | Atual | Automático |
 
-Não foram fornecidos captura de tráfego, lista completa de regras, conteúdo do programa, medição independente nem ensaio das proteções. As tabelas não cobrem todo o período de manutenção.
+Para M-01, não foram fornecidos captura de tráfego, lista completa de regras, conteúdo do programa, medição independente nem ensaio das proteções. As tabelas não cobrem todo o período de manutenção.
+
+## Captura C-01 — leitura e escrita Modbus/TCP
+
+Arquivo: [a20-modbus-c01.pcap](a20-modbus-c01.pcap), 45 pacotes, cerca de 10 s. **Dados sintéticos** gerados em 5 nov. 2026 por script da disciplina; nenhum pacote foi coletado em planta, CLP ou rede real. Exemplo separado de M-01: usa tempo relativo ao início da captura, sem relação com os horários da janela.
+
+| Endereço | Papel |
+|---|---|
+| `10.10.1.10` | CLP do tanque (nível 1), servidor Modbus na porta TCP 502 |
+| `10.10.2.20` | IHM (nível 2), lê os registradores 0 e 1 a cada segundo |
+| `10.10.3.30` | Estação de engenharia (nível 3) |
+
+| Registrador | Significado | Unidade |
+|---:|---|---|
+| 0 | Nível medido do tanque | % |
+| 1 | Limite de desligamento da bomba de entrada | % |
+
+Não foram fornecidos ordem de serviço, registro de sessão da estação, programa do CLP nem amostras de processo posteriores ao fim da captura.
 
 ## Condição adicional — contenção
 

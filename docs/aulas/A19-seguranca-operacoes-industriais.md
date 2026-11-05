@@ -541,6 +541,9 @@ Os níveis orientam onde colocar fronteiras. Não são uma prescrição universa
     - **VPN** protege seu trecho; não concede autoridade para alterar o controlador.
     - Firewall que permite a porta necessária não demonstra autorização dentro da aplicação.
 
+!!! tip "Aprofundamento: zero trust (seção 5.2.3.4)"
+    A seção 5.2.3 do guia também discute **zero trust**: decidir o acesso perto do recurso, a cada requisição, em vez de confiar em quem já passou da fronteira. O conceito, seus limites nos níveis de controle e exemplos de mercado estão na [A20](A20-validacao-ot-pentest.md#zero-trust-do-perimetro-a-decisao-por-requisicao).
+
 ### Caso documentado: controladores expostos
 
 O alerta [CISA AA23-335A, atualizado em dezembro de 2024](https://www.cisa.gov/sites/default/files/2024-12/aa23-335a-irgc-affiliated-cyber-actors-exploit-plcs-in-multiple-sectors.pdf), relata comprometimentos de CLPs Unitronics, incluindo instalações de água, acessíveis pela Internet e com credenciais padrão ou ausentes.

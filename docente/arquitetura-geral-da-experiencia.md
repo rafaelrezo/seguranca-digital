@@ -1,5 +1,22 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Decisão docente de 5 nov. 2026 — A19 realizada; zero trust e mercado na A20
+
+**Estado confirmado:** o docente informou que aplicou a A19. Versão exata conduzida, checkpoints e produção da turma não foram informados; não atribuir à turma o preenchimento do registro OT.
+
+**Lacuna percebida após a realização:** a A19 não explicou **zero trust** como a NIST SP 800-82 Rev. 3 o trata (seção 5.2.3.4, camada de rede), embora esta arquitetura já previsse situá-lo nas restrições de OT. O docente também sentiu falta de ilustrações práticas, ferramentas e soluções de mercado. Conforme a regra de aulas ministradas, a lacuna é retomada **prospectivamente na A20**; a página A19 recebe somente um quadro de aprofundamento com link, sem reescrever o que foi conduzido.
+
+**Decisão aprovada para a A20 (confronto de ideias de 5 nov. 2026):**
+
+- Reorganizar a A20 por **quatro demandas profissionais sem personagens** (acesso do integrador, alerta de escrita Modbus, programa divergente do backup, pedido de pentest), mantendo a seção 6 e as funções do CSF como espinha.
+- Explicar zero trust pela SP 800-207 (princípios, PE/PA/PEP), reler o percurso da Imagem 30 como decisão por requisição e ensinar seus **limites em OT** segundo o guia: aplicar nos níveis 3–5 e na DMZ; latência, redundância e credenciais compartilhadas; compensatórios nos níveis 0–2 (chave RUN/PROG, CM-3(8), DPI de protocolo, monitoração passiva).
+- Citar **soluções de mercado por categoria do apêndice E**, sempre com alternativa aberta ou nativa e cuidado OT, sem ranking ou recomendação, datadas.
+- Tornar observável "conexão ≠ permissão" com a **captura sintética Modbus C-01** (procedência própria, script versionado) em demonstração conduzida no Wireshark, com tabela decodificada real como alternativa.
+- Usar Colonial Pipeline e Norsk Hydro **como registrados no apêndice C** para resposta; não usar Oldsmar como fato de intrusão (autoria contestada desde 2023). Stuxnet, Ucrânia e TRITON já apareceram na A13.
+- Atividade única preservada; Etapa 4 ganha um item sobre alcance do zero trust e compensatório, absorvido pelo critério 5 da rubrica, sem mudar pontuação.
+
+Publicação autorizada no mesmo pedido. Drive e Classroom não foram alterados.
+
 ## Publicação para avaliação — OT em dois encontros, 29 out. 2026
 
 A solicitação docente de publicar no GitHub Pages foi atendida pelo commit `5c7874eadac344a1573a2e38140155c97a627eef`. A19, A20, atividade única, pacote e modelo estão públicos; validação e deploy concluíram com sucesso e os artigos publicados coincidem com o build conferido. Ver [registro de publicação](A19-A20-seguranca-operacoes-industriais/validacao-pages-2026-10-29.md). Preservados histórico, alterações locais, Drive e Classroom. Esta publicação permite avaliação docente; não confirma realização, pentest ou conciliação do calendário.

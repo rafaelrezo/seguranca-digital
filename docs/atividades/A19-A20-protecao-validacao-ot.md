@@ -13,6 +13,7 @@ Uma recomendação de segurança precisa indicar a função que protege, a conse
 - Leia as duas páginas e acompanhe os exemplos trabalhados antes de finalizar a análise.
 - Abra o [pacote completo de evidências didáticas](../assets/a19-a20/pacote-evidencias-ot.md). As tabelas essenciais também estão nas aulas.
 - Use o [modelo em branco](../assets/a19-a20/modelo-registro-ot.md) ou crie um documento com os mesmos campos. Não é necessário instalar ferramenta.
+- A captura sintética C-01 da A20 pode ser aberta no Wireshark, de forma opcional; a tabela decodificada na página substitui a ferramenta.
 - Identifique na entrega os dados artificiais fornecidos, as interpretações da dupla, as hipóteses e os testes somente propostos.
 
 Os exemplos não representam uma planta real nem um ensaio de CLP. A comparação com um incidente documentado serve à análise de limites e controles; não transforma os dados do exercício em evidências desse incidente.
@@ -55,7 +56,8 @@ Retome o controle proposto na Etapa 2 e o critério verificável que você escre
 2. Preencha as regras de engajamento: objetivo, alvo (planta, réplica ou simulador), ação permitida, exclusões, acompanhamento, critério de parada, recuperação e comunicação.
 3. Descreva um caso que deve ser negado e um caso legítimo que deve continuar funcionando, com a evidência a coletar em cada um.
 4. Relacione o plano à discussão OT do controle CA-8 (apêndice F) e a pelo menos um incidente do apêndice C.
-5. Explique por que um teste bem-sucedido apenas na interface web de uma IHM não validaria o controlador nem a função de segurança do processo.
+5. Indique, no percurso da Imagem 30, onde a decisão por requisição (zero trust) pode ser aplicada e qual compensatório protege o equipamento que não a suporta, como o CLP (seção 5.2.3.4).
+6. Explique por que um teste bem-sucedido apenas na interface web de uma IHM não validaria o controlador nem a função de segurança do processo.
 
 **Evidência:** plano marcado como **"proposto, não executado"**. Não inclua endereços, credenciais nem capturas de sistemas reais.
 
@@ -79,7 +81,7 @@ Se usar IA como apoio, registre o pedido, as decisões aceitas e rejeitadas e su
 | Risco e proteção | 2 | Consequência condicionada, controle pertinente e responsabilidade |
 | Avaliação de acesso e função | 2 | Casos permitido/negados, amostras e intervalo/limites explícitos |
 | Contenção e recuperação | 2 | Premissa operacional, coordenação e critérios verificáveis de retorno |
-| Plano de avaliação e qualidade da evidência | 2 | Abordagem proporcional justificada, regras de engajamento com parada e recuperação, caso negado/legítimo e distinção entre proposta e execução |
+| Plano de avaliação e qualidade da evidência | 2 | Abordagem proporcional justificada, regras de engajamento com parada e recuperação, caso negado/legítimo, alcance do zero trust com compensatório e distinção entre proposta e execução |
 
 </div>
 

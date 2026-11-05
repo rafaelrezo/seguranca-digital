@@ -143,20 +143,20 @@
     {
       "id": "A19",
       "page": "aulas/A19-seguranca-operacoes-industriais.md",
-      "title": "A19 — Segurança das operações industriais",
+      "title": "A19 — Segurança OT pela NIST SP 800-82 (I)",
       "activity": "atividade",
       "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
-      "status": "material_publicado_para_avaliacao_realizacao_nao_declarada",
-      "note": "Publicado no GitHub Pages em 29 out. 2026, commit 5c7874eadac344a1573a2e38140155c97a627eef. Validação e deploy aprovados; conteúdo público conferido. Identificador provisório. Análise de dados didáticos e caso web proposto, sem comprovar execução de testes ou realização pela turma."
+      "status": "realizacao_confirmada_pelo_docente",
+      "note": "Docente informou em 5 nov. 2026 que aplicou a A19; versão exata usada e produção da turma não informadas. Lacuna percebida: zero trust (SP 800-82r3, 5.2.3.4) não explicado; retomada prospectivamente na A20. A página recebeu apenas um quadro de aprofundamento com link, sem alterar o conteúdo conduzido."
     },
     {
       "id": "A20",
       "page": "aulas/A20-validacao-ot-pentest.md",
-      "title": "A20 — Validar controles OT e preparar pentest",
+      "title": "A20 — Segurança OT pela NIST SP 800-82 (II)",
       "activity": "atividade",
       "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
-      "status": "material_publicado_para_avaliacao_realizacao_nao_declarada",
-      "note": "Publicado no GitHub Pages em 29 out. 2026, commit 5c7874eadac344a1573a2e38140155c97a627eef. Validação e deploy aprovados; conteúdo público conferido. Identificador provisório. Análise de dados didáticos e caso web proposto, sem comprovar execução de testes ou realização pela turma."
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Reescrita em 5 nov. 2026 por aprovação docente: zero trust (5.2.3.4 e SP 800-207) e seus limites por nível Purdue, demandas profissionais por função do CSF, captura sintética Modbus C-01 com demonstração no Wireshark, exemplos de mercado por categoria do apêndice E e casos Colonial/Norsk Hydro do apêndice C. Publicação não confirma realização."
     }
   ],
   "practice_repository": {
