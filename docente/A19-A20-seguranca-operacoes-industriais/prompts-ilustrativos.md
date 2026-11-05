@@ -76,6 +76,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 28 — Defesa em profundidade: cinco camadas da SP 800-82 {#imagem-28}
 
+**Estado (5 nov. 2026):** terceira versão recebida em `/tmp/imagem28.png`, validada e incorporada na A19 (`docs/assets/a19-a20/imagem28.png`, 256 cores; `#figura-28`, após os cards das cinco camadas e antes da Explicação, com "Leia a figura"). Critérios atendidos: nenhum ícone nos anéis, títulos e subtítulos exatos no anel certo, espaço visível entre a seta e o processo. O subtítulo do anel 1 toca levemente a borda do anel 2, sem prejuízo de leitura. A A19 já foi aplicada: a figura entra como apoio de estudo, sem alterar o que foi conduzido.
+
 **Estado (29 out. 2026):** primeira versão recebida (`imagem28-real.png`) e **não incorporada**. Rótulos e ordem corretos, mas o ícone de firewall ficou no anel 2 (física) e a engrenagem do software dentro do círculo "Processo"; associação incorreta camada–ícone. Retoque por pixel tentado e descartado por deixar emendas. Usar o prompt corrigido abaixo.
 
 **Prompt corrigido:**
@@ -475,6 +477,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 27 | Incorporada na A19 | 29 out. 2026 |
 | 30 | Incorporada na A19 e na A20 | 29 out. 2026 |
 | 28 | Duas versões recusadas; terceira versão do prompt entregue | 29 out. 2026 |
+| 28 | Terceira versão incorporada na A19 (apoio de estudo) | 5 nov. 2026 |
 | 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
 | 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |

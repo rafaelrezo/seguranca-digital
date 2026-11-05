@@ -495,6 +495,12 @@ Note que o registro não traz **verossimilhança** nem classe de risco, como a m
 
 </div>
 
+![Cinco anéis concêntricos protegem o círculo central Processo, com um tanque e um CLP. Do anel mais externo ao mais interno: 1, gestão de segurança, políticas, processos, pessoas e governança; 2, segurança física, instalações, acesso físico e ambiente; 3, segurança de rede, segmentação, comunicação e controle; 4, segurança de hardware, equipamentos, configuração e modo de operação; 5, segurança de software, aplicações, configurações e dados. Uma seta vinda de fora perde força a cada anel e para antes do processo. Notas: concluir primeiro a camada 1, que orienta as demais; cada camada tem função diferente, e uma não prova que a outra funciona.](../assets/a19-a20/imagem28.png){#figura-28 loading=lazy}
+
+*Imagem 28 — Defesa em profundidade: cinco camadas da SP 800-82.* [Abrir a imagem ampliada](../assets/a19-a20/imagem28.png).
+
+**Leia a figura:** a seta representa um evento que tenta chegar ao processo. Cada anel reduz sua força de um jeito diferente, e nenhum sozinho a detém. A camada 1, a mais externa, é a que o guia manda concluir primeiro.
+
 **Explicação.** Cada camada tem uma função diferente; uma não prova que a outra funciona. Segmentação limita caminhos; controle de acesso limita ações; monitoração revela condições; recuperação recompõe a operação.
 
 ### Zonas, conduítes e níveis
