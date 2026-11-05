@@ -411,6 +411,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Função didática:** mostrar onde o sensor fica e por que a monitoração passiva não envia tráfego ao processo.
 
+**Estado:** imagem recebida em `/tmp/imagem38.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem38.png`, 256 cores; `#figura-38` na A20, antes de "Modbus/TCP em uma tabela", com "Leia a figura"). Critérios atendidos. O gerador acrescentou o título "Monitoração passiva: copiar sem interferir" e desenhou a estação de engenharia como notebook; ambos inofensivos.
+
 **Prompt:**
 
 > Crie um diagrama didático em português. Estilo de ilustração técnica plana, fundo claro, alto contraste, texto grande legível em projeção. Formato 16:9.
@@ -448,3 +450,4 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
 | 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
 | 35 | Incorporada na A20 (rótulo do firewall do painel Zero trust corrigido) | 5 nov. 2026 |
+| 38 | Incorporada na A20 | 5 nov. 2026 |
