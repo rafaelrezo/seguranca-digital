@@ -39,11 +39,11 @@ Compare M-01 com os eventos da A20. Identifique um caso permitido e dois negados
 
 ### Etapa 3 — Condicionar contenção e retorno
 
-Para a tentativa de alteração não aprovada descrita na A20:
+Para a escrita de 85 no limite de desligamento da bomba, vista na captura C-01 da A20:
 
 - proponha uma primeira contenção e a condição operacional necessária para aplicá-la;
 - indique quem deve autorizar e acompanhar a ação;
-- defina três critérios de retorno, incluindo lógica/parâmetros, acesso e função operacional;
+- defina três critérios de retorno, incluindo o limite restaurado a partir da referência aprovada, o acesso da estação e a função operacional;
 - explique por que a existência de uma cópia não comprova recuperabilidade.
 
 **Evidência:** ação, premissa, responsável e verificação. Identifique que não houve restauração nem ensaio de função de segurança no exercício.

@@ -211,3 +211,16 @@ Relato docente: difícil acompanhar a partir de "Função preservada: uma segund
 3. **Nova seção "Bloquear a escrita: inspeção de protocolo"** (Proteger): pergunta "dá para impedir antes?", Imagem 37, DPI e mercado de firewalls.
 
 Condução revista (total inalterado, 57 T/43 P): 35–50 M-01 e função preservada (4 T/11 P); 50–62 Detectar com C-01, aplicação e regra (5 T/7 P); 62–70 Bloquear a escrita (5 T/3 P). Os blocos seguintes mantêm a duração; ajustar no bloco de avaliação se a demonstração do Wireshark atrasar.
+
+### Reescrita da segunda metade — 5 nov. 2026
+
+Relato docente: a partir de "Função preservada", o conteúdo ficou confuso e dependente da A19. Pedido: reorganizar até o fim de forma mais coerente e menos conectada à A19.
+
+**Decisão:** a segunda metade passa a ter **um fio condutor único, a escrita de 85 da C-01**, com quatro perguntas, uma por função do CSF: perceber (Detectar), impedir (Proteger, DPI), reagir (Responder/Recuperar) e testar (Avaliar). Uma seção nova, "Um caso para o resto da aula", declara as premissas do tanque e da rede na própria página (faixa 40–60%, limite normal 60%, proteção independente de 80%, endereços, registradores). Referências à A19 retiradas do texto da segunda metade; ficam só na primeira metade (Imagem 30) e no link da atividade única.
+
+- Função preservada: abre pelos três tipos de evidência, sem depender do registro da A19.
+- Responder/recuperar: a contenção usa a escrita de 85 (isolar a estação, não o CLP); a tabela conter/erradicar/recuperar e os critérios de retorno ganham o caso concreto; Colonial/Norsk passam ao fim da seção como extremos de contenção.
+- Avaliar: incidentes do apêndice C → CA-8 → escada de menor interferência (passiva/ativa/réplica incorporadas) → regras de engajamento para testar o bloqueio, com linha nova "Caso legítimo".
+- Revisão rápida 2 e 3 reescritas para o fio condutor. Atividade (Etapa 3) e pacote (condição de contenção) alinhados à escrita de 85, sem mudar a rubrica.
+
+Respostas esperadas novas. Revisão 2: isolar a estação interrompe a fonte da escrita e preserva controle local e supervisão; desligar o CLP cria nova falha. Revisão 3: os degraus de menor interferência já respondem se a regra existe e se nenhuma escrita passa fora da janela; o teste ativo vai para a réplica (CA-8). Condução: tempos da revisão anterior mantidos; o bloco "Um caso para o resto da aula" usa 3 min do bloco de detecção.

@@ -76,4 +76,4 @@ Não foram fornecidos ordem de serviço, registro de sessão da estação, progr
 
 ## Condição adicional — contenção
 
-Tentativa não aprovada de alteração na estação de engenharia; sem confirmação de mudança no CLP. Por premissa, a operação confirma que o controle local está ativo e que pode suspender a sessão remota. Não há registro de uma contenção ou restauração executada.
+Escrita de 85 no registrador 1 (limite de desligamento da bomba), observada na captura C-01, sem ordem de serviço conhecida. Por premissa, a operação confirma que o controle local está ativo, que o nível está em 55% e que pode isolar a estação de engenharia sem perder a supervisão. Não há registro de uma contenção ou restauração executada.
