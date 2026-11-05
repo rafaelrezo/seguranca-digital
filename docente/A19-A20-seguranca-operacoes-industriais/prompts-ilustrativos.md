@@ -11,6 +11,8 @@ Catálogo docente, fora do site. A numeração continua a série do curso (image
 
 Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 32, 33, 34.
 
+**A20 após a reescrita de 5 nov. 2026:** prioridade **35, 37, 36, 38**, depois 32, 34, 33. O docente deixa a imagem gerada em `/tmp` com o nome `imagemNN.png`. O diagrama PE/PA/PEP e a captura C-01 continuam em Mermaid e tabela: dependem de rótulos exatos, que geradores de imagem erram.
+
 ---
 
 ## A19
@@ -254,7 +256,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 32 — Onde conter: cortar a sessão, não o processo {#imagem-32}
 
-**Local:** A20, "Exemplo: escolher o primeiro limite".
+**Local:** A20, "Exemplo: escolher o primeiro limite" (seção "Responder e recuperar"); sem mudança após a reescrita de 5 nov. 2026.
 
 **Prompt:**
 
@@ -276,7 +278,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 33 — Quando a verificação vira incidente {#imagem-33}
 
-**Local:** A20, "Apêndice C: quando a verificação virou incidente", antes dos cards.
+**Local:** A20, "Quando a verificação virou incidente" (seção "Avaliar sem derrubar a planta"), antes da tabela dos quatro casos. *Atualizado em 5 nov. 2026, após a reescrita da A20.*
 
 **Prompt:**
 
@@ -299,7 +301,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 34 — Escada de interferência da avaliação técnica {#imagem-34}
 
-**Local:** A20, "Avaliação técnica: evidência proporcional à pergunta", antes da tabela.
+**Local:** A20, "Abordagens de avaliação", antes da tabela. *Atualizado em 5 nov. 2026, após a reescrita da A20.*
 
 **Prompt:**
 
@@ -321,6 +323,110 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ---
 
+### Imagem 35 — Perímetro × zero trust {#imagem-35}
+
+**Local:** A20, "Zero trust: do perímetro à decisão por requisição", logo depois da tabela de "A ideia central". Complementa a tabela; não a substitui.
+
+**Função didática:** tornar visível, em uma só comparação, o movimento lateral dentro da zona e a decisão tomada na frente de cada recurso.
+
+**Prompt:**
+
+> Crie uma comparação lado a lado em português, com dois painéis de mesmo layout e mesmo estilo de ilustração técnica plana: fundo claro, alto contraste, linhas finas, ícones simples, texto grande legível em projeção. Formato 16:9.
+>
+> Em cada painel há uma área retangular grande rotulada "Rede OT", com um firewall na borda esquerda. Dentro da área, três recursos dispostos em coluna à direita, com estes rótulos exatos: "Estação de engenharia" (estação de trabalho), "Historiador" (servidor) e "CLP" (armário de CLP). Um notebook rotulado "Notebook do integrador" está dentro da área, à esquerda, logo depois do firewall.
+>
+> Painel esquerdo, título "Perímetro": o firewall da borda tem um portão com visto verde e o rótulo "verificação só na entrada". Do notebook saem três setas laranja, livres, uma para cada recurso, todas chegando ao destino. Uma etiqueta sobre as setas: "dentro da zona, alcança tudo". Uma das setas, a que vai ao CLP, leva o rótulo "movimento lateral".
+>
+> Painel direito, título "Zero trust": o mesmo firewall e o mesmo notebook. Na frente de cada recurso há um pequeno portão rotulado "PEP". A seta do notebook para "Estação de engenharia" passa pelo portão com visto verde e o rótulo "sessão concedida: esta estação, nesta janela". As setas para "Historiador" e "CLP" param nos respectivos portões, com um X vermelho e o rótulo "negado". Uma caixa pequena no alto do painel, rotulada "PE: decide a cada pedido", liga-se aos três portões por linhas finas pontilhadas.
+>
+> Use forma e texto, não só cor, para indicar concedido e negado. Não desenhe pessoas, cadeados gigantes, escudos, marcas, logotipos, endereços IP nem telas de produtos reais.
+
+**Texto alternativo previsto:** dois painéis da mesma rede OT com um notebook de integrador dentro dela. No painel Perímetro, a verificação ocorre só no firewall de entrada e o notebook alcança estação de engenharia, historiador e CLP, inclusive por movimento lateral. No painel Zero trust, cada recurso tem um ponto de aplicação de política (PEP); um motor de política (PE) decide a cada pedido, e o notebook recebe sessão apenas para a estação de engenharia, sendo negado no historiador e no CLP.
+
+**Conferência:** o notebook está **dentro** da Rede OT nos dois painéis (o ponto é o que acontece depois da fronteira); no painel esquerdo, as três setas chegam aos recursos; no direito, somente a seta da estação de engenharia passa; a caixa PE não fica no caminho das setas.
+
+---
+
+### Imagem 36 — Até onde o zero trust chega na planta {#imagem-36}
+
+**Local:** A20, "Até onde o zero trust chega na planta", entre a lista de ressalvas e a tabela por nível Purdue. A tabela continua sendo a referência completa.
+
+**Função didática:** mostrar de relance a fronteira entre onde a decisão por requisição se aplica e onde a proteção vem de compensatórios.
+
+**Prompt:**
+
+> Crie um diagrama vertical em português, com seis faixas horizontais empilhadas, de cima para baixo, com estes rótulos exatos à esquerda de cada faixa:
+> 1. "Níveis 4–5 · Corporativo"
+> 2. "DMZ OT"
+> 3. "Nível 3 · Operações"
+> 4. "Nível 2 · Supervisão"
+> 5. "Nível 1 · Controle"
+> 6. "Nível 0 · Processo"
+>
+> Estilo de ilustração técnica plana, fundo claro, alto contraste, texto grande legível em projeção. Formato 16:9 ou 4:3.
+>
+> Um ícone simples por faixa, no centro: prédio de escritório com notebook (faixa 1); servidor com um pequeno portão rotulado "PEP" (faixa 2); estação de trabalho (faixa 3); tela de supervisão (faixa 4); armário de CLP com uma chave de modo em destaque, rotulada "chave RUN/PROG" (faixa 5); tanque com válvula e um sensor de proteção separado, rotulado "proteção independente" (faixa 6).
+>
+> À direita, uma chave (colchete) azul cobre as faixas 1, 2 e 3, com o rótulo "zero trust aplicável". A faixa 4 recebe um colchete azul tracejado e mais claro, com o rótulo "parcial". As faixas 5 e 6 recebem um colchete cinza com o rótulo "compensatórios".
+>
+> Entre as faixas 4 e 5, sobre a linha divisória, um ícone de funil rotulado "filtro de funções do protocolo". Na lateral esquerda das faixas 4 a 6, um ícone de olho com o rótulo "monitoração passiva".
+>
+> Não desenhe pessoas, marcas, logotipos, endereços IP nem telas de produtos reais.
+
+**Texto alternativo previsto:** seis níveis da planta, do corporativo ao processo. Zero trust é aplicável nos níveis 4–5, na DMZ OT, onde fica o ponto de aplicação de política, e no nível 3; é parcial na supervisão. Nos níveis de controle e processo, a proteção vem de compensatórios: chave RUN/PROG no CLP, filtro de funções do protocolo, monitoração passiva e proteção independente.
+
+**Conferência:** ordem exata das seis faixas, com a DMZ entre o corporativo e o nível 3; o colchete "zero trust aplicável" **não** desce ao nível 1; a chave RUN/PROG está no CLP, não na IHM; o funil fica na fronteira entre supervisão e controle.
+
+---
+
+### Imagem 37 — Mesma porta, funções diferentes {#imagem-37}
+
+**Local:** A20, seção "Detectar", logo depois do parágrafo "Relação com zero trust" (após a interpretação da captura C-01).
+
+**Função didática:** fixar "conexão ≠ permissão" com o caso da C-01, comparando o que um firewall comum e um firewall com inspeção de protocolo deixam passar.
+
+**Prompt:**
+
+> Crie um diagrama didático em português com duas faixas horizontais de mesmo layout, uma acima da outra. Estilo de ilustração técnica plana, fundo claro, alto contraste, texto grande legível em projeção. Formato 16:9.
+>
+> Em cada faixa: à esquerda, dois nós empilhados, "IHM" (tela de supervisão) e "Estação de engenharia" (estação de trabalho); no centro, um firewall; à direita, "CLP" (armário de CLP). Cada nó da esquerda envia um envelope em direção ao CLP. O envelope da IHM tem o rótulo "Função 3 · ler"; o envelope da estação de engenharia tem o rótulo "Função 6 · escrever 85".
+>
+> Faixa de cima, título "Firewall comum: libera a porta 502": os dois envelopes atravessam o firewall e chegam ao CLP. Etiqueta junto ao firewall: "vê a porta, não a função".
+>
+> Faixa de baixo, título "Firewall com inspeção de protocolo": o envelope "Função 3 · ler" atravessa com um visto verde; o envelope "Função 6 · escrever 85" para no firewall com um X vermelho e o rótulo "escrita fora da janela: bloqueada".
+>
+> Use forma e texto, não só cor, para indicar passou e bloqueado. Não desenhe pessoas, marcas, logotipos, endereços IP nem telas de produtos reais.
+
+**Texto alternativo previsto:** duas faixas com IHM e estação de engenharia enviando requisições Modbus ao CLP. Com firewall comum, que libera a porta 502, a leitura (função 3) e a escrita de 85 (função 6) chegam ao CLP. Com firewall de inspeção de protocolo, a leitura passa e a escrita fora da janela é bloqueada.
+
+**Conferência:** a escrita vem da **estação de engenharia**, não da IHM (coerente com a C-01); na faixa de cima, as duas chegam ao CLP; na de baixo, só a leitura chega; nenhuma porta diferente de 502.
+
+---
+
+### Imagem 38 — Monitoração passiva: copiar sem interferir {#imagem-38}
+
+**Local:** A20, seção "Detectar: ler o protocolo, não só a conexão", logo depois da síntese com os três itens (antes de "Modbus/TCP em uma tabela"). Retomada no quadro "No mercado: monitoração passiva e inventário OT".
+
+**Função didática:** mostrar onde o sensor fica e por que a monitoração passiva não envia tráfego ao processo.
+
+**Prompt:**
+
+> Crie um diagrama didático em português. Estilo de ilustração técnica plana, fundo claro, alto contraste, texto grande legível em projeção. Formato 16:9.
+>
+> Na metade superior, uma linha de rede horizontal: "IHM" (tela de supervisão) à esquerda e "CLP" (armário de CLP) à direita, ligados por um switch de rede no centro, rotulado "switch". Uma "Estação de engenharia" também se liga ao switch, por cima. Setas finas e contínuas mostram o tráfego normal entre os equipamentos.
+>
+> Do switch desce uma seta pontilhada, em um único sentido, até uma caixa na metade inferior rotulada "Sensor de monitoração". A seta pontilhada tem o rótulo "cópia do tráfego (SPAN ou TAP)". Ao lado dessa seta, uma seta no sentido inverso, de volta à rede, aparece riscada com o rótulo "não envia tráfego à rede".
+>
+> À direita do sensor, um painel simples com três linhas, cada uma com um ícone pequeno e estes rótulos exatos: "inventário de equipamentos", "linha de base: quem fala com quem", "alerta: escrita de origem nova".
+>
+> Não desenhe pessoas, marcas, logotipos, endereços IP nem telas de produtos reais.
+
+**Texto alternativo previsto:** IHM, estação de engenharia e CLP conversam por um switch. O switch envia uma cópia do tráfego, por porta espelhada (SPAN) ou derivador (TAP), a um sensor de monitoração que não envia tráfego de volta à rede. O sensor produz inventário de equipamentos, linha de base de quem fala com quem e alerta de escrita vinda de origem nova.
+
+**Conferência:** a seta de cópia tem um só sentido; o sensor não fica no caminho entre IHM e CLP (não é *inline*); a seta de retorno aparece riscada.
+
+---
+
 ## Esquemas resolvidos sem imagem gerada
 
 - A19, ciclo de risco (enquadrar → avaliar → responder → monitorar) e cadeia do registro OT: convertidos em Mermaid em 29 out. 2026.
@@ -337,4 +443,5 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 28 | Duas versões recusadas; terceira versão do prompt entregue | 29 out. 2026 |
 | 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
 | 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
-| 32–34 | Prompt entregue ao docente | 29 out. 2026 |
+| 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
+| 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
