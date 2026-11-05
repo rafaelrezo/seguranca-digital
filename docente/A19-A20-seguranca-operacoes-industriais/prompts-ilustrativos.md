@@ -256,6 +256,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 ### Imagem 32 — Onde conter: cortar a sessão, não o processo {#imagem-32}
 
+**Estado:** imagem recebida em `/tmp/imagem32.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem32.png`, 256 cores; `#figura-32` na A20, em "Exemplo: escolher o primeiro limite", antes da Decisão, com "Leia a figura"). Critérios atendidos: CLP ativo no painel esquerdo; painel direito com cabeçalho vermelho, sem parecer recomendação. O gerador acrescentou "supervisão interrompida", coerente.
+
 **Local:** A20, "Exemplo: escolher o primeiro limite" (seção "Responder e recuperar"); sem mudança após a reescrita de 5 nov. 2026.
 
 **Prompt:**
@@ -277,6 +279,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 ---
 
 ### Imagem 33 — Quando a verificação vira incidente {#imagem-33}
+
+**Estado:** imagem recebida em `/tmp/imagem33.png`, validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem33.png`, 256 cores; `#figura-33` na A20, antes da tabela dos quatro casos; a tabela e a Explicação seguinte cumprem a leitura). Critérios atendidos: origem corporativa, sem atacante. Título acrescentado pelo gerador, coerente.
 
 **Local:** A20, "Quando a verificação virou incidente" (seção "Avaliar sem derrubar a planta"), antes da tabela dos quatro casos. *Atualizado em 5 nov. 2026, após a reescrita da A20.*
 
@@ -300,6 +304,8 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 ---
 
 ### Imagem 34 — Escada de interferência da avaliação técnica {#imagem-34}
+
+**Estado:** imagem recebida como `/tmp/image34.png` (nome sem "m"), validada e incorporada em 5 nov. 2026 (`docs/assets/a19-a20/imagem34.png`, 256 cores; `#figura-34` na A20, em "Abordagens de avaliação", antes da tabela, com "Leia a figura"). Critérios atendidos: ordem dos degraus, observação passiva abaixo da varredura, setas dos degraus 3 e 4 para a caixa de réplica.
 
 **Local:** A20, "Abordagens de avaliação", antes da tabela. *Atualizado em 5 nov. 2026, após a reescrita da A20.*
 
@@ -452,6 +458,7 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 | 29 | Primeira versão recusada; prompt corrigido entregue | 29 out. 2026 |
 | 31 | Versão gerada recusada; SVG próprio incorporado na A20 | 29 out. 2026 |
 | 32–34 | Prompt entregue ao docente; locais revistos após a reescrita da A20 | 29 out. 2026; 5 nov. 2026 |
+| 32–34 | Incorporadas na A20 | 5 nov. 2026 |
 | 35–38 | Prompt entregue ao docente (zero trust, alcance por nível, leitura × escrita Modbus, monitoração passiva) | 5 nov. 2026 |
 | 35 | Incorporada na A20 (rótulo do firewall do painel Zero trust corrigido) | 5 nov. 2026 |
 | 36 | Incorporada na A20 | 5 nov. 2026 |
