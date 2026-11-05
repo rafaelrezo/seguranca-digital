@@ -151,6 +151,26 @@ Prioridade sugerida: **26, 29, 30, 31** (maior ganho didático), depois 27, 28, 
 
 **Conferência adicional:** duas setas verdes, cada uma terminando em um servidor; nenhuma linha vermelha abaixo do firewall superior.
 
+**Prompt — terceira versão, base sem setas (5 nov. 2026):** as setas e seus rótulos serão sobrepostos em SVG, com posição exata. Deixar espaço livre à direita dos servidores para as setas.
+
+> Crie um diagrama didático de arquitetura de rede industrial em português, baseado no modelo Purdue. Ilustração técnica semi-realista com ícones limpos, rótulos em negrito escuro, fundo claro, alto contraste e texto grande legível em projeção. Formato 16:9.
+>
+> Organize seis faixas horizontais empilhadas, ocupando toda a largura, com o rótulo à esquerda de cada faixa exatamente como escrito:
+> - topo: "Níveis 4–5 — Rede corporativa" (dois computadores de escritório e um servidor)
+> - "DMZ industrial" (um servidor rotulado "intermediário" e outro rotulado "réplica do historiador")
+> - "Nível 3 — Operações do site" (um servidor rotulado "historiador" e uma estação de trabalho rotulada "engenharia")
+> - "Nível 2 — Supervisão" (um monitor rotulado "IHM / SCADA")
+> - "Nível 1 — Controle básico" (um armário de CLP rotulado "CLP")
+> - base: "Nível 0 — Processo" (tanque de água, sensor de nível e bomba)
+>
+> Desenhe duas barreiras horizontais com ícone de firewall no centro, ambas com o rótulo "conduíte": uma entre a faixa corporativa e a DMZ, outra entre a DMZ e o Nível 3. Contorne os níveis 0 a 3 com uma linha tracejada azul rotulada "Zona OT" e a faixa corporativa com outra linha tracejada cinza rotulada "Zona corporativa".
+>
+> Posicione os ícones de cada faixa na metade esquerda e central, deixando o terço direito do diagrama livre. Os servidores "réplica do historiador" e "historiador" ficam alinhados na mesma coluna vertical, logo acima e abaixo do firewall inferior.
+>
+> NÃO desenhe nenhuma seta, linha de fluxo, X ou rótulo de fluxo. Não acrescente faixas, níveis ou rótulos além dos indicados. Sem marcas, logotipos, endereços IP, nomes de produtos, pessoas, nuvem, IIoT ou Internet.
+
+**Conferência (base):** seis faixas na ordem exata, com a DMZ entre o nível 3 e o corporativo; dois firewalls "conduíte" nas fronteiras certas; nenhuma seta; réplica e historiador alinhados. Setas a sobrepor: verde 1 historiador → réplica (pelo firewall inferior), verde 2 réplica → corporativo (pelo firewall superior), vermelha corporativo → firewall superior com X.
+
 
 **Local:** A19, "Zonas, conduítes e níveis"; complementa a tabela de níveis.
 
