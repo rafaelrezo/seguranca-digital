@@ -1,5 +1,24 @@
 # Arquitetura geral da experiência — Segurança Digital
 
+## Decisão docente de 10 nov. 2026 — pentest web em quatro encontros finais (A21–A24)
+
+O docente aprovou fechar o curso com **quatro encontros de pentest** que preparam o trabalho final (*Roteiro_Pentest_JuiceShop_v1.2*: OpenVPN + alvo isolado na AWS, Juice Shop 20.3.0, ZAP, dois achados, correção, detecção, OT e arguição). A projeção histórica A23–A31 (nove encontros) deixa de ser a sequência vigente.
+
+- **A21** processo (SP 800-115/PTES), referenciais pela função, delta da infraestrutura em relação à A17, ROE no ZAP e mapa da SPA (60 T/40 P).
+- **A22** enumeração calibrada, autenticação/sessão (JWT) e autorização entre duas contas (45/55).
+- **A23** entradas (marcador, SQL, XSS), exposição, lógica e varredura com triagem (45/55).
+- **A24** CWE/WSTG/CVSS 4.0, correção da classe, reteste, detecção em eventos rotulados, OT e relatório (55/45).
+
+**Atividade:** o próprio trabalho final é a atividade única do macrocomponente. O roteiro **não é publicado** no GitHub Pages (decisão docente); permanece no Classroom. Cada página tem `#atividade` indicando as fases que prepara.
+
+**Consulta:** a seção *Pentest web — guia por fase* (13 páginas + mapa) traz o detalhe conceitual e operacional para o estudo fora da aula.
+
+**Princípio:** demonstrar em aula as operações indispensáveis (ZAP, Requester, Fuzzer, varredura, scripts locais). Exemplos completos usam aplicação fictícia de ordens de manutenção ou programas locais, sem entregar respostas do Juice Shop.
+
+**Herança:** ROE e escada de interferência (A20), rede/PKI/revogação (A17), HMAC/assinatura (A15–A16), Ana/Bruno e cesta (A05), risco (A09), telemetria e contenção (A13).
+
+**Pendências:** datas e lançamento do trabalho; conciliação do calendário e da carga global; ensaio completo no Learner Lab; correção da figura de arquitetura do roteiro (dupla × individual). Detalhes no [planejamento integrado A21–A24](A21-A24-pentest-web/planejamento-integrado.md). A18 e os identificadores históricos A21–A30 com outros títulos permanecem fora do percurso.
+
 ## Decisão docente de 5 nov. 2026 — A19 realizada; zero trust e mercado na A20
 
 **Estado confirmado:** o docente informou que aplicou a A19. Versão exata conduzida, checkpoints e produção da turma não foram informados; não atribuir à turma o preenchimento do registro OT.
@@ -207,7 +226,7 @@ Apresentar RPO/RTO a partir das necessidades de atualidade dos dados e prazo par
 | A11–A13 | Uma atividade integrada de classificação, implementação proposta e verificação de controles, regra DLP, leitura de rastros e comparação de controles, a partir de exemplos independentes fornecidos. | O encontro seguinte de criptografia retoma confidencialidade e integridade e os limites da proteção de dados e dispositivos. |
 | Criptografia e confiança | Uma atividade de mecanismos, confiança, canal e ciclo de chaves com casos positivos/negativos. | O bloco OT pergunta como aplicar controles preservando processo físico. |
 | OT e proteção do processo — dois encontros | Uma atividade OT: registro de função, consequência, controle, acesso, observação e critérios de resposta/retorno, pela análise de dados didáticos identificados. | Caso permitido/negado, função preservada e lacuna tornam-se critérios do plano de teste autorizado; WSTG é proposta de foco web. |
-| Pentest e defesa | Uma atividade de pentest e defesa: plano, dois achados, correção, reteste, detecção e decisão residual. | Encerrar com relatório e condição de revisão. |
+| Pentest e defesa — A21–A24 | Trabalho final (roteiro v1.2, Classroom): infraestrutura própria, ROE, dois achados com causas distintas, varredura triada, correção, reteste, detecção avaliada, OT e risco; arguição individual. | Encerrar com relatório, risco residual e arguição. |
 
 ## Portões contra desvio
 

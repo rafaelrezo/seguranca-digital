@@ -8,6 +8,8 @@ Estas instruções orientam todo conteúdo criado ou revisado neste repositório
 
 **Atualização docente de 1º out. 2026 — sequência efetiva:** proteção de dados ocupou dois encontros completos, A11 e A12; endpoint é A13. A decisão pedagógica de exposição direta, exemplos concretos e atividade única continua, com incidentes industriais documentados como ilustrações breves na A13. A distribuição dos tópicos e checkpoints realizados em A11–A12 não foi informada. A numeração após A13 permanece provisória até a conciliação do calendário; as referências antigas a endpoint em A12 são histórico de planejamento, não a sequência vigente.
 
+**Decisão docente de 10 nov. 2026 — pentest em A21–A24:** o bloco final tem quatro encontros que preparam o trabalho final de pentest. O roteiro do trabalho não é publicado no GitHub Pages; fica no Classroom. O detalhe de estudo fica no guia `docs/pentest/` por fase. Exemplos completos usam aplicação fictícia ou programas locais, sem entregar respostas do Juice Shop. Ver `docente/A21-A24-pentest-web/planejamento-integrado.md`.
+
 ## Referência obrigatória de arquitetura curricular
 
 Antes de criar, reorganizar ou revisar uma aula, consultar [`docente/arquitetura-geral-da-experiencia.md`](docente/arquitetura-geral-da-experiencia.md). Esse documento registra a espinha dorsal da disciplina, os objetivos e dependências entre encontros, os produtos integradores e os portões contra *drift*.

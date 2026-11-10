@@ -25,10 +25,16 @@ Abra a página do encontro para acompanhar teoria e prática. A coluna **Entrega
 | [A17 — OpenVPN em EC2](aulas/A17-openvpn-ec2.md) | Duas EC2 na VPC, acesso roteado à interna sem Internet, cliente Windows/Linux e revogação | [Concluir C4 e a entrega única](atividades/A14-A18-criptografia-confianca.md#atividade) |
 | [A19 — Segurança OT pela NIST SP 800-82 (I)](aulas/A19-seguranca-operacoes-industriais.md) | Seções 2–5 da SP 800-82 Rev. 3: processo físico, OT × TI, programa, risco e defesa em profundidade | [Iniciar o registro OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
 | [A20 — Segurança OT pela NIST SP 800-82 (II)](aulas/A20-validacao-ot-pentest.md) | Seção 6 e apêndices C/F: CSF aplicado à OT, acesso remoto, detecção, resposta, recuperação e planejamento de avaliação técnica | [Concluir a mesma atividade OT](atividades/A19-A20-protecao-validacao-ot.md#atividade) |
+| [A21 — Pentest como processo](aulas/A21-pentest-processo-referenciais-e-escopo.md) | Pentest × varredura, ciclo SP 800-115/PTES, referenciais pela função, ROE no ZAP e mapa de uma SPA | [Trabalho final: Parte I, P0–P1](aulas/A21-pentest-processo-referenciais-e-escopo.md#atividade) |
+| [A22 — Superfície e identidade](aulas/A22-pentest-superficie-e-identidade.md) | Enumeração calibrada, JWT, logout, enumeração de contas e autorização entre duas contas | [Trabalho final: P2–P4, P6](aulas/A22-pentest-superficie-e-identidade.md#atividade) |
+| [A23 — Entradas, lógica e automação](aulas/A23-pentest-entradas-logica-e-automacao.md) | Marcador e contexto, injeção SQL, XSS (fonte, sink, contexto), invariantes e varredura com triagem | [Trabalho final: P5, P7–P9](aulas/A23-pentest-entradas-logica-e-automacao.md#atividade) |
+| [A24 — Do achado à decisão](aulas/A24-pentest-do-achado-a-decisao.md) | CWE, WSTG, CVSS 4.0, correção da classe, reteste, detecção em eventos rotulados, OT e relatório | [Trabalho final: P10–P13 e relatório](aulas/A24-pentest-do-achado-a-decisao.md#atividade) |
 
 A atividade de **governança, riscos e controles** reúne os conteúdos de A08 e A09. O [enunciado completo fica no final da A09](aulas/A09-decisao-de-riscos.md#atividade), com novo cenário de central de equipamentos, modelo em branco, critérios e formato da entrega.
 
 A atividade de **criptografia e confiança** reúne A14–A17 em um único registro. Os [arquivos prontos das quatro práticas](https://github.com/rafaelrezo/seguranca-digital-praticas) podem ser obtidos por clone ou ZIP, com preparação única. Cada encontro acrescenta uma decisão e uma contraprova; a entrega é feita uma vez, após o bloco e conforme convocação do docente no Classroom.
+
+O **trabalho final de pentest** reúne A21–A24. O enunciado, o pacote, os prazos e a entrega estão na atividade do Classroom; cada aula indica as fases que prepara. O [guia de pentest web](pentest/index.md) organiza conceitos e operações por fase, para consulta durante o trabalho.
 
 ## Como preparar sua evidência
 
@@ -49,7 +55,7 @@ Uma captura deve vir acompanhada da ação executada, da interpretação e de um
 | Como proteger dados, segredos e canais? | [Proteção de dados](protecao_dados/introducao.md) e [criptografia](criptografia/index.md) | Consulta para aprofundamento |
 | Como reconhecer manipulação e comprometimento? | [Engenharia social](engenharia_social/introducao.md) e [malwares](malwares/introducao.md) | Consulta para aprofundamento |
 | Como justificar uma decisão organizacional? | [Riscos](gestao_riscos/introducao.md), [terceiros](gestao_riscos/riscos_terceiros.md) e [governança](governanca/introducao.md) | A08–A09 |
-| Como delimitar e comunicar um teste? | [Planejamento de pentest](pentest/planejamento.md) | Consulta para aprofundamento |
+| Como delimitar, executar e comunicar um teste? | [Guia de pentest web por fase](pentest/index.md) | A21–A24 e trabalho final |
 | Como o acesso físico interfere na proteção? | [Segurança física](seguranca_fisica/introducao.md) | Consulta para aprofundamento |
 
 ## Revisão rápida

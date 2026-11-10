@@ -157,6 +157,42 @@
       "shared_activity": "atividades/A19-A20-protecao-validacao-ot.md#atividade",
       "status": "material_publicado_realizacao_nao_declarada",
       "note": "Reescrita em 5 nov. 2026 por aprovação docente: zero trust (5.2.3.4 e SP 800-207) e seus limites por nível Purdue, demandas profissionais por função do CSF, captura sintética Modbus C-01 com demonstração no Wireshark, exemplos de mercado por categoria do apêndice E e casos Colonial/Norsk Hydro do apêndice C. Publicação não confirma realização."
+    },
+    {
+      "id": "A21",
+      "page": "aulas/A21-pentest-processo-referenciais-e-escopo.md",
+      "title": "A21 — Pentest como processo: referenciais, escopo e primeiro mapa",
+      "activity": "atividade",
+      "shared_activity": "trabalho final de pentest (roteiro v1.2 distribuído no Classroom; não publicado no site)",
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Bloco de pentest em quatro encontros aprovado pelo docente em 10 nov. 2026. Identificador provisório até a conciliação do calendário. Publicação não confirma realização."
+    },
+    {
+      "id": "A22",
+      "page": "aulas/A22-pentest-superficie-e-identidade.md",
+      "title": "A22 — Superfície e identidade: enumerar, autenticar, autorizar",
+      "activity": "atividade",
+      "shared_activity": "trabalho final de pentest (roteiro v1.2 distribuído no Classroom; não publicado no site)",
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Bloco de pentest em quatro encontros aprovado pelo docente em 10 nov. 2026. Identificador provisório até a conciliação do calendário. Publicação não confirma realização."
+    },
+    {
+      "id": "A23",
+      "page": "aulas/A23-pentest-entradas-logica-e-automacao.md",
+      "title": "A23 — Entradas, lógica e automação",
+      "activity": "atividade",
+      "shared_activity": "trabalho final de pentest (roteiro v1.2 distribuído no Classroom; não publicado no site)",
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Bloco de pentest em quatro encontros aprovado pelo docente em 10 nov. 2026. Identificador provisório até a conciliação do calendário. Publicação não confirma realização."
+    },
+    {
+      "id": "A24",
+      "page": "aulas/A24-pentest-do-achado-a-decisao.md",
+      "title": "A24 — Do achado à decisão: risco, correção, detecção e relatório",
+      "activity": "atividade",
+      "shared_activity": "trabalho final de pentest (roteiro v1.2 distribuído no Classroom; não publicado no site)",
+      "status": "material_publicado_realizacao_nao_declarada",
+      "note": "Bloco de pentest em quatro encontros aprovado pelo docente em 10 nov. 2026. Identificador provisório até a conciliação do calendário. Publicação não confirma realização."
     }
   ],
   "practice_repository": {
