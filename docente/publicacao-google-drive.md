@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## A22 — guia de superfície e identidade, 17 nov. 2026
+
+A pasta `a22` do [repositório de práticas](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a22) foi publicada no commit `d1e1d80` com servidor local de ordens fictícias, lista curta e dois programas JWT. README e servidor foram lidos no GitHub após o envio.
+
+A [página A22](https://rafaelrezo.github.io/seguranca-digital/aulas/A22-pentest-superficie-e-identidade/) e o planejamento docente foram publicados no commit `862453e7e7b9e37ea98f2deba158384146845e73`. A prática usa ZAP (*History* e Requester), sem exigir EC2 na aula. A [validação](https://github.com/rafaelrezo/seguranca-digital/actions/runs/44201369918) e o [deploy](https://github.com/rafaelrezo/seguranca-digital/actions/runs/44201369911) concluíram com sucesso. Página e downloads novos responderam HTTP 200; os downloads públicos coincidiram byte a byte com as fontes testadas. A diferença de HTML no build local limita-se à versão dos arquivos do tema MkDocs usada no Actions. Drive e Classroom não foram alterados; publicação não comprova aula realizada.
+
 ## A19–A20 publicadas para avaliação — 29 out. 2026
 
 Publicadas as duas aulas de segurança das operações industriais, com base na NIST SP 800-82 Rev. 3, ponte para pentest e atividade única. Commit `5c7874eadac344a1573a2e38140155c97a627eef` enviado à main a partir de cópia isolada, preservando alterações locais e o histórico remoto.
