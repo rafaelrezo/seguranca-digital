@@ -52,6 +52,30 @@
   .didactic-figure img { min-width: 0; }
 }
 
+/* A22: diagrams remain readable on narrow screens with keyboard-accessible scrolling. */
+.a22-figure-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  margin: 1rem 0;
+}
+.a22-figure-scroll img {
+  display: block;
+  width: 100%;
+  min-width: 720px;
+  max-width: none;
+  height: auto;
+}
+.a22-figure-wide img { min-width: 900px; }
+.a22-figure-scroll:focus-visible {
+  outline: 3px solid #165da6;
+  outline-offset: 2px;
+}
+@media print {
+  .a22-figure-scroll { overflow: visible; }
+  .a22-figure-scroll img { min-width: 0; max-width: 100%; }
+}
+
 /* Ilustração de abertura: ocupa toda a largura disponível sem distorção. */
 .didactic-figure-wide {
   padding: .35rem;
