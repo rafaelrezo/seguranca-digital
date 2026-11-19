@@ -1,5 +1,11 @@
 # Registro de publicação no Google Drive
 
+## A23–A24 — práticas sequenciadas e esquemas, 19 nov. 2026
+
+As páginas [A23](https://rafaelrezo.github.io/seguranca-digital/aulas/A23-pentest-entradas-logica-e-automacao/) e [A24](https://rafaelrezo.github.io/seguranca-digital/aulas/A24-pentest-do-achado-a-decisao/) foram publicadas pelo commit `6118af41c3cc3386ea7f5b0728828468ce5f3767`. A23 organiza E0–E6 com busca local somente GET em loopback, SQLite, HTML, Fuzzer e varredura curta. A24 organiza D0–D6 a partir do alcance efetivamente demonstrado em R5, corrige a premissa do exemplo F01, avalia a regra em logs artificiais e separa correção/reteste propostos de execução. O guia de classificação e o modelo de relatório foram alinhados. Sete SVGs com fontes DOT, o servidor A23 e o ZIP A24 acompanham as páginas; a atividade única do bloco permanece o trabalho final no Classroom.
+
+[Validação 44537308561](https://github.com/rafaelrezo/seguranca-digital/actions/runs/44537308561) e [deploy 44537308512](https://github.com/rafaelrezo/seguranca-digital/actions/runs/44537308512) concluíram com sucesso. Build estrito, validador editorial, saídas do servidor/SQL/detecção, execução HTML no Chrome, links internos e inspeção dos esquemas em 1440/390 px passaram. As quatro páginas afetadas e os dez ativos públicos responderam HTTP 200; SVGs, script, ZIP e CSS públicos coincidiram byte a byte com os arquivos validados. A interface do ZAP não foi executada nesta revisão; os caminhos da interface foram conferidos na documentação oficial, e a página fornece resultados alternativos identificados. A cópia do checkout docente foi atualizada somente nos 23 arquivos do commit, após comparação com a versão anterior; as demais alterações locais foram preservadas. Drive e Classroom não foram alterados. Publicação não comprova realização das aulas, execução pela turma ou correção implantada.
+
 ## A22 — guia de superfície e identidade, 17 nov. 2026
 
 A pasta `a22` do [repositório de práticas](https://github.com/rafaelrezo/seguranca-digital-praticas/tree/main/a22) foi publicada no commit `d1e1d80` com servidor local de ordens fictícias, lista curta e dois programas JWT. README e servidor foram lidos no GitHub após o envio.
