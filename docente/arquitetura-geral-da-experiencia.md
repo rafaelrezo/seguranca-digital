@@ -19,6 +19,8 @@ O docente aprovou fechar o curso com **quatro encontros de pentest** que prepara
 
 **Pendências:** datas e lançamento do trabalho; conciliação do calendário e da carga global; ensaio completo no Learner Lab; correção da figura de arquitetura do roteiro (dupla × individual). Detalhes no [planejamento integrado A21–A24](A21-A24-pentest-web/planejamento-integrado.md). A18 e os identificadores históricos A21–A30 com outros títulos permanecem fora do percurso.
 
+**Reconciliação de A23–A24 (19 nov. 2026).** Mantêm-se os objetivos, as fases do trabalho, a atividade única e as cargas 45/55 e 55/45. A23 passa a usar um serviço de busca somente de leitura em loopback para tornar observáveis marcador, validação, Fuzzer e varredura limitada; SQL e XSS permanecem em programas locais separados. A24 toma a matriz R5 da A22 como evidência inicial de F01, sem atribuir a ela IDs fixos do ZAP, reprodução em outro alvo, VPN, escrita testada ou acesso a todas as ordens. O alcance demonstrado é a leitura da ordem 17 de U1 por U2; a causa exata depende de revisão de implementação e a ampliação do impacto depende de novos testes autorizados. O guia e o exemplo de classificação devem manter a mesma fronteira entre observado, inferido e proposto. Esquemas próprios acompanham as páginas, com legenda, texto alternativo e ampliação.
+
 ## Decisão docente de 5 nov. 2026 — A19 realizada; zero trust e mercado na A20
 
 **Estado confirmado:** o docente informou que aplicou a A19. Versão exata conduzida, checkpoints e produção da turma não foram informados; não atribuir à turma o preenchimento do registro OT.
